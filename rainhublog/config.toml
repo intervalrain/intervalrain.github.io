@@ -1,0 +1,5 @@
+baseURL = 'https://intervalrain.github.io/'
+languageCode = 'en-us'
+title = 'The Rainhu Blog'
+
+theme = 'contrast-hugo'
