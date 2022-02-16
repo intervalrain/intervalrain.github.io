@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Rainhu Blog</title>
+    <link>https://intervalrain.github.io/</link>
+    <description>Recent content on The Rainhu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Feb 2022 00:01:41 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to hugo Posts</title>
+      <link>https://intervalrain.github.io/posts/hugoposts/</link>
+      <pubDate>Thu, 17 Feb 2022 00:01:41 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/posts/hugoposts/</guid>
+      <description>This is some content
+public staic void main(String[] args){  System.out.println(&amp;#34;Hello World&amp;#34;); } </description>
+    </item>
+    
+  </channel>
+</rss>
