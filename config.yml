@@ -1,4 +1,4 @@
-baseURL: "http://intervalrain.github.io/blog/"
+baseURL: "http://intervalrain.github.io/"
 title: "Rain's Blog"
 paginate: 5
 theme: hugo-PaperMod
