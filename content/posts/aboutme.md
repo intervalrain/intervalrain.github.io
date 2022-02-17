@@ -13,6 +13,8 @@ date: 2022-02-17T17:54:48+08:00
 >
 > 或許人生不過是電影[或是一首歌](https://streetvoice.com/intervalrain/songs/646909/)吧。
 
+https://user-images.githubusercontent.com/68344474/154542791-a1744868-b326-4911-8084-ede803489e64.mp4
+
 ## About me
 ![me](/images/me.jpeg "me")
 - Coding
@@ -37,4 +39,5 @@ If you really wanna reach more contents, you can try to contact me with
 - [My Twitter](https://twitter.com/Intervalrain)
 
 
-https://user-images.githubusercontent.com/68344474/154540249-21e43297-571d-45a8-b383-452a5f11dec3.mp4
+
+
