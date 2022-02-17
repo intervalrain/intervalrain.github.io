@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Rain&#39;s Blog</title>
-    <link>https://intervalrain.github.io/</link>
-    <description>Recent content on Rain&#39;s Blog</description>
+    <title>Posts on Rain&#39;s Blog</title>
+    <link>https://intervalrain.github.io/posts/</link>
+    <description>Recent content in Posts on Rain&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 17 Feb 2022 17:54:48 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Feb 2022 17:54:48 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aboutme</title>
       <link>https://intervalrain.github.io/posts/aboutme/</link>
@@ -39,7 +39,6 @@
       <guid>https://intervalrain.github.io/posts/helloworld/</guid>
       <description>public static void main(String[] args){  System.out.println(&amp;#34;Hello World!&amp;#34;); } </description>
     </item>
-    
     
   </channel>
 </rss>
