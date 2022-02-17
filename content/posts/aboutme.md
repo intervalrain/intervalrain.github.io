@@ -68,7 +68,6 @@ cover:
   - [Leetcode](https://github.com/intervalrain/leetcode)
   - [Algorithm](https://github.com/intervalrain/algo)
 
-
 ## Contact
 - [Email](https://intervalrain@gmail.com)
 - [Facebook](https://www.facebook.com/intervalrain)
