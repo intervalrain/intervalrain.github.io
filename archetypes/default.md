@@ -1,20 +1,18 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "<Title>"
 date: {{ .Date }}
-draft: true
-# weight: 1
-# aliases: ["/first"]
-tags: ["first"]
-author: "Rain Hu" # author: ["Me", "You"] # multiple authors
+tags: ["LeetCode", "Java", "Programming", "Life", "Music"]
+Categories: programming     # Programming, Create, Cover, Life, Job, Leetcode, Notes
+description: "Desc Text."                     
+author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-description: "Desc Text."
-canonicalURL: "https://canonical.url/to/page"
-disableHLJS: true # to disable highlightjs
-disableShare: false
+canonicalURL: "https://intervalrain.github.io/"
+disableHLJS: true
+disableShare: true
 disableHLJS: false
 hideSummary: false
 searchHidden: true
@@ -22,13 +20,9 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    image: "/images/cover.jpg"
+    alt: "Oh! You closed up the window, so you cannot see raining"
+    relative: false
+    hidden: false
 ---
+

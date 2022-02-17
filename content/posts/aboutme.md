@@ -1,37 +1,77 @@
 ---
-title: "Aboutme"
+title: "About me"
 date: 2022-02-17T17:54:48+08:00
+tags: ["Life"]
+Categories: Life     # Programming, Create, Cover, Life, Job, Leetcode, Notes                
+description: "Who am I?"                     
+author: ["Rain Hu", "陣雨","intervalrain"]    # Rain Hu, 陣雨, intervalrain
+showToc: false
+TocOpen: false
+draft: false
+hidemeta: false
+comments: false
+canonicalURL: "https://intervalrain.github.io/"
+disableHLJS: true
+disableShare: true
+disableHLJS: false
+hideSummary: false
+searchHidden: true
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+cover:
+    image: "/images/cover.jpg"
+    alt: "Oh! You closed up the window, so you cannot see raining"
+    relative: false
+    hidden: true
 ---
 
-# Rainhu / intervalrain / 陣雨
+# Rain Hu / intervalrain / 陣雨
 >
 > Music, coding, and life.
 >
-> 音樂癒傷我的靈魂，
+> 陣雨 / 音樂使人快樂，也使人憂傷，如同陣雨。
 >
-> 寫程式充實生命，
+> Rain Hu / 寫程式充實生命，在生命的道路上，盲目的前行。
 >
-> 或許人生不過是電影[或是一首歌](https://streetvoice.com/intervalrain/songs/646909/)吧。
+> intervalrain / 人生不過是一場電影[或是一首歌](https://streetvoice.com/intervalrain/songs/646909/)，踟躕不如笑一個，然後繼續。
 
-## About me
+# About me
 ![me](/images/me.jpeg "me")
-- Coding
-  - [Leetcode](https://github.com/intervalrain/leetcode)
-  - [Algorithm](https://github.com/intervalrain/algo)
+> 八年級，青年期的最後一個梯次。
+> 
+> 曾經有過音樂夢，當過吉他老師，組過樂團，當過鼓手，也曾在西餐廳駐唱表演。
+> 
+> 沒有隱疾，只有顯疾。人生周折而困頓，為了現實還是選擇當工程師賣肝。
+> 
+> 喜歡寫程式處理繁瑣重覆的事，然後拿空出來的時間作白日夢。
+>
+> 喜歡唱歌、彈吉他、聽歌，寫憤世嫉俗的歌，解Leetcode，吃。
+> 
+> 喜歡的食物有壽司、拉麵、鹹蛋苦瓜、菜脯蛋、魚香茄子、香菇雞湯。
+>
+> 最喜歡的甜點有肉桂捲、可麗露、檸檬塔、藍莓塔、草莓蛋糕。
+>
+> 最喜歡的水果是削好的蘋果跟切好的火龍果跟奇異果，芒果冰上面的芒果，還有所有莓果類，不能吃楊桃。
+> 
+> Coffeholic，淺焙，上班日喜歡日曬，假日喜歡水洗，加班的話就蜜處理吧。
+>
+> 討厭毛、討厭草、討厭昆蟲、討厭ㄏㄈ、除了自己以外的機掰人。
+>
+> 如果明天就要死亡的話，我會選擇喝醉。
+
+## More about me
 - Music
   - [Streetvoice](https://streetvoice.com/intervalrain/)
   - [Youtube](https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA)
+- Coding
+  - [Leetcode](https://github.com/intervalrain/leetcode)
+  - [Algorithm](https://github.com/intervalrain/algo)
+
 
 ## Contact
-
-如果你想看到更多，請按讚，訂閱，並開啟我的…ㄟ不是！你可以 
-- [臉書](https://www.facebook.com/intervalrain)
-- [哎居](https://www.instagram.com/intervalrain)
-- [伊湄兒](https://intervalrain@gmail.com)
-- [推特](https://twitter.com/Intervalrain)
-
-If you really wanna reach more contents, you can try to contact me with
-- [my Email](https://intervalrain@gmail.com)
-- [My Facebook](https://www.facebook.com/intervalrain)
-- [My Instagram](https://www.instagram.com/intervalrain)
-- [My Twitter](https://twitter.com/Intervalrain)
+- [Email](https://intervalrain@gmail.com)
+- [Facebook](https://www.facebook.com/intervalrain)
+- [Instagram](https://www.instagram.com/intervalrain)
+- [Twitter](https://twitter.com/Intervalrain)
+- [LinkedIn](https://www.linkedin.com/in/intervalrain)
