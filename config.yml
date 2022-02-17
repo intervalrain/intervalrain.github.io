@@ -1,0 +1,42 @@
+baseURL: "https://examplesite.com/"
+title: "Rain's Blog"
+paginate: 5
+theme: hugo-PaperMod
+
+params:
+    ShowCodeCopyButton: true
+    profileMode:
+        enabled: true
+        title: "<Title>"
+        subtitle: "It's Raining inside"
+        imageUrl: "/images/rain.png"
+        imageTitle: "Is it raining outside?"
+        imageWidth: 120
+        imageHeight: 120
+        buttons:
+            - name: Archive
+              url: "/archives"
+            - name: Github
+              url: "https://github.com/"
+
+    socialIcons: # optional
+        - name: "<platform>"
+          url: "<link>"
+        - name: "<platform 2>"
+          url: "<link2>"
+menu:
+  main:
+    - identifier: aboutme
+      name: About me
+      url: /posts/aboutme
+      weight: 10
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+
+
