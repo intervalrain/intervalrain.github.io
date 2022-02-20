@@ -1,5 +1,5 @@
 ---
-title: "List of list of something equality"
+title: "[Java] List of list of something equality"
 date: 2022-02-18T08:59:45+08:00
 tags: ["Java", "Programming"]
 Categories: programming     # Programming, Create, Cover, Life, Job, Leetcode, Notes
