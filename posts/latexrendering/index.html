@@ -1,0 +1,182 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>在 GitHub Pages 中渲染 LaTex 公式 | Rain's Blog</title>
+<meta name=keywords content="JavaScript,Programming">
+<meta name=description content="如何讓 GitHub Pages 中支援 Latex 語法">
+<meta name=author content="Rain Hu">
+<link rel=canonical href=https://intervalrain.github.io/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=http://intervalrain.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=http://intervalrain.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=http://intervalrain.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=http://intervalrain.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=http://intervalrain.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="在 GitHub Pages 中渲染 LaTex 公式">
+<meta property="og:description" content="如何讓 GitHub Pages 中支援 Latex 語法">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://intervalrain.github.io/posts/latexrendering/">
+<meta property="og:image" content="http://intervalrain.github.io/images/cover.jpg"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-02-22T01:38:30+08:00">
+<meta property="article:modified_time" content="2022-02-22T01:38:30+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="http://intervalrain.github.io/images/cover.jpg">
+<meta name=twitter:title content="在 GitHub Pages 中渲染 LaTex 公式">
+<meta name=twitter:description content="如何讓 GitHub Pages 中支援 Latex 語法">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://intervalrain.github.io/posts/"},{"@type":"ListItem","position":2,"name":"在 GitHub Pages 中渲染 LaTex 公式","item":"http://intervalrain.github.io/posts/latexrendering/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"在 GitHub Pages 中渲染 LaTex 公式","name":"在 GitHub Pages 中渲染 LaTex 公式","description":"如何讓 GitHub Pages 中支援 Latex 語法","keywords":["JavaScript","Programming"],"articleBody":"0. 前言  以往寫筆記通常是使用 Notion，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。 雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。  1. 解決方法  利用 MathJax，在靜態頁面掛載 JavaScript 程式碼。 其在官網的描述是：   Beautilful math in all browsers A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.\n Step 1. 挑選一個常駐的靜態頁面  常駐的靜態頁面可以是 \\layouts\\partials\\header.html 或是 \\layouts\\partials\\footer.html 開啟頁面之後，在  與  之間加入下一步驟內的 JavaScript 程式碼。  Step 2. 加入 JavaScript 程式碼 head script type=\"text/x-mathjax-config\" MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: \"all\" } } }); /script script type=\"text/x-mathjax-config\" MathJax.Hub.Config({tex2jax: { inlineMath: [ ['$','$'], [\"\\\\(\",\"\\\\)\"] ], processEscapes: true } }); /script script src=\"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\" type=\"text/javascript\" /script /head 上面的腳本實現了：\n 整行公式自動編號 將兩個美元符號中間的內容看作行內數學公式(inline math equation)，可在 $ 頻繁出現的文章禁用此腳本 從 mathjax 官網掛載腳本  Step 3. 開始撰寫 LaTex  在 $ $ $符號與 $ 符號間開始創作 LaTex 的語法可以參考https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html  參考來源：https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/\n","wordCount":"124","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-02-22T01:38:30+08:00","dateModified":"2022-02-22T01:38:30+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/latexrendering/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=http://intervalrain.github.io/ accesskey=h title="Rain's Blog (Alt + H)">Rain's Blog</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=http://intervalrain.github.io/posts/aboutme title="About me">
+<span>About me</span>
+</a>
+</li>
+<li>
+<a href=http://intervalrain.github.io/categories/ title=Categories>
+<span>Categories</span>
+</a>
+</li>
+<li>
+<a href=http://intervalrain.github.io/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=http://intervalrain.github.io/>Home</a>&nbsp;»&nbsp;<a href=http://intervalrain.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+在 GitHub Pages 中渲染 LaTex 公式
+</h1>
+<div class=post-description>
+如何讓 GitHub Pages 中支援 Latex 語法
+</div>
+<div class=post-meta><span title="2022-02-22 01:38:30 +0800 +0800">February 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu
+</div>
+</header>
+<figure class=entry-cover><img loading=lazy src=http://intervalrain.github.io/images/cover.jpg alt="Oh! You closed up the window, so you cannot see raining">
+</figure><div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#0-%e5%89%8d%e8%a8%80 aria-label="0. 前言">0. 前言</a></li>
+<li>
+<a href=#1-%e8%a7%a3%e6%b1%ba%e6%96%b9%e6%b3%95 aria-label="1. 解決方法">1. 解決方法</a><ul>
+<li>
+<a href=#step-1-%e6%8c%91%e9%81%b8%e4%b8%80%e5%80%8b%e5%b8%b8%e9%a7%90%e7%9a%84%e9%9d%9c%e6%85%8b%e9%a0%81%e9%9d%a2 aria-label="Step 1. 挑選一個常駐的靜態頁面">Step 1. 挑選一個常駐的靜態頁面</a></li>
+<li>
+<a href=#step-2-%e5%8a%a0%e5%85%a5-javascript-%e7%a8%8b%e5%bc%8f%e7%a2%bc aria-label="Step 2. 加入 JavaScript 程式碼">Step 2. 加入 JavaScript 程式碼</a></li>
+<li>
+<a href=#step-3-%e9%96%8b%e5%a7%8b%e6%92%b0%e5%af%ab-latex aria-label="Step 3. 開始撰寫 LaTex">Step 3. 開始撰寫 LaTex</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><h1 id=0-前言>0. 前言<a hidden class=anchor aria-hidden=true href=#0-前言>#</a></h1>
+<ul>
+<li>以往寫筆記通常是使用 <a href=https://www.notion.so/>Notion</a>，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。</li>
+<li>雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。</li>
+</ul>
+<h1 id=1-解決方法>1. 解決方法<a hidden class=anchor aria-hidden=true href=#1-解決方法>#</a></h1>
+<ul>
+<li>利用 MathJax，在靜態頁面掛載 JavaScript 程式碼。</li>
+<li>其在官網的描述是：</li>
+</ul>
+<blockquote>
+<p><em><strong>Beautilful math in all browsers</strong></em> <em>A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.</em></p>
+</blockquote>
+<h2 id=step-1-挑選一個常駐的靜態頁面>Step 1. 挑選一個常駐的靜態頁面<a hidden class=anchor aria-hidden=true href=#step-1-挑選一個常駐的靜態頁面>#</a></h2>
+<ul>
+<li>常駐的靜態頁面可以是 <code>\layouts\partials\header.html</code> 或是 <code>\layouts\partials\footer.html</code></li>
+<li>開啟頁面之後，在 <code>&lt;head></code> 與 <code>&lt;/head></code> 之間加入下一步驟內的 JavaScript 程式碼。</li>
+</ul>
+<h2 id=step-2-加入-javascript-程式碼>Step 2. 加入 JavaScript 程式碼<a hidden class=anchor aria-hidden=true href=#step-2-加入-javascript-程式碼>#</a></h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-JavaScript data-lang=JavaScript><span style=color:#f92672>&lt;</span><span style=color:#a6e22e>head</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/x-mathjax-config&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#a6e22e>MathJax</span>.<span style=color:#a6e22e>Hub</span>.<span style=color:#a6e22e>Config</span>({ <span style=color:#a6e22e>TeX</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>equationNumbers</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>autoNumber</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;all&#34;</span> } } });
+    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
+
+    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/x-mathjax-config&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#a6e22e>MathJax</span>.<span style=color:#a6e22e>Hub</span>.<span style=color:#a6e22e>Config</span>({<span style=color:#a6e22e>tex2jax</span><span style=color:#f92672>:</span> {
+             <span style=color:#a6e22e>inlineMath</span><span style=color:#f92672>:</span> [ [<span style=color:#e6db74>&#39;$&#39;</span>,<span style=color:#e6db74>&#39;$&#39;</span>], [<span style=color:#e6db74>&#34;\\(&#34;</span>,<span style=color:#e6db74>&#34;\\)&#34;</span>] ],
+             <span style=color:#a6e22e>processEscapes</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>
+           }
+         });
+    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
+
+    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span><span style=color:#f92672>&gt;</span>
+    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
+<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/head&gt;</span>
+</code></pre></div><p>上面的腳本實現了：</p>
+<ol>
+<li>整行公式自動編號</li>
+<li>將兩個美元符號中間的內容看作行內數學公式(inline math equation)，可在 $ 頻繁出現的文章禁用此腳本</li>
+<li>從 mathjax 官網掛載腳本</li>
+</ol>
+<h2 id=step-3-開始撰寫-latex>Step 3. 開始撰寫 LaTex<a hidden class=anchor aria-hidden=true href=#step-3-開始撰寫-latex>#</a></h2>
+<ul>
+<li>在 $ $ $符號與 $ 符號間開始創作</li>
+<li>LaTex 的語法可以參考<a href=https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html>https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html</a></li>
+</ul>
+<p><a href=https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/>參考來源：https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/</a></p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=http://intervalrain.github.io/tags/javascript/>JavaScript</a></li>
+<li><a href=http://intervalrain.github.io/tags/programming/>Programming</a></li>
+</ul>
+<nav class=paginav>
+<a class=next href=http://intervalrain.github.io/posts/listequal/>
+<span class=title>Next Page »</span>
+<br>
+<span>[Java] List of list of something equality</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=http://intervalrain.github.io/>Rain's Blog</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>
