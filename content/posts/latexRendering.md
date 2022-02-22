@@ -67,7 +67,7 @@ cover:
 
 ## Step 3. 開始撰寫 LaTex
 
-+ 在 $ \$ $符號與 \$ 符號間開始創作
++ 在 $ 符號與 $ 符號間開始寫作
 + LaTex 的語法可以參考[https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html](https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html)
 
 
