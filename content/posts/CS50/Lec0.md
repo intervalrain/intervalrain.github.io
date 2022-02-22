@@ -8,6 +8,7 @@ description: "Desc Text."
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: false
+math: true
 draft: false
 hidemeta: false
 comments: false
