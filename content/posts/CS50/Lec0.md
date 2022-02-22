@@ -33,13 +33,13 @@ cover:
 # 如何表達數字?
 + 在人類的世界，人們使用十進制(Decimal)。
 + 在計算機的世界，用的是二進制(Binary)，也就是 0 與 1。
-  + $1+1=10$
-  + $(1,2,3,4,5,6,7,...)_{10}=(001,010,011,100,101,110,111,...)_2$
+  + \\(1+1=10\\)
+  + \\((1,2,3,4,5,6,7,...)_{10}=(001,010,011,100,101,110,111,...)_2\\)
 + 每個二進制的位元(digit)稱為 bit。
 + 在現代計算機結構中，是由數以億計的電晶體(transistors)所組成的。
   + 電晶體是一種具有開關(switch)性質的邏輯元件。
 + 大部分的計算機一次用 8 個 bits，或稱 1 bytes，來表達數字。
-  + $8 \text{bits}=1 \text{bytes}$
+  + \\(8 \text{bits}=1 \text{bytes}\\)
 # 如何表達文字?
 + 要表達文字，只需將不同的字元定義到對應的數字即可。
 + ASCII，American Standard Code for Information Interchange，即是一種基於拉丁字母的編碼系統，可應用顯示現代英語。
@@ -115,20 +115,3 @@ int main(void)
 + 試試看到 Scratch(https://scratch.mit.edu/) 這套圖像化軟體語言操作看看吧！
 
 Reference: https://cs50.harvard.edu/college/2021/fall/notes/0/
-
-<head>
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });
-    </script>
-
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {
-             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-             processEscapes: true
-           }
-         });
-    </script>
-
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
-    </script>
-</head>

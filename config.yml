@@ -15,7 +15,6 @@ theme: hugo-PaperMod
 #   minifyOutput: true
 
 params:
-  math: true
 #   env: production # to enable google analytics, opengraph, twitter-cards and schema.
 #   title: ExampleSite
 #   description: "ExampleSite description"

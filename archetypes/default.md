@@ -8,6 +8,7 @@ description: "Desc Text."
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: false
+math: true                  # KaTex or not
 draft: false
 hidemeta: false
 comments: false
