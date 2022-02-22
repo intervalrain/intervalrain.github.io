@@ -32,7 +32,7 @@
 <meta name=twitter:title content="在 GitHub Pages 中渲染 LaTex 公式">
 <meta name=twitter:description content="如何讓 GitHub Pages 中支援 Latex 語法">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://intervalrain.github.io/posts/"},{"@type":"ListItem","position":2,"name":"在 GitHub Pages 中渲染 LaTex 公式","item":"http://intervalrain.github.io/posts/latexrendering/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"在 GitHub Pages 中渲染 LaTex 公式","name":"在 GitHub Pages 中渲染 LaTex 公式","description":"如何讓 GitHub Pages 中支援 Latex 語法","keywords":["JavaScript","Programming"],"articleBody":"0. 前言  以往寫筆記通常是使用 Notion，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。 雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。  1. 解決方法  利用 MathJax，在靜態頁面掛載 JavaScript 程式碼。 其在官網的描述是：   Beautilful math in all browsers A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.\n Step 1. 挑選一個常駐的靜態頁面  常駐的靜態頁面可以是 \\layouts\\partials\\header.html 或是 \\layouts\\partials\\footer.html 開啟頁面之後，在  與  之間加入下一步驟內的 JavaScript 程式碼。  Step 2. 加入 JavaScript 程式碼 head script type=\"text/x-mathjax-config\" MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: \"all\" } } }); /script script type=\"text/x-mathjax-config\" MathJax.Hub.Config({tex2jax: { inlineMath: [ ['$','$'], [\"\\\\(\",\"\\\\)\"] ], processEscapes: true } }); /script script src=\"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\" type=\"text/javascript\" /script /head 上面的腳本實現了：\n 整行公式自動編號 將兩個美元符號中間的內容看作行內數學公式(inline math equation)，可在 $ 頻繁出現的文章禁用此腳本 從 mathjax 官網掛載腳本  Step 3. 開始撰寫 LaTex  在 $ $ $符號與 $ 符號間開始創作 LaTex 的語法可以參考https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html  參考來源：https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/\n","wordCount":"124","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-02-22T01:38:30+08:00","dateModified":"2022-02-22T01:38:30+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/latexrendering/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"在 GitHub Pages 中渲染 LaTex 公式","name":"在 GitHub Pages 中渲染 LaTex 公式","description":"如何讓 GitHub Pages 中支援 Latex 語法","keywords":["JavaScript","Programming"],"articleBody":"0. 前言  以往寫筆記通常是使用 Notion，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。 雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。  1. 解決方法  利用 MathJax，在靜態頁面掛載 JavaScript 程式碼。 其在官網的描述是：   Beautilful math in all browsers A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.\n Step 1. 挑選一個常駐的靜態頁面  常駐的靜態頁面可以是 \\layouts\\partials\\header.html 或是 \\layouts\\partials\\footer.html 開啟頁面之後，在  與  之間加入下一步驟內的 JavaScript 程式碼。  Step 2. 加入 JavaScript 程式碼 head script type=\"text/x-mathjax-config\" MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: \"all\" } } }); /script script type=\"text/x-mathjax-config\" MathJax.Hub.Config({tex2jax: { inlineMath: [ ['$','$'], [\"\\\\(\",\"\\\\)\"] ], processEscapes: true } }); /script script src=\"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\" type=\"text/javascript\" /script /head 上面的腳本實現了：\n 整行公式自動編號 將兩個美元符號中間的內容看作行內數學公式(inline math equation)，可在 $ 頻繁出現的文章禁用此腳本 從 mathjax 官網掛載腳本  Step 3. 開始撰寫 LaTex  在 $ 符號與 $ 符號間開始寫作 LaTex 的語法可以參考https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html  參考來源：https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/\n","wordCount":"123","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-02-22T01:38:30+08:00","dateModified":"2022-02-22T01:38:30+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/latexrendering/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -144,7 +144,7 @@
 </ol>
 <h2 id=step-3-開始撰寫-latex>Step 3. 開始撰寫 LaTex<a hidden class=anchor aria-hidden=true href=#step-3-開始撰寫-latex>#</a></h2>
 <ul>
-<li>在 $ $ $符號與 $ 符號間開始創作</li>
+<li>在 $ 符號與 $ 符號間開始寫作</li>
 <li>LaTex 的語法可以參考<a href=https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html>https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html</a></li>
 </ul>
 <p><a href=https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/>參考來源：https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/</a></p>
@@ -155,6 +155,11 @@
 <li><a href=http://intervalrain.github.io/tags/programming/>Programming</a></li>
 </ul>
 <nav class=paginav>
+<a class=prev href=http://intervalrain.github.io/posts/cs50/lec0/>
+<span class=title>« Prev Page</span>
+<br>
+<span>[CS50] Lecture 0 Introduction to Computer Science</span>
+</a>
 <a class=next href=http://intervalrain.github.io/posts/listequal/>
 <span class=title>Next Page »</span>
 <br>
