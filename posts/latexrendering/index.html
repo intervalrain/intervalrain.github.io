@@ -3,7 +3,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>在 GitHub Pages 中渲染 LaTex 公式 | Rain's Blog</title>
+<title>在 GitHub Pages 中渲染 KaTex 公式 | Rain's Blog</title>
 <meta name=keywords content="JavaScript,Programming">
 <meta name=description content="如何讓 GitHub Pages 中支援 Latex 語法">
 <meta name=author content="Rain Hu">
@@ -20,11 +20,7 @@
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css integrity=sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js integrity=sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous onload=renderMathInElement(document.body)></script>
-<meta property="og:title" content="在 GitHub Pages 中渲染 LaTex 公式">
+</noscript><meta property="og:title" content="在 GitHub Pages 中渲染 KaTex 公式">
 <meta property="og:description" content="如何讓 GitHub Pages 中支援 Latex 語法">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://intervalrain.github.io/posts/latexrendering/">
@@ -33,10 +29,10 @@
 <meta property="article:modified_time" content="2022-02-22T01:38:30+08:00">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="http://intervalrain.github.io/images/cover.jpg">
-<meta name=twitter:title content="在 GitHub Pages 中渲染 LaTex 公式">
+<meta name=twitter:title content="在 GitHub Pages 中渲染 KaTex 公式">
 <meta name=twitter:description content="如何讓 GitHub Pages 中支援 Latex 語法">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://intervalrain.github.io/posts/"},{"@type":"ListItem","position":2,"name":"在 GitHub Pages 中渲染 LaTex 公式","item":"http://intervalrain.github.io/posts/latexrendering/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"在 GitHub Pages 中渲染 LaTex 公式","name":"在 GitHub Pages 中渲染 LaTex 公式","description":"如何讓 GitHub Pages 中支援 Latex 語法","keywords":["JavaScript","Programming"],"articleBody":"0. 前言  以往寫筆記通常是使用 Notion，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。 雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。  1. 解決方法  利用 MathJax，在靜態頁面掛載 JavaScript 程式碼。 其在官網的描述是：   Beautilful math in all browsers A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.\n Step 1. 挑選一個常駐的靜態頁面  常駐的靜態頁面可以是 \\layouts\\partials\\header.html 或是 \\layouts\\partials\\footer.html 開啟頁面之後，在  與  之間加入下一步驟內的 JavaScript 程式碼。  Step 2. 加入 JavaScript 程式碼 head script type=\"text/x-mathjax-config\" MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: \"all\" } } }); /script script type=\"text/x-mathjax-config\" MathJax.Hub.Config({tex2jax: { inlineMath: [ ['$','$'], [\"\\\\(\",\"\\\\)\"] ], processEscapes: true } }); /script script src=\"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\" type=\"text/javascript\" /script /head 上面的腳本實現了：\n 整行公式自動編號 將兩個美元符號中間的內容看作行內數學公式(inline math equation)，可在 $ 頻繁出現的文章禁用此腳本 從 mathjax 官網掛載腳本  Step 3. 開始撰寫 LaTex  在 $ 符號與 $ 符號間開始寫作 LaTex 的語法可以參考https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html  參考來源：https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/\n","wordCount":"123","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-02-22T01:38:30+08:00","dateModified":"2022-02-22T01:38:30+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/latexrendering/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://intervalrain.github.io/posts/"},{"@type":"ListItem","position":2,"name":"在 GitHub Pages 中渲染 KaTex 公式","item":"http://intervalrain.github.io/posts/latexrendering/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"在 GitHub Pages 中渲染 KaTex 公式","name":"在 GitHub Pages 中渲染 KaTex 公式","description":"如何讓 GitHub Pages 中支援 Latex 語法","keywords":["JavaScript","Programming"],"articleBody":"0. 前言  以往寫筆記通常是使用 Notion，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。 雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。 而此處介紹的是在網頁上顯示較為輕便的 KaTex。  1. 解決方法  利用 KaTex，在靜態頁面掛載 JavaScript 程式碼。 其在官網的描述是：   Beautilful math in all browsers A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.\n Step 1. 創建一個可常駐的靜態頁面  在 \\layouts\\partials\\ 下創建一個叫作 math.html 的頁面。  注意是 global 的 layouts 文件夾中不是 hugo themes 中的文件夾   開啟頁面之後，在  與  之間加入下一步驟內的 JavaScript 程式碼。  Step 2. 將 JavaScript 程式碼貼入 math.html link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css\" integrity=\"sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET\" crossorigin=\"anonymous\" script defer src=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js\" integrity=\"sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb\" crossorigin=\"anonymous\"/script script defer src=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js\" integrity=\"sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl\" crossorigin=\"anonymous\" onload=\"renderMathInElement(document.body);\"/script  上面的程式碼是將 KaTex 的渲染程式碼寫到 math.html 中。  Step 3. 將 Hugo theme 中的 header.html 複製出來  同樣將 header.html 複製到 global 下的 \\layout\\partials，並貼入  {{- /* Head custom content area start */ -}} {{- /* Insert any custom code (web-analytics, resources, etc.) - it will appear in the  section of every page. */ -}} {{- /* Can be overwritten by partial with the same name in the global layouts. */ -}} {{ if or .Params.math .Site.Params.math }} {{ partial \"math.html\" . }} {{ end }} {{- /* Head custom content area end */ -}}  上面的程式碼的功能將 math.html 嵌進 header.html 中，並以 config.yml 中的 .param.math 指令來控制。  Step 4. 開始撰寫 KaTex  一開始先將標頭的定義區將 math: true，即可開啟該頁面的 KaTex 渲染功能。 在 \\\\( 符號與 \\\\) 符號間進行 inline equation 插入。 或在 $ $ 符號與 $ $ 間進行 block equation 的插入。 LaTex 的語法可以參考https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html  參考來源：\n https://bend1031.github.io/ https://teddygood.github.io/posts/blog/katex/  ","wordCount":"227","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-02-22T01:38:30+08:00","dateModified":"2022-02-22T01:38:30+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/latexrendering/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -73,12 +69,12 @@
 <header class=post-header>
 <div class=breadcrumbs><a href=http://intervalrain.github.io/>Home</a>&nbsp;»&nbsp;<a href=http://intervalrain.github.io/posts/>Posts</a></div>
 <h1 class=post-title>
-在 GitHub Pages 中渲染 LaTex 公式
+在 GitHub Pages 中渲染 KaTex 公式
 </h1>
 <div class=post-description>
 如何讓 GitHub Pages 中支援 Latex 語法
 </div>
-<div class=post-meta><span title="2022-02-22 01:38:30 +0800 +0800">February 22, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu
+<div class=post-meta><span title="2022-02-22 01:38:30 +0800 +0800">February 22, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu
 </div>
 </header>
 <figure class=entry-cover><img loading=lazy src=http://intervalrain.github.io/images/cover.jpg alt="Oh! You closed up the window, so you cannot see raining">
@@ -93,11 +89,13 @@
 <li>
 <a href=#1-%e8%a7%a3%e6%b1%ba%e6%96%b9%e6%b3%95 aria-label="1. 解決方法">1. 解決方法</a><ul>
 <li>
-<a href=#step-1-%e6%8c%91%e9%81%b8%e4%b8%80%e5%80%8b%e5%b8%b8%e9%a7%90%e7%9a%84%e9%9d%9c%e6%85%8b%e9%a0%81%e9%9d%a2 aria-label="Step 1. 挑選一個常駐的靜態頁面">Step 1. 挑選一個常駐的靜態頁面</a></li>
+<a href=#step-1-%e5%89%b5%e5%bb%ba%e4%b8%80%e5%80%8b%e5%8f%af%e5%b8%b8%e9%a7%90%e7%9a%84%e9%9d%9c%e6%85%8b%e9%a0%81%e9%9d%a2 aria-label="Step 1. 創建一個可常駐的靜態頁面">Step 1. 創建一個可常駐的靜態頁面</a></li>
 <li>
-<a href=#step-2-%e5%8a%a0%e5%85%a5-javascript-%e7%a8%8b%e5%bc%8f%e7%a2%bc aria-label="Step 2. 加入 JavaScript 程式碼">Step 2. 加入 JavaScript 程式碼</a></li>
+<a href=#step-2-%e5%b0%87-javascript-%e7%a8%8b%e5%bc%8f%e7%a2%bc%e8%b2%bc%e5%85%a5-mathhtml aria-label="Step 2. 將 JavaScript 程式碼貼入 math.html">Step 2. 將 JavaScript 程式碼貼入 math.html</a></li>
 <li>
-<a href=#step-3-%e9%96%8b%e5%a7%8b%e6%92%b0%e5%af%ab-latex aria-label="Step 3. 開始撰寫 LaTex">Step 3. 開始撰寫 LaTex</a>
+<a href=#step-3-%e5%b0%87-hugo-theme-%e4%b8%ad%e7%9a%84-headerhtml-%e8%a4%87%e8%a3%bd%e5%87%ba%e4%be%86 aria-label="Step 3. 將 Hugo theme 中的 header.html 複製出來">Step 3. 將 Hugo theme 中的 header.html 複製出來</a></li>
+<li>
+<a href=#step-4-%e9%96%8b%e5%a7%8b%e6%92%b0%e5%af%ab-katex aria-label="Step 4. 開始撰寫 KaTex">Step 4. 開始撰寫 KaTex</a>
 </li>
 </ul>
 </li>
@@ -109,49 +107,59 @@
 <ul>
 <li>以往寫筆記通常是使用 <a href=https://www.notion.so/>Notion</a>，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。</li>
 <li>雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。</li>
+<li>而此處介紹的是在網頁上顯示較為輕便的 <a href=https://katex.org/docs/autorender.html>KaTex</a>。</li>
 </ul>
 <h1 id=1-解決方法>1. 解決方法<a hidden class=anchor aria-hidden=true href=#1-解決方法>#</a></h1>
 <ul>
-<li>利用 MathJax，在靜態頁面掛載 JavaScript 程式碼。</li>
+<li>利用 KaTex，在靜態頁面掛載 JavaScript 程式碼。</li>
 <li>其在官網的描述是：</li>
 </ul>
 <blockquote>
 <p><em><strong>Beautilful math in all browsers</strong></em> <em>A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.</em></p>
 </blockquote>
-<h2 id=step-1-挑選一個常駐的靜態頁面>Step 1. 挑選一個常駐的靜態頁面<a hidden class=anchor aria-hidden=true href=#step-1-挑選一個常駐的靜態頁面>#</a></h2>
+<h2 id=step-1-創建一個可常駐的靜態頁面>Step 1. 創建一個可常駐的靜態頁面<a hidden class=anchor aria-hidden=true href=#step-1-創建一個可常駐的靜態頁面>#</a></h2>
 <ul>
-<li>常駐的靜態頁面可以是 <code>\layouts\partials\header.html</code> 或是 <code>\layouts\partials\footer.html</code></li>
+<li>在 \layouts\partials\ 下創建一個叫作 <code>math.html</code> 的頁面。
+<ul>
+<li>注意是 global 的 layouts 文件夾中不是 hugo themes 中的文件夾</li>
+</ul>
+</li>
 <li>開啟頁面之後，在 <code>&lt;head></code> 與 <code>&lt;/head></code> 之間加入下一步驟內的 JavaScript 程式碼。</li>
 </ul>
-<h2 id=step-2-加入-javascript-程式碼>Step 2. 加入 JavaScript 程式碼<a hidden class=anchor aria-hidden=true href=#step-2-加入-javascript-程式碼>#</a></h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-JavaScript data-lang=JavaScript><span style=color:#f92672>&lt;</span><span style=color:#a6e22e>head</span><span style=color:#f92672>&gt;</span>
-    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/x-mathjax-config&#34;</span><span style=color:#f92672>&gt;</span>
-    <span style=color:#a6e22e>MathJax</span>.<span style=color:#a6e22e>Hub</span>.<span style=color:#a6e22e>Config</span>({ <span style=color:#a6e22e>TeX</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>equationNumbers</span><span style=color:#f92672>:</span> { <span style=color:#a6e22e>autoNumber</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;all&#34;</span> } } });
-    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
-
-    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/x-mathjax-config&#34;</span><span style=color:#f92672>&gt;</span>
-    <span style=color:#a6e22e>MathJax</span>.<span style=color:#a6e22e>Hub</span>.<span style=color:#a6e22e>Config</span>({<span style=color:#a6e22e>tex2jax</span><span style=color:#f92672>:</span> {
-             <span style=color:#a6e22e>inlineMath</span><span style=color:#f92672>:</span> [ [<span style=color:#e6db74>&#39;$&#39;</span>,<span style=color:#e6db74>&#39;$&#39;</span>], [<span style=color:#e6db74>&#34;\\(&#34;</span>,<span style=color:#e6db74>&#34;\\)&#34;</span>] ],
-             <span style=color:#a6e22e>processEscapes</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>
-           }
-         });
-    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
-
-    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span><span style=color:#f92672>&gt;</span>
-    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
-<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/head&gt;</span>
-</code></pre></div><p>上面的腳本實現了：</p>
-<ol>
-<li>整行公式自動編號</li>
-<li>將兩個美元符號中間的內容看作行內數學公式(inline math equation)，可在 $ 頻繁出現的文章禁用此腳本</li>
-<li>從 mathjax 官網掛載腳本</li>
-</ol>
-<h2 id=step-3-開始撰寫-latex>Step 3. 開始撰寫 LaTex<a hidden class=anchor aria-hidden=true href=#step-3-開始撰寫-latex>#</a></h2>
+<h2 id=step-2-將-javascript-程式碼貼入-mathhtml>Step 2. 將 JavaScript 程式碼貼入 math.html<a hidden class=anchor aria-hidden=true href=#step-2-將-javascript-程式碼貼入-mathhtml>#</a></h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-JavaScript data-lang=JavaScript><span style=color:#f92672>&lt;</span><span style=color:#a6e22e>link</span> <span style=color:#a6e22e>rel</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css&#34;</span> <span style=color:#a6e22e>integrity</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET&#34;</span> <span style=color:#a6e22e>crossorigin</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;anonymous&#34;</span><span style=color:#f92672>&gt;</span>
+<span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>defer</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js&#34;</span> <span style=color:#a6e22e>integrity</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb&#34;</span> <span style=color:#a6e22e>crossorigin</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;anonymous&#34;</span><span style=color:#f92672>&gt;&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
+<span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>defer</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js&#34;</span> <span style=color:#a6e22e>integrity</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl&#34;</span> <span style=color:#a6e22e>crossorigin</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;anonymous&#34;</span>
+    <span style=color:#a6e22e>onload</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;renderMathInElement(document.body);&#34;</span><span style=color:#f92672>&gt;&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
+</code></pre></div><ul>
+<li>上面的程式碼是將 KaTex 的渲染程式碼寫到 math.html 中。</li>
+</ul>
+<h2 id=step-3-將-hugo-theme-中的-headerhtml-複製出來>Step 3. 將 Hugo theme 中的 header.html 複製出來<a hidden class=anchor aria-hidden=true href=#step-3-將-hugo-theme-中的-headerhtml-複製出來>#</a></h2>
 <ul>
-<li>在 $ 符號與 $ 符號間開始寫作</li>
+<li>同樣將 header.html 複製到 global 下的 \layout\partials，並貼入</li>
+</ul>
+<pre tabindex=0><code>{{- /* Head custom content area start */ -}}
+{{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the &lt;head&gt;&lt;/head&gt; section of every page. */ -}}
+{{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
+{{ if or .Params.math .Site.Params.math }}
+{{ partial &quot;math.html&quot; . }}
+{{ end }}
+{{- /* Head custom content area end */ -}}
+</code></pre><ul>
+<li>上面的程式碼的功能將 math.html 嵌進 header.html 中，並以 config.yml 中的 .param.math 指令來控制。</li>
+</ul>
+<h2 id=step-4-開始撰寫-katex>Step 4. 開始撰寫 KaTex<a hidden class=anchor aria-hidden=true href=#step-4-開始撰寫-katex>#</a></h2>
+<ul>
+<li>一開始先將標頭的定義區將 <code>math: true</code>，即可開啟該頁面的 KaTex 渲染功能。</li>
+<li>在 \\( 符號與 \\) 符號間進行 inline equation 插入。</li>
+<li>或在 $ $ 符號與 $ $ 間進行 block equation 的插入。</li>
 <li>LaTex 的語法可以參考<a href=https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html>https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html</a></li>
 </ul>
-<p><a href=https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/>參考來源：https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/</a></p>
+<p>參考來源：</p>
+<ul>
+<li><a href=https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/>https://bend1031.github.io/</a></li>
+<li><a href=https://teddygood.github.io/posts/blog/katex/>https://teddygood.github.io/posts/blog/katex/</a></li>
+</ul>
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
