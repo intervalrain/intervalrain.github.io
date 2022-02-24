@@ -61,15 +61,9 @@ static Class<?> comparableClassFor(Object x) {
 ```
 
 ## instanceof
-```Java
-    x instanceof Comparable
-```
 + insanceof 可理解成某類別的實作，無論是執行期時的類別，或是父類別，或是它實現的介面，或父類別實現的介面…，總之只要在繼承鏈上有這個類別就可以了。
 
 ## getClass()
-```Java
-    c = x.getClass()
-```
 + 與instanceof相對應的是getClass()函式，無論該物件如果轉型，getClass()都會返回它執行時期的類別，可以簡單理解成實際類別，換言之也就是我們 new 出來物綿件時使用的類別。
 + 有一種例外情形是匿名物件，當匿名物件調用getClass()時，返回的是依賴它的物件在執行期的類別，並以1,2,3...的index區分。
 
