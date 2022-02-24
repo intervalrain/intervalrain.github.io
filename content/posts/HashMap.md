@@ -1,10 +1,10 @@
 ---
-title: "Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀"
+title: "[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀"
 date: 2022-02-23T01:36:40+08:00
 tags: ["Java", "Programming", "Data Structure"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
-description: "Desc Text."                     
+description: "認識泛型 generic type、類別 class"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: false
@@ -36,7 +36,7 @@ cover:
 > ***我的翻譯***
 > *當x的類別為Comparable的實作時，返回x的類別；否則返回 null。*
 
-+ 藉由這個函式實例的解讀，可以了解一下類型、泛型的相關概念。
++ 藉由這個函式實例的解讀，可以了解一下類別、泛型的相關概念。
 
 # Source Code
 ```Java
