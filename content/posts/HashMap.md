@@ -64,41 +64,41 @@ static Class<?> comparableClassFor(Object x) {
 ```Java
     x instanceof Comparable
 ```
-insanceof 可理解成某類別的實作，無論是執行期時的類別，或是父類別，或是它實現的介面，或父類別實現的介面…，總之只要在繼承鏈上有這個類別就可以了。
++ insanceof 可理解成某類別的實作，無論是執行期時的類別，或是父類別，或是它實現的介面，或父類別實現的介面…，總之只要在繼承鏈上有這個類別就可以了。
 
 ## getClass()
 ```Java
     c = x.getClass()
 ```
-與instanceof相對應的是getClass()函式，無論該物件如果轉型，getClass()都會返回它執行時期的類別，可以簡單理解成實際類別，換言之也就是我們 new 出來物綿時使用的類別。
-有一種例外情形是匿名物件，當匿名物件調用getClass()時，返回的是依賴它的物件在執行期的類別，並以1,2,3...的索引區分。
++ 與instanceof相對應的是getClass()函式，無論該物件如果轉型，getClass()都會返回它執行時期的類別，可以簡單理解成實際類別，換言之也就是我們 new 出來物綿件時使用的類別。
++ 有一種例外情形是匿名物件，當匿名物件調用getClass()時，返回的是依賴它的物件在執行期的類別，並以1,2,3...的index區分。
 
 ## getGenericInterfaces()
-getGenericInterfaces()方法返回的是該物件在執行期時直接實作的介面。必然是該類別自己實作的介面，繼承的則不可。
++ getGenericInterfaces()方法返回的是該物件在執行期時直接實作的介面。必然是該類別自己實作的介面，繼承的則不可。
 
 ## getGenericSuperclass()和getSuperclass()
 這兩個函式雖然沒有出現在 comparableClassFor(Object x)中，但也順帶一提。
 + getSuperclass()返回的是直接父類的類別，不包括泛型參數。
 + getGenericSuperclass()返回的是包括泛型參數在內的直接父類別。
-+ 注意如果父類別聲明了泛型，但子類別繼承時沒有為父類別實作該泛行，這時候也是沒有泛型參數的
++ 注意如果父類別聲明了泛型，但子類別繼承時沒有為父類別實作該泛型，這時候也是沒有泛型參數的
 
 ## ParameterizedType
-ParameterizedType是Type介面的子介面，表示參數化的類別，亦即實作了泛型參數的類型。
-注意如果直接用bean對象instanceof ParameterizedType，结果都是false。
-Class對象求能instanceof ParameterizedType，編譯會報錯。
-只有用Type對象instanceof ParameterizedType才能得到想要的比較结果。可以這麼理解：一個Bean類別不会是ParameterizedType，只有代表這個Bean類的類型（Type）才可能是ParameterizedType。
-實現泛型參數，可以是給泛型傳入了一個真實的類別，或者傳入另一個新聲明的泛型參數，只聲明泛型而不實作，則 instanceof ParameterizedType 為 false。
++ ParameterizedType 是 Type 介面的子介面，表示參數化的類別，亦即實作了泛型參數的類型。
++ 注意如果直接用 bean 物件 instanceof ParameterizedType，结果都是 false。
++ Class 物件只能是 instanceof ParameterizedType，否則編譯會報錯。
++ 只有用 Type 物件 instanceof ParameterizedType 才能得到想要的比較结果。可以這麼理解：一個 Bean 類別不會是 ParameterizedType，只有代表這個Bean類的類型（Type）才可能是ParameterizedType。
++ 實現泛型參數，可以是給泛型傳入了一個真實的類別，或者傳入另一個新聲明的泛型參數，只聲明泛型而不實作，則 instanceof ParameterizedType 為 false。
 
 ## getRawType()
-getRawType()方法返回聲明了這個類別的類或介面，也就是去掉了泛型参数部分的類別物件。
++ getRawType()方法返回聲明了這個類別的類或介面，也就是去掉了泛型参数部分的類別物件。
 
 ## getActualTypeArguments()
-與getRawType()相對應，getActualTypeArguments()以數組的形式返回泛型參數列表。
-當傳入的是真實類別時，印出來的是全類名
-當傳入的是另一個聲明的泛型參數時滿印出來的是代表該泛型參數的符號。
++ 與getRawType()相對應，getActualTypeArguments()以數組的形式返回泛型參數列表。
++ 當傳入的是真實類別時，印出來的是全類名
++ 當傳入的是另一個聲明的泛型參數時滿印出來的是代表該泛型參數的符號。
 
 ## getOwnerType()
-ParameterizedType介面還有一個getOwnerType()函鋨，如果該類別是一个內部類別/介面，返回它的外部類別/介面。如果該類型不是內部類型不是内部類行/介面，返回null。
++ ParameterizedType介面還有一個getOwnerType()函式，如果該類別是一个內部類別/介面，返回它的外部類別/介面。如果該類型不是內部類型不是内部類別/介面，返回null。
 
 # comparableClassFor(Object x) 總結
 ```Java
