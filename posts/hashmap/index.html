@@ -32,7 +32,7 @@
 <meta name=twitter:title content="[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀">
 <meta name=twitter:description content="認識泛型 generic type、類別 class">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://intervalrain.github.io/posts/"},{"@type":"ListItem","position":2,"name":"[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀","item":"http://intervalrain.github.io/posts/hashmap/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀","name":"[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀","description":"認識泛型 generic type、類別 class","keywords":["Java","Programming","Data Structure"],"articleBody":"HashMap.comparableClassFor(Object x) 的函式解讀  原文敘述\nReturns x’s Class if it is of the form “class C implements Comparable”, else null.\n  我的翻譯 當x的類別為Comparable的實作時，返回x的類別；否則返回 null。\n  藉由這個函式實例的解讀，可以了解一下類別、泛型的相關概念。  Source Code static Class comparableClassFor(Object x) { if (x instanceof Comparable) { Class c; Type[] ts, as; ParameterizedType p; if ((c = x.getClass()) == String.class) // bypass checks  return c; if ((ts = c.getGenericInterfaces()) != null) { for (Type t : ts) { if ((t instanceof ParameterizedType) \u0026\u0026 ((p = (ParameterizedType) t).getRawType() == Comparable.class) \u0026\u0026 (as = p.getActualTypeArguments()) != null \u0026\u0026 as.length == 1 \u0026\u0026 as[0] == c) // type arg is c  return c; } } } return null; } instanceof x instanceof Comparable insanceof 可理解成某類別的實作，無論是執行期時的類別，或是父類別，或是它實現的介面，或父類別實現的介面…，總之只要在繼承鏈上有這個類別就可以了。\ngetClass() c = x.getClass() 與instanceof相對應的是getClass()函式，無論該物件如果轉型，getClass()都會返回它執行時期的類別，可以簡單理解成實際類別\u0008，換言之也就是我們 new 出來物綿時使用的類別。 有一種例外情形是匿名物件，當匿名物件調用getClass()時，返回的是依賴它的物件在執行期的類別，並以1,2,3…的索引區分。\ngetGenericInterfaces() getGenericInterfaces()方法返回的是該物件在執行期時直接實作的介面。必然是該類別自己實作的介面，繼承的則不可。\ngetGenericSuperclass()和getSuperclass() 這兩個函式雖然沒有出現在 comparableClassFor(Object x)中，但也順帶一提。\n getSuperclass()返回的是直接父類的類別，不包括泛型參數。 \u0008getGenericSuperclass()返回的是包括泛型參數在內的直接父類別。 注意如果父類別聲明了泛型，但子類別繼承時沒有為父類別實作該泛行，這時候也是沒有泛型參數的  ParameterizedType ParameterizedType是Type介面的子介面，表示參數化的類別，亦即實作了泛型參數的類型。 注意如果直接用bean對象instanceof ParameterizedType，结果都是false。 Class對象求能instanceof ParameterizedType，編譯會報錯。 只有用Type對象instanceof ParameterizedType才能得到想要的比較结果。可以這麼理解：一個Bean類別不会是ParameterizedType，只有代表這個Bean類的類型（Type）才可能是ParameterizedType。 實現泛型參數，可以是給泛型傳入了一個真實的類別，或者傳入另一個新聲明的泛型參數，只聲明泛型而不實作，則 instanceof ParameterizedType 為 false。\ngetRawType() getRawType()方法返回聲明了這個類別的類或介面，也就是去掉了泛型参数部分的類別物件。\ngetActualTypeArguments() 與getRawType()相對應，getActualTypeArguments()以數組的形式返回泛型參數列表。 當傳入的是真實類別時，印出來的是全類名 當傳入的是另一個聲明的泛型參數時滿印出來的是代表該泛型參數的符號。\ngetOwnerType() ParameterizedType介面還有一個getOwnerType()函鋨，如果該類別是一个內部類別/介面，返回它的外部類別/介面。如果該類型不是內部類型不是内部類行/介面，返回null。\ncomparableClassFor(Object x) 總結 static Class comparableClassFor(Object x) { if (x instanceof Comparable) { // 判斷是否實作了 Comparable 介面  Class c; Type[] ts, as; ParameterizedType p; if ((c = x.getClass()) == String.class) // 如果是String類別，直接返回String.class  return c; if ((ts = c.getGenericInterfaces()) != null) { // 檢查是否有直接實現的介面  for (Type t : ts) { // 遍歷介面  if ((t instanceof ParameterizedType) \u0026\u0026 // 當介面實現了泛型  ((p = (ParameterizedType) t).getRawType() == // 取得介面不帶參數時的類別對象  Comparable.class) \u0026\u0026 // 且為 Comparable  (as = p.getActualTypeArguments()) != null \u0026\u0026 // 取得該介面的泛型參數  as.length == 1 \u0026\u0026 as[0] == c) // type arg is c // 只帶有一種泛型且是實作類別為其本身  return c; // 返回該類別  } } } return null; // 皆否則回傳 null } ","wordCount":"253","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-02-23T01:36:40+08:00","dateModified":"2022-02-23T01:36:40+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/hashmap/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀","name":"[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀","description":"認識泛型 generic type、類別 class","keywords":["Java","Programming","Data Structure"],"articleBody":"HashMap.comparableClassFor(Object x) 的函式解讀  原文敘述\nReturns x’s Class if it is of the form “class C implements Comparable”, else null.\n  我的翻譯 當x的類別為Comparable的實作時，返回x的類別；否則返回 null。\n  藉由這個函式實例的解讀，可以了解一下類別、泛型的相關概念。  Source Code static Class comparableClassFor(Object x) { if (x instanceof Comparable) { Class c; Type[] ts, as; ParameterizedType p; if ((c = x.getClass()) == String.class) // bypass checks  return c; if ((ts = c.getGenericInterfaces()) != null) { for (Type t : ts) { if ((t instanceof ParameterizedType) \u0026\u0026 ((p = (ParameterizedType) t).getRawType() == Comparable.class) \u0026\u0026 (as = p.getActualTypeArguments()) != null \u0026\u0026 as.length == 1 \u0026\u0026 as[0] == c) // type arg is c  return c; } } } return null; } instanceof x instanceof Comparable  insanceof 可理解成某類別的實作，無論是執行期時的類別，或是父類別，或是它實現的介面，或父類別實現的介面…，總之只要在繼承鏈上有這個類別就可以了。  getClass() c = x.getClass()  與instanceof相對應的是getClass()函式，無論該物件如果轉型，getClass()都會返回它執行時期的類別，可以簡單理解成實際類別\u0008，換言之也就是我們 new 出來物綿件時使用的類別。 有一種例外情形是匿名物件，當匿名物件調用getClass()時，返回的是依賴它的物件在執行期的類別，並以1,2,3…的index區分。  getGenericInterfaces()  getGenericInterfaces()方法返回的是該物件在執行期時直接實作的介面。必然是該類別自己實作的介面，繼承的則不可。  getGenericSuperclass()和getSuperclass() 這兩個函式雖然沒有出現在 comparableClassFor(Object x)中，但也順帶一提。\n getSuperclass()返回的是直接父類的類別，不包括泛型參數。 \u0008getGenericSuperclass()返回的是包括泛型參數在內的直接父類別。 注意如果父類別聲明了泛型，但子類別繼承時沒有為父類別實作該泛型，這時候也是沒有泛型參數的  ParameterizedType  ParameterizedType 是 Type 介面的子介面，表示參數化的類別，亦即實作了泛型參數的類型。 注意如果直接用 bean 物件 instanceof ParameterizedType，结果都是 false。 Class 物件只能是 instanceof ParameterizedType，否則編譯會報錯。 只有用 Type 物件 instanceof ParameterizedType 才能得到想要的比較结果。可以這麼理解：一個 Bean 類別不會是 ParameterizedType，只有代表這個Bean類的類型（Type）才可能是ParameterizedType。 實現泛型參數，可以是給泛型傳入了一個真實的類別，或者傳入另一個新聲明的泛型參數，只聲明泛型而不實作，則 instanceof ParameterizedType 為 false。  getRawType()  getRawType()方法返回聲明了這個類別的類或介面，也就是去掉了泛型参数部分的類別物件。  getActualTypeArguments()  與getRawType()相對應，getActualTypeArguments()以數組的形式返回泛型參數列表。 當傳入的是真實類別時，印出來的是全類名 當傳入的是另一個聲明的泛型參數時滿印出來的是代表該泛型參數的符號。  getOwnerType()  ParameterizedType介面還有一個getOwnerType()函式，如果該類別是一个內部類別/介面，返回它的外部類別/介面。如果該類型不是內部類型不是内部類別/介面，返回null。  comparableClassFor(Object x) 總結 static Class comparableClassFor(Object x) { if (x instanceof Comparable) { // 判斷是否實作了 Comparable 介面  Class c; Type[] ts, as; ParameterizedType p; if ((c = x.getClass()) == String.class) // 如果是String類別，直接返回String.class  return c; if ((ts = c.getGenericInterfaces()) != null) { // 檢查是否有直接實現的介面  for (Type t : ts) { // 遍歷介面  if ((t instanceof ParameterizedType) \u0026\u0026 // 當介面實現了泛型  ((p = (ParameterizedType) t).getRawType() == // 取得介面不帶參數時的類別對象  Comparable.class) \u0026\u0026 // 且為 Comparable  (as = p.getActualTypeArguments()) != null \u0026\u0026 // 取得該介面的泛型參數  as.length == 1 \u0026\u0026 as[0] == c) // type arg is c // 只帶有一種泛型且是實作類別為其本身  return c; // 返回該類別  } } } return null; // 皆否則回傳 null } ","wordCount":"269","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-02-23T01:36:40+08:00","dateModified":"2022-02-23T01:36:40+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/hashmap/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -145,34 +145,48 @@
 <span style=color:#f92672>}</span>
 </code></pre></div><h2 id=instanceof>instanceof<a hidden class=anchor aria-hidden=true href=#instanceof>#</a></h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java>    x <span style=color:#66d9ef>instanceof</span> Comparable
-</code></pre></div><p>insanceof 可理解成某類別的實作，無論是執行期時的類別，或是父類別，或是它實現的介面，或父類別實現的介面…，總之只要在繼承鏈上有這個類別就可以了。</p>
+</code></pre></div><ul>
+<li>insanceof 可理解成某類別的實作，無論是執行期時的類別，或是父類別，或是它實現的介面，或父類別實現的介面…，總之只要在繼承鏈上有這個類別就可以了。</li>
+</ul>
 <h2 id=getclass>getClass()<a hidden class=anchor aria-hidden=true href=#getclass>#</a></h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java>    c <span style=color:#f92672>=</span> x<span style=color:#f92672>.</span><span style=color:#a6e22e>getClass</span><span style=color:#f92672>()</span>
-</code></pre></div><p>與instanceof相對應的是getClass()函式，無論該物件如果轉型，getClass()都會返回它執行時期的類別，可以簡單理解成實際類別，換言之也就是我們 new 出來物綿時使用的類別。
-有一種例外情形是匿名物件，當匿名物件調用getClass()時，返回的是依賴它的物件在執行期的類別，並以1,2,3&mldr;的索引區分。</p>
+</code></pre></div><ul>
+<li>與instanceof相對應的是getClass()函式，無論該物件如果轉型，getClass()都會返回它執行時期的類別，可以簡單理解成實際類別，換言之也就是我們 new 出來物綿件時使用的類別。</li>
+<li>有一種例外情形是匿名物件，當匿名物件調用getClass()時，返回的是依賴它的物件在執行期的類別，並以1,2,3&mldr;的index區分。</li>
+</ul>
 <h2 id=getgenericinterfaces>getGenericInterfaces()<a hidden class=anchor aria-hidden=true href=#getgenericinterfaces>#</a></h2>
-<p>getGenericInterfaces()方法返回的是該物件在執行期時直接實作的介面。必然是該類別自己實作的介面，繼承的則不可。</p>
+<ul>
+<li>getGenericInterfaces()方法返回的是該物件在執行期時直接實作的介面。必然是該類別自己實作的介面，繼承的則不可。</li>
+</ul>
 <h2 id=getgenericsuperclass和getsuperclass>getGenericSuperclass()和getSuperclass()<a hidden class=anchor aria-hidden=true href=#getgenericsuperclass和getsuperclass>#</a></h2>
 <p>這兩個函式雖然沒有出現在 comparableClassFor(Object x)中，但也順帶一提。</p>
 <ul>
 <li>getSuperclass()返回的是直接父類的類別，不包括泛型參數。</li>
 <li>getGenericSuperclass()返回的是包括泛型參數在內的直接父類別。</li>
-<li>注意如果父類別聲明了泛型，但子類別繼承時沒有為父類別實作該泛行，這時候也是沒有泛型參數的</li>
+<li>注意如果父類別聲明了泛型，但子類別繼承時沒有為父類別實作該泛型，這時候也是沒有泛型參數的</li>
 </ul>
 <h2 id=parameterizedtype>ParameterizedType<a hidden class=anchor aria-hidden=true href=#parameterizedtype>#</a></h2>
-<p>ParameterizedType是Type介面的子介面，表示參數化的類別，亦即實作了泛型參數的類型。
-注意如果直接用bean對象instanceof ParameterizedType，结果都是false。
-Class對象求能instanceof ParameterizedType，編譯會報錯。
-只有用Type對象instanceof ParameterizedType才能得到想要的比較结果。可以這麼理解：一個Bean類別不会是ParameterizedType，只有代表這個Bean類的類型（Type）才可能是ParameterizedType。
-實現泛型參數，可以是給泛型傳入了一個真實的類別，或者傳入另一個新聲明的泛型參數，只聲明泛型而不實作，則 instanceof ParameterizedType 為 false。</p>
+<ul>
+<li>ParameterizedType 是 Type 介面的子介面，表示參數化的類別，亦即實作了泛型參數的類型。</li>
+<li>注意如果直接用 bean 物件 instanceof ParameterizedType，结果都是 false。</li>
+<li>Class 物件只能是 instanceof ParameterizedType，否則編譯會報錯。</li>
+<li>只有用 Type 物件 instanceof ParameterizedType 才能得到想要的比較结果。可以這麼理解：一個 Bean 類別不會是 ParameterizedType，只有代表這個Bean類的類型（Type）才可能是ParameterizedType。</li>
+<li>實現泛型參數，可以是給泛型傳入了一個真實的類別，或者傳入另一個新聲明的泛型參數，只聲明泛型而不實作，則 instanceof ParameterizedType 為 false。</li>
+</ul>
 <h2 id=getrawtype>getRawType()<a hidden class=anchor aria-hidden=true href=#getrawtype>#</a></h2>
-<p>getRawType()方法返回聲明了這個類別的類或介面，也就是去掉了泛型参数部分的類別物件。</p>
+<ul>
+<li>getRawType()方法返回聲明了這個類別的類或介面，也就是去掉了泛型参数部分的類別物件。</li>
+</ul>
 <h2 id=getactualtypearguments>getActualTypeArguments()<a hidden class=anchor aria-hidden=true href=#getactualtypearguments>#</a></h2>
-<p>與getRawType()相對應，getActualTypeArguments()以數組的形式返回泛型參數列表。
-當傳入的是真實類別時，印出來的是全類名
-當傳入的是另一個聲明的泛型參數時滿印出來的是代表該泛型參數的符號。</p>
+<ul>
+<li>與getRawType()相對應，getActualTypeArguments()以數組的形式返回泛型參數列表。</li>
+<li>當傳入的是真實類別時，印出來的是全類名</li>
+<li>當傳入的是另一個聲明的泛型參數時滿印出來的是代表該泛型參數的符號。</li>
+</ul>
 <h2 id=getownertype>getOwnerType()<a hidden class=anchor aria-hidden=true href=#getownertype>#</a></h2>
-<p>ParameterizedType介面還有一個getOwnerType()函鋨，如果該類別是一个內部類別/介面，返回它的外部類別/介面。如果該類型不是內部類型不是内部類行/介面，返回null。</p>
+<ul>
+<li>ParameterizedType介面還有一個getOwnerType()函式，如果該類別是一个內部類別/介面，返回它的外部類別/介面。如果該類型不是內部類型不是内部類別/介面，返回null。</li>
+</ul>
 <h1 id=comparableclassforobject-x-總結>comparableClassFor(Object x) 總結<a hidden class=anchor aria-hidden=true href=#comparableclassforobject-x-總結>#</a></h1>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>static</span> Class<span style=color:#f92672>&lt;?&gt;</span> comparableClassFor<span style=color:#f92672>(</span>Object x<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>x <span style=color:#66d9ef>instanceof</span> Comparable<span style=color:#f92672>)</span> <span style=color:#f92672>{</span> <span style=color:#75715e>// 判斷是否實作了 Comparable 介面
