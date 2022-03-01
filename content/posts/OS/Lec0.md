@@ -1,5 +1,5 @@
 ---
-title: "[OS] 作業系統-歷史回顧 Historical prospective"
+title: "[OS] Lecture 0 - Introduction"
 date: 2022-02-24T02:43:30+08:00
 tags: ["Programming"]
 draft: false

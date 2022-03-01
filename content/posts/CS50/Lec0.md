@@ -1,5 +1,5 @@
 ---
-title: "[CS50] Lecture 0 Introduction to Computer Science"
+title: "[CS50] Lecture 0 - Introduction to Computer Science"
 date: 2022-02-23T00:43:18+08:00
 tags: ["CS50", "Programming"]
 draft: true
