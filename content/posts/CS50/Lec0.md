@@ -4,7 +4,7 @@ date: 2022-02-23T00:43:18+08:00
 tags: ["CS50", "Programming"]
 draft: true
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
-description: "Desc Text."                     
+description: "Intoduction to Computer Science"   
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: false
