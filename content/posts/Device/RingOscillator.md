@@ -27,35 +27,27 @@ cover:
     relative: false
     hidden: false
 ---
-<head>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            inlineMath: [['$','$']]
-            }
-        });
-    </script>
-</head>
-
+## 前言
+*2022/3/3 更新*
++ 此篇為筆者以工作經驗為背景寫下的筆記，如有錯誤煩請指教。[點此聯絡我](https://intervalrain.github.io/posts/aboutme/)。
 # Ring Oscillator 環形振盪器(RO)
+
 ## 簡介
-+ 一種採用奇數個 Inverter(NOT Gate) 組成的環形電路。透過在輸入端振盪產生方波，經過奇數個 Inverter 之後，在輸出端產生反向的方波訊號，其時間差即為 time delay。
-![RO](/images/ro.png) [註] 圖為一個由3個反向器組成的環形振盪器，其輸出頻率為 $\frac{1}{6}t_p$(Gate Delay)。
-+ 由偶數個 Inverter 組成的環形電路無法構成環形振盪器，因為其輸入與輸出相同。然而這種配置可以被用作記憶體的基本單元，它是建構靜態隨機存取記憶體 SRAM (static random access memory)的基本組成。
-+ 環形振盪器通常全部由 inverter 所組成，較能抵抗環境影響。事實上也可以用 non-inverter 與 inverter 混合組成，前提是 inverter 的總數要是奇數。其振蕩器的週期等於兩倍的閘延遲(Gate delay)。
++ 在 IC 電路設計中，除了 metal routing 會造成訊號的延遲，邏輯閘從高電位轉換到低電位、或從低電位轉換到高電位(switch)，也會造成相對應的 Gate Delay，然而 Gate Delay 非常小，很難以測量，故 RO 是一個便於測量 Gate Delay 的電路設計。
++ 在 IC 電路設計中，除了考慮速度，還會考慮功耗，而邏輯閘開關所造成的動態功耗(dynamic power consumption)佔比非常大，故 Ring Oscillator 也可以用來計算閘開關的功耗。
+## 1. Time Delay 
++ 為了方便測量 Time Delay，RO 是一種用奇數 n 個 inverter(NOT Gate) 串接成的電路。透過在輸入端振盪產生方波，經過奇數個 inverter 之後，在輸出端產生反向的方波訊號，其時間差為經過 n 個 inverter 的 time delay。利用 time delay 會透過串接 inverter 累加(或稱propagation)的性質，故可以算出單個閘極的 gate delay(\\(T_p\\), propagation time)
++ \\(t_{HtoL}\sim t_{LtoH}=t_p=\Delta T/2n\\)
+![RO](/images/ro.png) [註] 圖為一個由3個反向器組成的環形振盪器，其輸出頻率為 \\(\frac{1}{6}t_p\\)(Gate Delay)。
++ 由偶數個 inverter 組成的環形電路無法構成環形振盪器，因為其輸入與輸出相同。然而這種配置可以被用作記憶體的基本單元，它是建構靜態隨機存取記憶體 SRAM (static random access memory)的基本組成。
++ 環形振盪器通常全部由 inverter 所組成，較能抵抗環境影響。事實上也可以用 non-inverter 與 inverter 混合組成，前提是 inverter 的總數要是奇數。其振蕩器的週期等於兩倍的閘延遲(Gate delay)，
 + 為了增加振盪頻率，通常有兩種方法  
   1. 減少環形電路中的 inverter 數量。
   2. 提升電壓，但同時會有較大的電流與功耗。
-
-## Inverter (反相器)基本原理
-+ Inverter 由一個 NMOS 與一個 PMOS 共閘極組成，其輸出端為輸入端的相反電位。  
-+ 其一顆 Inverter 造成的 Gate delay 會傳播(propagate) 到下一顆 Inverter，共由 n 顆 Inverter 組成的環形振盪器，所造成的的延遲為 td
 ![RO_circuit](/images/ro_circuit.png)
 ![td](/images/td.png)
 
-## Power consumption
+## 2. Power consumption
 + 分為 Dynamic Power Consumption 與 Static Power Consumption。
 + \\(P_{total}=a\times f\times(\frac{1}{2}CV_{DD}^2+V_{DD}I_{SC})+V_{DD}I_{off}+V_{DD}I_{Diode}+V_{DD}I_{Gate}\\)
   + a 為 activity，每個 clock cycle 的平均開關切換數目。
