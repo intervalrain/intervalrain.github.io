@@ -1,5 +1,5 @@
 ---
-title: "Ring Oscillator 環形振盪器"
+title: "[Device]Ring Oscillator 環形振盪器"
 date: 2022-02-21T01:29:24+08:00
 tags: ["Semiconductor", "Device"]
 draft: false

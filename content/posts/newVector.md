@@ -29,9 +29,9 @@ cover:
 ---
 # 如何初始化 vector
 ## 事先準備
-+ #include <iostream>
-+ #include <vector>
-+ using namespace std;
++ `#include <iostream>`
++ `#include <vector>`
++ `using namespace std;`
 
 ### 1. 利用 push_back() 函式
 ```Cpp
