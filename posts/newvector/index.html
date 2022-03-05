@@ -32,7 +32,7 @@
 <meta name=twitter:title content="How to Initialize vector in C++">
 <meta name=twitter:description content="Desc Text.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://intervalrain.github.io/posts/"},{"@type":"ListItem","position":2,"name":"How to Initialize vector in C++","item":"http://intervalrain.github.io/posts/newvector/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Initialize vector in C++","name":"How to Initialize vector in C\u002b\u002b","description":"Desc Text.","keywords":["C++","Programming"],"articleBody":"如何初始化 vector 事先準備  #include  #include  using namespace std;  1. 利用 push_back() 函式 vectorint A; A.push_back(1); A.push_back(2); A.push_back(3); // A = [1,2,3] 2. 利用重載建構子(overloaded constructor) int size = 5; int fill = 2; vectorint B(size, fill); // B = [2,2,2,2,2] 3. 將 array 傳給 vector 的建構子(-std=c++11) vectorint C{1, 2, 3, 4, 5}; // C = [1,2,3,4,5] 4. 利用既有的 array int array[] = {1,2,3,4,5}; vectorint D(array, array+4); // D = [1,2,3,4] 5. 利用既有的 vector vectorint E(C.begin()+1, C.end()-3); // E = [2] 6. 利用 fill 函式 vectorint F(6); fill(F.begin(), F.end(), 3); // F = [3,3,3,3,3,3] Reference\n","wordCount":"93","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-03-03T01:33:02+08:00","dateModified":"2022-03-03T01:33:02+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/newvector/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Initialize vector in C++","name":"How to Initialize vector in C\u002b\u002b","description":"Desc Text.","keywords":["C++","Programming"],"articleBody":"如何初始化 vector 事先準備  #include  #include  using namespace std;  1. 利用 push_back() 函式 vectorint A; A.push_back(1); A.push_back(2); A.push_back(3); // A = [1,2,3] 2. 利用重載建構子(overloaded constructor) int size = 5; int fill = 2; vectorint B(size, fill); // B = [2,2,2,2,2] 3. 將 array 傳給 vector 的建構子(-std=c++11) vectorint C{1, 2, 3, 4, 5}; // C = [1,2,3,4,5] 4. 利用既有的 array int array[] = {1,2,3,4,5}; vectorint D(array, array+4); // D = [1,2,3,4] 5. 利用既有的 vector vectorint E(C.begin()+1, C.end()-3); // E = [2] 6. 利用 fill 函式 vectorint F(6); fill(F.begin(), F.end(), 3); // F = [3,3,3,3,3,3] Reference\n","wordCount":"95","inLanguage":"en","image":"http://intervalrain.github.io/images/cover.jpg","datePublished":"2022-03-03T01:33:02+08:00","dateModified":"2022-03-03T01:33:02+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://intervalrain.github.io/posts/newvector/"},"publisher":{"@type":"Organization","name":"Rain's Blog","logo":{"@type":"ImageObject","url":"http://intervalrain.github.io/favicon.ico"}}}</script>
 </head><body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script>
 <header class=header>
@@ -84,7 +84,7 @@ Desc Text.
 <a href=#6-%e5%88%a9%e7%94%a8-fill-%e5%87%bd%e5%bc%8f aria-label="6. 利用 fill 函式">6. 利用 fill 函式</a>
 </li></ul></li></ul></li></ul></div></details>
 </div><div class=post-content><h1 id=如何初始化-vector>如何初始化 vector<a hidden class=anchor aria-hidden=true href=#如何初始化-vector>#</a></h1><h2 id=事先準備>事先準備<a hidden class=anchor aria-hidden=true href=#事先準備>#</a></h2><ul>
-<li>#include </li><li>#include </li><li>using namespace std;</li></ul><h3 id=1-利用-push_back-函式>1. 利用 push_back() 函式<a hidden class=anchor aria-hidden=true href=#1-利用-push_back-函式>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Cpp data-lang=Cpp><span style=display:flex><span>vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> A;
+<li><code>#include &lt;iostream></code></li><li><code>#include &lt;vector></code></li><li><code>using namespace std;</code></li></ul><h3 id=1-利用-push_back-函式>1. 利用 push_back() 函式<a hidden class=anchor aria-hidden=true href=#1-利用-push_back-函式>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Cpp data-lang=Cpp><span style=display:flex><span>vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> A;
 </span></span><span style=display:flex><span>A.push_back(<span style=color:#ae81ff>1</span>);
 </span></span><span style=display:flex><span>A.push_back(<span style=color:#ae81ff>2</span>);
 </span></span><span style=display:flex><span>A.push_back(<span style=color:#ae81ff>3</span>);  <span style=color:#75715e>// A = [1,2,3]
@@ -100,6 +100,11 @@ Desc Text.
 </span></span></span></code></pre></div><p><a href=https://www.simplilearn.com/tutorials/cpp-tutorial/how-to-initialize-a-vector-in-cpp>Reference</a></p></div><footer class=post-footer>
 <ul class=post-tags>
 <li><a href=http://intervalrain.github.io/tags/c++/>C++</a></li><li><a href=http://intervalrain.github.io/tags/programming/>Programming</a></li></ul><nav class=paginav>
+<a class=prev href=http://intervalrain.github.io/posts/device/mismatch/>
+<span class=title>« Prev Page</span>
+<br>
+<span>[Device]Mismatch Introduction</span>
+</a>
 <a class=next href=http://intervalrain.github.io/posts/java/bitcount/>
 <span class=title>Next Page »</span>
 <br>
