@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lecture 1 - Number System and Conversion"
+title: "[Logic Design] Lecture 1 - 數字系統與轉換"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design", "Life", "Music", "Semiconductor"]
 draft: false
@@ -27,7 +27,7 @@ cover:
     relative: false
     hidden: false
 ---
-# Digital systems and switching circuits
+# 數位系統與開關電路
 + 在現實世界中，資訊是以**類比**(Analog)的方式傳遞的，換言之，資訊是**連續的**
 + 在電腦世界中，資訊是以**數位**(Digital)的方式傳遞的，也就是**開與關**或是**0或1**。
 + A/D <-> DSP(digital signal processor) <-> D/A
@@ -47,11 +47,11 @@ cover:
     + 由電晶體來實現
     + transistor level, gate level, module level...
 
-# Number systems and conversion
+# 數字系統與轉換
 + 在現實世界中，最普遍使用的數字系統為十進制(Decimal)
 + 然而在電腦世界中，因為只有代表開與關的 0 與 1，故使用的數字系統是以二進制(Binary)為基礎。
    + \\(N=(a_2a_1a_0)_R=a_2\times R^2+a_1\times R^1+a_0\times R^0\\)
-# Negative numbers
+# 負數
 |N|正數表示|-N|正數加負號|1的補數|2的補數|
 |---|---|---|---|---|----|
 |+0|0000|-0|1000|1111|N/A |
@@ -64,11 +64,11 @@ cover:
 |+7|0111|-7|1111|1000|1001|
 |+8|N/A |-8|N/A |N/A |1000|
 
-# Binary arithmetic
+# 二進制算數
 + 當兩數相加或兩數相減時，超過可用bits數時會發生overflow，
   + 例如`-3+-4=-4`是OK的
   + 但`-5+-6=-11`會產生溢位
-# Binary codes
+# 二進制的表達方式 Binary codes
 |Decimal Digit|8421 Code(BCD)|6311 Code|Excess-3 Code|2-out-of-5 Code|Gray Code|
 |---|---|---|---|---|----|
 |0|0000|0000|0011|00011|0000|

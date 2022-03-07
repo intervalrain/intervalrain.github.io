@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lecture 2 - Boolean Algebra"
+title: "[Logic Design] Lecture 2 - 布林代數"
 date: 2021-09-20T15:21:19+08:00
 tags: ["Logic Design"]
 draft: false
@@ -27,7 +27,7 @@ cover:
     relative: false
     hidden: false
 ---
-# Basic Operation
+# 基本邏輯運算
 ## Logic Gates
 ### Not Gates
 + Symbol
@@ -68,7 +68,7 @@ cover:
 \end{array}
 \\)
 
-# Boolean expression and Truth table
+# 布林表達式與真值表(Boolean Expression and Truth Table)
 + Boolean expression
   + 用 `'` 代表 NOT
   + 用 `+` 代表 OR
@@ -89,20 +89,27 @@ A&B&C&B'&AB'&AB'+C&A+C&B'+C&(A+C)(B'+C)\\\\\hline
 \end{array}
 \\)
 
-# Basic thorems
-## AND gate 的基本運算性質
+# 基本運算定理
+## NOT gate 的基本運算定理
+\\(
+\boxed{
+    \def\arraystretch{1.5}\begin{array}{ccc}
+        (x')'&=&x
+    \end{array}
+}
+\\)
+## AND gate 的基本運算定理
 \\(
 \boxed{
     \def\arraystretch{1.5}\begin{array}{ccc}
         x+0&=&x\\\\
         x+1&=&1\\\\
         x+x&=&x\\\\
-        (x')'&=&x\\\\
         x+x'&=&1
     \end{array}
 }
 \\)
-## OR gate 的基本運算性質
+## OR gate 的基本運算定理
 \\(
 \boxed{
     \def\arraystretch{1.5}\begin{array}{ccc}
@@ -113,7 +120,7 @@ A&B&C&B'&AB'&AB'+C&A+C&B'+C&(A+C)(B'+C)\\\\\hline
     \end{array}
 }
 \\)
-# Advance theorems
+# 進階運算定理
 ## 交換律 Commutative Law
 \\(
 \boxed{
@@ -283,7 +290,7 @@ A&B&C&B'&AB'&AB'+C&A+C&B'+C&(A+C)(B'+C)\\\\\hline
 }
 \\)
 
-# The consensus thorem 連鎖律
+# 連鎖律 The consensus thorem 
 + 公式：
   + \\(\boxed{xy+x' z+yz=xy+x' z}\\)
   + \\(\boxed{(x+y)(x'+z)(y+z)=(x+y)(x'+z)}\\)
@@ -293,7 +300,7 @@ A&B&C&B'&AB'&AB'+C&A+C&B'+C&(A+C)(B'+C)\\\\\hline
 \\(=xy+xyz+x' z+x' yz\\)  
 \\(=xy(1+z)+x' z(1+y)\\)  
 \\(=xy+x' z\\)
-# Simplification of switching expression
+# 簡化布林表達式的流程
 1. 利用 \\(\boxed{xy+xy'=x(y+y')=x}\\)(AND性質)
 2. 利用 \\(\boxed{x+xy+...=x(1+y+...)=x}\\)(OR性質)
 3. 利用 \\(\boxed{xy+x' z+yz=xy+x'z }\\)(連鎖律)
@@ -301,6 +308,6 @@ A&B&C&B'&AB'&AB'+C&A+C&B'+C&(A+C)(B'+C)\\\\\hline
 5. 必要時加入 redundant terms
 
 + [Lec3](https://intervalrain.github.io/posts/logicdesign/lec3/)會使用圖表法，較不容易出錯。
-# Proving the validity of equation
+# 如何證明布林表達式的正確性?
 1. 建構 Truth Table
 2. 簡化 LHS 和 RHS
