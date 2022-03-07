@@ -99,4 +99,4 @@ cover:
 + 可以減少 switching operation
 + 如何轉換 Gray Code? 參考[Leetcode no.89](https://github.com/intervalrain/leetcode/blob/master/src/main/java/com/rainhu/n89_GrayCode.java)
 ### ASCII table
-![ascii](/iamges/ascii.png)
+![ascii](/images/ascii.png)
