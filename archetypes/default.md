@@ -1,9 +1,9 @@
 ---
 title: "<Title>"
 date: {{ .Date }}
-tags: ["LeetCode", "Java", "C++", "Programming", "Life", "Music", "Semiconductor"]
+tags: ["LeetCode", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
+Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily
 description: "Desc Text."                     
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
