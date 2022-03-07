@@ -25,18 +25,18 @@ params:
 #   defaultTheme: auto # dark, light
 #   disableThemeToggle: false
 
-#   ShowReadingTime: true
-#   ShowShareButtons: true
-#   ShowPostNavLinks: true
-#   ShowBreadCrumbs: true
-#   ShowCodeCopyButtons: false
-#   disableSpecial1stPost: false
-#   disableScrollToTop: false
-#   comments: false
-#   hidemeta: false
-#   hideSummary: false
-#   showtoc: false
-#   tocopen: false
+  # ShowReadingTime: true
+  # ShowShareButtons: true
+  # ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  # ShowCodeCopyButtons: false
+  # disableSpecial1stPost: false
+  # disableScrollToTop: false
+  # comments: false
+  # hidemeta: false
+  # hideSummary: false
+  # showtoc: false
+  # tocopen: false
 
   # assets:
   #   # disableHLJS: true # to disable highlight.js
@@ -47,10 +47,10 @@ params:
   #   apple_touch_icon: "<link / abs url>"
   #   safari_pinned_tab: "<link / abs url>"
 
-  # label:
-  #   text: "Home"
-  #   icon: /apple-touch-icon.png
-  #   iconHeight: 35
+  label:
+    text: "Rain's Blog"
+    icon: /images/rain.png
+    iconHeight: 35
 
   # profile-mode
   profileMode:
@@ -86,23 +86,23 @@ params:
     - name: youtube
       url: "https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA"
 
-  # analytics:
-  #   google:
-  #     SiteVerificationTag: "XYZabc"
-  #   bing:
-  #     SiteVerificationTag: "XYZabc"
-  #   yandex:
-  #     SiteVerificationTag: "XYZabc"
+  analytics:
+    google:
+      SiteVerificationTag: "XYZabc"
+    bing:
+      SiteVerificationTag: "XYZabc"
+    yandex:
+      SiteVerificationTag: "XYZabc"
       
   # cover:
   #   hidden: true # hide everywhere but not in structured data
   #   hiddenInList: true # hide on list pages and home
   #   hiddenInSingle: true # hide on single page
 
-  # editPost:
-  #   URL: "https://github.com/<path_to_repo>/content"
-  #   Text: "Suggest Changes" # edit text
-  #   appendFilePath: true # to append file path to Edit link
+  editPost:
+    URL: "https://github.com/intervalrain/intervalrain.github.io/tree/main/content/"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
@@ -129,10 +129,6 @@ menu:
       name: Tags
       url: /tags/
       weight: 20
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 30
 
 
 outputs:
