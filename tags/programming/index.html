@@ -56,6 +56,13 @@
 <header class=page-header><div class=breadcrumbs><a href=http://intervalrain.github.io/>Home</a>&nbsp;»&nbsp;<a href=http://intervalrain.github.io/tags/>Tags</a></div><h1>Programming</h1></header><article class="post-entry tag-entry">
 <figure class=entry-cover><img loading=lazy src=http://intervalrain.github.io/images/cover.jpg alt="Oh! You closed up the window, so you cannot see raining">
 </figure><header class=entry-header>
+<h2>[Java] transient 關鍵字
+</h2></header><section class=entry-content>
+<p>1. transient 的作用及使用方法 當一個物件繼承(implements)了 Serializable 介面，這個物件就可以被序列化，Java 的序列化模式為開發者提供了許多便利，開發者可以不必關心具體序列化的過程，只要繼承了 Serializable 介面，該類別(class)的所有屬性(property)和方法(method)都會自動序列化。 然而在實際開發過程中，有些屬性需要序列化，有些屬性則不需要。 用戶的私密訊息如密碼、銀行帳號等，通常不希望在網路操作時被傳輸。 此時，便可在這些對應的變數前加上 transient。 如此一來，這些私密訊息的生命週期只會存在於調用者的記憶體(memory)中，不會寫到磁碟(disk)裡。 注意讀取時，讀取數據的順序一定要和存放數據的順序保持一致。
+範例： import java.io.FileInputStream; import java.io.FileNotFoundException; import java.io.FileOutputStream; import java.io.IOException; import java.io.ObjectInputStream; import java.io.ObjectOutput; import java.io.ObjectOutputStream; import java.io.Serializable; public class TransientExample { public static void main(String[] args){ User user = new User(); user.setUsername("Rain"); user.setPassword("12345678"); System.out.println("Read before Serializable: "); System.out.println("Username: " + user....</p></section><footer class=entry-footer><span title="2022-03-08 23:53:27 +0800 +0800">March 8, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer><a class=entry-link aria-label="post link to [Java] transient 關鍵字" href=http://intervalrain.github.io/posts/java/transient/></a>
+</article><article class="post-entry tag-entry">
+<figure class=entry-cover><img loading=lazy src=http://intervalrain.github.io/images/cover.jpg alt="Oh! You closed up the window, so you cannot see raining">
+</figure><header class=entry-header>
 <h2>How to Initialize vector in C++
 </h2></header><section class=entry-content>
 <p>如何初始化 vector 事先準備 #include &lt;iostream> #include &lt;vector> using namespace std; 1. 利用 push_back() 函式 vector&lt;int> A; A.push_back(1); A.push_back(2); A.push_back(3); // A = [1,2,3] 2. 利用重載建構子(overloaded constructor) int size = 5; int fill = 2; vector&lt;int> B(size, fill); // B = [2,2,2,2,2] 3. 將 array 傳給 vector 的建構子(-std=c++11) vector&lt;int> C{1, 2, 3, 4, 5}; // C = [1,2,3,4,5] 4. 利用既有的 array int array[] = {1,2,3,4,5}; vector&lt;int> D(array, array+4); // D = [1,2,3,4] 5....</p></section><footer class=entry-footer><span title="2022-03-03 01:33:02 +0800 +0800">March 3, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer><a class=entry-link aria-label="post link to How to Initialize vector in C++" href=http://intervalrain.github.io/posts/newvector/></a>
@@ -85,12 +92,6 @@ Virtual memory，從硬碟中借儲存空間出來，當作 memory 來使用。 
 Returns x’s Class if it is of the form “class C implements Comparable”, else null.
 我的翻譯 當x的類別為Comparable的實作時，返回x的類別；否則返回 null。
 藉由這個函式實例的解讀，可以了解一下類別、泛型的相關概念。 Source Code static Class&lt;?> comparableClassFor(Object x) { if (x instanceof Comparable) { Class&lt;?> c; Type[] ts, as; ParameterizedType p; if ((c = x.getClass()) == String.class) // bypass checks return c; if ((ts = c.getGenericInterfaces()) != null) { for (Type t : ts) { if ((t instanceof ParameterizedType) && ((p = (ParameterizedType) t)....</p></section><footer class=entry-footer><span title="2022-02-23 01:36:40 +0800 +0800">February 23, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer><a class=entry-link aria-label="post link to [Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀" href=http://intervalrain.github.io/posts/java/hashmap/></a>
-</article><article class="post-entry tag-entry">
-<figure class=entry-cover><img loading=lazy src=http://intervalrain.github.io/images/cover.jpg alt="Oh! You closed up the window, so you cannot see raining">
-</figure><header class=entry-header>
-<h2>[CS50] Lecture 0 - Introduction to Computer Science
-</h2></header><section class=entry-content>
-<p>什麼是 Computer Science(CS)? CS 意在解決問題，更精準地說，是將問題 (input) 轉換成答案 (output) 的過程。 在計算機的世界，為了表達 inputs 和 outputs，我們必須將資訊標準化來儲存與操作它們，因為計算機只讀得懂 0 與 1 (開路/通路)。 如何表達數字? 在人類的世界，人們使用十進制(Decimal)。 在計算機的世界，用的是二進制(Binary)，也就是 0 與 1。 \(1+1=10\) \((1,2,3,4,5,6,7,…)_{10}=(001,010,011,100,101,110,111,…)_2\) 每個二進制的位元(digit)稱為 bit。 在現代計算機結構中，是由數以億計的電晶體(transistors)所組成的。 電晶體是一種具有開關(switch)性質的邏輯元件。 大部分的計算機一次用 8 個 bits，或稱 1 bytes，來表達數字。 \(8 \text{bits}=1 \text{bytes}\) 如何表達文字? 要表達文字，只需將不同的字元定義到對應的數字即可。 ASCII，American Standard Code for Information Interchange，即是一種基於拉丁字母的編碼系統，可應用顯示現代英語。 A->65, B->66, …etc a->97, b->98, …etc H->72, I->73, !->33, so HI!...</p></section><footer class=entry-footer><span title="2022-02-23 00:43:18 +0800 +0800">February 23, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer><a class=entry-link aria-label="post link to [CS50] Lecture 0 - Introduction to Computer Science" href=http://intervalrain.github.io/posts/cs50/lec0/></a>
 </article><footer class=page-footer>
 <nav class=pagination>
 <a class=next href=http://intervalrain.github.io/tags/programming/page/2/>Next Page »</a>
