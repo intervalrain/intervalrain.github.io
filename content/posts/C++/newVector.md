@@ -1,5 +1,5 @@
 ---
-title: "How to Initialize vector in C++"
+title: "[C++] How to Initialize vector in C++"
 date: 2022-03-03T01:33:02+08:00
 tags: ["C++", "Programming"]
 draft: false

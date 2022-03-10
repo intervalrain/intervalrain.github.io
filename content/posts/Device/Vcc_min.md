@@ -1,5 +1,5 @@
 ---
-title: "SRAM Vcc_min Introduction"
+title: "[Device] SRAM Vcc_min Introduction"
 date: 2022-03-05T22:07:03+08:00
 tags: ["Semiconductor"]
 draft: true

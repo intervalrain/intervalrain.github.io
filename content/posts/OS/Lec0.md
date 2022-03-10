@@ -1,5 +1,5 @@
 ---
-title: "[OS] Lecture 0 - Introduction"
+title: "[OS] Lec 0 - Introduction"
 date: 2022-02-24T02:43:30+08:00
 tags: ["OS", "Programming", "Computer Science"]
 draft: false

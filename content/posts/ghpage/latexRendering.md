@@ -1,5 +1,5 @@
 ---
-title: "在 GitHub Pages 中渲染 KaTex 公式"
+title: "[ghpage] 在 GitHub Pages 中渲染 KaTex 公式"
 date: 2022-02-22T01:38:30+08:00
 tags: ["JavaScript", "Programming",]
 draft: true

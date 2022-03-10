@@ -1,5 +1,5 @@
 ---
-title: "[Device]Mismatch Introduction"
+title: "[Device] Mismatch Introduction"
 date: 2022-03-05T21:40:03+08:00
 tags: ["Semiconductor"]
 draft: false

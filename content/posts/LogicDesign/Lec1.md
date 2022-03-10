@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lecture 1 - 數字系統與轉換"
+title: "[Logic Design] Lec 1 - 數字系統與轉換"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design", "Life", "Music", "Semiconductor"]
 draft: false

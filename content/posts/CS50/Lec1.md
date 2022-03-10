@@ -1,5 +1,5 @@
 ---
-title: "[CS50] Lecture 1 - C"
+title: "[CS50] Lec 1 - C"
 date: 2022-03-10T02:39:12+08:00
 tags: ["CS50", "Programming"]
 draft: false
@@ -47,3 +47,4 @@ int main(void)
 + IDE(integrated development environments) 可以協助我們開發、編譯程式碼。如[Visual Studio Code](https://en.wikipedia.org/wiki/Visual_Studio_Code)
 + 我們撰寫的程式碼為開源碼(source code)，我們必須將他轉變成機器碼(machine code)，才能被電腦執行。
 + 編譯器(compiler)是將一種語言轉變成另一種語言的程式，例如將開源碼編譯成機器碼。
++ 
