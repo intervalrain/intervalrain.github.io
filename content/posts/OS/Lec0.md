@@ -3,7 +3,7 @@ title: "[OS] Lecture 0 - Introduction"
 date: 2022-02-24T02:43:30+08:00
 tags: ["OS", "Programming", "Computer Science"]
 draft: false
-Categories: Computer Science     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
+Categories: Operating System     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
 description: "概觀作業系統的歷史發展與進程" 
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
