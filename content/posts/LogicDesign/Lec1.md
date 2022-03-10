@@ -1,7 +1,7 @@
 ---
 title: "[Logic Design] Lec 1 - 數字系統與轉換"
 date: 2021-09-18T03:11:35+08:00
-tags: ["Logic Design", "Life", "Music", "Semiconductor"]
+tags: ["Logic Design"]
 draft: false
 Categories: Logic Design     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
 description: "Introduction to number systems in computer"
