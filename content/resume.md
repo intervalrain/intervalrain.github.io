@@ -1,8 +1,12 @@
 ---
 title: "Chenyu Hu"
+# layout: "archives"
+url: "/resume/"
+summary: resume
 # date: 2022-03-12T14:29:52+08:00
 description: "Device Engineer"  
 # author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+draft: true
 showToc: false
 TocOpen: false
 math: true                  # KaTex or not
@@ -12,7 +16,7 @@ canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
 disableShare: true
 hideSummary: false
-searchHidden: false
+searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: false
 ShowPostNavLinks: true
@@ -25,7 +29,7 @@ cover:
 
 ---
 ---
-### Info
+<!-- ### Info
 
 ### Education
 ![nthu](https://www.nthu.edu.tw//public/images/about10/cis-1-8.jpg)
@@ -37,4 +41,4 @@ cover:
 + B.S. in Material Science  
   + [Tsing Hua University(NTHU)](https://www.nthu.edu.tw)  
     + 2011 - 2014
-    + GPA: 3.21
+    + GPA: 3.21 -->
