@@ -117,18 +117,26 @@ params:
 
 menu:
   main:
+    - identifier: search
+      name: Search
+      url: /search
+      weight: 1
     - identifier: aboutme
       name: About me
       url: /posts/aboutme
       weight: 10
+    - identifier: archives
+      name: Archives
+      url: /archives
+      weight: 20
     - identifier: categories
       name: Categories
       url: /categories/
-      weight: 10
+      weight: 30
     - identifier: tags
       name: Tags
       url: /tags/
-      weight: 20
+      weight: 40
 
 
 outputs:
