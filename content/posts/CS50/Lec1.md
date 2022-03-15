@@ -47,4 +47,11 @@ int main(void)
 + IDE(integrated development environments) 可以協助我們開發、編譯程式碼。如[Visual Studio Code](https://en.wikipedia.org/wiki/Visual_Studio_Code)
 + 我們撰寫的程式碼為開源碼(source code)，我們必須將他轉變成機器碼(machine code)，才能被電腦執行。
 + 編譯器(compiler)是將一種語言轉變成另一種語言的程式，例如將開源碼編譯成機器碼。
-+ 
++ 在 IDE 中，我們可以在一個叫作 **terminal** 的視窗中輸入指令。
++ **terminal** 提供了 command-line interface(CLI)
++ 當我們輸入 `make hello`，會產生一個叫作 **hello** 的檔案，我們可以透過輸入 `./hello` 執行它。
+  + `.` 代表當下的目錄，上面的指令代表我們要執行當下目錄中叫作 **hello** 的檔案。
+  + **hello** 即是內含機器碼的檔案。
++ 欲刪除檔案可以用 `rm` 指令。
++ 輸入 `ls` 列出當下目錄所包含的檔案。
+
