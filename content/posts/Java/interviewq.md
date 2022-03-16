@@ -78,3 +78,6 @@ cover:
   + throw 用於方法內拋出異常，throws 用於方法聲明上拋出異常。
   + throw 後面只能有一個異常，throws 可以聲明多個異常。
 
+### 8. int 和 Integer 何者會占用更多記憶體?
++ Integer，Integer 是一個物件，會在 heap 中儲存，並儲存址的值到 stack 中，而 int 只會保存值在 stack 中。
+
