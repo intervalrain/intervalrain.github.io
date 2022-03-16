@@ -57,4 +57,24 @@ cover:
 + 等效。
 + 前者不會出現 NullPointerException。
 
+### 4. Arrays 與 ArrayList 的差異?
++ Arrays 可包含原始(primitive)及物件(object)，ArrayList只允許物件。
++ Arrays 大小固定，ArrayList 可動態調整。
++ ArrayList 提供許多方法，如 removeAll、iterator等。
+
+### 5. stack 與 heap 的區別?
++ stack: 可被預測生命週期的變數或函數資訊都放在 stack，例如：區域變數(local variable)、物件或陣列的返回位址(function/method return address)等資訊。
++ heap: 動態配置的記憶體空間，放置被 new 出來的物件以及內含的成員變數。
+
+### 6. Arrays 與 String 的大小
++ Arrays 有 length 這個屬性。
++ String 有 legnth() 這個方法。
+
+### 7. throw 與 throws 的區別
++ throws: throws 關鍵字通常被應用在聲明方法時，放在方法的大括號前，用來拋出異常，多個異常可以使用逗號隔開。後續使用者要調用方法時必須要拋出異常或者使用 try-catch 語句處理異常。
++ throw: throw 關鍵字通常用在設計方法時，預先宣告可能會產生的例外，後續方法使用者需要使用 try-catch 處理例外，或者使用 throws 關鍵字再拋出例外。
++ 補充：
+  + throw 用於方法內，throws 用於方法的聲明。
+  + throw 用於方法內拋出異常，throws 用於方法聲明上拋出異常。
+  + throw 後面只能有一個異常，throws 可以聲明多個異常。
 
