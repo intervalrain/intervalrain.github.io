@@ -54,4 +54,29 @@ int main(void)
   + **hello** 即是內含機器碼的檔案。
 + 欲刪除檔案可以用 `rm` 指令。
 + 輸入 `ls` 列出當下目錄所包含的檔案。
++ 若源碼檔經過修過，則必須重新編譯，才能對執行檔進行修改。
 
+# 函式、引數、傳回值、變數 Functions, Arguments, Return Values, Variables
+```C
+printf("Hello, world");
+```
++ 此處，介紹一個叫作 `printf` 的函數
+  + `f` 代表 **formatted** 的字串。字串是多個字元(characters)組成的字詞，在 C 中，我們需要用雙引號(`""`)來包住它。
+  + 括號 `()` 使我們可以輸入引數，也就是 printf 函數的 **input**。
+  + 最後，我們需要分號 `;`，來宣告述句的結束。
++ 其中，函式的一種產物叫作 **side effect**，也就是我們可以觀察到的變化，如螢幕印出字樣，或是發出聲響。
++ 相比與 **side effects，我們也可以將函式的回傳值用於程式中，回傳值通被儲存於變數中。
+
+```C
+string answer = get_string("What's your name? ");
+```
++ 此處，示範 CS50 IDE 中的一個函數。
+  + 這裡的 `get_string`為函式，而`What's your name? ` 為引數。
+  + 然後，我們可以將回傳值存入到變數中，以上例，我們可利用賦值運算子(`=`)將右值(r_value)傳給左值(l_value)的`answer`。
+  + 最後，我們宣告變數的**變數型別(type)**。
+    + 如果我們嘗試將上述的變數改為其他變數型別，編譯器會顯示錯誤。
+
+```C
+printf("Hello, world\n");
+```
++ 我們此處為了換行，而使用了 `escape sequence` `\n`。

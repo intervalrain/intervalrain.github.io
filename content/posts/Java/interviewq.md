@@ -81,3 +81,5 @@ cover:
 ### 8. int 和 Integer 何者會占用更多記憶體?
 + Integer，Integer 是一個物件，會在 heap 中儲存，並儲存址的值到 stack 中，而 int 只會保存值在 stack 中。
 
+### 9. 是否能將 int 強制轉型為 byte?
++ 可以，可以使用 `b = (byte) a` 來進行強制轉換，但是超過範圍的部分會被丟棄。
