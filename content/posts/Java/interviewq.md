@@ -74,12 +74,40 @@ cover:
 + throws: throws 關鍵字通常被應用在聲明方法時，放在方法的大括號前，用來拋出異常，多個異常可以使用逗號隔開。後續使用者要調用方法時必須要拋出異常或者使用 try-catch 語句處理異常。
 + throw: throw 關鍵字通常用在設計方法時，預先宣告可能會產生的例外，後續方法使用者需要使用 try-catch 處理例外，或者使用 throws 關鍵字再拋出例外。
 + 補充：
-  + throw 用於方法內，throws 用於方法的聲明。
-  + throw 用於方法內拋出異常，throws 用於方法聲明上拋出異常。
-  + throw 後面只能有一個異常，throws 可以聲明多個異常。
+    + throw 用於方法內，throws 用於方法的聲明。
+    + throw 用於方法內拋出異常，throws 用於方法聲明上拋出異常。
+    + throw 後面只能有一個異常，throws 可以聲明多個異常。
 
 ### 8. int 和 Integer 何者會占用更多記憶體?
 + Integer，Integer 是一個物件，會在 heap 中儲存，並儲存址的值到 stack 中，而 int 只會保存值在 stack 中。
 
 ### 9. 是否能將 int 強制轉型為 byte?
 + 可以，可以使用 `b = (byte) a` 來進行強制轉換，但是超過範圍的部分會被丟棄。
+
+### 10. 是否能保證 gc 的執行?
++ 否，垃報回收機制程式設計師無法保證，但可以透過 `System.gc()` 呼叫。
+
+### 11. abstract class 與 interface 的區別?
++ abstract class 可以宣告抽象方法，提供子類別實作。
++ interface 的方法必定是抽象方法。
++ 一個類別可以繼承多個介面，但只能繼承一個抽象類別。
+
+### 12. List 與 Set 區別?
++ List: 
+    1. 有順序性(索引值)。
+    2. 可重複。
+    3. ArrayList 實作了 List 介面。
+    4. ArrayList: 插入、刪除速度 \\(O(n)\\)，走訪速度\\(O(1)\\)。
+    5. LinkedList: 插入、刪除速度 \\O(1)\\)，走訪速度\\(O(n)\\)。
++ Set
+    1. 無順序性(配合 iterator)
+    2. 不可重複，走訪速度\\(O(1)\\)。
+    3. HashSet 實作了 Set 介面。
+    4. HashSet: 無順序性，查找速度快。
+    5. LinkedHashSet: 有順序性
+    6. TreeSet: 有排序性(依字母)
++ Map
+    1.有元素鍵值(Key-Value)，搜尋快
+    2.元素可重複，鍵值如果重複新加入值會覆蓋舊有值
+    3.HashMap: 查找速度慢，插入刪除速度快
+    4.TreeMap: 有排序性
