@@ -3,11 +3,11 @@ title: "<Title>"
 date: {{ .Date }}
 tags: ["LeetCode", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, Operating System, CS50
+Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
 description: "Desc Text."                     
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
-TocOpen: false
+TocOpen: true
 math: true                  # KaTex or not
 hidemeta: false
 comments: false
