@@ -30,7 +30,7 @@ cover:
 # 計算機結構簡介
 ## 二進制
 + 從真實世界的 **類比訊號** 到方便儲存與傳送的 **數位訊號** (Analog to Digital)。
-+ 訊號容易用 **二進制** 表達，在電子電路上，可以用 **電子開關(Switch)** 來描述。
++ 訊號容易用 **二進制** 表達，在電子電路上，可以用 **電子開關(Switch)** 來描述(bit)。
 + 利用 **電晶體(Transistor)** 其特性，可以作為一個電子開關。
     + 現今的積體電路最常見的電晶體為 **MOSFET** (Metal Oxide Silicon Field Effect Transistor)。
     + 利用閘極(Gate)控制源極(Source)與汲極(Drain)的電子通道。
@@ -57,11 +57,27 @@ cover:
 + 計算機結構
     + **Computer Architecture = Instruction Set Architecture(ISA) + Machine Organization**
     + Software 與 Hardware 間的 interface。(不同層級抽象化的協同)
-    + 因應不同的需求所設計出來的**結構**。
+    + 因應不同的需求所設計出來的機械**結構**。
         + 選用的演算法
         + 選用的程式語言或編譯器
         + 選用的作業系統
         + 處理器
         + I/O 系統與裝置
+    + 指令集Instruction Set Architecture(ISA)
+        + 可編程的儲存量(programmable storage)
+        + 資料型別與結構：編碼與表現(Encodings and Representations)
+        + Instruction Set
+        + Instruction Formats
+        + 讀寫資料的模式與指令
+        + 例外狀況
+        + e.g. [Intel(CISC)、Arm(RISC)](https://www.techbang.com/posts/10678-fully-understand-arm-processors-cisc-and-risc-are-what-history-structure-a-see-through-the-computer-96-issues-cover-story-the-king?msclkid=3b721fcfaac611ec864fb9dcb0668cc9)
+            + CISC: Complex Instruction Set Computer
+            + RISC: Reduced Instruction Set Computer
 
-# 目錄
+# [目錄]
++ Chapter 1. [Computer Abstractions and Technology](https://intervalrain.github.io/posts/ca/lec1)
++ Chapter 2. [Instruction Set Architecture](https://intervalrain.github.io/posts/ca/lec2)
++ Chapter 3. [Computer Arithmetic](https://intervalrain.github.io/posts/ca/lec3)
++ Chapter 4. [Designing a Single-Cycle Processor](https://intervalrain.github.io/posts/ca/lec4)
++ Chapter 5. [Pipelining](https://intervalrain.github.io/posts/ca/lec5)
++ Chapter 6. [Memory Hierarchy](https://intervalrain.github.io/posts/ca/lec6)
