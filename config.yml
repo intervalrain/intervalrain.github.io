@@ -56,7 +56,7 @@ params:
   profileMode:
     enabled: true
     title: "<Title>"
-    subtitle: "It's Raining inside"
+    subtitle: "There's always rainbow after raining"
     imageUrl: "/images/rain.png"
     imageTitle: "Is it raining outside?"
     imageWidth: 120
