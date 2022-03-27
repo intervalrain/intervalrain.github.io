@@ -4,7 +4,7 @@ date: 2022-03-26T21:46:26+08:00
 tags: ["Programming", "Semiconductor", "TCAD"]
 draft: false
 Categories: TCAD     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA, TCAD
-description: "Desc Text."                     
+description: "TCAD learning notes"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true
