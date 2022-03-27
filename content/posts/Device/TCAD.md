@@ -21,6 +21,7 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
+GHissueID: 2
 cover:
     image: "/images/cover.jpg"
     alt: "Oh! You closed up the window, so you cannot see raining"
