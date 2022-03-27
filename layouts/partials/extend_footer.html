@@ -1,8 +1,0 @@
-{{- /* Footer custom content area start */ -}}
-{{- /*     Insert any custom code web-analytics, resources, etc. here */ -}}
-{{ with .Params.GHissueID }}
-  {{ partial "comments.html" $ }}
-{{ else }}
-  {{ template "_internal/disqus.html" . }}
-{{ end }}
-{{- /* Footer custom content area end */ -}}
