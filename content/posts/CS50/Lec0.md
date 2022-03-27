@@ -10,7 +10,6 @@ showToc: true
 TocOpen: false
 math: true
 hidemeta: false
-comments: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
 disableShare: true

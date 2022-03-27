@@ -11,7 +11,6 @@ TocOpen: false
 draft: false
 math: false
 hidemeta: false
-comments: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
 disableShare: true

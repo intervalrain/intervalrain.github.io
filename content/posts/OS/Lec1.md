@@ -11,7 +11,6 @@ TocOpen: true
 math: true                  # KaTex or not
 draft: false
 hidemeta: false
-comments: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
 disableShare: true
