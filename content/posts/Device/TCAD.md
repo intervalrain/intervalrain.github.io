@@ -10,7 +10,6 @@ showToc: true
 TocOpen: true
 math: true                  # KaTex or not
 hidemeta: false
-comments: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
 disableShare: true
@@ -21,7 +20,6 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
-GHissueID: 2
 cover:
     image: "/images/cover.jpg"
     alt: "Oh! You closed up the window, so you cannot see raining"
