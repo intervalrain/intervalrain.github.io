@@ -5,7 +5,4 @@
 {{ if or .Params.math .Site.Params.math }}
 {{ partial "math.html" . }}
 {{ end }}
-{{ if or .Params.ShowToc }}
-{{ partial "toc.html" . }}
-{{ end }}
 {{- /* Head custom content area end */ -}}
