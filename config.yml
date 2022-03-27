@@ -32,7 +32,8 @@ params:
   # ShowCodeCopyButtons: false
   # disableSpecial1stPost: false
   # disableScrollToTop: false
-  comments: true
+  # comments: true
+  # GHissueID: 2
   # hidemeta: false
   # hideSummary: false
   # showtoc: false
