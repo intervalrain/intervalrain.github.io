@@ -17,7 +17,7 @@ theme: hugo-PaperMod
 params:
 #   env: production # to enable google analytics, opengraph, twitter-cards and schema.
 #   title: ExampleSite
-  description: [rainhu, intervalrain, 陣雨]
+  description: "rainhu, intervalrain, 陣雨"
 #   keywords: [Blog, Portfolio, PaperMod]
 #   author: Rain Hu # author: ["Me", "You"] # multiple authors
 #   images: ["<link or path of image for opengraph, twitter-cards>"]
@@ -32,8 +32,8 @@ params:
   # ShowCodeCopyButtons: false
   # disableSpecial1stPost: false
   # disableScrollToTop: false
-  # comments: true
-  # GHissueID: 2
+  comments: true
+  GHissueID: 2
   # hidemeta: false
   # hideSummary: false
   # showtoc: false
