@@ -149,7 +149,7 @@ cover:
   + 表達式： \\(\text{Sum}=X' Y+XY'\\)
 
 ## Full Adder 全加器
-  + \\(X,Y,C_{\text{in}}\rightarrow{\boxed{\text{Half Adder}}\rightarrow C_{out}, \text{Sum}}\\)
+  + \\(X,Y,C_{\text{in}}\rightarrow{\boxed{\text{Full Adder}}\rightarrow C_{out}, \text{Sum}}\\)
   + Truth Table:  
 \\(
   \boxed{
@@ -171,15 +171,84 @@ cover:
     + \\(C_\text{out}=YC_{\text{in}}+XC_{\text{in}}+XY\\)
   + 邏輯電路
   ![fulladder](/images/fullAdder.png)
-## 4-Bit Parallel Adder (Ripple Carry Adder)
+## 4-Bit Parallel Adder (Ripple Carry Adder 漣波加法器)
   + 四個平行串接的全加器 (Full Adder)
   ![4bitadder](/images/4bitadder.png)
 
-## Binary Subtracter
+## Binary Subtracter using Full Adders
   + 用全加器來實現減法器
 
-  ![subtracter](images/sub.png)
+  ![subtracter](/images/sub.png)
+
+## Full Subtracter
+  + \\(x_i,y_i,b_i\rightarrow\boxed{\text{Full Subtracter}}\rightarrow b_{i+1},d_i\\)
+  + Truth Table:  
+\\(
+  \boxed{
+    \def\arraystretch{1}\begin{array}{ccc|cc}
+      x_i&y_i&b_i&b_{i+1}&d_i\\\\\hline
+      0&0&0&0&0\\\\
+      0&0&1&1&1\\\\
+      0&1&0&1&1\\\\
+      0&1&1&1&0\\\\
+      1&0&0&0&1\\\\
+      1&0&1&0&0\\\\
+      1&1&0&0&0\\\\
+      1&1&1&1&1\\\\
+    \end{array}
+  }
+\\)
+
+  + 示意  
+\\(
+  \boxed{
+    \def\arraystretch{1}\begin{array}{c|cc}
+      &\text{Column i Before Borrow}&\text{Column i After Borrow}\\\\\hline
+      x_i&0&10&\\\\
+      -b_i&-1&-1\\\\
+      -y_i&-1&-1\\\\\hline
+      d_i&&0(b_{i+1}=1)\\\\
+    \end{array}
+  }
+\\)
+
+## Parallel Subtracter
+  ![subtracter2](/images/sub2.png)
 
 # Speeding up integer additions
+## Ripple Carry Adder
++ 一般的漣波進位加法器
+  + 設計簡單、規律
+  + 有較大的 Time Delay
+    + 一個 Full Adder 為\\(C_\text{out}=YC_{\text{in}}+XC_{\text{in}}+XY\\)
+    + 也就是先 AND 再 OR，兩個 gate delay
+    + **故 n-bit adder 的 time delay 是 2n**
+## Carry Lockahead Adder(CLA)
++ \\(\text{Sum}=A\oplus B\oplus C_{in}\\)
++ \\(C_{out}=AB+(A+B)C_{in}\\)
++ \\(C_{i+1}=A_iB_i+(A_i+B_i)C_i\\)
++ \\(C_{i+1}=g_i+p_iC_i\\)
+  + \\(g_i=A_iB_i\\) generate function
+  + \\(p_i=A_i+B_i\\) propagate function
++ \\(C_2=g_1+p_1C_1\\)
++ \\(C_2=g_1+p_1p_0g_0+p_1p_0C_0\\)
++ \\(C_n=g_{n-1}+p_{n-1}g_{n-2}+p_{n-1}p_{n-2}g_{n-3}+...+p_{n-1}p_{n-2}...p_1g_0+p_{n-1}p_{n-2}...p_0C_0\\)
++ 換句話說，\\(C_n\\)可以藉由 \\(C_0\\)運算出來，以 4-bit 為例，可以從漣波的 8 次降到 5 次的 Gate delay。
+![cla](/images/cla.png)
+## Carry Select Adder
++ 將兩個加法作平行處理
+  + 預先假設 carry-in 的值，待前一級的 carry-in 算出後再用 selector 選擇正確的 carry-in，減去收到前級 carry-in 再開始運算的時間。
+![carryselector](/images/carryselector.png)
 # Binary multiplication
-
++ 用邏輯閘模擬一般十進制進位法的乘法
+  + 示意  
+\\(
+  \def\arraystretch{1}\begin{array}{rcccc}
+    \text{Multiplicand}&&&B_1&B_0\\\\
+    \text{Multiplier}&&&A_1&A_0\\\\\hline
+    \text{Partial products}&&&A_0B_1&A_0B_0\\\\
+    \text{shift one bit left}&&A_1B_1&A_1B_0\\\\
+    \text{Sum of partial products}&C1&C2&C3&C4\\\\
+  \end{array}
+\\)
+  ![multiplication](/images/multiplication.png)
