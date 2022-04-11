@@ -40,7 +40,7 @@ vector<int> v5(3, 0);                   // 含有3個0的vector
 ```
 + 談一下特殊的二維vector，其實就是二維矩陣，寫法為  
 ```Cpp
-vector<vector<int>> vv(3, vec<int>(5, 0));
+vector<vector<int>> vv(3, vector<int>(5, 0));
 // vv[0] = [0, 0, 0, 0, 0]
 // vv[1] = [0, 0, 0, 0, 0]
 // vv[2] = [0, 0, 0, 0, 0]
