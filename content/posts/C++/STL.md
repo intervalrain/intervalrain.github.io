@@ -195,7 +195,55 @@ int main(){
 }
 ```
 ### Array algorithms
+1. `any_of(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false;`
+2. `all(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false;`
+3. `none_of(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false;`
+```Cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main(){
+    vector<int> vec1 {1,3,7,9,11,17,23};
+    all_of(vec1.begin(), vec1.end(), [](int x) { return (x & 1) == 1;}) ? cout << "All odds\n" : cout << "Not all odds\n";
+
+    vector<int> vec2 {1,3,6,8,9,11,13};
+    any_of(vec2.begin(), vec2.end(), [](int x) { return (x & 1) == 0;}) ? cout << "There are at least one even\n" : cout << "There are no any even\n";
+
+    none_of(vec1.begin(), vec1.end(), [](int x) { return (x & 1) == 0;}) ? cout << "There are no any even\n" : cout << "There are at least one even\n";
+
+    return 0;
+}
+```
+4. `copy_n(source_array, array_size, target_array)`
+```Cpp
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main(){
+    int arr[] = {1,2,3,4,5,6};
+    int arr2[6];
+
+    copy_n(arr, 6, arr2);
+
+    for (int i : arr2){
+        cout << i << " ";
+    }
+
+    return 0;
+}
+```
+5. `iota(array_name, array_size, starting_number)`
+```Cpp
+
+```
+
 ### Partition operations
+
 ### Numeric algorithms
 
 ## 容器(Containers)
