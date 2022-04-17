@@ -221,19 +221,19 @@ vec.back(): 7
 
 ## 修改元素(modify elements)
 #### 1. assign(int n, int val)
-+ It assigns new value to the vector elements by replacing old ones
++ 指派新的值到 vector 中，並取代舊的值
 #### 2. push_back(int val)
-+ It push the elements into a vector from the back
++ 將新的值加到 vector 的尾端
 #### 3. pop_back()
-+ It is used to pop or remove elements from a vector from the back.
++ 將 vector 的尾端的值取出並移除
 #### 4. insert(iterator it, int val)
-+ It inserts new elements before the element at the specified position
++ 在 vector 的指定位置加入新的值 
 #### 5. erase(iterator it)
-+ It is used to remove elements from a container from the specified position or range.
++ 移除 vector 指定位置的移
 #### 6. v1.swap(v2)
-+ It is used to swap the contents of one vector with another vector of same type. Sizes may differ.
++ 交換兩個 vector 的值
 #### 7. vec.clear()
-+ It is used to remove all the elements of the vector container.
++ 清除 vector 的所有值
 
 ```Cpp
 #include <bits/stdc++.h>
