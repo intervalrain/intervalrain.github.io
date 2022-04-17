@@ -220,13 +220,13 @@ vec.back(): 7
 ```
 
 ## 修改元素(modify elements)
-#### 1. assign(int n, int val)
+#### 1. assign(int n, E val)
 + 指派新的值到 vector 中，並取代舊的值
-#### 2. push_back(int val)
+#### 2. push_back(E val)
 + 將新的值加到 vector 的尾端
 #### 3. pop_back()
 + 將 vector 的尾端的值取出並移除
-#### 4. insert(iterator it, int val)
+#### 4. insert(iterator it, E val)
 + 在 vector 的指定位置加入新的值 
 #### 5. erase(iterator it)
 + 移除 vector 指定位置的移
