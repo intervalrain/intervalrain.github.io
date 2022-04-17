@@ -313,3 +313,10 @@ After Swap
 Vector 1: [3, 4]
 Vector 2: [1, 2]
 ```
+
++ 你可能會想繼續閱讀…
+    + 回到[容器(Containers)](https://intervalrain.github.io/posts/c++/stl_container)
+    + [list](https://intervalrain.github.io/posts/c++/stl_list)
+    + [deque](https://intervalrain.github.io/posts/c++/stl_deque)
+    + [arrays](https://intervalrain.github.io/posts/c++/stl_arrays)
+    + [forward_list](https://intervalrain.github.io/posts/c++/stl_forward_list)
