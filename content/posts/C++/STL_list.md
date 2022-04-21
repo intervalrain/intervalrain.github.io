@@ -117,7 +117,13 @@ int main(){
 + `n`: the numbers of val to insert (optional, default = 1)
 + `val`: the insert elements
 + Inserts new elements in the list before the element at a specified position.
-#### 15. list.erase()
+#### 15. list.erase(pos)
++ `pos`: iterator, to point out the position to erase
++ Removes a single element from the list.
+#### 16. list.erase(first, last)
++ `first`: iterator, to point out the begining of the range.
++ `last`: iterator, to point out the end of the range.
++ Removes a range of elements from the list.
 #### 16. list.assign()
 #### 17. list.remove()
 #### 18. list.remove_if()
