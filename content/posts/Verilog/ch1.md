@@ -1,5 +1,5 @@
 ---
-title: "[VHDL] Overview 概述"
+title: "[VHDL] 1. Overview 概述"
 date: 2022-05-01T19:00:13+08:00
 tags: ["VHDL", "Programming", "Verilog"]
 draft: false
