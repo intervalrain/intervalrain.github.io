@@ -1,5 +1,5 @@
 ---
-title: "[VHDL] 0. IEEE 標準硬體描述語言"
+title: "[VHDL] IEEE 標準硬體描述語言"
 date: 2022-05-01T17:37:22+08:00
 tags: ["VHDL", "Programming", "Verilog"]
 draft: false
@@ -427,34 +427,3 @@ cover:
 
         endmodule
         ```
-    
-## 3 目錄
-### [1. Overview](/posts/verilog/ch1/)  
-### [2. Normative references](/posts/verilog/ch2/)  
-### [3. Lexical conventions](/posts/verilog/ch3/)  
-### [4. Data Types](/posts/verilog/ch4/)  
-### [5. Expressions](/posts/verilog/ch5/)  
-### [6. Assignments](/posts/verilog/ch6/)  
-### [7. Gate- and switch-level modeling](/posts/verilog/ch7/)  
-### [8. User-defined primitives(UDPs)](/posts/verilog/ch8/)  
-### [9. Behavioral modeling](/posts/verilog/ch9/)  
-### [10. Tasks and functions](/posts/verilog/ch10/)  
-### [11. Scheduling semantics](/posts/verilog/ch11/)  
-### [12. Hierachical structures](/posts/verilog/ch12/)  
-### [13. Configuraing the contents of a design](/posts/verilog/ch13/)  
-### [14. Specify blocks](/posts/verilog/ch14/)  
-### [15. Timing checks](/posts/verilog/ch15/)  
-### [16. Backannotation using the standard delay format(SDF)](/posts/verilog/ch16/)  
-### [17. System tasks and functions](/posts/verilog/ch17/)  
-### [18. Value change dump (VCD) files](/posts/verilog/ch18/)  
-### [19. Compiler directives](/posts/verilog/ch19/)  
-### [20. Programming language interface(PLI) overview](/posts/verilog/ch20/)  
-### 21. PLI TF and ACC interface mechanism (deprecated)  
-### 22. Using ACC routines(deprecated)  
-### 23. ACC routine definitions (deprecated)  
-### 24. Using TF routines (deprecated)
-### 25. TF routines definitions (deprecated)
-### [26. Using Verilog procedural interface (VPI) routines](/posts/verilog/ch26/)  
-### [27. VPI routine definitions](/posts/verilog/ch27/)  
-### [28. Protected envelopes](/posts/verilog/ch28/)  
-### [29. Appendix](/posts/verilog/ch29/)
