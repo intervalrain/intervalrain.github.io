@@ -43,31 +43,31 @@ cover:
     + 樹狀式的設計結構
     + 由繁化簡
 ## 1.2 Verilog 的模型
-## 1.2.1 電晶體層級
+### 1.2.1 電晶體層級
 + Transistor Level
 + 或低階交換層次模型(Switch Level Model)
 + Verilog 最低階的層次模型
 + 電路是由開關與電晶體所組成
 + 一般不會採取低階的層級來進行設計
-## 1.2.2 邏輯閘層級
+### 1.2.2 邏輯閘層級
 + Gate Level
 + 使用基本的邏輯閘元件
 + AND、OR、NOT
 + 邏輯電路圖
-## 1.2.3 資料流層級
+### 1.2.3 資料流層級
 + Data Flow Level
 + 描述電路中資料的處理方式
 + 資料如何在電路中運算及傳送
 + 輸入持續驅動輸出
 + 運算式
     + 如：`out = a + b + c`
-## 1.3.4 行為模型
+### 1.2.4 行為模型
 + Behavior Level
 + Verilog 最高階的層次模型
 + 不需考慮硬體元件的特型，只需放在模組的功能描述
 + 很像 C 語言
 + 合成軟體工具
-## 1.3.5 結構式模型
+### 1.2.5 結構式模型
 + Structure Level
 + 引用硬體模組的模式
 + 類似邏輯閘層次模型
@@ -102,7 +102,7 @@ cover:
     + 註解(comments)
     + 空白(whitespace)
     + 數值(numbers)
-## 1.3.1 識別字(identifiers)
+### 1.3.1 識別字(identifiers)
 + 描述電路行為所使用的自訂物件
     + 不違反命名規則，工程師自行定義的物件名稱
 + 命名規則
@@ -117,7 +117,7 @@ cover:
     NT$899              (Valid)
     3_bit_data          (Invalid)
     ```
-## 1.3.2 關鍵字(keywords)
+### 1.3.2 關鍵字(keywords)
 + 描述電路語法所保留的一組特殊名稱的標記
 + 定義語言的結構來描述電路
     + 輸入(input)、輸出(output)
@@ -141,11 +141,11 @@ cover:
         \text{trior}&\text{trireg}&\text{wait}&\text{wand}&\text{weak0}&\text{weak1}\\\\\hline
         \text{while}&\text{wire}&\text{wor}&\text{xnor}&\text{xor}\\\\\hline
     \end{array}\\)
-## 1.3.3 字串(strings)
+### 1.3.3 字串(strings)
 + 一連串字元(character)組成的單一個體
 + 可含有字母、數字、及一些特殊字元
 + 字串的所有字元必須在同一行上，並在**雙引號**之間
-## 1.3.4 註解(comments)
+### 1.3.4 註解(comments)
 + 程式碼中加入說明文字
     + 可讀性(readability)
     + 文件化(documentation)
@@ -153,13 +153,13 @@ cover:
 + 以`//`開頭的單行註解(one-line comment)
 + 以`/*`為開頭，並以`*/`為結尾的多行註解(multiple-line comment)
 + 多行註解不支援巢狀結構
-## 1.3.5 空白(whitespace)
+### 1.3.5 空白(whitespace)
 + 區隔不同物件
 + 空格(blank spaces，\b)
 + 欄位(tabs，\t)
 + 換行(newlines，\n)
 + 除字串內空白，註解與空白在編譯與合成時會被忽略
-## 1.3.6 數值(numbers)
+### 1.3.6 數值(numbers)
 + Verilog 有兩種數值表示法
     + 固定長度(sized): 定義位元寬度
         + `<size>'<bsase format><number>`
@@ -198,14 +198,14 @@ cover:
         \end{array}
     \\)
 
-## 2.4 Verilog 資料物件與型態
+## 1.4 Verilog 資料物件與型態
 + 資料物件(data objects)
     + 描述行為過程中所使用的訊號載具
     + 一個物件經過處理再傳到另一個物件
 + 資料型態(data type)
     + 定義資料物件的類型
     + 接線、暫存器、參數等
-## 2.4.1 接線(Nets)
+### 1.4.1 接線(Nets)
 + 接線(nets)是連接實體元件的連接線
 + 要被驅動才能改變其內部的值
 + 最主要的關鍵字是 `wire`
@@ -218,7 +218,7 @@ cover:
     wire x = 1'b0;  // 宣告一條接線，命名為x，並指定x為邏輯0
     wire a, b, c    // 宣告三條接線，命名為a, b, c
     ```
-## 2.4.2 暫存器(Registers)
+### 1.4.2 暫存器(Registers)
 + 抽象的資料儲存物件(有別於實體暫存器 D flip-flop)
 + 保留一個數值直到下一次指定新值為止
 + 觀念類似 C 語言中的變數
@@ -242,7 +242,7 @@ cover:
     integer count;  // 宣告 1 個整數為 count，值可以為正負
     real fraction;  // 宣告 1 個浮點數為 fraction，值含小數點
     ```
-## 2.4.3 純量與向量(scalar and vector)
+### 1.4.3 純量與向量(scalar and vector)
 + 純量(scalar)
     + 一個位元的物件
 + 向量(vector)
@@ -258,7 +258,7 @@ cover:
     reg [0:7] y;    // 宣告 1 個 8-bits 暫存器
     reg [31:0] z;   // 宣告 1 個 32-bits 暫存器
     ```
-## 2.4.4 陣列(Array)
+### 1.4.4 陣列(Array)
 + 多個暫存器、接線的聚合體
 + 索引值(index)定義聚合體中的個別物件
 + 支援多維度的陣列
@@ -274,7 +274,7 @@ cover:
     // 每個暫存器皆為 8 位元寬
     reg [7:0] mem_2D [3:0][63:0];
     ```
-## 2.4.5 參數(parameter)
+## 1.4.5 參數(parameter)
 + 定義編譯合成電路時的常數
 + 每次編譯合成前更改，編譯合成器會根據參數值產生相對應的電路
 + 重複使用
@@ -285,8 +285,8 @@ cover:
     wire [width-1:0] a, b;  // 接線 a 和 b 的位元寬度，會隨著參數值的改變而變動
     reg [width-1:0] y;      // 暫存器 y 的位元寬度，會隨著參數值的改變而變動
     ```
-## 2.5 模組(Module)、埠(Port)
-## 2.5.1 模組(Module)
+## 1.5 模組(Module)、埠(Port)
+### 1.5.1 模組(Module)
 + 一個電路區塊、可以由其他模組組成
 + 連接模組時
     + 考慮模組的輸入與輸出介面
@@ -317,7 +317,7 @@ cover:
     function, task
     endmodule
     ```
-## 2.5.2 埠(port)
+### 1.5.2 埠(port)
 + 終端點、模組與外界溝通的介面接點(門)
 + 一個模組通常是經由一串的輸入輸出埠稱為埠列(terminal list)來與外界溝通
 + 若模組與外界不需要溝通，則埠列也就不存在(封閉系統)
@@ -336,7 +336,7 @@ cover:
     ...
     endmodule
     ```
-## 2.6 邏輯閘層次模型
+## 1.6 邏輯閘層次模型
 + 利用關鍵字即可引用基本的邏輯閘元件
 + 基本的邏輯閘關鍵字
     + `and`
@@ -346,7 +346,7 @@ cover:
     + `not`
     + `xor`
     + `xnor`
-## 2.6.1 多個輸入邏輯閘(Multiple-Input Gates)
+### 1.6.1 多個輸入邏輯閘(Multiple-Input Gates)
 + `and`、`nand`、`or`、`nor`、`xor`、`xnor`
 + 具有多個純量(scalar)的輸入，但是只有一個純量的輸出
 + **多個輸入邏輯閘的輸出總是放在埠列(post list)的第一個位置，而輸入則是跟在輸出的後面**
@@ -375,7 +375,7 @@ cover:
      \underbrace{\text{a, b, c, d}} _{\text{輸入}}
      \text{);}
      \\)
-## 2.6.2 多個輸出邏輯閘(Multiple-Output Gates)
+### 1.6.2 多個輸出邏輯閘(Multiple-Output Gates)
 + `not`、`buf`
 + 具有一個或是多個純量(scalar)的輸出，但是只有一個純量的輸入
 + **多個輸出邏輯閘的輸出是放在埠列(port list)的前面位置，而輸入則是放在列後面位置**
