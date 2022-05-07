@@ -4,7 +4,7 @@ date: 2021-09-24T17:35:54+08:00
 tags: ["Logic Design"]
 draft: false
 Categories: Logic Design     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily
-description: "Applicatin of Boolean Algebra"
+description: "Minterm and Maxterm expression"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

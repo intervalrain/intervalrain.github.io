@@ -4,7 +4,7 @@ date: 2021-10-01T01:09:39+08:00
 tags: ["Logic Design"]
 draft: false
 Categories: Logic Design     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily
-description: "Simplify Boolean function with K-map"
+description: "Quine-McClusky method - systematic method to simplify boolean algebra for computer."
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true
@@ -106,7 +106,7 @@ cover:
         \end{array}
     }
     \\)
-# 質涵項圖(表)
+# 質函項圖(表)
 + 範例
     + \\(
     \boxed{
@@ -137,8 +137,8 @@ cover:
     + \\(\rightarrow f(a,b,c)=P2+P4+P6=a' bd+cd'+b' c'\\)
     + (若沒有基本質函項時，有可以有多個最佳解)
 # Petrick's method
-+ 用來解出質涵項圖的所有 min SOP 解。
-+ 在使用 Petrick 法前，需將所有基本質函項與其涵蓋的 minterms 從表上劃掉。
++ 用來解出質函項圖的所有 min SOP 解。
++ 在使用 Petrick 法前，需將所有基本質函項與其函蓋的 minterms 從表上劃掉。
 + 範例：\\(F=\sum m(0,1,2,5,6,7)\\)  
 \\(
     \boxed{

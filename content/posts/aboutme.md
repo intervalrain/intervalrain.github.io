@@ -61,6 +61,8 @@ cover:
 > 如果明天就要死亡的話，我會跟家人一起。
 
 ## More about me
+- Job
+  - [Resume](https://www.cakeresume.com/intervalrain)
 - Music
   - [Streetvoice](https://streetvoice.com/intervalrain/)
   - [Youtube](https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA)
