@@ -32,7 +32,7 @@ cover:
 > 每個問題都會要求讀者使用 Verilog 設計一個小電路。HDLBits 會對提交的程式碼作判讀。透過一組測試碼來進行向量模擬，並與解答比較，檢查正確性。
 
 # 1 Getting Started
-## - assign one
+\\(\text{assign one}\\)
 + Build a circuit with no inputs and one output. The output should always drive 1 (or logic high).
 ```Verilog
 module top_module( output one);
@@ -42,7 +42,7 @@ module top_module( output one);
 endmodule
 ```
 ---
-## - assign zero
+\\(\text{assign zero}\\)
 + Build a circuit with no inputs and one output that outputs a constant 0.
 ```Verilog
 module top_module(
@@ -54,7 +54,7 @@ endmodule
 ```
 # 2 Verilog Language
 ## 2.1 Basics
-### - wire
+\\(\text{wire}\\)
 + Create a module with one input and ont output that behaves like a wire
 ![wire](https://hdlbits.01xz.net/mw/images/7/77/Wire.png)
 ```Verilog
@@ -65,7 +65,7 @@ module top_module( input in, output out);
 endmodule
 ```
 ---
-### - wire4
+\\(\text{multi-in-out}\\)
 + Create a module with 3 inputs and 4 outputs that behaves like wires that makes these connections:
 ![wire4](https://hdlbits.01xz.net/mw/images/1/15/Wire4.png)
 ```Verilog
@@ -81,7 +81,7 @@ module top_module(
 endmodule
 ```
 ---
-### - notgate
+\\(\text{not gate}\\)
 + Create a module that implements a NOT gate.
 ![Notgate](https://hdlbits.01xz.net/mw/images/9/9e/Notgate.png)
 ```Verilog
@@ -92,7 +92,7 @@ module top_module( input in, output out );
 endmodule
 ```
 ---
-### - andgate
+\\(\text{and gate}\\)
 + Create a module that implments an AND gate.
 ![Andgate](https://hdlbits.01xz.net/mw/images/7/78/Andgate.png)
 ```Verilog
@@ -105,7 +105,7 @@ module top_module(
 endmodule
 ```
 ---
-### - norgate
+\\(\text{nor gate}\\)
 + Create a module that implements a NOR gate. A NOR gate is an OR gate with its output inverted. A NOR function needs two operators when written in Verilog.
 ![norgate](https://hdlbits.01xz.net/mw/images/5/5b/Norgate.png)
 ```Verilog
@@ -118,7 +118,7 @@ module top_module(
 endmodule
 ```
 ---
-### - xnorgate
+\\(\text{xnor gate}\\)
 + Create a module that implements a XNOR gate.
 ![xnorgate](https://hdlbits.01xz.net/mw/images/6/6d/Xnorgate.png)
 ```Verilog
@@ -131,7 +131,7 @@ module top_module(
 endmodule
 ```
 ---
-### - wire decl
+\\(\text{wire declaration}\\)
 + Implement following circuits. Create two intermediate wires to connect the AND and OR gates together. Note that the wire that feeds the NOT gate is really wire out, so you do not necessarily need to declare a third wire here. Notice how wires are driven by exactly one source (output of a gate), but can feed multiple inputs.
 ![Wiredecl](https://hdlbits.01xz.net/mw/images/3/3a/Wiredecl2.png)
 ```Verilog
@@ -148,7 +148,7 @@ module top_module(
 endmodule
 ```
 ---
-### - 7458
+\\(\text{7458}\\)
 + The 7458 is a chip with four AND gates and two OR gates. Create a module with the same functionality as the 7458 chip. It has 10 inputs and 2 outputs.
 ![7458](https://hdlbits.01xz.net/mw/images/e/e1/7458.png)
 ```Verilog
@@ -171,7 +171,7 @@ module top_module(
 endmodule
 ```
 ## 2.2 Vectors
-### - vector0
+\\(\text{vector}\\)
 + Build a circuit that has one 3-bit input, then outputs the same vector, and also splits it into three separate 1-bit outputs. Connect outputs o0 to the input vector's position 0, o1 to position 1, etc.  
 In a diagram, a tick mark with a number next to it indicates the width of the vector (or "bus"), rather than drawing a separate line for each bit in the vector.
 ![vector0](https://hdlbits.01xz.net/mw/images/a/ae/Vector0.png)
@@ -191,7 +191,7 @@ module top_module (
 endmodule
 ```
 ---
-### - vector1
+\\(\text{vector select}\\)
 + Build a combinational circuit that splits an input half-word (16 bits, [15:0]) into lower [7:0] and upper [15:8] bytes.
 ```Verilog
 module top_module (
@@ -205,7 +205,7 @@ module top_module (
 endmodule
 ```
 ---
-### - vector2
+\\(\text{vector swap}\\)
 + A 32-bit vector can be viewed as containing 4 bytes (bits [31:24], [23:16], etc.). Build a circuit that will reverse the byte ordering of the 4-byte word.  
 AaaaaaaaBbbbbbbbCcccccccDddddddd => DdddddddCcccccccBbbbbbbbAaaaaaaa  
 This operation is often used when the endianness of a piece of data needs to be swapped, for example between little-endian x86 systems and the big-endian formats used in many Internet protocols.
@@ -222,7 +222,7 @@ module top_module (
 endmodule
 ```
 ---
-### - vectorgates
+\\(\text{vector gates}\\)
 + uild a circuit that has two 3-bit inputs that computes the bitwise-OR of the two vectors, the logical-OR of the two vectors, and the inverse (NOT) of both vectors. Place the inverse of b in the upper half of out_not (i.e., bits [5:3]), and the inverse of a in the lower half.
 ![vectorgates](https://hdlbits.01xz.net/mw/images/1/1b/Vectorgates.png)
 ```Verilog
@@ -241,8 +241,147 @@ module top_module (
 
 endmodule
 ```
-### - gate4
+---
+\\(\text{gate-prefix vector}\\)
++ Build a combinational circuit with four inputs, in[3:0]. There are 3 outputs: 
+    + out_and: output of a 4-input AND gate.
+    + out_or: output of a 4-input OR gate.
+    + out_xor: outout of a 4-input XOR gate.
+```Verilog
+module top_module (
+    input [3:0] in,
+    output out_and,
+    output out_or,
+    output out_xor );
+
+    assign out_and = & in;
+    assign out_or = | in;
+    assign out_xor = ^ in;
+
+endmodule
+```
+---
+\\(\text{vector concatenate}\\)
++ Given several input vectors, concatenate them together then split them up into several output vectors. There are six 5-bit input vectors: a, b, c, d, e, and f, for
+![vector3](https://hdlbits.01xz.net/mw/images/0/0c/Vector3.png)
+```Verilog
+module top_module (
+    input [4:0] a, b, c, d, e, f,
+    output [7:0] w, x, y, z );
+
+    assign {w, x, y, z} = {a, b, c, d, e, f, 2'b11};
+
+endmodule
+```
+---
+\\(\text{vector reverse}\\)
++ Given an 8-bit input vector [7:0], reverse its bit ordering.
+```Verilog
+module top_module(
+    input [7:0] in,
+    output [7:0] out 
+);
+
+    assign {out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7]} = in
+
+endmodule
+```
+```Verilog
+module top_module(
+    input [7:0] in,
+    output [7:0] out 
+);
+
+    always @(*) begin
+        for (int i=0; i<8; i++)
+            out[i] = in[8-i-1];
+    end
+
+endmodule
+```
+```Verilog
+module top_module(
+    input [7:0] in,
+    output [7:0] out 
+);
+
+	generate
+		genvar i;
+		for (i=0; i<8; i = i+1) begin: my_block_name
+			assign out[i] = in[8-i-1];
+		end
+	endgenerate
+
+endmodule
+```
+---
+\\(\text{vector replication}\\)
++ Build a circuit that sign-extends an 8-bit number to 32 bits. This requires a concatenation of 24 copies of the sign bit (i.e., replicate bit[7] 24 times) followed by the 8-bit number itself.
+```Verilog
+module top_module (
+    input [7:0] in,
+    output [31:0] out );
+
+    assign out = {{24{in[7]}}, in};
+
+endmodule
+```
+---
+\\(\text{vector replication2}\\)
++ Given five 1-bit signals (a, b, c, d, and e), compute all 25 pairwise one-bit comparisons in the 25-bit output vector. The output should be 1 if the two bits being compared are equal.
+![vector5](https://hdlbits.01xz.net/mw/images/a/ac/Vector5.png)
+```Verilog
+module top_module (
+    input a, b, c, d, e,
+    output [24:0] out );
+
+    assign out = ~{{5{a}}, {5{b}}, {5{c}}, {5{d}}, {5{e}}} ^ {5{a,b,c,d,e}};
+
+endmodule
+```
 ## 2.3 Modules: Hierarchy
+By now, you're familiar with a module, which is a circuit that interacts with its outside through input and output ports. Larger, more complex circuits are built by composing bigger modules out of smaller modules and other pieces (such as assign statements and always blocks) connected together. This forms a hierarchy, as modules can contain instances of other modules.
+
+The figure below shows a very simple circuit with a sub-module. In this exercise, create one instance of module mod_a, then connect the module's three pins (in1, in2, and out) to your top-level module's three ports (wires a, b, and out). The module mod_a is provided for you — you must instantiate it.
+
+When connecting modules, only the ports on the module are important. You do not need to know the code inside the module. The code for module mod_a looks like this:
+```Verilog
+module mod_a ( input in1, input in2, output out );
+    // Module body
+endmodule
+```
+The hierarchy of modules is created by instantiating one module inside another, as long as all of the modules used belong to the same project (so the compiler knows where to find the module). The code for one module is not written inside another module's body (Code for different modules are not nested).
+
+You may connect signals to the module by port name or port position. For extra practice, try both methods.
+**Connecting Signals to Module Ports**  
+There are two commonly-used methods to connect a wire to a port: by position or by name.
+
+**By position**  
+The syntax to connect wires to ports by position should be familiar, as it uses a C-like syntax. When instantiating a module, ports are connected left to right according to the module's declaration. For example:
+
+`mod_a instance1 ( wa, wb, wc );`
+
+This instantiates a module of type mod_a and gives it an instance name of "instance1", then connects signal wa (outside the new module) to the first port (in1) of the new module, wb to the second port (in2), and wc to the third port (out). One drawback of this syntax is that if the module's port list changes, all instantiations of the module will also need to be found and changed to match the new module.
+
+**By name**  
+Connecting signals to a module's ports by name allows wires to remain correctly connected even if the port list changes. This syntax is more verbose, however.
+
+`mod_a instance2 ( .out(wc), .in1(wa), .in2(wb) );`
+
+The above line instantiates a module of type mod_a named "instance2", then connects signal wa (outside the module) to the port named in1, wb to the port named in2, and wc to the port named out. Notice how the ordering of ports is irrelevant here because the connection will be made to the correct name, regardless of its position in the sub-module's port list. Also notice the period immediately preceding the port name in this syntax.
+![module](https://hdlbits.01xz.net/mw/images/c/c0/Module.png)
+```Verilog
+module top_module ( input a, input b, output out );
+
+    mod_a u_mod_a (
+        .in1 (a),
+        .in2 (b),
+        .out (out)
+    );
+    
+endmodule
+```
+---
 ## 2.4 Procedures
 ## 2.5 More Verilog Features
 # 3 Circuits
