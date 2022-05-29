@@ -368,7 +368,10 @@ Connecting signals to a module's ports by name allows wires to remain correctly 
 
 `mod_a instance2 ( .out(wc), .in1(wa), .in2(wb) );`
 
-The above line instantiates a module of type mod_a named "instance2", then connects signal wa (outside the module) to the port named in1, wb to the port named in2, and wc to the port named out. Notice how the ordering of ports is irrelevant here because the connection will be made to the correct name, regardless of its position in the sub-module's port list. Also notice the period immediately preceding the port name in this syntax.
+The above line instantiates a module of type mod_a named "instance2", then connects signal wa (outside the module) to the port named in1, wb to the port named in2, and wc to the port named out. Notice how the ordering of ports is irrelevant here because the connection will be made to the correct name, regardless of its position in the sub-module's port list. Also notice the period immediately preceding the port name in this syntax.  
+
+---
+\\(\text{module}\\)
 ![module](https://hdlbits.01xz.net/mw/images/c/c0/Module.png)
 ```Verilog
 module top_module ( input a, input b, output out );
@@ -382,6 +385,158 @@ module top_module ( input a, input b, output out );
 endmodule
 ```
 ---
+\\(\text{module\\_pos}\\)
++ This problem is similar to the previous one (module). You are given a module named mod_a that has 2 outputs and 4 inputs, in that order. You must connect the 6 ports by position to your top-level module's ports out1, out2, a, b, c, and d, in that order.
+You are given the following module:
+![module_pos](https://hdlbits.01xz.net/mw/images/b/b7/Module_pos.png)
+```Verilog
+module top_module (
+    input a, b, c, d,
+    output out1, out2 );
+
+    mod_a u_mod_a(out1, out2, a, b, c, d);
+
+endmodule
+```
+---
+\\(\text{module\\_name}\\)
++ This problem is similar to module. You are given a module named mod_a that has 2 outputs and 4 inputs, in some order. You must connect the 6 ports by name to your top-level module's ports:You are given the following module:
+![module_name](https://hdlbits.01xz.net/mw/images/d/dd/Module_name.png)
+```Verilog
+module top_module ( 
+    input a, 
+    input b, 
+    input c,
+    input d,
+    output out1,
+    output out2
+);
+    
+    mod_a u_mod_a(
+        .out1 (out1),
+        .out2 (out2),
+        .in1  (a),
+        .in2  (b),
+        .in3  (c),
+        .in4  (d)
+    );
+
+endmodule
+```
+---
+\\(\text{module\\_shift}\\)
++ You are given a module my_dff with two inputs and one output (that implements a D flip-flop). Instantiate three of them, then chain them together to make a shift register of length 3. The clk port needs to be connected to all instances.
+Note that to make the internal connections, you will need to declare some wires. Be careful about naming your wires and module instances: the names must be unique.  
+The module provided to you is: `module my_dff ( input clk, input d, output q );`
+![module_shift](https://hdlbits.01xz.net/mw/images/6/60/Module_shift.png)
+```Verilog
+module top_module ( input clk, input d, output q );
+    
+    wire q1;
+    wire q2;
+    
+    my_dff(clk, d, q1);
+    my_dff(clk, q1, q2);
+    my_dff(clk, q2, q);
+	
+endmodule
+```
+---
+\\(\text{module\\_shift8}\\)
++ You are given a module my_dff8 with two inputs and one output (that implements a set of 8 D flip-flops). Instantiate three of them, then chain them together to make a 8-bit wide shift register of length 3. In addition, create a 4-to-1 multiplexer (not provided) that chooses what to output depending on sel[1:0]: The value at the input d, after the first, after the second, or after the third D flip-flop. (Essentially, sel selects how many cycles to delay the input, from zero to three clock cycles.)
+The module provided to you is: `module my_dff8 ( input clk, input [7:0] d, output [7:0] q );`  
+The multiplexer is not provided. One possible way to write one is inside an always block with a case statement inside. 
+![module_shift8](https://hdlbits.01xz.net/mw/images/7/76/Module_shift8.png)
+```Verilog
+module top_module ( 
+    input clk, 
+    input [7:0] d, 
+    input [1:0] sel, 
+    output [7:0] q 
+);
+    wire [7:0] q1;
+    wire [7:0] q2;
+    wire [7:0] q3;
+    my_dff8 (clk, d, q1);
+    my_dff8 (clk, q1, q2);
+    my_dff8 (clk, q2, q3);
+    
+    // multiplexer: mux9to1v
+    always@(*) begin
+        case(sel)
+            2'd0: q = d;
+            2'd1: q = q1;
+            2'd2: q = q2;
+            2'd3: q = q3;
+        endcase
+    end
+    
+endmodule
+
+```
+---
+\\(\text{module\\_adder}\\)
++ You are given a module add16 that performs a 16-bit addition. Instantiate two of them to create a 32-bit adder. One add16 module computes the lower 16 bits of the addition result, while the second add16 module computes the upper 16 bits of the result, after receiving the carry-out from the first adder. Your 32-bit adder does not need to handle carry-in (assume 0) or carry-out (ignored), but the internal modules need to in order to function correctly. (In other words, the add16 module performs 16-bit a + b + cin, while your module performs 32-bit a + b).  
+Connect the modules together as shown in the diagram below. The provided module add16 has the following declaration:
+`module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`
+![module_add](https://hdlbits.01xz.net/mw/images/a/a3/Module_add.png)
+```Verilog
+module top_module(
+    input [31:0] a,
+    input [31:0] b,
+    output [31:0] sum
+);
+    wire [15:0] sum1;
+    wire [15:0] sum2;
+    wire cout1;
+    wire cout2;
+
+    add16 (a[15:0], b[15:0], 1'b0, sum1, cout1);
+    add16 (a[31:16], b[31:16], cout1, sum2, cout2);
+    
+    assign sum = {sum2, sum1};
+    
+endmodule
+```
+---
+\\(\text{module\\_full adder}\\)
++ You are given a module add16 that performs a 16-bit addition. You must instantiate two of them to create a 32-bit adder. One add16 module computes the lower 16 bits of the addition result, while the second add16 module computes the upper 16 bits of the result. Your 32-bit adder does not need to handle carry-in (assume 0) or carry-out (ignored).  
+Connect the add16 modules together as shown in the diagram below. The provided module add16 has the following declaration:  
+`module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`  
+Within each add16, 16 full adders (module add1, not provided) are instantiated to actually perform the addition. You must write the full adder module that has the following declaration:  
+`module add1 ( input a, input b, input cin, output sum, output cout );`  
+Recall that a full adder computes the sum and carry-out of a+b+cin.  
+In summary, there are three modules in this design:
+    + top_module — Your top-level module that contains two of...
+    + add16, provided — A 16-bit adder module that is composed of 16 of...
+    + add1 — A 1-bit full adder module.
+![module_fadd](https://hdlbits.01xz.net/mw/images/f/f3/Module_fadd.png)
+```Verilog
+module top_module (
+    input [31:0] a,
+    input [31:0] b,
+    output [31:0] sum
+);
+
+    wire [15:0] sum1;
+    wire [15:0] sum2;
+    wire cout1;
+    wire cout2;
+    
+    add16 (a[15:0], b[15:0], 1'b0, sum1, cout1);
+    add16 (a[31:16], b[31:16], cout1, sum2, cout2);
+    assign sum = {sum2, sum1};
+    
+endmodule
+
+module add1 ( input a, input b, input cin,   output sum, output cout );
+    assign sum = a ^ b ^ cin;
+    assign cout = (a&b)|(b&cin)|(cin&a);
+    // assign {cout, sum} = a + b + cin;
+endmodule
+```
+---
+
 ## 2.4 Procedures
 ## 2.5 More Verilog Features
 # 3 Circuits
