@@ -475,7 +475,7 @@ endmodule
 
 ```
 ---
-\\(\text{module\\_adder}\\)
+\\(\text{module\\_Half Adder}\\)
 + You are given a module add16 that performs a 16-bit addition. Instantiate two of them to create a 32-bit adder. One add16 module computes the lower 16 bits of the addition result, while the second add16 module computes the upper 16 bits of the result, after receiving the carry-out from the first adder. Your 32-bit adder does not need to handle carry-in (assume 0) or carry-out (ignored), but the internal modules need to in order to function correctly. (In other words, the add16 module performs 16-bit a + b + cin, while your module performs 32-bit a + b).  
 Connect the modules together as shown in the diagram below. The provided module add16 has the following declaration:
 `module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`
@@ -499,7 +499,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{module\\_full adder}\\)
+\\(\text{module\\_Full Adder}\\)
 + You are given a module add16 that performs a 16-bit addition. You must instantiate two of them to create a 32-bit adder. One add16 module computes the lower 16 bits of the addition result, while the second add16 module computes the upper 16 bits of the result. Your 32-bit adder does not need to handle carry-in (assume 0) or carry-out (ignored).  
 Connect the add16 modules together as shown in the diagram below. The provided module add16 has the following declaration:  
 `module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`  
@@ -533,6 +533,64 @@ module add1 ( input a, input b, input cin,   output sum, output cout );
     assign sum = a ^ b ^ cin;
     assign cout = (a&b)|(b&cin)|(cin&a);
     // assign {cout, sum} = a + b + cin;
+endmodule
+```
+---
+\\(\text{Module\\_Carry Select Adder}\\)
++ One drawback of the ripple carry adder is that the delay for an adder to compute the carry out (from the carry-in, in the worst case) is fairly slow, and the second-stage adder cannot begin computing its carry-out until the first-stage adder has finished. This makes the adder slow. One improvement is a carry-select adder, shown below. The first-stage adder is the same as before, but we duplicate the second-stage adder, one assuming carry-in=0 and one assuming carry-in=1, then using a fast 2-to-1 multiplexer to select which result happened to be correct.  
+You are provided with the same module add16 as the previous exercise, which adds two 16-bit numbers with carry-in and produces a carry-out and 16-bit sum. You must instantiate three of these to build the carry-select adder, using your own 16-bit 2-to-1 multiplexer.  
+`module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`  
+Connect the modules together as shown in the diagram below. The provided module add16 has the following declaration:
+![module_sceladd](https://hdlbits.01xz.net/mw/images/3/3e/Module_cseladd.png)
+```Verilog
+module top_module(
+    input [31:0] a,
+    input [31:0] b,
+    output [31:0] sum
+);
+    
+    wire sel;
+    wire [15:0] wire0, wire1;
+    add16 (a[15: 0], b[15: 0], 1'b0, sum[15:0], sel);
+    add16 (a[31:16], b[31:16], 1'b0, wire0, );
+    add16 (a[31:16], b[31:16], 1'b1, wire1, );
+    
+    // selector
+    always@(*) begin
+        case(sel)
+            1'b0: sum[31:16] = wire0;
+            1'b1: sum[31:16] = wire1;
+        endcase
+    end
+
+    // ternary operator
+    // assign sum[31:16] = sel ? wire1 : wire0;
+
+endmodule
+```
+---
+\\(\text{Module\\_Adder-Subtractor}\\)
++ An adder-subtractor can be built from an adder by optionally negating one of the inputs, which is equivalent to inverting the input then adding 1. The net result is a circuit that can do two operations: (a + b + 0) and (a + ~b + 1). 
+Build the adder-subtractor below.
+![module_addsub](https://hdlbits.01xz.net/mw/images/a/ae/Module_addsub.png)
+You are provided with a 16-bit adder module, which you need to instantiate twice:  
+`module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`  
+Use a 32-bit wide XOR gate to invert the b input whenever sub is 1. (This can also be viewed as b[31:0] XORed with sub replicated 32 times. See replication operator.). Also connect the sub input to the carry-in of the adder.
+```Verilog
+module top_module(
+    input [31:0] a,
+    input [31:0] b,
+    input sub,
+    output [31:0] sum
+);
+    wire cout;
+    wire [31:0] bin;
+    
+    assign bin = {32{sub}} ^ b;
+    
+    add16 (a[15: 0], bin[15: 0], sub,  sum[15: 0], cout);
+    add16 (a[31:16], bin[31:16], cout, sum[31:16],     );
+    
 endmodule
 ```
 ---
