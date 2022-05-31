@@ -4,7 +4,7 @@ date: 2022-05-28T00:10:20+08:00
 tags: ["VHDL", "Programming", "Verilog"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Desc Text."                     
+description: "Verilog tutorial"                     
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true
@@ -352,7 +352,8 @@ endmodule
 ```
 The hierarchy of modules is created by instantiating one module inside another, as long as all of the modules used belong to the same project (so the compiler knows where to find the module). The code for one module is not written inside another module's body (Code for different modules are not nested).
 
-You may connect signals to the module by port name or port position. For extra practice, try both methods.
+You may connect signals to the module by port name or port position. For extra practice, try both methods.  
+
 **Connecting Signals to Module Ports**  
 There are two commonly-used methods to connect a wire to a port: by position or by name.
 
@@ -594,8 +595,40 @@ module top_module(
 endmodule
 ```
 ---
-
 ## 2.4 Procedures
+\\(\text{Alwaysblock}\\)  
++ For synthesizing hardware, two types of always blocks are relevant:
+    + Combinational: `always @(*)`
+    + Clocked: `always @(posedge clk)`
++ Combinational always blocks are equivalent to assign statements, thus there is always a way to express a combinational circuit both ways. The choice between which to use is mainly an issue of which syntax is more convenient. **The syntax for code inside a procedural block is different from code that is outside.** Procedural blocks have a richer set of statements (e.g., if-then, case), cannot contain continuous assignments*, but also introduces many new non-intuitive ways of making errors. (\**Procedural continuous assignments do exist, but are somewhat different from continuous assignments, and are not synthesizable.*)
++ For combinational always blocks, always use a sensitivity list of (\*). Explicitly listing out the signals is error-prone (if you miss one), and is ignored for hardware synthesis. If you explicitly specify the sensitivity list and miss a signal, the synthesized hardware will still behave as though (*) was specified, but the simulation will not and not match the hardware's behaviour. (In SystemVerilog, use always_comb.)
++ A note on wire vs. reg: The left-hand-side of an assign statement must be a *net* type (e.g., wire), while the left-hand-side of a procedural assignment (in an always block) must be a *variable* type (e.g., reg). These types (wire vs. reg) have nothing to do with what hardware is synthesized, and is just syntax left over from Verilog's use as a hardware *simulation* language.
+![alwayscomb](https://hdlbits.01xz.net/mw/images/2/2b/Alwayscomb.png)
++ Build an AND gate using both an assign statement and a combinational always block.
+```Verilog
+module top_module(
+    input a, 
+    input b,
+    output wire out_assign,
+    output reg out_alwaysblock
+);
+
+	assign out_assign = a & b;
+    
+    always @(*) begin
+    	out_alwaysblock = a & b;
+    end
+    
+endmodule
+
+```
+\\(\text{Clocked}\\)  
+\\(\text{If statement}\\)  
+\\(\text{If statement latches}\\)  
+\\(\text{Case statement}\\)  
+\\(\text{Priority encoder}\\)  
+\\(\text{Priority encoder with casez}\\)  
+\\(\text{Avoiding latches}\\)  
 ## 2.5 More Verilog Features
 # 3 Circuits
 ## 3.1 Combinational Logic
