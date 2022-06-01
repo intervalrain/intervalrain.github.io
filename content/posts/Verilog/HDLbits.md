@@ -622,11 +622,223 @@ module top_module(
 endmodule
 
 ```
+---
 \\(\text{Clocked}\\)  
++ Clocked always blocks create a blob of combinational logic just like combinational always blocks, but also creates a set of flip-flops (or "registers") at the output of the blob of combinational logic. Instead of the outputs of the blob of logic being visible immediately, the outputs are visible only immediately after the next (posedge clk).
+**Blocking vs. Non-Backing Assignment**
++ There are three types of assignments in Verilog:
+    + **Continuous** assignments (`assign x = y;`): Can only be used when **not** inside a procedure ("always block").
+    + Procedural **blocking** assignment (`x = y;`): Can only be used inside a procedure.
+    + Procedural **non-blocking** assignment (`x <= y;`): Can only be used inside a procedure.
++ In a **combinational** always block, use **blocking** assignments. In a **clocked** always block, used **non-blocking** assignments. A full understanding of why is not particularly usedful for hardware design and requires a good understanding of how Verilog simulators keep track of events. Not following this rule results in extremely hard to find errors that are both non-deterministic and differ between simulation and synthesized hardware.
+
++ Build an XOR gate three ways, using an assignment, a combinational always block, and a clocked always block. Note that the clocked always block precedures a different circuit from the other two: There is a flip-flop so the output is delayed.
+![alwaysff](https://hdlbits.01xz.net/mw/images/4/40/Alwaysff.png)
+```Verilog
+module top_module(
+    input clk,
+    input a,
+    input b,
+    output wire out_assign,
+    output reg out_always_comb,
+    output reg out_always_ff   );
+    
+    assign out_assign = a ^ b;
+    always @(*) begin
+    	out_always_comb = a ^ b;
+    end
+    always @(posedge clk) begin
+		out_always_ff <= a ^ b;
+    end
+    
+endmodule
+```
+---
 \\(\text{If statement}\\)  
++ An if statement usually creates a 2-to-1 multiplexer, selecting one input if the condition is true, and the other input if the condition is false.
+![always_if_mux](https://hdlbits.01xz.net/mw/images/9/9d/Always_if_mux.png)
+```Verilog
+always @(*) begin
+    if (condition) begin
+        out = x;
+    end
+    else begin
+        out = y;
+    end
+end
+```
++ This is equivalent to using a continuous assignment with a conditional operator:  
+    `assign out = (condition) ? x : y;`
++ However, the procedural if statement provides a new way to make mistakes. The circuit is combinational only if out is always assigned a value.
+
++ Build a 2-to-1 mux that chooses between a and b. Choose b if both sel_b1 and sel_b2 are true. Otherwise, choose a.
+Do the same twice, once using assign statements and once using a procedural if statement.
+\\(\\begin{array}{|c|c|c|}\\hline
+\text{sel\\_b1}&\text{sel\\_b2}&\text{out\\_assign, out\\_always} \\\\\hline
+0&0&a\\\\\hline
+0&1&a\\\\\hline
+1&0&a\\\\\hline
+1&1&b\\\\\hline
+\end{array}\\)
+```Verilog
+module top_module(
+    input a,
+    input b,
+    input sel_b1,
+    input sel_b2,
+    output wire out_assign,
+    output reg out_always   ); 
+
+    assign out_assign = sel_b1 & sel_b2 ? b : a;
+    
+    always @(*) begin
+        if (sel_b1 & sel_b2) begin
+        	out_always = b;
+        end
+        else begin
+        	out_always = a;        
+        end
+    end
+
+    // always @(*) begin
+    //    case ({sel_b1, sel_b2})
+	//		2'd0:begin
+	//			out_always = a;
+    //        end
+    //        2'd1:begin
+	//			out_always = a;                
+    //        end
+    //        2'd2:begin
+	//			out_always = a;                
+    //        end
+    //        2'd3:begin
+	//			out_always = b;                
+    //        end
+    //    endcase
+    // end
+    
+endmodule
+```
+---
 \\(\text{If statement latches}\\)  
++ **A common source of errors: How to avoid making latches**  
+
++ When designing circuits, you must think first in terms of circuits:
+    + I want this logic gate
+    + I want a combinational blob of logic that has these inputs and produces these outputs
+    + I want a combinational blob of logic followed by a set of flip-flops  
++ What you *must not* do is write the code first, then hope it generates a proper circuit.
+    + If (cpu_overheated) then shut_off_computer = 1;
+    + If (~arrived) then keep_driving = ~gas_tank_empty;
+
++ Syntactically-correct code does not necessarily result in a reasonable circuit (combinational logic + flip-flops). The usual reason is: "What happens in the cases other than those you specified?". Verilog's answer is: Keep the outputs unchanged.
+
++ This behaviour of "keep outputs unchanged" means the current state needs to be remembered, and thus produces a latch. Combinational logic (e.g., logic gates) cannot remember any state. Watch out for Warning (10240): ... inferring latch(es)" messages. Unless the latch was intentional, it almost always indicates a bug. Combinational circuits must have a value assigned to all outputs under all conditions. This usually means you always need else clauses or a default value assigned to the outputs.
+
+**Demonstration**
++ The following code contains incorrect behaviour that creates a latch. Fix the bugs so that you will shut off the computer only if it's really overheated, and stop driving if you've arrived at your destination or you need to refuel.
+```Verilog
+always @(*) begin
+    if (cpu_overheated)
+        shut_off_computer = 1;
+end
+always @(*) begin
+    if (~arrived)
+        keep_driving = ~gas_tank_empty;
+end
+```
+![always_if2](https://hdlbits.01xz.net/mw/images/d/d1/Always_if2.png)
+```Verilog
+module top_module (
+    input      cpu_overheated,
+    output reg shut_off_computer,
+    input      arrived,
+    input      gas_tank_empty,
+    output reg keep_driving  ); //
+
+    always @(*) begin
+        if (cpu_overheated)
+            shut_off_computer = 1;
+        else
+            shut_off_computer = 0;
+    end
+
+    always @(*) begin
+        if (~arrived)
+            keep_driving = ~gas_tank_empty;
+        else
+            keep_driving = 0;
+    end
+
+endmodule
+```
+---
 \\(\text{Case statement}\\)  
++ Case statements in Verilog are nearly equivalent to a sequence of if-elseif-else that compares one expression to a list of others. Its syntax and functionality differs from the switch statement in C.
+```Verilog
+always @(*) begin     // This is a combinational circuit
+    case (in)
+      1'b1: begin 
+               out = 1'b1;  // begin-end if >1 statement
+            end
+      1'b0: out = 1'b0;
+      default: out = 1'bx;
+    endcase
+end
+```
++ The case statement begins with case and each "case item" ends with a colon. There is no "switch".
+Each case item can execute *exactly one* statement. This makes the "break" used in C unnecessary. But this means that if + you need more than one statement, you must use `begin ... end`.
++ Duplicate (and partially overlapping) case items are permitted. The first one that matches is used. C does not allow duplicate case items.  
+
++ Create a 6-to-1 multiplexer. When sel is between 0 and 5, choose the corresponding data input. Otherwise, output 0. The data inputs and outputs are all 4 bits wide. Be careful of inferring latches.
+```Verilog
+// synthesis verilog_input_version verilog_2001
+module top_module ( 
+    input [2:0] sel, 
+    input [3:0] data0,
+    input [3:0] data1,
+    input [3:0] data2,
+    input [3:0] data3,
+    input [3:0] data4,
+    input [3:0] data5,
+    output reg [3:0] out   );
+
+    always @(*) begin
+        case(sel)
+            0: out = data0;
+			1: out = data1;
+            2: out = data2;
+            3: out = data3;
+            4: out = data4;
+            5: out = data5;
+            default: out = 0;
+        endcase
+    end
+
+endmodule
+```
+---
 \\(\text{Priority encoder}\\)  
++ A *priority encoder* is a combinational circuit that, when given an input bit vector, outputs the position of the first 1 bit in the vector. For example, a 8-bit priority encoder given the input `8'b10010000` would output 3'd4, because bit[4] is first bit that is high.
++ Build a 4-bit priority encoder. For this problem, if none of the input bits are high (i.e., input is zero), output zero. Note that a 4-bit number has 16 possible combinations.
+```Verilog
+// synthesis verilog_input_version verilog_2001
+module top_module (
+    input [3:0] in,
+    output reg [1:0] pos  );
+
+    always @(*) begin
+        casez (in)
+            4'bzzz1: pos = 0;
+            4'bzz10: pos = 1;
+            4'bz100: pos = 2;
+            4'b1000: pos = 3;
+            default: pos = 0;
+    end
+        
+endmodule
+```
+---
 \\(\text{Priority encoder with casez}\\)  
 \\(\text{Avoiding latches}\\)  
 ## 2.5 More Verilog Features
