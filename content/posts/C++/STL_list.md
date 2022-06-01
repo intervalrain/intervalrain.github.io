@@ -31,7 +31,7 @@ cover:
 + Lists 是序列式容器，但其記憶體的分配並非連續的。
 + 跟 vector 相比，其遍歷的速度會較慢\\(O(n)\\，但一旦位置確定後，其插入(insert)或移除(delete)元素的速度很快\\(O(1)\\)。
 + 一般來說，List 指的是雙向鏈結陣列(doubly linked list)。
-+ 而單向鏈結陣列則為 [forward_list](https://intervalrain.github.io/posts/c++/stl_forward_list)。
++ 而單向鏈結陣列則為 [forward_list](/posts/c++/stl_forward_list)。
 
 ```Cpp
 #include <iostream>
@@ -143,8 +143,8 @@ int main(){
 
 
 + 你可能會想繼續閱讀…
-    + 回到[容器(Containers)](https://intervalrain.github.io/posts/c++/stl_container)
-    + [vector](https://intervalrain.github.io/posts/c++/stl_vector)
-    + [deque](https://intervalrain.github.io/posts/c++/stl_deque)
-    + [arrays](https://intervalrain.github.io/posts/c++/stl_arrays)
-    + [forward_list](https://intervalrain.github.io/posts/c++/stl_forward_list)
+    + 回到[容器(Containers)](/posts/c++/stl_container)
+    + [vector](/posts/c++/stl_vector)
+    + [deque](/posts/c++/stl_deque)
+    + [arrays](/posts/c++/stl_arrays)
+    + [forward_list](/posts/c++/stl_forward_list)

@@ -33,9 +33,9 @@ cover:
 > STL 是通用的程式庫，所以所有的元素都是泛型的，可以[點此瞭解更多模板(template)的內容](https://www.geeksforgeeks.org/templates-cpp/)。
 
 ## STL 的四大組成
-+ [演算法(Algorithms)](https://intervalrain.github.io/posts/c++/stl_algo)
-+ [容器(Containers)](https://intervalrain.github.io/posts/c++/stl_container)
-+ [函式(Functions)](https://intervalrain.github.io/posts/c++/stl_function)
-+ [迭代器(Iterators)](https://intervalrain.github.io/posts/c++/stl_iterator)
++ [演算法(Algorithms)](/posts/c++/stl_algo)
++ [容器(Containers)](/posts/c++/stl_container)
++ [函式(Functions)](/posts/c++/stl_function)
++ [迭代器(Iterators)](/posts/c++/stl_iterator)
 ## 補充
-+ [Utility Library](https://intervalrain.github.io/posts/c++/stl_util)
++ [Utility Library](/posts/c++/stl_util)

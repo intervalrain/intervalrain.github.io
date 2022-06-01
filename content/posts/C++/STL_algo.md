@@ -114,13 +114,12 @@ int main()
 	return 0;
 }
 ```
-x
 ### 8. binary_search()
 + `binary_search(first_iterator, last_iterator, x)`
 + 測試 x 是否存在已排序的 vector 中
 ### 9. lower_bound()
 + `lower_bound(first_iterator, last_iterator, x)`
-+ 傳回指向不小於 x 的元素的 iterator
++ 傳回指向不大於 x 的元素的 iterator
 ### 10. upper_bound()
 + `upper_bound(first_iterator, last_iterator, x)`
 + 傳回指向大於 x 的元素的 iterator
@@ -338,9 +337,10 @@ int main(){
 
 ### 3. stable_partition()
 + `stable_partition(begin, end, condition)`
-+ This function is used to partition the elements on basis of condition mentioned in its arguments in such a way that the relative order of the elements is preserved..
-4. partition_point()
++ 依指定條件作分隔，同時保留元素的相對位置。
+### 4. partition_point()
 + `partition_point(begin, end, condition)`
++ 返回指向分隔位置的迭代器，也就是在 [begin, end] 範圍內的第一個元素。
 + This function returns an iterator pointing to the partition point of container i.e. the first element in the partitioned range [beg,end) for which condition is not true. The container should already be partitioned for this function to work.
 ```Cpp
 // C++ code to demonstrate the working of
@@ -387,7 +387,7 @@ int main()
 
 ```
 
-5. `partition_copy(begin, end, begin1, begin2, condition)`: This function copies the partitioned elements in the different containers mentioned in its arguments. It takes 5 arguments. Beginning and ending position of container, beginning position of new container where elements have to be copied (elements returning true for condition), beginning position of new container where other elements have to be copied (elements returning false for condition) and the condition. Resizing new containers is necessary for this function.
+### 5. `partition_copy(begin, end, begin1, begin2, condition)`: This function copies the partitioned elements in the different containers mentioned in its arguments. It takes 5 arguments. Beginning and ending position of container, beginning position of new container where elements have to be copied (elements returning true for condition), beginning position of new container where other elements have to be copied (elements returning false for condition) and the condition. Resizing new containers is necessary for this function.
 ```Cpp
 // C++ code to demonstrate the working of
 // partition_copy()
@@ -602,7 +602,7 @@ int main(){
 ```
 
 + 你可能會想繼續閱讀…
-    + [容器(Containers)](https://intervalrain.github.io/posts/c++/stl_container)
-	+ [函式(Functions)](https://intervalrain.github.io/posts/c++/stl_function)
-	+ [迭代器(Iterators)](https://intervalrain.github.io/posts/c++/stl_iterator)
-	+ [Utility Library](https://intervalrain.github.io/posts/c++/stl_util)
+    + [容器(Containers)](/posts/c++/stl_container)
+	+ [函式(Functions)](/posts/c++/stl_function)
+	+ [迭代器(Iterators)](/posts/c++/stl_iterator)
+	+ [Utility Library](/posts/c++/stl_util)
