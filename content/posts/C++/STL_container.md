@@ -33,10 +33,9 @@ cover:
 ## 序列式容器(Sequence Containers)
 + 特點是不會對儲存的元素進行排序，元素排列的順序取決於儲存的順序。
 ### [vector](/posts/c++/stl_vector)
-### [list](/posts/c++/stl_list)
+### [list, forward_list](/posts/c++/stl_list)
 ### [deque](/posts/c++/stl_deque)
 ### [arrays](/posts/c++/stl_arrays)
-### [forward_list](/posts/c++/stl_forward_list)
 ## 容器適配器(Container Adaptors)
 + 用於封裝序列容器的類模板，在一般的序列容器的基礎上提供一些不同的功能，通過實現適配器的介面來提供不同的功能。
 ### [queue](/posts/c++/stl_queue)

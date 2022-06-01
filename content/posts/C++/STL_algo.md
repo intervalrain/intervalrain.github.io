@@ -387,7 +387,9 @@ int main()
 
 ```
 
-### 5. `partition_copy(begin, end, begin1, begin2, condition)`: This function copies the partitioned elements in the different containers mentioned in its arguments. It takes 5 arguments. Beginning and ending position of container, beginning position of new container where elements have to be copied (elements returning true for condition), beginning position of new container where other elements have to be copied (elements returning false for condition) and the condition. Resizing new containers is necessary for this function.
+### 5. partition_copy()
++ `partition_copy(begin, end, begin1, begin2, condition)`
++ This function copies the partitioned elements in the different containers mentioned in its arguments. It takes 5 arguments. Beginning and ending position of container, beginning position of new container where elements have to be copied (elements returning true for condition), beginning position of new container where other elements have to be copied (elements returning false for condition) and the condition. Resizing new containers is necessary for this function.
 ```Cpp
 // C++ code to demonstrate the working of
 // partition_copy()

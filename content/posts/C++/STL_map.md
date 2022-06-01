@@ -4,7 +4,7 @@ date: 2022-04-23T22:24:21+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to data structure map."
+description: "Introduction to map."
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

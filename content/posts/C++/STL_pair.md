@@ -4,7 +4,7 @@ date: 2022-06-02T01:23:15+08:00
 tags: ["Algorithm", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design", "TCAD"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to data structure pair"  
+description: "Introduction to pair" 
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

@@ -1,10 +1,10 @@
 ---
-title: "[C++] The C++ Standard Template Library(STL) - List"
+title: "[C++] The C++ Standard Template Library(STL) - list, forward_list"
 date: 2022-04-17T11:45:58+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to Vector"
+description: "Introduction to list and forward_list"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true
@@ -27,11 +27,11 @@ cover:
     hidden: false
 ---
 
-# list
+# list, forward_list
 + Lists 是序列式容器，但其記憶體的分配並非連續的。
 + 跟 vector 相比，其遍歷的速度會較慢\\(O(n)\\，但一旦位置確定後，其插入(insert)或移除(delete)元素的速度很快\\(O(1)\\)。
 + 一般來說，List 指的是雙向鏈結陣列(doubly linked list)。
-+ 而單向鏈結陣列則為 [forward_list](/posts/c++/stl_forward_list)。
++ 而單向鏈結陣列則為 forward_list
 
 ```Cpp
 #include <iostream>
@@ -124,23 +124,22 @@ int main(){
 + `first`: iterator, to point out the begining of the range.
 + `last`: iterator, to point out the end of the range.
 + Removes a range of elements from the list.
-#### 16. list.assign()
-#### 17. list.remove()
-#### 18. list.remove_if()
-#### 19. list.reverse()
-#### 20. list.size()
-#### 21. list.resize()
-#### 22. list.sort()
-#### 23. list.max_size()
-#### 24. list.unique()
-#### 25. list.emplace_front()
-#### 26. list.emplace_back()
-#### 27. list.clear()
-#### 28. list.swap()
-#### 29. list.splice()
-#### 30. list.merge()
-#### 31. list.emplace()
-
+#### 17. list.assign()
+#### 18. list.remove()
+#### 19. list.remove_if()
+#### 20. list.reverse()
+#### 21. list.size()
+#### 22. list.resize()
+#### 23. list.sort()
+#### 24. list.max_size()
+#### 25. list.unique()
+#### 26. list.emplace_front()
+#### 27. list.emplace_back()
+#### 28. list.clear()
+#### 29. list.swap()
+#### 30. list.splice()
+#### 31. list.merge()
+#### 32. list.emplace()
 
 + 你可能會想繼續閱讀…
     + 回到[容器(Containers)](/posts/c++/stl_container)

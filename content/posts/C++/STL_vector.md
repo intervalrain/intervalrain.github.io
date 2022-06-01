@@ -1,10 +1,10 @@
 ---
-title: "[C++] The C++ Standard Template Library(STL) - Vector"
+title: "[C++] The C++ Standard Template Library(STL) - vector"
 date: 2022-04-16T22:08:37+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to Vector"
+description: "Introduction to vector"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true
