@@ -924,6 +924,144 @@ module top_module (
 endmodule
 ```
 ## 2.5 More Verilog Features
+\\(\text{Conditional ternary operator}\\)
++ Verilog has a ternary conditional operator ( ? : ) much like C:
+`(condition ? if_true : if_false)`
++ Given four unsigned numbers, find the minimum. Unsigned numbers can be compared with standard comparison operators (a < b). Use the conditional operator to make two-way min circuits, then compose a few of them to create a 4-way min circuit. You'll probably want some wire vectors for the intermediate results.
+```Verilog
+module top_module (
+    input [7:0] a, b, c, d,
+    output [7:0] min);//
+
+    wire [7:0] wire1;
+    wire [7:0] wire2;
+    
+    assign wire1 = a > b ? b : a;
+    assign wire2 = c > d ? d : c;
+    assign min = wire1 > wire2 ? wire2 : wire1;
+
+endmodule
+```
+\\(\text{Reduction operators}\\)
++ Some syntactic sugar for reduction:
+```Verilog
+& a[3:0]    // AND: a[3] & a[2] & a[1] & a[0]. Equivalent to (a[3:0] == 4'hf)
+| b[3:0]    // OR: b[3] | b[2] | b[1] | b[0]. Equivalent to (b[3:0] != 4'h0)
+^ c[2:0]    // XOR: c[2] ^ c[1] ^ c[0]
+```
++ Parity checking is often used as a simple method of detecting errors when transmitting data through an imperfect channel. Create a circuit that will compute a parity bit for a 8-bit byte (which will add a 9th bit to the byte). We will use "even" parity, where the parity bit is just the XOR of all 8 data bits.
+```Verilog
+module top_module (
+    input [7:0] in,
+    output parity); 
+
+    assign parity = ^ in;
+    
+endmodule
+```
+---
+\\(\text{Reduction: Even wider gates}\\)
++ Build a combinational circuit with 100 inputs, in[99:0]. There are 3 outputs:
+    + out_and: output of a 100-input AND gate.
+    + out_or: output of a 100-input OR gate.
+    + out_xor: output of a 100-input XOR gate.
+```Verilog
+module top_module( 
+    input [99:0] in,
+    output out_and,
+    output out_or,
+    output out_xor );
+
+    assign out_and = & in;
+    assign out_or = | in;
+    assign out_xor = ^ in;
+    
+endmodule
+```
+---
+\\(\text{Combinational for-loop: Vector reversal}\\)
++ Given a 100-bit input vector [99:0], reverse its bit ordering.
+```Verilog
+module top_module( 
+    input [99:0] in,
+    output [99:0] out
+);
+
+    always @(*) begin
+        for (int i = 0; i < 100; i++) begin
+            out[i] = in[99 - i];
+        end
+    end
+    
+endmodule
+```
+---
+\\(\text{Combinational for-loop: 255-bit population count}\\)
++ A "population count" circuit counts the number of '1's in an input vector. Build a population count circuit for a 255-bit input vector.
+```Verilog
+module top_module( 
+    input [254:0] in,
+    output [7:0] out );
+
+    always @(*) begin
+        out = 0;
+        for (int i = 0; i < 255; i++) begin
+            out += in[i];
+        end
+    end
+    
+endmodule
+```
+---
+\\(\text{Generate for-loop: 100-bit binary adder}\\)
++ Create a 100-bit binary ripple-carry adder by instantiating 100 full adders. The adder adds two 100-bit numbers and a carry-in to produce a 100-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from each full adder in the ripple-carry adder. cout[99] is the final carry-out from the last full adder, and is the carry-out you usually see.
+```Verilog
+module top_module( 
+    input [99:0] a, b,
+    input cin,
+    output [99:0] cout,
+    output [99:0] sum );
+
+    always @(*) begin
+        {cout[0], sum[0]} = a[0] + b[0] + cin;
+        for (int i = 1; i < 100; i++) begin
+            {cout[i], sum[i]} = a[i] + b[i] + cout[i-1];
+        end
+    end
+    
+endmodule
+```
+---
+\\(\text{Generate for-loop: 100-digit BCD adder}\\)
++ You are provided with a BCD one-digit adder named bcd_fadd that adds two BCD digits and carry-in, and produces a sum and carry-out.
+```Verilog
+module bcd_fadd (
+    input [3:0] a,
+    input [3:0] b,
+    input     cin,
+    output   cout,
+    output [3:0] sum );
+```
++ Instantiate 100 copies of bcd_fadd to create a 100-digit BCD ripple-carry adder. Your adder should add two 100-digit BCD numbers (packed into 400-bit vectors) and a carry-in to produce a 100-digit sum and carry out.
+```Verilog
+module top_module( 
+    input [399:0] a, b,
+    input cin,
+    output cout,
+    output [399:0] sum );
+
+    wire[99:0] carryin;
+    
+    generate
+        genvar i;
+        bcd_fadd(a[3:0], b[3:0], cin, carryin[0], sum[3:0]);
+        for (i = 4; i < 400; i += 4) begin:adder
+            bcd_fadd(a[i+3:i], b[i+3:i], carryin[i/4-1], carryin[i/4], sum[i+3:i]);
+        end
+        assign cout = carryin[99];
+    endgenerate    
+endmodule
+```
 # 3 Circuits
 ## 3.1 Combinational Logic
 ### 3.1.1 Basic Gates
