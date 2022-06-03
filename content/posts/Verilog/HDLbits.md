@@ -822,25 +822,107 @@ endmodule
 + A *priority encoder* is a combinational circuit that, when given an input bit vector, outputs the position of the first 1 bit in the vector. For example, a 8-bit priority encoder given the input `8'b10010000` would output 3'd4, because bit[4] is first bit that is high.
 + Build a 4-bit priority encoder. For this problem, if none of the input bits are high (i.e., input is zero), output zero. Note that a 4-bit number has 16 possible combinations.
 ```Verilog
-// synthesis verilog_input_version verilog_2001
 module top_module (
-    input [3:0] in,
-    output reg [1:0] pos  );
+	input [3:0] in,
+	output reg [1:0] pos
+);
 
-    always @(*) begin
-        casez (in)
-            4'bzzz1: pos = 0;
-            4'bzz10: pos = 1;
-            4'bz100: pos = 2;
-            4'b1000: pos = 3;
-            default: pos = 0;
-    end
-        
+	always @(*) begin
+		case (in)
+			4'h0: pos = 2'h0;  //0000
+			4'h1: pos = 2'h0;  //0001
+			4'h2: pos = 2'h1;  //0010
+			4'h3: pos = 2'h0;  //0011
+			4'h4: pos = 2'h2;  //0100
+			4'h5: pos = 2'h0;  //0101
+			4'h6: pos = 2'h1;  //0110
+			4'h7: pos = 2'h0;  //0111
+			4'h8: pos = 2'h3;  //1000
+			4'h9: pos = 2'h0;  //1001
+			4'ha: pos = 2'h1;  //1010
+			4'hb: pos = 2'h0;  //1011
+			4'hc: pos = 2'h2;  //1100
+			4'hd: pos = 2'h0;  //1101
+			4'he: pos = 2'h1;  //1110
+			4'hf: pos = 2'h0;  //1111
+			default: pos = 2'b0;
+		endcase
+	end
 endmodule
 ```
 ---
 \\(\text{Priority encoder with casez}\\)  
++ Build previous problem with `casez`. If the case items in the case statement supported con't care bits. This is what case**z** is for: It treats bits that have the value z as don't care in the comparison.
++ A case statement behaves as though each item is checked sequentially (in reality, a big combinational logic function). Notice how there are certain inputs (e.g., 4'b1111) that will match more than one case item. The first match is chosen (so 4'b1111 matches the first item, out = 0, but not any of the later ones).
+    + There is also a similar casex that treats both x and z as don't-care. I don't see much purpose to using it over casez.
+    + The digit ? is a synonym for z. so 2'bz0 is the same as 2'b?0
++ It may be less error-prone to explicitly specify the priority behaviour rather than rely on the ordering of the case items. For example, the following will still behave the same way if some of the case items were reordered, because any bit pattern can only match at most one case item:
+```Verilog
+module top_module (
+    input [7:0] in,
+    output reg [2:0] pos  );
+
+    always @(*) begin
+        casez(in)
+            8'bzzzzzzz1: pos = 3'd0;
+            8'bzzzzzz10: pos = 3'd1;
+            8'bzzzzz100: pos = 3'd2;
+            8'bzzzz1000: pos = 3'd3;
+            8'bzzz10000: pos = 3'd4;
+            8'bzz100000: pos = 3'd5;
+            8'bz1000000: pos = 3'd6;
+            8'b10000000: pos = 3'd7;
+            default: pos = 2'd0;
+        endcase
+    end
+    
+endmodule
+```
+---
 \\(\text{Avoiding latches}\\)  
++ Suppose you're building a circuit to process scancodes from a PS/2 keyboard for a game. Given the last two bytes of scancodes received, you need to indicate whether one of the arrow keys on the keyboard have been pressed. This involves a fairly simple mapping, which can be implemented as a case statement (or if-elseif) with four cases.  
+\\(\\begin{array}{|c|c|}\\hline
+\text{Scancode [15:0]}&\text{Arrow key}\\\\\hline
+\text{16'he06b}&\text{left arrow}\\\\\hline
+\text{16'he072}&\text{down arrow}\\\\\hline
+\text{16'he074}&\text{right arrow}\\\\\hline
+\text{16'he075}&\text{up arrow}\\\\\hline
+\text{Anything else}&\text{none}\\\\\hline
+\end{array}\\)
++ Your circuit has one 16-bit input, and four outputs. Build this circuit that recognizes these four scancodes and asserts the correct output.
++ To avoid creating latches, all outputs must be assigned a value in all possible conditions. Simply having a `default` case is not enough. You must assign a value to all four outputs in all four cases and the default case. This can involve a lot of unnecessary typing. One easy way around this is to assign a "default value" to the outputs *before* the case statement:
+```Verilog
+always @(*) begin
+    up = 1'b0; down = 1'b0; left = 1'b0; right = 1'b0;
+    case (scancode)
+        ... // Set to 1 as necessary.
+    endcase
+end
+```
++ This style of code ensures the outputs are assigned a value (of 0) in all possible cases unless the case statement overrides the assignment. This also means that a default: case item becomes unnecessary.
++ **Reminder**: The logic synthesizer generates a combinational circuit that behaves equivalently to what the code describes.Hardware does not "execute" the lines of code in sequence.
+```Verilog
+module top_module (
+    input [15:0] scancode,
+    output reg left,
+    output reg down,
+    output reg right,
+    output reg up  ); 
+
+    always @(*) begin
+        left = 0;
+        down = 0;
+        right = 0;
+        up = 0;
+        case(scancode)
+			16'he06b: left = 1;
+			16'he072: down = 1;
+			16'he074: right = 1;
+			16'he075: up = 1;
+        endcase
+    end
+endmodule
+```
 ## 2.5 More Verilog Features
 # 3 Circuits
 ## 3.1 Combinational Logic
