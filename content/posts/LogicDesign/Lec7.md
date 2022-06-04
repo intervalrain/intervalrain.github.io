@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lec 7 - 組合電路設計與閘模擬"
+title: "[Logic Design] Lec 7 - 組合電路設計與模擬"
 date: 2021-10-11T09:52:13+08:00
 tags: ["Logic Design"]
 draft: false
@@ -102,7 +102,51 @@ cover:
 + ![hazard2](/posts/LogicDesign/L7/VWXYZ2.png)
 + 若 X 訊號相反時， Z 要到 5ns 訊號才有意義。
 # 組合邏輯中的 Hazards
-
-
-
++ Hazard 是在切換輸入時，因閘延遲而產生的錯誤訊號。
++ 種類
+    ![hazard](/posts/LogicDesign/L7/hazard.png)
++ 若相鄰兩個 1 不來自同一個邏輯閘(在 K-map 上沒有被框在一起)則會存在 hazard。
+    + \\((A,B,C)=(1,0,1)\rightarrow (1,1,1)\\)
+![static_hazard](/posts/LogicDesign/L7/static_hazard.png)
++ 可將相鄰的所有蘊函項框在一起，避免「一個bit切換」的 hazard 發生。
+![hazard_removed.png](/posts/LogicDesign/L7/hazard_removed.png)
 # 邏輯電路的模擬與測試
++ 對模擬邏輯電路來說
+    + 有明確的電路元素與連線
+    + 決定輸入
+    + 觀察輸出
+## 輸入值
++ 有四種，分別為：
+    + 0 (low)
+    + 1 (high)
+    + X (unknown)
+    + Z (don't care, High impedence)
+    ![4value](/posts/LogicDesign/L7/4value.png)
++ \\(\text{AND } \\& \text{ OR } \text{function for 4-value simulation}\\)
+    + \\(\begin{array}{c|cccc}
+    \text{AND}&0&1&X&Z\\\\\hline
+             0&0&0&0&0\\\\
+             1&0&1&X&X\\\\
+             X&0&X&X&X\\\\
+             Z&0&X&X&X\\\\
+    \end{array}
+    \qquad
+    \begin{array}{c|cccc}
+    \text{OR}&0&1&X&Z\\\\\hline
+            0&0&1&X&X\\\\
+            1&1&1&1&1\\\\
+            X&X&1&X&X\\\\
+            Z&X&1&X&X\\\\
+    \end{array}
+    \\)
+## 驗證(verification)與測試(testing)
++ 邏輯電路的輸出錯誤，可以由下面兩種方式偵錯：
+    + 驗證(Verification)
+        + 錯誤的電路設計
+        + 邏輯閘接線錯誤
+        + 輸入訊號錯誤
+    + 測試(Testing)
+        + 邏輯閘缺陷
+        + 金屬接線缺陷
++ 已知 \\(A=B=C=D=1時，F=0\\)
+![testing](/posts/LogicDesign/L7/testing.png)
