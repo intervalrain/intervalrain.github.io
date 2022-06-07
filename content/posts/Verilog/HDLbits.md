@@ -1395,6 +1395,85 @@ endmodule
 ```
 ---
 ### 3.1.2 Multiplexers
+\\(\text{2-to-1 multiplexer}\\)  
++ Create a one-bit wide, 2-to-1 multiplexer. When sel=0, choose a. When sel=1, choose b.
+```Verilog
+module top_module( 
+    input a, b, sel,
+    output out ); 
+
+    assign out = sel ? b : a;
+    
+endmodule
+```
+---
+\\(\text{2-to-1 bus multiplexer}\\)  
++ Create a 100-bit wide, 2-to-1 multiplexer. When sel=0, choose a. When sel=1, choose b.
+```Verilog
+module top_module( 
+    input [99:0] a, b,
+    input sel,
+    output [99:0] out );
+
+    assign out = sel ? b : a;
+    
+endmodule
+```
+---
+\\(\text{9-to-1 multiplexer}\\)  
++ Create a 16-bit 9-to-1 multiplexer. sel=0 chooses a, sel=1 chooses b, etc. For the unused cases (sel=9 to 15), set all output bits to '1'.
+```Verilog
+module top_module( 
+    input [15:0] a, b, c, d, e, f, g, h, i,
+    input [3:0] sel,
+    output [15:0] out );
+
+    always @(*) begin
+        case(sel)
+            4'd0: out = a;
+            4'd1: out = b;
+            4'd2: out = c;
+            4'd3: out = d;
+            4'd4: out = e;
+            4'd5: out = f;
+            4'd6: out = g;
+            4'd7: out = h;
+            4'd8: out = i;
+            default: out = '1;  // special literal syntax with all bits set to 1
+        endcase
+    end
+    
+endmodule
+```
+---
+\\(\text{256-to-1 multiplexer}\\)  
++ Create a 1-bit wide, 256-to-1 multiplexer. The 256 inputs are all packed into a single 256-bit input vector. sel=0 should be select `in[0]`, sel1 selectes bits `in[1]`, sel=2 selects bits `in[2]`, etc.
+```Verilog
+module top_module( 
+    input [255:0] in,
+    input [7:0] sel,
+    output out );
+
+    assign out = in[sel];
+    
+endmodule
+```
+---
+\\(\text{256-to-1 4-bit multiplexer}\\)  
++ Create a 4-bit wide, 256-to-1 multiplexer. The 256 4-bit inputs are all packed into a single 1024-bit input vector. sel=0 should select bits `in[3:0]`,sel=1 selects bits `in[7:4]`, sel=2 selects bits `in[11:8]`, etc.
+```Verilog
+module top_module( 
+    input [1023:0] in,
+    input [7:0] sel,
+    output [3:0] out );
+    
+    assign out = in[sel*4+:4];  // special syntax
+    // assign out = in[sel*4+3-:4];
+    // assign out = {in[sel*4+3],in[sel*4+2],in[sel*4+1],in[sel*4+0]};
+
+endmodule
+```
+---
 ### 3.1.3 Arithmetic Circuits
 ### 3.1.4 Karnaugh Map to Circuit
 ## 3.2 Sequential Logic
