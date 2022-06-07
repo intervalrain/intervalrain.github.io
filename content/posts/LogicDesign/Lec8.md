@@ -58,10 +58,13 @@ cover:
        &1&1&0&0\\\\
     I_3&1&1&1&1&C\\\\\hline
     \end{array}\\)
-
-
+    + Verilog
+        + [4-to-1 MUX implements 3-var function](https://github.com/intervalrain/Verilog/blob/main/3varMUX/threevarMUX.v)  
+        + [test bench](https://github.com/intervalrain/Verilog/blob/main/3varMUX/threevarMUX_tb.v)
+        ![3varMUX](/posts/LogicDesign/L8/3varMUX.png)
 
 # 三態緩衝器(Three state buffer)
+
 # 解碼器(Decoder)
 # 編碼器(Encoder)
 # 唯讀記憶體(Read only memories, ROMs)
