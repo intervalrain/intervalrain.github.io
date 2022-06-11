@@ -64,6 +64,39 @@ cover:
         ![3varMUX](/posts/LogicDesign/L8/3varMUX.png)
 
 # 三態緩衝器(Three state buffer)
+![buffer](/posts/LogicDesign/L8/buffer.png)
++ 緩衝器(Buffers)的用途:
+    + 用來增加閘輸出的趨動力(driving force)
+    + 因為閘並聯而造成電容增加(fan out)，電容增加充電變慢，使電路變慢
+    + 總體而言，可用來調節電路的速度。
++ 三態緩衝器:
+    ![tristate](/posts/LogicDesign/L8/tristate.png)
+    + Three-state buffer 或 tri-state buffer
+    + 真值表  
+        \\(\begin{array}{|cc|c|}\hline
+        B&A&C\\\\\hline
+        0&0&Z\\\\\hline
+        0&1&Z\\\\\hline
+        1&0&0\\\\\hline
+        1&1&1\\\\\hline
+        \end{array}\\)
+    + 利用 tri-state buffer 實現 2-to-1 MUX
+        ![tristateMUX](/posts/LogicDesign/L8/tristateMUX.png)
+    + tri-state buffer 並聯
+        + 真值表  
+            \\(\begin{array}{|c|c|c|c|c|}\hline
+             &X&0&1&Z\\\\\hline
+            X&X&X&X&X\\\\\hline
+            0&X&0&X&0\\\\\hline
+            1&X&X&1&1\\\\\hline
+            Z&X&0&1&Z\\\\\hline
+            \end{array}\\)
+    + 應用
+        + Bus 匯流排
+            ![bus](/posts/LogicDesign/L8/bus.png)
+        + Chip I/O
+            ![IO](/posts/LogicDesign/L8/IO.png)
+
 
 # 解碼器(Decoder)
 # 編碼器(Encoder)

@@ -125,7 +125,7 @@ struct cmp {
 };
 int main(){
     vector<int> = {3,6,7,2,1,9,5,4,8};
-    priority_queue<int, vector<int, decltype(&comp)> pq(vec.begin(), vec.end());
+    priority_queue<int, vector<int>, comp> pq(vec.begin(), vec.end());
 
     while (!pq.empty()) {
         cout << pq.top() << " ";    // 9,8,7,6,5,4,3,2,1
