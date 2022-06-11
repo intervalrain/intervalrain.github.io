@@ -1475,6 +1475,97 @@ endmodule
 ```
 ---
 ### 3.1.3 Arithmetic Circuits
+\\(\text{Half adder}\\)
++ Create a half adder. A half adder adds two bits (with no carry-in) and produces a sum and carry-out.
+```Verilog
+module top_module( 
+    input a, b,
+    output cout, sum );
+
+    assign {cout, sum} = a + b;
+    
+endmodule
+```
+---
+\\(\text{Full adder}\\)
++ Create a full adder. A full adder adds three bits (including carry-in) and produces a sum and a carry-out.
+```Verilog
+module top_module( 
+    input a, b, cin,
+    output cout, sum );
+
+    assign {cout, sum} = a + b + cin;
+    
+endmodule
+```
+---
+\\(\text{3-bit binary adder}\\)
++ Now that you know how to build a full adder, make 3 instances of it to create a 3-bit binary ripple-carry adder. The adder adds two 3-bit numbers and a carry-in to produce a 3-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from each full adder in the ripple-carry adder. cout[2] is the final carry-out from the last full adder, and is the carry-out you usually see.
+```Verilog
+module top_module( 
+    input [2:0] a, b,
+    input cin,
+    output [2:0] cout,
+    output [2:0] sum );
+
+    fulladder f1(a[0], b[0], cin,     cout[0], sum[0]);
+    fulladder f2(a[1], b[1], cout[0], cout[1], sum[1]);
+    fulladder f3(a[2], b[2], cout[1], cout[2], sum[2]);
+    
+endmodule
+
+module fulladder(
+    input a, b, cin,
+    output cout, sum);
+    
+    assign {cout, sum} = a + b + cin;
+endmodule
+```
+---
+\\(\text{Adder}\\)
++ Implement the following circuit: 
+![Adder](https://hdlbits.01xz.net/mw/images/d/d2/Exams_m2014q4j.png)
+```Verilog
+module top_module (
+    input [3:0] x,
+    input [3:0] y, 
+    output [4:0] sum);
+    
+    // assign sum = x + y;
+
+    wire [2:0] cout;
+
+    FA f1(x[0], y[0], 0,       cout[0], sum[0]);
+    FA f2(x[1], y[1], cout[0], cout[1], sum[1]);
+    FA f3(x[2], y[2], cout[1], cout[2], sum[2]);
+    FA f4(x[3], y[3], cout[2], sum[4],  sum[3]);
+    
+endmodule
+
+module FA (
+	input a, b, cin,
+	output cout, sum);
+    
+    assign {cout, sum} = a + b + cin;
+    
+endmodule
+```
+---
+\\(\text{Signed addition overflow}\\)
++ 
+```Verilog
+```
+---
+\\(\text{100-bit binary adder}\\)
++ 
+```Verilog
+```
+---
+\\(\text{4-digit BCD adder}\\)
++ 
+```Verilog
+```
+---
 ### 3.1.4 Karnaugh Map to Circuit
 ## 3.2 Sequential Logic
 ### 3.2.1 Latches and Flip-Flops
