@@ -1552,21 +1552,217 @@ endmodule
 ```
 ---
 \\(\text{Signed addition overflow}\\)
-+ 
++ Assume that you have two 8-bit 2's complement numbers, a[7:0] and b[7:0]. These numbers are added to produce s[7:0]. Also compute whether a (signed) overflow has occurred.
 ```Verilog
+module top_module (
+    input [7:0] a,
+    input [7:0] b,
+    output [7:0] s,
+    output overflow
+);
+    
+    assign s = a + b;
+    assign overflow = (a[7] == b[7] && a[7] != s[7]) ? 1 : 0; 
+
+endmodule
 ```
 ---
 \\(\text{100-bit binary adder}\\)
-+ 
++ Create a 100-bit binary adder. The adder adds two 100-bit numbers and a carry-in to produce a 100-bit sum and carry out.
 ```Verilog
+module top_module(
+    input [99:0] a, b,
+    input cin,
+    output cout,
+    output [99:0] sum);
+
+    assign {cout, sum} = cin + a + b;
+
+endmodule
 ```
 ---
 \\(\text{4-digit BCD adder}\\)
-+ 
++ You are provided with a BCD (binary-coded decimal) one-digit adder named bcd_fadd that adds two BCD digits and carry-in, and produces a sum and carry-out.
 ```Verilog
+module bcd_fadd (
+    input [3:0] a,
+    input [3:0] b,
+    input     cin,
+    output   cout,
+    output [3:0] sum );
+```
+Instantiate 4 copies of bcd_fadd to create a 4-digit BCD ripple-carry adder. Your adder should add two 4-digit BCD numbers (packed into 16-bit vectors) and a carry-in to produce a 4-digit sum and carry out.
+```Verilog
+module top_module (
+    input [15:0] a, b,
+    input cin,
+    output cout,
+    output [15:0] sum );
+
+    wire [2:0] wl;
+
+    bcd_fadd u0 (a[ 3: 0], b[ 3: 0],   cin, wl[0], sum[ 3: 0]);
+    bcd_fadd u1 (a[ 7: 4], b[ 7: 4], wl[0], wl[1], sum[ 7: 4]);
+    bcd_fadd u2 (a[11: 8], b[11: 8], wl[1], wl[2], sum[11: 8]);
+    bcd_fadd u3 (a[15:12], b[15:12], wl[2],  cout, sum[15:12]);
+
+endmodule
 ```
 ---
 ### 3.1.4 Karnaugh Map to Circuit
+\\(\text{Kmap1}\\)
++ Implement the circuit described by the Karnaugh map below.
+![kmap1](https://hdlbits.01xz.net/mw/images/2/20/Kmap1.png)
+```Verilog
+module top_module(
+    input a,
+    input b,
+    input c,
+    output out  );
+
+    assign out = a | b | c;
+
+endmodule
+```
+---
+\\(\text{Kmap2}\\)
++ Implement the circuit described by the Karnaugh map below.
+![kmap2](https://hdlbits.01xz.net/mw/images/4/4d/Kmap2.png)
+```Verilog
+module top_module(
+    input a,
+    input b,
+    input c,
+    input d,
+    output out  );
+
+    // a'd' + b'c' + acd + a'bc
+    wire w1, w2, w3, w4;
+
+    assign w1 = (~a)&(~d);
+    assign w2 = (~b)&(~c);
+    assign w3 = a&c&d;
+    assign w4 = (~a)&b&c;
+
+    assign out = w1|w2|w3|w4;
+endmodule
+```
+---
+\\(\text{Kmap3}\\)
++ Implement the circuit described by the Karnaugh map below.
+![kmap3](https://hdlbits.01xz.net/mw/images/1/1f/Kmap3.png)
+```Verilog
+module top_module(
+    input a,
+    input b,
+    input c,
+    input d,
+    output out  );
+
+    // a + b'c
+    assign out = a | (~b&c);
+
+endmodule
+```
+---
+\\(\text{Kmap4}\\)
++ Implement the circuit described by the Karnaugh map below.
+![kmap4](https://hdlbits.01xz.net/mw/images/9/98/Kmap4.png)
+```Verilog
+module top_module(
+    input a,
+    input b,
+    input c,
+    input d,
+    output out  );
+
+    always @(*) begin
+        if (a == b && c != d)
+            out = 1;
+        else if (a != b && c == d)
+            out = 1;
+        else
+            out = 0;
+    end
+
+endmodule
+```
+---
+\\(\text{Minimum SOP and POS}\\)
++ A single-output digital system with four inputs (a,b,c,d) generates a logic-1 when 2, 7, or 15 appears on the inputs, and a logic-0 when 0, 1, 4, 5, 6, 9, 10, 13, or 14 appears. The input conditions for the numbers 3, 8, 11, and 12 never occur in this system. For example, 7 corresponds to a,b,c,d being set to 0,1,1,1, respectively.
++ Determine the output out_sop in minimum SOP form, and the output out_pos in minimum POS form.
+```Verilog
+module top_module (
+    input a,
+    input b,
+    input c,
+    input d,
+    output out_sop,
+    output out_pos
+);
+
+    // f = d3 + m7 + d11 + m15 + m2
+    // f = cd + a'b'c
+    assign out_sop = (c & d) | (~a & ~b & c);
+    // f' = m0 + m1 + m4 + m5 + m6 + d8 + m9 + m10 + d11 + d12 + m13 + m14
+    // f' = c' + ab' + bd'
+    // f = (c)(a'+b)(b'+d)
+    assign out_pos = c & (~a | b) & (~b | d);
+
+endmodule
+```
+---
+\\(\text{Karnaugh map}\\)
++ Consider the function f shown in the Karnaugh map below.
++ Implement this function. **d** is don't-care, which means you may choose to output whatever value is convenient.
+![q3](https://hdlbits.01xz.net/mw/images/a/a2/Exams_m2014q3.png)
+```Verilog
+module top_module (
+    input [4:1] x,
+    output f );
+
+    // x[2]x[4] + x[1]'x[3]
+    assign f = (x[2] & x[4]) | (~x[1] & x[3]);
+
+endmodule
+```
+---
+\\(\text{Karnaugh map}\\)
++ Consider the function f shown in the Karnaugh map below. Implement this function.
+(The original exam question asked for simplified SOP and POS forms of the function.)
+![q1g](https://hdlbits.01xz.net/mw/thumb.php?f=Exams_2012q1g.png&width=195)
+```Verilog
+module top_module (
+    input [4:1] x,
+    output f
+);
+
+    // x[2]'x[4]' + x[1]'x[3] + x[2]x[3]x[4]
+    assign f = (~x[2] & ~x[4]) | (~x[1] & x[3]) | (x[2] & x[3] & x[4]);
+
+endmodule
+```
+---
+\\(\text{K-map implemented with a multiplexer}\\)
++ For the following Karnaugh map, give the circuit implementation using one 4-to-1 multiplexer and as many 2-to-1 multiplexers as required, but using as few as possible. You are not allowed to use any other logic gate and you must use a and b as the multiplexer selector inputs, as shown on the 4-to-1 multiplexer below.
++ You are implementing just the portion labelled **top_module**, such that the entire circuit (including the 4-to-1 mux) implements the K-map.
++ (The requirement to use only 2-to-1 multiplexers exists because the original exam question also wanted to test logic function simplification using K-maps and how to synthesize logic functions using only multiplexers. If you wish to treat this as purely a Verilog exercise, you may ignore this constraint and write the module any way you wish.)
+![q3](https://hdlbits.01xz.net/mw/images/a/a6/Ece241_2014_q3.png)
+![q3mux](https://hdlbits.01xz.net/mw/images/b/bc/Ece241_2014_q3mux.png)
+```Verilog
+module top_module (
+    input c,
+    input d,
+    output [3:0] mux_in
+);
+    assign mux_in[0] = c|d;  // 0111
+    assign mux_in[1] = 1'b0; // 0000
+    assign mux_in[2] = ~d;   // 1001
+    assign mux_in[3] = c&d;  // 0010
+
+endmodule
+```
+---
 ## 3.2 Sequential Logic
 ### 3.2.1 Latches and Flip-Flops
 ### 3.2.2 Counters
