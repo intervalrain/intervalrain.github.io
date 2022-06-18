@@ -26,7 +26,7 @@ cover:
     hidden: true
 ---
 
-# Rain Hu / intervalrain / 陣雨
+# Rain Hu / intervalrain / 陣雨
 >
 > Music, coding, and life.
 >
@@ -62,7 +62,7 @@ cover:
 
 ## More about me
 - Job
-  - [Resume](https://www.cakeresume.com/intervalrain)
+  - [Resume](http://intervalrain.github.io/posts/resume/)
 - Music
   - [Streetvoice](https://streetvoice.com/intervalrain/)
   - [Youtube](https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA)
