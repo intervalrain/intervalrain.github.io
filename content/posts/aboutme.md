@@ -62,7 +62,7 @@ cover:
 
 ## More about me
 - Job
-  - [Resume](http://intervalrain.github.io/posts/resume/)
+  - [Resume](http://intervalrain.github.io/posts/rainhu.pdf)
 - Music
   - [Streetvoice](https://streetvoice.com/intervalrain/)
   - [Youtube](https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA)
