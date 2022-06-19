@@ -104,3 +104,6 @@ cover:
 + 沒有告訴機器正確的答案，機器有的只是一個分數，就是它做得好或不好。
 + Alpha Go 是 Supervised learning + Reinforcement learning (先人工餵棋譜，再讓機器人互相下棋)
 > 利用 reinforcement learning 來訓練聊天機器人，把機器人發到客服電話，讓機器人自己應對客人，若客人的反應勃然大怒，則機器會學到剛才應對的方式是錯的，讓機器自己去檢討哪個步驟做的不好。
+# 我們為何要學機器學習?
+> 好的 AI 需要好的 AI 訓練師，AI 訓練師討選合適的 model、loss function，不同 model、loss function 適合解決不同的問題。
+> 有些模型的最佳化比較困難，例如深度學習，此時可能就需要有經驗的 AI 訓練師來處理。
