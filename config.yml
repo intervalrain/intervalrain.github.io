@@ -143,10 +143,6 @@ menu:
       name: Tags
       url: /tags/
       weight: 40
-    - identifier: creations
-      name: Creations
-      url: /creations/
-      weight: 50
 
 
 outputs:
