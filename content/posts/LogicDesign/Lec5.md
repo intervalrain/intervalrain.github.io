@@ -1,6 +1,6 @@
 ---
 title: "[Logic Design] Lec 5 - Quine-McClusky Method"
-date: 2021-10-01T01:09:39+08:00
+date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false
 Categories: Logic Design     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily

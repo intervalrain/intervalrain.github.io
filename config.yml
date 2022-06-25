@@ -67,7 +67,12 @@ params:
         url: "/archives"
       - name: Github
         url: "https://github.com/"
-
+      - name: HDLBits
+        url: "/tags/hdlbits/"
+      - name: Logic Design
+        url: "/tags/logic-design/"
+      - name: Leetcode
+        url: "https://github.com/intervalrain/leetcode"
   # home-info mode
   # homeInfoParams:
   #   Title: "Hi there \U0001F44B"
@@ -138,6 +143,10 @@ menu:
       name: Tags
       url: /tags/
       weight: 40
+    - identifier: creations
+      name: Creations
+      url: /creations/
+      weight: 50
 
 
 outputs:

@@ -1,7 +1,7 @@
 ---
-title: "[VHDL] HDLbits"
+title: "[VHDL] HDLbits 2 - Verilog Language"
 date: 2022-05-28T00:10:20+08:00
-tags: ["VHDL", "Programming", "Verilog"]
+tags: ["VHDL", "Programming", "Verilog", "HDLbits"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
 description: "Verilog tutorial"                     
@@ -26,35 +26,19 @@ cover:
     relative: false
     hidden: false
 ---
-# [HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
-> HDLBits 是一系列小型電路設計的練習，用於使用 Verilog 硬體描述語言(HDL)進行數位硬體設計。
-> 由教學的題型由淺入深，逐步建立起電路設計的技能。
-> 每個問題都會要求讀者使用 Verilog 設計一個小電路。HDLBits 會對提交的程式碼作判讀。透過一組測試碼來進行向量模擬，並與解答比較，檢查正確性。
 
-# 1 Getting Started
-\\(\text{assign one}\\)
-+ Build a circuit with no inputs and one output. The output should always drive 1 (or logic high).
-```Verilog
-module top_module( output one);
-    
-    assign one = 1'b1;
+[1. Getting Started](/posts/verilog/hdlbits1/#1-getting-started)  
+[2. Verilog Language](/posts/verilog/hdlbits2/#2-verilog-language)  
+[3. Circuits](/posts/verilog/hdlbits3/#3-circuits)  
+[4. Verification: Reading Simulations](/posts/verilog/hdlbits4/#4-getting-started)  
+[5. Verification: Writing Testbenches](/posts/verilog/hdlbits5/#5-verification---writing-testbenches)  
+[6. CS450](/posts/verilog/hdlbits6/#6-cs450)  
 
-endmodule
-```
----
-\\(\text{assign zero}\\)
-+ Build a circuit with no inputs and one output that outputs a constant 0.
-```Verilog
-module top_module(
-    output zero );
 
-    assign zero = 1'b0;
 
-endmodule
-```
 # 2 Verilog Language
 ## 2.1 Basics
-\\(\text{wire}\\)
+### wire
 + Create a module with one input and ont output that behaves like a wire
 ![wire](https://hdlbits.01xz.net/mw/images/7/77/Wire.png)
 ```Verilog
@@ -65,7 +49,7 @@ module top_module( input in, output out);
 endmodule
 ```
 ---
-\\(\text{multi-in-out}\\)
+### multi-in-out
 + Create a module with 3 inputs and 4 outputs that behaves like wires that makes these connections:
 ![wire4](https://hdlbits.01xz.net/mw/images/1/15/Wire4.png)
 ```Verilog
@@ -81,7 +65,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{not gate}\\)
+### not gate
 + Create a module that implements a NOT gate.
 ![Notgate](https://hdlbits.01xz.net/mw/images/9/9e/Notgate.png)
 ```Verilog
@@ -92,7 +76,7 @@ module top_module( input in, output out );
 endmodule
 ```
 ---
-\\(\text{and gate}\\)
+### and gate
 + Create a module that implments an AND gate.
 ![Andgate](https://hdlbits.01xz.net/mw/images/7/78/Andgate.png)
 ```Verilog
@@ -105,7 +89,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{nor gate}\\)
+### nor gate
 + Create a module that implements a NOR gate. A NOR gate is an OR gate with its output inverted. A NOR function needs two operators when written in Verilog.
 ![norgate](https://hdlbits.01xz.net/mw/images/5/5b/Norgate.png)
 ```Verilog
@@ -118,7 +102,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{xnor gate}\\)
+### xnor gate
 + Create a module that implements a XNOR gate.
 ![xnorgate](https://hdlbits.01xz.net/mw/images/6/6d/Xnorgate.png)
 ```Verilog
@@ -131,7 +115,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{wire declaration}\\)
+### wire declaration
 + Implement following circuits. Create two intermediate wires to connect the AND and OR gates together. Note that the wire that feeds the NOT gate is really wire out, so you do not necessarily need to declare a third wire here. Notice how wires are driven by exactly one source (output of a gate), but can feed multiple inputs.
 ![Wiredecl](https://hdlbits.01xz.net/mw/images/3/3a/Wiredecl2.png)
 ```Verilog
@@ -148,7 +132,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{7458}\\)
+### 7458
 + The 7458 is a chip with four AND gates and two OR gates. Create a module with the same functionality as the 7458 chip. It has 10 inputs and 2 outputs.
 ![7458](https://hdlbits.01xz.net/mw/images/e/e1/7458.png)
 ```Verilog
@@ -171,7 +155,7 @@ module top_module(
 endmodule
 ```
 ## 2.2 Vectors
-\\(\text{vector}\\)
+### vector
 + Build a circuit that has one 3-bit input, then outputs the same vector, and also splits it into three separate 1-bit outputs. Connect outputs o0 to the input vector's position 0, o1 to position 1, etc.  
 In a diagram, a tick mark with a number next to it indicates the width of the vector (or "bus"), rather than drawing a separate line for each bit in the vector.
 ![vector0](https://hdlbits.01xz.net/mw/images/a/ae/Vector0.png)
@@ -191,7 +175,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{vector select}\\)
+### vector select
 + Build a combinational circuit that splits an input half-word (16 bits, [15:0]) into lower [7:0] and upper [15:8] bytes.
 ```Verilog
 module top_module (
@@ -205,7 +189,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{vector swap}\\)
+### vector swap
 + A 32-bit vector can be viewed as containing 4 bytes (bits [31:24], [23:16], etc.). Build a circuit that will reverse the byte ordering of the 4-byte word.  
 AaaaaaaaBbbbbbbbCcccccccDddddddd => DdddddddCcccccccBbbbbbbbAaaaaaaa  
 This operation is often used when the endianness of a piece of data needs to be swapped, for example between little-endian x86 systems and the big-endian formats used in many Internet protocols.
@@ -222,7 +206,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{vector gates}\\)
+### vector gates
 + uild a circuit that has two 3-bit inputs that computes the bitwise-OR of the two vectors, the logical-OR of the two vectors, and the inverse (NOT) of both vectors. Place the inverse of b in the upper half of out_not (i.e., bits [5:3]), and the inverse of a in the lower half.
 ![vectorgates](https://hdlbits.01xz.net/mw/images/1/1b/Vectorgates.png)
 ```Verilog
@@ -242,7 +226,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{gate-prefix vector}\\)
+### gate-prefix vector
 + Build a combinational circuit with four inputs, in[3:0]. There are 3 outputs: 
     + out_and: output of a 4-input AND gate.
     + out_or: output of a 4-input OR gate.
@@ -261,7 +245,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{vector concatenate}\\)
+### vector concatenate
 + Given several input vectors, concatenate them together then split them up into several output vectors. There are six 5-bit input vectors: a, b, c, d, e, and f, for
 ![vector3](https://hdlbits.01xz.net/mw/images/0/0c/Vector3.png)
 ```Verilog
@@ -274,7 +258,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{vector reverse}\\)
+### vector reverse
 + Given an 8-bit input vector [7:0], reverse its bit ordering.
 ```Verilog
 module top_module(
@@ -315,7 +299,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{vector replication}\\)
+### vector replication
 + Build a circuit that sign-extends an 8-bit number to 32 bits. This requires a concatenation of 24 copies of the sign bit (i.e., replicate bit[7] 24 times) followed by the 8-bit number itself.
 ```Verilog
 module top_module (
@@ -327,7 +311,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{vector replication2}\\)
+### vector replication2
 + Given five 1-bit signals (a, b, c, d, and e), compute all 25 pairwise one-bit comparisons in the 25-bit output vector. The output should be 1 if the two bits being compared are equal.
 ![vector5](https://hdlbits.01xz.net/mw/images/a/ac/Vector5.png)
 ```Verilog
@@ -372,7 +356,7 @@ Connecting signals to a module's ports by name allows wires to remain correctly 
 The above line instantiates a module of type mod_a named "instance2", then connects signal wa (outside the module) to the port named in1, wb to the port named in2, and wc to the port named out. Notice how the ordering of ports is irrelevant here because the connection will be made to the correct name, regardless of its position in the sub-module's port list. Also notice the period immediately preceding the port name in this syntax.  
 
 ---
-\\(\text{module}\\)
+### module
 ![module](https://hdlbits.01xz.net/mw/images/c/c0/Module.png)
 ```Verilog
 module top_module ( input a, input b, output out );
@@ -386,7 +370,7 @@ module top_module ( input a, input b, output out );
 endmodule
 ```
 ---
-\\(\text{module\\_pos}\\)
+### module_pos
 + This problem is similar to the previous one (module). You are given a module named mod_a that has 2 outputs and 4 inputs, in that order. You must connect the 6 ports by position to your top-level module's ports out1, out2, a, b, c, and d, in that order.
 You are given the following module:
 ![module_pos](https://hdlbits.01xz.net/mw/images/b/b7/Module_pos.png)
@@ -400,7 +384,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{module\\_name}\\)
+### module_name
 + This problem is similar to module. You are given a module named mod_a that has 2 outputs and 4 inputs, in some order. You must connect the 6 ports by name to your top-level module's ports:You are given the following module:
 ![module_name](https://hdlbits.01xz.net/mw/images/d/dd/Module_name.png)
 ```Verilog
@@ -425,7 +409,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{module\\_shift}\\)
+### module_shift
 + You are given a module my_dff with two inputs and one output (that implements a D flip-flop). Instantiate three of them, then chain them together to make a shift register of length 3. The clk port needs to be connected to all instances.
 Note that to make the internal connections, you will need to declare some wires. Be careful about naming your wires and module instances: the names must be unique.  
 The module provided to you is: `module my_dff ( input clk, input d, output q );`
@@ -443,7 +427,7 @@ module top_module ( input clk, input d, output q );
 endmodule
 ```
 ---
-\\(\text{module\\_shift8}\\)
+### module_shift8
 + You are given a module my_dff8 with two inputs and one output (that implements a set of 8 D flip-flops). Instantiate three of them, then chain them together to make a 8-bit wide shift register of length 3. In addition, create a 4-to-1 multiplexer (not provided) that chooses what to output depending on sel[1:0]: The value at the input d, after the first, after the second, or after the third D flip-flop. (Essentially, sel selects how many cycles to delay the input, from zero to three clock cycles.)
 The module provided to you is: `module my_dff8 ( input clk, input [7:0] d, output [7:0] q );`  
 The multiplexer is not provided. One possible way to write one is inside an always block with a case statement inside. 
@@ -476,7 +460,7 @@ endmodule
 
 ```
 ---
-\\(\text{module\\_Half Adder}\\)
+### module_Half Adder
 + You are given a module add16 that performs a 16-bit addition. Instantiate two of them to create a 32-bit adder. One add16 module computes the lower 16 bits of the addition result, while the second add16 module computes the upper 16 bits of the result, after receiving the carry-out from the first adder. Your 32-bit adder does not need to handle carry-in (assume 0) or carry-out (ignored), but the internal modules need to in order to function correctly. (In other words, the add16 module performs 16-bit a + b + cin, while your module performs 32-bit a + b).  
 Connect the modules together as shown in the diagram below. The provided module add16 has the following declaration:
 `module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`
@@ -500,7 +484,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{module\\_Full Adder}\\)
+### module_Full Adder
 + You are given a module add16 that performs a 16-bit addition. You must instantiate two of them to create a 32-bit adder. One add16 module computes the lower 16 bits of the addition result, while the second add16 module computes the upper 16 bits of the result. Your 32-bit adder does not need to handle carry-in (assume 0) or carry-out (ignored).  
 Connect the add16 modules together as shown in the diagram below. The provided module add16 has the following declaration:  
 `module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`  
@@ -537,7 +521,7 @@ module add1 ( input a, input b, input cin,   output sum, output cout );
 endmodule
 ```
 ---
-\\(\text{Module\\_Carry Select Adder}\\)
+### module_Carry Select Adder
 + One drawback of the ripple carry adder is that the delay for an adder to compute the carry out (from the carry-in, in the worst case) is fairly slow, and the second-stage adder cannot begin computing its carry-out until the first-stage adder has finished. This makes the adder slow. One improvement is a carry-select adder, shown below. The first-stage adder is the same as before, but we duplicate the second-stage adder, one assuming carry-in=0 and one assuming carry-in=1, then using a fast 2-to-1 multiplexer to select which result happened to be correct.  
 You are provided with the same module add16 as the previous exercise, which adds two 16-bit numbers with carry-in and produces a carry-out and 16-bit sum. You must instantiate three of these to build the carry-select adder, using your own 16-bit 2-to-1 multiplexer.  
 `module add16 ( input[15:0] a, input[15:0] b, input cin, output[15:0] sum, output cout );`  
@@ -570,7 +554,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{Module\\_Adder-Subtractor}\\)
+### module_Adder-Subtractor
 + An adder-subtractor can be built from an adder by optionally negating one of the inputs, which is equivalent to inverting the input then adding 1. The net result is a circuit that can do two operations: (a + b + 0) and (a + ~b + 1). 
 Build the adder-subtractor below.
 ![module_addsub](https://hdlbits.01xz.net/mw/images/a/ae/Module_addsub.png)
@@ -596,7 +580,7 @@ endmodule
 ```
 ---
 ## 2.4 Procedures
-\\(\text{Alwaysblock}\\)  
+### Alwaysblock  
 + For synthesizing hardware, two types of always blocks are relevant:
     + Combinational: `always @(*)`
     + Clocked: `always @(posedge clk)`
@@ -623,7 +607,7 @@ endmodule
 
 ```
 ---
-\\(\text{Clocked}\\)  
+### Clocked  
 + Clocked always blocks create a blob of combinational logic just like combinational always blocks, but also creates a set of flip-flops (or "registers") at the output of the blob of combinational logic. Instead of the outputs of the blob of logic being visible immediately, the outputs are visible only immediately after the next (posedge clk).
 **Blocking vs. Non-Backing Assignment**
 + There are three types of assignments in Verilog:
@@ -654,7 +638,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{If statement}\\)  
+### If statement  
 + An if statement usually creates a 2-to-1 multiplexer, selecting one input if the condition is true, and the other input if the condition is false.
 ![always_if_mux](https://hdlbits.01xz.net/mw/images/9/9d/Always_if_mux.png)
 ```Verilog
@@ -679,7 +663,7 @@ Do the same twice, once using assign statements and once using a procedural if s
 0&1&a\\\\\hline
 1&0&a\\\\\hline
 1&1&b\\\\\hline
-\end{array}\\)
+\end{array
 ```Verilog
 module top_module(
     input a,
@@ -720,7 +704,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{If statement latches}\\)  
+### If statement latches  
 + **A common source of errors: How to avoid making latches**  
 
 + When designing circuits, you must think first in terms of circuits:
@@ -773,7 +757,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{Case statement}\\)  
+### Case statement  
 + Case statements in Verilog are nearly equivalent to a sequence of if-elseif-else that compares one expression to a list of others. Its syntax and functionality differs from the switch statement in C.
 ```Verilog
 always @(*) begin     // This is a combinational circuit
@@ -818,7 +802,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{Priority encoder}\\)  
+### Priority encoder  
 + A *priority encoder* is a combinational circuit that, when given an input bit vector, outputs the position of the first 1 bit in the vector. For example, a 8-bit priority encoder given the input `8'b10010000` would output 3'd4, because bit[4] is first bit that is high.
 + Build a 4-bit priority encoder. For this problem, if none of the input bits are high (i.e., input is zero), output zero. Note that a 4-bit number has 16 possible combinations.
 ```Verilog
@@ -851,7 +835,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{Priority encoder with casez}\\)  
+### Priority encoder with casez  
 + Build previous problem with `casez`. If the case items in the case statement supported con't care bits. This is what case**z** is for: It treats bits that have the value z as don't care in the comparison.
 + A case statement behaves as though each item is checked sequentially (in reality, a big combinational logic function). Notice how there are certain inputs (e.g., 4'b1111) that will match more than one case item. The first match is chosen (so 4'b1111 matches the first item, out = 0, but not any of the later ones).
     + There is also a similar casex that treats both x and z as don't-care. I don't see much purpose to using it over casez.
@@ -879,7 +863,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{Avoiding latches}\\)  
+### Avoiding latches  
 + Suppose you're building a circuit to process scancodes from a PS/2 keyboard for a game. Given the last two bytes of scancodes received, you need to indicate whether one of the arrow keys on the keyboard have been pressed. This involves a fairly simple mapping, which can be implemented as a case statement (or if-elseif) with four cases.  
 \\(\\begin{array}{|c|c|}\\hline
 \text{Scancode [15:0]}&\text{Arrow key}\\\\\hline
@@ -888,7 +872,7 @@ endmodule
 \text{16'he074}&\text{right arrow}\\\\\hline
 \text{16'he075}&\text{up arrow}\\\\\hline
 \text{Anything else}&\text{none}\\\\\hline
-\end{array}\\)
+\end{array
 + Your circuit has one 16-bit input, and four outputs. Build this circuit that recognizes these four scancodes and asserts the correct output.
 + To avoid creating latches, all outputs must be assigned a value in all possible conditions. Simply having a `default` case is not enough. You must assign a value to all four outputs in all four cases and the default case. This can involve a lot of unnecessary typing. One easy way around this is to assign a "default value" to the outputs *before* the case statement:
 ```Verilog
@@ -924,7 +908,7 @@ module top_module (
 endmodule
 ```
 ## 2.5 More Verilog Features
-\\(\text{Conditional ternary operator}\\)
+### Conditional ternary operator
 + Verilog has a ternary conditional operator ( ? : ) much like C:
 `(condition ? if_true : if_false)`
 + Given four unsigned numbers, find the minimum. Unsigned numbers can be compared with standard comparison operators (a < b). Use the conditional operator to make two-way min circuits, then compose a few of them to create a 4-way min circuit. You'll probably want some wire vectors for the intermediate results.
@@ -942,7 +926,7 @@ module top_module (
 
 endmodule
 ```
-\\(\text{Reduction operators}\\)
+### Reduction operators
 + Some syntactic sugar for reduction:
 ```Verilog
 & a[3:0]    // AND: a[3] & a[2] & a[1] & a[0]. Equivalent to (a[3:0] == 4'hf)
@@ -960,7 +944,7 @@ module top_module (
 endmodule
 ```
 ---
-\\(\text{Reduction: Even wider gates}\\)
+### Reduction: Even wider gates
 + Build a combinational circuit with 100 inputs, in[99:0]. There are 3 outputs:
     + out_and: output of a 100-input AND gate.
     + out_or: output of a 100-input OR gate.
@@ -979,7 +963,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{Combinational for-loop: Vector reversal}\\)
+### Combinational for-loop: Vector reversal
 + Given a 100-bit input vector [99:0], reverse its bit ordering.
 ```Verilog
 module top_module( 
@@ -996,7 +980,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{Combinational for-loop: 255-bit population count}\\)
+### Combinational for-loop: 255-bit population count
 + A "population count" circuit counts the number of '1's in an input vector. Build a population count circuit for a 255-bit input vector.
 ```Verilog
 module top_module( 
@@ -1013,7 +997,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{Generate for-loop: 100-bit binary adder}\\)
+### Generate for-loop: 100-bit binary adder
 + Create a 100-bit binary ripple-carry adder by instantiating 100 full adders. The adder adds two 100-bit numbers and a carry-in to produce a 100-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from each full adder in the ripple-carry adder. cout[99] is the final carry-out from the last full adder, and is the carry-out you usually see.
 ```Verilog
 module top_module( 
@@ -1032,7 +1016,7 @@ module top_module(
 endmodule
 ```
 ---
-\\(\text{Generate for-loop: 100-digit BCD adder}\\)
+### Generate for-loop: 100-digit BCD adder
 + You are provided with a BCD one-digit adder named bcd_fadd that adds two BCD digits and carry-in, and produces a sum and carry-out.
 ```Verilog
 module bcd_fadd (
@@ -1062,718 +1046,3 @@ module top_module(
     endgenerate    
 endmodule
 ```
-# 3 Circuits
-## 3.1 Combinational Logic
-### 3.1.1 Basic Gates
-\\(\text{Wire}\\)
-![q4h](https://hdlbits.01xz.net/mw/images/d/d7/Exams_m2014q4h.png)
-```Verilog
-module top_module (
-    input in,
-    output out);
-
-    assign out = in;
-    
-endmodule
-```
----
-\\(\text{GND}\\)
-![GND](https://hdlbits.01xz.net/mw/images/5/54/Exams_m2014q4i.png)
-```Verilog
-module top_module (
-    output out);
-
-    assign out = 1'b0;
-    
-endmodule
-```
----
-\\(\text{NOR}\\)
-![NOR](https://hdlbits.01xz.net/mw/images/e/e9/Exams_m2014q4e.png)
-```Verilog
-module top_module (
-    input in1,
-    input in2,
-    output out);
-
-    assign out = ~(in1|in2);
-    
-endmodule
-```
----
-\\(\text{Another Gate}\\)
-![AnotherGate](https://hdlbits.01xz.net/mw/images/b/b6/Exams_m2014q4f.png)
-```Verilog
-module top_module (
-    input in1,
-    input in2,
-    output out);
-
-    assign out = in1 & (~in2);
-    
-endmodule
-```
----
-\\(\text{Two gates}\\)
-![TwoGates](https://hdlbits.01xz.net/mw/images/e/e6/Exams_m2014q4g.png)
-```Verilog
-module top_module (
-    input in1,
-    input in2,
-    input in3,
-    output out);
-
-    wire w1;
-    
-    assign w1 = ~(in1^in2);
-    assign out = w1^in3;
-    
-endmodule
-```
----
-\\(\text{More logic gates}\\)
-```Verilog
-module top_module( 
-    input a, b,
-    output out_and,
-    output out_or,
-    output out_xor,
-    output out_nand,
-    output out_nor,
-    output out_xnor,
-    output out_anotb
-);
-
-    assign out_and = a & b;
-    assign out_or = a | b;
-    assign out_xor = a ^ b;
-    assign out_nand = ~(a & b);
-    assign out_nor = ~(a | b);
-    assign out_xnor = ~(a ^ b);
-    assign out_anotb = a & (~b);
-    
-//    and(out_and, a, b);
-//    or(out_or, a, b);
-//    xor(out_xor, a, b);
-//    nand(out_nand, a, b);
-//    nor(out_nor, a, b);
-//    xnor(out_xnor, a, b);
-//    and(out_anotb, a , ~b);
-    
-endmodule
-```
----
-\\(\text{7420 chip}\\)
-![7420](https://hdlbits.01xz.net/mw/images/4/48/7420.png)
-```Verilog
-module top_module ( 
-    input p1a, p1b, p1c, p1d,
-    output p1y,
-    input p2a, p2b, p2c, p2d,
-    output p2y );
-
-    assign p1y = ~(p1a & p1b & p1c & p1d);
-    assign p2y = ~(p2a & p2b & p2c & p2d);
-    
-endmodule\
-```
----
-\\(\text{Truth tables}\\)  
-\\(\begin{array}{|c|ccc|c|}\hline
-\text{Row}&&\text{Inputs}&&\text{Outputs}\\\\\hline
-\text{number}&\text{x3}&\text{x2}&\text{x1}&\text{f}\\\\\hline
-0&0&0&0&0\\\\\hline
-1&0&0&1&0\\\\\hline
-2&0&1&0&1\\\\\hline
-3&0&1&1&1\\\\\hline
-4&1&0&0&0\\\\\hline
-5&1&0&1&1\\\\\hline
-6&1&1&0&0\\\\\hline
-7&1&1&1&1\\\\\hline
-\end{array}\\)
-![truthtable1](https://hdlbits.01xz.net/mw/images/f/f6/Truthtable1.png)
-```Verilog
-module top_module( 
-    input x3,
-    input x2,
-    input x1,
-    output f );
-
-    assign f = ((~x3)&x2)|(x3&x1);
-
-endmodule
-
-```
----
-\\(\text{Two-bit equality}\\)
-+ Create a circuit that has two 2-bit inputs A[1:0] and B[1:0], and produces an output z. The value of z should be 1 if A = B, otherwise z should be 0.
-```Verilog
-module top_module ( input [1:0] A, input [1:0] B, output z ); 
-
-    assign z = (A == B);
-    
-endmodule
-```
----
-\\(\text{Simple circuit A}\\)
-```Verilog
-module top_module (input x, input y, output z);
-
-    assign z = (x^y) &x;
-    
-endmodule
-```
----
-\\(\text{Simple circuit B}\\)
-![q4b](https://hdlbits.01xz.net/mw/images/6/6a/Mt2015_q4b.png)
-```Verilog
-module top_module ( input x, input y, output z );
-
-    assign z = (x==y);
-    // assign z = ~(x ^ y);
-    
-endmodule
-```
----
-\\(\text{Combine circuits A and B}\\)
-![q4](https://hdlbits.01xz.net/mw/images/f/f5/Mt2015_q4.png)
-```Verilog
-module top_module (input x, input y, output z);
-    
-    wire o1, o2, o3, o4;
-    
-    A ia1(x,y,o1);
-    B ib1(x,y,o2);
-    A ia2(x,y,o3);
-    B ib2(x,y,o4);
-    
-    assign z = (o1|o2)^(o3&o4);
-
-endmodule
-
-module A(
-    input x, y,
-    output z);
-    
-    assign z = (x ^ y) & x; 
-    
-endmodule
-
-module B(
-    input x, y,
-    output z);
-    
-    assign z = x ~^ y;
-    
-endmodule
-```
----
-\\(\text{Ringer}\\)
-+ Suppose you are designing a circuit to control a cellphone's ringer and vibration motor. Whenever the phone needs to ring from an incoming call (`input ring`), your circuit must either turn on the ringer (`output ringer = 1`) or the motor (`output motor = 1`), but not both. If the phone is in vibrate mode (`input vibrate_mode = 1`), turn on the motor. Otherwise, turn on the ringer.
-+ Try to use only assign statements, to see whether you can translate a problem description into a collection of logic gates.  
-+ **Design hint**: When designing circuits, one often has to think of the problem "backwards", starting from the outputs then working backwards towards the inputs. This is often the opposite of how one would think about a (sequential, imperative) programming problem, where one would look at the inputs first then decide on an action (or output). For sequential programs, one would often think "If (inputs are ___ ) then (output should be ___ )". On the other hand, hardware designers often think "The (output should be ___ ) when (inputs are ___ )".
-+ The above problem description is written in an imperative form suitable for software programming (*if ring then do this*), so you must convert it to a more declarative form suitable for hardware implementation (`assign ringer = ___`). Being able to think in, and translate between, both styles is one of the most important skills needed for hardware design.
-![ringer](https://hdlbits.01xz.net/mw/images/9/96/Ringer.png)
-```Verilog
-module top_module (
-    input ring,
-    input vibrate_mode,
-    output ringer,       // Make sound
-    output motor         // Vibrate
-);
-
-    assign ringer = ring & (~vibrate_mode);
-    assign motor = ring & (vibrate_mode);
-    
-endmodule
-```
----
-\\(\text{Thermostat}\\)
-+ A heating/cooling thermostat controls both a heater (during winter) and an air conditioner (during summer). Implement a circuit that will turn on and off the heater, air conditioning, and blower fan as appropriate.
-+ The thermostat can be in one of two modes: **heating** (`mode = 1`) and **cooling** (`mode = 0`). In heating mode, turn the heater on when it is too cold (`too_cold = 1`) but do not use the air conditioner. In cooling mode, turn the air conditioner on when it is too hot (`too_hot = 1`), but do not turn on the heater. When the heater or air conditioner are on, also turn on the fan to circulate the air. In addition, the user can also request the fan to turn on (fan_on = 1), even if the heater and air conditioner are off.
-+ Try to use only assign statements, to see whether you can translate a problem description into a collection of logic gates.
-+ 畫出真值表  
-\\(\begin{array}{|cccc|ccc|}\hline
-\text{mode}&\text{too\\_cold}&\text{too\\_hot}&\text{fan on}&\text{heater}&\text{aircon}&\text{fan}\\\\\hline
-0&0&0&0&0&0&0\\\\\hline
-0&0&0&1&0&0&1\\\\\hline
-0&0&1&0&0&1&1\\\\\hline
-0&0&1&1&0&1&1\\\\\hline
-0&1&0&0&0&0&0\\\\\hline
-0&1&0&1&0&0&1\\\\\hline
-0&1&1&0&0&1&1\\\\\hline
-0&1&1&1&0&1&1\\\\\hline
-1&0&0&0&0&0&0\\\\\hline
-1&0&0&1&0&0&1\\\\\hline
-1&0&1&0&0&0&0\\\\\hline
-1&0&1&1&0&0&1\\\\\hline
-1&1&0&0&1&0&1\\\\\hline
-1&1&0&1&1&0&1\\\\\hline
-1&1&1&0&1&0&1\\\\\hline
-1&1&1&1&1&0&1\\\\\hline
-\end{array}\\)
-```Verilog
-module top_module (
-    input too_cold,
-    input too_hot,
-    input mode,
-    input fan_on,
-    output heater,
-    output aircon,
-    output fan);
-
-    assign heater = mode & too_cold;
-    assign aircon = (~mode) & too_hot;
-    assign fan = heater|aircon|fan_on;
-
-endmodule
-```
----
-\\(\text{3-bit population count}\\)
-+ A "population count" circuit counts the number of '1's in an input vector. Build a population count circuit for a 3-bit input vector.
-```Verilog
-module top_module( 
-    input [2:0] in,
-    output [1:0] out );
-
-    always @(*) begin
-        out = 0;
-        for (int i = 0; i <= 2; i++) begin
-            out += in[i];
-        end
-    end
-    
-endmodule
-```
-+ *此解會產生鎖存器，不建議使用。*  
----
-\\(\text{Gates and vectors}\\)
-+ You are given a four-bit input vector in[3:0]. We want to know some relationships between each bit and its neighbour:
-    + **out_both**: Each bit of this output vector should indicate whether both the corresponding input bit and its neighbour to the **left** (higher index) are '1'. For example, `out_both[2]` should indicate if `in[2]` and `in[3]` are both 1. Since `in[3]` has no neighbour to the left, the answer is obvious so we don't need to know `out_both[3]`.
-    + **out_any**: Each bit of this output vector should indicate whether any of the corresponding input bit and its neighbour to the **right** are '1'. For example, `out_any[2]` should indicate if either `in[2]` or `in[1]` are 1. Since `in[0]` has no neighbour to the right, the answer is obvious so we don't need to know `out_any[0]`.
-    + **out_different**: Each bit of this output vector should indicate whether the corresponding input bit is different from its neighbour to the **left**. For example, `out_different[2]` should indicate if `in[2]` is different from `in[3]`. For this part, treat the vector as wrapping around, so `in[3]`'s neighbour to the left is `in[0]`.
-```Verilog
-module top_module( 
-    input [3:0] in,
-    output [2:0] out_both,
-    output [3:1] out_any,
-    output [3:0] out_different );
-
-    assign out_both[2:0] = in[2:0] & in[3:1];
-    assign out_any[3:1] = in[3:1] | in[2:0];
-    assign out_different[3:0] = in[3:0] ^ {in[0], in[3:1]};
-
-    // always @(*) begin
-    //    out_different[3] = (in[3] != in[0]);
-    //    for (int i = 0; i <= 2; i++) begin
-    //        out_both[i] = in[i] & in[i+1];
-    //        out_any[i+1] = in[i+1] | in[i];
-    //        out_different[i] = (in[i] != in[i+1]);
-    //    end
-    // end
-    
-endmodule
-```
----
-\\(\text{Even longer vectors}\\)
-+ You are given a 100-bit input vector in[99:0]. We want to know some relationships between each bit and its neighbour:
-    + **out_both**: Each bit of this output vector should indicate whether both the corresponding input bit and its neighbour to the **left** are '1'. For example, `out_both[98]` should indicate if `in[98]` and `in[99]` are both 1. Since `in[99]` has no neighbour to the left, the answer is obvious so we don't need to know `out_both[99]`.
-    + **out_any**: Each bit of this output vector should indicate whether any of the corresponding input bit and its neighbour to the **right** are '1'. For example, `out_any[2]` should indicate if either `in[2]` or `in[1]` are 1. Since `in[0]` has no neighbour to the right, the answer is obvious so we don't need to know `out_any[0]`.
-    + **out_different**: Each bit of this output vector should indicate whether the corresponding input bit is different from its neighbour to the **left**. For example, `out_different[98]` should indicate if `in[98]` is different from `in[99]`. For this part, treat the vector as wrapping around, so `in[99]`'s neighbour to the left is `in[0]`.
-```Verilog
-module top_module( 
-    input [99:0] in,
-    output [98:0] out_both,
-    output [99:1] out_any,
-    output [99:0] out_different );
-
-    assign out_both[98:0] = in[98:0] & in[99:1];
-    assign out_any[99:1] = in[99:1] | in[98:0];
-    assign out_different[99:0] = in[99:0] ^ {in[0], in[99:1]};    
-    
-endmodule
-```
----
-### 3.1.2 Multiplexers
-\\(\text{2-to-1 multiplexer}\\)  
-+ Create a one-bit wide, 2-to-1 multiplexer. When sel=0, choose a. When sel=1, choose b.
-```Verilog
-module top_module( 
-    input a, b, sel,
-    output out ); 
-
-    assign out = sel ? b : a;
-    
-endmodule
-```
----
-\\(\text{2-to-1 bus multiplexer}\\)  
-+ Create a 100-bit wide, 2-to-1 multiplexer. When sel=0, choose a. When sel=1, choose b.
-```Verilog
-module top_module( 
-    input [99:0] a, b,
-    input sel,
-    output [99:0] out );
-
-    assign out = sel ? b : a;
-    
-endmodule
-```
----
-\\(\text{9-to-1 multiplexer}\\)  
-+ Create a 16-bit 9-to-1 multiplexer. sel=0 chooses a, sel=1 chooses b, etc. For the unused cases (sel=9 to 15), set all output bits to '1'.
-```Verilog
-module top_module( 
-    input [15:0] a, b, c, d, e, f, g, h, i,
-    input [3:0] sel,
-    output [15:0] out );
-
-    always @(*) begin
-        case(sel)
-            4'd0: out = a;
-            4'd1: out = b;
-            4'd2: out = c;
-            4'd3: out = d;
-            4'd4: out = e;
-            4'd5: out = f;
-            4'd6: out = g;
-            4'd7: out = h;
-            4'd8: out = i;
-            default: out = '1;  // special literal syntax with all bits set to 1
-        endcase
-    end
-    
-endmodule
-```
----
-\\(\text{256-to-1 multiplexer}\\)  
-+ Create a 1-bit wide, 256-to-1 multiplexer. The 256 inputs are all packed into a single 256-bit input vector. sel=0 should be select `in[0]`, sel1 selectes bits `in[1]`, sel=2 selects bits `in[2]`, etc.
-```Verilog
-module top_module( 
-    input [255:0] in,
-    input [7:0] sel,
-    output out );
-
-    assign out = in[sel];
-    
-endmodule
-```
----
-\\(\text{256-to-1 4-bit multiplexer}\\)  
-+ Create a 4-bit wide, 256-to-1 multiplexer. The 256 4-bit inputs are all packed into a single 1024-bit input vector. sel=0 should select bits `in[3:0]`,sel=1 selects bits `in[7:4]`, sel=2 selects bits `in[11:8]`, etc.
-```Verilog
-module top_module( 
-    input [1023:0] in,
-    input [7:0] sel,
-    output [3:0] out );
-    
-    assign out = in[sel*4+:4];  // special syntax
-    // assign out = in[sel*4+3-:4];
-    // assign out = {in[sel*4+3],in[sel*4+2],in[sel*4+1],in[sel*4+0]};
-
-endmodule
-```
----
-### 3.1.3 Arithmetic Circuits
-\\(\text{Half adder}\\)
-+ Create a half adder. A half adder adds two bits (with no carry-in) and produces a sum and carry-out.
-```Verilog
-module top_module( 
-    input a, b,
-    output cout, sum );
-
-    assign {cout, sum} = a + b;
-    
-endmodule
-```
----
-\\(\text{Full adder}\\)
-+ Create a full adder. A full adder adds three bits (including carry-in) and produces a sum and a carry-out.
-```Verilog
-module top_module( 
-    input a, b, cin,
-    output cout, sum );
-
-    assign {cout, sum} = a + b + cin;
-    
-endmodule
-```
----
-\\(\text{3-bit binary adder}\\)
-+ Now that you know how to build a full adder, make 3 instances of it to create a 3-bit binary ripple-carry adder. The adder adds two 3-bit numbers and a carry-in to produce a 3-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from each full adder in the ripple-carry adder. cout[2] is the final carry-out from the last full adder, and is the carry-out you usually see.
-```Verilog
-module top_module( 
-    input [2:0] a, b,
-    input cin,
-    output [2:0] cout,
-    output [2:0] sum );
-
-    fulladder f1(a[0], b[0], cin,     cout[0], sum[0]);
-    fulladder f2(a[1], b[1], cout[0], cout[1], sum[1]);
-    fulladder f3(a[2], b[2], cout[1], cout[2], sum[2]);
-    
-endmodule
-
-module fulladder(
-    input a, b, cin,
-    output cout, sum);
-    
-    assign {cout, sum} = a + b + cin;
-endmodule
-```
----
-\\(\text{Adder}\\)
-+ Implement the following circuit: 
-![Adder](https://hdlbits.01xz.net/mw/images/d/d2/Exams_m2014q4j.png)
-```Verilog
-module top_module (
-    input [3:0] x,
-    input [3:0] y, 
-    output [4:0] sum);
-    
-    // assign sum = x + y;
-
-    wire [2:0] cout;
-
-    FA f1(x[0], y[0], 0,       cout[0], sum[0]);
-    FA f2(x[1], y[1], cout[0], cout[1], sum[1]);
-    FA f3(x[2], y[2], cout[1], cout[2], sum[2]);
-    FA f4(x[3], y[3], cout[2], sum[4],  sum[3]);
-    
-endmodule
-
-module FA (
-	input a, b, cin,
-	output cout, sum);
-    
-    assign {cout, sum} = a + b + cin;
-    
-endmodule
-```
----
-\\(\text{Signed addition overflow}\\)
-+ Assume that you have two 8-bit 2's complement numbers, a[7:0] and b[7:0]. These numbers are added to produce s[7:0]. Also compute whether a (signed) overflow has occurred.
-```Verilog
-module top_module (
-    input [7:0] a,
-    input [7:0] b,
-    output [7:0] s,
-    output overflow
-);
-    
-    assign s = a + b;
-    assign overflow = (a[7] == b[7] && a[7] != s[7]) ? 1 : 0; 
-
-endmodule
-```
----
-\\(\text{100-bit binary adder}\\)
-+ Create a 100-bit binary adder. The adder adds two 100-bit numbers and a carry-in to produce a 100-bit sum and carry out.
-```Verilog
-module top_module(
-    input [99:0] a, b,
-    input cin,
-    output cout,
-    output [99:0] sum);
-
-    assign {cout, sum} = cin + a + b;
-
-endmodule
-```
----
-\\(\text{4-digit BCD adder}\\)
-+ You are provided with a BCD (binary-coded decimal) one-digit adder named bcd_fadd that adds two BCD digits and carry-in, and produces a sum and carry-out.
-```Verilog
-module bcd_fadd (
-    input [3:0] a,
-    input [3:0] b,
-    input     cin,
-    output   cout,
-    output [3:0] sum );
-```
-Instantiate 4 copies of bcd_fadd to create a 4-digit BCD ripple-carry adder. Your adder should add two 4-digit BCD numbers (packed into 16-bit vectors) and a carry-in to produce a 4-digit sum and carry out.
-```Verilog
-module top_module (
-    input [15:0] a, b,
-    input cin,
-    output cout,
-    output [15:0] sum );
-
-    wire [2:0] wl;
-
-    bcd_fadd u0 (a[ 3: 0], b[ 3: 0],   cin, wl[0], sum[ 3: 0]);
-    bcd_fadd u1 (a[ 7: 4], b[ 7: 4], wl[0], wl[1], sum[ 7: 4]);
-    bcd_fadd u2 (a[11: 8], b[11: 8], wl[1], wl[2], sum[11: 8]);
-    bcd_fadd u3 (a[15:12], b[15:12], wl[2],  cout, sum[15:12]);
-
-endmodule
-```
----
-### 3.1.4 Karnaugh Map to Circuit
-\\(\text{Kmap1}\\)
-+ Implement the circuit described by the Karnaugh map below.
-![kmap1](https://hdlbits.01xz.net/mw/images/2/20/Kmap1.png)
-```Verilog
-module top_module(
-    input a,
-    input b,
-    input c,
-    output out  );
-
-    assign out = a | b | c;
-
-endmodule
-```
----
-\\(\text{Kmap2}\\)
-+ Implement the circuit described by the Karnaugh map below.
-![kmap2](https://hdlbits.01xz.net/mw/images/4/4d/Kmap2.png)
-```Verilog
-module top_module(
-    input a,
-    input b,
-    input c,
-    input d,
-    output out  );
-
-    // a'd' + b'c' + acd + a'bc
-    wire w1, w2, w3, w4;
-
-    assign w1 = (~a)&(~d);
-    assign w2 = (~b)&(~c);
-    assign w3 = a&c&d;
-    assign w4 = (~a)&b&c;
-
-    assign out = w1|w2|w3|w4;
-endmodule
-```
----
-\\(\text{Kmap3}\\)
-+ Implement the circuit described by the Karnaugh map below.
-![kmap3](https://hdlbits.01xz.net/mw/images/1/1f/Kmap3.png)
-```Verilog
-module top_module(
-    input a,
-    input b,
-    input c,
-    input d,
-    output out  );
-
-    // a + b'c
-    assign out = a | (~b&c);
-
-endmodule
-```
----
-\\(\text{Kmap4}\\)
-+ Implement the circuit described by the Karnaugh map below.
-![kmap4](https://hdlbits.01xz.net/mw/images/9/98/Kmap4.png)
-```Verilog
-module top_module(
-    input a,
-    input b,
-    input c,
-    input d,
-    output out  );
-
-    always @(*) begin
-        if (a == b && c != d)
-            out = 1;
-        else if (a != b && c == d)
-            out = 1;
-        else
-            out = 0;
-    end
-
-endmodule
-```
----
-\\(\text{Minimum SOP and POS}\\)
-+ A single-output digital system with four inputs (a,b,c,d) generates a logic-1 when 2, 7, or 15 appears on the inputs, and a logic-0 when 0, 1, 4, 5, 6, 9, 10, 13, or 14 appears. The input conditions for the numbers 3, 8, 11, and 12 never occur in this system. For example, 7 corresponds to a,b,c,d being set to 0,1,1,1, respectively.
-+ Determine the output out_sop in minimum SOP form, and the output out_pos in minimum POS form.
-```Verilog
-module top_module (
-    input a,
-    input b,
-    input c,
-    input d,
-    output out_sop,
-    output out_pos
-);
-
-    // f = d3 + m7 + d11 + m15 + m2
-    // f = cd + a'b'c
-    assign out_sop = (c & d) | (~a & ~b & c);
-    // f' = m0 + m1 + m4 + m5 + m6 + d8 + m9 + m10 + d11 + d12 + m13 + m14
-    // f' = c' + ab' + bd'
-    // f = (c)(a'+b)(b'+d)
-    assign out_pos = c & (~a | b) & (~b | d);
-
-endmodule
-```
----
-\\(\text{Karnaugh map}\\)
-+ Consider the function f shown in the Karnaugh map below.
-+ Implement this function. **d** is don't-care, which means you may choose to output whatever value is convenient.
-![q3](https://hdlbits.01xz.net/mw/images/a/a2/Exams_m2014q3.png)
-```Verilog
-module top_module (
-    input [4:1] x,
-    output f );
-
-    // x[2]x[4] + x[1]'x[3]
-    assign f = (x[2] & x[4]) | (~x[1] & x[3]);
-
-endmodule
-```
----
-\\(\text{Karnaugh map}\\)
-+ Consider the function f shown in the Karnaugh map below. Implement this function.
-(The original exam question asked for simplified SOP and POS forms of the function.)
-![q1g](https://hdlbits.01xz.net/mw/thumb.php?f=Exams_2012q1g.png&width=195)
-```Verilog
-module top_module (
-    input [4:1] x,
-    output f
-);
-
-    // x[2]'x[4]' + x[1]'x[3] + x[2]x[3]x[4]
-    assign f = (~x[2] & ~x[4]) | (~x[1] & x[3]) | (x[2] & x[3] & x[4]);
-
-endmodule
-```
----
-\\(\text{K-map implemented with a multiplexer}\\)
-+ For the following Karnaugh map, give the circuit implementation using one 4-to-1 multiplexer and as many 2-to-1 multiplexers as required, but using as few as possible. You are not allowed to use any other logic gate and you must use a and b as the multiplexer selector inputs, as shown on the 4-to-1 multiplexer below.
-+ You are implementing just the portion labelled **top_module**, such that the entire circuit (including the 4-to-1 mux) implements the K-map.
-+ (The requirement to use only 2-to-1 multiplexers exists because the original exam question also wanted to test logic function simplification using K-maps and how to synthesize logic functions using only multiplexers. If you wish to treat this as purely a Verilog exercise, you may ignore this constraint and write the module any way you wish.)
-![q3](https://hdlbits.01xz.net/mw/images/a/a6/Ece241_2014_q3.png)
-![q3mux](https://hdlbits.01xz.net/mw/images/b/bc/Ece241_2014_q3mux.png)
-```Verilog
-module top_module (
-    input c,
-    input d,
-    output [3:0] mux_in
-);
-    assign mux_in[0] = c|d;  // 0111
-    assign mux_in[1] = 1'b0; // 0000
-    assign mux_in[2] = ~d;   // 1001
-    assign mux_in[3] = c&d;  // 0010
-
-endmodule
-```
----
-## 3.2 Sequential Logic
-### 3.2.1 Latches and Flip-Flops
-### 3.2.2 Counters
-### 3.2.3 Shift Registers
-### 3.2.4 More Circuits
-### 3.2.5 Finite State Machines
-## 3.3 Building Larger Circuits
-# 4 Verification: Reading Simulations
-## 4.1 Finding bugs in code
-## 4.2 Build a circuit from a simulation waveform
-# 5 Verification: Writing Testbenches
-# 6 CS450
-
-

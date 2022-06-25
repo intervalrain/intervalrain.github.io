@@ -1,6 +1,6 @@
 ---
 title: "[Logic Design] Lec 8 - 多工器、編碼器、可程式化邏輯元件"
-date: 2021-10-14T08:52:13+08:00
+date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false
 Categories: Logic Design     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily

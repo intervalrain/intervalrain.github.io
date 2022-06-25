@@ -1,6 +1,6 @@
 ---
 title: "[Logic Design] Lec 6 - Multi-Level Gate Circuits / NAND and NOR Gates"
-date: 2021-10-08T01:29:22+08:00
+date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false
 Categories: Logic Design     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily

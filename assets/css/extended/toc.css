@@ -1,7 +1,7 @@
 :root {
     --nav-width: 1380px;
     --article-width: 650px;
-    --toc-width: 300px;
+    --toc-width: 500px;
 }
 
 .toc {
@@ -10,6 +10,8 @@
     background: var(--entry);
     border-radius: var(--radius);
     padding: 0.4em;
+    max-height: 900px;
+    overflow-y: overlay;
 }
 
 .toc-container.wide {

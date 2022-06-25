@@ -1,10 +1,10 @@
 ---
-title: "[C++] The C++ Standard Template Library(STL) - pair"
-date: 2022-06-02T01:23:15+08:00
-tags: ["C++", "Programming"]
+title: "[VHDL] HDLbits 5 - Verification: Writing Testbenches"
+date: 2022-05-28T00:10:20+08:00
+tags: ["VHDL", "Programming", "Verilog", "HDLbits"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to pair" 
+description: "Verilog tutorial"                     
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true
@@ -27,23 +27,12 @@ cover:
     hidden: false
 ---
 
-# pair
-## 宣告
-+ `pair (data_type1, data_type2) Pair_name;`
-### 初始化
-```C++
-pair<int, int> p1;
-pair<int, char> p2(1, 'a');
-pair<int, int> p3(1, 10);
-pair<int, int> p4(p3);
+# 5 Verification - Writing Testbenches
 
-p2 = make_pair(1, 'a');
-```
-## 成員
-+ `.first`
-+ `.second`
 
-## 函式
-### 1. make_pair(v1, v2);
-### 2. operators(=, ==, !=, >=, <=)
-### 3. pair1.swap(pair2);
+[1. Getting Started](/posts/verilog/hdlbits1/#1-getting-started)  
+[2. Verilog Language](/posts/verilog/hdlbits2/#2-verilog-language)  
+[3. Circuits](/posts/verilog/hdlbits3/#3-circuits)  
+[4. Verification: Reading Simulations](/posts/verilog/hdlbits4/#4-getting-started)  
+[5. Verification: Writing Testbenches](/posts/verilog/hdlbits5/#5-verification---writing-testbenches)  
+[6. CS450](/posts/verilog/hdlbits6/#6-cs450)  

@@ -1,6 +1,6 @@
 ---
 title: "[Logic Design] Lec 2 - 布林代數"
-date: 2021-09-20T15:21:19+08:00
+date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false
 Categories: Logic Design     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily
