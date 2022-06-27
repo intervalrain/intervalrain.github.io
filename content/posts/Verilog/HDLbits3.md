@@ -283,7 +283,7 @@ endmodule
 1&1&0&1&1&0&1\\\\\hline
 1&1&1&0&1&0&1\\\\\hline
 1&1&1&1&1&0&1\\\\\hline
-\end{array
+\end{array}\\)
 ```Verilog
 module top_module (
     input too_cold,
@@ -773,11 +773,75 @@ endmodule
 #### DFF with reset
 + Create 8 D flip-flops with active high synchronous reset. All DFFs should be triggered by the positive edge of `clk`.
 ```Verilog
+module top_module (
+    input clk,
+    input reset,            // Synchronous reset
+    input [7:0] d,
+    output [7:0] q
+);
 
+    always @(posedge clk) begin
+        if (reset) begin
+            q <= 8'b0;
+        end
+        else begin
+            q <= d;
+        end
+    end
+
+endmodule
 ```
 ---
 #### DFF with reset value
++ Create 8 D flip-flops with active high synchronous reset. The flip-flops must be reset to 0x34 rather than zero. All DFFs should be triggered by the **negative** edge of `clk`.
+```Verilog
+module top_module (
+    input clk,
+    input reset,
+    input [7:0] d,
+    output [7:0] q
+);
+
+    always @(negedge clk) begin
+        if (reset) begin
+            q <= 8'h34;
+        end
+        else begin
+            q <= d;
+        end
+    end
+
+endmodule
+```
+---
 #### DFF with asynchronous reset
++ Create 8 D flip-flops with active high asynchronous reset. All DFFs should be triggered by the positive edge of `clk`.
+```Verilog
+module top_module (
+    input clk,
+    input areset,   // active high asynchronous reset
+    input [7:0] d,
+    output [7:0] q
+);
+
+    always @(posedge clk or posedge areset)
+        if (areset) 
+            q <= 0;
+        else 
+            q <= d;
+
+endmodule
+```
++ In Verilog, the sensity list looks strange. The FF's reset is sensitive to the **level** of areset, so why does using "posedge areset" work? To see why it works, consider the truth table for all events that change the input signals, assuming clk and areset do not swith at precisely the same time.  
+\\(\begin{array}{|c|c|c|l|}\hline
+\text{clk}&\text{areset}&\text{output}&\text{comment}\\\\\hline
+\text{x}&\text{0}\rightarrow\text{1}&\text{q}\leftarrow{0;}&\text{because areset = 1}\\\\\hline
+\text{x}&\text{1}\rightarrow\text{0}&\text{no change}&\text{always block not triggered}\\\\\hline
+\text{0}\rightarrow\text{1}&\text{0}&\text{q}\leftarrow{d;}&\text{not resetting}\\\\\hline
+\text{0}\rightarrow\text{1}&\text{1}&\text{q}\leftarrow{0;}&\text{still resetting, q was 0 before too}\\\\\hline
+\text{1}\rightarrow\text{0}&\text{x}&\text{no change}&\text{always block not triggered}\\\\\hline
+\end{array}\\)
+---
 #### DFF with byte enable
 #### D Latch
 #### DFF
