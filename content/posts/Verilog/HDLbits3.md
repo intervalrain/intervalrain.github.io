@@ -844,6 +844,7 @@ endmodule
 ---
 #### DFF with byte enable
 + Create 16 D flip-flops. It's sometimes useful to only modify parts of a group of flip-flops. The byte-enable inputs control whether each byte of the 16 registers should be written to on that cycle. `byteena[1]` controls the upper byte `d[15:8]`, while `byteena[0]` controls the lower byte `d[7:0]`. `resetn` is a synchronous, active-low reset. All DFFs should be triggered by the positive edge of `clk`.
+
 ```Verilog
 module top_module (
     input clk,
@@ -871,10 +872,105 @@ endmodule
 ```
 ---
 #### D Latch
-#### DFF
-#### DFF
++ Implement the following circuit: 
+![q4a](https://hdlbits.01xz.net/mw/images/0/03/Exams_m2014q4a.png)
++ Note that this is a latch, so a Quartus warning about hvaing inferred a latch is expected.
++ 對於組合邏輯，if 若沒有補全 else，case 條件不完全，可能會產生 latch。但是如果中間的信號有初值，就不會產生 latch。所以要盡量避免 latch 的產生，避免對時序的危害很大。
+```Verilog
+module top_module (
+    input d,
+    input ena,
+    output q);
+
+    always @(*) begin
+        if (ena == 1'b1)
+            q = d;
+    end
+
+endmodule
+```
+---
+#### DFFAR
++ Implement the following circuit:
+![q4b](https://hdlbits.01xz.net/mw/images/b/b3/Exams_m2014q4b.png)
+```Verilog
+module top_module (
+    input clk,
+    input d, 
+    input ar,   // asynchronous reset
+    output q);
+
+    always@(posedge clk or posedge ar) begin
+        if (ar == 1)
+            q <= 0;
+        else
+            q <= d;
+    end
+    
+endmodule
+```
+---
+#### DFFR
++ Implement the following circuit:
+![q4c](https://hdlbits.01xz.net/mw/images/6/6d/Exams_m2014q4c.png)
+```Verilog
+module top_module (
+    input clk,
+    input d,
+    input r,   // synchronous reset
+    output q);
+
+    always@(posedge clk) begin
+        if (r == 1) begin
+            q <= 0;
+        end
+        else begin
+            q <= d;
+        end
+    end
+
+endmodule
+```
+---
 #### DFF+gate
++ Implement the following circuit:
+![Dffgate](https://hdlbits.01xz.net/mw/images/f/f2/Exams_m2014q4d.png)
+```Verilog
+module top_module (
+    input clk,
+    input in,
+    output reg out);
+
+    always@(posedge clk) begin
+        out <= out ^ in;
+    end
+
+endmodule
+```
++ 注意 `output` 需為 `reg` 型別。
+---
 #### Mux and DFF
++ Consider the sequential circuit below:
+![muxdff](https://hdlbits.01xz.net/mw/thumb.php?f=Mt2015_muxdff.png&width=800)
++ Assume that you want to implement hierarchical Verilog code for this circuit, using three instantiations of a submodule that has a flip-flop and multiplexer in it. Write a Verilog module (containing one flip-flop and multiplexer) named top_module for this submodule.
+```Verilog
+module top_module (
+	  input clk,
+	  input L,
+    input r_in,
+	  input q_in,
+	  output reg Q);
+
+    always@(posedge clk) begin
+        if (L)
+            Q <= r_in;
+        else
+            Q <= q_in;
+    end
+
+endmodule
+```
+---
 #### Mux and DFF
 #### DFF+gate
 #### Mux and DFF
