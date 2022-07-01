@@ -143,6 +143,10 @@ menu:
       name: Tags
       url: /tags/
       weight: 40
+    - identifier: csnotes
+      name: CSNotes
+      url: /posts/csnotes
+      weight: 50
 
 
 outputs:

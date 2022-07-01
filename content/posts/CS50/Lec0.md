@@ -3,7 +3,7 @@ title: "[CS50] Lec 0 - Introduction to Computer Science"
 date: 2022-02-23T00:43:18+08:00
 tags: ["CS50", "Programming"]
 draft: false
-Categories: CS50     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
+Categories: CS     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
 description: "Intoduction to Computer Science"   
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
