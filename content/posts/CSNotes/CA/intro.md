@@ -1,14 +1,13 @@
 ---
-title: "[CA] Lec 0 - Introduction to Computer Architecture"
+title: "[計算機組織與結構] 概述"
 date: 2022-03-23T00:18:35+08:00
-tags: ["CA", "Programming", "Computer Science"]
+tags: ["CA", "CS"]
 draft: false
-Categories: CA     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, Operating System, CS50, CA
-description: "Introduction to Computer Architecture"                     
-author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+Categories: CA            
+author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true                  # KaTex or not
+math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
@@ -20,11 +19,6 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
-cover:
-    image: "/images/cover.jpg"
-    alt: "Oh! You closed up the window, so you cannot see raining"
-    relative: false
-    hidden: false
 ---
 # 計算機結構簡介
 ## 二進制
@@ -72,11 +66,3 @@ cover:
         + e.g. [Intel(CISC)、Arm(RISC)](https://www.techbang.com/posts/10678-fully-understand-arm-processors-cisc-and-risc-are-what-history-structure-a-see-through-the-computer-96-issues-cover-story-the-king?msclkid=3b721fcfaac611ec864fb9dcb0668cc9)
             + CISC: Complex Instruction Set Computer
             + RISC: Reduced Instruction Set Computer
-
-# [目錄]
-+ Chapter 1. [Computer Abstractions and Technology](https://intervalrain.github.io/posts/ca/lec1)
-+ Chapter 2. [Instruction Set Architecture](https://intervalrain.github.io/posts/ca/lec2)
-+ Chapter 3. [Computer Arithmetic](https://intervalrain.github.io/posts/ca/lec3)
-+ Chapter 4. [Designing a Single-Cycle Processor](https://intervalrain.github.io/posts/ca/lec4)
-+ Chapter 5. [Pipelining](https://intervalrain.github.io/posts/ca/lec5)
-+ Chapter 6. [Memory Hierarchy](https://intervalrain.github.io/posts/ca/lec6)

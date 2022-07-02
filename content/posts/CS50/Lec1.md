@@ -1,7 +1,7 @@
 ---
 title: "[CS50] Lec 1 - C"
 date: 2022-03-10T02:39:12+08:00
-tags: ["CS50", "Programming"]
+tags: ["CS", "Programming"]
 draft: false
 Categories: CS     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily
 description: "Introduction to programming language C"

@@ -1,9 +1,9 @@
 ---
-title: "[計算機作業系統] 死鎖"
-date: 2022-07-02T04:00:55+08:00
-tags: ["OS", "CS"]
+title: "[CA] 計算機算術"
+date: 2022-07-03T01:53:50+08:00
+tags: ["CA", "CS"]
 draft: false
-Categories: CS
+Categories: CA            
 author: "Rain Hu"
 showToc: true
 TocOpen: true
@@ -20,6 +20,5 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
-
 
 # 準備中

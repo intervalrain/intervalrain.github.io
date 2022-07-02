@@ -1,14 +1,13 @@
 ---
-title: "[CA] Lec 1 - Computer Abstraction and Technology"
+title: "[CA] 計算機抽象化"
 date: 2022-03-24T01:12:11+08:00
-tags: ["CA", "Programming", "Computer Science"]
+tags: ["CA", "CS"]
 draft: false
-Categories: CA     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "History of computer"
-author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+Categories: CA            
+author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true                  # KaTex or not
+math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
@@ -20,11 +19,6 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
-cover:
-    image: "/images/cover.jpg"
-    alt: "Oh! You closed up the window, so you cannot see raining"
-    relative: false
-    hidden: false
 ---
 # 計算機的抽象化與科技
 ![arch](/images/CA/Lec0/arch.png)
