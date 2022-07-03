@@ -1,5 +1,5 @@
 ---
-title: "Pipeline"
+title: "[CA] Pipeline"
 date: 2022-07-03T01:54:02+08:00
 tags: ["CA", "CS"]
 draft: false

@@ -1,7 +1,7 @@
 :root {
     --nav-width: 1380px;
     --article-width: 650px;
-    --toc-width: 500px;
+    --toc-width: 300px;
 }
 
 .toc {

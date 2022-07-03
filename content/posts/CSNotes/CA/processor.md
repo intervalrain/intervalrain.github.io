@@ -1,5 +1,5 @@
 ---
-title: "處理器"
+title: "[CA] 處理器"
 date: 2022-07-03T01:53:56+08:00
 tags: ["CA", "CS"]
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: "指令集架構"
+title: "[CA] 指令集架構"
 date: 2022-07-03T01:53:45+08:00
 tags: ["CA", "CS"]
 draft: false

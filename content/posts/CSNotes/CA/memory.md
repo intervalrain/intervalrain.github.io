@@ -1,5 +1,5 @@
 ---
-title: "記憶體"
+title: "[CA] 記憶體"
 date: 2022-07-03T01:54:06+08:00
 tags: ["CA", "CS"]
 draft: false
