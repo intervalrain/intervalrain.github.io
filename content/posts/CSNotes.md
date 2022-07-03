@@ -42,6 +42,7 @@ cover:
 ## 作業系統
 + [計算機作業系統](/posts/csnotes/os)
 + [Linux](/posts/csnotes/linux)
++ [Nachos](/posts/csnotes/nachos)
 
 |![net](https://www.svgrepo.com/show/241826/internet.svg)| |
 |-|-|
