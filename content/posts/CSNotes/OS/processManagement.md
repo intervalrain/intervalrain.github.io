@@ -57,7 +57,7 @@ ShowCodeCopyButtons: true
 #### 1.1 先來先服務(first-come first-served, FCFS)
 + 非搶占式的調度，按照請求的順序進行調度。
 + 有利於長作業，不利於短作業，因為短作業必須一直等待前面的長作業執行完畢才能執行，而長作業又需要執行很長時間，造成短作業等待時間過長
-#### 1.2 短作業優先(shortest jb first, SJF)
+#### 1.2 短作業優先(shortest job first, SJF)
 + 非搶占式的調度算法，按估計運行時間最短的順序進行調度。
 + 長作業有可能會永遠做不完，處於一直等待短作業執行完畢的狀態。因為如果一直有短作業到來，那麼長作業永遠得不到調度。
 #### 1.3 最短剩餘時間優先(shortest remaining time next, SRTN)
@@ -81,7 +81,15 @@ ShowCodeCopyButtons: true
 + 分為硬實時和軟實時，前者必須滿足絕對的截止時間，後者可以容忍一定的超時。
 ## 進程同步
 ### 1. 臨界區
-### 2. 同步與互斥(synchronization and asynchronization)
++ 對臨界資源進行訪問的那段代碼稱為臨界區。
++ 為了互斥訪問臨界資源，每個進程在進入臨界區之前，需要先進行檢查。
+```
+// entry section
+// crtical section;
+// exit section
+```
+### 2. 同步與互斥(synchronization and mutex)
++ 同步：
 ### 3. 訊號量
 ### 4. 管程
 ## 經典同步問題
