@@ -1,14 +1,14 @@
 ---
-title: "[Washam] Way to Software Engineer"
+title: "[Washam] Way to SWE"
 date: 2019-05-25T22:35:48+08:00
 tags: ["Programming", "Life"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Desc Text."                     
-author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+Categories: programming
+description: "a study plan to be a software engineer"
+author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true                  # KaTex or not
+math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
@@ -21,7 +21,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 cover:
-    image: "/images/cover.jpg"
+    image: "/images/faang.webp"
     alt: "Oh! You closed up the window, so you cannot see raining"
     relative: false
     hidden: false

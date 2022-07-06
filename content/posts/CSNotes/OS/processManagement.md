@@ -271,6 +271,133 @@ void check(int i ){
 }
 ```
 ### 2. 讀寫問題
++ 問題描述：允許多個進程同時對數據進行讀操作，但是不允許讀和寫以及寫和寫操作同時發生。
++ 一個整數變數 count 記錄在對數據進行讀操作的進程數量，一個互斥量 count_mutex 用於對 count 加鎖，一個互斥量 data_mutex 用於對讀寫的數據加鎖。
+```C++
+typedef int semaphore
+semaphore count_mutex = 1;
+semaphore data_mutex = 1;
+int count = 0;
+
+void reader(){
+    while(TRUE) {
+        down(&count_mutex);
+        count++;
+        if(count == 1) down(&data_mutex);
+        up(&count_mutex);
+        read();
+        down(&count_mutex);
+        count--;
+        if(count == 0) up(&data_mutex);
+        up(&count_mutex);
+    }
+}
+
+void writer(){
+    while(TRUE) {
+        down(&data_mutex);
+        write();
+        up(&data_mutex);
+    }
+}
+```
++ 以上範例可能會造成作家飢餓(starve)。只有當讀者早於作家進入佇列中，它才會進行等待。
+```C++
+int readcount, writecount;                      // initial value = 0
+semaphore, rmutex, wmutex, readLock, resource;  // initial value = 1
+
+void reader() {
+    // Entry section
+    down(&readLock);                // reader is trying to enter
+    down(&mutex);                   // lock to increase readcount
+    readcount++;
+    if (readcount == 1)
+        down(&resource);            // if you are the first reader then lock the source
+    up(&rmutex);                    // release for other readers
+    up(&readLock);                  // done with trying to access the resource
+
+    // critical section
+    // <reading is performed>
+
+    // Exit section
+    down(&mutex);                   // reserve exit section - avoid race condition with readers
+    readcount--;                    // indicate you're leaving
+    if (readcount == 0)             // checks if you are last reader leaving
+        up(&resource);              // if last, you must release the locked resource
+    up(&rmutex);                    // release exit section for other readers
+}
+
+void writer() {
+    // Entry section
+    down(&wmutex);                  // reserve entry section for writers - avoids race conditions
+    writecount++;                   // report yourself as a writing entering
+    if (writecount == 1)            // checks if you're the first writer
+        down(&readLock);            // if you're first, then you must lock the readers out. Prevent them from trying to enter CS
+    up(&wmutex);                    // release entry section
+
+    // critical section
+    down(&resource)                 // reserve the resource for yourself - prevents other writers from simultaneously editing the shared resource
+    // <writing is performed>
+    up(&resource)                   // release file
+
+    // Exit section
+    down(&wmutex);                  // release exit section
+    writecount--;                   // indicate you're leaving
+    if (writecount == 0)            // check if you're the last writer
+        up(&readLock);              // if you're last writer, you must unlock the readers. Allows them to try enter CS for reading
+    up(&wmutex);                    // release exit section
+}
++ 我們可以觀察到每個讀者都被強迫上鎖。另一方面，作家無須各自上鎖。一旦第一個作家把 Readlcok 鎖上，則會等到佇列中沒有作家時才會被釋放。
++ 從以上兩個範例我們可以發現，讀者與作家有一方必須飢餓(starve)。以下第三個範例的新增條件，會限制沒有執行緒被允許飢餓(starve)，也就是說，以下操作將會在一段時間之後停止。
+```C++
+int readCount                       // init to 0; number of readers currently accessing resource
+
+// all semaphore initialized to 1
+Semaphore resourceAccess;           // controls access (read/write) to the resource
+Semaphore readCountAccess;          // for syncing changes to shared variable readCount
+Semaphore serviceQueue;             // FAIRNESS: preserves ordering of requests (signaling must be FIFO)
+
+void writer(){
+    down(&servcieQueue);            // wait in line to be services
+    // <enter>
+    down(&resourceAccess);          // request exclusive access to resource
+    // </enter>
+    up(&serviceQueue);              // let next in line be serviced
+
+    // <write>
+    writeResource();                // writing is performed
+    // </write>
+
+    // <exit>
+    up(&resourceAccess);            // release resource access for next reader/writer
+    // </exit>
+}
+
+void reader(){
+    down(&serviceQueue);            // wait in line to be serviced
+    down(&readCountAccess);         // request exclusive access to readCount
+    // <enter>
+    if (readCount == 0)             // if there are no readers already reading
+        down(&resourceAccess);      // request resource access for reader (writer blocked)
+    readCount++;                    // update count of active readers
+    // </enter>
+    up(&serviceQueue);              // let next in line be serviced
+    up(&readCountAccess);           // release access to readCount
+
+    // <read>
+    readResource()                  // reading is performed
+    // </read>
+
+    down(&readCountAccess);         // request exclusive access to readCount
+    // <exit> 
+    readCount--;                    // update count of active readers
+    if (readCount == 0)             // if there are no readers left
+        up(&resourceAccess);        // release resource access for all
+    // </exit>
+    up(&readCountAccess)            // release access to readCount
+}
+```
+
 ## 進程溝通
 ### 1. 管道
 ### 2. FIFO
