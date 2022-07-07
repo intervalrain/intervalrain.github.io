@@ -347,6 +347,7 @@ void writer() {
         up(&readLock);              // if you're last writer, you must unlock the readers. Allows them to try enter CS for reading
     up(&wmutex);                    // release exit section
 }
+```
 + 我們可以觀察到每個讀者都被強迫上鎖。另一方面，作家無須各自上鎖。一旦第一個作家把 Readlcok 鎖上，則會等到佇列中沒有作家時才會被釋放。
 + 從以上兩個範例我們可以發現，讀者與作家有一方必須飢餓(starve)。以下第三個範例的新增條件，會限制沒有執行緒被允許飢餓(starve)，也就是說，以下操作將會在一段時間之後停止。
 ```C++

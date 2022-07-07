@@ -23,4 +23,4 @@ ShowCodeCopyButtons: true
 
 # Nachos
 
-- [概述](/posts/csnotes/nachos/intro)
+- [概述](/posts/cs/nachos/intro)

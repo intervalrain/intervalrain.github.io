@@ -30,19 +30,19 @@ cover:
 |-|-|
 ## 演算法
 + [Leetcode](https://github.com/intervalrain/leetcode)
-+ [演算法](https://github.com/intervalrain/algo)
++ [資料結構與演算法](/posts/cs/ds)
 
 |![ca](https://www.svgrepo.com/show/192223/structure-organization.svg)| |
 |-|-|
 ## 計算機結構
-+ [計算機結構](/posts/csnotes/ca)
++ [計算機結構](/posts/cs/ca)
 
 |![os](https://www.svgrepo.com/show/19602/computer.svg)| |
 |-|-|
 ## 作業系統
-+ [計算機作業系統](/posts/csnotes/os)
-+ [Linux](/posts/csnotes/linux)
-+ [Nachos](/posts/csnotes/nachos)
++ [計算機作業系統](/posts/cs/os)
++ [Linux](/posts/cs/linux)
++ [Nachos](/posts/cs/nachos)
 
 |![net](https://www.svgrepo.com/show/241826/internet.svg)| |
 |-|-|

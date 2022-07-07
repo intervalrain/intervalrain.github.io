@@ -73,8 +73,8 @@ params:
         url: "/tags/logic-design/"
       - name: Leetcode
         url: "https://github.com/intervalrain/leetcode"
-      - name: CSNotes
-        url: "/posts/csnotes/"
+      - name: CS
+        url: "/posts/csindex"
   # home-info mode
   # homeInfoParams:
   #   Title: "Hi there \U0001F44B"
@@ -145,9 +145,9 @@ menu:
       name: Tags
       url: /tags/
       weight: 40
-    - identifier: csnotes
-      name: CSNotes
-      url: /posts/csnotes
+    - identifier: csindex
+      name: CS
+      url: /posts/csindex
       weight: 50
 
 
