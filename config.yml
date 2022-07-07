@@ -27,6 +27,7 @@ params:
 
   # ShowReadingTime: true
   # ShowShareButtons: true
+  # ShareButtons: ["facebook", "linkedin", "twitter", "reddit", "github", "whatsapp", "telegram"] # To customize which share buttons to be enabled on page
   # ShowPostNavLinks: true
   ShowBreadCrumbs: true
   # ShowCodeCopyButtons: false
@@ -38,7 +39,6 @@ params:
   # hideSummary: false
   # showtoc: false
   # tocopen: false
-
   # assets:
   #   # disableHLJS: true # to disable highlight.js
   #   # disableFingerprinting: true
