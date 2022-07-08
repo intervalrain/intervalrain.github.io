@@ -41,8 +41,8 @@ ShowCodeCopyButtons: true
 3. 系統開銷
     + 由於創建或撤銷進程時，系統都要為之分配或回收資源，如硬碟中的記憶體、I/O 設備等，所付出的開銷遠大於創建或撤銷執行緒時的開銷。
     + 同樣的，在進行進程切換時，涉及當前執行進程 CPU 環境的保存及新調度進程 CPU 環境的設置，而執行緒切換只需保存和設置少量暫存器的內容，開銷較小。
-4. 溝通
-    + 執行緒可以通過直接讀寫同一個進程中的數據進行溝通，但是進程的溝通需要借助 IPC(inter-process communication)。
+4. 通訊
+    + 執行緒可以通過直接讀寫同一個進程中的數據進行通訊，但是進程的通訊需要借助 IPC(inter-process communication)。
 ## 進程狀態的切換
 ![process state](https://jingtao.fun/images/%E8%AF%BB%E4%B9%A6-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20201102105129598.png)
 + 就緒就態(ready)：等待被調度
@@ -398,12 +398,41 @@ void reader(){
     up(&readCountAccess)            // release access to readCount
 }
 ```
-
-## 進程溝通
+## 進程通訊
++ 進程同步與進程通訊很容易混淆，它們的區別在：
+    + 進程同步(process synchronization)：控制多個進程按一定順序執行。
+    + 進程通訊(process communication)：進程間傳遞訊息
++ 進程通訊是一種手段，進程同步是一種目的。也可以說，為了能夠達成進程同步的目的，需要讓進程進行通訊，傳遞一些進程同步所需要的訊息。
 ### 1. 管道
++ 管道是通用調用 pipe 函數創建的，`fd[0]` 用於讀，`fd[1]` 用於寫。
+```C++
+#include <unistd.h>
+int pipe(int fd[2]);
+```
+它具有以下的限制：
++ 只支持半雙工通訊(單向交替傳輸)
++ 只能在父子進程或者兄弟進程中使用。
+![pipe](https://notes.shichao.io/apue/figure_15.3.png)
 ### 2. FIFO
++ 也稱為管道，去除了管道只能在父子進程中的使用限制。
+```C++
+#include <sys/stat.h>
+int mkfifo(const char *path, mode_t mode);
+int mkfifoat(int fd, const char *path, mode_t mode);
+```
++ FIFO 常用於客戶-伺服器應用程式中，FIFO 用於匯聚點，在客戶進程與伺服器進程之間傳遞數據。
+![FIFO](https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/2ac50b81-d92a-4401-b9ec-f2113ecc3076.png)
 ### 3. 訊息佇列
++ 相較於 FIFO，訊息佇列有以下優點：
+    + 消息佇列可以獨立於讀寫進程存在，從而避免了 FIFO 中同步管道的打開和關閉時可能產生的困難。
+    + 避免了 FIFO 的同步阻塞問題，不需要進程自己提供同步方法。
+    + 讀進程可以根據訊息類型有選擇性地接收訊息，而不像 FIFO 那樣只能全盤地接受。
 ### 4. 訊號量
++ 一個計數器，用於為多個進程提供對共享數據的物件作訪問。
 ### 5. 記憶體共享
++ 允許多個進程共享一個給定的記憶體空間。因為數據不需要在進程之間複制，所以這是最快的一種 IPC(Inter-Process Communication)。
++ 需要使用訊號量來同步對共享記憶體的訪問。
++ 多個進程可以將同一個文件映射到它們的地址空間從而實現共享記憶體。另外 XSI 共享記憶體不是使用文件，而是使用記憶體的匿名段。
 ### 6. word 套接
++ 與其它通訊機制不同的是，它可以用於不同機器間的進程通訊。
 
