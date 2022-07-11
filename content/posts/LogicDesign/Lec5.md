@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lec 5 - Quine-McClusky Method"
+title: "[Logic Design] Lec 05 - Quine-McClusky Method"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false

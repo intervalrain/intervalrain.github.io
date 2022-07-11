@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lec 6 - Multi-Level Gate Circuits / NAND and NOR Gates"
+title: "[Logic Design] Lec 06 - Multi-Level Gate Circuits / NAND and NOR Gates"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false

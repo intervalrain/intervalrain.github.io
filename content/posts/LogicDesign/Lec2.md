@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lec 2 - 布林代數"
+title: "[Logic Design] Lec 02 - 布林代數"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false

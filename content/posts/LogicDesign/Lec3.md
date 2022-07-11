@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lec 3 - Minterm 與 Maxterm 展開"
+title: "[Logic Design] Lec 03 - Minterm 與 Maxterm 展開"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false

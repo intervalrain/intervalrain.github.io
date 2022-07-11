@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lec 8 - 多工器、編碼器、可程式化邏輯元件"
+title: "[Logic Design] Lec 08 - 多工器、編碼器、可程式化邏輯元件"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false
@@ -135,4 +135,8 @@ cover:
 + [EEPROM(Electrically Erasable Programmable ROM)](https://www.bing.com/ck/a?!&&p=e8e7ebb1e0244b68652327e240ce70bfb30d911a168646bafc34ef8a057a3d09JmltdHM9MTY1NTQwMjUwMyZpZ3VpZD0yMGIxZmU2Ni1mYmQzLTQwOTctYThkNy02NWFkZDYzZmM5MGEmaW5zaWQ9NTE2Ng&ptn=3&fclid=60e5998b-ed9e-11ec-9bb0-156d89d30233&u=a1aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFOSU5QiVCQiVFNSVBRCU5MCVFNiU4QSVCOSVFOSU5OSVBNCVFNSVCQyU4RiVFNSU4RiVBRiVFOCVBNCU4NyVFNSVBRiVBQiVFNSU5NCVBRiVFOCVBRSU4MCVFOCVBOCU5OCVFNiU4NiVCNiVFOSVBQiU5NA&ntb=1) 
 
 # 可程式化邏輯元件(programmable logic devices)
+## 可程式化邏輯矩陣(Programmable Logic Array, PLA)
+
+## 可程式化矩陣邏輯(Programmable Array Logic, PAL)
+
 # 現場可程式化邏輯閘陣列(Field programmable gate arrays, FPGAs)

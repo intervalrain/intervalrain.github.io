@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lec 4 - 卡諾圖 Karnaugh Maps"
+title: "[Logic Design] Lec 04 - 卡諾圖 Karnaugh Maps"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false

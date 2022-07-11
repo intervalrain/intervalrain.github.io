@@ -1,10 +1,10 @@
 ---
 title: "[統計] 統計學概要"
 date: 2022-07-09T20:02:28+08:00
-tags: ["Algorithm", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design", "TCAD"]
+tags: ["Statistics"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Desc Text."                     
+Categories: Semiconductor     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
+description: "用自身工經驗簡述實務上應用的統計學"                     
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

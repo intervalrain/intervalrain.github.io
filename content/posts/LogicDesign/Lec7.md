@@ -1,5 +1,5 @@
 ---
-title: "[Logic Design] Lec 7 - 組合電路設計與模擬"
+title: "[Logic Design] Lec 07 - 組合電路設計與模擬"
 date: 2021-09-18T03:11:35+08:00
 tags: ["Logic Design"]
 draft: false

@@ -1,9 +1,9 @@
 ---
 title: "[VHDL] Verilog Hardware Description Language"
 date: 2022-05-01T17:37:22+08:00
-tags: ["VHDL", "Programming", "Verilog"]
+tags: ["VHDL", "Programming", "Verilog", "Logic Design"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
+Categories: ["programming", "Logic Design"]     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
 description: ["computer", "computer languages", "digital systems", "electronic systems", "hardware", "hardward description languages", "hardware design", "HDL", "PLI", "programming language interface", "Verilog", "Verilog HDL", "Verilog PL"]
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
@@ -421,3 +421,11 @@ cover:
 
         endmodule
         ```
+# 2 實作
+[Implementation in Github](https://github.com/intervalrain/Verilog)
+### 1. [HDLbits](/posts/verilog/hdlbits1/)
+### 2. [Verilog](/posts/verilog/hdlbits2/)
+### 3. [Circuits](/posts/verilog/hdlbits3/)
+### 4. [Verification: Reading Simulations](/posts/verilog/hdlbits4/)
+### 5. [Verification: Writing Testbenches](/posts/verilog/hdlbits5/)
+### 6. [CS450](/posts/verilog/hdlbits6/)
