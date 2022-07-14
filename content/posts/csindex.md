@@ -26,6 +26,9 @@ cover:
     hidden: false
 ---
 
+> From the begining: 
++ [Washam's Coding Interview University](/posts/washam)
+
 |![algo](https://www.svgrepo.com/show/9873/calculator.svg)| |
 |-|-|
 ## 演算法

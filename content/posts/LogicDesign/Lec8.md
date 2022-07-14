@@ -108,6 +108,10 @@ cover:
 ![7442](/posts/LogicDesign/L8/7442.png)
 + \\(F_1=m_1+m_2+m_4 \qquad F_2=m_4+m_7+m_9\\)
 ![7442a](/posts/LogicDesign/L8/7442a.png)
++ Verilog
+    + [7442](https://github.com/intervalrain/Verilog/blob/main/7442/u7442.v)  
+    + [f124](https://github.com/intervalrain/Verilog/blob/main/7442/f124.v)  
+    + [f479](https://github.com/intervalrain/Verilog/blob/main/7442/f479.v)  
 # 編碼器(Encoder)
 + Priority Encoder
 + 8-to-3 編碼，將輸入將對應的數字編到 abc 中。

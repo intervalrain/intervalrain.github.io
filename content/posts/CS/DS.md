@@ -31,8 +31,8 @@ cover:
 
 ### [Arrays](https://github.com/intervalrain/Cpp_practice/blob/main/washam/myvector.cpp)
 ### [Linked Lists](https://github.com/intervalrain/Cpp_practice/blob/main/washam/mylist.cpp)
-### Stack
-### Queue
+### [Stack]((https://github.com/intervalrain/Cpp_practice/blob/main/washam/mystack.cpp))
+### [Queue]((https://github.com/intervalrain/Cpp_practice/blob/main/washam/myqueue.cpp))
 ### Hash Table
 ### Tree
 - 樹的遍歷(Traversals)
@@ -65,10 +65,10 @@ cover:
 #### [Shell sort](https://github.com/intervalrain/algo/tree/master/src/Topic/Sorting/ShellSort.java)
 #### [Tree sort](https://github.com/intervalrain/algo/tree/master/src/Topic/Sorting/TreeSort.java)
 
-## 矩陣與字串(Arrays and Strings)
-## 鏈結陣列(Linked Lists)
-## 堆疊與佇列(Stacks and Queues
-## 樹與圖(Tree and Graphs)
+## [矩陣與字串(Arrays and Strings)](https://github.com/intervalrain/algo/tree/master/src/Topic/ArrayAndStrings)
+## [鏈結陣列(Linked Lists)](https://github.com/intervalrain/algo/tree/master/src/Topic/LinkedList)
+## [堆疊與佇列(Stacks and Queues)](https://github.com/intervalrain/algo/blob/master/src/Topic/StacksAndQueues)
+## [樹與圖(Tree and Graphs)](https://github.com/intervalrain/algo/blob/master/src/Topic/TreesAndGraphs)
 ## 元運算(Bit Manipulation)
 ## 數學與邏輯問題(Math and Logic Puzzles)
 ## 物件導向設計(Object-Oriented Design)

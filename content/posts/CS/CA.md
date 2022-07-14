@@ -23,8 +23,7 @@ ShowCodeCopyButtons: true
 
 # 計算機組織與結構
 
-- [概述](/posts/cs/ca/intro)
-- [計算機抽象化](/posts/cs/ca/abstraction)
+- [計算機抽象化與科技](/posts/cs/ca/abstraction)
 - [指令集架構](/posts/cs/ca/isa)
 - [計算機算術](/posts/cs/ca/arithmetic)
 - [處理器](/posts/cs/ca/processor)
