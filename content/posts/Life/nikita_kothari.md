@@ -5,7 +5,7 @@ tags: ["Life"]
 draft: false
 Categories: Life     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
 description: "Suggestion from Nikita Kothari at LinkedIn" 
-author: "陣雨"           # Rain Hu, 陣雨, intervalrain
+author: "intervalrain"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true
 math: true                  # KaTex or not
