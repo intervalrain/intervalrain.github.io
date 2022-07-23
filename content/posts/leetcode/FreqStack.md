@@ -1,5 +1,5 @@
 ---
-title: "[Algorithm] Maximum Frequency Stack 最大頻率堆疊"
+title: "[Leetcode] Maximum Frequency Stack 最大頻率堆疊"
 date: 2022-03-19T16:53:23+08:00
 tags: ["Algorithm", "Java", "Programming"]
 draft: false
