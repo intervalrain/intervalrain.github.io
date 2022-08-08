@@ -1,14 +1,14 @@
 ---
 title: "[Leetcode] Maximum Frequency Stack 最大頻率堆疊"
 date: 2022-03-19T16:53:23+08:00
-tags: ["Algorithm", "Java", "Programming"]
+tags: ["Leetcode"]
 draft: false
-Categories: Algorithm     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, Operating System, CS50
+Categories: Leetcode
 description: "Maximum Frequency Stack algorithm"
-author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true                  # KaTex or not
+math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
@@ -20,11 +20,6 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
-cover:
-    image: "/images/cover.jpg"
-    alt: "Oh! You closed up the window, so you cannot see raining"
-    relative: false
-    hidden: false
 ---
 # 題目
 ## 題目描述

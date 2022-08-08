@@ -3,12 +3,12 @@ title: "[Leetcode] 347. Top K Frequent Elements"
 date: 2022-07-23T23:48:15+08:00
 tags: ["Leetcode"]
 draft: false
-Categories: Leetcode     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
+Categories: Leetcode
 description: "priority queue" 
-author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true                  # KaTex or not
+math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
