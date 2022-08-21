@@ -1,5 +1,5 @@
 ---
-title: "[雜記] July's plan"
+title: "[Life] July's plan"
 date: 2022-07-16T17:48:09+08:00
 tags: ["Algorithm", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design", "TCAD"]
 draft: false
