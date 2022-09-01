@@ -418,15 +418,221 @@ ORDER BY A.City;
 ```
 
 ## UNION
++ The `UNION` operator is ued to combine the result-set of two or more `SELECT` statements.
+    + Every `SELECT` statement within `UNION` must have the same number of columns
+    + The columns must also have similar data types
+    + The columns in every `SELECT` statement must also be in the same order.
+```SQL
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2
+```
++ The `UNION` operator selects only distinct values by default. To allow deuplicate values, use `UNION ALL`:
+```SQL
+SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2
+```
+> *Note:* The column names in the result-set are usually equal to the column names in the first `SELECT` statement.
+
 ## GROUP BY
++ The `GROUP BY` statement groups rows that have the same values into summary rows, like "find the number of customers in each country".
++ The `GROUP BY` statment is often used with aggregate functions (`COUNT()`,`MAX()`,`MIN()`,`SUM()`,`AVG()`) to group the result-set by one ore more columns.
+```SQL
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+```
+
 ## HAVING
++ The `HAVING` clause was added to SQL because the `WHERE` keyword cannot be used with aggregate functions.
+```SQL
+SELECT column_name(s)
+FROM table_name
+WHERE conditon
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+```
++ **Sample**
+```SQL
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5;
+```
 ## EXISTS
++ The `EXISTS` operator is used to test for the existence of any record in a subquery.
++ The `EXISTS` operator returns TRUE if the subquery returns one or more records.
+```SQL
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+    (SELECT column_name(s) 
+    FROM table_name
+    WHERE condition
+    );
+```
+
 ## ANY
++ The `ANY` operator:
+    + returns a boolean value as a result
+    + returns TRUE if ANY of the subquery values meet the condition
++ `ANY` means that the conditon will be true if the operation is true for any of the values in the range.
+```SQL
+SELECT column_name(s)
+FROM table_name
+WHERE column_name(s) opeartor ANY
+    (SELECT column_name
+     FROM table_name
+     WHERE condition);
+```
 ## ALL
++ The `ALL` opeartor:
+    + returns a boolean value as a result
+    + returns TRUE if ALL of the subquery values meet the conditon
+    + is used with `SELECT`, `WHERE` and `HAVING` statements
++ `ALL` means that the conditon will be true only if the operation is true for all values in the range.
+```SQL
+SELECT ALL column_name(s)
+FROM table_name
+WHERE conditon
+```
++ syntax with `WHRER` or `HAVING`
+```SQL
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ALL
+    (SELECT column_name
+     FROM table_name
+     WHERE condition);
+
+```
 ## SELECT INTO
++ The `SELECT INTO` statement copies data from one table into a new table.
+
++ **Copy all columns into a new table:**
+```SQL
+SELECT *
+INTO newtable [IN externaldb]
+FROM oldtable
+WHERE condition
+```
++ **Copy only some columns into a new table:**
+```SQL
+SELECT column1, column2, column3, ...
+INTO new table [IN externaldb]
+FROM oldtable
+WHERE condition;
+```
 ## INSERT INTO SELECT
++ The `INSERT INTO SELECT` statement copies data from one table and inserts it into another table.
++ The `INSERT INTO SELECT` statement requires that the data types in source and target tables match.
+> *Note:* The existing records in the target table are unaffected.
+
++ **Copy all columns from one table to another table:**
+```SQL
+INSERT INTO table2
+SELECT * FROM table1
+WHERE condition
+```
+
++ **Copy only some columns from one table into another table:**
+```SQL
+INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition
+```
 ## CASE
++ The `CASE` expression goes through conditions and returns a value when the first condition is met (like an if-then-else statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the `ELSE` cluase.
++ If there is no `ELSE` part and no condtions are true, it retures NULL.
+
+```SQL
+CASE
+    WHEN conditon1 THEN result1
+    WHEN conditon2 THEN result2
+    WHEN conditonN THEN resultN
+    ELSE resuklt
+END
+```
+
 ## NULL Functions
+
+**Products**
+|P_Id|ProductName|UnitPrice|UnitsInStock|UnitsOnOrder|
+|1|Jarlsberg|10.45|16|15|
+|2|Mascarpone|32.56|23| |
+|3|Gorgonzola|15.67|9|20|
++ Suppose that the "UnitsOnOrder" column is optional, and may contain NULL values.
+
++ **MySQL**
+1. `INFULL()`
+```SQL
+SELECT ProductName, UnitPrice * (UnitsInStock + 
+IFNULL(UnitsOnOrder, 0))
+FROM Products;
+```
+2. `COALESCE()`
+```SQL
+SELECT ProductName, UnitPrice * (UnitsInStock + 
+COALESCE(UnitsOnOrder, 0))
+FROM Products;
+```
++ **SQL Server**
+1. `ISNULL()`
+```SQL
+SELECT ProductName, UnitPrice * (UnitsInStock + 
+ISNULL(UnitsOnOrder, 0))
+FROM Products;
+```
+2. `COALESCE()`
+```SQL
+SELECT ProductName, UnitPrice * (UnitsInStock + 
+COALESCE(UnitsOnOrder, 0))
+FROM Products;
+```
++ **MS Access**
+1. `IsNULL()`
+```SQL
+SELECT ProductName, UnitPrice * (UnitsInStock + 
+IIF(IsNull(UnitsOnOrder), 0, UnitsOnOrder))
+FROM Products;
+```
++ **Oracle**
+1. `NVL()`
+```SQL
+SELECT ProductName, UnitPrice * (UnitsInStock + 
+NVL(UnitsOnOrder, 0))
+FROM Products;
+```
+2. `COALESCE()`
+```SQL
+SELECT SELECT ProductName, UnitPrice * (UnitsInStock +
+COALESCE(UnitsOnOrder, 0))
+FROM Products;
+```
 ## Sotred Precedures
++ A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
++ So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+
++ You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+
+**Stored Procedure Syntax**
+```SQL
+CREATE PROCEDURE procedure_name
+AS
+sql_statement
+GO;
+```
+
+** Execute as Stored Procedure
+```SQL
+EXEC procedure_name;
+```
 ## Comments
-## Operators
++ Single line comments `--`.
++ Multi-line comments `/*` and `*/`.
