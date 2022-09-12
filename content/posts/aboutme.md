@@ -38,6 +38,31 @@ cover:
 
 # About me
 ![me](/images/me.jpeg "me")
+
++ 本名：胡鎮宇
++ 生日：1991/12/3
++ 星座：射手座
++ 生肖：羊
++ 專長：半導體物理、材料科學、資料結構與演算法
++ 嗜好：彈吉他、喝咖啡、看劇
+
+---
+
+工作經歷：eHV 40nm、28nm、22nm 開發，經歷過 Poly Gate、HKMG 製程
+專　　案：(1) NWR Project
+　　　　　(2) LV Share Implant Project
+　　　　　(3) IO Mask Reduction Project
+　　　　　(4) 22eHV Compact Platform Project
+開發工具：(1) IDAS+
+　　　　　(2) U2C
+　　　　　(3) IV_Cur
+　　　　　(4) KPlug
+
+
+
+
+
+
 > 八年級，青年期的最後一個梯次。
 > 
 > 曾經有過音樂夢，當過吉他老師，組過樂團，當過鼓手，也曾在西餐廳駐唱表演。
