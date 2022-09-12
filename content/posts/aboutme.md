@@ -41,22 +41,30 @@ cover:
 
 + 本名：胡鎮宇
 + 生日：1991/12/3
++ 血型：O型
 + 星座：射手座
 + 生肖：羊
-+ 專長：半導體物理、材料科學、資料結構與演算法
-+ 嗜好：彈吉他、喝咖啡、看劇
-
++ 專長：半導體物理、材料科學(金屬、電子)、資料結構與演算法
++ 嗜好：彈吉他、喝咖啡、看劇、刷Leetcode(?)
++ 學歷：國立清華大學 材料工程學系
 ---
 
-工作經歷：eHV 40nm、28nm、22nm 開發，經歷過 Poly Gate、HKMG 製程
-專　　案：(1) NWR Project
-　　　　　(2) LV Share Implant Project
-　　　　　(3) IO Mask Reduction Project
-　　　　　(4) 22eHV Compact Platform Project
-開發工具：(1) IDAS+
-　　　　　(2) U2C
-　　　　　(3) IV_Cur
-　　　　　(4) KPlug
++ 工作經歷：eHV 40nm、28nm、22nm 開發，經歷過 Poly Gate、HKMG 製程  
++ 專　　案：
+    + (1) NWR Project (Achieve yield rate enhancement from 88% to 94% @28eHV Mass Production)
+    + (2) 22eHV Compact Platform Project (Reduce cost of 22eHV Process closed to 28eHV Process)
+        + LV Share Implant Project 
+        + IO Mask Reduction Project
+    + (3) Co-cut methodology (Reduce 30% and more cost on shuttle for aging/qual)
++ 開發工具：
+    + (1) IDAS+
+    + (2) U2C
+    + (3) IV_Cur
+    + (4) KPlug
++ 使用語言：
+    + 跟人的部分：中文、英文、韓文
+    + 跟電腦的部分：C++、Java、VBA、Verilog 等等
+
 
 
 
