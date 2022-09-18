@@ -27,11 +27,59 @@ cover:
     hidden: false
 ---
 
-# list, forward_list
+# list
 + Lists 是序列式容器，但其記憶體的分配並非連續的。
 + 跟 vector 相比，其遍歷的速度會較慢\\(O(n)\\，但一旦位置確定後，其插入(insert)或移除(delete)元素的速度很快\\(O(1)\\)。
 + 一般來說，List 指的是雙向鏈結陣列(doubly linked list)。
 + 而單向鏈結陣列則為 forward_list
+
+## 函式庫
++ `#include <list>`
+## 宣告
++ `list<data_type> list_name;`
+## 初始化
+```C++
+list<int> lst;          // 宣告
+```
+
+## 函式
+### 1. front()
+### 2. back()
+### 3. push_front()
+### 4. push_back()
+### 5. pop_front()
+### 6. pop_back()
+### 7. list::begin()
+### 8. list::end()
+### 9. list::rbegin()
+### 10. list::rend()
+### 11. list::cbegin()
+### 12. list::cend()
+### 13. list::crbegin()
+### 14. list::crend()
+### 15. empty()
+### 16. insert()
+### 17. erase()
+### 18. assign()
+### 19. remove()
+### 20. list::remove_if()
+### 21. reverse()
+### 22. size()
+### 23. list::resize()
+### 24. sort()
+### 25. list::max_size()
+### 26. list::unique()
+### 27. list::emplace_front()
+### 28. list::emplace_back()
+### 29. list::clear()
+### 30. list::operator=
+### 31. list::swap()
+### 32. list::splice()
+### 33. list::merge()4
+### 34. list::emplace()
+
+
+## 示例
 
 ```Cpp
 #include <iostream>

@@ -28,6 +28,54 @@ cover:
 ---
 
 # 容器(Containers)
+
++ C++ container 基本上分為四大類：
+    + Sequence containers
+    + Container adaptors
+    + Associative containers
+    + Unordered associative containers
+    + 還有兩個特殊 containers: valarray, bitset
+
+\\(\begin{array}{|l|l|l|l|l|l|}\hline
+\text{Name}&\text{Iterators}&\text{Capacity}&\text{Access}&\text{Modifiers}&\text{Others}
+\\\\\hline
+\text{array}&\text{begin}&\text{size}&\text{[]}&\text{swap}
+\\\\&\text{end}&\text{empty}&\text{at}
+\\\\&&&\text{front}
+\\\\&&&\text{back}
+\\\\\hline
+\text{vector}&\text{begin}&\text{size}&\text{[]}&\text{push\\_back}&\text{}
+\\\\&\text{end}&\text{empty}&\text{at}&\text{pop\\_back}
+\\\\&&\text{capacity}&\text{front}&\text{insert}
+\\\\&&&\text{back}&\text{erase}
+\\\\&&&&\text{swap}
+\\\\&&&&\text{clear}
+\\\\\hline
+\text{deque}&\text{begin}&\text{size}&\text{[]}&\text{push\\_back}&\text{}
+\\\\&\text{end}&\text{empty}&\text{at}&\text{pop\\_back}
+\\\\&&&\text{front}&\text{insert}
+\\\\&&&\text{back}&\text{erase}
+\\\\&&&&\text{swap}
+\\\\&&&&\text{clear}
+\\\\\hline
+\text{list}&\text{begin}&\text{size}&\text{front}&\text{push\\_back}&\text{sort}
+\\\\&\text{end}&\text{empty}&\text{back}&\text{pop\\_back}&\text{reverse}
+\\\\&&&&\text{insert}
+\\\\&&&&\text{erase}
+\\\\&&&&\text{swap}
+\\\\&&&&\text{clear}
+\\\\\hline
+\text{forward\\_list}&\text{begin}&\text{empty}&\text{front}&\text{push\\_front}&\text{sort}
+\\\\&\text{end}&&&\text{pop\\_back}&\text{reverse}
+\\\\&&&&\text{insert\\_after}
+\\\\&&&&\text{erase\\_after}
+\\\\&&&&\text{swap}
+\\\\&&&&\text{clear}
+\\\\\hline
+\end{array}
+\\) 
+
+
 ## 基礎容器
 ### [pair](/posts/c++/stl_pair)
 ## 序列式容器(Sequence Containers)
