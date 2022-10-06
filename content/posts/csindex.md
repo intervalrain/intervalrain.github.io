@@ -1,6 +1,6 @@
 ---
 title: "CS 學習筆記"
-date: 2022-07-02T03:01:48+08:00
+date: 2022-10-06T22:01:48+08:00
 tags: ["CS"]
 draft: false
 Categories: CS
@@ -34,6 +34,7 @@ cover:
 ## 演算法
 + [Leetcode](https://github.com/intervalrain/leetcode)
 + [資料結構與演算法](/posts/cs/ds)
++ [演算法筆記](/posts/cs/algo)
 
 |![ca](https://www.svgrepo.com/show/192223/structure-organization.svg)| |
 |-|-|
