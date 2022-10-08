@@ -152,7 +152,7 @@ ListNode* build(vector<int> nums){
 }
 ```
 ### 3. 鏈表的後序遍歷
-+ 前文說過，鏈表也可以做前序與後序的遍歷，在此我們
++ 前文說過，鏈表也可以做前序與後序的遍歷，在此我們再複習一次。
 ```C++
 void traverse(ListNode* head){
     // pre-order
@@ -238,40 +238,46 @@ ListNode* reverse(ListNode* head){
     ListNode* curr = head;
     ListNode* next = NULL;
     while (curr){
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
+        next = curr->next;      // 先記住下一個位置
+        curr->next = prev;      // 將指針指向前一位，以達成反轉的目的
+        prev = curr;            // 往前移動
+        curr = next;            // 往前移垂
     }
     return prev;
 }
 ```
 + 那如果用遞迴的方式寫呢？
+![reverselist2](https://labuladong.github.io/algo/images/%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8/2.jpg)
+![reverselist3](https://labuladong.github.io/algo/images/%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8/3.jpg)
+![reverselist4](https://labuladong.github.io/algo/images/%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8/5.jpg)
 ```C++
 ListNode* reverse(ListNode* head){
     if (!head || head->next) return head;   // 處理終止條件
-    ListNode last = reverse(head->next);    // post-order traversal
+    ListNode last = reverse(head->next);    // post-order traversal：回傳已排序好的子鏈表，並傳回最後一項
     head->next->next = head;
     head->next = NULL;
     return last;
 }
 ```
-#### [[LeetCode. 92] Reverse Linked List II(Medium)](https://leetcode.com/problems/reverse-linked-list-ii/)
+#### [[Followup] 反轉前 N 個節點
 + 反轉鏈表的前 N 個節點：用前面的函式稍作修改
+![reverselistN](https://labuladong.github.io/algo/images/%e5%8f%8d%e8%bd%ac%e9%93%be%e8%a1%a8/7.jpg)
 ```C++
 ListNode* successor = NULL;
 ListNode* reverseN(ListNode* head, int n){
-    if (n == 1){
-        successor = head->next;
+    if (n == 1){                            // 只反轉 1 個節點相當於沒有反轉，故轉回自己
+        successor = head->next;             // 記錄反轉後的鏈表要接到哪裡->剩餘鏈表的頭
         return head;
     }
     ListNode last = reverseN(head->next, n-1);
     head->next->next = head;
-    head->next = successor;
+    head->next = successor;                 // 最後將鏈表的尾巴接到剩餘鏈表的頭
     return last;
 }
 ```
-#### [Follow up] 反轉鏈表的一部分
+#### [[LeetCode. 92] Reverse Linked List II(Medium)](https://leetcode.com/problems/reverse-linked-list-ii/)
++ 反轉第 m 到第 n 個節點中間的節點 
++ 前進 m - 1 次就相當於就相當於反轉前 (n-m-1) 個節點，就可以用 reverseN 解了。
 ```C++
 ListNode* reverseBetween(ListNode* head, int m, int n){
     if (m == 1){
@@ -282,6 +288,8 @@ ListNode* reverseBetween(ListNode* head, int m, int n){
 }
 ```
 #### [[LeetCode. 25] Reverse Nodes in k-Group (Hard)](https://leetcode.com/problems/reverse-nodes-in-k-group/)
++ 結合前面的經驗，注意**遞迴該返回的值是什麼**。
++ 注意結尾若節數小於 k 則不則 reverse。
 ```C++
 ListNode* reverseKGroup(ListNode* head, int k) {
     ListNode* curr = head;
@@ -290,34 +298,45 @@ ListNode* reverseKGroup(ListNode* head, int k) {
         curr = curr->next;
         cnt++;
     }
-    if (cnt == k){
-        curr = reverseKGroup(curr, k);
+    if (cnt == k){              // 當節數小於 k 時，不做 reverse
+        curr = reverseKGroup(curr, k);  // 傳回的是 reverse 完的鏈表的 head，故需把 reverse 完的尾與之相接
         while (cnt-- > 0){
             ListNode* next = head->next;
             head->next = curr;
             curr = head;
             head = next;
         }
-        head = curr;
+        return curr;            // 當節數等於 k 時回傳的是尾巴
     }
-    return head;
+    return head;                // 注意節數小於 k 時仍回傳 head
 }
 ```
+
+---
+
 ### 2. 環型鏈表(龜兔賽跑-快慢指針)
 #### [[LeetCode. 141] Linked List Cycle(Easy)](https://leetcode.com/problems/linked-list-cycle/)
++ 快慢指針是雙指針的一種應用，利用兩個指針移動的速度不同來達到目的。最經典的題型就是找尋鏈表是否含有環。
++ 要檢查鏈表是否有環，可以使用找尋圖(graph)中是否有環的技巧，並利用 visited 來檢查是否有拜訪過，但下面快慢指針的技巧可以不用額外使用空間，使空間複雜度降到 \\(O(1)\\)。
 ```C++
 bool hasCycle(ListNode *head) {
     ListNode* fast = head;
     ListNode* slow = head;
-    while (fast && fast->next){
-        fast = fast->next->next;
-        slow = slow->next;
-        if (fast == slow) return true;
+    while (fast && fast->next){             // 確保快指針與他的下一位都不是 NULL
+        fast = fast->next->next;            // 快指針走兩步
+        slow = slow->next;                  // 慢指針走一步
+        if (fast == slow) return true;      // 若兩者相撞，則必有環
     }
     return false;
 }
 ```
 #### [[LeetCode. 142] Linked List Cycle II(Medium)](https://leetcode.com/problems/linked-list-cycle-ii/)
++ 此題是要找尋鏈表中若有環，則相交點是哪一點：
++ 因為快指針走的距離是慢指針 k 的兩倍，令相遇點距相交點距離為 m 圓環的長度為 L：  
+    \\(\text{L + m + k = 2 * k}\\)  
+    \\(\text{L = k - m}\\)  
+    故起點到相交點的長度 \\(\text{k - m}\\) 與相遇點到相交點的長度 \\(\text{k - m}\\) 相同。
+![cyclic linkedlist](https://labuladong.github.io/algo/images/%e5%8f%8c%e6%8c%87%e9%92%88/2.jpeg)
 ```C++
 ListNode *detectCycle(ListNode *head) {
     ListNode* fast = head;
@@ -325,41 +344,19 @@ ListNode *detectCycle(ListNode *head) {
     while (fast && fast->next){
         fast = fast->next->next;
         slow = slow->next;
-        if (fast == slow) break;
+        if (fast == slow) break;                // 若有環則退出
     }   
-    if (!fast || !fast->next) return NULL;
-    fast = head;
-    while (fast != slow){
+    if (!fast || !fast->next) return NULL;      // 若快指針已經走到底表示沒有環
+    fast = head;                              // 讓其中一個指針從頭開始走，並一同樣的速度走
+    while (fast != slow){                     // 相遇點即為相交點
         fast = fast->next;
         slow = slow->next;
     }
     return fast;
 }
 ```
-#### [[LeetCode. 160] Intersection of Two Linked Lists(Easy)](https://leetcode.com/problems/intersection-of-two-linked-lists/)
-```C++
-ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-    ListNode* a = headA;
-    ListNode* b = headB;
-    bool flagA = true;
-    bool flagB = true;
-    while (a && b){
-        if (a == b) return a;
-        a = a->next;
-        b = b->next;
-        if (!a && flagA){
-            a = headB;
-            flagA = false;
-        } 
-        if (!b && flagB){
-            b = headA;
-            flagB = false;
-        } 
-    }
-    return NULL;
-}
-```
 #### [[LeetCode. 876] Middle of the Linked List(Easy)](https://leetcode.com/problems/middle-of-the-linked-list/)
++ 這題當然可以先遍歷一遍取得鏈表長度後，再重新以長度計量，走一半的長度來得到答案，但很顯然不夠漂亮，用快慢指針，令快指針比慢指針移動速度快兩倍，當快指針走完時，慢指針即指向中點。以此類推可求1/3的節點、2/5的節點等。
 ```C++
 ListNode* middleNode(ListNode* head) {
     ListNode* fast = head;
@@ -373,43 +370,55 @@ ListNode* middleNode(ListNode* head) {
 ```
 ### 3. 雙指針(前後指針)
 #### [[LeetCode. 19] Remove Nth Node From End of List(Medium)](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
++ 這題也是簡單的雙指針問題，當前指針先走 n 步，兩指針以同樣速度往前走(即前後指針始終保持 n 的距離)，則前指針走完時，後指針指向倒數第 k 個節點。
 ```C++
 ListNode* removeNthFromEnd(ListNode* head, int n) {
-    ListNode* dummy = new ListNode(-1, head);
-    ListNode* prev = dummy;
+    // 注意以下我們要刪除第 n 個節點，故我們需找第 n-1 個節點，為避免刪除第一個節點的例子，我們引入 dummy
+    ListNode* dummy = new ListNode(-1, head);  
+    ListNode* slow = dummy;
     ListNode* fast = dummy;
-    while (fast && n--){
+    while (fast && n--){                // 前指針先行走 n 個節點
         fast = fast->next;
     }
-    while (fast->next){
-        prev = prev->next;
+    while (fast->next){                 // 保持等速
+        slow = slow->next;
         fast = fast->next;
     }
-    prev->next = prev->next->next;
+    slow->next = slow->next->next;      // 刪除第 n 個節點
 
     return dummy->next;
 }
 ```
-#### [[LeetCode. 21] Merge Two Sorted Lists(Easy)](https://leetcode.com/problems/merge-two-sorted-lists/)
+#### [[LeetCode. 160] Intersection of Two Linked Lists(Easy)](https://leetcode.com/problems/intersection-of-two-linked-lists/)
++ 找兩條鏈表的相交點，這題也可以用雙指針的方式解，當 A 鏈懷走完鏈表立即讓它接回 B 鏈表，B 鏈表亦如是，則相遇點則會是相交點，因為此時它們各別則的距離是都是 A 鏈表的長度加上 B 鏈表的長度，但要注意要記錄是否已經接過一遍，如果沒有相交點，又無限接下去，則程式永遠不會停止。
+![intersection1](https://labuladong.github.io/algo/images/%e9%93%be%e8%a1%a8%e6%8a%80%e5%b7%a7/4.png)
+![intersection2](https://labuladong.github.io/algo/images/%e9%93%be%e8%a1%a8%e6%8a%80%e5%b7%a7/5.jpeg)
+![interscetion3](https://labuladong.github.io/algo/images/%e9%93%be%e8%a1%a8%e6%8a%80%e5%b7%a7/6.jpeg)
+
 ```C++
-ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-    ListNode* dummy = new ListNode(-1);
-    ListNode* curr = dummy;
-    while (list1 && list2){
-        if (list1->val <= list2->val){
-            curr->next = list1;
-            list1 = list1->next;
-        } else {
-            curr->next = list2;
-            list2 = list2->next;
-        }
-        curr = curr->next;
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+    ListNode* a = headA;
+    ListNode* b = headB;
+    bool flagA = true;          // 用來標記是否已接過另一鏈表
+    bool flagB = true;          // 用來標記是否已接過另一鏈表
+    while (a && b){
+        if (a == b) return a;   // 相遇表示相交點
+        a = a->next;
+        b = b->next;
+        if (!a && flagA){
+            a = headB;
+            flagA = false;      // 已接過另一鏈表
+        } 
+        if (!b && flagB){
+            b = headA;
+            flagB = false;      // 已接過另一鏈表
+        } 
     }
-    curr->next = list1 ? list1 : list2;
-    return dummy->next;
+    return NULL;
 }
 ```
 #### [[LeetCode. 86] Partition List(Medium)](https://leetcode.com/problems/partition-list/)
++ 具體作法可將鏈表一分為二，待兩條鏈表皆完成後再頭尾相接。
 ```C++
 ListNode* partition(ListNode* head, int x) {
     ListNode* dummy1 = new ListNode(-1);
@@ -431,9 +440,29 @@ ListNode* partition(ListNode* head, int x) {
     return dummy1->next;
 }
 ```
-
+#### [[LeetCode. 21] Merge Two Sorted Lists(Easy)](https://leetcode.com/problems/merge-two-sorted-lists/)
++ 簡單的 if-else，搭配 dummy 的做法即可解題。
+```C++
+ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+    ListNode* dummy = new ListNode(-1);
+    ListNode* curr = dummy;
+    while (list1 && list2){
+        if (list1->val <= list2->val){
+            curr->next = list1;
+            list1 = list1->next;
+        } else {
+            curr->next = list2;
+            list2 = list2->next;
+        }
+        curr = curr->next;
+    }
+    curr->next = list1 ? list1 : list2;
+    return dummy->next;
+}
+```
 ### 4. 優先佇列
 #### [[LeetCode. 23] Merge k Sorted Lists(Hard)](https://leetcode.com/problems/merge-k-sorted-lists/)
++ 這一題有點 tricky，我們可以用到優先佇列，由於每次比較只會比較鏈表的頭節表，故我們連續將鏈表推至 min heap 上，並每次把 min heap 頂端的節點接到新的鏈表後，再把 min heap 上的鏈表拿去頭後，再丟回優先佇列中，至到鏈表走完，即完成。
 ```C++
 ListNode* mergeKLists(vector<ListNode*>& lists) {
     auto cmp = [](ListNode* a, ListNode* b){return a->val > b->val;};
