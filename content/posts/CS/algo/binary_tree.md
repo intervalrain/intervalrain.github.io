@@ -25,94 +25,109 @@ cover:
     relative: false
     hidden: false
 ---
-### 一、資料結構的儲存方式
-+ 資料結構的存儲方式大體上只分為兩種： **Array**、**Linked List**。  
-雖說資料結構有 disjoint matrix, queue, stack, tree, graph 等等，但它們都可以視為 Array 與 Linked List 的上層結構，可以看成是以 Array 或 Linked List 為基底上的操作，只是 API 不同而已。
-    + **Array**：由於是緊湊連續儲存的，可以隨機訪問，通過 index 快速找到對應元素，且相對節約空間。但也因必須一次性分配儲存空間，所以 array 如果需要擴充容量，就必須再重新分配一塊更大的空間，再把數孛複製過去，其時間複雜度為 \\(O(N)\\)；在 array 中間進行 delete 與 insert，必須搬移後面所有數據以保持連續，故時間複雜度也為\\(O(N)\\)。
-    + **Linked List**：因為元素不連續，而是靠指針指向下一個元素的位置，所以不存在 array 的擴充容量的問題，如果知道某一元素的前一個節點與後一個節點，操作指針即可刪除該元素或者插入新元素，時間複雜度為\\(O(1)\\)。但正因為儲存空間不連續，無法根擇 index 算出對應元素的地址，所以不能隨機訪問；而且由於每個元素必須額外儲存前後元素位置的指針，相對較耗空間。
-+ 在 C、C++ 語言中，指針(pointer)的存在使得其能更直接對儲存空間的位址做操作，所以在處理 C 語言時，要額外了解指針的運作方式。
-### 二、資料結構的基本操作
-+ 資料結構的基本操作不外乎： **遍歷(traverse)**、**增減查刪(CRUD, create, read, update, delete)**
-    + Array：數組的遍歷框架 -> 典型的線性迭代結構：
+### 一、二叉樹的思維模式
++ 二叉樹的解題模式大致分為兩類：
+    1. 是否可以通過遍歷一遍得解
+    2. 是否可以定義一個遞迴函數，通過分治法推導出原問題的答案？
+#### [[LeetCode. 104] Maximum Depth of Binary Tree(Easy)](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
++ 以此題為例，可以遍歷完整個樹，並比較當下的樹的深度，得以求解。
+```C++
+int depth = 0;
+int maxDepth(TreeNode* root){
+    traverse(root, 1);
+    return depth;
+}
+void traverse(TreeNode* root, int currDepth){
+    if (!root) return;
+    traverse(root->left, currDepth+1);
+    depth = max(depth, currDepth);
+    traverse(root->right, currDepth+1);
+}
+```
++ 若想辦法定義一個遞迴函數，通過分治法推導出原問題，換言之，就是先處理更小的樹，再藉由小的樹處理大的樹：
+```C++
+int maxDepth(TreeNode* root) {
+    if (root == NULL) return 0;
+    return 1 + max(maxDepth(root->left), maxDepth(root->right));
+}
+```
++ 事實上，兩個思維模式便對應著兩種演算法：**回溯法(back tracking)**與**動態規劃(dynamic programming)**
+### 二、前序、中序、後序
++ 無論使用哪種思維模式(遍歷或找出遞迴函數)，**都要思考單獨抽出一個節點，它需要在何時(前、中、後序)做哪些事情**，其它的節點交由遞迴函數去執行相同的操作。
++ 以下我們以 quick sort 與 merge sort 為例，同樣是分治法，看看在數組上有什麼同樣的思維模式。
+#### quick sort
++ 從 sort() 函式便可見類似於前序的結構。
+```C++
+void sort(vector<int>& nums, int left, int right){
+    if (left >= right) return;              // 終止條件
+    int mid = partition(nums, left, right); // 做什麼事(pre-order)
+    sort(nums, left, mid-1);                // 左子樹
+    sort(nums, mid+1, right);               // 右子樹
+}
+```
+```C++
+int partition(vector<int>& nums, int left, int right){
+    int pivot = right;
+    while (left < right){
+        while (nums[left] < nums[pivot]) left++;
+        while (nums[right] > nums[pivot]) right--;
+        if (left < right) swap(nums[left], nums[right]);
+    }
+    if (left == right && nums[left] > nums[pivot] || nums[right] < nums[pivot]){
+        swap(nums[left], pivot);
+        return left;
+    }
+    return pivot;
+}
+```
+#### merge sort
++ 從 sort() 函式便可見類似於後序的結構。
+```C++
+void sort(vector<int>& nums, int left, int right){
+    if (left <= right) return;              // 終止條件
+    int mid = left + (right-left)/2;
+    sort(nums, left, mid);                  // 左子樹
+    sort(nums, mid+1, right);               // 右子樹
+    merge(nums, left, mid, right);          // 做什麼事(post-order)
+}
+```
+```C++
+void merge(vector<int>& nums, int left, int mid, int right){
+    vector<int> vec;
+    int i = left, j = right;
+    while (i <= mid && j <= right){
+        int x = nums[i] < nums[j] ? nums[i++] : nums[j++];
+        vec.push_back(x);
+    }
+    while (i <= mid) vec.push_back(nums[j++]);
+    while (j <= right) vec.push_back(nums[i++]);
+    for (int i = left; i <= right; i++)
+        nums[i] = vec[i-left];
+}
+```
++ 換言之，以上就是一個遍歷全部節點的函式，所以本質上數組、鏈表、二叉樹都是在做同樣的事。
+    + 數組
     ```C++
-    void traverse(vector<int> arr){
-        for (int i = 0; i < arr.size(); i++){
-        // iteration
-        }
+    void traverse(vector<int> nums, int i){
+        if (i == nums.size()) return;
+        // pre-order
+        traverse(nums, i+1);
+        // post-order
     }
     ```
-    + ListNode：鏈表的遍歷框架 -> 兼具迭代與遞迴
+    + 鏈表
     ```C++
-    class ListNode {
-    public:
-        int val;
-        ListNode* next;
-    };
-
     void traverse(ListNode* head){
-        for (ListNode curr = head; curr != NULL; curr = curr->next){
-            // iteration
-        }
-    }
-
-    void traverse(ListNode* head){
-        // recursion 
+        if (!head) return;
+        // pre-order
         traverse(head->next);
+        // post-order
     }
     ```
-    由上述兩種基底可推廣至各種結構：
-    + 二叉樹(Binary Tree)
-    ```C++
-    class TreeNode {
-    public:
-        int val;
-        TreeNode* left, right;
-    };
-
-    void traverse(TreeNode* root){
-        traverse(root->left);
-        traverse(root->right);
-    }
-    ```
-    + N 叉樹(N-ary Tree)
-    ```C++
-    class TreeNode {
-    public:
-        int val;
-        vector<TreeNode*> children
-    }
-
-    void traverse(TreeNode* root){
-        for (TreeNode* child : root->children){
-            traverse(child);
-        }
-    }
-    ```
-    + 圖(graph)：可視為 N 叉樹的結合體，再利用 **visited** 處理環(circle)
-    ```C++
-    class Node {
-    public:
-        int val;
-        vector<Node*> neighbors;
-    }
-
-    unordered_set<Node*> visited; // 處理已拜訪過的節點
-    
-    void traverse(Node* node){
-        if (visited) return;  // 檢查是否拜訪過了
-        visited.insert(node)  // 將現在拜訪的節點標記成已拜訪的節點
-        for (TreeNode* neighbor : neighbors){
-            traverse(neighbor)
-        }
-    }
-    ```
-### 三、前序(pre-order)、中序(in-order)、後序(post-order)
-+ 在開始複雜的演算法前，重點在於熟悉如何處理不同的結構，並採用基礎的解題策略。
-+ 前序、中序、後序指的是遍歷一棵二元樹的方式。
-    ![](https://i.ytimg.com/vi/WLvU5EQVZqY/maxresdefault.jpg)
-    + 基本框架
+    + 二叉樹
     ```C++
     void traverse(TreeNode* root){
+        if (!root) return;
         // pre-order
         traverse(root->left);
         // in-order
@@ -120,45 +135,23 @@ cover:
         // post-order
     }
     ```
-+ 鏈表其實也可以有前序、後序的關係：
-    ```C++
-    void traverse(ListNode* curr){
-        // pre-order
-        traverse(curr->next);
-        // post-order
+### 三、層序遍歷（level-order)
+```C++
+void traverse(TreeNode* root){
+    queue<TreeNode*> q;
+    q.push(root);
+    while (!q.empty()){
+        int sz = q.size();
+        while (sz--){
+            TreeNode* curr = q.front();
+            q.pop();
+            // operation
+            if (curr->left) q.push(curr->left);
+            if (curr->right) q. push(curr->right);
+        }
     }
-    ```
-
-
-
-
-
-    + 範例：  
-    **[Leetcode 124 - Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)**
-    > A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
-    > The path sum of a path is the sum of the node's values in the path.
-    > Given the root of a binary tree, return the maximum path sum of any non-empty path.
-    ![sample124](https://assets.leetcode.com/uploads/2020/10/13/exx2.jpg)
-    > **Input**: root = [-10,9,20,null,null,15,7]  
-    > **Out**: 42  
-    > **Explanation**: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42.  
-    + 解析：
-        1. 將題目分而化之，先考慮 leaf 的狀況
-    ```C+++
-    int res = INT_MIN;
-    int maxPathSum(TreeNode* root){
-        traverse(root);
-        return res;
-    }
-    int traverse(TreeNode* root){
-        if (!root) return 0;
-        int left = max(0, traverse(root->left));
-        int right = max(0, traverse(root->right));
-        res = max(res, root->val + left + right);
-        return max(left, right) + root->val;
-    }
-    ```
-    
+}
+```
 ---
 + 回到目錄：[[DS] 演算法筆記](/posts/cs/algo)  
 + 想要複習：[[DS] 2. 鏈表(Linked List)](/posts/cs/algo/linked_list)

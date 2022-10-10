@@ -25,7 +25,17 @@ cover:
     relative: false
     hidden: false
 ---
-## 一、鏈表的基本操作
+## 一、鏈表的基本結構
++ 鏈表是由節點和指針構成的數據結構，每個節點存有一個值，和一個指向下一個節點的指針。不同於數組，鏈表並不能隨機訪問，必須透過指針找到該節點才能獲取其值；同理在未遍歷到鏈表結尾時，我們也無法知道鏈表長度，除非依賴其它數據結構儲存長度。
++ LeetCode 中默認的鏈表：
+```C++
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
+};
+```
+## 二、鏈表的基本操作
 + 在開始演算法實踐前，先來練習一下鏈表的 CRUD 吧！
 ### 1. 查(Read)
 + 由於鏈表並非在儲存格中連續分布，所以無法用索引進行隨機訪問，所以我們必須逐個訪問，直到到達我們想要的元素。
@@ -115,7 +125,7 @@ void insert(ListNode* node, int val){
     node->next = node->next->next;      // 將下一個節點刪除
 }
 ```
-## 二、鏈表的進階操作
+## 三、鏈表的進階操作
 ### 1. 刪值
 + 如何刪除表中第一個出現指定值的節點，同樣找到該值的前一個節點，再使用刪除的手法即可：
 ```C++
@@ -201,7 +211,7 @@ void removeAll(ListNode* head, int target){
     return head->val                            // 傳回當前節點的值
 }
 ```
-## 三、秀一波的操作
+## 四、秀一波的操作
 ### 1. 刪值
 + 用兩個節點去做到鏈表刪除的操作，還是有一點點不夠美，試試看下面這個 pointer to pointer 的解法吧！
 + 改自文章[你所不知道的 C 語言: linked list 和非連續記憶體](https://hackmd.io/@sysprog/c-linked-list?fbclid=IwAR2179AHDYjsbYnbDdmCyiw7d3CF0yjehNGU-GcDsNAeZ_CkermprcDBzlo)
@@ -227,7 +237,7 @@ ListNode* build(vector<int> nums){
     }
 }
 ```
-## 四、鏈表的演算法
+## 五、鏈表的演算法
 ### 1. 反轉鏈表
 #### [[LeetCode. 206] Reverse Linked List(Easy)](https://leetcode.com/problems/reverse-linked-list/)
 + 藉由剛剛學習到鏈表的操作，用迭代的方式來解題吧。
