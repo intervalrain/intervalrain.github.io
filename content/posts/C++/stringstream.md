@@ -1,6 +1,6 @@
 ---
 title: "[C++] 如何產生 random 值"
-date: 2022-04-23T17:46:23+08:00
+date: 2022-10-14T00:26:23+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
