@@ -119,6 +119,7 @@ ListNode* erase(ListNode* head, int n, int val){
 }
 ```
 + 只能取得當下節點的作法：
+#### [[LeetCode. 237] Delete Node in a Linked List(Medium)](https://leetcode.com/problems/delete-node-in-a-linked-list/)
 ```C++
 void insert(ListNode* node, int val){
     node->val = node->next->val;        // 將當前的值賦值成下一位的值
