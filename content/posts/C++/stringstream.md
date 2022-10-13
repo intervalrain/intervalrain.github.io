@@ -55,3 +55,39 @@ string concat(vector<string>& svec, char del){
     return ss.str();
 }
 ```
+
+### [leetcode 1859. Sorting the Sentence]
+```C++
+class Solution {
+public:
+    string sortSentence(string s) {
+        vector<string> tmp = split(s, ' ');
+        int n = tmp.size();
+        vector<string> svec(n);
+        for (const string& s : tmp){
+            int pos = s.back() - '1';
+            svec[pos] = s.substr(0, s.length()-1);
+        }
+        return concat(svec, ' ');
+    }
+    string concat(vector<string>& svec, char del){
+        string res;
+        stringstream ss;
+        for (const string& s : svec)
+            ss << del << s;
+        res = ss.str();
+        return res.substr(1);
+    }
+    vector<string> split(string& str, char del){
+        vector<string> res;
+        stringstream ss(str);
+        string item;
+        while (getline(ss, item, del)){
+            if (!item.empty()){
+                res.push_back(item);
+            }
+        }
+        return res;
+    }
+};
+```
