@@ -253,3 +253,55 @@ public:
     }
 };
 ```
+
+# BIT(binary indexed tree)
+```C++
+class NumArray {
+public:
+    class Bit {
+    public:
+        vector<int> bit;
+        int n;
+        Bit(vector<int>& nums) {
+            n = nums.size();
+            bit.assign(n+1, 0);
+            for (int i = 0; i < n; i++){
+                build(i+1, nums[i]);
+            }
+        }
+        void build(int index, int val) {
+            while (index <= n){
+                bit[index] += val;
+                index = next(index);
+            }
+        }
+        int next(int index) {
+            return index + (index & -index);
+        } 
+        int parent(int index) {
+            return index - (index & -index);
+        }
+        int getSum(int index) {
+            int sum = 0;
+            while (index){
+                sum += bit[index];
+                index = parent(index);
+            }
+            return sum;
+        }
+    };
+    Bit* bit;
+    NumArray(vector<int>& nums) {
+        bit = new Bit(nums);
+    }
+    
+    void update(int index, int val) {
+        int diff = val - sumRange(index, index);
+        bit->build(index+1, diff);
+    }
+    
+    int sumRange(int left, int right) {
+        return bit->getSum(right+1) - bit->getSum(left);
+    }
+};
+```
