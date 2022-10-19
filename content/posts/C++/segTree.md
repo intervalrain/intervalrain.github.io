@@ -139,3 +139,117 @@ int sum(int s, int t, int res = 0){
     }
     return res;
 }
+
+
+## Leetcode. 307 範例
++ https://leetcode.com/problems/range-sum-query-mutable/
+1. TreeNode 變形 
+```C++
+class NumArray {
+    class SegTree {
+    public:
+        int val;
+        int begin, end;
+        SegTree* left, *right;
+        SegTree(int v):val(v) {}
+        SegTree(int v, int b, int e):val(v), begin(b), end(e) {}
+        SegTree(int v, int b, int e, SegTree* l, SegTree* r)
+            :val(v), begin(b), end(e), left(l), right(r) {}
+    };
+    
+    SegTree* root;
+    
+    SegTree* build(vector<int>& nums, int b, int e){
+        if (e < b) return NULL;
+        if (b == e) return new SegTree(nums[b], b, b);
+        int mid = b + (e-b)/2;
+        SegTree* left = build(nums, b, mid);
+        SegTree* right = build(nums, mid+1, e);
+        return new SegTree(left->val + right->val, b, e, left, right);
+    }
+    
+    void update(SegTree* node, int index, int val){
+        if (node->begin == index && node->end == index){
+            node->val = val;
+        } else {
+            int mid = node->begin + (node->end - node->begin)/2;
+            if (index <= mid){
+                update(node->left, index, val);
+            } else {
+                update(node->right, index, val);
+            }
+            node->val = node->left->val + node->right->val;
+        }
+    }
+    int query(SegTree* node, int left, int right){
+        if (node->begin == left && node->end == right){
+            return node->val;
+        }
+        int mid = node->begin + (node->end - node->begin)/2;
+        if (right <= mid){
+            return query(node->left, left, right);
+        } else if (left > mid){
+            return query(node->right, left, right);
+        }
+        return query(node->left, left, mid) + query(node->right, mid+1, right);
+    }
+    
+public:
+    NumArray(vector<int>& nums) {
+        root = build(nums, 0, nums.size()-1);
+    }
+    
+    void update(int index, int val) {
+        update(root, index, val);
+    }
+    
+    int sumRange(int left, int right) {
+        return query(root, left, right);
+    }
+};
+```
+2. zkw 線段樹
+```C++
+class NumArray {
+    class SegTree {
+        vector<int> arr;
+        int m, n;
+    public:
+        SegTree(vector<int>& nums) {
+            n = nums.size();
+            for (m = 1; m < n; m <<= 1);
+            build(nums);
+        }
+        void build(vector<int>& nums) {
+            arr.assign(2*m, 0);
+            for (int i = 0; i < n; ++i) arr[m+i] = nums[i];
+            for (int i = m-1; i; --i) arr[i] = arr[i<<1] + arr[i<<1|1];
+        }
+        void update(int index, int val) {
+            int diff = val - arr[m+index];
+            for (index += m; index; index >>= 1) arr[index] += diff;
+        }
+        int query(int left, int right) {
+            int sum = 0;
+            for (int i = left+m, j = right+m; i <= j; i >>= 1, j >>= 1){
+                if (i & 1) sum += arr[i++];
+                if (!(j & 1)) sum += arr[j--];
+            }
+            return sum;
+        }
+    };
+public:
+    SegTree* root;
+    NumArray(vector<int>& nums) {
+        root = new SegTree(nums);
+    }
+    
+    void update(int index, int val) {
+        root->update(index, val);
+    }
+    
+    int sumRange(int left, int right) {
+        return root->query(left, right);
+    }
+};
+```
