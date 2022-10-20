@@ -25,7 +25,7 @@ cover:
     relative: false
     hidden: false
 ---
-### 一、二叉樹
+### 一、資料結構概要
 + 資料結構的存儲方式大體上只分為兩種： **Array**、**Linked List**。  
 雖說資料結構有 disjoint matrix, queue, stack, tree, graph 等等，但它們都可以視為 Array 與 Linked List 的上層結構，可以看成是以 Array 或 Linked List 為基底上的操作，只是 API 不同而已。
     + **Array**：由於是緊湊連續儲存的，可以隨機訪問，通過 index 快速找到對應元素，且相對節約空間。但也因必須一次性分配儲存空間，所以 array 如果需要擴充容量，就必須再重新分配一塊更大的空間，再把數孛複製過去，其時間複雜度為 \\(O(N)\\)；在 array 中間進行 delete 與 insert，必須搬移後面所有數據以保持連續，故時間複雜度也為\\(O(N)\\)。
