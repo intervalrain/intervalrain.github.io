@@ -60,6 +60,7 @@ ShowCodeCopyButtons: true
 + 爾後才想到這題其實概念上很接近 [Leetcode 218. The Skyline Problem](https://leetcode.com/problems/the-skyline-problem/)
 + 上這張題後就懂了，把 apk version 看成建築的高度， min OS version 與 max OS version 看成建築的 x 座標，就變成一樣的題目了，差別在於把 skyline 建成之後，再對其作 binary search。
 ![skyline](https://assets.leetcode.com/uploads/2020/12/01/merged.jpg)
+## priority_queue 解法
 + 直接上 code
 ```C++
 #include <bits/stdc++.h>
@@ -152,4 +153,91 @@ int main(){
     cout << endl;
     return 0;
 }
+```
+
+
+## 補充(segment tree)
++ 用segment tree 來解區域更新的題目時，若把每個子葉點退化到單點的話，其空間複雜度會太高，可以用兩個 map 由左到右將 x 軸從小到大帶入，每個索引值 i 對應到一個有使用到的 x 軸座標。然後用左閉右開(\\([a,b)\\))的方式去維護區間的值。
++ 在用segment tree 做區域更新時，若每次都對所有子葉做更新的話，其時間複雜度會拉高到\\(O(k)\\)，\\(k\\) 為線段長。其下 slash 掉的部分，在 the skyline problem 中會造成 TLE，所以我們每次只對其必要的點做更新，待全部資料輸入完後，再一次從上而下做更新(renew)。其時間複雜度雜到\\(O(klogk+n\\)，\\(n\\) 為 x 軸的個數。
++ 區域查詢也可以用差不多的概念完成。
+
+
+```C++
+class Solution {
+    
+    class Tree {
+        vector<int> arr;
+        int m, n;
+    public:
+        Tree (int sz) {
+            n = sz;
+            for (m=1; m < n; m<<=1);
+            arr.assign(2*m, 0);
+        }
+        // void update(int b, int e, int val) {
+        //     int i = b+m, j = e+m;
+        //     for (; i && j && i <= j; i >>= 1, j >>= 1){
+        //         for (int k = i; k <= j; k++){
+        //             arr[k] = max(arr[k], val);
+        //         }    
+        //     }
+        // }
+        // void renew(){}
+        void update(int b, int e, int val){
+            for (b+=m, e+=m; b <= e; b>>=1, e>>=1) {
+                if (b&1) arr[b++] = max(arr[b], val);
+                if (!(e&1)) arr[e--] = max(arr[e], val);
+            }
+        }
+        void renew() {
+            for (int i = 1; i < m; i++) {
+                arr[i<<1] = max(arr[i<<1], arr[i]);
+                arr[i<<1|1] = max(arr[i<<1|1], arr[i]);
+            }
+        }
+        int query(int i) {
+            return arr[i+m];
+        }
+    }; 
+    
+    unordered_map<int,int> i2x, x2i;
+public:
+    int mapping(vector<vector<int>>& buildings) {
+        set<int> sets;
+        for (const auto& building : buildings) {
+            sets.insert(building[0]);
+            sets.insert(building[1]);
+        }
+        int cnt = 0;
+        for (const auto& x : sets){
+            i2x[cnt] = x;
+            x2i[x] = cnt++;
+        }
+        return cnt;
+    }
+    vector<vector<int>> getSkyline(vector<vector<int>>& buildings) {
+        int n = mapping(buildings);
+        Tree* root = new Tree(n);
+        
+        for (const auto& building : buildings) {
+            int b = x2i[building[0]];
+            int e = x2i[building[1]];
+            
+            root->update(b, e-1, building[2]);
+        }
+        root->renew();
+        
+        vector<vector<int>> res;
+        int prev = 0;
+        for (int i = 0; i < n; i++){
+            int x = i2x[i];
+            int y = root->query(i);
+            if (prev != y) {
+                res.push_back({x, y});
+                prev = y;
+            }
+        }
+        return res;
+    }
+};
 ```
