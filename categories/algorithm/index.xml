@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithm on Rain's Blog</title><link>http://intervalrain.github.io/categories/algorithm/</link><description>Recent content in Algorithm on Rain's Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 20 Oct 2022 22:29:15 +0800</lastBuildDate><atom:link href="http://intervalrain.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>[Problem] Version Query</title><link>http://intervalrain.github.io/posts/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/versionquery/</guid><description>Version Query
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Binary Search、Segment Tree、Heap (Priority Queue、Hash Table 一、題目 Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.
+The given apk_info structure is given as below.
+struct apk_info {
+int apk_version;
+int min_version = 1;
+int max_version = INT_MAX;
+}</description></item></channel></rss>
