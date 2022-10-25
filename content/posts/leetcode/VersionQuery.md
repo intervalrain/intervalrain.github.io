@@ -1,10 +1,9 @@
 ---
-title: "[Leetcode] Version query"
+title: "[Problem] Version Query"
 date: 2022-10-20T22:29:15+08:00
-tags: ["Leetcode"]
+tags: ["Algorithm"]
 draft: false
-Categories: Leetcode
-description: "priority queue" 
+Categories: Algorithm
 author: "Rain Hu"
 showToc: true
 TocOpen: true
@@ -22,17 +21,18 @@ ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 
 ---
-
-# Version Query
+**Version Query**
++ Hardness: \\(\color{red}\textsf{Hard}\\)
++ Ralated Topics: `Binary Search`、`Segment Tree`、`Heap (Priority Queue`、`Hash Table`
 ---
-+ Hardness: Hard
-> Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.  
-> The given apk_info structure is given as below.  
-> **struct apk_info {**  
-> 　　**int apk_version;**  
-> 　　**int min_version = 1;**  
-> 　　**int max_version = INT_MAX;**  
-> **}**
+### 一、題目
+Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.  
+The given apk_info structure is given as below.  
+**struct apk_info {**  
+　　**int apk_version;**  
+　　**int min_version = 1;**  
+　　**int max_version = INT_MAX;**  
+**}**
 
 **Example 1:**  
 \\(\begin{array}{|l|}\hline
@@ -55,17 +55,14 @@ ShowCodeCopyButtons: true
 \text{3. 1} \le \text{Query times < } 10^{31}\\\\\hline
 \end{array}\\)  
 
-## 解題重點
+### 二、分析
 + 重點其實就是區間求極值，所以筆者最先開始想到的是線段樹，線段樹的介紹可參考這裡：[Segment Tree 線段樹](/posts/c++/segtree)
 + 爾後才想到這題其實概念上很接近 [Leetcode 218. The Skyline Problem](https://leetcode.com/problems/the-skyline-problem/)
 + 上這張題後就懂了，把 apk version 看成建築的高度， min OS version 與 max OS version 看成建築的 x 座標，就變成一樣的題目了，差別在於把 skyline 建成之後，再對其作 binary search。
 ![skyline](https://assets.leetcode.com/uploads/2020/12/01/merged.jpg)
-## priority_queue 解法
-+ 直接上 code
+### 三、解題
+#### Priority Queue
 ```C++
-#include <bits/stdc++.h>
-using namespace std;
-
 struct apk_info{
     int apk_version;
     int min_version = 1;
@@ -155,10 +152,9 @@ int main(){
 }
 ```
 
-
-## 補充(segment tree)
+#### 補充(segment tree)
 + 用segment tree 來解區域更新的題目時，若把每個子葉點退化到單點的話，其空間複雜度會太高，可以用兩個 map 由左到右將 x 軸從小到大帶入，每個索引值 i 對應到一個有使用到的 x 軸座標。然後用左閉右開(\\([a,b)\\))的方式去維護區間的值。
-+ 在用segment tree 做區域更新時，若每次都對所有子葉做更新的話，其時間複雜度會拉高到\\(O(k)\\)，\\(k\\) 為線段長。其下 slash 掉的部分，在 the skyline problem 中會造成 TLE，所以我們每次只對其必要的點做更新，待全部資料輸入完後，再一次從上而下做更新(renew)。其時間複雜度雜到\\(O(klogk+n\\)，\\(n\\) 為 x 軸的個數。
++ 在用segment tree 做區域更新時，若每次都對所有子葉做更新的話，其時間複雜度會拉高到\\(O(k)\\)，\\(k\\) 為線段長。其下 slash 掉的部分，在 the skyline problem 中會造成 TLE，所以我們每次只對其必要的點做更新，待全部資料輸入完後，再一次從上而下做更新(renew)。其時間複雜度雜到\\(O(klogk+n)\\)，\\(n\\) 為 x 軸的個數。
 + 區域查詢也可以用差不多的概念完成。
 
 

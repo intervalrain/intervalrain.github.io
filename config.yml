@@ -71,10 +71,8 @@ params:
         url: "/tags/hdlbits/"
       - name: Logic Design
         url: "/tags/logic-design/"
-      - name: Leetcode(Java)
-        url: "https://github.com/intervalrain/leetcode"
-      - name: Leetcode(C++)
-        url: "https://github.com/intervalrain/Cpp_practice/tree/main/leetcode"
+      - name: Leetcode
+        url: "/tags/leetcode/"
       - name: CS
         url: "/posts/csindex"
   # home-info mode
