@@ -31,6 +31,7 @@ ShowCodeCopyButtons: true
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [6. Zigzag Conversion](/posts/leetcode/6)  
 [7. Reverse Integer](/posts/leetcode/7)  
+[8. String to Integer (atio)](/posts/leetcode/7)  
 
 ### 101-200  
 
@@ -50,6 +51,7 @@ ShowCodeCopyButtons: true
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [6. Zigzag Conversion](/posts/leetcode/6)  
 [7. Reverse Integer](/posts/leetcode/7)  
+[8. String to Integer (atio)](/posts/leetcode/7)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 
 ### Hard
@@ -81,6 +83,7 @@ ShowCodeCopyButtons: true
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [6. Zigzag Conversion](/posts/leetcode/6)  
+[8. String to Integer (atio)](/posts/leetcode/7)  
 
 ### Sliding Window
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
