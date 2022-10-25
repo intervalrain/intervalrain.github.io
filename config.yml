@@ -72,7 +72,7 @@ params:
       - name: Logic Design
         url: "/tags/logic-design/"
       - name: Leetcode
-        url: "/tags/leetcode/"
+        url: "/posts/leetcode/"
       - name: CS
         url: "/posts/csindex"
   # home-info mode
