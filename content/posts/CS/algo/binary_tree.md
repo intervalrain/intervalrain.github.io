@@ -136,6 +136,7 @@ void merge(vector<int>& nums, int left, int mid, int right){
     }
     ```
 ### 三、層序遍歷（level-order)
++ Level-order 對應於 BFS(Breadth-First Search)，完下當下的層才會進入到下一層。
 ```C++
 void traverse(TreeNode* root){
     queue<TreeNode*> q;
