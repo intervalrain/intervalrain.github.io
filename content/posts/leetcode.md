@@ -29,7 +29,8 @@ ShowCodeCopyButtons: true
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
-[6. Zigzag Conversion](/posts/leetcode/6) 
+[6. Zigzag Conversion](/posts/leetcode/6)  
+[7. Reverse Integer](/posts/leetcode/7)  
 
 ### 101-200  
 
@@ -47,7 +48,8 @@ ShowCodeCopyButtons: true
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
-[6. Zigzag Conversion](/posts/leetcode/6) 
+[6. Zigzag Conversion](/posts/leetcode/6)  
+[7. Reverse Integer](/posts/leetcode/7)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 
 ### Hard
@@ -70,6 +72,7 @@ ShowCodeCopyButtons: true
 
 ### Math
 [2. Add Two Numbers](/posts/leetcode/2)  
+[7. Reverse Integer](/posts/leetcode/7)  
 
 ### Recursion
 [2. Add Two Numbers](/posts/leetcode/2)  
