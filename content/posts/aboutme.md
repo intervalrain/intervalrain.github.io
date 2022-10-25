@@ -49,59 +49,62 @@ cover:
 + 學歷：國立清華大學 材料工程學系
 ---
 
-+ 工作經歷：eHV 40nm、28nm、22nm 開發，經歷過 Poly Gate、HKMG 製程  
-+ 專　　案：
-    + (1) NWR Project (Achieve yield rate enhancement from 88% to 94% @28eHV Mass Production)
-    + (2) 22eHV Compact Platform Project (Reduce cost of 22eHV Process closed to 28eHV Process)
-        + LV Share Implant Project 
-        + IO Mask Reduction Project
-    + (3) Co-cut methodology (Reduce 30% and more cost on shuttle for aging/qual)
-+ 開發工具：
-    + (1) IDAS+
-    + (2) U2C
-    + (3) IV_Cur
-    + (4) KPlug
++ 工作經歷：
+    + 2018 Aug. - 2022 Aug. 半導體元件開發工程師 Semiconductor Devcie Engineer (UMC)
+        + 在特殊技術開發部門中針對 eHV(embedded High Voltage) 製程進行開發  
+        參與 eHV 40nm、28nm、22nm 開發、經歷過 Poly Gate、HKMG 製程。  
+        工作內容包含元件特性分析、WAT 程式設置、testkey layout design、DRC coding 等。
+        + 專案：
+            + (1) NWR Project (Achieve yield rate enhancement from 88% to 94% @28eHV Mass Production)
+            + (2) 22eHV Compact Platform Project (Reduce cost of 22eHV Process closed to 28eHV Process)
+                + LV Share Implant Project 
+                + IO Mask Reduction Project
+            + (3) Co-cut methodology (Reduce 30% and more cost on shuttle for aging/qual)
+        + 自行開發工具：
+            + (1) [IDAS+](https://github.com/intervalrain/IDAS)
+            + (2) [U2C](https://github.com/intervalrain/U2C)
+            + (3) [IV_Cur](https://github.com/intervalrain/IV_Cur)
+            + (4) [KPlug](https://github.com/intervalrain/KPlug)
+    + 2022 Sep. - Present. 深度開發工程師 Deep Learning Engineer (UMC)
+        + 在 SMG (Department of Smart Manufacturing) 擔任 DL Engineer，幫助產線乃至研發單位開始工具、有效率的解決方案。
+        + 專案：
+            + (1) UEDA 5.0
+
 + 使用語言：
     + 跟人的部分：中文、英文、韓文
-    + 跟電腦的部分：C++、Java、VBA、Verilog 等等
+    + 跟電腦的部分：C++、Java、VBA、C#、Oracle SQL、Verilog 等等
 
 
-
-
-
-
-
-> 八年級，青年期的最後一個梯次。
+> 八年級，青年期的最後一個梯次，三十歲的男子。
 > 
-> 曾經有過音樂夢，當過吉他老師，組過樂團，當過鼓手，也曾在西餐廳駐唱表演。
-> 
-> 沒有隱疾，只有顯疾。人生周折而困頓，為了現實還是選擇當工程師賣肝。
+> 當過吉他老師，組過樂團，當過鼓手，曾在西餐廳駐唱表演。
 > 
 > 喜歡寫程式處理繁瑣重覆的事，然後拿空出來的時間作白日夢。
 >
-> 喜歡唱歌、彈吉他、聽歌、看書，寫憤世嫉俗的歌，解Leetcode，吃。
+> 喜歡唱歌、彈吉他、聽歌、看書，寫憤世嫉俗的歌，解Leetcode，吃東西。
 > 
-> 喜歡的食物有壽司、拉麵、鹹蛋苦瓜、菜脯蛋、魚香茄子、香菇雞湯。
+> 喜歡的食物有台南的牛肉湯、壽司、拉麵、鹹蛋苦瓜、菜脯蛋、魚香茄子、香菇雞湯。
 >
-> 最喜歡的甜點有肉桂捲、可麗露、檸檬塔、藍莓塔、草莓蛋糕。
+> 最喜歡的甜點有肉桂捲、可麗露、檸檬塔、藍莓塔。
 >
-> 最喜歡的水果是削好的蘋果跟切好的火龍果跟奇異果，芒果冰上面的芒果，還有所有莓果類，最近多了無籽葡萄，不能吃楊桃。
+> 喜歡所有切好的水果。不能吃楊桃。
 > 
-> Coffeholic，淺焙，上班日喜歡日曬，假日喜歡水洗，加班的話就蜜處理吧。
+> Coffeholic，淺中焙，耶加雪菲、西達摩。
 >
-> 討厭毛、討厭草、討厭昆蟲、討厭KMT、除了自己以外的機掰人。
+> 不喜毛、不喜草、不喜昆蟲、討厭KMT。
 >
-> 如果明天就要死亡的話，我會跟家人一起。
+> 如果明天就要死亡，我想去看看地中海。
 
 ## More about me
 - Job
-  - [Resume](http://intervalrain.github.io/posts/rainhu.pdf)
+    - [Resume](http://intervalrain.github.io/posts/rainhu.pdf)
 - Music
-  - [Streetvoice](https://streetvoice.com/intervalrain/)
-  - [Youtube](https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA)
+    - [Streetvoice](https://streetvoice.com/intervalrain/)
+    - [Youtube](https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA)
 - Coding
-  - [Leetcode](https://github.com/intervalrain/leetcode)
-  - [Algorithm](https://github.com/intervalrain/algo)
+
+    - [Leetcode](https://github.com/intervalrain/leetcode)
+    - [Algorithm](https://github.com/intervalrain/algo)
 
 ## Contact
 - [Email](https://intervalrain@gmail.com)
