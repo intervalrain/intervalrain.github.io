@@ -32,6 +32,7 @@ ShowCodeCopyButtons: true
 [6. Zigzag Conversion](/posts/leetcode/6)  
 [7. Reverse Integer](/posts/leetcode/7)  
 [8. String to Integer (atoi)](/posts/leetcode/8)  
+[9. Palindrome Number](/posts/leetcode/9)  
 
 ### 101-200  
 
@@ -44,6 +45,7 @@ ShowCodeCopyButtons: true
 ## 二、依難度
 ### Easy
 [1. Two Sum](/posts/leetcode/1)  
+[9. Palindrome Number](/posts/leetcode/9)  
 
 ### Medium
 [2. Add Two Numbers](/posts/leetcode/2)  
@@ -75,6 +77,7 @@ ShowCodeCopyButtons: true
 ### Math
 [2. Add Two Numbers](/posts/leetcode/2)  
 [7. Reverse Integer](/posts/leetcode/7)  
+[9. Palindrome Number](/posts/leetcode/9)  
 
 ### Recursion
 [2. Add Two Numbers](/posts/leetcode/2)  
