@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Leetcode on Rain's Blog</title><link>http://intervalrain.github.io/tags/leetcode/</link><description>Recent content in Leetcode on Rain's Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 26 Oct 2022 18:36:01 +0800</lastBuildDate><atom:link href="http://intervalrain.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] 10. Regular Expression Matching</title><link>http://intervalrain.github.io/posts/leetcode/10/</link><pubDate>Wed, 26 Oct 2022 18:36:01 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/10/</guid><description>10. Regular Expression Matching
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Leetcode on Rain's Blog</title><link>http://intervalrain.github.io/tags/leetcode/</link><description>Recent content in Leetcode on Rain's Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 27 Oct 2022 17:35:25 +0800</lastBuildDate><atom:link href="http://intervalrain.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] 835. Image Overlap</title><link>http://intervalrain.github.io/posts/leetcode/835/</link><pubDate>Thu, 27 Oct 2022 17:35:25 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/835/</guid><description>835. Image Overlap
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Matrix 一、題目 You are given two images, img1 and img2, represented as binary, square matrices of size n x n. A binary matrix has only 0s and 1s as values.
+We translate one image however we choose by sliding all the 1 bits left, right, up, and/or down any number of units. We then place it on top of the other image. We can then calculate the overlap by counting the number of positions that have a 1 in both images.</description></item><item><title>[Leetcode] 10. Regular Expression Matching</title><link>http://intervalrain.github.io/posts/leetcode/10/</link><pubDate>Wed, 26 Oct 2022 18:36:01 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/10/</guid><description>10. Regular Expression Matching
 Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Dynamic Programming、Recursion 一、題目 Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
 '.' Matches any single character. '*' Matches zero or more of the preceding element.
 The matching should cover the entire input string (not partial). Example 1:
@@ -53,12 +55,13 @@ Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] 
 7. Reverse Integer
 8. String to Integer (atoi)
 9. Palindrome Number
-101-200 201-300 301-400 347. Top K Frequent Elements
+10. Regular Expression Matching
+301-400 347. Top K Frequent Elements
+801-900 835. Image Overlap
 二、依難度 Easy 1. Two Sum
 9. Palindrome Number
 Medium 2. Add Two Numbers
-3. Longest Substring Without Repeating Characters
-5. Longest Palindromic Substring</description></item><item><title>[Leetcode] 347. Top K Frequent Elements</title><link>http://intervalrain.github.io/posts/leetcode/347/</link><pubDate>Sat, 23 Jul 2022 23:48:15 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/347/</guid><description>347. Top K Frequent Elements
+3. Longest Substring Without Repeating Characters</description></item><item><title>[Leetcode] 347. Top K Frequent Elements</title><link>http://intervalrain.github.io/posts/leetcode/347/</link><pubDate>Sat, 23 Jul 2022 23:48:15 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/347/</guid><description>347. Top K Frequent Elements
 Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Couting、Quickselect 一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
 Example 1:
 Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2] Example 2:
