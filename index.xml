@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rain's Blog</title><link>http://intervalrain.github.io/</link><description>Recent content on Rain's Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 27 Oct 2022 17:35:25 +0800</lastBuildDate><atom:link href="http://intervalrain.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] 835. Image Overlap</title><link>http://intervalrain.github.io/posts/leetcode/835/</link><pubDate>Thu, 27 Oct 2022 17:35:25 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/835/</guid><description>835. Image Overlap
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rain's Blog</title><link>http://intervalrain.github.io/</link><description>Recent content on Rain's Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 27 Oct 2022 21:58:08 +0800</lastBuildDate><atom:link href="http://intervalrain.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] 13. Roman to Integer</title><link>http://intervalrain.github.io/posts/leetcode/13/</link><pubDate>Thu, 27 Oct 2022 21:58:08 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/13/</guid><description>13. Roman to Integer
+Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Hash Table、Math、String 一、題目 Roman numerals are represented by seven different symbols: I, V, X, L, C, D, and M.
+\(\boxed{\begin{array}{ll} \textbf{Symbol}&amp;amp;\textbf{Value}\\ \texttt{I}&amp;amp;1\\ \texttt{V}&amp;amp;5\\ \texttt{X}&amp;amp;10\\ \texttt{L}&amp;amp;50\\ \texttt{C}&amp;amp;100\\ \texttt{D}&amp;amp;500\\ \texttt{M}&amp;amp;1000\\ \end{array}}\)
+For example, 2 is written as II in Roman numeral, just two one&amp;rsquo;s added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.</description></item><item><title>[Leetcode] 835. Image Overlap</title><link>http://intervalrain.github.io/posts/leetcode/835/</link><pubDate>Thu, 27 Oct 2022 17:35:25 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/835/</guid><description>835. Image Overlap
 Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Matrix 一、題目 You are given two images, img1 and img2, represented as binary, square matrices of size n x n. A binary matrix has only 0s and 1s as values.
 We translate one image however we choose by sliding all the 1 bits left, right, up, and/or down any number of units. We then place it on top of the other image. We can then calculate the overlap by counting the number of positions that have a 1 in both images.</description></item><item><title>[Leetcode] 12. Integer to Roman</title><link>http://intervalrain.github.io/posts/leetcode/12/</link><pubDate>Wed, 26 Oct 2022 20:36:08 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/12/</guid><description>12. Integer to Roman
 Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table、Math、String 一、題目 Roman numerals are represented by seven different symbols: I, V, X, L, C, D, and M.
@@ -63,11 +66,11 @@ Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] 
 9. Palindrome Number
 10. Regular Expression Matching
 11. Container With Most Water
+12. Integer to Roman
+13. Roman to Integer
 301-400 347. Top K Frequent Elements
 801-900 835. Image Overlap
-二、依難度 Easy 1. Two Sum
-9. Palindrome Number
-Medium 2. Add Two Numbers</description></item><item><title>[Problem] Version Query</title><link>http://intervalrain.github.io/posts/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/versionquery/</guid><description>Version Query
+二、依難度 Easy 1. Two Sum</description></item><item><title>[Problem] Version Query</title><link>http://intervalrain.github.io/posts/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/versionquery/</guid><description>Version Query
 Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Binary Search、Segment Tree、Heap (Priority Queue、Hash Table 一、題目 Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.
 The given apk_info structure is given as below.
 struct apk_info {
