@@ -39,6 +39,7 @@ ShowCodeCopyButtons: true
 [13. Roman to Integer](/posts/leetcode/13/)  
 [14. Longest Common Prefix](/posts/leetcode/14/)  
 [15. 3Sum](/posts/leetcode/15/)  
+[16. 3Sum Closet](/posts/leetcode/16/)  
 
 ### 301-400  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
@@ -63,6 +64,7 @@ ShowCodeCopyButtons: true
 [11. Container With Most Water](/posts/leetcode/11/)  
 [12. Integer to Roman](/posts/leetcode/12/)  
 [15. 3Sum](/posts/leetcode/15/)  
+[16. 3Sum Closet](/posts/leetcode/16/)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [835. Image Overlap](/posts/leetcode/835)  
 
@@ -77,6 +79,7 @@ ShowCodeCopyButtons: true
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11/)  
 [15. 3Sum](/posts/leetcode/15/)  
+[16. 3Sum Closet](/posts/leetcode/16/)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [835. Image Overlap](/posts/leetcode/835)  
 
@@ -142,11 +145,13 @@ ShowCodeCopyButtons: true
 
 ### Sorting
 [15. 3Sum](/posts/leetcode/15/)  
+[16. 3Sum Closet](/posts/leetcode/16/)  
 [347. Top K Frequent Elements](/posts/leetcode/347)
 
 ### Two Pointer
-[15. 3Sum](/posts/leetcode/15/)  
 [11. Container With Most Water](/posts/leetcode/11/)  
+[15. 3Sum](/posts/leetcode/15/)  
+[16. 3Sum Closet](/posts/leetcode/16/)  
 
 ### Quickselect
 [347. Top K Frequent Elements](/posts/leetcode/347)
