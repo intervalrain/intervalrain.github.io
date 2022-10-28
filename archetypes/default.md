@@ -1,14 +1,13 @@
 ---
-title: "<Title>"
+title: "[LeetCode] no. <Title>"
 date: {{ .Date }}
-tags: ["Algorithm", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design", "TCAD"]
+tags: ["Leetcode"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Desc Text."
-author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+Categories: Leetcode
+author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true                  # KaTex or not
+math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
@@ -20,10 +19,41 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
-cover:
-    image: "/images/cover.jpg"
-    alt: "Oh! You closed up the window, so you cannot see raining"
-    relative: false
-    hidden: false
+---
+**no. <Title>**
+<!-- + Hardness: \\(\color{green}\textsf{Easy}\\) -->
+<!-- + Hardness: \\(\color{orange}\textsf{Medium}\\) -->
+<!-- + Hardness: \\(\color{red}\textsf{Hard}\\) -->
++ Ralated Topics: 
+---
+### 一、題目
+
+
+**Example 1:**  
++ **Input:** 
++ **Output:** 
++ **Explanation:** 
+
+**Example 2:**
++ **Input:** 
++ **Output:** 
+
+**Example 3:**
++ **Input:** 
++ **Output:** 
+
+**Constraints:**
+
 ---
 
+### 二、分析
+
+
+### 三、解題
+#### 1. 
++ Time complexity: \\(O()\\)
++ Space complexity: \\(O()\\)
+```C++
+
+```
+[回目錄 Catalog](/posts/leetcode)
