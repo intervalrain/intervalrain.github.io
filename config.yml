@@ -63,17 +63,13 @@ params:
     imageWidth: 120
     imageHeight: 120
     buttons:
-      - name: Archive
-        url: "/archives"
-      - name: Github
-        url: "https://github.com/"
       - name: HDLBits
         url: "/tags/hdlbits/"
       - name: Logic Design
         url: "/tags/logic-design/"
       - name: Leetcode
         url: "/posts/leetcode/"
-      - name: CS
+      - name: CS Learning Notes
         url: "/posts/csindex"
   # home-info mode
   # homeInfoParams:
@@ -149,7 +145,10 @@ menu:
       name: CS
       url: /posts/csindex
       weight: 50
-
+    - identifier: leetcodepage
+      name: LeetCode
+      url: /posts/leetcode
+      weight: 50
 
 outputs:
   home:
