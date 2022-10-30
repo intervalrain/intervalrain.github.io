@@ -47,6 +47,10 @@ ShowCodeCopyButtons: true
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 ### 801-900  
 [835. Image Overlap](/posts/leetcode/835)  
+### 1201-1300  
+[1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
+### 2101-2200  
+[2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 
 ---
 ## 二、依難度
@@ -75,6 +79,8 @@ ShowCodeCopyButtons: true
 ### Hard
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
+[1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
+[2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 
 ---
 ## 三、依分類
@@ -87,12 +93,17 @@ ShowCodeCopyButtons: true
 [18. 4Sum](/posts/leetcode/18/)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [835. Image Overlap](/posts/leetcode/835)  
+[1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
+[2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 
 ### Backtracking
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
 
 ### Binary Search
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
+
+### Breadth-First Search
+[1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 
 ### Bucket Sort
 [347. Top K Frequent Elements](/posts/leetcode/347)
@@ -110,6 +121,7 @@ ShowCodeCopyButtons: true
 
 ### Greedy
 [11. Container With Most Water](/posts/leetcode/11/)  
+[2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 
 ### HashTable
 [1. Two Sum](/posts/leetcode/1)  
@@ -120,7 +132,7 @@ ShowCodeCopyButtons: true
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 
 ### Heap (Priority Queue)
-[347. Top K Frequent Elements](/posts/leetcode/347)
+[347. Top K Frequent Elements](/posts/leetcode/347)  
 
 ### Linked List
 [2. Add Two Numbers](/posts/leetcode/2)  
@@ -134,6 +146,7 @@ ShowCodeCopyButtons: true
 
 ### Matrix
 [835. Image Overlap](/posts/leetcode/835)  
+[1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 
 ### Recursion
 [2. Add Two Numbers](/posts/leetcode/2)  
@@ -157,7 +170,8 @@ ShowCodeCopyButtons: true
 [15. 3Sum](/posts/leetcode/15/)  
 [16. 3Sum Closet](/posts/leetcode/16/)  
 [18. 4Sum](/posts/leetcode/18/)  
-[347. Top K Frequent Elements](/posts/leetcode/347)
+[347. Top K Frequent Elements](/posts/leetcode/347)  
+[2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 
 ### Two Pointer
 [11. Container With Most Water](/posts/leetcode/11/)  
