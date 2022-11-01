@@ -43,6 +43,7 @@ ShowCodeCopyButtons: true
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
 [18. 4Sum](/posts/leetcode/18/)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
+[20. Valid Parentheses](/posts/leetcode/20)
 
 ### 301-400  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
@@ -64,6 +65,7 @@ ShowCodeCopyButtons: true
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13/)  
 [14. Longest Common Prefix](/posts/leetcode/14/)  
+[20. Valid Parentheses](/posts/leetcode/20)
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 
 ### Medium
@@ -182,6 +184,9 @@ ShowCodeCopyButtons: true
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 
+### Stack
+[20. Valid Parentheses](/posts/leetcode/20)  
+
 ### String
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -191,7 +196,8 @@ ShowCodeCopyButtons: true
 [12. Integer to Roman](/posts/leetcode/12/)  
 [13. Roman to Integer](/posts/leetcode/13/)  
 [14. Longest Common Prefix](/posts/leetcode/14/)  
-[17. Letter Combinations of a Phone Number](/posts/leetcode/17/)
+[17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
+[20. Valid Parentheses](/posts/leetcode/20)  
 
 ### Two Pointer
 [11. Container With Most Water](/posts/leetcode/11/)  
