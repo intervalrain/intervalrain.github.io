@@ -47,6 +47,8 @@ ShowCodeCopyButtons: true
 
 ### 301-400  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
+### 401-500
+[433. Minimum Genetic Mutation](/posts/leetcode/433)  
 ### 701-800
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 ### 801-900  
@@ -83,6 +85,7 @@ ShowCodeCopyButtons: true
 [18. 4Sum](/posts/leetcode/18/)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
+[433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [835. Image Overlap](/posts/leetcode/835)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 
@@ -115,6 +118,7 @@ ShowCodeCopyButtons: true
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 
 ### Breadth-First Search
+[433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 
 ### Bucket Sort
@@ -146,6 +150,7 @@ ShowCodeCopyButtons: true
 [13. Roman to Integer](/posts/leetcode/13/)  
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
+[433. Minimum Genetic Mutation](/posts/leetcode/433)  
 
 ### Heap (Priority Queue)
 [347. Top K Frequent Elements](/posts/leetcode/347)  
@@ -198,6 +203,7 @@ ShowCodeCopyButtons: true
 [14. Longest Common Prefix](/posts/leetcode/14/)  
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
 [20. Valid Parentheses](/posts/leetcode/20)  
+[433. Minimum Genetic Mutation](/posts/leetcode/433)  
 
 ### Two Pointer
 [11. Container With Most Water](/posts/leetcode/11/)  

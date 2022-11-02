@@ -1,5 +1,5 @@
 ---
-title: "[DS] 4. 二叉樹(Binary Tree)"
+title: "[DS] 1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis"
 date: 2022-10-06T23:00:28+08:00
 tags: ["CS", "DS"]
 draft: false
@@ -25,7 +25,9 @@ cover:
     relative: false
     hidden: false
 ---
-### 一、二叉樹的思維模式
+### 一、Big O 表示法
++ Big O 的數學定義：
+\\(\boxed{O(g(n)) = \lbrace{f(n):存在正常量c和n_0，使得對所有 n\ge n_0，有 0 \le f(n) \le cg(n)}}\\)
 + 二叉樹的解題模式大致分為兩類：
     1. 是否可以通過遍歷一遍得解
     2. 是否可以定義一個遞迴函數，通過分治法推導出原問題的答案？

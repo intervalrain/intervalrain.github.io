@@ -1,5 +1,5 @@
 ---
-title: "[DS] 2. 鏈表(Linked List)"
+title: "[DS] 3. 鏈表(Linked List)"
 date: 2022-10-06T22:30:28+08:00
 tags: ["CS", "DS"]
 draft: false
