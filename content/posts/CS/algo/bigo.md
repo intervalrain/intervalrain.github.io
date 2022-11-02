@@ -27,135 +27,20 @@ cover:
 ---
 ### 一、Big O 表示法
 + Big O 的數學定義：
-\\(\boxed{O(g(n)) = \lbrace{f(n):存在正常量c和n_0，使得對所有 n\ge n_0，有 0 \le f(n) \le cg(n)}}\\)
-+ 二叉樹的解題模式大致分為兩類：
-    1. 是否可以通過遍歷一遍得解
-    2. 是否可以定義一個遞迴函數，通過分治法推導出原問題的答案？
-#### [[LeetCode. 104] Maximum Depth of Binary Tree(Easy)](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
-+ 以此題為例，可以遍歷完整個樹，並比較當下的樹的深度，得以求解。
-```C++
-int depth = 0;
-int maxDepth(TreeNode* root){
-    traverse(root, 1);
-    return depth;
-}
-void traverse(TreeNode* root, int currDepth){
-    if (!root) return;
-    traverse(root->left, currDepth+1);
-    depth = max(depth, currDepth);
-    traverse(root->right, currDepth+1);
-}
-```
-+ 若想辦法定義一個遞迴函數，通過分治法推導出原問題，換言之，就是先處理更小的樹，再藉由小的樹處理大的樹：
-```C++
-int maxDepth(TreeNode* root) {
-    if (root == NULL) return 0;
-    return 1 + max(maxDepth(root->left), maxDepth(root->right));
-}
-```
-+ 事實上，兩個思維模式便對應著兩種演算法：**回溯法(back tracking)**與**動態規劃(dynamic programming)**
-### 二、前序、中序、後序
-+ 無論使用哪種思維模式(遍歷或找出遞迴函數)，**都要思考單獨抽出一個節點，它需要在何時(前、中、後序)做哪些事情**，其它的節點交由遞迴函數去執行相同的操作。
-+ 以下我們以 quick sort 與 merge sort 為例，同樣是分治法，看看在數組上有什麼同樣的思維模式。
-#### quick sort
-+ 從 sort() 函式便可見類似於前序的結構。
-```C++
-void sort(vector<int>& nums, int left, int right){
-    if (left >= right) return;              // 終止條件
-    int mid = partition(nums, left, right); // 做什麼事(pre-order)
-    sort(nums, left, mid-1);                // 左子樹
-    sort(nums, mid+1, right);               // 右子樹
-}
-```
-```C++
-int partition(vector<int>& nums, int left, int right){
-    int pivot = right;
-    while (left < right){
-        while (nums[left] < nums[pivot]) left++;
-        while (nums[right] > nums[pivot]) right--;
-        if (left < right) swap(nums[left], nums[right]);
-    }
-    if (left == right && nums[left] > nums[pivot] || nums[right] < nums[pivot]){
-        swap(nums[left], pivot);
-        return left;
-    }
-    return pivot;
-}
-```
-#### merge sort
-+ 從 sort() 函式便可見類似於後序的結構。
-```C++
-void sort(vector<int>& nums, int left, int right){
-    if (left <= right) return;              // 終止條件
-    int mid = left + (right-left)/2;
-    sort(nums, left, mid);                  // 左子樹
-    sort(nums, mid+1, right);               // 右子樹
-    merge(nums, left, mid, right);          // 做什麼事(post-order)
-}
-```
-```C++
-void merge(vector<int>& nums, int left, int mid, int right){
-    vector<int> vec;
-    int i = left, j = right;
-    while (i <= mid && j <= right){
-        int x = nums[i] < nums[j] ? nums[i++] : nums[j++];
-        vec.push_back(x);
-    }
-    while (i <= mid) vec.push_back(nums[j++]);
-    while (j <= right) vec.push_back(nums[i++]);
-    for (int i = left; i <= right; i++)
-        nums[i] = vec[i-left];
-}
-```
-+ 換言之，以上就是一個遍歷全部節點的函式，所以本質上數組、鏈表、二叉樹都是在做同樣的事。
-    + 數組
-    ```C++
-    void traverse(vector<int> nums, int i){
-        if (i == nums.size()) return;
-        // pre-order
-        traverse(nums, i+1);
-        // post-order
-    }
-    ```
-    + 鏈表
-    ```C++
-    void traverse(ListNode* head){
-        if (!head) return;
-        // pre-order
-        traverse(head->next);
-        // post-order
-    }
-    ```
-    + 二叉樹
-    ```C++
-    void traverse(TreeNode* root){
-        if (!root) return;
-        // pre-order
-        traverse(root->left);
-        // in-order
-        traverse(root->right);
-        // post-order
-    }
-    ```
-### 三、層序遍歷（level-order)
-+ Level-order 對應於 BFS(Breadth-First Search)，完下當下的層才會進入到下一層。
-```C++
-void traverse(TreeNode* root){
-    queue<TreeNode*> q;
-    q.push(root);
-    while (!q.empty()){
-        int sz = q.size();
-        while (sz--){
-            TreeNode* curr = q.front();
-            q.pop();
-            // operation
-            if (curr->left) q.push(curr->left);
-            if (curr->right) q. push(curr->right);
-        }
-    }
-}
-```
+\\(\boxed{O(g(n)) = \lbrace{f(n):存在正常量\space c\space 和\space n_0，使得對所有\space n\ge n_0，有\space 0 \le f(n) \le cg(n)\rbrace}}\\)
++ 我們常用的 big O 表示法中的 \\(O\\) 其實代表了一個函數的集合，比方說 \\(O(n^2)\\) 代表著一個由 \\(g(n) = n^2\\) 派生出來的一個函數集合；我們說一個演算法的時間複雜度為 \\(O(n^2)\\)，意思就是描述該演算法的複雜度函數屬於這個函數集合之中。  
++ 分析複雜度時，常用的兩個特性：
+    1. **只保留增長速率最快的項，其它省略**
+        + \\(\boxed{O(2n+100) = O(n)}\\)
+        + \\(\boxed{O(2^{n+1}) = O(2^n)}\\)
+        + \\(\boxed{O(m+3n+99) = O(m+n)}\\)
+        + \\(\boxed{O(n^3+999\times n^2+999\times n) = O(n^3)}\\)
+    2. **Big O 記號表示複雜度的「上限」**
+        + 換句話說，只要給出的是一個上限，用 Big O 表示法都是正確的。
+        + 但在習慣上，我們特別取最緊臨的上限。但若複雜度會跟算法的輸入數據有關，沒辦法提前給出一個特別精確的時間複雜度時，擴大時間複雜度的上限就變得有意義了。
+        ![sample](https://labuladong.github.io/algo/images/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92%e8%af%a6%e8%a7%a3%e8%bf%9b%e9%98%b6/5.jpg)
+            + 例如湊零錢問題中，金額 `amount` 的值為 `n`，`coins` 列表中的個數為 `k`，則這棵遞迴樹就是 K 叉樹。而節點的數量與樹的結構有關，而我們無法提前知道樹的結構，所以我們按照最壞情形來處理，高度為 `n` 的一棵滿 `k` 叉樹，其節點數為 \\(\frac{k^n-1}{k-1}\\)，用 big O 表示就是 \\(O(k^n)\\)。
+
 ---
 + 回到目錄：[[DS] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[DS] 2. 鏈表(Linked List)](/posts/cs/algo/linked_list)
-+ 接著閱讀：
++ 接著閱讀：[[DS] 2. 演算法思維](/posts/cs/algo/concept)

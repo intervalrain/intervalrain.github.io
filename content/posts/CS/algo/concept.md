@@ -131,4 +131,5 @@ cover:
 
 ---
 + 回到目錄：[[DS] 演算法筆記](/posts/cs/algo)  
-+ 接著閱讀：[[DS] 2. 鏈表(LinkedList)](/posts/cs/algo/linked_list)
++ 想要複習：[[DS] 1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/posts/cs/algo/bigo)
++ 接著閱讀：[[DS] 3. 鏈表(LinkedList)](/posts/cs/algo/linked_list)

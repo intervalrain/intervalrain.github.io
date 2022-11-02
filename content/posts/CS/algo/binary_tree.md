@@ -155,5 +155,4 @@ void traverse(TreeNode* root){
 ```
 ---
 + 回到目錄：[[DS] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[DS] 2. 鏈表(Linked List)](/posts/cs/algo/linked_list)
-+ 接著閱讀：
++ 想要複習：[[DS] 3. 鏈表(Linked List)](/posts/cs/algo/linked_list)

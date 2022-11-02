@@ -496,5 +496,5 @@ ListNode* mergeKLists(vector<ListNode*>& lists) {
 ```
 ---
 + 回到目錄：[[DS] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[DS] 1. 演算法思維](/posts/cs/algo/concept)
-+ 接著閱讀：[[DS] 3. 二元樹(Binary Tree)](/posts/cs/algo/binary_tree)
++ 想要複習：[[DS] 2. 演算法思維](/posts/cs/algo/concept)
++ 接著閱讀：[[DS] 4. 二元樹(Binary Tree)](/posts/cs/algo/binary_tree)
