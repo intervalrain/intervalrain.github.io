@@ -44,7 +44,10 @@ ShowCodeCopyButtons: true
 [18. 4Sum](/posts/leetcode/18/)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [20. Valid Parentheses](/posts/leetcode/20)
+[79. Word Search](/posts/leetcode/79)  
 
+### 201-300
+[212. Word Search II](/posts/leetcode/212)  
 ### 301-400  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 ### 401-500
@@ -85,6 +88,7 @@ ShowCodeCopyButtons: true
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
 [18. 4Sum](/posts/leetcode/18/)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
+[79. Word Search](/posts/leetcode/79)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [835. Image Overlap](/posts/leetcode/835)  
@@ -106,6 +110,8 @@ ShowCodeCopyButtons: true
 [15. 3Sum](/posts/leetcode/15/)  
 [16. 3Sum Closet](/posts/leetcode/16/)  
 [18. 4Sum](/posts/leetcode/18/)  
+[79. Word Search](/posts/leetcode/79)  
+[212. Word Search II](/posts/leetcode/212)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [835. Image Overlap](/posts/leetcode/835)  
@@ -116,6 +122,8 @@ ShowCodeCopyButtons: true
 
 ### Backtracking
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
+[79. Word Search](/posts/leetcode/79)  
+[212. Word Search II](/posts/leetcode/212)  
 
 ### Binary Search
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
@@ -173,6 +181,8 @@ ShowCodeCopyButtons: true
 [13. Roman to Integer](/posts/leetcode/13/)  
 
 ### Matrix
+[79. Word Search](/posts/leetcode/79)  
+[212. Word Search II](/posts/leetcode/212)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [835. Image Overlap](/posts/leetcode/835)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
@@ -209,8 +219,12 @@ ShowCodeCopyButtons: true
 [14. Longest Common Prefix](/posts/leetcode/14/)  
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
 [20. Valid Parentheses](/posts/leetcode/20)  
+[212. Word Search II](/posts/leetcode/212)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
+
+### Trie
+[212. Word Search II](/posts/leetcode/212)  
 
 ### Two Pointer
 [11. Container With Most Water](/posts/leetcode/11/)  
