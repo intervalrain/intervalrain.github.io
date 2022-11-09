@@ -1,3 +1,31 @@
+---
+title: "[ML] 機器學習與統計學"
+date: 2022-11-07T18:18:52+08:00
+tags: ["Programming", "Machine Learning"]
+draft: false
+Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
+description: "Introduction to Machine Learning"                     
+author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+showToc: true
+TocOpen: true
+math: true                  # KaTex or not
+hidemeta: false
+canonicalURL: "https://intervalrain.github.io/"
+disableHLJS: true
+disableShare: true
+disableHLJS: false
+hideSummary: false
+searchHidden: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowCodeCopyButtons: true
+cover:
+    image: "/images/cover.jpg"
+    alt: "Oh! You closed up the window, so you cannot see raining"
+    relative: false
+    hidden: false
+---
 # Introduction to ML
 
 ## 統計學與機器學習差在哪裡? 
