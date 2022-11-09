@@ -56,6 +56,8 @@ ShowCodeCopyButtons: true
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 ### 801-900  
 [835. Image Overlap](/posts/leetcode/835)  
+### 901-1000
+[901. Online Stock Span](/posts/leetcode/901)  
 ### 1201-1300  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 ### 1301-1400
@@ -103,6 +105,7 @@ ShowCodeCopyButtons: true
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [835. Image Overlap](/posts/leetcode/835)  
+[901. Online Stock Span](/posts/leetcode/901)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
@@ -157,8 +160,14 @@ ShowCodeCopyButtons: true
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 
+### Data Stream
+[901. Online Stock Span](/posts/leetcode/901)  
+
 ### Depth-First Search
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
+
+### Design
+[901. Online Stock Span](/posts/leetcode/901)  
 
 ### Divide and Conquer
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
@@ -211,6 +220,9 @@ ShowCodeCopyButtons: true
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 
+### Monotonic Stack
+[901. Online Stock Span](/posts/leetcode/901)  
+
 ### Recursion
 [2. Add Two Numbers](/posts/leetcode/2)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
@@ -234,6 +246,7 @@ ShowCodeCopyButtons: true
 
 ### Stack
 [20. Valid Parentheses](/posts/leetcode/20)  
+[901. Online Stock Span](/posts/leetcode/901)  
 [1544. Make The String Great](/posts/leetcode/1544)  
 
 ### String
