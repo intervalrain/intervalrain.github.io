@@ -18,7 +18,7 @@ Example 1:
 Input: num = 9669 Output: 9969 Explanation:
 Changing the first digit results in 6669.
 Changing the second digit results in 9969.
-Changing the third digit results in 9699.</description></item><item><title>[LeetCode] 79. Word Search</title><link>http://intervalrain.github.io/posts/leetcode/79/</link><pubDate>Sat, 05 Nov 2022 21:12:17 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/79/</guid><description>79. Word Search
+Changing the third digit results in 9699.</description></item><item><title>[ML] 機器學習與統計學</title><link>http://intervalrain.github.io/posts/ml/lec1/</link><pubDate>Mon, 07 Nov 2022 18:18:52 +0800</pubDate><guid>http://intervalrain.github.io/posts/ml/lec1/</guid><description>Introduction to Machine Learning</description></item><item><title>[LeetCode] 79. Word Search</title><link>http://intervalrain.github.io/posts/leetcode/79/</link><pubDate>Sat, 05 Nov 2022 21:12:17 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/79/</guid><description>79. Word Search
 Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Backtracking、Matrix 一、題目 Given an m x n grid of characters board and a string word, return true if word exists in the grid.
 The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
 Example 1:
