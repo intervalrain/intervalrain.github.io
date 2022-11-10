@@ -23,7 +23,7 @@ ShowCodeCopyButtons: true
 **Catalog**
 ---
 ## 一、依題號
-### 1-100  
+### 1-100(22)  
 [1. Two Sum](/posts/leetcode/1)  
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
@@ -44,32 +44,46 @@ ShowCodeCopyButtons: true
 [18. 4Sum](/posts/leetcode/18/)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [20. Valid Parentheses](/posts/leetcode/20)  
+[21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [79. Word Search](/posts/leetcode/79)  
 
-### 201-300
+### 101-200(0)
+### 201-300(1)
 [212. Word Search II](/posts/leetcode/212)  
-### 301-400  
+### 301-400(1)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
-### 401-500
+### 401-500(1)
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
-### 701-800
+### 501-600(0)
+### 601-700(0)
+### 701-800(1)
 [766. Toeplitz Matrix](/posts/leetcode/766)  
-### 801-900  
+### 801-900(1)
 [835. Image Overlap](/posts/leetcode/835)  
-### 901-1000
+### 901-1000(1)
 [901. Online Stock Span](/posts/leetcode/901)  
-### 1201-1300  
+### 1001-1100(1)
+[1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
+### 1101-1200(0)
+### 1201-1300(1)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
-### 1301-1400
+### 1301-1400(1)
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
-### 1501-1600
+### 1401-1500(0)
+### 1501-1600(1)
 [1544. Make The String Great](/posts/leetcode/1544)  
-### 1701-1800
+### 1601-1700(0)
+### 1701-1800(1)
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
-### 2101-2200  
+### 1801-1900(0)
+### 1901-2000(0)
+### 2001-2100(0)
+### 2101-2200(2)
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
-### 2401-2500
+### 2201-2300(0)
+### 2301-2400(0)
+### 2401-2500(4)
 [2460. Apply Operations to an Array](posts/leetcode/2460)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
@@ -77,17 +91,19 @@ ShowCodeCopyButtons: true
 
 ---
 ## 二、依難度
-### Easy
+### Easy(10)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13/)  
 [14. Longest Common Prefix](/posts/leetcode/14/)  
 [20. Valid Parentheses](/posts/leetcode/20)  
+[21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
+[1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [2460. Apply Operations to an Array](posts/leetcode/2460)  
 
-### Medium
+### Medium(22)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -111,7 +127,7 @@ ShowCodeCopyButtons: true
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 
-### Hard
+### Hard(5)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
@@ -120,7 +136,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 三、依分類
-### Array
+### Array(19)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11/)  
@@ -141,51 +157,51 @@ ShowCodeCopyButtons: true
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 
-### Backtracking
+### Backtracking(3)
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
 [79. Word Search](/posts/leetcode/79)  
 [212. Word Search II](/posts/leetcode/212)  
 
-### Binary Search
+### Binary Search(1)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 
-### Breadth-First Search
+### Breadth-First Search(2)
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 
-### Bucket Sort
+### Bucket Sort(1)
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 
-### Couting
+### Counting(2)
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 
-### Data Stream
+### Data Stream(1)
 [901. Online Stock Span](/posts/leetcode/901)  
 
-### Depth-First Search
+### Depth-First Search(1)
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 
-### Design
+### Design(1)
 [901. Online Stock Span](/posts/leetcode/901)  
 
-### Divide and Conquer
+### Divide and Conquer(2)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [347. Top K Frequent Elements](/posts/leetcode/347)
 
-### Dynamic Programming
+### Dynamic Programming(4)
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 
-### Greedy
+### Greedy(4)
 [11. Container With Most Water](/posts/leetcode/11/)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 
-### HashTable
+### HashTable(9)
 [1. Two Sum](/posts/leetcode/1)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [12. Integer to Roman](/posts/leetcode/12/)  
@@ -196,15 +212,16 @@ ShowCodeCopyButtons: true
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 
-### Heap (Priority Queue)
+### Heap (Priority Queue)(2)
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 
-### Linked List
+### Linked List(3)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
+[21. Merge Two Sorted Lists](/posts/leetcode/21)  
 
-### Math
+### Math(6)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [7. Reverse Integer](/posts/leetcode/7)  
 [9. Palindrome Number](/posts/leetcode/9)  
@@ -212,7 +229,7 @@ ShowCodeCopyButtons: true
 [13. Roman to Integer](/posts/leetcode/13/)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 
-### Matrix
+### Matrix(6)
 [79. Word Search](/posts/leetcode/79)  
 [212. Word Search II](/posts/leetcode/212)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
@@ -220,23 +237,24 @@ ShowCodeCopyButtons: true
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 
-### Monotonic Stack
+### Monotonic Stack(1)
 [901. Online Stock Span](/posts/leetcode/901)  
 
-### Recursion
+### Recursion(3)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
+[21. Merge Two Sorted Lists](/posts/leetcode/21)  
 
-### Simulation
+### Simulation(3)
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2460. Apply Operations to an Array](posts/leetcode/2460)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 
-### Sliding Window
+### Sliding Window(2)
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 
-### Sorting
+### Sorting(6)
 [15. 3Sum](/posts/leetcode/15/)  
 [16. 3Sum Closet](/posts/leetcode/16/)  
 [18. 4Sum](/posts/leetcode/18/)  
@@ -244,12 +262,13 @@ ShowCodeCopyButtons: true
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 
-### Stack
+### Stack(4)
 [20. Valid Parentheses](/posts/leetcode/20)  
 [901. Online Stock Span](/posts/leetcode/901)  
+[1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1544. Make The String Great](/posts/leetcode/1544)  
 
-### String
+### String(15)
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [6. Zigzag Conversion](/posts/leetcode/6)  
@@ -262,13 +281,14 @@ ShowCodeCopyButtons: true
 [20. Valid Parentheses](/posts/leetcode/20)  
 [212. Word Search II](/posts/leetcode/212)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
+[1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1544. Make The String Great](/posts/leetcode/1544)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 
-### Trie
+### Trie(1)
 [212. Word Search II](/posts/leetcode/212)  
 
-### Two Pointer
+### Two Pointer(6)
 [11. Container With Most Water](/posts/leetcode/11/)  
 [15. 3Sum](/posts/leetcode/15/)  
 [16. 3Sum Closet](/posts/leetcode/16/)  
@@ -276,5 +296,5 @@ ShowCodeCopyButtons: true
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 
-### Quickselect
+### Quickselect(1)
 [347. Top K Frequent Elements](/posts/leetcode/347)
