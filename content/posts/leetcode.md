@@ -63,8 +63,9 @@ ShowCodeCopyButtons: true
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 ### 801-900(1)
 [835. Image Overlap](/posts/leetcode/835)  
-### 901-1000(1)
+### 901-1000(2)
 [901. Online Stock Span](/posts/leetcode/901)  
+[947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 ### 1001-1100(1)
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 ### 1101-1200(0)
@@ -106,7 +107,7 @@ ShowCodeCopyButtons: true
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [2460. Apply Operations to an Array](posts/leetcode/2460)  
 
-### Medium(24)
+### Medium(25)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -127,6 +128,7 @@ ShowCodeCopyButtons: true
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [835. Image Overlap](/posts/leetcode/835)  
 [901. Online Stock Span](/posts/leetcode/901)  
+[947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
@@ -186,7 +188,8 @@ ShowCodeCopyButtons: true
 ### Data Stream(1)
 [901. Online Stock Span](/posts/leetcode/901)  
 
-### Depth-First Search(1)
+### Depth-First Search(2)
+[947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 
 ### Design(1)
@@ -203,6 +206,9 @@ ShowCodeCopyButtons: true
 [22. Generate Parentheses](/posts/leetcode/22)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
+
+### Graph(1)
+[947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 
 ### Greedy(4)
 [11. Container With Most Water](/posts/leetcode/11/)  
@@ -312,6 +318,9 @@ ShowCodeCopyButtons: true
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [151. Reverse Words in a String](/posts/leetcode/151)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
+
+### Union Find(1)
+[947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 
 ### Quickselect(1)
 [347. Top K Frequent Elements](/posts/leetcode/347)
