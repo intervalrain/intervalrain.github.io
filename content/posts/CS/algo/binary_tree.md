@@ -1,5 +1,5 @@
 ---
-title: "[DS] 4. 二叉樹(Binary Tree)"
+title: "[Algo] 0-4. 二叉樹(Binary Tree)"
 date: 2022-10-06T23:00:28+08:00
 tags: ["CS", "DS"]
 draft: false
@@ -154,5 +154,5 @@ void traverse(TreeNode* root){
 }
 ```
 ---
-+ 回到目錄：[[DS] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[DS] 3. 鏈表(Linked List)](/posts/cs/algo/linked_list)
++ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
++ 想要複習：[[Algo] 0-3. 鏈表(Linked List)](/posts/cs/algo/linked_list)

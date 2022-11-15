@@ -32,8 +32,7 @@ cover:
 |![algo](https://www.svgrepo.com/show/9873/calculator.svg)| |
 |-|-|
 ## 演算法
-+ [Leetcode](https://github.com/intervalrain/leetcode)
-+ [資料結構與演算法](/posts/cs/ds)
++ [Leetcode](/posts/leetcode)
 + [演算法筆記](/posts/cs/algo)
 
 |![ca](https://www.svgrepo.com/show/192223/structure-organization.svg)| |
@@ -45,35 +44,23 @@ cover:
 |-|-|
 ## 作業系統
 + [計算機作業系統](/posts/cs/os)
-+ [Linux](/posts/cs/linux)
-+ [Nachos](/posts/cs/nachos)
 
-|![net](https://www.svgrepo.com/show/241826/internet.svg)| |
+<!-- |![net](https://www.svgrepo.com/show/241826/internet.svg)| |
 |-|-|
 ## 網路
 + 計算機網路
 + HTTP
-+ Socket
++ Socket -->
 
-|![db](https://www.svgrepo.com/show/22166/database.svg)| |
+<!-- |![db](https://www.svgrepo.com/show/22166/database.svg)| |
 |-|-|
 ## 資料庫
 + 資料庫系統原理
 + SQL 語法
-+ SQL 練習
-+ MySQL
-+ Redis
++ NoSQL
++ Redis -->
 
-|![java](https://www.svgrepo.com/show/32690/java.svg)| |
-|-|-|
-## Java
-+ Java 基礎
-+ Java 容器
-+ Java 開發
-+ Java 虛擬機
-+ Java I/O
-
-|![design](https://www.svgrepo.com/show/138770/painting.svg)| |
+<!-- |![design](https://www.svgrepo.com/show/138770/painting.svg)| |
 |-|-|
 ## 系統設計
 + 系統設計基礎
@@ -87,18 +74,18 @@ cover:
 |-|-|
 ## 物件導向
 + 物件導向概念
-+ 設計模式
++ 設計模式 -->
 
 |![tool](https://www.svgrepo.com/show/233791/screwdriver.svg)| |
 |-|-|
 ## 工具
-+ Git
-+ Docker
-+ 框架
-+ 正則表達式
++ [Git](https://www.maxlist.xyz/2018/11/02/git_tutorial/)
++ [Docker](https://ithelp.ithome.com.tw/articles/10199339)
++ [Kubernetes](https://ithelp.ithome.com.tw/users/20103753/ironman/1590)
++ [MVC](https://ithelp.ithome.com.tw/users/20105694/ironman/1329)
 
 |![implement](https://www.svgrepo.com/show/27186/pencil.svg)| |
 |-|-|
 ## 程式碼實踐
-+ 程式碼可讀性
-+ 程式碼格規範
++ [重構(Refactoring)](https://ithelp.ithome.com.tw/users/20102562/ironman/1338)
++ [Google Coding Style(C++)](https://google.github.io/styleguide/cppguide.html)

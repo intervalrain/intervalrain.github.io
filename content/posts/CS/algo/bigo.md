@@ -1,5 +1,5 @@
 ---
-title: "[DS] 1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis"
+title: "[Algo] 0-1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis"
 date: 2022-10-06T23:00:28+08:00
 tags: ["CS", "DS"]
 draft: false
@@ -42,5 +42,5 @@ cover:
             + 例如湊零錢問題中，金額 `amount` 的值為 `n`，`coins` 列表中的個數為 `k`，則這棵遞迴樹就是 K 叉樹。而節點的數量與樹的結構有關，而我們無法提前知道樹的結構，所以我們按照最壞情形來處理，高度為 `n` 的一棵滿 `k` 叉樹，其節點數為 \\(\frac{k^n-1}{k-1}\\)，用 big O 表示就是 \\(O(k^n)\\)。
 
 ---
-+ 回到目錄：[[DS] 演算法筆記](/posts/cs/algo)  
-+ 接著閱讀：[[DS] 2. 演算法思維](/posts/cs/algo/concept)
++ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
++ 接著閱讀：[[Algo] 0-2. 演算法思維](/posts/cs/algo/concept)

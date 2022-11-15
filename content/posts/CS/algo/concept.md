@@ -1,5 +1,5 @@
 ---
-title: "[DS] 2. 算法思維"
+title: "[Algo] 0-2. 算法思維"
 date: 2022-10-06T22:15:28+08:00
 tags: ["CS", "DS"]
 draft: false
@@ -130,6 +130,6 @@ cover:
     ```
 
 ---
-+ 回到目錄：[[DS] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[DS] 1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/posts/cs/algo/bigo)
-+ 接著閱讀：[[DS] 3. 鏈表(LinkedList)](/posts/cs/algo/linked_list)
++ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
++ 想要複習：[[Algo] 0-1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/posts/cs/algo/bigo)
++ 接著閱讀：[[Algo] 0-3. 鏈表(LinkedList)](/posts/cs/algo/linked_list)
