@@ -55,8 +55,9 @@ ShowCodeCopyButtons: true
 ### 201-300(2)
 [212. Word Search II](/posts/leetcode/212)  
 [213. House Robber II](/posts/leetcode/213)  
-### 301-400(1)  
+### 301-400(2)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
+[374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 ### 401-500(1)
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 ### 501-600(0)
@@ -97,13 +98,14 @@ ShowCodeCopyButtons: true
 
 ---
 ## 二、依難度
-### Easy(10)
+### Easy(11)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13/)  
 [14. Longest Common Prefix](/posts/leetcode/14/)  
 [20. Valid Parentheses](/posts/leetcode/20)  
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
+[374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
@@ -177,8 +179,9 @@ ShowCodeCopyButtons: true
 [79. Word Search](/posts/leetcode/79)  
 [212. Word Search II](/posts/leetcode/212)  
 
-### Binary Search(1)
+### Binary Search(2)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
+[374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 
 ### Breadth-First Search(2)
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
@@ -239,6 +242,9 @@ ShowCodeCopyButtons: true
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
+
+### Interactive(1)
+[374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 
 ### Linked List(4)
 [2. Add Two Numbers](/posts/leetcode/2)  
