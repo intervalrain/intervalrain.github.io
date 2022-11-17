@@ -69,7 +69,7 @@ ShowCodeCopyButtons: true
 [1544. Make The String Great](/posts/leetcode/1544)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 ### 2001-2100(0)
-### 2101-2500(6)
+### 2101-2500(7)
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 [2460. Apply Operations to an Array](posts/leetcode/2460)  
@@ -77,6 +77,7 @@ ShowCodeCopyButtons: true
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
+[2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
 
 ---
 ## 二、依難度
@@ -94,7 +95,7 @@ ShowCodeCopyButtons: true
 [2460. Apply Operations to an Array](/posts/leetcode/2460)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
 
-### Medium(28)
+### Medium(29)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -123,6 +124,7 @@ ShowCodeCopyButtons: true
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
+[2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
 
 ### Hard(6)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
@@ -194,7 +196,7 @@ ShowCodeCopyButtons: true
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [347. Top K Frequent Elements](/posts/leetcode/347)
 
-### Dynamic Programming(7)
+### Dynamic Programming(8)
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [22. Generate Parentheses](/posts/leetcode/22)  
@@ -202,6 +204,7 @@ ShowCodeCopyButtons: true
 [213. House Robber II](/posts/leetcode/213)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
+[2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
 
 ### Geometry(1)
 [223. Rectangle Area](/posts/leetcode/223)  
