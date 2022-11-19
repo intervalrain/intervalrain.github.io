@@ -56,7 +56,8 @@ ShowCodeCopyButtons: true
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
-### 501-1000(4)
+### 501-1000(5)
+[587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [835. Image Overlap](/posts/leetcode/835)  
 [901. Online Stock Span](/posts/leetcode/901)  
@@ -126,17 +127,18 @@ ShowCodeCopyButtons: true
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 [2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
 
-### Hard(6)
+### Hard(7)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
+[587. Erect the Fence](/posts/leetcode/587)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 
 ---
 ## 三、依分類
-### Array(21)
+### Array(22)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11/)  
@@ -148,6 +150,7 @@ ShowCodeCopyButtons: true
 [212. Word Search II](/posts/leetcode/212)  
 [213. House Robber II](/posts/leetcode/213)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
+[587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [835. Image Overlap](/posts/leetcode/835)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
@@ -206,8 +209,9 @@ ShowCodeCopyButtons: true
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
 
-### Geometry(1)
+### Geometry(2)
 [223. Rectangle Area](/posts/leetcode/223)  
+[587. Erect the Fence](/posts/leetcode/587)  
 
 ### Graph(1)
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
@@ -251,6 +255,7 @@ ShowCodeCopyButtons: true
 [12. Integer to Roman](/posts/leetcode/12/)  
 [13. Roman to Integer](/posts/leetcode/13/)  
 [223. Rectangle Area](/posts/leetcode/223)  
+[587. Erect the Fence](/posts/leetcode/587)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 
 ### Matrix(6)
