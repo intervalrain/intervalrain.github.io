@@ -90,7 +90,7 @@ cover:
 + 例題：
     + [[LeetCode] 198. House Robber](/posts/leetcode/198)
     + [[LeetCode] 213. House Robber II](/posts/leetcode/213)
-    + [[LeetCode] 337 House Robber III](/posts/leetcode/337)
+    + [[LeetCode] 337. House Robber III](/posts/leetcode/337)
     + [[LeetCode] 121. Best Time to Buy and Sell Stock](/posts/leetcode/121)
     + [[LeetCode] 122. Best Time to Buy and Sell Stock II](/posts/leetcode/122)
     + [[LeetCode] 123. Best Time to Buy and Sell Stock III](/posts/leetcode/123)
