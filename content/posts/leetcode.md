@@ -23,7 +23,7 @@ ShowCodeCopyButtons: true
 **Catalog**
 ---
 ## 一、依題號
-### 1-100(32)  
+### 1-100(33)  
 [1. Two Sum](/posts/leetcode/1)  
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
@@ -53,6 +53,7 @@ ShowCodeCopyButtons: true
 [212. Word Search II](/posts/leetcode/212)  
 [213. House Robber II](/posts/leetcode/213)  
 [223. Rectangle Area](/posts/leetcode/223)  
+[279. Perfect Squares](/posts/leetcode/279)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
@@ -96,7 +97,7 @@ ShowCodeCopyButtons: true
 [2460. Apply Operations to an Array](/posts/leetcode/2460)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
 
-### Medium(29)
+### Medium(30)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -116,6 +117,7 @@ ShowCodeCopyButtons: true
 [198. House Robber](/posts/leetcode/198)  
 [213. House Robber II](/posts/leetcode/213)  
 [223. Rectangle Area](/posts/leetcode/223)  
+[279. Perfect Squares](/posts/leetcode/279)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [835. Image Overlap](/posts/leetcode/835)  
@@ -173,7 +175,8 @@ ShowCodeCopyButtons: true
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 
-### Breadth-First Search(2)
+### Breadth-First Search(3)
+[279. Perfect Squares](/posts/leetcode/279)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 
@@ -199,12 +202,13 @@ ShowCodeCopyButtons: true
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [347. Top K Frequent Elements](/posts/leetcode/347)
 
-### Dynamic Programming(8)
+### Dynamic Programming(9)
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [22. Generate Parentheses](/posts/leetcode/22)  
 [198. House Robber](/posts/leetcode/198)  
 [213. House Robber II](/posts/leetcode/213)  
+[279. Perfect Squares](/posts/leetcode/279)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
@@ -255,6 +259,7 @@ ShowCodeCopyButtons: true
 [12. Integer to Roman](/posts/leetcode/12/)  
 [13. Roman to Integer](/posts/leetcode/13/)  
 [223. Rectangle Area](/posts/leetcode/223)  
+[279. Perfect Squares](/posts/leetcode/279)  
 [587. Erect the Fence](/posts/leetcode/587)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 
