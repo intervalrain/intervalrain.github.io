@@ -23,7 +23,7 @@ ShowCodeCopyButtons: true
 **Catalog**
 ---
 ## 一、依題號
-### 1-100(33)  
+### 1-100(34)  
 [1. Two Sum](/posts/leetcode/1)  
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
@@ -54,6 +54,7 @@ ShowCodeCopyButtons: true
 [213. House Robber II](/posts/leetcode/213)  
 [223. Rectangle Area](/posts/leetcode/223)  
 [279. Perfect Squares](/posts/leetcode/279)  
+[300. Longest Increasing Subsequence](/posts/leetcode/300)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
@@ -100,7 +101,7 @@ ShowCodeCopyButtons: true
 [2460. Apply Operations to an Array](/posts/leetcode/2460)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
 
-### Medium(31)
+### Medium(32)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -121,6 +122,7 @@ ShowCodeCopyButtons: true
 [213. House Robber II](/posts/leetcode/213)  
 [223. Rectangle Area](/posts/leetcode/223)  
 [279. Perfect Squares](/posts/leetcode/279)  
+[300. Longest Increasing Subsequence](/posts/leetcode/300)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [835. Image Overlap](/posts/leetcode/835)  
@@ -146,7 +148,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 三、依分類
-### Array(23)
+### Array(24)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11/)  
@@ -157,6 +159,7 @@ ShowCodeCopyButtons: true
 [198. House Robber](/posts/leetcode/198)  
 [212. Word Search II](/posts/leetcode/212)  
 [213. House Robber II](/posts/leetcode/213)  
+[300. Longest Increasing Subsequence](/posts/leetcode/300)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
@@ -179,8 +182,9 @@ ShowCodeCopyButtons: true
 [79. Word Search](/posts/leetcode/79)  
 [212. Word Search II](/posts/leetcode/212)  
 
-### Binary Search(3)
+### Binary Search(4)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
+[300. Longest Increasing Subsequence](/posts/leetcode/300)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [2468. Split Message Based on Limit](/posts/leetcode/2468)  
 
@@ -214,13 +218,14 @@ ShowCodeCopyButtons: true
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [347. Top K Frequent Elements](/posts/leetcode/347)
 
-### Dynamic Programming(9)
+### Dynamic Programming(10)
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [22. Generate Parentheses](/posts/leetcode/22)  
 [198. House Robber](/posts/leetcode/198)  
 [213. House Robber II](/posts/leetcode/213)  
 [279. Perfect Squares](/posts/leetcode/279)  
+[300. Longest Increasing Subsequence](/posts/leetcode/300)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  

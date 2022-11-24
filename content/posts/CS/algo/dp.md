@@ -106,7 +106,9 @@ cover:
 + 範例：[[LeetCode] 300. Longest Increasing Subsequence](/posts/leetcode/300)
     + 定義 `dp[i]`：`s[1:i]` 中以 `s[i]` 為結尾的最長遞增子序列長度。
     + 尋找最優的前驅狀態 `j`，將 `dp[i]` 與 `dp[j]` 產生關聯。
+        + `dp[i] = max(dp[i], dp[j] + 1)`
     + 尋找 `dp[i]` 中的最佳解。
+        + `res = max {dp[i]}`
 ### 3. 雙序列型(LCS)
 + 給定兩組序列，求兩組序列的某些特性。
 + 框架：
