@@ -76,6 +76,7 @@ cover:
 
 ## 二、動態規劃框架
 ### 1. 定序列型
+![houserobber](https://th.bing.com/th/id/R.cdccdab761d5e384392455e3b21e1f90?rik=8eL71YYPOIoqXg&pid=ImgRaw&r=0)
 + 給定一個陣列，其中一個元素可以認為**一天**，並且**今天**的狀態只取決於**昨天**的狀態。
 + 框架：
     + 定義 `dp[i][j]`：表示第 `ith` 輪的第 `j` 種狀態。
@@ -98,24 +99,32 @@ cover:
     + [[LeetCode] 309. Best Time to Buy and Sell Stock with Cooldown](/posts/leetcode/309)
     + [[LeetCode] 714. Best Time to Buy and Sell Stock with Transcation Fee](/posts/leetcode/714)
 ### 2. 不定序列型(LIS)
+![russian doll](https://th.bing.com/th/id/R.79a96eff1e4ee74f842e254e01cccc45?rik=GwH83zY4Cs5Qzw&pid=ImgRaw&r=0)
 + 給定一個陣列，其中一個元素可以認為**一天**，並且**今天**的狀態取決於**過去某一天**的狀態。
 + 框架：
     + 定義 `dp[i]`：表示第 `ith` 輪的狀態，一般這個狀態要求和元素 `i` 直接相關。
-    + 將 `dp[i]` 與之前的某一狀態 `dp[i']` 產生關聯。
+    + 將 `dp[i]` 與之前的某一狀態 `dp[i]` 產生關聯。
     + 最終的結果為 `dp[i]` 中的某一個。
 + 範例：[[LeetCode] 300. Longest Increasing Subsequence](/posts/leetcode/300)
-    + 定義 `dp[i]`：`s[1:i]` 中以 `s[i]` 為結尾的最長遞增子序列長度。
+    + 定義 `dp[i]` 為 `s[1:i]` 中以 `s[i]` 為結尾的最長遞增子序列長度。
     + 尋找最優的前驅狀態 `j`，將 `dp[i]` 與 `dp[j]` 產生關聯。
         + `dp[i] = max(dp[i], dp[j] + 1)`
     + 尋找 `dp[i]` 中的最佳解。
         + `res = max {dp[i]}`
 ### 3. 雙序列型(LCS)
+![lcs](https://th.bing.com/th/id/R.e8b955ef2229c8858a11120476dfe1ff?rik=jB2IgQqawrYRiw&riu=http%3a%2f%2fgitlinux.net%2fimg%2fmedia%2f15783018023678.jpg&ehk=ZfWv0g1Tf%2boOlaUSksayNwuU1mMNWs2hELFA2MmoGkI%3d&risl=&pid=ImgRaw&r=0)
 + 給定兩組序列，求兩組序列的某些特性。
 + 框架：
-    + 定義 `dp[i][j]`：表示針對 `s[1:i]` 和 t[1:j]` 的子問題求解。
+    + 定義 `dp[i][j]`：表示針對 `s[1:i]` 和 `t[1:j]` 的子問題求解。
     + 將 `dp[i][j]` 與之前的某一狀態做關聯，如 `dp[i-1][j], dp[i][j-1], dp[i-1][j-1]`
     + 最終的結果是 `dp[m][n]`。
 + 範例：[[LeetCode] 1143. Longest Common Subsequence](/posts/leetcode/1143)
+    + 定義 `dp[i][j]` 為 `s[1:i]` 與 `t[1:j]` 的 LCS 長度。
+    + 利用`s[i]`與`t[j]`，使`dp[i][j]`與`dp[i-1][j]`、`dp[i][j-1]`、`dp[i-1][j-1]` 產生關聯。
+        + 遍歷兩層迴圈，核心以從 `s[i]` 和 `t[j]` 的關係作破口，對 `dp[i][j]` 作轉移。
+        + `s[i] == t[j]` 時，`dp[i][j] = dp[i-1][j-1]`。
+        + 相反則，`dp[i][j] = max(dp[i-1], dp[j-1]`。
+    + 最後解為 `dp[m][n]`，`m` 為 `s` 的長度，`n` 為 `t` 的長度。
 ### 4. 區間型
 + 給定一個序列，明確要求分割成 K 個連續區間，要求計算這些區間的某個最優性質。
 + 框架：
@@ -123,6 +132,8 @@ cover:
     + 搜尋最後一個區間的起始位置 `j`，將 `dp[i][k]` 分割成 `dp[j-1][k-1]` 和 `s[j:i]` 兩部分。
     + 最終的結果是 `dp[n][k]`。
 + 範例：[[LeetCode] 1278. Palindrome Partitioning](/posts/leetcode/1278)
+    + 定義 `dp[i][j]`：`s[1:i]` 和 `t[1:j]` 的最長相同子序列(LCS)。
+    
 ### 5. 回文型(LPS)
 + 給定一個序列，求一個針對這個序列的最佳解。
 + 框架：
