@@ -75,7 +75,7 @@ ShowCodeCopyButtons: true
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [1926. Nearest Exit from Entrance in Maze](/posts/leetcode/1926)  
 ### 2001-2100(0)
-### 2101-2500(9)
+### 2101-2500(13)
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 [2460. Apply Operations to an Array](posts/leetcode/2460)  
@@ -86,10 +86,14 @@ ShowCodeCopyButtons: true
 [2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
 [2468. Split Message Based on Limit](/posts/leetcode/2468)  
+[2485. Find the Pivot Integer](/posts/leetcode/2485)  
+[2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
+[2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
+[2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 
 ---
 ## 二、依難度
-### Easy(11)
+### Easy(12)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13/)  
@@ -102,8 +106,9 @@ ShowCodeCopyButtons: true
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [2460. Apply Operations to an Array](/posts/leetcode/2460)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
+[2485. Find the Pivot Integer](/posts/leetcode/2485)  
 
-### Medium(33)
+### Medium(35)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -138,8 +143,10 @@ ShowCodeCopyButtons: true
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 [2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
+[2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
+[2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
-### Hard(9)
+### Hard(10)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
@@ -149,6 +156,7 @@ ShowCodeCopyButtons: true
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2468. Split Message Based on Limit](/posts/leetcode/2468)  
+[2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 
 ---
 ## 三、依分類
@@ -376,3 +384,11 @@ ShowCodeCopyButtons: true
 
 ### Quickselect(1)
 [347. Top K Frequent Elements](/posts/leetcode/347)
+
+
+---
+## 四、未分類
+[2485. Find the Pivot Integer](/posts/leetcode/2485)  
+[2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
+[2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
+[2488. Count Subarrays With Median K](/posts/leetcode/2488)  
