@@ -23,7 +23,7 @@ ShowCodeCopyButtons: true
 **Catalog**
 ---
 ## 一、依題號
-### 1-100(34)  
+### 1-500(35)  
 [1. Two Sum](/posts/leetcode/1)  
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
@@ -58,6 +58,7 @@ ShowCodeCopyButtons: true
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
+[446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
 ### 501-1000(5)
 [587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
@@ -146,10 +147,11 @@ ShowCodeCopyButtons: true
 [2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
-### Hard(10)
+### Hard(11)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
+[446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
 [587. Erect the Fence](/posts/leetcode/587)  
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
@@ -160,7 +162,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 三、依分類
-### Array(25)
+### Array(26)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11/)  
@@ -173,6 +175,7 @@ ShowCodeCopyButtons: true
 [213. House Robber II](/posts/leetcode/213)  
 [300. Longest Increasing Subsequence](/posts/leetcode/300)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
+[446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
 [587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [835. Image Overlap](/posts/leetcode/835)  
@@ -232,7 +235,7 @@ ShowCodeCopyButtons: true
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [347. Top K Frequent Elements](/posts/leetcode/347)
 
-### Dynamic Programming(12)
+### Dynamic Programming(13)
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [22. Generate Parentheses](/posts/leetcode/22)  
@@ -240,6 +243,7 @@ ShowCodeCopyButtons: true
 [213. House Robber II](/posts/leetcode/213)  
 [279. Perfect Squares](/posts/leetcode/279)  
 [300. Longest Increasing Subsequence](/posts/leetcode/300)  
+[446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
 [1143. Longest Common Subsequence](/posts/leetcode/1143)  
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
