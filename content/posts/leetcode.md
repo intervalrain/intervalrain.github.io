@@ -162,7 +162,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 三、依分類
-### Array(26)
+### Array(27)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11/)  
@@ -191,6 +191,7 @@ ShowCodeCopyButtons: true
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
+[2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 
 ### Backtracking(4)
 [17. Letter Combinations of a Phone Number](/posts/leetcode/17/)  
@@ -247,7 +248,7 @@ ShowCodeCopyButtons: true
 [1143. Longest Common Subsequence](/posts/leetcode/1143)  
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
-[2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
+[2463. minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2466. Count Ways To Build Good Strings](/posts/leetcode/2466)  
 
 ### Geometry(2)
@@ -258,13 +259,14 @@ ShowCodeCopyButtons: true
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
 
-### Greedy(4)
+### Greedy(5)
 [11. Container With Most Water](/posts/leetcode/11/)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
+[2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 
-### HashTable(9)
+### Hash Table(10)
 [1. Two Sum](/posts/leetcode/1)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [12. Integer to Roman](/posts/leetcode/12/)  
@@ -275,6 +277,7 @@ ShowCodeCopyButtons: true
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
+[2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 
 ### Heap (Priority Queue)(3)
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
@@ -284,13 +287,14 @@ ShowCodeCopyButtons: true
 ### Interactive(1)
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 
-### Linked List(4)
+### Linked List(5)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
+[2487. Remove Nodes From Linked List](/posts/leetcode/2487) 
 
-### Math(6)
+### Math(7)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [7. Reverse Integer](/posts/leetcode/7)  
 [9. Palindrome Number](/posts/leetcode/9)  
@@ -300,6 +304,7 @@ ShowCodeCopyButtons: true
 [279. Perfect Squares](/posts/leetcode/279)  
 [587. Erect the Fence](/posts/leetcode/587)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
+[2485. Find the Pivot Integer](/posts/leetcode/2485)  
 
 ### Matrix(6)
 [79. Word Search](/posts/leetcode/79)  
@@ -313,13 +318,19 @@ ShowCodeCopyButtons: true
 ### Merge Sort(1)
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 
-### Monotonic Stack(1)
+### Monotonic Stack(2)
 [901. Online Stock Span](/posts/leetcode/901)  
+[2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
-### Recursion(3)
+### Prefix Sum(2)
+[2485. Find the Pivot Integer](/posts/leetcode/2485)  
+[2488. Count Subarrays With Median K](/posts/leetcode/2488)  
+
+### Recursion(4)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
+[2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
 ### Simulation(3)
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
@@ -340,13 +351,14 @@ ShowCodeCopyButtons: true
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
 
-### Stack(4)
+### Stack(5)
 [20. Valid Parentheses](/posts/leetcode/20)  
 [901. Online Stock Span](/posts/leetcode/901)  
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1544. Make The String Great](/posts/leetcode/1544)  
+[2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
-### String(18)
+### String(19)
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [6. Zigzag Conversion](/posts/leetcode/6)  
@@ -366,6 +378,7 @@ ShowCodeCopyButtons: true
 [1544. Make The String Great](/posts/leetcode/1544)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2468. Split Message Based on Limit](/posts/leetcode/2468)  
+[2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 
 ### Tree(1)
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
@@ -373,7 +386,7 @@ ShowCodeCopyButtons: true
 ### Trie(1)
 [212. Word Search II](/posts/leetcode/212)  
 
-### Two Pointer(6)
+### Two Pointer(7)
 [11. Container With Most Water](/posts/leetcode/11/)  
 [15. 3Sum](/posts/leetcode/15/)  
 [16. 3Sum Closet](/posts/leetcode/16/)  
@@ -382,6 +395,7 @@ ShowCodeCopyButtons: true
 [151. Reverse Words in a String](/posts/leetcode/151)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
+[2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 
 ### Union Find(1)
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
