@@ -73,7 +73,7 @@ cover:
         + 大問題的最優解可以由若干個小問題的最優解推出。(max, min, sum...)
     + **DP 能適用於：能將大問題拆成若干小問題，滿足無後效性、最優子結構性質。**
     + 以下介紹幾種刷題會遇到的動態規劃套路：
-
+---
 ## 二、動態規劃框架
 ### 1. 定序列型
 ![houserobber](https://th.bing.com/th/id/R.cdccdab761d5e384392455e3b21e1f90?rik=8eL71YYPOIoqXg&pid=ImgRaw&r=0)
@@ -98,6 +98,7 @@ cover:
     + [[LeetCode] 188. Best Time to Buy and Sell Stock IV](/posts/leetcode/124)
     + [[LeetCode] 309. Best Time to Buy and Sell Stock with Cooldown](/posts/leetcode/309)
     + [[LeetCode] 714. Best Time to Buy and Sell Stock with Transcation Fee](/posts/leetcode/714)
+---
 ### 2. 不定序列型(LIS)
 ![russian doll](https://th.bing.com/th/id/R.79a96eff1e4ee74f842e254e01cccc45?rik=GwH83zY4Cs5Qzw&pid=ImgRaw&r=0)
 + 給定一個陣列，其中一個元素可以認為**一天**，並且**今天**的狀態取決於**過去某一天**的狀態。
@@ -111,6 +112,7 @@ cover:
         + `dp[i] = max(dp[i], dp[j] + 1)`
     + 尋找 `dp[i]` 中的最佳解。
         + `res = max {dp[i]}`
+---
 ### 3. 雙序列型(LCS)
 ![lcs](https://th.bing.com/th/id/R.e8b955ef2229c8858a11120476dfe1ff?rik=jB2IgQqawrYRiw&riu=http%3a%2f%2fgitlinux.net%2fimg%2fmedia%2f15783018023678.jpg&ehk=ZfWv0g1Tf%2boOlaUSksayNwuU1mMNWs2hELFA2MmoGkI%3d&risl=&pid=ImgRaw&r=0)
 + 給定兩組序列，求兩組序列的某些特性。
@@ -125,7 +127,9 @@ cover:
         + `s[i] == t[j]` 時，`dp[i][j] = dp[i-1][j-1]`。
         + 相反則，`dp[i][j] = max(dp[i-1], dp[j-1]`。
     + 最後解為 `dp[m][n]`，`m` 為 `s` 的長度，`n` 為 `t` 的長度。
+---
 ### 4. 區間型
+![interval](https://th.bing.com/th/id/R.976c07e4c83d50c26fb1c38db476c839?rik=XIoS0Zm%2ba7thtQ&pid=ImgRaw&r=0)
 + 給定一個序列，明確要求分割成 K 個連續區間，要求計算這些區間的某個最優性質。
 + 框架：
     + 定義 `dp[i][k]` 表示針對 `s[1:i]` 分為 `k` 個區間，此時能夠得到最佳解。
@@ -133,8 +137,9 @@ cover:
     + 最終的結果是 `dp[n][k]`。
 + 範例：[[LeetCode] 1278. Palindrome Partitioning](/posts/leetcode/1278)
     + 定義 `dp[i][j]`：`s[1:i]` 和 `t[1:j]` 的最長相同子序列(LCS)。
-    
+---
 ### 5. 回文型(LPS)
+![LPS](https://th.bing.com/th/id/R.926ca9f3960c4ef8d63e58d087fa2b06?rik=s4q0jZn5E3KNfw&riu=http%3a%2f%2falgorithms.tutorialhorizon.com%2ffiles%2f2015%2f08%2fLongest-Palindromic-Subsequence-2.png&ehk=nsyPYm%2f4UtBuwjlUFkhPdA0xaLcEd2m%2b9oJT4vOFT0g%3d&risl=&pid=ImgRaw&r=0)
 + 給定一個序列，求一個針對這個序列的最佳解。
 + 框架：
     + 定義 `dp[i][j]`：表示針對 `s[i:j]` 的子問題求解。
@@ -142,7 +147,9 @@ cover:
         + 第一層循環是區間大小，第二層循環是起始點。
     + 最終的結果是 `dp[1][n]`。
 + 範例：[[LeetCode] 516. Longest Palindrome Subsequence](/posts/leetcode/516)
+---
 ### 6. 背包型
+![backpack](https://th.bing.com/th/id/R.d85b9e734217ea3248111352673321a6?rik=6xwaTyqvmKedlw&pid=ImgRaw&r=0)
 + 給定 `n` 件物品，每個物品可用可不用(或若干不同用法)，要求以某個有上限 `C` 的代價來實現最大收益。(或下限收益達成最小代價)。
 + 框架：
     + 定義 `dp[i][c]`：表示只從前 `i` 件物品的子集裡選擇、代價為 `c` 的最大收益。
