@@ -60,11 +60,12 @@ ShowCodeCopyButtons: true
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
-### 501-1000(5)
+### 501-1000(6)
 [587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [835. Image Overlap](/posts/leetcode/835)  
 [901. Online Stock Span](/posts/leetcode/901)  
+[938. Range Sum of BST](/posts/leetcode/938)  
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 ### 1001-1500(5)
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
@@ -98,7 +99,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 二、依難度
-### Easy(13)
+### Easy(14)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13/)  
@@ -107,6 +108,7 @@ ShowCodeCopyButtons: true
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
+[938. Range Sum of BST](/posts/leetcode/938)  
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [2460. Apply Operations to an Array](/posts/leetcode/2460)  
@@ -216,7 +218,11 @@ ShowCodeCopyButtons: true
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
 [2468. Split Message Based on Limit](/posts/leetcode/2468)  
 
-### Binary Tree(1)
+### Binary Search Tree(1)
+[938. Range Sum of BST](/posts/leetcode/938)  
+
+### Binary Tree(2)
+[938. Range Sum of BST](/posts/leetcode/938)  
 [2471. Minimum Number of Operations to Sort a Binary Tree by Level](/posts/leetcode/2471)  
 
 ### Breadth-First Search(5)
@@ -237,7 +243,8 @@ ShowCodeCopyButtons: true
 ### Data Stream(1)
 [901. Online Stock Span](/posts/leetcode/901)  
 
-### Depth-First Search(3)
+### Depth-First Search(4)
+[938. Range Sum of BST](/posts/leetcode/938)  
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
@@ -402,7 +409,8 @@ ShowCodeCopyButtons: true
 [2472. Maximum Number of Non-overlapping Palindrome Substrings](/posts/leetcode/2472)  
 [2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 
-### Tree(2)
+### Tree(3)
+[938. Range Sum of BST](/posts/leetcode/938)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
 [2471. Minimum Number of Operations to Sort a Binary Tree by Level](/posts/leetcode/2471)  
 
