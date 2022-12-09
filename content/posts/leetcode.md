@@ -68,7 +68,8 @@ ShowCodeCopyButtons: true
 [901. Online Stock Span](/posts/leetcode/901)  
 [938. Range Sum of BST](/posts/leetcode/938)  
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
-### 1001-1500(5)
+### 1001-1500(6)
+[1026. Maximum Difference Between Node and Ancestor](/posts/leetcode/1026)  
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1143. Longest Common Subsequence](/posts/leetcode/1143)  
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
@@ -117,7 +118,7 @@ ShowCodeCopyButtons: true
 [2485. Find the Pivot Integer](/posts/leetcode/2485)  
 [2469. Convert the Temperature](/posts/leetcode/2469)  
 
-### Medium(39)
+### Medium(40)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -146,6 +147,7 @@ ShowCodeCopyButtons: true
 [872. Leaf-Similar Trees](/posts/leetcode/872)  
 [901. Online Stock Span](/posts/leetcode/901)  
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
+[1026. Maximum Difference Between Node and Ancestor](/posts/leetcode/1026)  
 [1143. Longest Common Subsequence](/posts/leetcode/1143)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [1926. Nearest Exit from Entrance in Maze](/posts/leetcode/1926)  
@@ -223,9 +225,10 @@ ShowCodeCopyButtons: true
 ### Binary Search Tree(1)
 [938. Range Sum of BST](/posts/leetcode/938)  
 
-### Binary Tree(3)
+### Binary Tree(4)
 [938. Range Sum of BST](/posts/leetcode/938)  
 [872. Leaf-Similar Trees](/posts/leetcode/872)  
+[1026. Maximum Difference Between Node and Ancestor](/posts/leetcode/1026)  
 [2471. Minimum Number of Operations to Sort a Binary Tree by Level](/posts/leetcode/2471)  
 
 ### Breadth-First Search(5)
@@ -246,10 +249,11 @@ ShowCodeCopyButtons: true
 ### Data Stream(1)
 [901. Online Stock Span](/posts/leetcode/901)  
 
-### Depth-First Search(5)
+### Depth-First Search(6)
 [872. Leaf-Similar Trees](/posts/leetcode/872)  
 [938. Range Sum of BST](/posts/leetcode/938)  
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
+[1026. Maximum Difference Between Node and Ancestor](/posts/leetcode/1026)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
 
@@ -413,9 +417,10 @@ ShowCodeCopyButtons: true
 [2472. Maximum Number of Non-overlapping Palindrome Substrings](/posts/leetcode/2472)  
 [2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 
-### Tree(4)
+### Tree(5)
 [872. Leaf-Similar Trees](/posts/leetcode/872)  
 [938. Range Sum of BST](/posts/leetcode/938)  
+[1026. Maximum Difference Between Node and Ancestor](/posts/leetcode/1026)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
 [2471. Minimum Number of Operations to Sort a Binary Tree by Level](/posts/leetcode/2471)  
 
