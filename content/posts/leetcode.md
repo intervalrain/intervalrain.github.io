@@ -23,7 +23,7 @@ ShowCodeCopyButtons: true
 **Catalog**
 ---
 ## 一、依題號
-### 1-500(38)  
+### 1-500(39)  
 [1. Two Sum](/posts/leetcode/1)  
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
@@ -47,6 +47,7 @@ ShowCodeCopyButtons: true
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [22. Generate Parentheses](/posts/leetcode/22)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
+[70. Climbing Stairs](/posts/leetcode/70)  
 [79. Word Search](/posts/leetcode/79)  
 [124. Binary Tree Maximum Path Sum](/posts/leetcode/124)  
 [151. Reverse Words in a String](/posts/leetcode/151)  
@@ -100,16 +101,18 @@ ShowCodeCopyButtons: true
 [2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 [2488. Count Subarrays With Median K](/posts/leetcode/2488)  
+### 2501-3000(0)
 
 ---
 ## 二、依難度
-### Easy(14)
+### Easy(15)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13/)  
 [14. Longest Common Prefix](/posts/leetcode/14/)  
 [20. Valid Parentheses](/posts/leetcode/20)  
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
+[70. Climbing Stairs](/posts/leetcode/70)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [938. Range Sum of BST](/posts/leetcode/938)  
@@ -273,10 +276,11 @@ ShowCodeCopyButtons: true
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [347. Top K Frequent Elements](/posts/leetcode/347)
 
-### Dynamic Programming(15)
+### Dynamic Programming(16)
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [22. Generate Parentheses](/posts/leetcode/22)  
+[70. Climbing Stairs](/posts/leetcode/70)  
 [124. Binary Tree Maximum Path Sum](/posts/leetcode/124)  
 [198. House Robber](/posts/leetcode/198)  
 [213. House Robber II](/posts/leetcode/213)  
@@ -334,12 +338,13 @@ ShowCodeCopyButtons: true
 [328. Odd Even Linked List](/posts/leetcode/328)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487) 
 
-### Math(8)
+### Math(9)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [7. Reverse Integer](/posts/leetcode/7)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [12. Integer to Roman](/posts/leetcode/12/)  
 [13. Roman to Integer](/posts/leetcode/13/)  
+[70. Climbing Stairs](/posts/leetcode/70)  
 [223. Rectangle Area](/posts/leetcode/223)  
 [279. Perfect Squares](/posts/leetcode/279)  
 [587. Erect the Fence](/posts/leetcode/587)  
@@ -356,6 +361,9 @@ ShowCodeCopyButtons: true
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [1926. Nearest Exit from Entrance in Maze](/posts/leetcode/1926)  
+
+### Memoization(1)
+[70. Climbing Stairs](/posts/leetcode/70)  
 
 ### Merge Sort(1)
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
