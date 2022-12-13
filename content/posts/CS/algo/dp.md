@@ -159,6 +159,50 @@ cover:
     + 最終的結果是 `max{dp[n][c_i]}` 
 + 範例：[[LeetCode] 494. Target Sum](/posts/leetcode/494)
 ## 三、狀態壓縮
+1. 方法1
++ 如果轉移方程式很明顯可以省去使用空間，可利用將不需要的空間重複利用來達到狀態壓縮的效果。
++ 如第 `n` 天的狀態只與前 `1` 天與前 `2` 天的狀態有關。那麼就可以將空間限縮到這三天的關係中。
+    + 例 `dp[n] = dp[n-1] + dp[n-2]`。
+    + 限縮成 `day3 = day1 + day2` + `day1 = day2, day2 = day3`。
++ 其中在二維動態規劃常用一個手法即是奇偶數交換的手法：
+    + 同樣以 [Leetcode 62. Unique Paths](https://leetcode.com/problems/unique-paths/)為例：  
+    \\(\begin{array}{|c|c|c|c|c|c|c|}\hline
+        \text{1}&\text{1}&\text{1}&\text{1}&\text{1}&\text{1}&\text{1}\\\\\hline
+        \text{1}&\text{2}&\text{3}&\text{4}&\text{5}&\text{6}&\text{7}\\\\\hline
+        \text{1}&\text{3}&\text{6}&\text{10}&\text{15}&\text{21}&\text{28}\\\\\hline
+        \end{array}\\)
+    + 原先需要用到 `m x n` 即 `21` 個整數空間來實現動態規劃。
+    + 但事實上可以利用由上而下，由左而右的方向來填格子，來實現壓縮，最終到到 \\(O(\text{min}(m,n))\\) 的效果。  
+        \\(\begin{array}{|c|c|}\hline
+        \text{1}&\text{1}\\\\\hline
+        \text{1}&\text{2}\\\\\hline
+        \text{1}&\text{3}\\\\\hline
+        \end{array}\rightarrow\begin{array}{|c|c|}\hline
+        \text{1}&\text{1}\\\\\hline
+        \text{3}&\text{2}\\\\\hline
+        \text{6}&\text{3}\\\\\hline
+        \end{array}\rightarrow\begin{array}{|c|c|}\hline
+        \text{1}&\text{1}\\\\\hline
+        \text{3}&\text{4}\\\\\hline
+        \text{6}&\text{10}\\\\\hline
+        \end{array}\rightarrow\begin{array}{|c|c|}\hline
+        \text{1}&\text{1}\\\\\hline
+        \text{5}&\text{4}\\\\\hline
+        \text{15}&\text{10}\\\\\hline
+        \end{array}\rightarrow\begin{array}{|c|c|}\hline
+        \text{1}&\text{1}\\\\\hline
+        \text{5}&\text{6}\\\\\hline
+        \text{15}&\text{21}\\\\\hline
+        \end{array}\rightarrow\begin{array}{|c|c|}\hline
+        \text{1}&\text{1}\\\\\hline
+        \text{7}&\text{6}\\\\\hline
+        \text{28}&\text{21}\\\\\hline
+        \end{array}\\)
+    + 原本的狀態轉移方程式為：`dp[m][n] = dp[m-1][n] + dp[m][n-1]`
+    + 壓縮後的狀態轉移方程式寫成：`dp[m%2][n] = dp[(m-1)%2][n] + dp[m%2][n-1]`
+
+2. 方法2
++ 如果所需的空間有限制，如在 `30` 個以內的 `bool` 值，可以將之轉換成 `bit`，利用位元運算來達到空間壓縮。
 ---
 + 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
 <!-- + 想要複習：[[Algo] 2-4. 回溯法 Backtacking](/posts/cs/algo/backtracking) -->
