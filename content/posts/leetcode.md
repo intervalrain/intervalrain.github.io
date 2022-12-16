@@ -23,7 +23,7 @@ ShowCodeCopyButtons: true
 **Catalog**
 ---
 ## 一、依題號
-### 1-500(39)  
+### 1-500(40)  
 [1. Two Sum](/posts/leetcode/1)  
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
@@ -47,6 +47,7 @@ ShowCodeCopyButtons: true
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [22. Generate Parentheses](/posts/leetcode/22)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
+[24. Swap Nodes in Pairs](/posts/leetcode/24)  
 [70. Climbing Stairs](/posts/leetcode/70)  
 [79. Word Search](/posts/leetcode/79)  
 [124. Binary Tree Maximum Path Sum](/posts/leetcode/124)  
@@ -123,7 +124,7 @@ ShowCodeCopyButtons: true
 [2485. Find the Pivot Integer](/posts/leetcode/2485)  
 [2469. Convert the Temperature](/posts/leetcode/2469)  
 
-### Medium(41)
+### Medium(42)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -138,6 +139,7 @@ ShowCodeCopyButtons: true
 [18. 4Sum](/posts/leetcode/18/)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [22. Generate Parentheses](/posts/leetcode/22)  
+[24. Swap Nodes in Pairs](/posts/leetcode/24)  
 [79. Word Search](/posts/leetcode/79)  
 [151. Reverse Words in a String](/posts/leetcode/151)  
 [198. House Robber](/posts/leetcode/198)  
@@ -330,11 +332,12 @@ ShowCodeCopyButtons: true
 ### Interactive(1)
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 
-### Linked List(5)
+### Linked List(7)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
+[24. Swap Nodes in Pairs](/posts/leetcode/24)  
 [328. Odd Even Linked List](/posts/leetcode/328)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487) 
 
@@ -379,10 +382,11 @@ ShowCodeCopyButtons: true
 [2485. Find the Pivot Integer](/posts/leetcode/2485)  
 [2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 
-### Recursion(4)
+### Recursion(5)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
+[24. Swap Nodes in Pairs](/posts/leetcode/24)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
 ### Simulation(3)
