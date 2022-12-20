@@ -23,7 +23,7 @@ ShowCodeCopyButtons: true
 **Catalog**
 ---
 ## 一、依題號
-### 1-500(40)  
+### 1-500(41)  
 [1. Two Sum](/posts/leetcode/1)  
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
@@ -48,6 +48,7 @@ ShowCodeCopyButtons: true
 [22. Generate Parentheses](/posts/leetcode/22)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [24. Swap Nodes in Pairs](/posts/leetcode/24)  
+[25. Reverse Nodes in k-Group](/posts/leetcode/25)  
 [70. Climbing Stairs](/posts/leetcode/70)  
 [79. Word Search](/posts/leetcode/79)  
 [124. Binary Tree Maximum Path Sum](/posts/leetcode/124)  
@@ -169,10 +170,11 @@ ShowCodeCopyButtons: true
 [2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
-### Hard(13)
+### Hard(14)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
+[25. Reverse Nodes in k-Group](/posts/leetcode/25)  
 [124. Binary Tree Maximum Path Sum](/posts/leetcode/124)  
 [446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
 [587. Erect the Fence](/posts/leetcode/587)  
@@ -332,12 +334,13 @@ ShowCodeCopyButtons: true
 ### Interactive(1)
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 
-### Linked List(7)
+### Linked List(8)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [19. Remove Nth Node From End of List](/posts/leetcode/19/)  
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [24. Swap Nodes in Pairs](/posts/leetcode/24)  
+[25. Reverse Nodes in k-Group](/posts/leetcode/25)  
 [328. Odd Even Linked List](/posts/leetcode/328)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487) 
 
@@ -382,11 +385,12 @@ ShowCodeCopyButtons: true
 [2485. Find the Pivot Integer](/posts/leetcode/2485)  
 [2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 
-### Recursion(5)
+### Recursion(6)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [10. Regular Expression Matching](/posts/leetcode/10/)  
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [24. Swap Nodes in Pairs](/posts/leetcode/24)  
+[25. Reverse Nodes in k-Group](/posts/leetcode/25)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
 ### Simulation(3)
