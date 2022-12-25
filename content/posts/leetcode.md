@@ -89,9 +89,10 @@ ShowCodeCopyButtons: true
 [1544. Make The String Great](/posts/leetcode/1544)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [1926. Nearest Exit from Entrance in Maze](/posts/leetcode/1926)  
-### 2001-2500(19)
+### 2001-2500(20)
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
+[2389. Longest Subsequence With Limited Sum](/posts/leetcode/2389)  
 [2460. Apply Operations to an Array](/posts/leetcode/2460)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](/posts/leetcode/2461)  
 [2462. Total Cost to Hire K](/posts/leetcode/2462)  
@@ -114,7 +115,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 二、依難度
-### Easy(19)
+### Easy(20)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13)  
@@ -129,6 +130,7 @@ ShowCodeCopyButtons: true
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [1544. Make The String Great](/posts/leetcode/1544)  
+[2389. Longest Subsequence With Limited Sum](/posts/leetcode/2389)  
 [2460. Apply Operations to an Array](/posts/leetcode/2460)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
 [2469. Convert the Temperature](/posts/leetcode/2469)  
@@ -204,7 +206,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 三、依分類
-### Array(34)
+### Array(35)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11)  
@@ -229,6 +231,7 @@ ShowCodeCopyButtons: true
 [1926. Nearest Exit from Entrance in Maze](/posts/leetcode/1926)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
+[2389. Longest Subsequence With Limited Sum](/posts/leetcode/2389)  
 [2460. Apply Operations to an Array](posts/leetcode/2460)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
@@ -246,11 +249,12 @@ ShowCodeCopyButtons: true
 [79. Word Search](/posts/leetcode/79)  
 [212. Word Search II](/posts/leetcode/212)  
 
-### Binary Search(6)
+### Binary Search(7)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [300. Longest Increasing Subsequence](/posts/leetcode/300)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
+[2389. Longest Subsequence With Limited Sum](/posts/leetcode/2389)  
 [2468. Split Message Based on Limit](/posts/leetcode/2468)  
 [2501. Longest Square Streak in an Array](/posts/leetcode/2501)  
 
@@ -338,11 +342,12 @@ ShowCodeCopyButtons: true
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
 
-### Greedy(5)
+### Greedy(6)
 [11. Container With Most Water](/posts/leetcode/11)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
+[2389. Longest Subsequence With Limited Sum](/posts/leetcode/2389)  
 [2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 
 ### Hash Table(12)
@@ -416,7 +421,8 @@ ShowCodeCopyButtons: true
 ### Number Theory(1)
 [2470. Number of Subarrays With LCM Equal to K](/posts/leetcode/2470)  
 
-### Prefix Sum(2)
+### Prefix Sum(3)
+[2389. Longest Subsequence With Limited Sum](/posts/leetcode/2389)  
 [2485. Find the Pivot Integer](/posts/leetcode/2485)  
 [2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 
@@ -440,13 +446,14 @@ ShowCodeCopyButtons: true
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 
-### Sorting(10)
+### Sorting(11)
 [15. 3Sum](/posts/leetcode/15)  
 [16. 3Sum Closet](/posts/leetcode/16)  
 [18. 4Sum](/posts/leetcode/18)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
+[2389. Longest Subsequence With Limited Sum](/posts/leetcode/2389)  
 [2463. Minimum Total Distance Traveled](/posts/leetcode/2463)  
 [2465. Number of Distinct Averages](/posts/leetcode/2465)  
 [2500. Delete Greatest Value in Each Row](/posts/leetcode/2500)  
