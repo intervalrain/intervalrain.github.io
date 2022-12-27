@@ -51,13 +51,7 @@ cover:
 #### 2-4. 回溯法 Backtacking
 #### 2-5. [動態規劃 Dynamic Programming](/posts/cs/algo/dp)
 
-### 第三章、特殊資料結構
-#### 3-1. Segment Tree
-#### 3-2. Bit Indexed Tree
-#### 3-3. Union Find
-#### 3-4. Trie
-
-### 第四章、演算法技巧
+### 第三章、主題介紹
 #### 4-1. Binary Search
 #### 4-2. Two Pointer/Sliding Window
 #### 4-3. Monotonic Stack
@@ -66,3 +60,11 @@ cover:
 #### 4-6. Topological Sort
 #### 4-7. KMP
 #### 4-8. Prefix
+#### 4-9. Segment Tree
+#### 4-10. Bit Indexed Tree
+#### 4-11. Union Find
+#### 4-12. Trie
+#### 4-13. Bit Manipulation
+#### 4-14. Bitmask
+#### 4-15. Rolling Hash
+
