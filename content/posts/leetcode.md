@@ -85,10 +85,11 @@ ShowCodeCopyButtons: true
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [1339. Maximum Product of Splitted Binary Tree](/posts/leetcode/1339)  
-### 1501-2000(3)
+### 1501-2000(4)
 [1544. Make The String Great](/posts/leetcode/1544)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [1926. Nearest Exit from Entrance in Maze](/posts/leetcode/1926)  
+[1962. Remove Stones to Minimize the Total](/posts/leetcode/1962)  
 ### 2001-2500(21)
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
@@ -138,7 +139,7 @@ ShowCodeCopyButtons: true
 [2485. Find the Pivot Integer](/posts/leetcode/2485)  
 [2500. Delete Greatest Value in Each Row](/posts/leetcode/2500)  
 
-### Medium(49)
+### Medium(50)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -177,6 +178,7 @@ ShowCodeCopyButtons: true
 [1339. Maximum Product of Splitted Binary Tree](/posts/leetcode/1339)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [1926. Nearest Exit from Entrance in Maze](/posts/leetcode/1926)  
+[1962. Remove Stones to Minimize the Total](/posts/leetcode/1962)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2279. Maximum Bags With Full Capacity of Rocks](/posts/leetcode/2279)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
@@ -208,7 +210,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 三、依分類
-### Array(36)
+### Array(37)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11)  
@@ -231,6 +233,7 @@ ShowCodeCopyButtons: true
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
 [1926. Nearest Exit from Entrance in Maze](/posts/leetcode/1926)  
+[1962. Remove Stones to Minimize the Total](/posts/leetcode/1962)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
 [2279. Maximum Bags With Full Capacity of Rocks](/posts/leetcode/2279)  
@@ -368,9 +371,10 @@ ShowCodeCopyButtons: true
 [2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 [2501. Longest Square Streak in an Array](/posts/leetcode/2501)  
 
-### Heap (Priority Queue)(3)
+### Heap (Priority Queue)(4)
 [23. Merge k Sorted Lists](/posts/leetcode/23)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
+[1962. Remove Stones to Minimize the Total](/posts/leetcode/1962)  
 [2462. Total Cost to Hire K](posts/leetcode/2462)  
 
 ### Interactive(1)
