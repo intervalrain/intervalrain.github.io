@@ -5,4 +5,4 @@ struct apk_info {
 int apk_version;
 int min_version = 1;
 int max_version = INT_MAX;
-}</description></item><item><title>[IT] 動態鏈結庫(DDL)</title><link>http://intervalrain.github.io/posts/it/ddl/</link><pubDate>Sun, 18 Sep 2022 22:45:56 +0800</pubDate><guid>http://intervalrain.github.io/posts/it/ddl/</guid><description>Command to construct DDL</description></item><item><title>[Life] July's plan</title><link>http://intervalrain.github.io/posts/life/prepare/</link><pubDate>Sat, 16 Jul 2022 17:48:09 +0800</pubDate><guid>http://intervalrain.github.io/posts/life/prepare/</guid><description>Study plan for July</description></item></channel></rss>
+}</description></item><item><title>[Life] July's plan</title><link>http://intervalrain.github.io/posts/life/prepare/</link><pubDate>Sat, 16 Jul 2022 17:48:09 +0800</pubDate><guid>http://intervalrain.github.io/posts/life/prepare/</guid><description>Study plan for July</description></item></channel></rss>
