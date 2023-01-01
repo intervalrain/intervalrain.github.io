@@ -2,9 +2,9 @@
 title: "About me"
 date: 2022-02-17T17:54:48+08:00
 tags: ["Life"]
-Categories: Life     # Programming, Create, Cover, Life, Job, Leetcode, Notes                
+Categories: Life
 description: "Who am I?"                     
-author: ["Rain Hu", "陣雨","intervalrain"]    # Rain Hu, 陣雨, intervalrain
+author: ["Rain Hu", "陣雨","intervalrain"]
 showToc: false
 TocOpen: false
 draft: false
@@ -27,14 +27,20 @@ cover:
 ---
 
 # Rain Hu / intervalrain / 陣雨
->
-> Music, coding, and life.
->
-> 陣雨 / 音樂使人快樂，也使人憂傷，如同陣雨。
->
-> Rain Hu / 寫程式充實生命，在生命的道路上，盲目的前行。
->
-> intervalrain / 人生不過是一場電影[或是一首歌](https://streetvoice.com/intervalrain/songs/646909/)，踟躕不如笑一個，然後繼續。
+
+> **Rain Hu** 既是 **intervalrain** 也是**陣雨**。
+
+--- 
+**Rain Hu** /  
+是我的英文名，象徵著我在生命的道路上，不斷的學習新知且努力向上的我。是 leetcode 相關文章與技術文件的作者。
+
+---
+**intervalrain** /  
+是我的帳號，象徵虛擬世界中的我，寫的可能是我的日常，可能是我的抱負，也可能是我的自喃。
+
+---
+**陣雨** /  
+是我的筆名，象徵倘佯在音樂世界的我，寫的是我的音樂作品，詞或曲，[或是一首歌](https://streetvoice.com/intervalrain/songs/646909/)。踟躕不如笑一個，然後繼續。
 
 # About me
 ![me](/images/me.jpeg "me")
@@ -48,8 +54,8 @@ cover:
 + 嗜好：彈吉他、喝咖啡、看劇、刷Leetcode(?)
 + 學歷：國立清華大學 材料工程學系
 ---
-
-+ 工作經歷：
+- [Resume](http://intervalrain.github.io/posts/rainhu.pdf)
++ 簡歷：
     + 2018 Aug. - 2022 Aug. 半導體元件開發工程師 Semiconductor Devcie Engineer (UMC)
         + 在特殊技術開發部門中針對 eHV(embedded High Voltage) 製程進行開發  
         參與 eHV 40nm、28nm、22nm 開發、經歷過 Poly Gate、HKMG 製程。  
@@ -96,8 +102,6 @@ cover:
 > 如果明天就要死亡，我想去看看地中海。
 
 ## More about me
-- Job
-    - [Resume](http://intervalrain.github.io/posts/rainhu.pdf)
 - Music
     - [Streetvoice](https://streetvoice.com/intervalrain/)
     - [Youtube](https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA)
