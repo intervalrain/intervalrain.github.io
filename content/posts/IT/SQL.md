@@ -1,9 +1,9 @@
 ---
-title: "[DB] SQL"
+title: "[IT] SQL"
 date: 2022-09-01T13:28:14+08:00
-tags: ["Database"]
+tags: ["SQL", "IT"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
+Categories: IT     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
 description: "Base command of SQL"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true

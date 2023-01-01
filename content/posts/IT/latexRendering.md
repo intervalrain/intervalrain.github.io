@@ -1,9 +1,9 @@
 ---
-title: "[ghpage] 在 GitHub Pages 中渲染 KaTex 公式"
+title: "[IT] 在 GitHub Pages 中渲染 KaTex 公式"
 date: 2022-02-22T01:38:30+08:00
-tags: ["JavaScript", "Programming",]
+tags: ["IT"]
 draft: true
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
+Categories: IT
 description: "如何讓 GitHub Pages 中支援 Latex 語法" 
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true

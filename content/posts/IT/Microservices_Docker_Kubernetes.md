@@ -1,9 +1,9 @@
 ---
 title: "[IT] Introduction to Microservices, Docker and Kubernetes"
 date: 2022-04-29T11:40:10+08:00
-tags: ["IT", "Programming", "Docker"]
+tags: ["IT"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
+Categories: IT     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
 description: "Desc Text."                     
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true

@@ -1,9 +1,9 @@
 ---
 title: "[IT] 動態鏈結庫(DDL)"
 date: 2022-09-18T22:45:56+08:00
-tags: ["Algorithm", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design", "TCAD"]
+tags: ["IT"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
+Categories: IT     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
 description: "Command to construct DDL"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
