@@ -67,7 +67,8 @@ ShowCodeCopyButtons: true
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
-### 501-1000(10)
+### 501-1000(11)
+[520. Detect Capital](/posts/leetcode/520)  
 [587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [790. Domino and Tromino Tiling](/posts/leetcode/790)  
@@ -119,7 +120,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 二、依難度
-### Easy(20)
+### Easy(21)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13)  
@@ -128,6 +129,7 @@ ShowCodeCopyButtons: true
 [21. Merge Two Sorted Lists](/posts/leetcode/21)  
 [70. Climbing Stairs](/posts/leetcode/70)  
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
+[520. Detect Capital](/posts/leetcode/520)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [872. Leaf-Similar Trees](/posts/leetcode/872)  
 [938. Range Sum of BST](/posts/leetcode/938)  
@@ -482,7 +484,7 @@ ShowCodeCopyButtons: true
 [1544. Make The String Great](/posts/leetcode/1544)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
-### String(22)
+### String(23)
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [6. Zigzag Conversion](/posts/leetcode/6)  
@@ -498,6 +500,7 @@ ShowCodeCopyButtons: true
 [212. Word Search II](/posts/leetcode/212)  
 [290. Word Pattern](/posts/leetcode/290)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
+[520. Detect Capital](/posts/leetcode/520)  
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1143. Longest Common Subsequence](/posts/leetcode/1143)  
 [1544. Make The String Great](/posts/leetcode/1544)  
