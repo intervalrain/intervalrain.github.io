@@ -115,12 +115,14 @@ ShowCodeCopyButtons: true
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 [2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 [2500. Delete Greatest Value in Each Row](/posts/leetcode/2500)  
-### 2501-3000(1)
+### 2501-3000(3)
 [2501. Longest Square Streak in an Array](/posts/leetcode/2501)  
+[2520. Count the Digits That Divide a Number](/posts/leetcode/2520)  
+[2521. Distinct Prime Factors of Product of Array](/posts/leetcode/2521)  
 
 ---
 ## 二、依難度
-### Easy(21)
+### Easy(22)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13)  
@@ -142,8 +144,9 @@ ShowCodeCopyButtons: true
 [2469. Convert the Temperature](/posts/leetcode/2469)  
 [2485. Find the Pivot Integer](/posts/leetcode/2485)  
 [2500. Delete Greatest Value in Each Row](/posts/leetcode/2500)  
+[2520. Count the Digits That Divide a Number](/posts/leetcode/2520)  
 
-### Medium(51)
+### Medium(52)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -195,6 +198,7 @@ ShowCodeCopyButtons: true
 [2486. Accept Characters to String to Make Subsequence](/posts/leetcode/2486)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 [2501. Longest Square Streak in an Array](/posts/leetcode/2501)  
+[2521. Distinct Prime Factors of Product of Array](/posts/leetcode/2521)  
 
 ### Hard(15)
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
