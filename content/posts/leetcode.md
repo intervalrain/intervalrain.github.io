@@ -115,10 +115,11 @@ ShowCodeCopyButtons: true
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 [2488. Count Subarrays With Median K](/posts/leetcode/2488)  
 [2500. Delete Greatest Value in Each Row](/posts/leetcode/2500)  
-### 2501-3000(4)
+### 2501-3000(5)
 [2501. Longest Square Streak in an Array](/posts/leetcode/2501)  
 [2520. Count the Digits That Divide a Number](/posts/leetcode/2520)  
 [2521. Distinct Prime Factors of Product of Array](/posts/leetcode/2521)  
+[2522. Partition String Into Substrings With Values at Most K](/posts/leetcode/2522)  
 [2523. Closest Prime Numbers in Range](/posts/leetcode/2523)  
 
 ---
@@ -147,7 +148,7 @@ ShowCodeCopyButtons: true
 [2500. Delete Greatest Value in Each Row](/posts/leetcode/2500)  
 [2520. Count the Digits That Divide a Number](/posts/leetcode/2520)  
 
-### Medium(53)
+### Medium(54)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -200,6 +201,7 @@ ShowCodeCopyButtons: true
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 [2501. Longest Square Streak in an Array](/posts/leetcode/2501)  
 [2521. Distinct Prime Factors of Product of Array](/posts/leetcode/2521)  
+[2522. Partition String Into Substrings With Values at Most K](/posts/leetcode/2522)  
 [2523. Closest Prime Numbers in Range](/posts/leetcode/2523)  
 
 ### Hard(15)
