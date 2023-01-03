@@ -67,7 +67,7 @@ ShowCodeCopyButtons: true
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
-### 501-1000(11)
+### 501-1000(12)
 [520. Detect Capital](/posts/leetcode/520)  
 [587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
@@ -78,6 +78,7 @@ ShowCodeCopyButtons: true
 [901. Online Stock Span](/posts/leetcode/901)  
 [931. Minimum Falling Path Sum](/posts/leetcode/931)  
 [938. Range Sum of BST](/posts/leetcode/938)  
+[944. Delete Columns to Make Sorted](/posts/leetcode/944)  
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 ### 1001-1500(7)
 [1026. Maximum Difference Between Node and Ancestor](/posts/leetcode/1026)  
@@ -124,7 +125,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 二、依難度
-### Easy(22)
+### Easy(23)
 [1. Two Sum](/posts/leetcode/1)  
 [9. Palindrome Number](/posts/leetcode/9)  
 [13. Roman to Integer](/posts/leetcode/13)  
@@ -137,6 +138,7 @@ ShowCodeCopyButtons: true
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [872. Leaf-Similar Trees](/posts/leetcode/872)  
 [938. Range Sum of BST](/posts/leetcode/938)  
+[944. Delete Columns to Make Sorted](/posts/leetcode/944)  
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [1544. Make The String Great](/posts/leetcode/1544)  
@@ -223,7 +225,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 三、依分類
-### Array(38)
+### Array(39)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11)  
@@ -242,6 +244,7 @@ ShowCodeCopyButtons: true
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [835. Image Overlap](/posts/leetcode/835)  
 [931. Minimum Falling Path Sum](/posts/leetcode/931)  
+[944. Delete Columns to Make Sorted](/posts/leetcode/944)  
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
 [1293. Shortest Path in a Grid with Obstacles Elimination](/posts/leetcode/1293)  
 [1706. Where Will the Ball Fall](/posts/leetcode/1706)  
@@ -492,7 +495,7 @@ ShowCodeCopyButtons: true
 [1544. Make The String Great](/posts/leetcode/1544)  
 [2487. Remove Nodes From Linked List](/posts/leetcode/2487)  
 
-### String(23)
+### String(24)
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
 [6. Zigzag Conversion](/posts/leetcode/6)  
@@ -509,6 +512,7 @@ ShowCodeCopyButtons: true
 [290. Word Pattern](/posts/leetcode/290)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [520. Detect Capital](/posts/leetcode/520)  
+[944. Delete Columns to Make Sorted](/posts/leetcode/944)  
 [1047. Remove All Adjacent Duplicates In String](/posts/leetcode/1047)  
 [1143. Longest Common Subsequence](/posts/leetcode/1143)  
 [1544. Make The String Great](/posts/leetcode/1544)  
