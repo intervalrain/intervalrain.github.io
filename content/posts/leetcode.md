@@ -23,7 +23,7 @@ ShowCodeCopyButtons: true
 **Catalog**
 ---
 ## 一、依題號
-### 1-500(42)  
+### 1-500(43)  
 [1. Two Sum](/posts/leetcode/1)  
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
@@ -67,6 +67,7 @@ ShowCodeCopyButtons: true
 [374. Guess Number Higher or Lower II](/posts/leetcode/374)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
 [446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
+[452. Minimum Number of Arrows to Burst Balloons](/posts/leetcode/452)  
 ### 501-1000(12)
 [520. Detect Capital](/posts/leetcode/520)  
 [587. Erect the Fence](/posts/leetcode/587)  
@@ -150,7 +151,7 @@ ShowCodeCopyButtons: true
 [2500. Delete Greatest Value in Each Row](/posts/leetcode/2500)  
 [2520. Count the Digits That Divide a Number](/posts/leetcode/2520)  
 
-### Medium(54)
+### Medium(55)
 [2. Add Two Numbers](/posts/leetcode/2)  
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [5. Longest Palindromic Substring](/posts/leetcode/5)  
@@ -178,6 +179,7 @@ ShowCodeCopyButtons: true
 [337. House Robber III](/posts/leetcode/337)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [433. Minimum Genetic Mutation](/posts/leetcode/433)  
+[452. Minimum Number of Arrows to Burst Balloons](/posts/leetcode/452)  
 [790. Domino and Tromino Tiling](/posts/leetcode/790)  
 [835. Image Overlap](/posts/leetcode/835)  
 [841. Keys and Rooms](/posts/leetcode/841)  
@@ -225,7 +227,7 @@ ShowCodeCopyButtons: true
 
 ---
 ## 三、依分類
-### Array(39)
+### Array(40)
 [1. Two Sum](/posts/leetcode/1)  
 [4. Median of Two Sorted Array](/posts/leetcode/4)  
 [11. Container With Most Water](/posts/leetcode/11)  
@@ -240,6 +242,7 @@ ShowCodeCopyButtons: true
 [322. Coin Change](/posts/leetcode/322)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
 [446. Arithmetic Slices II - Subsequence](/posts/leetcode/446)  
+[452. Minimum Number of Arrows to Burst Balloons](/posts/leetcode/452)  
 [587. Erect the Fence](/posts/leetcode/587)  
 [766. Toeplitz Matrix](/posts/leetcode/766)  
 [835. Image Overlap](/posts/leetcode/835)  
@@ -365,8 +368,9 @@ ShowCodeCopyButtons: true
 [947. Most Stones Removed with Same Row or Column](/posts/leetcode/947)  
 [2467. Most Profitable Path in a Tree](/posts/leetcode/2467)  
 
-### Greedy(7)
+### Greedy(8)
 [11. Container With Most Water](/posts/leetcode/11)  
+[452. Minimum Number of Arrows to Burst Balloons](/posts/leetcode/452)  
 [1323. Maximum 69 Number](/posts/leetcode/1323)  
 [2131. Longest Palindrome by Concatenating Two Letter Words](/posts/leetcode/2131)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
@@ -473,11 +477,12 @@ ShowCodeCopyButtons: true
 [3. Longest Substring Without Repeating Characters](/posts/leetcode/3)  
 [2461. Maximum Sum of Distinct Subarrays With Length K](posts/leetcode/2461)  
 
-### Sorting(13)
+### Sorting(14)
 [15. 3Sum](/posts/leetcode/15)  
 [16. 3Sum Closet](/posts/leetcode/16)  
 [18. 4Sum](/posts/leetcode/18)  
 [347. Top K Frequent Elements](/posts/leetcode/347)  
+[452. Minimum Number of Arrows to Burst Balloons](/posts/leetcode/452)  
 [1235. Maximum Profit in Job Scheduling](/posts/leetcode/1235)  
 [1834. Single-Threaded CPU](/posts/leetcode/1834)  
 [2136. Earliest Possible Day of Full Bloom](/posts/leetcode/2136)  
