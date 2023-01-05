@@ -43,6 +43,7 @@ cover:
 #### 1-6. map
 #### 1-7. deque
 #### 1-8. priority_queue
+#### 1-9. [algorithm](/posts/cs/algo/algorithm)
 
 ### 第二章、演算法設計
 #### 2-1. 暴力演算法 Brute Force
