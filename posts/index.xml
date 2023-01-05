@@ -311,7 +311,7 @@ Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Array、Hash Table 一�
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.
 Example 1:
-Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0,1].</description></item><item><title>[LeetCode] Catalog</title><link>http://intervalrain.github.io/posts/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/</guid><description>Catalog 一、依題號 1-500(42) 1. Two Sum
+Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0,1].</description></item><item><title>[LeetCode] Catalog</title><link>http://intervalrain.github.io/posts/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>http://intervalrain.github.io/posts/leetcode/</guid><description>Catalog 一、依題號 1-500(43) 1. Two Sum
 2. Add Two Numbers
 3. Longest Substring Without Repeating Characters
 4. Median of Two Sorted Array
