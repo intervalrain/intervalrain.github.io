@@ -19,14 +19,9 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
-cover:
-    image: "/images/theSHOW.jpeg"
-    alt: "Oh! You closed up the window, so you cannot see raining"
-    relative: false
-    hidden: false
 ---
 
-https://www.youtube.com/watch?v=rlxD01UEuio
+{{< youtube rlxD01UEuio >}}
 
 詞曲：胡鎮宇
 

@@ -8,6 +8,7 @@ author: "Rain Hu"
 showToc: true
 TocOpen: true
 math: true
+mermaid: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
