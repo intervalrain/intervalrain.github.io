@@ -144,6 +144,8 @@ echo "hello world"
 + 不能使用標點符號。
 + 不能使用關鍵字(可用 help 查看保留關鍵字)。
 + **環境變數習慣大寫，便於區分。**
+
+*調用變數示例*
 ```bash
 [root@localhost ~]$ test=123
 [root@localhost ~]$ test="$test"456
@@ -167,11 +169,100 @@ echo "hello world"
 |#|用於注釋。|
 |$|用於調用變數的值。|
 |\ |用於轉義。|
+
+*單引號與雙引號示例*
+```bash
+[root@localhost ~]$ name=rain
+[root@localhost ~]$ echo '$name'
+$name
+[root@localhost ~]$ echo "$name"
+rain
+[root@localhost ~]$ echo `date`
+2023年 1月17日 週二 21時23分45秒 CST
+[root@localhost ~]$ echo '`date`'
+`date`
+[root@localhost ~]$ echo "`date`"
+2023年 1月17日 週二 21時24分00秒 CST
+```
+
+*反引號示例*
+```bash
+[root@localhost ~]$ echo ls
+ls
+[root@localhost ~]$ echo `ls`
+words.txt
+[root@localhost ~]$ echo $(date)
+2023年 1月17日 週二 21時28分42秒 CST
+```
+---
 ### 2. 變數的分類
-#### 2.1 自定義變數
-#### 2.2 環境變數
-#### 2.3 位置參數變數
-#### 2.4 都定義變數
+|變數分類|名稱|作用|內容|
+|:---:|:---:|:---:|:---:|
+|自定義變數|自定義|自定義|自定義|
+|使用自定義環境變數|自定義|自定義|自定義|
+|系統環境變數|預定|預定|自定義|
+|位置參數變數|預定|自定義|自定義|
+|預定義變數|預定|自定義|自定義
+#### 2.1. 自定義變數：
++ 最常見的變數，由使用者自由定義變數名稱與值。
+    + 使用 `$` 調用變數。
+    + 使用 `set [選項]` 設定
+    + `-u`：調用未宣告變數時會報錯(預設未無提示)
+    + `-x`：在命令執行之前，會把命令先輸出一次
+    + `+<參數>`：取消某個曾啟動過的參數
+    + `set`：查詢系統中所有的變量，包含自定義變數與環境變數
+    + `unset 變數名稱`：刪除變數
+#### 2.2. 環境變數：
++ 主要保存和系統操作環境相關的數據，比如當前登錄的使用者名稱，使用者的根目錄、命令的提示符等。一般對系統起作用的環境變數名稱是系統預定好的。
+    + 使用 `export` 宣告的變數即是環境變數
+    + 使用 `env` 查看環境變數
+#### 2.3. 位置參數變數：
++ 用來向腳本當中傳遞參數或數據的，變數名稱不能自定義，變數作用是固定的。
+    + `$n`：n 為數字，$0表示當前 Shell 腳本程式的名稱，10以上需加大括號。
+    + `$*`：代表命令行中所有參數，$把所有參數看成一個整體。
+    + `$@`：代表命令行中所有參數，不過$把每個參數區分對待。
+    + `$#`：代表命令行中所有參數的個數
+
+*腳本示例1*
+```bash
+#!/bin/sh
+echo "shell's name: $0"
+echo "shell's first argument: $1"
+echo "shell's second argument: $2"
+```
+```bash
+[root@localhost ~]$ bash test.sh 1 2
+shell's name: test.sh
+shell's first argument: 1
+shell's second arguemnt: 2
+```
+*腳本示例2*
+```bash
+#!/bin/sh
+for i in "$*"
+  do
+    echo "The parameter is: $i"
+  done
+x=1
+for y in "$@"
+  do
+    echo "The parameter$x is: $y"
+    x=$(( $x +1 ))
+  done
+```
+```bash
+[root@localhost ~]$ bash par.sh 1 2 3 4 5 6
+The parameter is: 1 2 3 4 5 6
+The parameter1 is: 1
+The parameter2 is: 2
+The parameter3 is: 3
+The parameter4 is: 4
+The parameter5 is: 5
+The parameter6 is: 6
+```
+#### 2.4. 預定義變數：
++ 是Bash中已經定義好的變數，變數名稱不能自定義，變數作用也是固定的。
+<!-- 
 ### 3. 唯讀變量
 ### 4. 可寫變量
 ## 四、 Shell 運算子
@@ -200,4 +291,4 @@ echo "hello world"
 ### 2. 字串處理
 #### 2.1 sort 排序命令
 #### 2.2 uniq 取消重複行
-#### 2.3 wc 統計命令
+#### 2.3 wc 統計命令 -->
