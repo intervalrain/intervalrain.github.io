@@ -4,11 +4,11 @@ date: 2023-01-17T22:27:58+08:00
 tags: ["C#", "IT"]
 draft: false
 Categories: IT
-description: "Introduction to yield return in C#"
 author: "Rain Hu"
 showToc: true
 TocOpen: true
 math: true
+mermaid: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
@@ -27,7 +27,7 @@ cover:
     hidden: false
 ---
 # 與時俱進的語言
-## System Class
+## 一、System Class
 ### 1. 泛型(genric)
 + 可更清楚的描述序列中每個元素的類型。  
 
