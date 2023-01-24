@@ -1,7 +1,7 @@
 ---
 title: "[Algo] 1-9. Algorithm"
 date: 2023-01-03T21:49:42+08:00
-tags: ["CS", "DS"]
+tags: ["CS", "Algo"]
 draft: false
 Categories: CS
 author: "Rain Hu"

@@ -1,7 +1,7 @@
 ---
 title: "[Algo] 0-4. 二叉樹(Binary Tree)"
 date: 2022-10-06T23:00:28+08:00
-tags: ["CS", "DS"]
+tags: ["CS", "Algo"]
 draft: false
 Categories: CS
 author: "Rain Hu"

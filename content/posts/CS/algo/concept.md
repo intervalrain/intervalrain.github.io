@@ -1,7 +1,7 @@
 ---
 title: "[Algo] 0-2. 算法思維"
 date: 2022-10-06T22:15:28+08:00
-tags: ["CS", "DS"]
+tags: ["CS", "Algo"]
 draft: false
 Categories: CS
 author: "Rain Hu"

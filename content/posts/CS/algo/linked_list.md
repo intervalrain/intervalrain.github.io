@@ -1,7 +1,7 @@
 ---
 title: "[Algo] 0-3. 鏈表(Linked List)"
 date: 2022-10-06T22:30:28+08:00
-tags: ["CS", "DS"]
+tags: ["CS", "Algo"]
 draft: false
 Categories: CS
 author: "Rain Hu"

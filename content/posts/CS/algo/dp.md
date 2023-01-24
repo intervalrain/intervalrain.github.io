@@ -1,7 +1,7 @@
 ---
 title: "[Algo] 2-5. 動態規劃 Dynamic Programming"
 date: 2022-11-15T16:10:53+08:00
-tags: ["CS", "DS"]
+tags: ["CS", "Algo"]
 draft: false
 Categories: CS
 author: "Rain Hu"

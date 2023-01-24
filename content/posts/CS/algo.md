@@ -35,19 +35,19 @@ cover:
 #### 0-4. [二叉樹 Binary Tree](/posts/cs/algo/binary_tree)
 
 ### 第一章、資料結構、STL
-#### 1-1. vector
-#### 1-2. list
-#### 1-3. stack
-#### 1-4. queue
-#### 1-5. set
-#### 1-6. map
-#### 1-7. deque
-#### 1-8. priority_queue
-#### 1-9. [algorithm](/posts/cs/algo/algorithm)
+#### 1-1. [vector](https://en.cppreference.com/w/cpp/container/vector)
+#### 1-2. [list](https://en.cppreference.com/w/cpp/container/list), [forward_list](https://en.cppreference.com/w/cpp/container/forward_list)
+#### 1-3. [stack](https://en.cppreference.com/w/cpp/container/stack)
+#### 1-4. [queue](https://en.cppreference.com/w/cpp/container/queue)
+#### 1-5. [set](https://en.cppreference.com/w/cpp/container/set), [multiset](https://en.cppreference.com/w/cpp/container/multiset), [unordered_set](https://en.cppreference.com/w/cpp/container/https://en.cppreference.com/w/cpp/container/unordered_set), [unordered_multiset](https://en.cppreference.com/w/cpp/container/unordered_multiset)
+#### 1-6. [map](https://en.cppreference.com/w/cpp/container/map), [multimap](https://en.cppreference.com/w/cpp/container/multimap), [unordered_map](https://en.cppreference.com/w/cpp/container/https://en.cppreference.com/w/cpp/container/unordered_map), [unordered_multimap](https://en.cppreference.com/w/cpp/container/unordered_multimap)
+#### 1-7. [deque](https://en.cppreference.com/w/cpp/container/deque)
+#### 1-8. [priority_queue](https://en.cppreference.com/w/cpp/container/priority_queue)
+#### 1-9. [algorithm](https://en.cppreference.com/w/cpp/algorithm) <!-- /posts/cs/algo/algorithm) -->
 
 ### 第二章、演算法設計
-#### 2-1. 暴力演算法 Brute Force
-#### 2-2. 貪心演算法 Greedy
+#### 2-1. [暴力演算法 Brute Force](/posts/cs/algo/brute_force)
+#### 2-2. [貪心演算法 Greedy](/posts/cs/algo/greedy)
 #### 2-3. 分治法 Divide and Conquer
 #### 2-4. 回溯法 Backtacking
 #### 2-5. [動態規劃 Dynamic Programming](/posts/cs/algo/dp)
