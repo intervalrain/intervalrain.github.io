@@ -262,6 +262,24 @@ The parameter6 is: 6
 ```
 #### 2.4. 預定義變數：
 + 是Bash中已經定義好的變數，變數名稱不能自定義，變數作用也是固定的。
+|預定義變數|作用
+|:---:|:---|
+|$?|最後一次執行的命令的返回狀態。如果這個變數的值為 0，表示上一個命令正確執行；如果這個變數的值非 0(具體為哪個數，由命令自己決定)，則表示上一個命令執行不正確。|
+|$$|當前程式的程式號(PID)|
+|$!|後台運行的最後一個程式的程式號(PID)|
+
+*腳本示例1*
+```bash
+[root@localhost ~]$ ls
+count.sh hello.sh parameter.sh
+[root@localhost ~]$ echo $?
+0
+[root@localhost ~]$ ls install.log
+ls: install.log: No such file or directory
+[root@localhost ~]$ echo $?
+1
+```
+
 <!-- 
 ### 3. 唯讀變量
 ### 4. 可寫變量
