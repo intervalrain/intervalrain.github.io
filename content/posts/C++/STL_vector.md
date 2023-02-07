@@ -1,10 +1,11 @@
 ---
 title: "[C++] The C++ Standard Template Library(STL) - vector"
+keywords: ["C++", "STL", "vector"]
+description: "C++ 中 STL 的 vector 的函式與使用範例"
 date: 2022-04-16T22:08:37+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to vector"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

@@ -1,10 +1,11 @@
 ---
-title: "[C++]易錯題目收集"
+title: "[C++] 易錯題目收集"
+keywords: ["C++", "interview"]
+description: "網路上 C++ 易錯的題目收集"
 date: 2022-04-17T17:34:39+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Collections of C++ problems"   
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

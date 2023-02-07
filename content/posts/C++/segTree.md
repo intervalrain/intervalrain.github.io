@@ -1,10 +1,11 @@
 ---
 title: "[C++] Segment Tree"
+keywords: ["Segment Tree", "線段樹", "zkw", "C++"]
+description: "用 C++ 介紹資料結構線段樹"
 date: 2022-10-18T23:14:38+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Segment Tree Introduction"                     
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

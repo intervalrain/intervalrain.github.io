@@ -1,10 +1,11 @@
 ---
 title: "[C++] The C++ Standard Template Library(STL) - list, forward_list"
+keywords: ["C++", "STL", "list", "forward_list"]
+description: "C++ 中 STL 的 list 的函式與使用範例"
 date: 2022-04-17T11:45:58+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to list and forward_list"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

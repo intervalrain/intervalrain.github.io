@@ -1,10 +1,11 @@
 ---
 title: "[C++] The C++ Standard Template Library(STL)"
+keywords: ["C++", "STL"]
+description: "C++ 中 STL 的介紹"
 date: 2022-04-05T01:09:42+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to STL"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

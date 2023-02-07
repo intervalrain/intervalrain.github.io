@@ -1,10 +1,11 @@
 ---
 title: "[C++] How to Initialize vector in C++"
+keywords: ["vector", "C++", "initial", "fill", "constructor"]
+description: "C++ 中 vector 的初始化"
 date: 2022-03-03T01:33:02+08:00
 tags: ["C++", "Programming"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily
-description: "Desc Text."                     
+Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Daily               
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: false

@@ -1,10 +1,11 @@
 ---
 title: "[C++] The C++ Standard Template Library(STL) - Container"
+keywords: ["C++", "STL", "container"]
+description: "C++"
 date: 2022-04-15T01:09:18+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to containers in STL"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

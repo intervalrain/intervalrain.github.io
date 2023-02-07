@@ -1,10 +1,11 @@
 ---
 title: "[C++] The C++ Standard Template Library(STL) - deque"
+keywords: ["C++", "STL", "deque"]
+description: "C++ 中 STL 的 deque 函式與使用範例"
 date: 2022-06-12T01:36:18+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to deque" 
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

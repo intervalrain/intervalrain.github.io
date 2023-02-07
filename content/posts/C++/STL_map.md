@@ -1,10 +1,11 @@
 ---
 title: "[C++] The C++ Standard Template Library(STL) - map"
+keywords: ["C++", "STL", "map", "multimap", "unordered_map", "unordered_multimap"]
+description: "C++ 中 STL 的 map 的函式與使用範例"
 date: 2022-04-23T22:24:21+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to map."
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

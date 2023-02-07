@@ -1,10 +1,11 @@
 ---
 title: "[C++] Custom Comparator"
+keywords: ["Custom comparator", "C++", "compare", "sort", "priority_queue", "heap"]
+description: "C++ 中陣列與優先佇列的自定義排序使用方法"
 date: 2022-06-11T10:07:49+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Custom comparator for sorting algorithm and priority_queue"                     
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

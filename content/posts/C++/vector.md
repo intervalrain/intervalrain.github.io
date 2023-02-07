@@ -1,10 +1,11 @@
 ---
 title: "[C++] STL: Vector 的使用與實作"
+keywords: ["C++", "STL", "vector"]
+description: "C++ 中 STL 的 vector 的用法整理"
 date: 2022-04-03T18:14:14+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "STL整理"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true

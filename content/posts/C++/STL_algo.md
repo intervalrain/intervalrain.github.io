@@ -1,10 +1,11 @@
 ---
 title: "[C++] The C++ Standard Template Library(STL) - Algorithm"
+keywords: ["C++", "algorithm", "STL"]
+description: "C++ 中 STL 中的 algorithm lib 的函式與範例"
 date: 2022-04-06T16:04:36+08:00
 tags: ["C++", "Programming"]
 draft: false
 Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Introduction to algorithms in STL"
 author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
 showToc: true
 TocOpen: true
