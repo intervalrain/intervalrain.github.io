@@ -48,8 +48,8 @@ cover:
 ### 第二章、演算法設計
 #### 2-1. [暴力演算法 Brute Force](/posts/cs/algo/brute_force)
 #### 2-2. [貪心演算法 Greedy](/posts/cs/algo/greedy)
-#### 2-3. 分治法 Divide and Conquer
-#### 2-4. 回溯法 Backtacking
+#### 2-3. [分治法 Divide and Conquer](/posts/cs/algo/divide_and_conquer)
+#### 2-4. [回溯法 Backtacking](/posts/cs/algo/backtracking)
 #### 2-5. [動態規劃 Dynamic Programming](/posts/cs/algo/dp)
 
 ### 第三章、主題介紹

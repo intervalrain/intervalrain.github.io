@@ -84,7 +84,7 @@ int partition(vector<int>& nums, int left, int right){
 + 從 sort() 函式便可見類似於後序的結構。
 ```C++
 void sort(vector<int>& nums, int left, int right){
-    if (left <= right) return;              // 終止條件
+    if (right <= left) return;              // 終止條件
     int mid = left + (right-left)/2;
     sort(nums, left, mid);                  // 左子樹
     sort(nums, mid+1, right);               // 右子樹
@@ -94,13 +94,13 @@ void sort(vector<int>& nums, int left, int right){
 ```C++
 void merge(vector<int>& nums, int left, int mid, int right){
     vector<int> vec;
-    int i = left, j = right;
+    int i = left, j = mid+1;
     while (i <= mid && j <= right){
         int x = nums[i] < nums[j] ? nums[i++] : nums[j++];
         vec.push_back(x);
     }
-    while (i <= mid) vec.push_back(nums[j++]);
-    while (j <= right) vec.push_back(nums[i++]);
+    while (i <= mid) vec.push_back(nums[i++]);
+    while (j <= right) vec.push_back(nums[j++]);
     for (int i = left; i <= right; i++)
         nums[i] = vec[i-left];
 }
