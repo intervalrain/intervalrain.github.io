@@ -43,6 +43,9 @@ cover:
         ![sample](https://labuladong.github.io/algo/images/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92%e8%af%a6%e8%a7%a3%e8%bf%9b%e9%98%b6/5.jpg)
             + 例如湊零錢問題中，金額 `amount` 的值為 `n`，`coins` 列表中的個數為 `k`，則這棵遞迴樹就是 K 叉樹。而節點的數量與樹的結構有關，而我們無法提前知道樹的結構，所以我們按照最壞情形來處理，高度為 `n` 的一棵滿 `k` 叉樹，其節點數為 \\(\frac{k^n-1}{k-1}\\)，用 big O 表示就是 \\(O(k^n)\\)。
 
+### 二、主定理(Master Theorem)
++ 有時候時間複雜度的判斷沒那麼容易，主定理是一個數學推導的方法：可以參考網站https://brilliant.org/wiki/master-theorem/
+
 ---
 + 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
 + 接著閱讀：[[Algo] 0-2. 演算法思維](/posts/cs/algo/concept)

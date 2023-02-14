@@ -69,3 +69,10 @@ cover:
 #### 4-14. Bitmask
 #### 4-15. Rolling Hash
 
+### 學習資源
+[建中培訓講義](https://tioj.ck.tp.edu.tw/uploads/attachment/5/12/1_2.pdf)
+[演算法入門](https://drive.google.com/file/d/1LLmHjzG_zidmCcS4qX9kLzMCjHsG7PLy/view)
+[建中2016講義](https://tioj.ck.tp.edu.tw/articles/5)
+[cp-algorithm](https://cp-algorithms.com/#navigation)
+[csacademy](https://csacademy.com/)
+[cses](https://cses.fi/problemset/)

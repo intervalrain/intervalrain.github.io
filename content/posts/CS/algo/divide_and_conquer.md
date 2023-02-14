@@ -300,6 +300,12 @@ graph LR;
     }
     ```
     + 從上面兩個範例可以發現，樹類應用分治法於建樹問題上，基本上有著分常相似的框架，基本上都是想辦法把大問題拆成若干個同質的小問題，直到拆成 **base state** 之後再將答案組合起來。
+### 2. Quick Select
++ 
+    #### 1.
+    + [Leetcode 1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
+### 3. Binary Search
+
 ---
 
 + 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
