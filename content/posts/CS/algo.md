@@ -76,3 +76,4 @@ cover:
 [cp-algorithm](https://cp-algorithms.com/#navigation)
 [csacademy](https://csacademy.com/)
 [cses](https://cses.fi/problemset/)
+[STL functions](https://cwang.me/2020/02/02/cpp-notes/)
