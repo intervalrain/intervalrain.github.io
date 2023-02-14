@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 2-3. 分治法 Divide and Conquer"
+keywords: ["C++", "Leetcode", "Algorithm", "分治法", "divide and conquer"]
+description: "演算法設計，介紹什麼是暴力演算法，並示範幾種資料結構的遍歷與枚舉"
 date: 2023-01-27T10:48:42+08:00
 tags: ["CS", "Algo"]
 draft: false
@@ -219,6 +221,85 @@ graph LR;
 + 程式碼實作：[quickSort](https://github.com/intervalrain/Cpp/blob/main/algo/sorting/quickSort.cpp)
 
 ## 三、例題
+### 1. 樹類問題
++ 樹相關的問題很常有著類似的解題結構：
+    + 在 **base state** 時，直接回傳答案(**base result**)。
+    + 對根的節點做遞迴的處理
+    + 將遞迴過後的回傳值做處理之後回傳。
+    ```C++
+    T function(TreeNode* root) {
+        if (BASE_STATE) return BASE_RESULT;
+        T left = function(root->left);
+        T right = function(root->right);
+        T res = SOME_OPERATION(left, right, root);
+        return res;
+    }
+    ```
+    #### 1. Maxmium Binary Tree
+    + [Leetcode 654. Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
+    + 給定一個數列，數列中的最大值為根，其索引值比根的索引值還小的子數列形成另一個子節，比根的索引值還大的子數列同樣形成另一個子節，以此類推。
+    ![max barytree](https://assets.leetcode.com/uploads/2020/12/24/tree1.jpg)
+        + 以分治法的想法思考，我們會想得到一個函式 `f(nums, s, e)`，`s` 代表數列的最小索引值，`e` 代表數列的最大索引值，若 `r` 為該數列最大值的索引值，那麼我們應該會得到一個節點，其左子節點為 `f(nums, s, r-1)`，右子節點為 `f(nums, r+1, e`。
+        + 分治法的目標是要將問題由大化小，直到 **base state** 出現(即可以直接得到結果的一個狀態)，以此題而言就是當 `s == e` 或 `s < e` 時，
+            + `s == e` 時，應該要回傳 `new TreeNode(s)`。
+            + `s < e` 時，應該要回傳 `NULL`。
+        + 根據上面的分析可以得到下面完整的程式碼：
+        ```C++
+        TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+            return build(nums, 0, nums.size()-1);
+        }
+        TreeNode* build(vector<int>& nums, int start, int end) {
+            if (start > end) return nullptr;
+            if (start == end) return new TreeNode(nums[start]);
+            int r = start;
+            for (int i = start; i <= end; i++) {
+                if (nums[i] > nums[r]) r = i;       // 找尋最大值的索引值
+            }
+            TreeNode* left = build(nums, start, r-1);
+            TreeNode* right = build(nums, r+1, end);
+            return new TreeNode(nums[r], left, right);
+        }
+        ```
+
+    #### 2.Balance a Binary Search Tree
+    + [Leetcode 1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
+    ![balance BST](https://assets.leetcode.com/uploads/2021/08/10/balance1-tree.jpg)
+    + 這題若想要用 rotate 的方式去思考會很難解，但若把它想成是一個已排序的數列，要進行 BST 的建樹的話，就非常簡單了。
+    + 首先我們想得到一個已排序的數列，我們可以用 `inorder traversal(中序遍歷)` 去收集所有的節點。
+    + 剩下的部分就跟[Leetcode 108. Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)一樣了，當我們將數列索引值正中間的節點擺在根節點，那麼一定會滿足其兩邊的深度差不超過 1。
+    + 用分治法的思維，我們會想得到一個函式`f(vec, s, e)`，`s` 代表數列的最小索引值，`e`代表數列的最大索引值，若 `mid` 為該數列最中間的索引值，那麼我們會得到一個節點，其左子節點為 `f(vec, s, mid-1`，右子節點為 `f(vec, mid-1, e)`。
+    + 其 **base state** 為 `s == e` 或 `s < e` 時，
+        + `s == e` 時，回傳 `vec[s]`。
+        + `s > e` 時，回傳 `NULL`。
+    + 根據上面的分析可得完整的程式碼：
+    ```C++
+        TreeNode* balanceBST(TreeNode* root) {
+        vector<TreeNode*> vec;
+        collect(root, vec);
+        return build(vec, 0, vec.size()-1);
+    }
+    // 中序遍歷以收集到已排序的節點數列
+    void collect(TreeNode* root, vector<TreeNode*>& vec) {
+        if (!root) return;
+        collect(root->left,vec);
+        vec.push_back(root);
+        collect(root->right,vec);
+        root->left = nullptr;   // 預先將節點之間的關係先清除
+        root->right = nullptr;
+        
+    }
+    TreeNode* build(vector<TreeNode*>& vec, int start, int end) {
+        if (start > end) return nullptr;
+        if (start == end) return vec[start];
+        int mid = start + (end-start)/2;        // 求中間點
+        auto left = build(vec, start, mid-1);
+        auto right = build(vec, mid+1, end);
+        vec[mid]->left = left;
+        vec[mid]->right = right;
+        return vec[mid];
+    }
+    ```
+    + 從上面兩個範例可以發現，樹類應用分治法於建樹問題上，基本上有著分常相似的框架，基本上都是想辦法把大問題拆成若干個同質的小問題，直到拆成 **base state** 之後再將答案組合起來。
 ---
 
 + 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  

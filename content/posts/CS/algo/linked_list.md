@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 0-3. 鏈表(Linked List)"
+keywords: ["C++", "Leetcode", "Algorithm", "linked_list", "鏈表", "list", "ListNode"]
+description: "演算法結構介紹，介紹鏈表的遍歷，與常見的經典考題與常用到的操作手法"
 date: 2022-10-06T22:30:28+08:00
 tags: ["CS", "Algo"]
 draft: false

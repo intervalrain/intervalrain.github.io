@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 2-4. 回溯法 Backtracking"
+keywords: ["C++", "Leetcode", "Algorithm", "Backtracking", "回溯法"]
+description: "演算法設計，介紹什麼是回溯法，並示範運用回溯法的思維解題"
 date: 2023-01-27T10:50:26+08:00
 tags: ["CS", "Algo"]
 draft: false

@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 0-2. 算法思維"
+keywords: ["C++", "Leetcode", "Algorithm", "算法思維", "concept of algorithm"]
+description: "演算法的思維，在深入 Leetcode 世界前的一些基礎引導"
 date: 2022-10-06T22:15:28+08:00
 tags: ["CS", "Algo"]
 draft: false

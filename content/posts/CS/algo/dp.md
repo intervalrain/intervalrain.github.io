@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 2-5. 動態規劃 Dynamic Programming"
+keywords: ["C++", "Leetcode", "Algorithm", "動態規劃", "dp", "dynamic programming"]
+description: "演算法設計，介紹什麼是動態規劃，並介紹幾種動態規劃常見的題型，與解題框架"
 date: 2022-11-15T16:10:53+08:00
 tags: ["CS", "Algo"]
 draft: false

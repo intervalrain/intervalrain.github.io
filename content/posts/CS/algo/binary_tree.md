@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 0-4. 二叉樹(Binary Tree)"
+keywords: ["C++", "Leetcode", "Binary Tree", "Algorithm", "Tree", "二叉樹"]
+description: "演算法思維，介紹二叉樹這種資料結構以及如何使用它與 Leetcode 相關範例介紹"
 date: 2022-10-06T23:00:28+08:00
 tags: ["CS", "Algo"]
 draft: false

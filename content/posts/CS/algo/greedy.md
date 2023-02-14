@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 2-2. 貪心演算法 Greedy"
+keywords: ["C++", "Leetcode", "Algorithm", "貪心法", "greedy"]
+description: "演算法設計，介紹什麼是貪心法，貪心法的解題思維"
 date: 2023-01-24T18:31:15+08:00
 tags: ["CS", "Algo"]
 draft: false

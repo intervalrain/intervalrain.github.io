@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 2-1. 暴力演算法 Brute Force"
+keywords: ["C++", "Leetcode", "Algorithm", "Brute Force", "暴力法"]
+description: "演算法設計，介紹什麼是暴力演算法，並示範幾種資料結構的遍歷與枚舉"
 date: 2023-01-24T15:57:40+08:00
 tags: ["CS", "Algo"]
 draft: false

@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 1-9. Algorithm"
+keywords: ["C++", "Algorithm", "STL"]
+description: "C++ 的內建演算法庫使用與範例"
 date: 2023-01-03T21:49:42+08:00
 tags: ["CS", "Algo"]
 draft: false

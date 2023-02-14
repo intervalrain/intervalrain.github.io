@@ -1,5 +1,7 @@
 ---
 title: "[Algo] 0-1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis"
+keywords: ["Big O", "Time Complexity", "Algorithm", "Asymptotic analysis", "複雜度分析"]
+description: "演算法的複雜度分析，與複雜度的表示法"
 date: 2022-10-06T23:00:28+08:00
 tags: ["CS", "Algo"]
 draft: false
