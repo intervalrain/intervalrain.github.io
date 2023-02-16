@@ -1,7 +1,7 @@
 ---
 title: "[Algo] 2-3. 分治法 Divide and Conquer"
 keywords: ["C++", "Leetcode", "Algorithm", "分治法", "divide and conquer"]
-description: "演算法設計，介紹什麼是暴力演算法，並示範幾種資料結構的遍歷與枚舉"
+description: "演算法設計，介紹什麼是分治法，分治法的核心思想與例題，與常見的一些技巧。"
 date: 2023-01-27T10:48:42+08:00
 tags: ["CS", "Algo"]
 draft: false
@@ -301,9 +301,70 @@ graph LR;
     ```
     + 從上面兩個範例可以發現，樹類應用分治法於建樹問題上，基本上有著分常相似的框架，基本上都是想辦法把大問題拆成若干個同質的小問題，直到拆成 **base state** 之後再將答案組合起來。
 ### 2. Quick Select
-+ 
-    #### 1.
-    + [Leetcode 1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
++ Quick select 跟 quick sort 很類似，只是 quick select 選定一個 pivot 後，只針對一邊繼續做 select，故時間複雜度是 \\(O(n)+O(\frac{n}{2})+O(\frac{n}{4})+...+O(\frac{n}{2^k})+O(1)=O(n)\\)。  
+    #### 1. Kth Largest Element in an Array
+    + [Leetcode 215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+    + 這題正好可以運用上 Quick Select，若要用 C++ 中的內建函式 `nth_element`。
+    ```C++
+    int findKthLargest(vector<int>& nums, int k) {
+    k = nums.size()-k;
+    nth_element(nums.begin(), nums.begin()+k, nums.end());
+    return nums[k];
+    }
+    ```
+    + 以下為彷照其核心思想的實作：
+    ```C++
+    int findKthLargest(vector<int>& nums, int k) {
+        return nth(nums, nums.size()-k);
+    }
+    int nth(vector<int>& nums, int k) {
+        int left = 0;
+        int right = nums.size()-1;
+        while (left < right) {
+            int pivot = partition(nums, left, right);
+            if (pivot < k) {
+                left = pivot+1;
+            } else if (pivot > k) {
+                right = pivot-1;
+            } else {
+                break;
+            }
+        }
+        return nums[k];
+    }
+    void med(vector<int>& nums, int left, int right) {
+        int mid = left + (right-left)/2;
+        if (nums[left] >= nums[mid] && nums[mid] >= nums[right]) {
+            return;
+        } else if (nums[left] >= nums[mid] && nums[left] >= nums[right]) {
+            if (nums[mid] >= nums[right]) {
+                swap(nums[left], nums[mid]);
+            } else {
+                swap(nums[left], nums[right]);
+            }
+        } else if (nums[left] <= nums[mid] && nums[left] <= nums[right]) {
+            if (nums[mid] >= nums[right]) {
+                swap(nums[left], nums[right]);
+            } else {
+                swap(nums[left], nums[mid]);
+            }
+        }
+    }
+    int partition(vector<int>& nums, int left, int right) {
+        med(nums, left, right); // 確保每次選到的 pivot 都是相對中間的值
+        int pivot = left;
+        int i = left;
+        int j = right+1;
+        while (i < j) {
+            while (i < right && nums[++i] < nums[pivot]);
+            while (j > left && nums[pivot] < nums[--j]);
+            if (i >= j) break;
+            swap(nums[i], nums[j]);
+        }
+        swap(nums[pivot], nums[j]);
+        return j;
+    }
+    ```
 ### 3. Binary Search
 
 ---
