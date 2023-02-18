@@ -1,7 +1,7 @@
 ---
 title: "[Life] July's plan"
 date: 2022-07-16T17:48:09+08:00
-tags: ["Algorithm", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design", "TCAD"]
+tags: ["Life"]
 draft: false
 Categories: Life     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
 description: "Study plan for July" 

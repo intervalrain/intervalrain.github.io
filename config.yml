@@ -63,14 +63,16 @@ params:
     imageWidth: 120
     imageHeight: 120
     buttons:
-      - name: HDLBits
-        url: "/tags/hdlbits/"
-      - name: Logic Design
-        url: "/tags/logic-design/"
-      - name: Leetcode
+      - name: "Music"
+        url: "/categories/music/"
+      - name: "Leetcode"
         url: "/posts/leetcode/"
-      - name: CS Learning Notes
+      - name: "IT Notes"
         url: "/posts/csindex"
+      - name: "Algorithm"
+        url: "/posts/cs/algo/"
+      - name: "Life"
+        url: "/categories/life"
   # home-info mode
   # homeInfoParams:
   #   Title: "Hi there \U0001F44B"
