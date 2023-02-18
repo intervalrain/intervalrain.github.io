@@ -301,7 +301,7 @@ graph LR;
     ```
     + 從上面兩個範例可以發現，樹類應用分治法於建樹問題上，基本上有著分常相似的框架，基本上都是想辦法把大問題拆成若干個同質的小問題，直到拆成 **base state** 之後再將答案組合起來。
 ### 2. Quick Select
-+ Quick select 跟 quick sort 很類似，只是 quick select 選定一個 pivot 後，只針對一邊繼續做 select，故時間複雜度是 \\(O(n)+O(\frac{n}{2})+O(\frac{n}{4})+...+O(\frac{n}{2^k})+O(1)=O(n)\\)。  
++ Quick select 跟 quick sort 很類似，只是 quick select 選定一個 pivot 後，只針對一邊繼續做 select，假設每次都可以選到 median，則時間複雜度是 \\(O(n)+O(\frac{n}{2})+O(\frac{n}{4})+...+O(\frac{n}{2^k})+O(1)=O(n)\\)。但也有可能每次都剛好選到最大值或最小值，則時間複雜度會退化成\\(O(n^2)\\)。  
     #### 1. Kth Largest Element in an Array
     + [Leetcode 215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
     + 這題正好可以運用上 Quick Select，若要用 C++ 中的內建函式 `nth_element`。
@@ -332,6 +332,7 @@ graph LR;
         }
         return nums[k];
     }
+    // 避免時間複雜度退化成 O(n^2) 的方法, 確保每次選到的 pivot 都是相對中間的值
     void med(vector<int>& nums, int left, int right) {
         int mid = left + (right-left)/2;
         if (nums[left] >= nums[mid] && nums[mid] >= nums[right]) {
@@ -351,7 +352,7 @@ graph LR;
         }
     }
     int partition(vector<int>& nums, int left, int right) {
-        med(nums, left, right); // 確保每次選到的 pivot 都是相對中間的值
+        med(nums, left, right);
         int pivot = left;
         int i = left;
         int j = right+1;
@@ -366,6 +367,39 @@ graph LR;
     }
     ```
 ### 3. Binary Search
++ 二元搜索法是經典的分治法應用之一，試想一個情景，若你有一本電話簿，已知電話簿是按照 alphabetical order 排序(按字母排序)，那麼你會使用什麼樣的策略快速的找到你想要找的人的電話號碼呢？
+    + 假設我們要找的人叫作 Willy。
+    + 若用線性搜索法，從第一頁開始一頁一頁的找，直到找到 Willy，我們需要找完 A, B, C, ....,U, V 字首的名字才能找到 W 字首的頁面，也就是說其實 A - U 這段查找其實是多餘的，這樣的搜索法時間複雜度是 \\(O(n)\\)，寫成程式碼會是這樣：
+    ```C++
+    string findWilly(vector<pair<string, string>> book) {
+        for (int i = 0; i < book.size(); i++) {
+            if (book[i].first == "Willy") return book[i].second;
+        }
+        return "Not Found";
+    }
+    ```
+    + 若用二元搜索法，我們可以任意從書的中間選一頁，若選到的字首在 W 之前，我們只需從這頁開始往後，再任選一頁；反之，若選到的字首在 W 之後，我們只需從這頁開始往前，再任選一頁，重覆上面的動作直到找到 W，再依同樣的方法，找第二個字母。這樣的搜索法，時間複雜度是 \\(O(\log n)\\)，寫成程式碼會是這樣：
+    ```C++
+    string findWilly(vector<pair<string, string>> book) {
+        int left = 0, right = book.size()-1;
+        while (left <= right) {
+            int mid = left + (right-left)/2;
+            if (nums[mid].first == "Willy")
+                return nums[mid].second;
+            else if (nums[mid].first < "Willy")
+                left = mid + 1;
+            else if (nums[mid].first > "Willy")
+                right = mid -1;
+        }
+        return "Not Found";
+    }
+    ```
+        + 其中 `int mid = left + (right-left)/2` 是求中間值的寫法，為什麼不寫成 `int mid = (left+right)/2` 的原因是，避免兩數相加會溢數。
+    + 遇到 strictly increase 的題目，二元搜索法的基本寫法如上，是左閉右閉的寫法，另一種常見的寫法是左閉右開的寫法。
+    + 當遇到非 strictly increase 的題型，就會伴隨著左限跟右限的題型出現，這部分的詳細內容會在之後二元搜索篇詳細介紹。
+    #### 1. Binary Search
+    + 這題是最簡單的 Binary Search 實作，可以試試看。
+    + [Leetcode 704. Binary Search](https://leetcode.com/problems/binary-search/)
 
 ---
 
