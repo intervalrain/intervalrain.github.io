@@ -1,6 +1,6 @@
 ---
 title: "[LeetCode] no. <Title>"
-keywords: 
+keywords: []
 description:
 date: {{ .Date }}
 tags: ["Leetcode"]
