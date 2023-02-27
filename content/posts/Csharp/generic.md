@@ -1,7 +1,7 @@
 ---
 title: "[C#] Generic 泛型"
 keywords: ["C#", "Generic", "泛型"]
-description:
+description: "Introduction to Generic in C#"
 date: 2023-02-22T21:39:56+08:00
 tags: ["C#"]
 draft: false

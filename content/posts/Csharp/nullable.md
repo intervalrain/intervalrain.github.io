@@ -1,7 +1,7 @@
 ---
 title: "[C#] Nullable 可空值類型"
 keywords: ["C#", "Nullable", "可空值"]
-description:
+description: "Introduction to Nullable in C#"
 date: 2023-02-23T21:40:03+08:00
 tags: ["C#"]
 draft: false

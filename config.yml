@@ -1,8 +1,11 @@
 baseURL: "http://intervalrain.github.io/"
 title: "Rain's Blog"
+keywords: ["intervalrain", "rainhu", "leetcode", "algorithm", "胡鎮宇", "陣雨"]
+description: "Rain Hu 的生活記錄、leetcode解題分享、演算法筆記，與各種資工學習與工作記錄，還有一些自己的 murmur 與音樂創作"
 paginate: 5
 theme: hugo-PaperMod
-
+sitemap:
+  path: sitemap.xml
 # enableRobotsTXT: true
 # buildDrafts: false
 # buildFuture: false
