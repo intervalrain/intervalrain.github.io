@@ -1,7 +1,9 @@
 ---
-title: "[IT] C# Yield Return"
+title: "[C#] Yield Return"
+keywords: ["C#", "yeild return", "IEnumerable", "IEnumerator", "迭代器"]
+description: "Introduction to yield return in C#, and the background of IEnumerable and IEnumerator "
 date: 2023-01-01T21:40:25+08:00
-tags: ["C#", "IT"]
+tags: ["C#"]
 draft: false
 Categories: IT
 description: "Introduction to yield return in C#"
@@ -95,7 +97,7 @@ static void Main(string[] args)
             } while (e.MoveNext());
         }
         ```
-### Ieration/Process 分離
+### Iteration/Process 分離
 + 當我們今天不想管 collection 裡每一個物件是怎麼擺的，用什麼結構裝、用什麼邏輯或演算法處理的，只想要依序將安排好的元素拿出來。也就是說，我們想把物件遍歷的(iteration) 與拿到它後要做什麼事(process) 分開，那麼就可以用到 `Iterator Pattern`。
 > **2. 目標**：依序印出 1 ~ 100 中的質數  
 
