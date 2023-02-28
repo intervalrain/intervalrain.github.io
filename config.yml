@@ -73,6 +73,8 @@ params:
         url: "/posts/cs/algo/"
       - name: "Life"
         url: "/categories/life"
+      - name: "C#"
+        url: "posts/csharp/csharp"
   # home-info mode
   # homeInfoParams:
   #   Title: "Hi there \U0001F44B"
@@ -150,6 +152,10 @@ menu:
     - identifier: leetcodepage
       name: LeetCode
       url: /posts/leetcode
+      weight: 50
+    - identifier: Csharp
+      name: Csharp
+      url: /posts/csharp/csharp
       weight: 50
 
 outputs:

@@ -38,6 +38,11 @@ cover:
 + [演算法筆記](/posts/cs/algo)
 
 ---
+{{< svgrepo 51010 coding >}}
+## 程式語言
++ [C#](/posts/csharp/csharp)
+
+---
 {{< svgrepo 192223 structure-organization >}}
 ## 計算機結構
 + [計算機結構](/posts/cs/ca)
