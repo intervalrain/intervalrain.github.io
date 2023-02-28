@@ -207,4 +207,4 @@ cover:
 + 如果所需的空間有限制，如在 `30` 個以內的 `bool` 值，可以將之轉換成 `bit`，利用位元運算來達到空間壓縮。
 ---
 + 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-<!-- + 想要複習：[[Algo] 2-4. 回溯法 Backtacking](/posts/cs/algo/backtracking) -->
++ 想要複習：[[Algo] 2-4. 回溯法 Backtacking](/posts/cs/algo/backtracking)
