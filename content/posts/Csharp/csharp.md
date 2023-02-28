@@ -30,3 +30,4 @@ ShowCodeCopyButtons: true
 #### [Iterator 迭代器](/posts/csharp/iterator)
 #### [Partial 局部類型](/posts/csharp/partial)
 #### [Yield](/posts/csharp/yield)
+#### [Static Class 靜態類別](/posts/csharp/static)
