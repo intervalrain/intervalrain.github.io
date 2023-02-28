@@ -57,9 +57,9 @@ menu:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
 #   title: ExampleSite
-  description: "rainhu, intervalrain, 陣雨"
-#   keywords: [Blog, Portfolio, PaperMod]
-#   author: Rain Hu # author: ["Me", "You"] # multiple authors
+  description: "Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"
+  keywords: ["rainhu", "intervcalrain", "陣雨", "胡鎮宇", "leetcode", "Rain's Blog", "rainhu's workspace"]
+  author: ["Rain Hu", "intervarrain", "陣雨"]
 #   images: ["<link or path of image for opengraph, twitter-cards>"]
 #   DateFormat: "January 2, 2006"
 #   defaultTheme: auto # dark, light
