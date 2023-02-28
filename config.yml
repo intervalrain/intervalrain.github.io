@@ -38,7 +38,7 @@ menu:
       url: /posts/leetcode
       weight: 50
     - identifier: Csharp
-      name: Csharp
+      name: C#
       url: /posts/csharp/csharp
       weight: 50
 
