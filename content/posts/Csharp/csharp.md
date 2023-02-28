@@ -31,3 +31,4 @@ ShowCodeCopyButtons: true
 #### [Partial 局部類型](/posts/csharp/partial)
 #### [Yield](/posts/csharp/yield)
 #### [Static Class 靜態類別](/posts/csharp/static)
+#### [getter/setter 訪問權限分離](/posts/csharp/getter_setter_access_separate)
