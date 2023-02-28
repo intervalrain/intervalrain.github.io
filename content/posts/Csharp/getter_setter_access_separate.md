@@ -1,5 +1,5 @@
 ---
-title: "[C#] getter/setter 訪問權限分離"
+title: "[C#] Property getter/setter access separate 訪問權限分離"
 keywords: ["C#", "getter/setter", "access"]
 description: "Separate getter/setter property access in C#"
 date: 2023-02-28T22:18:25+08:00
