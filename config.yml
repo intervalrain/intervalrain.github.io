@@ -1,128 +1,12 @@
-baseURL: "http://intervalrain.github.io/"
-title: "Rain's Blog"
+
+# Default Theme light/dark/auto
+
+baseURL: "https://intervalrain.github.io/"
+title: "Rain Hu's Workspace"
 paginate: 5
 theme: hugo-PaperMod
 
-# enableRobotsTXT: true
-# buildDrafts: false
-# buildFuture: false
-# buildExpired: false
-
-# googleAnalytics: UA-123-45
-
-# minify:
-#   disableXML: true
-#   minifyOutput: true
-
-params:
-#   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-#   title: ExampleSite
-  description: "rainhu, intervalrain, 陣雨"
-#   keywords: [Blog, Portfolio, PaperMod]
-#   author: Rain Hu # author: ["Me", "You"] # multiple authors
-#   images: ["<link or path of image for opengraph, twitter-cards>"]
-#   DateFormat: "January 2, 2006"
-#   defaultTheme: auto # dark, light
-#   disableThemeToggle: false
-
-  # ShowReadingTime: true
-  # ShowShareButtons: true
-  # ShareButtons: ["facebook", "linkedin", "twitter", "reddit", "github", "whatsapp", "telegram"] # To customize which share buttons to be enabled on page
-  # ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  # ShowCodeCopyButtons: false
-  # disableSpecial1stPost: false
-  # disableScrollToTop: false
-  comments: true
-  GHissueID: 2
-  # hidemeta: false
-  # hideSummary: false
-  # showtoc: false
-  # tocopen: false
-  # assets:
-  #   # disableHLJS: true # to disable highlight.js
-  #   # disableFingerprinting: true
-  #   favicon: "<link / abs url>"
-  #   favicon16x16: "<link / abs url>"
-  #   favicon32x32: "<link / abs url>"
-  #   apple_touch_icon: "<link / abs url>"
-  #   safari_pinned_tab: "<link / abs url>"
-
-  label:
-    text: "Rain's Blog"
-    icon: /images/rain.png
-    iconHeight: 35
-
-  # profile-mode
-  profileMode:
-    enabled: true
-    title: "<Title>"
-    subtitle: "There's always rainbow after raining"
-    imageUrl: "/images/rain.png"
-    imageTitle: "Is it raining outside?"
-    imageWidth: 120
-    imageHeight: 120
-    buttons:
-      - name: "Music"
-        url: "/categories/music/"
-      - name: "Leetcode"
-        url: "/posts/leetcode/"
-      - name: "IT Notes"
-        url: "/posts/csindex"
-      - name: "Algorithm"
-        url: "/posts/cs/algo/"
-      - name: "Life"
-        url: "/categories/life"
-      - name: "C#"
-        url: "posts/csharp/csharp"
-  # home-info mode
-  # homeInfoParams:
-  #   Title: "Hi there \U0001F44B"
-  #   Content: Welcome to my blog
-
-  socialIcons:
-    - name: facebook
-      url: "https://facebook.com/intervalrain"
-    - name: instagram
-      url: "https://instagram.com/intervalrain"
-    - name: linkedin
-      url: "https://linkedin.com/in/intervalrain"
-    - name: github
-      url: "https://github.com/intervalrain"
-    - name: twitter
-      url: "https://twitter.com/intervalrain"
-    - name: youtube
-      url: "https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA"
-
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
-      
-  # cover:
-  #   hidden: true # hide everywhere but not in structured data
-  #   hiddenInList: true # hide on list pages and home
-  #   hiddenInSingle: true # hide on single page
-
-  editPost:
-    URL: "https://github.com/intervalrain/intervalrain.github.io/tree/main/content/"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
-
-  # for search
-  # https://fusejs.io/api/options.html
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
-
+# menu
 menu:
   main:
     - identifier: search
@@ -157,6 +41,115 @@ menu:
       name: Csharp
       url: /posts/csharp/csharp
       weight: 50
+
+
+# enableRobotsTXT: true
+# buildDrafts: false
+# buildFuture: false
+# buildExpired: false
+
+# googleAnalytics: UA-123-45
+
+# minify:
+#   disableXML: true
+#   minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+#   title: ExampleSite
+  description: "rainhu, intervalrain, 陣雨"
+#   keywords: [Blog, Portfolio, PaperMod]
+#   author: Rain Hu # author: ["Me", "You"] # multiple authors
+#   images: ["<link or path of image for opengraph, twitter-cards>"]
+#   DateFormat: "January 2, 2006"
+#   defaultTheme: auto # dark, light
+#   disableThemeToggle: false
+
+  # ShowReadingTime: true
+  # ShowShareButtons: true
+  # ShareButtons: ["facebook", "linkedin", "twitter", "reddit", "github", "whatsapp", "telegram"] # To customize which share buttons to be enabled on page
+  # ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  # ShowCodeCopyButtons: false
+  # disableSpecial1stPost: false
+  # disableScrollToTop: false
+  comments: true
+  GHissueID: 2
+  # hidemeta: false
+  # hideSummary: false
+  # showtoc: false
+  # tocopen: false
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "/images/rain.png"
+    favicon16x16: "/images/rain.png"
+    favicon32x32: "/images/rain.png"
+    apple_touch_icon: "/images/rain.png"
+    safari_pinned_tab: "/images/rain.png"
+
+  label:
+    text: "Rain Hu's Workspace"
+    icon: /images/rain.png
+    iconHeight: 35
+
+# profile-mode
+  profileMode:
+    enabled: true
+    title: "<Title>"
+    subtitle: "There's always rainbow after raining"
+    imageUrl: "/images/rain.png"
+    imageTitle: "Is it raining outside?"
+    imageWidth: 120
+    imageHeight: 120
+    buttons:
+      - name: "Music"
+        url: "/categories/music/"
+      - name: "Leetcode"
+        url: "/posts/leetcode/"
+      - name: "IT Notes"
+        url: "/posts/csindex"
+      - name: "Algorithm"
+        url: "/posts/cs/algo/"
+      - name: "Life"
+        url: "/categories/life"
+      - name: "C#"
+        url: "posts/csharp/csharp"
+  
+  socialIcons:
+    - name: facebook
+      url: "https://facebook.com/intervalrain"
+    - name: instagram
+      url: "https://instagram.com/intervalrain"
+    - name: linkedin
+      url: "https://linkedin.com/in/intervalrain"
+    - name: github
+      url: "https://github.com/intervalrain"
+    - name: twitter
+      url: "https://twitter.com/intervalrain"
+    - name: youtube
+      url: "https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA"
+
+  analytics:
+    google:
+      SiteVerificationTag: "XYZabc"
+    bing:
+      SiteVerificationTag: "XYZabc"
+
+  editPost:
+    URL: "https://github.com/intervalrain/intervalrain.github.io/tree/main/content/"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+# search Page
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
 
 outputs:
   home:
