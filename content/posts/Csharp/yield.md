@@ -1,16 +1,16 @@
 ---
 title: "[C#] Yield Return"
-keywords: ["C#", "yeild return", "IEnumerable", "IEnumerator", "迭代器"]
+keywords: ["C#", "yield return", "IEnumerable", "IEnumerator", "迭代器"]
 description: "Introduction to yield return in C#, and the background of IEnumerable and IEnumerator "
 date: 2023-01-01T21:40:25+08:00
 tags: ["C#"]
 draft: false
-Categories: IT
-description: "Introduction to yield return in C#"
+Categories: C#
 author: "Rain Hu"
 showToc: true
 TocOpen: true
 math: true
+mermaid: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true
@@ -22,11 +22,6 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
-cover:
-    image: "/images/cover.jpg"
-    alt: "Oh! You closed up the window, so you cannot see raining"
-    relative: false
-    hidden: false
 ---
 # C# 中的 Yield Return 與 `IEnumerable<T>`
 > 在使用過 `C#` 與 `Java` 兩種語言之後會發現，`Java` 為了跨平台的特性，鮮少修改 VM 規格，相較 `.NET` 為了語法簡潔，編譯器往往會做出讓步，也因此 `C#` 比起 `Java` 多了許多語法糖。如 `delegate` 等，在這邊預留一些內容到下一次寫，今天專注於 `yield return` 與 `IEnumerable`。
