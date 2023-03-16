@@ -1,5 +1,7 @@
 ---
 title: "[DS] 演算法筆記"
+keywords: ["C++", "Leetcode", "Algorithm", "貪心法", "greedy"]
+description: "演算法設計，介紹什麼是貪心法，貪心法的解題思維"
 date: 2022-10-06T22:00:28+08:00
 tags: ["CS", "DS"]
 draft: false
@@ -53,21 +55,22 @@ cover:
 #### 2-5. [動態規劃 Dynamic Programming](/posts/cs/algo/dp)
 
 ### 第三章、主題介紹
-#### 4-1. Binary Search
-#### 4-2. Two Pointer/Sliding Window
-#### 4-3. Monotonic Stack
-#### 4-4. DFS
-#### 4-5. BFS
-#### 4-6. Topological Sort
-#### 4-7. KMP
-#### 4-8. Prefix
-#### 4-9. Segment Tree
-#### 4-10. Bit Indexed Tree
-#### 4-11. Union Find
-#### 4-12. Trie
-#### 4-13. Bit Manipulation
-#### 4-14. Bitmask
-#### 4-15. Rolling Hash
+#### 3-0. [Sorting](/posts/cs/algo/sorting)
+#### 3-1. Binary Search
+#### 3-2. Two Pointer/Sliding Window
+#### 3-3. Monotonic Stack
+#### 3-4. DFS
+#### 3-5. BFS
+#### 3-6. Topological Sort
+#### 3-7. KMP
+#### 3-8. Prefix
+#### 3-9. Segment Tree
+#### 3-10. Bit Indexed Tree
+#### 3-11. Union Find
+#### 3-12. Trie
+#### 3-13. Bit Manipulation
+#### 3-14. Bitmask
+#### 3-15. Rolling Hash
 
 ### 學習資源
 [建中培訓講義](https://tioj.ck.tp.edu.tw/uploads/attachment/5/12/1_2.pdf)
