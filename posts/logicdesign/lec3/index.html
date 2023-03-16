@@ -17,30 +17,30 @@
 \)</p></blockquote><ul><li>\(Z=AB&rsquo;+CD&rsquo;\)</li></ul><h1 id=由真值表開始建構邏輯電路>由真值表開始建構邏輯電路<a hidden class=anchor aria-hidden=true href=#由真值表開始建構邏輯電路>#</a></h1><ul><li>Truth Table:<br>\(
 \boxed{
 \def\arraystretch{1}\begin{array}{ccc|c|c}
-A&B&C&f&f&rsquo;\\\hline
-0&0&0&0&1\\
-0&0&1&0&1\\
-0&1&0&0&1\\
-0&1&1&1&0\\
-1&0&0&1&0\\
-1&0&1&1&0\\
-1&1&0&1&0\\
-1&1&1&1&0
+A&amp;B&amp;C&amp;f&amp;f&rsquo;\\\hline
+0&amp;0&amp;0&amp;0&amp;1\\
+0&amp;0&amp;1&amp;0&amp;1\\
+0&amp;1&amp;0&amp;0&amp;1\\
+0&amp;1&amp;1&amp;1&amp;0\\
+1&amp;0&amp;0&amp;1&amp;0\\
+1&amp;0&amp;1&amp;1&amp;0\\
+1&amp;1&amp;0&amp;1&amp;0\\
+1&amp;1&amp;1&amp;1&amp;0
 \end{array}
 }
 \)</li><li>利用 1&rsquo;s 的函數<br>\(f=A&rsquo; BC+AB&rsquo; C&rsquo;+AB&rsquo; C+ABC&rsquo;+ABC\)<br>\(=A&rsquo; BC+AB&rsquo;+AB\)<br>\(=A&rsquo; BC+A\)<br>\(=A+BC\)</li><li>利用 0&rsquo;s 的函數<br>\(f=(A+B+C)(A+B+C&rsquo;)(A+B&rsquo;+C)\)<br>\(=(A+B)(A+B&rsquo;+C)\)<br>\(=A+B(B&rsquo;+C)\)<br>\(=A+BC\)</li></ul><h1 id=minterm-與-maxterm-展開>Minterm 與 maxterm 展開<a hidden class=anchor aria-hidden=true href=#minterm-與-maxterm-展開>#</a></h1><ul><li><p>以 \(F=A&rsquo; BC+A\) 為範例
 \(
 \boxed{
 \def\arraystretch{1}\begin{array}{c|ccc|c|c|cc}
-\text{Row No.}&A&B&C&\text{Minterns}&\text{Maxterms}&f&f&rsquo;\\\hline
-0&0&0&0&\text{A&rsquo;B&rsquo;C&rsquo;}=\text{m}_0&\text{A+B+C}=\text{M}_0&0&1\\
-1&0&0&1&\text{A&rsquo;B&rsquo;C}=\text{m}_1&\text{A+B+C&rsquo;}=\text{M}_1&0&1\\
-2&0&1&0&\text{A&rsquo;BC&rsquo;}=\text{m}_2&\text{A+B&rsquo;+C}=\text{M}_2&0&1\\
-3&0&1&1&\text{A&rsquo;BC}=\text{m}_3&\text{A+B&rsquo;+C&rsquo;}=\text{M}_3&1&0\\
-4&1&0&0&\text{AB&rsquo;C&rsquo;}=\text{m}_4&\text{A&rsquo;+B+C}=\text{M}_4&1&0\\
-5&1&0&1&\text{AB&rsquo;C}=\text{m}_5&\text{A&rsquo;+B+C&rsquo;}=\text{M}_5&1&0\\
-6&1&1&0&\text{ABC&rsquo;}=\text{m}_6&\text{A&rsquo;+B&rsquo;+C}=\text{M}_6&1&0\\
-7&1&1&1&\text{ABC}=\text{m}_7&\text{A&rsquo;+B&rsquo;+C&rsquo;}=\text{M}_7&1&0\\
+\text{Row No.}&amp;A&amp;B&amp;C&\text{Minterns}&\text{Maxterms}&amp;f&amp;f&rsquo;\\\hline
+0&amp;0&amp;0&amp;0&\text{A&rsquo;B&rsquo;C&rsquo;}=\text{m}_0&\text{A+B+C}=\text{M}_0&amp;0&amp;1\\
+1&amp;0&amp;0&amp;1&\text{A&rsquo;B&rsquo;C}=\text{m}_1&\text{A+B+C&rsquo;}=\text{M}_1&amp;0&amp;1\\
+2&amp;0&amp;1&amp;0&\text{A&rsquo;BC&rsquo;}=\text{m}_2&\text{A+B&rsquo;+C}=\text{M}_2&amp;0&amp;1\\
+3&amp;0&amp;1&amp;1&\text{A&rsquo;BC}=\text{m}_3&\text{A+B&rsquo;+C&rsquo;}=\text{M}_3&amp;1&amp;0\\
+4&amp;1&amp;0&amp;0&\text{AB&rsquo;C&rsquo;}=\text{m}_4&\text{A&rsquo;+B+C}=\text{M}_4&amp;1&amp;0\\
+5&amp;1&amp;0&amp;1&\text{AB&rsquo;C}=\text{m}_5&\text{A&rsquo;+B+C&rsquo;}=\text{M}_5&amp;1&amp;0\\
+6&amp;1&amp;1&amp;0&\text{ABC&rsquo;}=\text{m}_6&\text{A&rsquo;+B&rsquo;+C}=\text{M}_6&amp;1&amp;0\\
+7&amp;1&amp;1&amp;1&\text{ABC}=\text{m}_7&\text{A&rsquo;+B&rsquo;+C&rsquo;}=\text{M}_7&amp;1&amp;0\\
 \end{array}
 }
 \)</p></li><li><p>\(m_i&rsquo;=M_i\)</p></li><li><p>\(\text{f=A&rsquo;BC+A=1}\)<br>\(\text{=A&rsquo;BC+AB&rsquo;C&rsquo;+AB&rsquo;C+ABC&rsquo;+ABC}\)<br>\(=m_3+m_4+m_5+m_6+m_7\)<br>\(=\sum m(3,4,5,6,7)\)</p></li><li><p>\(\text{f=(A+B+C)(A+B+C&rsquo;)(A+B&rsquo;+C)=0}\)<br>\(=M_0M_1M_2\)<br>\(=\prod M(0,1,2)\)</p></li><li><p>Maxterm 與 minterm 的轉換<br>\(
@@ -57,39 +57,39 @@ g&=&[\sum m(0,1,5)]&rsquo;\\
 \)</p></li><li><p>性質：</p><ul><li>\(\boxed{\text{m}_i\text{m}_j=0\text{ if i}\neq j}\)</li></ul></li></ul><h1 id=未完整定義的函式dont-care>未完整定義的函式(Don&rsquo;t Care)<a hidden class=anchor aria-hidden=true href=#未完整定義的函式dont-care>#</a></h1><ul><li>Truth table:<br>\(
 \boxed{
 \def\arraystretch{1}\begin{array}{lll|l}
-A&B&C&F\\\hline
-0&0&0&1\\
-0&0&1&X\leftarrow \text{Don&rsquo;t care}\\
-0&1&0&0\\
-0&1&1&1\\
-1&0&0&0\\
-1&0&1&0\\
-1&1&0&X\leftarrow \text{Don&rsquo;t care}\\
-1&1&1&1\\
+A&amp;B&amp;C&amp;F\\\hline
+0&amp;0&amp;0&amp;1\\
+0&amp;0&amp;1&amp;X\leftarrow \text{Don&rsquo;t care}\\
+0&amp;1&amp;0&amp;0\\
+0&amp;1&amp;1&amp;1\\
+1&amp;0&amp;0&amp;0\\
+1&amp;0&amp;1&amp;0\\
+1&amp;1&amp;0&amp;X\leftarrow \text{Don&rsquo;t care}\\
+1&amp;1&amp;1&amp;1\\
 \end{array}
 }
 \)</li><li>表達式：<ul><li>\(F=\sum m(0,3,7)+\sum d(1,6)=\prod M(2,4,5)\cdot \prod(1,6)\)</li></ul></li></ul><h1 id=binary-adders-and-subtracters>Binary adders and subtracters<a hidden class=anchor aria-hidden=true href=#binary-adders-and-subtracters>#</a></h1><h2 id=half-adder-半加器>Half Adder 半加器<a hidden class=anchor aria-hidden=true href=#half-adder-半加器>#</a></h2><ul><li>\(X,Y_{\text{in}}\rightarrow{\boxed{\text{Half Adder}}\rightarrow \text{Sum}}\)</li><li>Truth Table:<br>\(
 \boxed{
 \def\arraystretch{1}\begin{array}{cc|c}
-X&Y&Sum\\\hline
-0&0&0\\
-0&1&1\\
-1&0&1\\
-1&1&0\\
+X&amp;Y&amp;Sum\\\hline
+0&amp;0&amp;0\\
+0&amp;1&amp;1\\
+1&amp;0&amp;1\\
+1&amp;1&amp;0\\
 \end{array}
 }
 \)</li><li>表達式： \(\text{Sum}=X&rsquo; Y+XY&rsquo;\)</li></ul><h2 id=full-adder-全加器>Full Adder 全加器<a hidden class=anchor aria-hidden=true href=#full-adder-全加器>#</a></h2><ul><li>\(X,Y,C_{\text{in}}\rightarrow{\boxed{\text{Full Adder}}\rightarrow C_{out}, \text{Sum}}\)</li><li>Truth Table:<br>\(
 \boxed{
 \def\arraystretch{1}\begin{array}{ccc|cc}
-X&Y&C_{\text{in}}&C_{\text{out}}&\text{Sum}\\\hline
-0&0&0&0&0\\
-0&0&1&0&1\\
-0&1&0&0&1\\
-0&1&1&1&0\\
-1&0&0&0&1\\
-1&0&1&1&0\\
-1&1&0&1&0\\
-1&1&1&1&1\\
+X&amp;Y&amp;C_{\text{in}}&amp;C_{\text{out}}&\text{Sum}\\\hline
+0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;1\\
+0&amp;1&amp;0&amp;0&amp;1\\
+0&amp;1&amp;1&amp;1&amp;0\\
+1&amp;0&amp;0&amp;0&amp;1\\
+1&amp;0&amp;1&amp;1&amp;0\\
+1&amp;1&amp;0&amp;1&amp;0\\
+1&amp;1&amp;1&amp;1&amp;1\\
 \end{array}
 }
 \)</li><li>表達式：<ul><li>\(\text{Sum}=X\oplus Y\oplus C_{\text{in}}\)</li><li>\(C_\text{out}=YC_{\text{in}}+XC_{\text{in}}+XY\)</li></ul></li><li>邏輯電路
@@ -97,36 +97,36 @@ X&Y&C_{\text{in}}&C_{\text{out}}&\text{Sum}\\\hline
 <img loading=lazy src=/images/4bitadder.png alt=4bitadder></li></ul><h2 id=binary-subtracter-using-full-adders>Binary Subtracter using Full Adders<a hidden class=anchor aria-hidden=true href=#binary-subtracter-using-full-adders>#</a></h2><ul><li>用全加器來實現減法器</li></ul><p><img loading=lazy src=/images/sub.png alt=subtracter></p><h2 id=full-subtracter>Full Subtracter<a hidden class=anchor aria-hidden=true href=#full-subtracter>#</a></h2><ul><li><p>\(x_i,y_i,b_i\rightarrow\boxed{\text{Full Subtracter}}\rightarrow b_{i+1},d_i\)</p></li><li><p>Truth Table:<br>\(
 \boxed{
 \def\arraystretch{1}\begin{array}{ccc|cc}
-x_i&y_i&b_i&b_{i+1}&d_i\\\hline
-0&0&0&0&0\\
-0&0&1&1&1\\
-0&1&0&1&1\\
-0&1&1&1&0\\
-1&0&0&0&1\\
-1&0&1&0&0\\
-1&1&0&0&0\\
-1&1&1&1&1\\
+x_i&amp;y_i&amp;b_i&amp;b_{i+1}&amp;d_i\\\hline
+0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;1&amp;1\\
+0&amp;1&amp;0&amp;1&amp;1\\
+0&amp;1&amp;1&amp;1&amp;0\\
+1&amp;0&amp;0&amp;0&amp;1\\
+1&amp;0&amp;1&amp;0&amp;0\\
+1&amp;1&amp;0&amp;0&amp;0\\
+1&amp;1&amp;1&amp;1&amp;1\\
 \end{array}
 }
 \)</p></li><li><p>示意<br>\(
 \boxed{
 \def\arraystretch{1}\begin{array}{c|cc}
 &\text{Column i Before Borrow}&\text{Column i After Borrow}\\\hline
-x_i&0&10&\\
+x_i&amp;0&amp;10&\\
 -b_i&-1&-1\\
 -y_i&-1&-1\\\hline
-d_i&&0(b_{i+1}=1)\\
+d_i&&amp;0(b_{i+1}=1)\\
 \end{array}
 }
 \)</p></li></ul><h2 id=parallel-subtracter>Parallel Subtracter<a hidden class=anchor aria-hidden=true href=#parallel-subtracter>#</a></h2><p><img loading=lazy src=/images/sub2.png alt=subtracter2></p><h1 id=speeding-up-integer-additions>Speeding up integer additions<a hidden class=anchor aria-hidden=true href=#speeding-up-integer-additions>#</a></h1><h2 id=ripple-carry-adder>Ripple Carry Adder<a hidden class=anchor aria-hidden=true href=#ripple-carry-adder>#</a></h2><ul><li>一般的漣波進位加法器<ul><li>設計簡單、規律</li><li>有較大的 Time Delay<ul><li>一個 Full Adder 為\(C_\text{out}=YC_{\text{in}}+XC_{\text{in}}+XY\)</li><li>也就是先 AND 再 OR，兩個 gate delay</li><li><strong>故 n-bit adder 的 time delay 是 2n</strong></li></ul></li></ul></li></ul><h2 id=carry-lockahead-addercla>Carry Lockahead Adder(CLA)<a hidden class=anchor aria-hidden=true href=#carry-lockahead-addercla>#</a></h2><ul><li>\(\text{Sum}=A\oplus B\oplus C_{in}\)</li><li>\(C_{out}=AB+(A+B)C_{in}\)</li><li>\(C_{i+1}=A_iB_i+(A_i+B_i)C_i\)</li><li>\(C_{i+1}=g_i+p_iC_i\)<ul><li>\(g_i=A_iB_i\) generate function</li><li>\(p_i=A_i+B_i\) propagate function</li></ul></li><li>\(C_2=g_1+p_1C_1\)</li><li>\(C_2=g_1+p_1p_0g_0+p_1p_0C_0\)</li><li>\(C_n=g_{n-1}+p_{n-1}g_{n-2}+p_{n-1}p_{n-2}g_{n-3}+&mldr;+p_{n-1}p_{n-2}&mldr;p_1g_0+p_{n-1}p_{n-2}&mldr;p_0C_0\)</li><li>換句話說，\(C_n\)可以藉由 \(C_0\)運算出來，以 4-bit 為例，可以從漣波的 8 次降到 5 次的 Gate delay。
 <img loading=lazy src=/images/cla.png alt=cla></li></ul><h2 id=carry-select-adder>Carry Select Adder<a hidden class=anchor aria-hidden=true href=#carry-select-adder>#</a></h2><ul><li>將兩個加法作平行處理<ul><li>預先假設 carry-in 的值，待前一級的 carry-in 算出後再用 selector 選擇正確的 carry-in，減去收到前級 carry-in 再開始運算的時間。
 <img loading=lazy src=/images/carryselector.png alt=carryselector></li></ul></li></ul><h1 id=binary-multiplication>Binary multiplication<a hidden class=anchor aria-hidden=true href=#binary-multiplication>#</a></h1><ul><li>用邏輯閘模擬一般十進制進位法的乘法<ul><li>示意<br>\(
 \def\arraystretch{1}\begin{array}{rcccc}
-\text{Multiplicand}&&&B_1&B_0\\
-\text{Multiplier}&&&A_1&A_0\\\hline
-\text{Partial products}&&&A_0B_1&A_0B_0\\
-\text{shift one bit left}&&A_1B_1&A_1B_0\\
-\text{Sum of partial products}&C1&C2&C3&C4\\
+\text{Multiplicand}&&&amp;B_1&amp;B_0\\
+\text{Multiplier}&&&amp;A_1&amp;A_0\\\hline
+\text{Partial products}&&&amp;A_0B_1&amp;A_0B_0\\
+\text{shift one bit left}&&amp;A_1B_1&amp;A_1B_0\\
+\text{Sum of partial products}&amp;C1&amp;C2&amp;C3&amp;C4\\
 \end{array}
 \)
 <img loading=lazy src=/images/multiplication.png alt=multiplication></li></ul></li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://intervalrain.github.io/tags/logic-design/>Logic Design</a></li></ul><nav class=paginav><a class=prev href=https://intervalrain.github.io/posts/logicdesign/lec2/><span class=title>« Prev Page</span><br><span>[Logic Design] Lec 02 - 布林代數</span></a>

@@ -6,116 +6,116 @@
 <img loading=lazy src=/images/notgate.png alt=notgate></li><li>Truth Table<br>\(
 \def\arraystrecth{1.5}\begin{array}{|c|c|}\hline
 \text{X}&\overline{\text{X}}\text{or}\text{X&rsquo;}\\\hline
-0&1\\\hline
-1&0\\\hline
+0&amp;1\\\hline
+1&amp;0\\\hline
 \end{array}
 \)</li></ul><h3 id=and-gates>And Gates<a hidden class=anchor aria-hidden=true href=#and-gates>#</a></h3><ul><li>Symbol
 <img loading=lazy src=/images/andgate.png alt=notgate></li><li>Truth Table<br>\(
 \def\arraystrecth{1.5}\begin{array}{|c|c|c|}\hline
 \text{X}&\text{Y}&\text{Z=X}\cdot\text{Y}\\\hline
-0&0&0\\\hline
-0&1&0\\\hline
-1&0&0\\\hline
-1&1&1\\\hline
+0&amp;0&amp;0\\\hline
+0&amp;1&amp;0\\\hline
+1&amp;0&amp;0\\\hline
+1&amp;1&amp;1\\\hline
 \end{array}
 \)</li></ul><h3 id=or-gates>Or Gates<a hidden class=anchor aria-hidden=true href=#or-gates>#</a></h3><ul><li>Symbol
 <img loading=lazy src=/images/orgate.png alt=notgate></li><li>Truth Table
 \(
 \def\arraystrecth{1.5}\begin{array}{|c|c|c|}\hline
 \text{X}&\text{Y}&\text{Z=X+Y}\\\hline
-0&0&0\\\hline
-0&1&1\\\hline
-1&0&1\\\hline
-1&1&1\\\hline
+0&amp;0&amp;0\\\hline
+0&amp;1&amp;1\\\hline
+1&amp;0&amp;1\\\hline
+1&amp;1&amp;1\\\hline
 \end{array}
 \)</li></ul><h1 id=布林表達式與真值表boolean-expression-and-truth-table>布林表達式與真值表(Boolean Expression and Truth Table)<a hidden class=anchor aria-hidden=true href=#布林表達式與真值表boolean-expression-and-truth-table>#</a></h1><ul><li>Boolean expression<ul><li>用 <code>'</code> 代表 NOT</li><li>用 <code>+</code> 代表 OR</li><li>用 <code>.</code> 代表 AND</li><li>將輸入用上面的運算子表示成算式，如：\((A+C)(B&rsquo;+C)\)</li></ul></li><li>Truth Table
 \(
 \def\arraystrecth{1.5}\begin{array}{ccc|cccccc}
-A&B&C&B&rsquo;&AB&rsquo;&AB&rsquo;+C&A+C&B&rsquo;+C&(A+C)(B&rsquo;+C)\\\hline
-0&0&0&1&0&0&0&1&0\\
-0&0&1&1&0&1&1&1&1\\
-0&1&0&0&0&0&0&0&0\\
-0&1&1&0&0&1&1&1&1\\
-1&0&0&1&1&1&1&1&1\\
-1&0&1&1&1&1&1&1&1\\
-1&1&0&0&0&0&1&0&0\\
-1&1&1&0&0&1&1&1&1\\
+A&amp;B&amp;C&amp;B&rsquo;&amp;AB&rsquo;&amp;AB&rsquo;+C&amp;A+C&amp;B&rsquo;+C&(A+C)(B&rsquo;+C)\\\hline
+0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0\\
+0&amp;0&amp;1&amp;1&amp;0&amp;1&amp;1&amp;1&amp;1\\
+0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;1&amp;0&amp;0&amp;1&amp;1&amp;1&amp;1\\
+1&amp;0&amp;0&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1\\
+1&amp;0&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1&amp;1\\
+1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+1&amp;1&amp;1&amp;0&amp;0&amp;1&amp;1&amp;1&amp;1\\
 \end{array}
 \)</li></ul><h1 id=基本運算定理>基本運算定理<a hidden class=anchor aria-hidden=true href=#基本運算定理>#</a></h1><h2 id=not-gate-的基本運算定理>NOT gate 的基本運算定理<a hidden class=anchor aria-hidden=true href=#not-gate-的基本運算定理>#</a></h2><p>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-(x&rsquo;)&rsquo;&=&x
+(x&rsquo;)&rsquo;&=&amp;x
 \end{array}
 }
 \)</p><h2 id=and-gate-的基本運算定理>AND gate 的基本運算定理<a hidden class=anchor aria-hidden=true href=#and-gate-的基本運算定理>#</a></h2><p>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-x+0&=&x\\
-x+1&=&1\\
-x+x&=&x\\
-x+x&rsquo;&=&1
+x+0&=&amp;x\\
+x+1&=&amp;1\\
+x+x&=&amp;x\\
+x+x&rsquo;&=&amp;1
 \end{array}
 }
 \)</p><h2 id=or-gate-的基本運算定理>OR gate 的基本運算定理<a hidden class=anchor aria-hidden=true href=#or-gate-的基本運算定理>#</a></h2><p>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-x\cdot 0&=&0\\
-x\cdot 1&=&x\\
-x\cdot x&=&x\\
-x\cdot x&rsquo;&=&0
+x\cdot 0&=&amp;0\\
+x\cdot 1&=&amp;x\\
+x\cdot x&=&amp;x\\
+x\cdot x&rsquo;&=&amp;0
 \end{array}
 }
 \)</p><h1 id=進階運算定理>進階運算定理<a hidden class=anchor aria-hidden=true href=#進階運算定理>#</a></h1><h2 id=交換律-commutative-law>交換律 Commutative Law<a hidden class=anchor aria-hidden=true href=#交換律-commutative-law>#</a></h2><p>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-xy&=&yx\\
-x+y&=&y+x
+xy&=&amp;yx\\
+x+y&=&amp;y+x
 \end{array}
 }
 \)</p><h2 id=結合律-associative-law>結合律 Associative Law<a hidden class=anchor aria-hidden=true href=#結合律-associative-law>#</a></h2><p>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-(xy)z&=&x(yz)\\
-(x+y)+z&=&x+(y+z)
+(xy)z&=&amp;x(yz)\\
+(x+y)+z&=&amp;x+(y+z)
 \end{array}
 }
 \)</p><h2 id=分配律-distributive-law>分配律 Distributive Law<a hidden class=anchor aria-hidden=true href=#分配律-distributive-law>#</a></h2><p>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-x(y+z)&=&xy+xz\\
+x(y+z)&=&amp;xy+xz\\
 x+yz&=&(x+y)(x+z)
 \end{array}
 }
 \)</p><h1 id=multiplying-out-and-factoring>Multiplying out and factoring<a hidden class=anchor aria-hidden=true href=#multiplying-out-and-factoring>#</a></h1><h2 id=sum-of-productsop-form>Sum of Product(SOP) form<a hidden class=anchor aria-hidden=true href=#sum-of-productsop-form>#</a></h2><ul><li>將算式化整成各個輸入端先 <strong>AND</strong> 後再 <strong>OR</strong></li><li>例： \(ABC+AB&rsquo;C+AB&rsquo;C&rsquo;\)</li></ul><h2 id=product-of-sumpos-form>Product of Sum(POS) form<a hidden class=anchor aria-hidden=true href=#product-of-sumpos-form>#</a></h2><ul><li>將算式化整成各個輸入端先 <strong>OR</strong> 後再 <strong>AND</strong></li><li>例： \((A+B+C)(A+B&rsquo;+C)(A+B&rsquo;+C&rsquo;)\)</li></ul><h2 id=multiplying-out>Multiplying out：<a hidden class=anchor aria-hidden=true href=#multiplying-out>#</a></h2><ul><li>將算式化簡成 SOP form</li><li>善用\(\boxed{(A+B)(A+C)=A+BC}\)</li><li>範例：<br>\((A+BC)(A+D+E)\)<br>\(=(A+x)(A+y)\)<br>\(=A+xy\)<br>\(=A+BC(D+E)\)<br>\(=A+BCD+BCE\)</li></ul><h2 id=factoring>Factoring：<a hidden class=anchor aria-hidden=true href=#factoring>#</a></h2><ul><li>將算式化簡成 POS form</li><li>善用\(\boxed{A+BC=(A+B)(A+C)}\)</li><li>範例：<br>\(AB&rsquo;+C&rsquo;D\)<br>\(=(AB&rsquo;+C&rsquo;)(AB&rsquo;+D)\)<br>\(=(A+C&rsquo;)(B&rsquo;+C&rsquo;)(A+D)(B&rsquo;+D))\)</li></ul><h2 id=2-level-realization>2-level realization<a hidden class=anchor aria-hidden=true href=#2-level-realization>#</a></h2><ul><li>利用 Multiplying out 與 Factoring 可以將電路簡化成 2-level circuit</li><li>因為減少了 Delay propagation 可以減少 Total Time Delay</li></ul><h1 id=demorgans-laws-and-duality>DeMorgan&rsquo;s Laws and Duality<a hidden class=anchor aria-hidden=true href=#demorgans-laws-and-duality>#</a></h1><h2 id=demorgans-laws>DeMorgan&rsquo;s Laws<a hidden class=anchor aria-hidden=true href=#demorgans-laws>#</a></h2><ul><li>方法：<ul><li>\(AND\leftrightarrow OR\)</li><li>\(A\leftrightarrow A&rsquo;\)<br>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-(x+y+z+&mldr;)&rsquo;&=&x&rsquo; y&rsquo; z&rsquo;&mldr;\\
-(xyz&mldr;)&rsquo;&=&x&rsquo;+y&rsquo;+z&rsquo;&mldr;
+(x+y+z+&mldr;)&rsquo;&=&amp;x&rsquo; y&rsquo; z&rsquo;&mldr;\\
+(xyz&mldr;)&rsquo;&=&amp;x&rsquo;+y&rsquo;+z&rsquo;&mldr;
 \end{array}
 }
 \)</li></ul></li><li>Truth Table 證明<br>\(
 \def\arraystretch{1.5}\begin{array}{ccc|ccc|c|c|c}
-x&y&z&x&rsquo;&y&rsquo;&z&rsquo;&x+y+z&(x+y+z)&rsquo;&x&rsquo; y&rsquo; z&rsquo;\\\hline
-0&0&0&1&1&1&0&1&1\\
-0&0&1&1&1&0&1&0&0\\
-0&1&0&1&0&1&1&0&0\\
-0&1&1&1&0&0&1&0&0\\
-1&0&0&0&1&1&1&0&0\\
-1&0&1&0&1&0&1&0&0\\
-1&1&0&0&0&1&1&0&0\\
-1&1&1&0&0&0&1&0&0\\
+x&amp;y&amp;z&amp;x&rsquo;&amp;y&rsquo;&amp;z&rsquo;&amp;x+y+z&(x+y+z)&rsquo;&amp;x&rsquo; y&rsquo; z&rsquo;\\\hline
+0&amp;0&amp;0&amp;1&amp;1&amp;1&amp;0&amp;1&amp;1\\
+0&amp;0&amp;1&amp;1&amp;1&amp;0&amp;1&amp;0&amp;0\\
+0&amp;1&amp;0&amp;1&amp;0&amp;1&amp;1&amp;0&amp;0\\
+0&amp;1&amp;1&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0\\
+1&amp;0&amp;0&amp;0&amp;1&amp;1&amp;1&amp;0&amp;0\\
+1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0\\
+1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;1&amp;0&amp;0\\
+1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
 \end{array}
 \)</li><li>範例<br>\([(A&rsquo; B+C&rsquo;)(D&rsquo;+EF&rsquo;)+GH+W]&rsquo;\)<br>\(=[(A+B&rsquo;)C+D(E&rsquo;+F)] (G&rsquo;+H&rsquo;)W&rsquo;\)</li></ul><h2 id=duality>Duality<a hidden class=anchor aria-hidden=true href=#duality>#</a></h2><ul><li><p>方法</p><ul><li>\(AND\leftrightarrow OR\)</li><li>\(0\leftrightarrow 1\)<br>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{cccccccccc}
-[f(&x_1,&x_2,&&mldr;,&x_n,&0,&1,&+,&\cdot&)]^D\\
-=f(&x_1,&x_2,&&mldr;,&x_n,&1,&0,&\cdot,&+&)
+[f(&amp;x_1,&amp;x_2,&&mldr;,&amp;x_n,&amp;0,&amp;1,&+,&\cdot&)]^D\\
+=f(&amp;x_1,&amp;x_2,&&mldr;,&amp;x_n,&amp;1,&amp;0,&\cdot,&+&)
 \end{array}
 }
 \)</li></ul></li><li><p>性質</p><ul><li>\(\boxed{F=G\rightarrow F^D=G^D}\)</li></ul></li><li><p>範例<br>\((x+y&rsquo;)y=xy\rightarrow x\cdot y&rsquo;+y=x+y\)</p></li><li><p>回顧分配律 Distributive Law，即為 Duality 的表現。<br>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-x(y+z)&=&xy+xz\\
+x(y+z)&=&amp;xy+xz\\
 x+yz&=&(x+y)(x+z)
 \end{array}
 }
@@ -123,44 +123,44 @@ x+yz&=&(x+y)(x+z)
 <img loading=lazy src=/images/xorgate.png alt=xorgate></li><li>Truth Table<br>\(
 \def\arraystrecth{1.5}\begin{array}{|c|c|c|}\hline
 \text{X}&\text{Y}&\text{Z=X}\oplus\text{Y}\\\hline
-0&0&0\\\hline
-0&1&1\\\hline
-1&0&1\\\hline
-1&1&0\\\hline
+0&amp;0&amp;0\\\hline
+0&amp;1&amp;1\\\hline
+1&amp;0&amp;1\\\hline
+1&amp;1&amp;0\\\hline
 \end{array}
 \)</li><li>性質：<br>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-x\oplus 0&=&x\\
-x\oplus 1&=&x&rsquo;\\
-x\oplus x&=&0\\
-x\oplus x&rsquo;&=&1\\
-x\oplus y&=&y\oplus x\\
-(x\oplus y)\oplus z&=&x\oplus (y\oplus z)\\
-x(y\oplus z)&=&xy\oplus xz\\
-x\oplus y&=&xy+x&rsquo; y'
+x\oplus 0&=&amp;x\\
+x\oplus 1&=&amp;x&rsquo;\\
+x\oplus x&=&amp;0\\
+x\oplus x&rsquo;&=&amp;1\\
+x\oplus y&=&amp;y\oplus x\\
+(x\oplus y)\oplus z&=&amp;x\oplus (y\oplus z)\\
+x(y\oplus z)&=&amp;xy\oplus xz\\
+x\oplus y&=&amp;xy+x&rsquo; y'
 \end{array}
 }
 \)</li></ul><h2 id=equivalenceequiv>Equivalence(\(\equiv\))<a hidden class=anchor aria-hidden=true href=#equivalenceequiv>#</a></h2><ul><li>Symbol
 <img loading=lazy src=/images/equivgate.png alt=equivgate></li><li>Truth Table<br>\(
 \def\arraystrecth{1.5}\begin{array}{|c|c|c|}\hline
 \text{X}&\text{Y}&\text{Z=X}\equiv{Y}\\\hline
-0&0&1\\\hline
-0&1&0\\\hline
-1&0&0\\\hline
-1&1&1\\\hline
+0&amp;0&amp;1\\\hline
+0&amp;1&amp;0\\\hline
+1&amp;0&amp;0\\\hline
+1&amp;1&amp;1\\\hline
 \end{array}
 \)</li><li>性質：<br>\(
 \boxed{
 \def\arraystretch{1.5}\begin{array}{ccc}
-x\equiv 0&=&x&rsquo;\\
-x\equiv 1&=&x\\
-x\equiv x&=&1\\
-x\equiv x&rsquo;&=&0\\
-x\equiv y&=&y\equiv x\\
-(x\equiv y)\equiv z&=&x\equiv (y\equiv z)\\
-x(y\equiv z)&=&xy\equiv xz\\
-x\equiv y&=&xy&rsquo;+x&rsquo; y
+x\equiv 0&=&amp;x&rsquo;\\
+x\equiv 1&=&amp;x\\
+x\equiv x&=&amp;1\\
+x\equiv x&rsquo;&=&amp;0\\
+x\equiv y&=&amp;y\equiv x\\
+(x\equiv y)\equiv z&=&amp;x\equiv (y\equiv z)\\
+x(y\equiv z)&=&amp;xy\equiv xz\\
+x\equiv y&=&amp;xy&rsquo;+x&rsquo; y
 \end{array}
 }
 \)</li></ul><h1 id=連鎖律-the-consensus-thorem>連鎖律 The consensus thorem<a hidden class=anchor aria-hidden=true href=#連鎖律-the-consensus-thorem>#</a></h1><ul><li>公式：<ul><li>\(\boxed{xy+x&rsquo; z+yz=xy+x&rsquo; z}\)</li><li>\(\boxed{(x+y)(x&rsquo;+z)(y+z)=(x+y)(x&rsquo;+z)}\)</li></ul></li><li>證明：<br>\(xy+x&rsquo; z+yz\)<br>\(=xy+x&rsquo; z + (x+x&rsquo;)yz\)<br>\(=xy+xyz+x&rsquo; z+x&rsquo; yz\)<br>\(=xy(1+z)+x&rsquo; z(1+y)\)<br>\(=xy+x&rsquo; z\)</li></ul><h1 id=簡化布林表達式的流程>簡化布林表達式的流程<a hidden class=anchor aria-hidden=true href=#簡化布林表達式的流程>#</a></h1><ol><li>利用 \(\boxed{xy+xy&rsquo;=x(y+y&rsquo;)=x}\)(AND性質)</li><li>利用 \(\boxed{x+xy+&mldr;=x(1+y+&mldr;)=x}\)(OR性質)</li><li>利用 \(\boxed{xy+x&rsquo; z+yz=xy+x&rsquo;z }\)(連鎖律)</li><li>利用 \(\boxed{x+x&rsquo;y=x(y+y&rsquo;)+x&rsquo;y=xy+xy&rsquo;+x&rsquo; y=x+y}\)</li><li>必要時加入 redundant terms</li></ol><ul><li><a href=https://intervalrain.github.io/posts/logicdesign/lec3/>Lec3</a>會使用圖表法，較不容易出錯。</li></ul><h1 id=如何證明布林表達式的正確性>如何證明布林表達式的正確性?<a hidden class=anchor aria-hidden=true href=#如何證明布林表達式的正確性>#</a></h1><ol><li>建構 Truth Table</li><li>簡化 LHS 和 RHS</li></ol></div><footer class=post-footer><ul class=post-tags><li><a href=https://intervalrain.github.io/tags/logic-design/>Logic Design</a></li></ul><nav class=paginav><a class=prev href=https://intervalrain.github.io/posts/logicdesign/lec1/><span class=title>« Prev Page</span><br><span>[Logic Design] Lec 01 - 數字系統與轉換</span></a>
