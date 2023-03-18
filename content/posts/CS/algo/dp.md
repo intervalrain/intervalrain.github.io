@@ -141,7 +141,7 @@ cover:
     + 定義 `dp[i][j]`：`s[1:i]` 和 `t[1:j]` 的最長相同子序列(LCS)。
 ---
 ### 5. 回文型(LPS)
-![LPS](https://th.bing.com/th/id/R.926ca9f3960c4ef8d63e58d087fa2b06?rik=s4q0jZn5E3KNfw&riu=http%3a%2f%2falgorithms.tutorialhorizon.com%2ffiles%2f2015%2f08%2fLongest-Palindromic-Subsequence-2.png&ehk=nsyPYm%2f4UtBuwjlUFkhPdA0xaLcEd2m%2b9oJT4vOFT0g%3d&risl=&pid=ImgRaw&r=0)
+![LPS](https://www.researchgate.net/publication/224375838/figure/fig2/AS:667803556261906@1536228183920/Palindrome-detection-using-suffix-arrays-demonstrated-on-the-string-mississippi-a-DP.png)
 + 給定一個序列，求一個針對這個序列的最佳解。
 + 框架：
     + 定義 `dp[i][j]`：表示針對 `s[i:j]` 的子問題求解。

@@ -28,7 +28,10 @@ cover:
     hidden: false
 ---
 
-> 前言：此系列文章為參考 [labuladong 的 fucking algorithm](https://labuladong.github.io/algo/)與 Leetcode101(高暢) 作為基底，簡化核心內容，並將程式碼以自己的 C++ code 替代，作為自己的學習筆記。
+> 前言：
+> 全文版權沒有，翻印不究。
+> 本文全是個人創作，有誤請直接留言提點，無需口水謾罵。
+> 若有幸想要找我學習、討論或是出版(?)，可以[私訊我](/posts/aboutme)
 
 ### 第零章、核心框架
 #### 0-1. [複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/posts/cs/algo/bigo)
