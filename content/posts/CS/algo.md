@@ -1,7 +1,7 @@
 ---
 title: "[DS] 演算法筆記"
-keywords: ["C++", "Leetcode", "Algorithm", "貪心法", "greedy"]
-description: "演算法設計，介紹什麼是貪心法，貪心法的解題思維"
+keywords: ["C++", "Leetcode", "Algorithm", "rainhu", "intervalrain", "陣雨"]
+description: "演算法筆記，提供各式各樣的程式設計演算法，並以 leetcode 題目或是實際案例出發，介紹並分析解法。"
 date: 2022-10-06T22:00:28+08:00
 tags: ["CS", "DS"]
 draft: false
