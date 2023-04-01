@@ -406,4 +406,4 @@ void sort(vector<int>& nums) {
 ---
 + 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
 <!-- + 想要複習：[[Algo] 4-1. 暴力演算法](/posts/cs/algo/brute_force) -->
-+ 接著閱讀：[[Algo] 3-1. Binary Search](/posts/cs/algo/binary_search)
++ 接著閱讀：[[Algo] 3-1. Two Pointer/Sliding Window](/posts/cs/algo/two_pointer)

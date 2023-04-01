@@ -59,8 +59,8 @@ cover:
 
 ### 第三章、主題介紹
 #### 3-0. [Sorting](/posts/cs/algo/sorting)
-#### 3-1. Binary Search
-#### 3-2. Two Pointer/Sliding Window
+#### 3-1. Two Pointer/Sliding Window
+#### 3-2. Binary Search
 #### 3-3. Monotonic Stack
 #### 3-4. DFS
 #### 3-5. BFS
