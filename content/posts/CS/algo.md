@@ -59,7 +59,7 @@ cover:
 
 ### 第三章、主題介紹
 #### 3-0. [Sorting](/posts/cs/algo/sorting)
-#### 3-1. Two Pointer/Sliding Window
+#### 3-1. [Two Pointer/Sliding Window](/posts/cs/algo/two_pointer)
 #### 3-2. Binary Search
 #### 3-3. Monotonic Stack
 #### 3-4. DFS
@@ -68,7 +68,7 @@ cover:
 #### 3-7. KMP
 #### 3-8. Prefix
 #### 3-9. Segment Tree
-#### 3-10. Bit Indexed Tree
+#### 3-10. [Bit Indexed Tree(Fenwick Tree)](/posts/cs/algo/BIT)
 #### 3-11. Union Find
 #### 3-12. Trie
 #### 3-13. Bit Manipulation

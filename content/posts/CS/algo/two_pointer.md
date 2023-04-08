@@ -3,9 +3,9 @@ title: "[Algo] 3-1. Two Pointer/Sliding Window"
 keywords: ["C++", "Leetcode", "Algorithm", "two pointer", "sliding window"]
 description: "使用雙指標或是更進階的滑動窗口的技巧，對資料集合(可能是array，可能是list)做搜尋。"
 date: 2023-03-19T22:56:03+08:00
-tags: ["Leetcode"]
+tags: ["CS", "algo"]
 draft: false
-Categories: Leetcode
+Categories: CS
 author: "Rain Hu"
 showToc: true
 TocOpen: true
