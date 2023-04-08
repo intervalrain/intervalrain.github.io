@@ -104,7 +104,7 @@ params:
     imageHeight: 120
     buttons:
       - name: "Music"
-        url: "/categories/music/"
+        url: "/tag/music/"
       - name: "Leetcode"
         url: "/posts/leetcode/"
       - name: "IT Notes"
