@@ -284,6 +284,7 @@ public string Name { get; private set; }
     Alpha.Attack(Delta);
     ```
 + 編譯器唯一需要做的是為擴展方法及其所在類添加`[Extension]`特性。該特性在命名空間`System.Runtime.CompileServices`下。本質上是一個標記，標記擴充方法。
+## 6. LINQ 查詢
 + 接著我們可以透過 lambda 表達式與擴充方法來進行鏈式調用：
     ```Csharp
     Warrior Alpha = { Name = "Alpha", Level = 5, Attack = 10, HP = 20 };
