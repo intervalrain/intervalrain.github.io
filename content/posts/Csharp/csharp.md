@@ -33,3 +33,6 @@ ShowCodeCopyButtons: true
 #### [Static Class 靜態類別](/posts/csharp/static)
 #### [Property getter/setter access separate 訪問權限分離](/posts/csharp/getter_setter_access_separate)
 #### [Namespace Alias 空間命名別名](/posts/csharp/namespace_alias)
+
+### C#3
+#### [Linq 及其相關特性](/posts/csharp/linq_props)
