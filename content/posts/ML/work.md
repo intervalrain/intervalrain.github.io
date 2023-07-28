@@ -121,8 +121,8 @@ plt.show()
 ### 計算梯度
 + \\(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\\\
 \text{cost} = (\text{y}-(\text{w}\times\text{x}+\text{b}))^2\\\\
-\text{m} _\text{w} = -2\times\text{x}(\text{y}-\text{wx})\\\\
-\text{m} _\text{b} = -2\times(\text{y}-\text{wx})\\\\
+\text{m} _\text{w} = -2\times\text{x}(\text{y-wx-b})\\\\
+\text{m} _\text{b} = -2\times(\text{y-wx-b})\\\\
 \\)
 ```python
 def compute_gradient(x, y, w, b):
