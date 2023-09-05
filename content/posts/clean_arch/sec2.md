@@ -1,5 +1,5 @@
 ---
-title: "[IT] Clean Architecture - 第二部分 從基礎構件開始: 程式設計範式"
+title: "[IT] Clean Architecture - 第二部分 從基礎構件開始: 程式設計範式(Paradigms)"
 keywords: ["Clean Architecture", "SOLID", "DDD", "Design Pattern"]
 description:
 date: 2023-09-05T21:43:11+08:00
