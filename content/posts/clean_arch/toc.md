@@ -35,7 +35,7 @@ ShowCodeCopyButtons: true
 #### [第2章 - 兩個價值維度](/posts/clean_arch/ch2)
 ---
 ### [第二部分 從基礎構件開始: 程式設計範式](/posts/clean_arch/sec2)
-#### [第3章 - 程式設計範本總覽](/posts/clean_arch/ch3)
+#### [第3章 - 程式設計範式總覽](/posts/clean_arch/ch3)
 #### [第4章 - 結構化程式設計](/posts/clean_arch/ch4)
 #### [第5章 - 物件導向程式設計](/posts/clean_arch/ch5)
 #### [第6章 - 函數式程式設計](/posts/clean_arch/ch6)
