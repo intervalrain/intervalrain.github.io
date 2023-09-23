@@ -1124,4 +1124,35 @@ public class Nominator : ExpressionVisitor
 }
 ```
 　　Evaluator 類公開了一個靜態方法 `ParitalEval`，讓我們可以呼叫此方法來評估表達式中的子樹，只留下具有實際值的常數節點。  
-　　
+　　大部分的程式碼是用來劃分可以獨立求值的最大小樹。實際評估的過程非常簡單，因為這些子樹可以使用 `LambdaExpression.Compile` 進行編譯，轉換為委派並進行調用。我們可以在 `SubtreeVisitor.Evaluate` 方法中觀察這一過程的發生。  
+　　確定最大子樹的過程分為兩個步驟，首先，在 `Nominator` 類中進行自底向上的遍歷，確定可能獨立求值的節點，然後在 `SubtreeEvaluator` 中進行自頂向下的遍歷，找到被標記的子樹的最高節點。  
+　　Nominator 由我們的定義的函式作參數化，該函數可以使用任何觸發式方法來確定某個給定節點是否可以獨立求值。默認的觸發鉽方法是除了 ExpressionType.Parameter 之外的任何節點都可以獨立求值。除此之外，還有一個通用規則，即如果子節點無法在本地求值，則父節點也無法求值。因此，參數上游的任何節點都無法求值並將保留在樹中。其它所有節點將被求值並替換成常數。  
+　　現在有了這個類別，我們就可以在翻譯表達樹時隨時使用它。這個操作已經被分解到 `DbQueryProvider` 類別的 `Translate` 方法中了。
+```csharp
+public class DbQueryProvider : QueryProvider
+{
+    private string Translate(Expression expression)
+    {
+        expression = Evaluator.PartialEval(expression);
+        return new QueryTranslator().Translate(expression);
+    }
+}
+```
+
+# Select
+　　我們已經有了一個粗糙的 LINQ provider 了，可以把 `Where` 方法轉成 SQL。可以執行查詢並將結果轉成我的物件。但我們想要做的是一個可以完整運作的 ORM，首先我們可以試著將 provider 加入 `Select`。  
+　　相比 `Select`，翻譯 `Where` 方法容易許多。我指的是 LINQ 的 Select 操作，我們可以將數據轉換成任何我們想要的形式。LINQ 的 Select 運算子的選擇器函數可以是任何用戶能夠想象的轉換表達式。這裡可能會有物件建構子、初始化程式、條件語句、二元運算子、方法調用等等。我們該如何將這些轉換成 SQL，更不用說在返回的物件中重現這種結構？  
+　　事實上，當用戶撰寫好查詢時，它已經寫好程式碼了。  
+　　選擇器函數是建構結果的程式碼，如果這是物件的 LINQ 而不是 `IQueryable` 提供的程式，選擇器函數將是運行以產生結果的程式碼，這有什麼不同呢？  
+　　如果選擇器函數是實際程式碼而不是表達樹，那它只需要一個函數將一個物件轉換成另一個物件。
+　　我們可能可以將先前的 `ObjectReader` 與基本上是 LINQ to Objects 版本的 Select 結合起來，將檢索到的所有數據結果轉換為不同形狀。然而，這將是對時間與空間結構的嚴重濫用。我們不應該檢索所有數據，我們只應該帶回需要的二元制結果(bits)。
+```csharp
+public abstract class ProjectionRow
+{
+    public abstract object GetValue(int index);
+}
+```
+　　先做一個簡單的抽象基類，代表一行數據。如果我們透過選擇器表達式通過調用 `GetValue` 從這個對象中提取數據，然後使用 `Expression.Convert` 操作。
+
+
+待續
