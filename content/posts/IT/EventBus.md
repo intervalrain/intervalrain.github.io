@@ -26,7 +26,7 @@ ShowCodeCopyButtons: true
 
 # EventBus
 
-![eventBus](http://www.skcircle.com/zb_users/upload/2021/07/20210708201740162574666058856.png)
+![eventBus](https://th.bing.com/th/id/R.87d7f0f7e01b188aa312c91b2be45fe8?rik=TjWnWJ%2fkTukAaA&pid=ImgRaw&r=0)
 
 + EventBus 用於維護一個事件源與事件處理的映射字典
 + 通過 Singleton，確保 EventBus 的唯一入口
