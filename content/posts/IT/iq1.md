@@ -1153,6 +1153,505 @@ public abstract class ProjectionRow
 }
 ```
 　　先做一個簡單的抽象基類，代表一行數據。如果我們透過選擇器表達式通過調用 `GetValue` 從這個對象中提取數據，然後使用 `Expression.Convert` 操作。
+## ColumnProjector 實作
+```csharp
+internal class ColumnProjector : ExpressionVisitor
+{
+    StringBuilder sb;
+    int iColumn;
+    ParameterExpression row;
+    static MethodInfo miGetValue;
 
+    internal ColumnProjector()
+    {
+        if (miGetValue == null)
+            miGetValue = typeof(ProjectionRow).GetMethod("GetValue");
+    }
 
-待續
+    internal ColumnProjection ProjectColumns(Expression expression, ParameterExpression row)
+    {
+        sb = new StringBuilder();
+        this.row = row;
+        Expression selector = this.Visit(expression);
+        return new ColumnProjection
+        {
+            Columns = sb.ToString(),
+            Selector = selector
+        };
+    }
+
+    protected override Expression VisitMemberAccess(MemberExpression m)
+    {
+        if (m.Expression != null && m.Expression.NodeType == ExpressionType.Parameter)
+        {
+            if (sb.Length > 0)
+            {
+                sb.Append(", ");
+            }
+            sb.Append(m.Member.Name);
+
+            return Expression.Convert(Expression.Call(row, miGetValue, Expression.Constant(iColumn++)), m.Type);
+        }
+        return base.VisitMemberAccess(m);
+    }
+}
+```
+　　`ColumnProjector` 是一個訪問者，它遍歷表達式樹，將欄參考轉換成可以通過調用 `GetValue` 方法來訪問的個別數據表達式。這個方法來一個叫作 row 的 `ParameterExpression`，它的類型被定義為 `ProjectionRow` 抽象類。我不僅正在重建這個選擇器表達式，最終還要將它轉換成一個以 `ProjectionRow` 為參數的 lambda 表達式主體。這樣我就可以通過調用 `LambdaExpression.Compile` 方法將 LambdaExpression 轉換為委託。  
+　　注意，訪問者還建立了一個表示 SQL select 子句的字串。現在每當我們在查詢表達式中看到 `Queryable.Select`，我們都可以將選擇器轉換為同時產生結果的函數，以及下 SQL 需要的 `select` 子句。  
+
+## 改寫 QueryTranslator
+　　以下是修改過後的 `QueryTranslator`：
+```csharp
+internal class QueryTranslator : ExpressionVisitor
+{
+    StringBuilder sb;
+    ParameterExpression row;
+    ColumnProjection projection;
+
+    internal TranslateResult Translate(Expression expression)
+    {
+        sb = new StringBuilder();
+        row = Expression.Parameter(typeof(ProjectionRow), "row");
+        Visit(expression);
+        return new TranslateResult
+        {
+            CommandText = sb.ToString(),
+            projector = projection != null ? Expression.Lambda(projection.Selector, row) : null
+        };
+    }
+
+    protected override Expression VisitMethodCall(MethodCallExpression m)
+    {
+        if (m.Method.DeclaringType == typeof(Queryable))
+        {
+            if (m.Method.Name == "Where")
+            {
+                sb.Append("Select * From (");
+                Visit(m.Arguments[0]);
+                sb.Append(") As T Where ");
+                LambdaExpression lambda = (LambdaExpression)StripQuotes(m.Arguments[1]);
+                Visit(lambda.Body);
+                return m;
+            }
+            else if (m.Method.Name == "Select")
+            {
+                LambdaExpression lambda = (LambdaExpression)StripQuotes(m.Arguments[1]);
+                ColumnProjection proj = new ColumnProjector().ProjectColumns(lambda.Body, row);
+                sb.Append("Select ");
+                sb.Append(proj.Columns);
+                sb.Append(" From (");
+                Visit(m.Arguments[0]);
+                sb.Append(") As T ");
+                projection = proj;
+                return m;
+            }
+        }
+        throw new NotSupportedException(string.Format("The method '{0}' is not supported", m.Method.Name));
+    }
+}
+```
+　　其中 `TranslateResult` 裝載要下的 SQL 字串與 lambda 表達式。
+```csharp
+internal class TranslateResult
+{
+    internal string CommandText;
+    internal LambdaExpression projector;
+}
+```
+　　現在 `QueryTranslator` 處理 Select 方法，就像 Where 方法一樣建構 SQL Select 語句。然而，它還記住了最後一個 ColumnProjection(調用 ProjectColumns 的結果)，並將新重構的選擇器作為 LambdaExpression 反回到 TranslateResult 物件中。  
+　　現在我們所需要的是一個能夠根據這個 LambdaExpression 工作的 ObjectReader，而不僅僅是建構一個物件。
+
+## 改寫 Projection Reader 
+　　`Projection Reader` 可以改寫成：
+```chsarp
+internal class ProjectionReader<T> : IEnumerable<T>, IEnumerable 
+{
+    Enumerator<T> enumerator;
+    internal ProjectionReader(DbDataReader reader, Func<ProjectionRow, T> projector)
+    {
+        enumerator = new Enumerator<T>(reader, projector);
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        Enumerator<T> e = enumerator;
+        if (e == null)
+            throw new InvalidOperationException("Cannot enumerate more than once");
+        enumerator = null;
+        return e;
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+}
+```
+　　其中，`Enumerator` 的實作：
+```csharp
+internal class Enumerator<T> : ProjectionRow, IEnumerator<T>, IEnumerator, IDisposable
+{
+    DbDataReader reader;
+    T current;
+    Func<ProjectionRow, T> projector;
+    internal Enumerator(DbDataReader reader, Func<ProjectionRow, T> projector)
+    {
+        this.reader = reader;
+        this.projector = projector;
+    }
+
+    public override object GetValue(int index)
+    {
+        if (index >= 0)
+        {
+            if (reader.IsDBNull(index))
+            {
+                return null;
+            }
+            else
+            {
+                return reader.GetValue(index);
+            }
+        }
+        throw new IndexOutOfRangeException();
+    }
+
+    public T Current
+    {
+        get { return current; }
+    }
+
+    object IEnumerator.Current
+    {
+        get { return current; }
+    }
+
+    public bool MoveNext()
+    {
+        if (reader.Read())
+        {
+            current = projector(this);
+            return true;
+        }
+        return false;
+    }
+
+    public void Reset()
+    {
+    }
+
+    public void Dispose()
+    {
+        reader.Dispose();
+    }
+}
+```
+　　`ProjectionReader` 類別與 `ObjectReader` 類別幾乎相同，唯一的差異在於缺少根據欄位建構物件的邏輯。取而代之的是對這個新的 **projector** 委派的呼叫。這個想法是，將我們可以重建的選擇器表達式中獲得完全相同的委派。  
+　　所以，我們重新建立了選擇器表達式，以引用一個類型為 `ProjectionRow` 的參數。現在我們可以看到 `ProjectionReader` 內部的 `Enumerator` 類別實現了這個 `ProjectionRow`。它是唯一可以引用 `DbDataReader` 的物件，這也讓我們在調用時能夠輕鬆地將 `this` 傳遞給委派。  
+
+## 改寫 DbQueryProvider
+　　有了這些，我們可以構建新的 provider：
+```csharp
+public class DbQueryProvider : QueryProvider
+{
+    private readonly DbConnection connection; 
+
+    public DbQueryProvider(DbConnection connection)
+    {
+        this.connection = connection;
+    }
+
+    public override string GetQueryText(Expression expression)
+    {
+        return Translate(expression).CommandText;
+    }
+
+    public override object Execute(Expression expression)
+    {
+        TranslateResult result = Translate(expression);
+        DbCommand cmd = connection.CreateCommand();
+        cmd.CommandText = result.CommandText;
+        DbDataReader reader = cmd.ExecuteReader();
+
+        Type elementType = TypeManager.GetElementType(expression.Type);
+        if (result.projector != null)
+        {
+            Delegate projector = result.projector.Compile();
+            return Activator.CreateInstance(
+                typeof(ProjectionReader<>).MakeGenericType(elementType),
+                BindingFlags.Instance | BindingFlags.NonPublic, null,
+                new object[] { reader, projector },
+                null);
+        }
+
+        return Activator.CreateInstance(
+            typeof(ObjectReader<>).MakeGenericType(elementType),
+            BindingFlags.Instance | BindingFlags.NonPublic, null,
+            new object[] { reader },
+            null);
+    }
+
+    private TranslateResult Translate(Expression expression)
+    {
+        expression = Evaluator.PartialEval(expression);
+        return new QueryTranslator().Translate(expression);
+    }
+}
+```
+　　調用 `Translate` 方法會返回我們所需的一切。我們只需要通過調用 `Compile` 將 LambdaExpression 轉換成委託。注意，我們仍然需要保留舊的 `ObjectReader`。這只是為了防止查詢從未出來 Select 的情況。  
+```csharp
+string city = "London";
+var query = db.Customers
+                .Where(c => c.City == city)
+                .Select(c => new 
+                {
+                    Name = c.ContactName,
+                    Phone = c.Phone
+                });
+```
+　　現在上面的查詢語句已經可以執行了。以下是產生的結果：
+```sql
+Select ContactName, Phone From (
+    Select * From (
+        Select * From Customers
+    ) As T Where (
+        City = 'London'
+    )
+) As T
+```
+
+# 改進欄綁定(column binding)
+　　我們已經構建了一個可以工作的 LINQ IQueryable provider，它針對 ADO 和 SQL，並且到目前為止已經能夠翻譯 `Queryable.Where` 和 `Queryable.Select` 標準查詢運算子。然後還存在很大的缺失，不只是缺少了運算子如 `OrderBy` 與 `Join`，而是更大的概念性錯誤。  
+　　嘗試重新調換 `.Where` 與 `.Select` 的順序：
+```csharp
+var query = db.Customers.Select(c => new {
+                            Name = c.ContactName,
+                            Location = c.City
+                        }).Where(x => x.Location == city);
+```
+　　以下是目前的 provider 轉換出來的 SQL：
+```sql
+Select * From (
+    Select ContactName, City From (
+        Select * From Customers
+    ) As T
+) As T Where (
+    Location = 'London'
+)
+```
+　　上面的 SQL 在執行時，會拋出異常，`Invalid column name 'Location'`，我們將成員訪問視為欄位引用過於簡化致使問題的產生。子樹中唯的的成員訪問不一定與欄位名稱匹配，所以我們需要其它的方法來改變欄位名以匹配，或是找到其它處理成員訪問的方法。  
+　　provider 要做的最終目的，其實只是將查詢表達式轉換成文字。文字只是 SQL 的一種表現形式，但對程式邏輯而言並不是一種好的表達方式，如果我們可以將 SQL 抽象化，那我們就能處理更複雜的轉換。  
+　　最適合操作的數據結構當然是**語義 SQL 樹 (semantic SQL tree)**，理想狀況下，我們會有一個完全獨立的 SQL 樹定義，可以將 LINQ 查詢表達式轉換成樹，這個理想的 SQL 樹的定義與 LINQ 樹有很多重疊之處，所以我們可以透過「教導」 LINQ 表達式樹有關 SQL 的知識，為此，我們需要新的表達式節點類型：
+## 自定義的 DbExpressionType
+```csharp
+internal enum DbExpressionType
+{
+    Table = 1000,  // 確保不與其它 ExpressionType 重覆
+    Column,
+    Select,
+    Projection
+}
+```
+　　接著創建各自的 `Expression` 繼承類別，與供 `SelectExpression` 使用的 `ColumnDeclaration`：  
+## TableExpression 實作
+```csharp
+internal class TableExpression : Expression
+{
+    string alias;
+    string name;
+
+    internal TableExpression(Type type, string alias, string name)
+        : base((ExpressionType)DbExpressionType.Table, type)
+    {
+        this.alias = alias;
+        this.name = name;
+    }
+
+    internal string Alias => alias;
+
+    internal string Name => name;
+}
+```
+## ColumnExpression 實作
+```csharp
+internal class ColumnExpression : Expression
+{
+    string alias;
+    string name;
+    int ordinal;
+
+    internal ColumnExpression(Type type, string alias, string name, int ordinal)
+        : base((ExpressionType)DbExpressionType.Column, type)
+    {
+        this.alias = alias;
+        this.name = name;
+        this.ordinal = ordinal;
+    }
+
+    internal string Alias => alias;
+    internal string Name => name;
+    internal int Ordinal => ordinal;
+}
+```
+### ColumnDeclaration 實作
+```csharp
+internal class ColumnDeclaration
+{
+    string name;
+    Expression expression;
+
+    internal ColumnDeclaration(string name, Expression expression)
+    {
+        this.name = name;
+        this.expression = expression;
+    }
+
+    internal string Name => name;
+    internal Expression Expression => expression;
+}
+```
+## SelectExpression 實作
+```csharp
+internal class SelectExpression : Expression
+{
+    string alias;
+    ReadOnlyCollection<ColumnDeclaration> columns;
+    Expression from;
+    Expression where;
+
+    internal SelectExpression(Type type, string alias, IEnumerable<ColumnDeclaration> columns, Expression from, Expression where)
+        : base((ExpressionType)DbExpressionType.Select, type)
+    {
+        this.alias = alias;
+        this.columns = columns as ReadOnlyCollection<ColumnDeclaration>;
+
+        if (this.columns == null)
+        {
+            this.columns = new List<ColumnDeclaration>(columns).AsReadOnly();
+        }
+        this.from = from;
+        this.where = where;
+    }
+
+    internal string Alias => alias;
+    internal ReadOnlyCollection<ColumnDeclaration> Columns => columns;
+    internal Expression From => from;
+    internal Expression Where => where; 	
+}
+```
+## ProjectionExpression 實作
+```csharp
+internal class ProjectionExpression :Expression
+{
+	SelectExpression source;
+	Expression projector;
+
+	internal ProjectionExpression(SelectExpression source, Expression projector)
+		: base((ExpressionType)DbExpressionType.Projection, projector.Type)
+	{
+		this.source = source;
+		this.projector = projector; 
+	}
+
+	internal SelectExpression Source => source;
+	internal Expression Projector => projector; 
+}
+```
+　　我們在目前的 LINQ 表達式樹中真正需要添加的 SQL 部分只有以下幾個概念：
+1. SQL Select 查詢，它可以生成一個或多個欄
+2. 對欄的引用
+3. 對表的引用
+4. 通過欄引用重新組裝物件的投影
+
+　　透過自定義 `DbExpressionType` 的 enum 類型，它擴充了 `ExpressionType`，通過選擇一個足夠大的起始值(table = 1000)，避免與其它定義發生衝突。這做為一個無法繼承 enum 類別時，另闢的途徑。  
+　　每個新的表達式節點都遵循由 LINQ 表達式設置的相同配置，只是現在它們模擬的是 SQL 概念而不是 CLR 概念。注意 `SelectExpression` 包含了一組**欄的集合**、**from 表達式**與 **where 表達式**。這是因為這個表達式節點的目的是要匹配一個合法的 `SQL Select` 語句所包含的內容。  
+　　`ProjectionExpression` 描述了如何根據 select 表達式的欄構建物件，這幾乎與先前的 `ProjectionReader` 的委托所扮演的角色完全相同。只不過這一次，我們可以根據 SQL 查詢來推理投影，而不僅僅將其視為從 DataReaders 中組裝物件。  
+
+## DbExpressionVisitor 實作
+　　既然我們有了新的節點，那我們就需要新的訪問器。`DbExpressionVisitor` 擴展了 `ExpressionVisitor`，為新節點添加基本的訪問模式：
+```csharp
+internal class DbExpressionVisitor : ExpressionVisitor
+{
+    public override Expression Visit(Expression exp)
+    {
+        if (exp == null)
+            return exp;
+
+        switch ((DbExpressionType)exp.NodeType)
+        {
+            case DbExpressionType.Table:
+                return VisitTable((TableExpression)exp);
+            case DbExpressionType.Column:
+                return VisitColumn((ColumnExpression)exp);
+            case DbExpressionType.Select:
+                return VisitSelect((SelectExpression)exp);
+            case DbExpressionType.Projection:
+                return VisitProjection((ProjectionExpression)exp);
+            default:
+                return base.Visit(exp);
+        }
+    }
+
+    protected virtual Expression VisitTable(TableExpression table)
+    {
+        return table;
+    }
+
+    protected virtual Expression VisitColumn(ColumnExpression column)
+    {
+        return column;
+    }
+
+    protected virtual Expression VisitSelect(SelectExpression select)
+    {
+        Expression from = VisitSource(select.From);
+        Expression where = Visit(select.Where);
+        ReadOnlyCollection<ColumnDeclaration> columns = this.VisitColumnDeclaration(select.Columns);
+
+        if (from != select.From || where != select.Where || columns != select.Columns)
+        {
+            return new SelectExpression(select.Type, select.Alias, columns, from, where);
+        }
+
+        return select;
+    }
+
+    protected virtual Expression VisitSource(Expression source)
+    {
+        return this.Visit(source);
+    }
+
+    protected virtual Expression VisitProjection(ProjectionExpression projection)
+    {
+        SelectExpression source = (SelectExpression)this.Visit(projection.Source);
+        Expression projector = this.Visit(projection.Projector);
+
+        if (source != projection.Source || projector != projection.Projector)
+        {
+            return new ProjectionExpression(source, projector);
+        }
+        return projection;
+    }
+
+    protected ReadOnlyCollection<ColumnDeclaration> VisitColumnDeclarations(ReadOnlyCollection<ColumnDeclaration> columns)
+    {
+        List<ColumnDeclaration> alternate = null;
+        for (int i = 0; i < columns.Count; i++)
+        {
+            ColumnDeclaration column = columns[i]; 
+            Expression e = this.Visit(column.Expression);
+            if (alternate == null && e != column.Expression)
+            {
+                alternate = columns.Take(i).ToList();
+            }
+
+            if (alternate != null)
+            {
+                alternate.Add(new ColumnDeclaration(column.Name, e));
+            }
+        }
+
+        return alternate?.AsReadOnly() ?? columns;
+    }
+}
+```
