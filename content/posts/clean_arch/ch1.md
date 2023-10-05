@@ -1,7 +1,7 @@
 ---
 title: "[IT] Clean Architecture - 第1章 - 設計與架構到底是什麼"
 keywords: ["Clean Architecture", "SOLID", "DDD", "Design Pattern"]
-description:
+description: "What is design and architecture?"
 date: 2023-09-03T23:14:07+08:00
 tags: ["Clean Architectrue"]
 draft: false

@@ -1,7 +1,7 @@
 ---
 title: "[IT] Clean Architecture - 第2章 - 兩個價值維度"
 keywords: ["Clean Architecture", "SOLID", "DDD", "Design Pattern"]
-description:
+description: "two values"
 date: 2023-09-04T15:18:12+08:00
 tags: ["Clean Architectrue"]
 draft: false

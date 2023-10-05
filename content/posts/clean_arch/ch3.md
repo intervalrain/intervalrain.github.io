@@ -1,7 +1,7 @@
 ---
 title: "[IT] Clean Architecture - 第3章 - 程式設計範式總覽"
-keywords: ["Clean Architecture", "SOLID", "DDD", "Design Pattern"]
-description:
+keywords: ["Clean Architecture", "SOLID", "DDD", "Design Pattern", "paradigm"]
+description: "paradigm overview"
 date: 2023-09-07T22:07:54+08:00
 tags: ["Clean Architectrue"]
 draft: false
