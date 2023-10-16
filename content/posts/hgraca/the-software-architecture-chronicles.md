@@ -54,11 +54,11 @@ ShowCodeCopyButtons: true
 # 文章列表
 [1. 軟體架構前提 (Software Architecture Premises)](../software-architecture-premises)
 
-[2. 程式語言的演進 (Programming Languages Evolution)]()
+[2. 程式語言的演進 (Programming Languages Evolution)](../programming-language-evolution)
 
 [3. 架構風格 / 架構模式 / 設計模式 (Architectural Styles vs. Architectural Patterns vs. Design Patterns)]()
 
-[4. 單體架構 (Monolithic Architecture)]()
+[4. 單體架構 (Monolithic Architecture)](../monolithic-architecture)
 
 [5. 分層架構 (Layered Architecture)]()
 
