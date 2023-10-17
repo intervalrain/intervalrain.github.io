@@ -54,5 +54,5 @@ ShowCodeCopyButtons: true
 在那個時候，我們需要將我們的單體系統分離成不同的應用程式，並採用SOA架構風格（關於這點將在後續的文章中詳述）。
 
 # 反模式：大泥球/義大利麵條式架構 Anti-pattern: Big Ball of Mud / Spaghetti Architecture
-
+![spaghetta](https://herbertograca.files.wordpress.com/2017/03/spaghetti.png)
 所謂的「泥球」，又稱為「義大利麵條式架構」，就是這種風格的反模式，其中套件的結構和關係並不明確，結構的內聚力和封裝性幾乎不存在，依賴性沒有遵循任何規則，並且很難理解子系統，以進行變更和重構。該系統是不透明的，黏稠的，脆弱的，且僵硬的：一個大泥球！

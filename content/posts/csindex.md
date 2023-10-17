@@ -70,6 +70,7 @@ cover:
 ---
 {{< svgrepo 138770 painting >}}
 ## 系統設計
++ [系統架構](/posts/hgraca/the-software-architecture-chronicles)
 + 系統設計基礎
 + 分布式
 + 集群
