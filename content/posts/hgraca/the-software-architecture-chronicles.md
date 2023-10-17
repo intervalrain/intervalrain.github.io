@@ -60,7 +60,7 @@ ShowCodeCopyButtons: true
 
 [4. 單體架構 (Monolithic Architecture)](../monolithic-architecture)
 
-[5. 分層架構 (Layered Architecture)]()
+[5. 分層架構 (Layered Architecture)](../)
 
 [6. MVC 及其替代方案]()  
 + [1979 - Model-View-Controller]()
