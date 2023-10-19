@@ -62,14 +62,14 @@ ShowCodeCopyButtons: true
 
 [5. 分層架構 (Layered Architecture)](../layered-architecture)
 
-[6. MVC 及其變形](mvc-and-its-variants)  
-+ [1979 - Model-View-Controller]()
-+ [1987/2000 - PAC/Hierachical Model-View-Controller]()
-+ [1996 - Model-View-Presenter]()
-+ [1998 - "Model1" & "Model2"]()
-+ [2005 - ModelView-ViewModel]()
-+ [???? - Model-View-Presenter-ViewModel]()
-+ [2008 - Resource-Method-Representation]()
+[6. MVC 及其變形](../mvc-and-its-variants)  
++ [1979 - Model-View-Controller](../mvc-and-its-variants/#1979---model-view-controller)
++ [1987/2000 - PAC/Hierachical Model-View-Controller](../mvc-and-its-variants/#19872000---pachierarchical-model-view-controller)
++ [1996 - Model-View-Presenter](../mvc-and-its-variants/#1996---model-view-presenter)
++ [1998 - "Model1" & "Model2"](../model-1-model-2/)
++ [2005 - ModelView-ViewModel](../mvc-and-its-variants/#2005---model-view-viewmodel)
++ [???? - Model-View-Presenter-ViewModel](../mvc-and-its-variants/#model-view-presenter-viewmodel)
++ [2008 - Resource-Method-Representation](../resource-method-representation/)
 + [2014 - Action-Domain-Responder]()
 
 [7. EBI 架構 (EBI Architecture)]()
