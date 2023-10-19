@@ -1,12 +1,12 @@
 ---
-title: "[IT] Clean Architecture - 第一部分 概述"
-keywords: ["Clean Architecture", "SOLID", "DDD", "Design Pattern"]
-description:
+title: "[IT] 分層架構 Layered Architecture"
+keywords: ["Software Architecture"]
+description: 
 date: {{ .Date }}
-tags: ["Clean Architectrue"]
+tags: ["Software Architectrue"]
 draft: false
 Categories: "IT"
-author: "Rain Hu"
+author: "hgraca"
 showToc: true
 TocOpen: true
 math: true
