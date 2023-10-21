@@ -70,7 +70,7 @@ ShowCodeCopyButtons: true
 + [2005 - ModelView-ViewModel](../mvc-and-its-variants/#2005---model-view-viewmodel)
 + [???? - Model-View-Presenter-ViewModel](../mvc-and-its-variants/#model-view-presenter-viewmodel)
 + [2008 - Resource-Method-Representation](../resource-method-representation/)
-+ [2014 - Action-Domain-Responder]()
++ [2014 - Action-Domain-Responder](../action-domain-responder)
 
 [7. EBI 架構 (EBI Architecture)]()
 
