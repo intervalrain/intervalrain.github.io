@@ -72,7 +72,7 @@ ShowCodeCopyButtons: true
 + [2008 - Resource-Method-Representation](../resource-method-representation/)
 + [2014 - Action-Domain-Responder](../action-domain-responder)
 
-[7. EBI 架構 (EBI Architecture)]()
+[7. EBI 架構 (EBI Architecture)](../ebi-architecture)
 
 [8. 包裝與命名空間 (Packaging & namespacing)]()
 
