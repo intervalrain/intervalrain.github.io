@@ -74,9 +74,9 @@ ShowCodeCopyButtons: true
 
 [7. EBI 架構 (EBI Architecture)](../ebi-architecture)
 
-[8. 包裝與命名空間 (Packaging & namespacing)]()
+[8. 包裝與命名空間 (Packaging & namespacing)](../packaging-code)
 
-[9. 領域驅動設計 (Domain-Driven Design)]()
+[9. 領域驅動設計 (Domain-Driven Design)](../domain-driven-design)
 
 [10. 埠與適配器架構, aka 六邊形架構 (Ports & Adapter Architecture aka Hexagonal Architecture)]()
 
