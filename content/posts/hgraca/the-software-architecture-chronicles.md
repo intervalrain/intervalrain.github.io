@@ -78,7 +78,7 @@ ShowCodeCopyButtons: true
 
 [9. 領域驅動設計 (Domain-Driven Design)](../domain-driven-design)
 
-[10. 埠與適配器架構, aka 六邊形架構 (Ports & Adapter Architecture aka Hexagonal Architecture)]()
+[10. 埠與適配器架構, aka 六邊形架構 (Ports & Adapter Architecture aka Hexagonal Architecture)](../ports-adapters-architecture)
 
 [11. 洋蔥架構 (Onion Architecture)]()
 
