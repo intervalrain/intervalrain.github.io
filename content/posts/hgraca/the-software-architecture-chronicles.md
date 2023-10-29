@@ -80,7 +80,7 @@ ShowCodeCopyButtons: true
 
 [10. 埠與適配器架構, aka 六邊形架構 (Ports & Adapter Architecture aka Hexagonal Architecture)](../ports-adapters-architecture)
 
-[11. 洋蔥架構 (Onion Architecture)]()
+[11. 洋蔥架構 (Onion Architecture)](../onion-architecture)
 
 [12. 乾淨架構 (Clean Architecture)]()
 
