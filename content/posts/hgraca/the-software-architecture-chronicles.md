@@ -82,27 +82,27 @@ ShowCodeCopyButtons: true
 
 [11. 洋蔥架構 (Onion Architecture)](../onion-architecture)
 
-[12. 乾淨架構 (Clean Architecture)]()
+[12. 乾淨架構 (Clean Architecture)](../clean-architecture)
 
-[13. 事件驅動架構 (Event-Driven Architectrue)]()
+13. 事件驅動架構 (Event-Driven Architectrue)
 
-[14. 從CQS到CQRS]()
+14. 從CQS到CQRS
 
-[15. 面向服務的架構 (Service Oriented Architecture, SOA)]()
+15. 面向服務的架構 (Service Oriented Architecture, SOA)
 
-[16. 明確的架構 #01: DDD, 六角, 洋蔥, 乾淨, CQRS, ... 我如何將它們全部組合在一起]()
+16. 明確的架構 #01: DDD, 六角, 洋蔥, 乾淨, CQRS, ... 我如何將它們全部組合在一起
 
-[17. 明確的架構 #02: 不僅僅是同心層次]()
+17. 明確的架構 #02: 不僅僅是同心層次
 
-[18. 明確的架構 #03: 在程式碼中反映架構和領域]()
+18. 明確的架構 #03: 在程式碼中反映架構和領域
 
-[19. 明確的架構 #04: 記錄架構]()
+19. 明確的架構 #04: 記錄架構
 
-[20. 發展項目: 從 MVP 到 p]()
+20. 發展項目: 從 MVP 到 P
 
-[21. 4+1 架構視圖模型]()
+21. 4+1 架構視圖模型
 
-[22. 架構品質]()
+22. 架構品質
 
 # 時間軸
 這是我在閱讀了所有這些主題的文章和書籍後，排出的軟體開發演進時間軸。
