@@ -6,7 +6,7 @@ date: 2023-10-28T14:11:35+08:00
 tags: ["Software Architectrue"]
 draft: false
 Categories: "IT"
-author: "hgraca"
+author: "Rain Hu"
 showToc: true
 TocOpen: true
 math: true
