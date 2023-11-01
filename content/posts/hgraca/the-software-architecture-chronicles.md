@@ -84,9 +84,9 @@ ShowCodeCopyButtons: true
 
 [12. 乾淨架構 (Clean Architecture)](../clean-architecture)
 
-13. 事件驅動架構 (Event-Driven Architectrue)
+[13. 事件驅動架構 (Event-Driven Architectrue)](../event-driven-architecture)
 
-14. 從CQS到CQRS
+[14. 從CQS到CQRS](../from-cqs-to-cqrs)
 
 15. 面向服務的架構 (Service Oriented Architecture, SOA)
 
