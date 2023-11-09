@@ -88,9 +88,9 @@ ShowCodeCopyButtons: true
 
 [14. 從CQS到CQRS](../from-cqs-to-cqrs)
 
-15. 面向服務的架構 (Service Oriented Architecture, SOA)
+[15. 面向服務的架構 (Service Oriented Architecture, SOA)](../service-oriented-architecture-soa)
 
-16. 明確的架構 #01: DDD, 六角, 洋蔥, 乾淨, CQRS, ... 我如何將它們全部組合在一起
+[16. 明確的架構 #01: DDD, 六角, 洋蔥, 乾淨, CQRS, ... 我如何將它們全部組合在一起](../explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together)
 
 17. 明確的架構 #02: 不僅僅是同心層次
 
