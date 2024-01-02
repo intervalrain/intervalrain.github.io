@@ -6,7 +6,7 @@ date: 2023-12-12T22:16:04+08:00
 tags: ["Statistics"]
 draft: false
 Categories: "IT"
-author: "hgraca"
+author: "Rain Hu"
 showToc: true
 TocOpen: true
 math: true
