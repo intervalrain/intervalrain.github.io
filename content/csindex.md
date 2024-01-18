@@ -29,28 +29,28 @@ cover:
 ---
 
 > From the begining: 
-+ [Washam's Coding Interview University](/posts/washam)  
++ [Washam's Coding Interview University](/washam)  
 
 
 {{< svgrepo 9873 calculator >}}
 ## 演算法
-+ [Leetcode](/posts/leetcode)
-+ [演算法筆記](/posts/cs/algo)
++ [Leetcode](/leetcode)
++ [演算法筆記](/cs/algo)
 
 ---
 {{< svgrepo 51010 coding >}}
 ## 程式語言
-+ [C#](/posts/csharp/csharp)
++ [C#](/csharp/csharp)
 
 ---
 {{< svgrepo 192223 structure-organization >}}
 ## 計算機結構
-+ [計算機結構](/posts/cs/ca)
++ [計算機結構](/cs/ca)
 
 ---
 {{< svgrepo 19602 computer >}}
 ## 作業系統
-+ [計算機作業系統](/posts/cs/os)
++ [計算機作業系統](/cs/os)
 
 ---
 {{< svgrepo 241826 internet >}}
@@ -70,7 +70,7 @@ cover:
 ---
 {{< svgrepo 138770 painting >}}
 ## 系統設計
-+ [系統架構](/posts/hgraca/the-software-architecture-chronicles)
++ [系統架構](/hgraca/the-software-architecture-chronicles)
 + 系統設計基礎
 + 分布式
 + 集群

@@ -15,7 +15,7 @@ menu:
       weight: 1
     - identifier: aboutme
       name: About me
-      url: /posts/aboutme
+      url: /aboutme
       weight: 10
     - identifier: archives
       name: Archives
@@ -31,15 +31,15 @@ menu:
       weight: 40
     - identifier: csindex
       name: CS
-      url: /posts/csindex
+      url: /csindex
       weight: 50
     - identifier: leetcodepage
       name: LeetCode
-      url: /posts/leetcode
+      url: /leetcode
       weight: 50
     - identifier: Csharp
       name: C#
-      url: /posts/csharp/csharp
+      url: /csharp/csharp
       weight: 50
 
 
@@ -64,7 +64,7 @@ params:
 #   DateFormat: "January 2, 2006"
 #   defaultTheme: auto # dark, light
 #   disableThemeToggle: false
-
+  ShowAllPagesInArchive: true
   # ShowReadingTime: true
   # ShowShareButtons: true
   # ShareButtons: ["facebook", "linkedin", "twitter", "reddit", "github", "whatsapp", "telegram"] # To customize which share buttons to be enabled on page
@@ -96,8 +96,8 @@ params:
 # profile-mode
   profileMode:
     enabled: true
-    title: "<Title>"
-    subtitle: "There's always rainbow after raining"
+    title: "Rain Hu's Workspace"
+    subtitle: "To enjoy the rainbow, first enjoy the rain"
     imageUrl: "/images/rain.png"
     imageTitle: "Is it raining outside?"
     imageWidth: 120
@@ -106,15 +106,15 @@ params:
       - name: "Music"
         url: "/tags/music/"
       - name: "Leetcode"
-        url: "/posts/leetcode/"
+        url: "/leetcode/"
       - name: "IT Notes"
-        url: "/posts/csindex"
+        url: "/csindex"
       - name: "Algorithm"
-        url: "/posts/cs/algo/"
+        url: "/cs/algo/"
       - name: "Life"
         url: "/categories/life"
       - name: "C#"
-        url: "posts/csharp/csharp"
+        url: "csharp/csharp"
   
   socialIcons:
     - name: facebook
