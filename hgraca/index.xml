@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hgracas on Rain Hu's Workspace</title><link>https://intervalrain.github.io/hgraca/</link><description>Recent content in Hgracas on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 06 Nov 2023 23:38:13 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/hgraca/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] DDD, Hexagonal, Onion, Clean, CQRS 大整合</title><link>https://intervalrain.github.io/hgraca/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/</link><pubDate>Mon, 06 Nov 2023 23:38:13 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/</guid><description>本文是介紹我如何將 DDD, Hexagonal, Onion, Clean, CQRS Architecture 等架構概念整合在一起，我將它命名為 Explicit Architecture。上述的概念基本上都是通過了市場的試驗，並在許多高要求的平台上被應用。
+系統的基本組件 首先回顧 EBI 與 Ports &amp;amp; Adapter 架構。這兩種架構都明確區分了哪些程式碼是應用程式的內部，哪些是外部，以及哪些是連接內部和外部的程式碼。
+Ports &amp;amp; Adapters 明確地定義出了系統的三個部分：
+使用者介面 (User Interface, UI) 商業邏輯(business logic)、應用程式核心(application core) 基礎設施(Infrastructure)，如 DB、搜尋引擎或第三方API等工具。 我們真正應該關心的是應用程式的核心，這是讓我們的程式碼能夠完成其應有功能的程式碼。它可能會使用多種 UI（網頁、手機、CLI、API 等等），但實際執行工作的程式碼是相同的，並位於應用程式的核心，觸發它的 UI 實際上並不重要。
+一個典型的應用程式流程從 UI 的程式碼開始，經過應用程式核心到基礎設施程式碼，再回到應用程式核心，最後將回應傳遞給 UI。
+工具 Tools 工具指的是那些遠離我們系統核心程式碼，但為我們應用程式所用的工具，例如，DB、搜尋引擎、網頁伺服器或 CLI 控制台（儘管後兩者也是交付機制）。 雖然將 CLI 與 DB 分類在一起可能有些奇怪，儘管它們有不同的目的，但實際上它們都是應用程式使用的工具。關鍵的區別在於，CLI 和網頁服務器用於告訴我們的應用程式做些什麼，而 DB 則由我們的應用程式告訴它做些什麼。這是一個非常重要的區別，因為它對我們如何建構連接這些工具與應用程式核心的程式碼有著強烈的影響。
+將工具和傳遞機制連接到應用程式核心 連接工具與應用程式核心的程式碼單元被稱為適配器（Ports &amp;amp; Adapters Architecture），適配器實現了將業務邏輯與特定工具進行通訊。
+告知我們應用程式應該做什麼事的適配器稱為 Primary 或 Driving Adapters；
+被我們應用程式告知應該做什麼事的適配器稱為 Secondary or Driven Adapters。
+埠 Ports 然而，這些適配器並非隨機創建的，它們是為了適應應用程式核心的一個非常特定的入口點，也就是埠。埠不過是一種規範，說明工具如何使用應用程式核心，或者說明它如何被應用程式核心使用。在大多數語言中，以其最簡單的形式，這種規範，或埠，即是一個介面(interface)，但實際上可能由多個介面和 DTO 組成。</description></item><item><title>[IT] 服務導向的架構 Service Oriented Architecture (SOA)</title><link>https://intervalrain.github.io/hgraca/service-oriented-architecture-soa/</link><pubDate>Thu, 02 Nov 2023 22:32:25 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/service-oriented-architecture-soa/</guid><description>The SOA Style has been around since the late 1980s and has its origins in ideas introduced by CORBA, DCOM, DCE and others. Much has been said about SOA, and there are a few different implementation patterns but, in essence, SOA focuses on only a few concepts and doesn’t give any prescription on how to implement them: SOA風格自 1980 年代晚期便一直存在，其起源於 CORBA、DCOM、DCE 等等。關於 SOA 已經有很多討論，且有許多不同的實作，但本質上，SOA 只關注少數幾個概念，而且指引我們如何去實作：
+使用者導向的應用程式。 可重複使用的商業服務。 獨立的技術堆。 自治性(獨立演進、可擴展性與可部署性) SOA 是一最獨立於任何技術或產品的架構原則，就像多態與封裝一樣。</description></item><item><title>[IT] 從 CQS 到 CQRS</title><link>https://intervalrain.github.io/hgraca/from-cqs-to-cqrs/</link><pubDate>Wed, 01 Nov 2023 23:29:40 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/from-cqs-to-cqrs/</guid><description>當我們有一個以數據為中心的應用程式，即只實現基本的 CRUD 操作，並將業務流程（即要更改的數據和更改的順序）留給用戶時，好處是用戶可以在不需要更改應用程式的情況下更改業務流程。另一方面，這意味著所有用戶都需要知道所有可以使用該應用程式執行業務流程的所有細節，這在沒有明確的規範且有大量人員參與其中時，將會是一個大問題。
+在一個以數據為中心的應用程式中，該應用程式對業務流程一無所知，因此該 domain 無法擁有任何「動詞」，也就是說，應用程式本身無法做出除了改變原始數據以外的任何事情。它變成了數據模型(data model)的高度抽象。這些流程只存在於應用程式用戶的腦海中，或者甚至存在於釘在電腦螢幕上的便利貼中。
+一個非凡且實用的應用程式旨在減輕使用者的「流程」負擔，透過捕捉他們的意圖，使其成為一個能夠處理行為的應用程式，而不僅僅是儲存數據。
+CQRS is the result of an evolution of several technical concepts that work together to help provide the application with an accurate reflection of the domain, while overcoming common technical limitations. CQRS 是許多技術概念演變的結果，這些概念使應用程式能準確地反映領域(domain)，並同時克服常見的技術限制。
+命令查詢分離 Command Query Separation 正如 Martin Fowler 所述，「命令查詢分離」這個術語是由 Bertrand Meyer 在他的《物件導向軟體建構(Object Oriented Software Construction)》（1988年）中首次提出的 - 這本書被認為是物件導向早期最具影響力的書籍之一。
+梅爾認為，作為一個原則，我們不應該有既改變數據又返回數據的方法。因此，我們有兩種類型的方法：
+Queries(查詢)：返回數據但不更改數據，因此沒有副作用； Commands(指令)：更改數據，但不返回數據。 換句話說，提問不應改變答案，而行動也不應回饋答案，這同時也有助於尊重單一責任原則。
+然而，有些模式是這條規則的例外，傳統的佇列和堆疊會彈出在佇列或堆疊中的元素，既改變了佇列或堆疊，也返回了從中移除的元素。
+命令模式 Command Pattern 命令模式的主要概念是將我們從資料中心的應用程式轉移到以流程為中心的應用程式，具有領域知識和應用程式流程知識。
+在實際操作中，這意味著我們不再讓使用者執行 CreateUser, ActivateUser 和 SendUserCreatedEmail 這三個動作，而是讓使用者直接執行一個 RegisterUser 的指令，這個指令將會執行前述的三個動作，作為一個封裝的業務流程。</description></item><item><title>[IT] 事件驅動架構 Event-Driven Architecture</title><link>https://intervalrain.github.io/hgraca/event-driven-architecture/</link><pubDate>Tue, 31 Oct 2023 23:25:09 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/event-driven-architecture/</guid><description>利用事件來設計應用程式似乎是 80年代後期開始的一種做法，我們可以在使用事件在前端或後端任何地方使用事件，當按下一個按鈕，涉及某些數據變更，或是執行某些後端動作時。
+What/When/Why 就像類別(classes)一樣，組件(components)之間應該保持低耦合，但在內部應保持高內聚。當組件需要協作時，比如說組件A需要觸發組件B中的某些邏輯，自然的做法就是讓組件A調用組件B中一個物件的方法。然而，如果A知道B的存在，那麼它們就是耦合的，A依賴於B，這使得系統更難改變和維護，事件可以用來防止耦合。
+如果我們有一個團隊只專注於組件B的工作，它可以改變組件B對組件A邏輯的反應，甚至不需要與負責組件A的團隊溝通。組件可以獨立進化：我們的應用程式變得更有機(organic)。
+即使在同一個組件中，有時我們會需要執行程式碼作為一個行動的結果，但它並不需要立即執行，也就是說，當事件的結果互不影響的情境下，我們可以採用 異步(async) 的策略執行程式。
+然而，這樣做也存在危險，如果我們不加選擇地使用事件，可能會使一個概念上高度內聚的邏輯被解耦。換句話說，本應在一起的程式碼被強行分開，變得很難追蹤、理解(類似goto語句)，最後使得它變成：speghetti code！
+為了防止我們的程式碼變成一堆混亂的 speghetti code，我們應該清楚的限制事件的使用規則。根據我的經驗，有三種情況下應該使用事件：
+解耦元件。 執行異步任務。 追蹤狀態變更 (audit log) 1. 解耦元件 當元件A執行需要觸發元件B邏輯的動作時，我們可以選擇不直接呼叫它，而是將一個事件發送到事件調度器(dispatcher)中。元件B將會在調度器中監聽該特定事件，並在事件發生時作出反應。
+這意味著A和B都將依賴於調度器和事件，但他們將對彼此一無所知，也就是說他們是解耦的。
+理想情況下，調度器和事件都不應存在於任何組件中：
+調度器應該是一個與我們的應用程式完全獨立的庫，因此應該使用依賴性管理系統安裝在一個通用的位置。在PHP世界中，我們會使用 Composer 將之安裝在 vendor 的資料夾。(C# 可以參考我 EventBus 的文章) 這個事件雖然是我們應用程式的一部分，但應該存在於兩個組件之外，以保持它們對彼此一無所知。該事件在組件之間共享，並且是應用程式核心的一部分。事件是 DDD 所稱的 共享核心(Shared Kernel) 的一部分。這樣，兩個組件將依賴於共享核心，但將對彼此保持不知情。然而，在單體應用程式中，為了方便，可以將其放置在觸發事件的組件中。 Shared Kernel
+共享核心
+[…] Designate with an explicit boundary some subset of the domain model that the teams agree to share. Keep this kernel small. […] This explicitly shared stuff has special status, and shouldn’t be changed without consultation with the other team.</description></item><item><title>[IT] 乾淨架構 Clean Architecture</title><link>https://intervalrain.github.io/hgraca/clean-architecture/</link><pubDate>Sun, 29 Oct 2023 21:11:58 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/clean-architecture/</guid><description>Robert C. Martin (aka Uncle Bob) 在 2012 年在他的部落格上發表了他對於乾淨架構的想法，並在幾個會議上進行了關於乾淨架構的演講。
+乾淨架構套用了許多為人熟知的概念、規則和模式，並解釋如何將它們組合在一起，以提出一種標準化的應用程式建構方式。
+站在 EBI, Ports &amp;amp; Adapters 與洋蔥架構的肩膀上 乾淨架構背後的核心目標與 Ports &amp;amp; Adapters(六邊形)和洋蔥架構的目標是相同的：
+工具的獨立性。 交付機制的獨立性。 獨立測試的可行性。 在發布有關乾淨架構的文章中，這是用來解釋整體概念的一張圖： 正如 Uncle Bob 在他的文章中所說，上面這張圖嘗試將最新的架構思想整合成一個可行的概念。
+讓我們將乾淨架構的圖表與用來解釋六角架構和洋蔥架構的圖表進行比較，看看它們在哪些地方相符：
+工具和交付機制的外部化 六角形架構專注於將工具和交付機制從應用程式中外部化，使用介面(ports))和適配器(adapters)。這也是洋蔥架構的核心價值之一，如圖所見，UI、基礎設施和測試都在圖表的最外層。乾淨的架構具有完全相同的特性，將 UI、Web、DB 等都放在最外層。最後，所有應用程式核心程式碼都是與框架、庫獨立的。
+依賴方向 在六角架構中，我們並沒有任何明確的指示告訴我們依賴性的方向。然而，我們可以輕易地推斷出來：應用程式有一個埠(或介面)，必須由一個適配器來實現或使用。因此，適配器依賴於介面，它依賴於位於中心的應用程式。外部的東西依賴於內部的東西，依賴性的方向是朝向中心。在洋蔥架構圖中，我們也沒有任何明確的指示告訴我們依賴性的方向，然而，在他的第二篇文章中，Jeffrey Palermo 非常清楚地說明所有的依賴性都是朝向中心。乾淨架構則是非常明確地指出依賴性方向是朝向中心。他們都在架構層面引入了依賴反轉原則。內圈中的任何東西都不能知道外圈中的任何東西。此外，當我們跨越邊界傳遞數據時，它總是以對內圈來說最方便的形式存在。
+分層 六角形架構圖只顯示了兩層：應用程式的內部和外部。然而，洋蔥架構則將 DDD 中 application layer 融入其中：application service 持有用例邏輯(use case logic)；domain service 封裝不屬於實體或價值對象的領域邏輯。與洋蔥架構相比，乾淨架構保留了 application layer(use case)和 entities layer，但似乎忽略了 domain service layer。然而，閱讀 Uncle Bob 的文章後，我們意識到他認為一個 entity 不僅是 DDD 意義上的 entity，而且是任何 domain object：「一個實體可以是一個帶有方法的物件，或者可以是一組數據結構和函數。」實際上，他合併了這兩個最內層的層級以簡化圖表。
+獨立測試性 在所有三種架構風格中，他們遵循的規則為應用程式和領域邏輯提供了隔離。這意味著在所有情況下，我們都可以簡單地模擬外部工具和傳遞機制，並在隔離中測試應用程式程式碼，而無需使用任何數據庫或 HTTP request。</description></item><item><title>[IT] 洋蔥架構 Onion Architecture</title><link>https://intervalrain.github.io/hgraca/onion-architecture/</link><pubDate>Sun, 29 Oct 2023 20:34:57 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/onion-architecture/</guid><description>洋蔥架構 洋蔥架構是由 Jeffrey Palermo 在 2008 年提出的。在我看來，它是基於 Ports &amp;amp; Adapters 架構的構念，將領域(domain)放在應用程式的中心，將交付機制(UI)和系統使用的基礎設施(infrastructure, ex.ORM，搜索引擎，第三方API等)。差別是，它對內部進行了分層。
+我們從分層架構學習到最基本的分層通常有：
+Presentation 呈現層 Application 應用層 Domain 領域層 Persistence 持久層 而 Ports &amp;amp; Adapters 架構隱含了兩個同心層：
+外部：傳遞機制(delivery mechanisms)與基礎設施(infrastructure) 內部：業務邏輯 Ports &amp;amp; Adapters 和 Onion Architecture 同時擁有一個概念，那就是通過編寫適配器(adapter)，將應用程式的核心與基礎設施隔離，以防止基礎設施滲透到應用程式核心中(意思是應用程式核心直接對基礎設施產生依賴)。這使得抽換應用程式使用的工具和交付機制變得更容易，提供了一些對技術、工具和供應商鎖定的保護。
+這也賦予應用程式一種愉快的能力，即無需真實的基礎設施或交付機制就能運行，因為它們可以被模擬物件所替換，這易於進行程式碼的測試。
+然而，洋蔥架構也告訴我們，在企業應用中，我們將不只有內部與外部這樣簡單的分層，在內部，也就是業務邏輯中，我們會增加一些我們從領域驅動設計(DDD)認識的一些層： 此外，它明確地闡述了 Ports &amp;amp; Adapters 架構中關於依賴方向的隱含概念：
+外層依賴於內層， 內層對外層一無所知。 這意味著耦合的方向是朝向中心，為我們提供了一個獨立的物件模型(domain model)，其核心不依賴任何東西。我們有足夠的靈活性可以改變外層，而不影響內層，更重要的層面。它在架構層面上運用了依賴反轉原則。
+洋蔥架構的主要原則： 應用程式是建立在一個獨立的物件模型周圍。 內層定義介面，外層實現介面。 耦合的方向是朝向中心。 所有應用程式的核心代碼都可以獨立於基礎設施進行編譯和運行 此外，任何外層都可以直接呼叫任何內層，這不會破壞耦合方向，並避免創建僅包含無業務邏輯的 proxy methods，甚至是 proxy classes，僅為了符合某種分層方案。這也符合 Martin Fowler 所表達的。
+[…] the layers above can use any layer beneath them, not just the layer immediately beneath.</description></item><item><title>[IT] 埠與適配器架構 Ports &amp; Adapters Architecture aka 六邊形架構 Hexagonal Architecture</title><link>https://intervalrain.github.io/hgraca/ports-adapters-architecture/</link><pubDate>Fri, 27 Oct 2023 23:46:32 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/ports-adapters-architecture/</guid><description>埠與適配器架構（又稱為六角架構）是由 Alistair Cockburn 所構想，並在 2005 年於他的部落格中寫下。這是他用一句話定義其目標的方式：
+Allow an application to equally be driven by users, programs, automated test or batch scripts, and to be developed and tested in isolation from its eventual run-time devices and databases. - Alistair Cockburn 2005, Ports and Adapters
+允許一個應用程式能夠同等地由用戶、程式、自動化測試或批次腳本驅動，並且能夠在與其最終運行時間設備和數據庫隔離的情況下進行開發和測試。 - 艾利斯特·科本 2005，端口與適配器
+我看過一些討論「Ports &amp;amp; Adapters 架構」的文章，其中大量提到了分層(layers)。然而，在原始的 Alistair Cockburn 的文章中，我並未讀到任何關於分層的內容。
+Ports &amp;amp; Adapters 架構的思想是將我們的應用程式視為系統的中心產物，所有的輸入和輸出都通過一個端口進入/離開應用程式，該端口將應用程式與外部工具、技術和交付機制隔離。應用程式應該對誰/什麼正在發送輸入或接收其輸出一無所知。這旨在提供一些保護，以防止技術和業務需求的演變，促使產品在開發完成後不久就因為技術/供應商的封鎖而變得過時。
+在這篇文章中，我們將深入探討以下主題：
+傳統方法的問題 傳統的方法在前後兩端都可能帶來問題。
+在前端方面，我們最終會有業務邏輯滲透到 UI 中（例如，當我們在控制器或視圖中放置用例邏輯，使其在其他 UI 中無法重用）或甚至是 UI 滲透到業務邏輯中（例如，由於我們在模板中需要一些邏輯，因此我們在我們的實體中創建方法）。
+在後端方面，我們可能會有外部庫和技術滲透到業務邏輯中，因為我們可能會透過類型提示、子類別化，甚至在我們的業務邏輯內實例化庫類別來直接引用它們。
+從分層架構演變而來 到了 2005 年，多虧了 EBI 和 DDD，我們已經知道在系統中真正重要的是內部層。這些層是所有業務邏輯之所在，它們是我們與競爭對手的真正差異，是應用程式中價值的核心。</description></item><item><title>[IT] 領域驅動設計 Domain-Driven Design</title><link>https://intervalrain.github.io/hgraca/domain-driven-design/</link><pubDate>Thu, 26 Oct 2023 23:11:53 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/domain-driven-design/</guid><description>「領域驅動設計」這個詞是在 Eric Evans 在他的著作《領域驅動設計：解決軟體核心的複雜性(Domain-Driven Design: Tackling complexity in the Heart of Software, 2003)》中所提出的，書中正式地提出了許多軟體開發的概念。
+我無法用一篇文章就概括 DDD，與 DDD 相關的重要概念實在太多了。以下列出我認為一些重要的 DDD 概成，包含：
+Ubiquitous Language Layers Bounded Contexts Anti-Corruption Layer Shared Kernel Generic Subdomain 通用語言 Ubiquitous Language 在軟體開發中，一個常見的問題是怎麼理解程式碼，它是什麼，它能做什麼，它如何做，它為什麼這樣做…如果程式碼使用的術語與領域專家使用的術語不同，理解程式碼便變得更加複雜。例如，如果領域專家談論的是 elder users，而程式碼中提到的是 supervisors，那麼名詞可能就會造成在討論應用程式時造成混淆。然而，大部分的模糊性可以透過適當地命名類別和方法來解決，讓類別的命名明確地表達出物件是什麼，讓方法的命名明確地表達出方法在領域上下文中做了什麼事。
+使用通用語言的主要概念是將應用程式與商業邏輯對齊，這是通過在程式碼中採用業務與技術之間的共同語言所實現的。該語言的來源是公司的業務部門，它們擁有需要實施的概念，但術語則與公司的技術部門協商(這意味著業務部門並不總是選擇最佳命名)以創建一種業務與程式開發人員共通且不會發生歧義的共同語言。包含程式碼、類別、方法、屬性和模組的命名都最重與通用語言對齊。
+層 Layers 我在之前的文章中已經談過分層的概念，但我認為此刻重提由DDD所識別的各層是很重要的
+User Interface 使用者介面 負責繪製用戶與應用程式互動的螢幕，並將用戶的輸入轉換為應用程式命令。值得注意的是，「用戶」可以是人類，但也可以是連接到我們API的其他應用程式，這完全對應於EBI架構中的邊界對象。
+Application Layer 應用層 協調領域對象以執行用戶所需的任務：用例。它不包含業務邏輯。這與EBI架構中的互動者相關，只是互動者是與UI或實體無關的任何對象，而在這種情況下，應用層只包含與用例相關的對象。這一層是應用服務所屬的地方，因為它們是用例協調發生的容器，使用存儲庫、領域服務、實體、價值對象或任何其他領域對象。
+Domain Layer 領域層 這是包含所有業務邏輯的層，包括領域服務、實體、事件以及任何其他包含業務邏輯的對象類型。顯然，它與EBI的實體對象類型有關。這是系統的核心。領域服務將包含不完全適合於實體的領域邏輯，通常在完成某些領域動作時協調多個實體。
+Infrastructure 基礎建設 支援上層的技術能力，即持久性或訊息傳遞。 有界上下文 在企業應用中，模型可能會大幅增長，同時進行程式碼開發的團隊規模也可能會擴大。這帶來了兩個問題：
+開發人員必須處理的程式碼庫越大，認知負荷就越大，理解程式碼的難度也就越高，因此可能會引入更多的錯誤和判斷失誤， 越多的開發人員在同一個程式碼庫上工作，就愈難協調對應用程式的共同技術與領域視野。 換句話說，手頭的問題變得過於龐大。
+對於大問題的常見解決方案是將其分解成較小的部分，這正是「有界上下文」發揮作用的地方。
+Two subsystems commonly serve very different user communities - Eric Evans 2014, Domain-Driven Design Reference</description></item><item><title>[IT] 套件與命名空間 packaging &amp; namespacing</title><link>https://intervalrain.github.io/hgraca/packaging-code/</link><pubDate>Mon, 23 Oct 2023 23:14:14 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/packaging-code/</guid><description>系統的架構是該系統的高層視圖、大局觀，以粗略的筆觸描繪的系統設計。架構決策是系統中的結構性決策，影響整個程式庫的決策，也是定義其他所有元素將在其上建立的決策。
+架構決定系統的許多元素，包含：
+組件 Components 組件之間的關係 Relationships between components 指導組件與組件間關係如何設計與如何演化 Principles guiding the design and evolution of components and relationships 換句話說，這些是隨著系統演進更難改變的設計決策，它們是支撐功能開發的基礎。
+義大利麵架構 Spaghetti Architecture 有些專案，結構隨機，既不反映架構，也不反映領域。如果我問「我應該把這個 value object 放在哪裡？」結果得到「把它放在 src 資料夾的某個地方」這樣的回答；如果我問「執行這個邏輯的 service 在哪裡？」卻得到「用你的 IDE 進行搜索」這樣的回答。這意味著專案沒有經過組織，這樣鬆散的結構就稱為義大利麵架構(Spaghetti Architecture)。
+這是一個大問題，因為這意味著沒有套件模組化，高階的程式碼關係和流程並沒有可以遵循的邏輯結構，導致模組之間高度耦合且低內聚，實際上可能代表根本沒有模組，應該屬於模組的程式碼散佈在整個程式碼庫中。
+可維護的程式碼庫 擁有一個可維護的程式庫意味著我們可以變更最少的程式碼來實現最大的概念變更。換句話說，當我們需要對一個程式碼單元進行變更時，我們應該盡可能少地對其他程式碼單元進行變更。
+這樣帶來的優點有：
+程式碼的修改變得簡單，因為它們對較少的程式碼產生影響。 程式碼的修改會更快，因為需要修改的程式碼較少。 因為修改的程式碼變少，出現錯誤的可能性也更低。 封裝(encapsulation)、**低耦合(low coupling)和高內聚(high cohesion)**是使程式碼隔離的核心原則，使得我們能夠擁有可維護的程式碼基礎。
+封裝 Encapsulation 這是隱藏類別的內部訊息與實作的過程。
+也就是說，它對外隱藏了實作的方式，使得一個類別的內部結構可以自由變更，而不會影響使用這個特定類別的其他類別。
+低耦合 Low coupling 耦合是指一個程式碼單元與另一個程式碼單元的關係。如果對一個模組的更改將導致對另一個模組的更改，則該模組被認為與另一個模組高度耦合。而如果一個模組獨立於任何其他模組，則該模組被認為是低耦合的。這可以通過擁有一個穩定的介面來實現，有效地隱藏了對其他模組的實現。
+低耦合的好處 可維護性(maintainability) - 變更僅限於單一模組 可測試性(testability) - 可以將單元測試涉及的模塊限制到最小 可讀性(readability) - 需要分析的類別被保持在最小範圍內 高內聚 High Cohesion 內聚性是指一個模塊的功能之間的緊密相關程度的衡量。低內聚是指模組間具有許多不相關的職責；高內聚是指模組間有類似的概念。
+高內聚的好處 可讀性(readability) - 相關的功能都包含在單一模塊中 可維護性(maintainability) - bug 通常會被限制在單一模組中 重用性(reusability) - 專注於類別的功能，不被無用的功能污染 結構上的影響 前述的原則通常與類別相關，然而，它們對於類別群組也同樣適用。類別群組在一般情況下被稱為套件(package)，但如果它們具有純粹的功能性目標(例如 ORM)，我們可以更具體地稱呼它們為模組(module)；如果它們具有領域目標(例如 AccountManagement)，我們可以稱呼它們為組件(components)。這與 Bass, Clements 和 Kazman 在他們的書《實踐軟體架構(Software Architecture in Practice)》中解釋的定義是一致的。</description></item><item><title>[IT] EBI 架構</title><link>https://intervalrain.github.io/hgraca/ebi-architecture/</link><pubDate>Sun, 22 Oct 2023 23:54:36 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/ebi-architecture/</guid><description>EBI 架構全名是 Entity-Boundary-Interactor Architecture，第一次由 Robert C. Martin 在他乾淨架構(Clean Architecture)中的演講中提到。
+然而，EBI 架構正式的發布是來自 Ivar Jacobson 在 1992 年所出版的 《物件導向的軟體工程：用例驅動方法(Object-Oriented Software Engineering: A use case driven approach)》。當時，Jacobson 實際上稱之為 Entity-Interface-Control，爾後才進行更名，為了避免將 Interface 與程式語言中的 Interface 或 User Interface 混淆；也避免將 Control 與 MVC 中的 Controller 混淆。
+Entity 實體 Entity objects 持有所有系統使用的數據且持有所有與數據耦合的行為。每個 Entity object 代表一個與問題領域相關的概念，同時具備身份(identity)與永久性(persistence)。Jacobson 告訴我們，Entity object 應該要包含那些會因 entity 自身變化而變化的邏輯，也就是說，如果它持有的數據結構改變，則對該數據的操作也將需要變化，因此它們應該位於 entity中。
+值得注意的是，Jacobson在1992年就已經發出了一個警告：
+Beginners may sometime only use entity object as data carriers and place all dynamic behaviour in control objects […].</description></item><item><title>[IT] Model1 &amp; Model2</title><link>https://intervalrain.github.io/hgraca/model-1-model-2/</link><pubDate>Thu, 19 Oct 2023 22:47:32 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/model-1-model-2/</guid><description>Java Server Pages (JSP) 是一種技術，這種腳本語言與 PHP、ASP，甚至 Python 相當，用於創建由 JVM 解釋的伺服器端頁面，並可以使用 Java 物件。
+首次由 Sun Microsystems 於 1998 年發布的 JSP 規範，定義了兩種結構化應用程式的方式，使得呈現邏輯能與業務邏輯，甚至是在 HTTP 請求/回應範疇中的使用案例，進行解耦。
+有些人認為這些&amp;quot;Model1&amp;quot;和&amp;quot;Model2&amp;quot;是首次嘗試將原本為桌面軟體開發環境而設計的 MVC 模式，適配到網路 HTTP 請求/回應範疇的嘗試。
+Model1 JSP 規範 v0.92 的首次提議，是將 JSP 作為唯一的呈現工具，其中包含所有的呈現和用例邏輯。 這種方法對當時的大多數使用情況可能已經足夠好，因為當時的網路大部分是由簡單的動態頁面組成，而不是我們今天所熟知的複雜的網路企業應用程式。
+Model2 關於如何使用 JSP 的第二個建議，當時是針對被視為複雜的網路應用程式而設計的。然而，請記住，如今的網路應用程式的規模和複雜度已經更高了。 在“Model2”中，一個 HTTP 請求會到達一個 servlet，該 servlet 會解釋 HTTP 請求，使用 Java 物件和 EJBs（repositories）執行一些用例邏輯，收集結果數據，並將該數據傳遞給一個 JSP，該 JSP 再渲染頁面，並發送回客戶端。在“Model2”中，JSPs 僅作為模板引擎使用。
+在1999年，Govind Seshadri 發表了一篇文章，其中他將&amp;quot;Model2&amp;quot;對應到 MVC：
+servelet 是 Controller，它控制應如何處理用戶的請求。 JSP 是 View，它決定了顯示給使用者的內容。 在 MVC 和&amp;quot;Model2&amp;quot;中，Model 指的都是一整個領域模型(domain model)。 我的看法 這兩種方法至今只能說是堪用，但對今日的網路企業應用程式而言，我們需要更好的東西，因為這兩種模式都不遵守單一職責原則(Single Respoinsibility Pinciple, RSP)。</description></item><item><title>[IT] Action-Domain-Responder(ADR) 架構</title><link>https://intervalrain.github.io/hgraca/action-domain-responder/</link><pubDate>Thu, 19 Oct 2023 22:43:08 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/action-domain-responder/</guid><description>這篇文章將討論 MVC 的另一種變體：由 Paul M. Jones 創建的 Action-Domain-Responder。
+2014 – Action-Domain-Responder(ADR) ADR 模式是由 Paul M. Jones 於 2014 年創建的，其想法就像 RMR 一樣，是為了將 MVC 調整到網路 REST APIs的 情境中。ADR 的原始解釋非常簡單明瞭，我實在無法更好地改述它，所以我將在這裡複製/貼上部分內容，並只添加一些更多的評論。
+Action 行動 Is the logic to connect the Domain and Responder. It invokes the Domain with inputs collected from the HTTP request, then invokes the Responder with the data it needs to build an HTTP response. 這是連接 domain 和 responder 的邏輯，它會用從 HTTP 收集來的請求來觸發 domain，接著使用需要構建 HTTP 響應的數據來調用 responder。</description></item><item><title>[IT] Resource-Method-Representation(RMR) 架構</title><link>https://intervalrain.github.io/hgraca/resource-method-representation/</link><pubDate>Thu, 19 Oct 2023 22:17:59 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/resource-method-representation/</guid><description>MVC 於 1979 年在桌面應用程式與 CLI 使用者介面的背景下出現，這意味著如果資料庫因使用者以外的某些因素發生變化，則使用者介面將自動更改。同樣的模式後來在具有 GUI 的桌面應用程式上也完全可用。
+然而，其在網路應用程式中的使用一直都是一種調適，因為大多數的網路應用程式並不會因為伺服器端的變更而改變使用者介面，使用者介面總是會呼叫伺服器端要求更新畫面。
+我之前已經談過 MVC 模式的變體，這篇文章將討論另一種變體：Resource-Method-Representation。
+我覺得有必要談論這個議題，是因為我曾對它產生誤解，認為它與 ADR 模式一樣，而我很快就會寫到這一點。
+2008 – Resource-Method-Representation(RMR) RMR 模式是由 Paul James 在 2008 年創建的，它將 MVC 模式適配到 REST APIs 的情境中。
+Resource 資源 The idea is that the Entities are modelled as REST resources (the first R in the pattern name), with its only public methods mapping to an HTTP method: 這個概念是將實體模型化為 REST resources 資源（RMR中的第一個R），與其唯一的公開方法映射到一個 HTTP 方法：
+&amp;lt;?php // taken from http://www.</description></item><item><title>[IT] MVC 及其變形</title><link>https://intervalrain.github.io/hgraca/mvc-and-its-variants/</link><pubDate>Thu, 19 Oct 2023 10:54:19 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/mvc-and-its-variants/</guid><description>創立一個可維護的應用程式一直是程式設計的一項長期挑戰。
+不久前，我在一家公司工作，其核心業務應用是一個 SaaS 平台，被幾千個客戶公司使用，這項應用程式已經運營了三年，其中的程式碼混雜了 HTML, CSS, 業務邏輯及 SQL，當然，在應用程式推出後的兩年，公司決定開始重構。儘管我們知道這樣的做法是不好的，且我們也知道如何避免，但是這樣的情況還是時常發生。
+然後，回溯到 1970 年代，混合職責是很常見的做法，且人們仍在努力尋找如何改進。隨著應用程式的複雜性提升，對 UI 的更動必然會導致業務邏輯的更改，從而增加了修改的複雜度、執行的時間與 bug 出現的可能性。(因為會有更多的程式碼被更改)。
+1979 - Model-View-Controller 為了解決上述問題，Trygve Reenskaug 於 1979 年提出了 MVC 架構，以此來將關注點分離，將 UI 與業務邏輯分離。該模式被應用於 1973年出現的桌面 GUI。
+MVC 架構將程式分為三個部分：
+Model: 模型，代表了商業邏輯。 View: 視圖，代表了 UI 中的組件，如 button, text box 等。 Controller: 控制器，負責協調視圖和模型之間的配合，這意味著它： 決定要顯示哪些視圖，以及使用什麼數據。 將使用者行為轉化為業務邏輯。 A model could be a single object (rather uninteresting), or it could be some structure of objects. - Trygve Reenskaug 1979, MVC
+一個模型可以是單一物件(相對無趣)，或可以是一些物件的結構。 - 特里格維‧倫斯考 1979, MVC</description></item><item><title>[IT] 分層架構 Layered Architecture</title><link>https://intervalrain.github.io/hgraca/layered-architecture/</link><pubDate>Tue, 17 Oct 2023 21:44:07 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/layered-architecture/</guid><description>分層是一種常見於系統中做法，用於分隔或組織程式碼，根據程式碼在系統中的角色或職責。
+In an object-oriented program, UI, database, and other support code often gets written directly into the business objects. Additional business logic is embedded in the behaviour of UI widgets and database scripts. This happens because it is the easiest way to make things work, in the short run.
+When the domain-related code is diffused through such a large amount of other code, it becomes extremely difficult to see and to reason about.</description></item><item><title>[IT] 單體架構 Monolithic Architecture</title><link>https://intervalrain.github.io/hgraca/monolithic-architecture/</link><pubDate>Sun, 15 Oct 2023 12:06:51 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/monolithic-architecture/</guid><description>建立一個單體系統一直以來都是預設的架構風格，最初軟體開發剛萌芽時，每個應用程式只有一個檔案，然後才出現了包含多個檔案的應用程式，並且直到1990年代我們才開始看到由其他應用程式組成的應用程式（儘管第一次的實驗是在1980年代進行的）。
+單體結構自身也在演進，當應用程式開始使用多個檔案進行建構時，因為這些應用程式相對簡單，所以對每個檔案的職責與檔案之間的關係並沒有太多的思考。但隨著應用程式變得越來越大且越來越複雜，我們便開始需要思考要創建哪些檔案以及如何關聯它。
+模組化軟體開發 Modular Software Development 模組化程式設計是在 1960 年代晚期和 1970年代 所提出的解決方案。它是從類別演變到對粒度更大程式碼單元進行明確定義(explicit definition)，程式語言以不同程度的明確性(explicitness)實現了模組化。
+例如，JAVA 具有 default 和 public 的類別級別可見性，其中 default 級別意味著一個類別只在其套件（模組）中可見，而 public 則意味著該類別在其套件（模組）內外都可見，這讓我們可以定義哪些類別可以當作套件被客戶端使用。
+組件化軟體開發 Componentized Software Development 另一種模組化的風格是組件。如我在之前的文章中所解釋的，組件是以領域概念為基礎創建的模塊。理想情況下，它們是可以用來創建複合應用的獨立「應用程式」。這種風格的一個常見例子是 pipes 和 filters 架構，這在 Unix 系統中被廣泛使用，並允許我們做像 ps -ef | grep php 這樣的操作。另一個例子是使用微服務作為複合應用的組件，如 Netflix。
+這種程式碼組織方式也已經存在很長時間了，可以追溯到1960年代末，就像模組化軟體開發一樣。
+現代的單體架構 現今，擁有單體架構風格簡單來說就是所有的應用程式碼都被部署(deployed) 並在單一節點(node) 上作為單一進程運行。我們假設它正在使用模組和組件，儘管事實上往往並非如此。
+理解這裡的關鍵詞「部署」和「節點」至關重要。關於第一個詞，部署，這意味著無論程式碼在物理上儲存在一個或多個儲存庫的任何地方，重要的是它在運行時是如何組織的。關於第二個關鍵詞，節點，這意味著即使我們將應用程式部署到多個服務器，就像在水平擴展的情況下，它仍然是一個單體。
+在單一節點伺服器中，單體中的所有模組都被組裝到同一記憶體 image 中，並在單一節點上作為單一進程運行。通訊是通過同一 heap 和 stack 進行標準程式調用。正是這種單一記憶體 image 使得應用程序變得單體化。如果你在不同的進程中運行模組，那麼你正在進行 IPC。因為模組落入不同的進程邊界，你將開始面臨分散式計算的挑戰，這就進入了微服務領域。
+這種風格，儘管聲名狼藉，但即使對於大型應用程式也能運作得相當好。只有當我們需要以下情況時，它才不再足夠好：
+不同領域組件的獨立可擴展性(Independent scalability)。 需要用不同的程式語言撰寫不同的組件或模組； 獨立部署能力(Independent deployability)，或許是因為我們的釋出速率超過了單一程式碼庫的部署管道所能處理的範圍，導致一個版本的部署變慢，因為它需要等待其他版本的部署，甚至導致部署佇列的增長速度超過了它的消耗速度。 在那個時候，我們需要將我們的單體系統分離成不同的應用程式，並採用SOA架構風格（關於這點將在後續的文章中詳述）。
+反模式：大泥球/義大利麵條式架構 Anti-pattern: Big Ball of Mud / Spaghetti Architecture 所謂的「泥球」，又稱為「義大利麵條式架構」，就是這種風格的反模式，其中套件的結構和關係並不明確，結構的內聚力和封裝性幾乎不存在，依賴性沒有遵循任何規則，並且很難理解子系統，以進行變更和重構。該系統是不透明的，黏稠的，脆弱的，且僵硬的：一個大泥球！</description></item><item><title>[IT] 架構風格 vs. 架構模式 vs. 設計模式 Architectural Styles vs. Architectural Patterns vs. Design Patterns</title><link>https://intervalrain.github.io/hgraca/architectural-styles-vs-architectural-patterns-vs-design-patterns/</link><pubDate>Sat, 14 Oct 2023 14:29:21 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/architectural-styles-vs-architectural-patterns-vs-design-patterns/</guid><description>在上一篇文章中，我介紹了程式語言的演進，以及它告訴我們的事情：軟體發展的驅勢是走向更多的模組化(modularity)與封裝(encapsulation)。
+在接下來的文章，我會開始介紹架構風格與架構模式的演進。首先，我們要先知道什麼是架構風格，什麼是架構模式。
+在軟體開發中的眾多術語中，定義往往不夠明確，卻不同人都有自己不同的解釋。MSDN 認為架構風格(architectural styles)與架構模式(architectural patterns)是同一碼子事，但我個人更傾向於 George Fairbanks 與 Michael Keeling 在 stack overflow 中與維基百科中的解釋。其關鍵的差異在於範疇(scope)。
+同時，我們也需要強調這個觀念：架構風格、架構模式和設計模式並非互斥，它們相輔相成，每一種都能帶給我們一些啟示。然而，如同常情，我們只應在需要時才使用它們。
+Architectural Styles 架構風格 架構風格非常大方向的告訴我們該如何組織我們的程式碼，它有著高層次的粒度。它定義了層的概念，尤其應用程式的高階模組。它告訴我們模組與層之間是怎麼交互作用的、它們的關係等等。架構風格的例子：
+Component-based Monolithic application Layered Pipes and filters Event-driven Publish-subscribe Plug-ins Client-server Service-oriented 一種建架構格可以透過各種方式實現，包括特定的技術環境、特定的政策、框架或實踐方法。
+Architectural Patterns 架構模式 模式是一種對反覆出現的問題的反覆解決方案。在架構模式的情況下，他們解決與架構風格相關的問題。例如，「我們該有哪些類別，它們該如何互動，以實現具有特定層次的系統」，又或者「我們的服務導向架構將擁有哪些高級模組，以及他們將如何溝通」，或者「我們的客戶端-伺服器架構將擁有多少層」。
+架構模式對程式碼庫有著廣泛的影響，通常會橫向（即如何在一層內結構化程式碼）或縱向（即如何從外層處理請求到內層並返回）影響整個應用程式。架構模式的例子：
+Three-tier 三層架構 Microkernel 微核心 Model-View-Controller 模型-視圖-控制器 Model-View-ViewModel 模型-視圖-視圖模型 Design Patterns 設計模式 設計模式與架構模式在範疇上有所不同，它們更為局部化，對程式碼庫的影響較小，它們只影響程式碼的特定部分，例如：
+如何在我們只知道在運行時需要實例化什麼類型的情況下實例化一個對象（可能是一個工廠類別？） 如何讓一個物件根據其狀態（可能是一個狀態機，或者是策略模式？）表現出不同的行為？ Conclusion 結論 如我在這篇文章的開頭所提到的，一切都關於範疇(scope)：
+架構風格是在最高抽象層次上的應用設計。 架構模式是實現架構風格的一種方式。 設計模式是解決局部問題的一種方式。 此外，一種模式可能既可以作為架構模式，也可以作為設計模式使用，這再次取決於我們在特定項目中使用它的範疇。</description></item><item><title>[IT] 程式語言的演進 Programming Language Evolution</title><link>https://intervalrain.github.io/hgraca/programming-language-evolution/</link><pubDate>Sat, 14 Oct 2023 02:09:18 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/programming-language-evolution/</guid><description>程式設計語言本身並非架構的產物，但如果我不寫關於它，我會覺得《軟體架構編年史》似乎缺少了些什麼。
+那麼，讓我們快速回顧一下程式語言的歷史，它的演變，並檢查我們可以從中學到什麼。我在文章中加入了一些日期，僅作為參考，它們應被視為大致的估計，重要的是演變的順序和他們試圖解決的問題。
+1950s - Non-structured Programming Assembly ~1951
+軟體開發曾是一項非常晦澀的活動，只在世界上少數地方進行。當時流行的語言是組合語言，它使用了非常低階的操作，如 add, sub, goto，並直接操作記憶體地址。建立一個簡單的應用程式既緩慢又困難。要創建一個簡單的 if 語句，我們需要幾行程式碼，對於一個迴圈，則需要超過幾行的程式碼&amp;hellip;稍後才出現了將程式碼分組和重用的可能性，所以當時的編碼風格非常線性，程式碼的重用僅限於在檔案內或檔案間複製和貼上程式碼。
+1960s – Structured Programming Algol ~1958, Fortran
+結構化程式設計出現了，引入了 code blocks 概念，控制結構 if, then, else, case, for, while, do, &amp;hellip;，和子程序的構造。然後，我們可以創建更有趣的程式流程，更重要的是，我們可以將程式碼指令分組並重用它，儘管有一些限制，例如子程序總是對同一全域變數進行操作。但就在這個時候，重用性 (reusability) 的概念開始被使用。
+1970s – Procedural &amp;amp; Functional Programming Pascal ~1970, C ~1972
+程序和函數式程式設計在1970年代開始活躍起來。到了這個時候，我們終於有了：
+程序(Procedures)：一組不返回數據的指令 函式(Functions)：一組會回傳資料的指令集 資料結構(Data structures)：記錄，類似於關聯式陣列 模組(Modules)：可以被導入到其他程式碼檔案的程式碼檔案。 在1970年代，「Spaghetti code」這個詞也被創造出來，這是在Edsger W. Dijkstra於1968年寫給「計算機機構通訊」(CACM)的信中提出的，該信的標題為「Go To Statement Considered Harmful」。
+在1970年代晚期，事件導向程式設計(Event Oriented Programming)的初步概念首次浮現，而Trygve Reenskaug則撰寫了他關於MVC（使用事件）的論文。
+有了這些改進，因此我們有更好的重用性(reusability)，因為子程序（程序和函式），我們可以使用不同的數據執行相同的邏輯。我們也可以通過將相關數據分組到複雜的數據結構中來模擬領域概念(domain concepts)。最後，我們在**解耦(decoupling)和模組化(modularity)**方面邁出了第一步，我們可以創建在其他程式碼文件和事件中可重用的程式碼，以將客戶端程式碼與正在執行的邏輯解耦。
+1980s – Object Oriented Programming Simula ~1965, Smalltalk-71 ~1971, C++ ~1980, Erlang ~1986, Perl ~1987, Python ~1991, Ruby ~1993, Delphi, Java, Javascript, PHP ~1995</description></item><item><title>[IT] 軟體架構前提 The Software Architecture Premises</title><link>https://intervalrain.github.io/hgraca/software-architecture-premises/</link><pubDate>Sat, 14 Oct 2023 01:14:17 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/software-architecture-premises/</guid><description>在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。
+沒有萬靈丹 無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。
+然後，在接受新的挑戰時，首先要理解業務和終端用戶的需求。只有在清楚理解這些需求之後，您才能理智地思考應該使用哪種架構風格和模式來更好地解決手頭的問題。
+最後，做出你自己的選擇，也許實施其中一種已知的解決方案，或者創建你自己的設計來適應你特定的問題。
+Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000
+有些架構風格常被描繪為所有軟體問題的「萬靈丹」解決方案。然而，一個優秀的設計師應該選擇一種與特定問題需求相匹配的風格。 - 羅伊·菲爾丁，2000
+Terminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。
+Functional 功能性的 這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：
+Layers Factories Repositories Value Objects Views ViewModels Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：
+User Product Stock Management Product Variants Checkout Upsells 這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。</description></item><item><title>[IT] 軟體架構編年史 The Software Architecture Chronicles</title><link>https://intervalrain.github.io/hgraca/the-software-architecture-chronicles/</link><pubDate>Fri, 13 Oct 2023 23:41:57 +0800</pubDate><guid>https://intervalrain.github.io/hgraca/the-software-architecture-chronicles/</guid><description>前言：這系列文章為翻譯自作者 hgraca。
+這篇文章是關於軟體架構系列文章的第一篇。在這些文章中，我將分享我所學習到的軟體架構知識，我如何看待它，以及我如何運用這些知識。
+我這一系列的文章稱為「軟體架構編年史」，並非因為我自認為是一位偉大的作家，而是因為我覺得這個名字有點俗氣，又帶點趣味。
+在這篇首篇文章中，我將會談論我為何要撰寫這一系列的文章，以及接下來將會有什麼內容。
+認識歷史的重要性 Those who fail to learn History are doomed to repeat it. - George Santayana, The Life of Reason, 1905
+未能學習歷史的人注定要重蹈覆轍。 - 喬治‧桑塔亞納《理性的生活》，1905
+我認為從歷史中學習是非常重要的，它能教導我們事情。在個人層面上，我們終究需要（也希望）能從錯誤中學習。從國家的角度來看，歷史幫助塑造我們的文化、創造群體的概念，因此有了「台灣人」的觀念，一種國家認同。同時，歷史也幫助我們從祖先的錯誤中學習，比如信仰那些有著怪異思想的人，如二戰…
+對程式開發者而言，歷史有助於我們仰靠前人的經驗上，少走許多錯的道路，並讓我們「站在巨人的肩膀上」達到更高的境界！
+在我成為更好的開發者路上，我閱讀了很多文章，觀看了許多演講，我盡我所能的站在巨人的肩膀上。
+有一件事情使我感到困惑，那就是許多意見是基於意見之上的意見…這就像是以訛傳訛，我們最終得到是對於一篇論文、文章或書籍真正內容的扭曲理解。
+因此，我開始在網路上搜尋原始的論文、文章和書籍，這些都是我認為對我的工作最重要的概念，並自己對它們進行思考。
+這些文章是這種推理的結果，因為我試圖理解這些概念是如何產生的，以某種程度上的時間順序來看。
+撰寫這些文章迫使我大量閱讀和思考所有議題，並幫助我理解當代在軟體開發中使用的技術。我希望這些文章能對更多開發者有所幫助。
+然而，如果你讀到一些你不理解或是不認同的內容，請告訴我，我非常願意討論這些議題，並從討論中學習，也願意修正我錯誤的觀點。
+文章列表 1. 軟體架構前提 (Software Architecture Premises)
+2. 程式語言的演進 (Programming Languages Evolution)
+3. 架構風格 / 架構模式 / 設計模式 (Architectural Styles vs. Architectural Patterns vs. Design Patterns)
+4. 單體架構 (Monolithic Architecture)
+5. 分層架構 (Layered Architecture)</description></item></channel></rss>
