@@ -74,3 +74,26 @@ model.compile(optimizer=keras.optimizers.RMSprop(learning_rate=1e-4),
               metrics=[keras.metrics.BinaryAccuracy])
 ```
 
+### 洗牌
++ 收集完資料之後，我們目的並非只在**訓練資料**上取得良好的模型，而是要取得在**大部分狀況下**都表現良好的模型。
++ 故我們需要將收集完的資料分成**訓練集**與**驗證集**。
++ 以下透過 `np.random.permutation()` ，與 `slice` 來對資料做抽樣。
+```
+indices_permutation = np.random.permutation(len(data))
+shuffled_inputs = data[indices_permutation]
+shuffled_targets = labels[indices_permutation]
+
+num_validation_samples = int(0.3 * len(data))
+val_inputs = shuffled_inputs[:num_validation_samples]
+val_targets = shuffled_targets[:num_validation_samples]
+training_inputs = shuffled_inputs[num_validation_samples:]
+training_targets = shuffled_targets[num_validation_samples:]
+
+model.fit(
+    training_inputs,
+    training_targets,
+    epochs=5,
+    batch_size=16,
+    validation_data=(val_inputs, val_targets)
+)
+```
