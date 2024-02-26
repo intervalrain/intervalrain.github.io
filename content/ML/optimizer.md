@@ -1,5 +1,5 @@
 ---
-title: "<Title>"
+title: "[ML] 選擇 loss function/ optimizer/ metrics"
 keywords: ["ML", "optimizer"]
 description: "Optimizer"
 tags: ["ML"]
