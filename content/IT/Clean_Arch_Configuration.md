@@ -289,7 +289,7 @@ var app = builder.Build();
 }
 ```
 
-# 實作 JWT Token Generator
+## 實作 JWT Token Generator
 + 首先先在 Application Layer 創建一個 interface 來做依賴反轉
 ```csharp
 public interface IJwtTokenGenerator
@@ -339,7 +339,7 @@ public static class DependencyInjection
     }
 }
 ```
-# 使用 Options Pattern 注入 JWT Settings
+## 使用 Options Pattern 注入 JWT Settings
 + 接下來我們要使用 Options Pattern 將 JWT Settings 注入到 JwtTokenGenerator 中。
 + 首先我們先到 `Mysln.Api` 的 `appsettings.json` 中將 options 設置完成。
 ```json
@@ -431,3 +431,126 @@ public class JwtTokenGenerator : IJwtTokenGenerator
 }
 ```
 + 以上就大功告成了。
+
+## 使用 `dotnet user-secrets` 指令
++ 如果不想要將 Options 中的 secret 儲存在程式(appsettings.json)裡面，可以利用 `dotnet user-secrets` 將 secret 儲存於環境變數裡面。
++ 透過執行以下的指令來初始化專案的 `UserSecretsId`
+```vim
+dotnet user-secrets init --project Mysln.Api
+```
++ 接著將 `UserSecretsId` 綁定到我們專案的 `JwtSettings:Secret`。
+```vim
+dotnet user-secrets set --project Mysln.Api "JwtSettings:Secret"
+```
++ 日後可以經由以下指令查詢。
+```vim
+dotnet user-secrets list --project Mysln.Api
+```
+
+## Domain Model
++ 先建立一個簡單的 Domain Model(Entity)
+```csharp
+public class User
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public string FirstName { get; set; } = null!;
+    public string LastName { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    public string Password { get; set; } = null!;
+}
+```
+
+## Repository Pattern
++ 在 Application Layer 建立 IRepository
+```csharp
+public interface IUserRepository
+{
+    User? GetUserByEmail(string email);
+    void Add(User user);
+
+}
+```
++ 將 IRepository 注入 Application 的 Service
++ 並用查改存推改寫 Service
+```csharp
+public class AuthenticationService : IAuthenticationService
+{
+    private readonly IJwtTokenGenerator _jwtTokenGenerator;
+    private readonly IUserRepository _userRepository;
+    public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
+    {
+        _jwtTokenGenerator = jwtTokenGenerator;
+        _userRepository = userRepository;
+    }
+
+    public AuthenticationResult Register(string firstName, string lastName, string email, string password)
+    {
+        // 查
+        if (_userRepository.GetUserByEmail(email) is not null)
+        {
+            throw new Exception("User with given email already exists.");
+        }
+        // 改
+        var user = new User
+        {
+            FirstName = firstName,
+            LastName = lastName,
+            Email = email,
+            Password = password
+        };
+        // 存
+        _userRepository.Add(user);
+        // 推
+        var token = _jwtTokenGenerator.GenerateToken(user.Id, firstName, lastName);
+        return new AuthenticationResult(user.Id, firstName, lastName, email, token);
+    }
+
+    public AuthenticationResult Login(string email, string password)
+    {
+        // 查
+        if (_userRepository.GetUserByEmail(email) is not User user)
+        {
+            throw new Exception("User with given email does not exist.");
+        }
+        if (user.Password != password)
+        {
+            throw new Exception("Invalid password.");
+        }
+        // 改
+        var token = _jwtTokenGenerator.GenerateToken(user.Id, user.FirstName, user.LastName);
+        
+        return new AuthenticationResult(user.Id, user.FirstName, user.LastName, email, token);
+    }
+}
+```
++ 接著我們在 Infrastructure Layer 實作我們的 repository，我們暫時先不接資料庫，所以先做一個 InMemory 版本的 repository 來做測試。
+```csharp
+public class UserRepository : IUserRepository
+{
+    private readonly List<User> _users = new();
+
+    public void Add(User user)
+    {
+        _users.Add(user);
+    }
+
+    public User? GetUserByEmail(string email)
+    {
+        return _users.SingleOrDefault(u => u.Email.Equals(email));
+    }
+}
+```
++ 實作完需要透過 DependencyInjection 注入到我們的 Service Container 內。
+```csharp
+public static class DependencyInjection
+{
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager configuration)
+    {
+        services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+        services.AddSingleton<IUserRepository, UserRepository>();
+        return services;
+    }
+}
+```
