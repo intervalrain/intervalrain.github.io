@@ -67,6 +67,11 @@ ShowCodeCopyButtons: true
 dotnet ef migrations add InitialMigration -p src/CleanWebApi.Infrastructure
 ```
 
++ `--startup-project` 可以指定入口專案，可適用於將 connectionString 以 DependencyInjection 的方式注入於入口專案的情形。
+```zsh
+dotnet ef migrations add InitialCreate --startup-project src/CleanWebApi.Api --project src/CleanWebApi.Infrastructure
+```
+
 ### 查詢 Migrations 清單
 + 以下指令可以查詢該專案中有哪些 migration。
 ```zsh
