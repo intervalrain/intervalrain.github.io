@@ -1,14 +1,15 @@
 ---
-title: "<Title>"
-date: 2024-03-26T22:18:37+08:00
-tags: ["Algorithm", "Java", "C++", "Programming", "Life", "Music", "Semiconductor", "Logic Design", "TCAD"]
+title: "[System Design] 系統設計概念與資源 System Design and Resources"
+date: 2024-03-26T22:35:38+08:00
+keywords: ["System Design"]
+description: "學習系統設計概念的資源"
+tags: ["System Design"]
 draft: false
-Categories: programming     # Programming, Create, Cover, Life, Semiconductor, Leetcode, Logic Design, Daily, OS, CS50, CA
-description: "Desc Text."
-author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+Categories: programming
+author: ["Ashish Pratap Singh", "Rain Hu"]
 showToc: true
 TocOpen: true
-math: true                  # KaTex or not
+math: true
 mermaid: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
@@ -21,10 +22,10 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
-cover:
-    image: "/images/cover.jpg"
-    alt: "Oh! You closed up the window, so you cannot see raining"
-    relative: false
-    hidden: false
 ---
-
+# 系統設計的核心概念 System Design Key Concepts
++ 可擴展性(Scalability)
++ 延遲與吞吐量(Latency vs Throughput)
++ CAP 定理(CAP Theory)
++ ACID 交易(ACID Transactions)
++ 
