@@ -50,8 +50,8 @@ cover:
     + 從 POS 開始
     + \\(f'=a' b' c' d+ab' cd+abc' + a' bc+a' cd'\\\\
           \quad=b' d(a' c'+ac)+a' c(b+d')+abc'\\)
-    + ![1](/posts/LogicDesign/L7/1.png)
-    + ![2](/posts/LogicDesign/L7/2.png)
+    + ![1](/LogicDesign/L7/1.png)
+    + ![2](/LogicDesign/L7/2.png)
 + Ex2 Multiple-Output
     + \\(\text{用 2 pin 的 NAND 與 NOT 實現}\\)
     + \\(f_1=\sum m(0,2,3,4,5)=b' c'+ab' +a' b\\\\
@@ -82,34 +82,34 @@ cover:
     + \\(f_1=b'(a+c')+a' b\\\\
          f_2=(b'+c)(b+c')+b' c'\\\\
          f_3=b(a+c')+a' b' c\\)
-    + ![3](/posts/LogicDesign/L7/3.png)
+    + ![3](/LogicDesign/L7/3.png)
 
 
 # 閘延遲與時序圖
 + 邏輯閘必然存在延遲，固然小，但存在。
-    ![inverter](/posts/LogicDesign/L7/inverter.png)
-    ![gatedelay](/posts/LogicDesign/L7/gatedelay.png)
+    ![inverter](/LogicDesign/L7/inverter.png)
+    ![gatedelay](/LogicDesign/L7/gatedelay.png)
 + 組合電路
-    ![g1g2](/posts/LogicDesign/L7/g1g2.png)
-    ![g1g2t](/posts/LogicDesign/L7/g1g2t.png)
+    ![g1g2](/LogicDesign/L7/g1g2.png)
+    ![g1g2t](/LogicDesign/L7/g1g2t.png)
 + 延遲亦可能來自電線，電線愈長則延遲可能愈久。
 ## Control value
 + \\(\text{AND gate}\\) 的 control value 是 \\(0\\)
 + \\(\text{OR gate}\\) 的 control value 是 \\(1\\)
 + \\(\text{AND=2ns}\\\\
 \text{NOR=3ns}\\)
-+ ![hazard1](/posts/LogicDesign/L7/VWXYZ.png)
-+ ![hazard2](/posts/LogicDesign/L7/VWXYZ2.png)
++ ![hazard1](/LogicDesign/L7/VWXYZ.png)
++ ![hazard2](/LogicDesign/L7/VWXYZ2.png)
 + 若 X 訊號相反時， Z 要到 5ns 訊號才有意義。
 # 組合邏輯中的 Hazards
 + Hazard 是在切換輸入時，因閘延遲而產生的錯誤訊號。
 + 種類
-    ![hazard](/posts/LogicDesign/L7/hazard.png)
+    ![hazard](/LogicDesign/L7/hazard.png)
 + 若相鄰兩個 1 不來自同一個邏輯閘(在 K-map 上沒有被框在一起)則會存在 hazard。
     + \\((A,B,C)=(1,0,1)\rightarrow (1,1,1)\\)
-![static_hazard](/posts/LogicDesign/L7/static_hazard.png)
+![static_hazard](/LogicDesign/L7/static_hazard.png)
 + 可將相鄰的所有蘊函項框在一起，避免「一個bit切換」的 hazard 發生。
-![hazard_removed.png](/posts/LogicDesign/L7/hazard_removed.png)
+![hazard_removed.png](/LogicDesign/L7/hazard_removed.png)
 # 邏輯電路的模擬與測試
 + 對模擬邏輯電路來說
     + 有明確的電路元素與連線
@@ -121,7 +121,7 @@ cover:
     + 1 (high)
     + X (unknown)
     + Z (don't care, High impedence)
-    ![4value](/posts/LogicDesign/L7/4value.png)
+    ![4value](/LogicDesign/L7/4value.png)
 + \\(\text{AND } \\& \text{ OR } \text{function for 4-value simulation}\\)
     + \\(\begin{array}{c|cccc}
     \text{AND}&0&1&X&Z\\\\\hline
@@ -149,4 +149,4 @@ cover:
         + 邏輯閘缺陷
         + 金屬接線缺陷
 + 已知 \\(A=B=C=D=1時，F=0\\)
-![testing](/posts/LogicDesign/L7/testing.png)
+![testing](/LogicDesign/L7/testing.png)

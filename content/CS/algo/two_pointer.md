@@ -66,6 +66,6 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
 
 
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[Algo] 3-0. Sorting](/posts/cs/algo/sorting)
-+ 接著閱讀：[[Algo] 3-2. Binary Search](/posts/cs/algo/binary_search)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 想要複習：[[Algo] 3-0. Sorting](/cs/algo/sorting)
++ 接著閱讀：[[Algo] 3-2. Binary Search](/cs/algo/binary_search)

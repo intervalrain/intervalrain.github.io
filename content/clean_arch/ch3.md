@@ -23,7 +23,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
-![ch3](/posts/clean_arch/images/ch3.png)
+![ch3](/clean_arch/images/ch3.png)
 # ch3. 程式設計範式總覽
 　　這個概述章節中包含的三種範式(paradigm)是結構化編程、物件導向編程和函數式編程。
 

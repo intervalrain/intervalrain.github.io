@@ -32,12 +32,12 @@ cover:
 > 每個問題都會要求讀者使用 Verilog 設計一個小電路。HDLBits 會對提交的程式碼作判讀。透過一組測試碼來進行向量模擬，並與解答比較，檢查正確性。
 
 # Catalog
-[1. Getting Started](/posts/verilog/hdlbits1/#1-getting-started)  
-[2. Verilog Language](/posts/verilog/hdlbits2/#2-verilog-language)  
-[3. Circuits](/posts/verilog/hdlbits3/#3-circuits)  
-[4. Verification: Reading Simulations](/posts/verilog/hdlbits4/#4-getting-started)  
-[5. Verification: Writing Testbenches](/posts/verilog/hdlbits5/#5-verification---writing-testbenches)  
-[6. CS450](/posts/verilog/hdlbits6/#6-cs450)  
+[1. Getting Started](/verilog/hdlbits1/#1-getting-started)  
+[2. Verilog Language](/verilog/hdlbits2/#2-verilog-language)  
+[3. Circuits](/verilog/hdlbits3/#3-circuits)  
+[4. Verification: Reading Simulations](/verilog/hdlbits4/#4-getting-started)  
+[5. Verification: Writing Testbenches](/verilog/hdlbits5/#5-verification---writing-testbenches)  
+[6. CS450](/verilog/hdlbits6/#6-cs450)  
 
 # 1 Getting Started
 

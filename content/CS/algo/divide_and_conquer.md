@@ -209,7 +209,7 @@ graph LR;
         + 參考來源 [Wikipedia](https://zh.wikipedia.org/wiki/%E6%96%BD%E7%89%B9%E6%8B%89%E6%A3%AE%E6%BC%94%E7%AE%97%E6%B3%95)
 
 ### 3. 合併排序 Merge Sort
-+ 在[[Algo] 0-4. 二元樹(Binary Tree)](/posts/cs/algo/binary_tree)中有介紹過，**合併排序**跟**快速排序**都有著類似前序、後序的結構，
++ 在[[Algo] 0-4. 二元樹(Binary Tree)](/cs/algo/binary_tree)中有介紹過，**合併排序**跟**快速排序**都有著類似前序、後序的結構，
 + 步驟：
     1. 將數列拆成若干個只有 1 個元素的子數列(因為只有一個元素，所有可以視為已排序的數列)。
     2. 將已排序的數列兩兩合併，直到所有的數列都合併完成，即完成排序。
@@ -403,6 +403,6 @@ graph LR;
 
 ---
 
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[Algo] 2-2. 貪心演算法](/posts/cs/algo/greedy)
-+ 接著閱讀：[[Algo] 2-4. 回溯法](/posts/cs/algo/backtracking)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 想要複習：[[Algo] 2-2. 貪心演算法](/cs/algo/greedy)
++ 接著閱讀：[[Algo] 2-4. 回溯法](/cs/algo/backtracking)

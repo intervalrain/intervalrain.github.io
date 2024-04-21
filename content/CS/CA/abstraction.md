@@ -38,7 +38,7 @@ ShowCodeCopyButtons: true
     + 最大的計算機類別，也涵蓋最廣泛的應用和性能。
     + 通常具有獨特的應用要求，這些要求將最低效能發揮的淋漓盡致，使成本與功耗成為很重要的指標。
 ### 後PC時代
-![postPC](/posts/CS/CA/images/postPC.png)
+![postPC](/CS/CA/images/postPC.png)
 + 個人行動裝置(Poersonal Mobile Device, PMD) 如智慧型手機與平板的出現，取代的 PC 的地位。
 + 雲端計算(Cloud Computing) 取代了傳統伺服器，這些雲端計算建構在「倉庫規模計算機」(Warehouse Scale Computer, WSC)。
     + 企業如Google、Amazon，提供了 WSC 的租借服務，這類通過雲端佈署的「軟體即服務」(Software as a Service, SaaS)，正在改變軟體業。
@@ -54,7 +54,7 @@ ShowCodeCopyButtons: true
     + 什麼理由導致了循序處理(Sequential processing)轉變成了平行處理(Parallel processing)？
     + 自第一台商用計算機問世以來，計算機架構師提出了哪些想法來奠定現代計算的基礎？
 ## 1.2 計結中八個重要的思想
-![great8](/posts/CS/CA/images/great8.png)
+![great8](/CS/CA/images/great8.png)
 + 摩爾定律(Moore's Law)之於設計
     + 摩爾定律源於 Intel 創辦人之一的 Gordon Moore 對 IC 容量增長的預測。
     + 由於計算機設計需耗時數年，而晶片的成長使得計算機架構師在設計時，必須將眼光放到設計完成時的技術狀態，而非當下。
@@ -73,7 +73,7 @@ ShowCodeCopyButtons: true
 + 用多餘創造可靠性(dependability)
     + 計算機不只要速度快，還要具有可靠性。任何物理設備都可能發生故障，此時可以透過引入冗餘的元件來使系統變的更可靠，這些冗餘的元件可以在發生故障時接管工作並協助檢測故障。
 ## 1.3 抽象化
-![abstraction](/posts/CS/CA/images/abstraction.png)
+![abstraction](/CS/CA/images/abstraction.png)
 + 從高階語言編譯或轉譯成簡單的計算機指令，這樣的分層結構，即是一種抽象化的呈現。
 + 應用軟體-系統軟體-硬體，從外而內，即是現代計算機的基本架構。
 + 計算機系統中最重要的兩個系統軟體：
@@ -105,7 +105,7 @@ ShowCodeCopyButtons: true
         ```
 + **高階語言(High-level Language)**
     + 高階語言的出現使得計算機的發展更進一步的突破，而高階與言、編譯器與彙編程式即是另一個抽象化的呈現。
-    ![compiler](/posts/CS/CA/images/compiler.png)
+    ![compiler](/CS/CA/images/compiler.png)
     + 好處
         + 高階語言使程式設計師能用更自然的思考，使用英文單字與代數進行程式設計。
         + 高階語言允許語言根據其預期用途設計：
@@ -117,7 +117,7 @@ ShowCodeCopyButtons: true
         + 高階語言是獨立於計算機的，因為編譯器與彙編程式可以在任何電腦上進行編譯。
 
 ## 1.4 計算機結構
-![component](/posts/CS/CA/images/components.png)
+![component](/CS/CA/images/components.png)
 + 任何計算機底層的硬體都執行相同的基本功能：
     + 輸入數據(inputing data)
     + 輸出數據(outputing data)

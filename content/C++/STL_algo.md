@@ -605,7 +605,7 @@ int main(){
 ```
 
 + 你可能會想繼續閱讀…
-    + [容器(Containers)](/posts/c++/stl_container)
-	+ [函式(Functions)](/posts/c++/stl_function)
-	+ [迭代器(Iterators)](/posts/c++/stl_iterator)
-	+ [Utility Library](/posts/c++/stl_util)
+    + [容器(Containers)](/c++/stl_container)
+	+ [函式(Functions)](/c++/stl_function)
+	+ [迭代器(Iterators)](/c++/stl_iterator)
+	+ [Utility Library](/c++/stl_util)

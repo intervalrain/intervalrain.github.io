@@ -37,9 +37,9 @@ cover:
     \end{array}\\)
 + quad multiplexer 
     + 多了一個致能(enable, en)來控制多工器
-    ![quadMUX](/posts/LogicDesign/L8/quadMUX.png)
+    ![quadMUX](/LogicDesign/L8/quadMUX.png)
 + 用 4-1 多工器實現三個變數函式
-    ![sample](/posts/LogicDesign/L8/sample.png)   
+    ![sample](/LogicDesign/L8/sample.png)   
     + 代數展開   
     \\(\begin{array}{rl}
     F(A,B,C)&=A' B'+AC\\\\
@@ -61,16 +61,16 @@ cover:
     + Verilog
         + [4-to-1 MUX implements 3-var function](https://github.com/intervalrain/Verilog/blob/main/3varMUX/threevarMUX.v)  
         + [test bench](https://github.com/intervalrain/Verilog/blob/main/3varMUX/threevarMUX_tb.v)
-        ![3varMUX](/posts/LogicDesign/L8/3varMUX.png)
+        ![3varMUX](/LogicDesign/L8/3varMUX.png)
 
 # 三態緩衝器(Three state buffer)
-![buffer](/posts/LogicDesign/L8/buffer.png)
+![buffer](/LogicDesign/L8/buffer.png)
 + 緩衝器(Buffers)的用途:
     + 用來增加閘輸出的趨動力(driving force)
     + 因為閘並聯而造成電容增加(fan out)，電容增加充電變慢，使電路變慢
     + 總體而言，可用來調節電路的速度。
 + 三態緩衝器:
-    ![tristate](/posts/LogicDesign/L8/tristate.png)
+    ![tristate](/LogicDesign/L8/tristate.png)
     + Three-state buffer 或 tri-state buffer
     + 真值表  
         \\(\begin{array}{|cc|c|}\hline
@@ -81,7 +81,7 @@ cover:
         1&1&1\\\\\hline
         \end{array}\\)
     + 利用 tri-state buffer 實現 2-to-1 MUX
-        ![tristateMUX](/posts/LogicDesign/L8/tristateMUX.png)
+        ![tristateMUX](/LogicDesign/L8/tristateMUX.png)
     + tri-state buffer 並聯
         + 真值表  
             \\(\begin{array}{|c|c|c|c|c|}\hline
@@ -93,21 +93,21 @@ cover:
             \end{array}\\)
     + 應用
         + Bus 匯流排
-            ![bus](/posts/LogicDesign/L8/bus.png)
+            ![bus](/LogicDesign/L8/bus.png)
         + Chip I/O
-            ![IO](/posts/LogicDesign/L8/IO.png)
+            ![IO](/LogicDesign/L8/IO.png)
 
 # 解碼器(Decoder)
 + \\(n 個 \text{input} 可以對應到 2^n 個 \text{output}\\)
-![decoder](/posts/LogicDesign/L8/decoder.png)
+![decoder](/LogicDesign/L8/decoder.png)
 + 事實上，n 個 input 在編碼器前成生各種 minterm 的組合，後面面編碼器就是將 minterm \\(OR\\) 起來。
-![2to4decoder](/posts/LogicDesign/L8/2to4decoder.png)
+![2to4decoder](/LogicDesign/L8/2to4decoder.png)
 + 7442 編碼器，數字 1 到 9 產生對應位置的輸出為 0。
 + 這樣的設計可以使雜訊的干擾變輕。
 + 配合 \\(\text{NAND Gate}\\)，其實就跟前面的編碼器一樣，是產生 minterm 再 \\(OR\\) 起來的過程。
-![7442](/posts/LogicDesign/L8/7442.png)
+![7442](/LogicDesign/L8/7442.png)
 + \\(F_1=m_1+m_2+m_4 \qquad F_2=m_4+m_7+m_9\\)
-![7442a](/posts/LogicDesign/L8/7442a.png)
+![7442a](/LogicDesign/L8/7442a.png)
 + Verilog
     + [7442](https://github.com/intervalrain/Verilog/blob/main/7442/u7442.v)  
     + [f124](https://github.com/intervalrain/Verilog/blob/main/7442/f124.v)  
@@ -117,21 +117,21 @@ cover:
 + 8-to-3 編碼，將輸入將對應的數字編到 abc 中。
 + 若 input 端有兩個以上為 1，則輸出數字較高的數(MSB)。
 + d 的作用，用來表示輸入是否含有 1，否則為 0。
-![encoder](/posts/LogicDesign/L8/encoder.png)
+![encoder](/LogicDesign/L8/encoder.png)
 # 唯讀記憶體(Read only memories, ROMs)
 + 唯讀記憶體就是一個編寫好的編碼器，輸入就像是位址(address)。
-![ROM](/posts/LogicDesign/L8/ROM.png)
+![ROM](/LogicDesign/L8/ROM.png)
 + General Form
 + \\(\text{n inputs}\rightarrow 2^n 個 \text{words} \rightarrow \text{m outputs}\\)
-![ROMa](/posts/LogicDesign/L8/ROMa.png)
+![ROMa](/LogicDesign/L8/ROMa.png)
 + 可以把 ROM 看成 decoder 加上 memory array
-![ROMa](/posts/LogicDesign/L8/ROMb.png)
+![ROMa](/LogicDesign/L8/ROMb.png)
 + 用二極體形成 \\(OR\\) 的效果，一般也會將二極體極化成黑點。
 + 二極體在這邊使電流為單向流動，一般二極體的壓降為 0.7V。
 + 整個矩陣稱為 OR-plane。
 + word line 用於控制儲存單元與 bit line 的連通
 + bit line 用於讀寫儲存單元。(此處只有讀)
-![ROMlogic](/posts/LogicDesign/L8/ROMlogic.png)
+![ROMlogic](/LogicDesign/L8/ROMlogic.png)
 ## ROM 的變形
 + PROM (prgrammable ROM): 使用光罩定義金屬線
 + OTP (one time program ROM): 利用 fuse 熔斷機制，一次性

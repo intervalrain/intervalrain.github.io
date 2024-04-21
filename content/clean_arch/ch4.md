@@ -23,7 +23,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
-![ch4](/posts/clean_arch/images/ch4.png)
+![ch4](/clean_arch/images/ch4.png)
 # ch4. 結構化程式設計
 　　Edsger Wybe Dijkstra 於 1930 年出生在鹿特丹。他在第二次世界大戰期間倖存於鹿特丹的轟炸，以及德國對荷蘭的占領，並於1948年以數學、物理、化學、生物最高分從高中畢業。1952年3月，21歲的 Dijkstra 在阿姆斯特丹的數學中心找到工作，成為荷蘭第一位程式設計師。  
 　　1955年，已經當了三年的程式設計師，且同時身為學生的 Dijkstra 得出一個結論：程式設計的智力挑戰比起理論物理學還大。因此，他選擇了程式設計作為他的長期職業。  

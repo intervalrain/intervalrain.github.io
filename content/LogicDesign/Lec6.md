@@ -34,13 +34,13 @@ cover:
     + OR-AND: 2-level POS
     + OR-AND-OR: 3-level circuit of AND and OR → no particular ordering
 + 4 level gates: \\(\text{Z=(AB+C)(FG+D+E)+H}\\)
-![1](/posts/LogicDesign/L6/1.png)
+![1](/LogicDesign/L6/1.png)
 + 3 level gates: (case fan out) \\(\text{AB(D+E)+C(D+E)+ABFG+CFG+H}\\)
     + Factoring 可變成 4-level \\(\text{(AB+C)(D+E+FG)+H}\\)
-![2](/posts/LogicDesign/L6/2.png)
+![2](/LogicDesign/L6/2.png)
 + level & gate & gate inputs 的關係會隨之變化，可根據電路設計的需求改變
     + 範例：
-    ![3](/posts/LogicDesign/L6/3.png)
+    ![3](/LogicDesign/L6/3.png)
     + \\(
         \begin{array}{llll}
             f(a,b,c,d)=\sum(1,5,6,10,13,14)\\\\
@@ -82,7 +82,7 @@ cover:
 # NAND and NOR gates
 ## NAND
 + 符號
-![nand](/posts/LogicDesign/L6/nand.png)
+![nand](/LogicDesign/L6/nand.png)
 + 真值表  
     \\(\boxed{\begin{array}{cc|cc}
         A&B&AB&\overline{AB}\\\\\hline
@@ -97,7 +97,7 @@ cover:
 
 ## NOR
 + 符號
-![nor](/posts/LogicDesign/L6/nor.png)
+![nor](/LogicDesign/L6/nor.png)
 + 真值表  
     \\(\boxed{\begin{array}{cc|cc}
         A&B&AB&\overline{AB}\\\\\hline
@@ -139,25 +139,25 @@ cover:
     + \\(\text{(1, B', C')}\rightarrow\boxed{\text{Minority Gate}}=\text{OR}=\text{B+C}\\)
 # 2-level NAND and NOR gates
 ## DeMorgon's Law
-+ 等效邏輯閘：![demorgon](/posts/LogicDesign/L6/Demorgon.png)
++ 等效邏輯閘：![demorgon](/LogicDesign/L6/Demorgon.png)
     + \\((A+B)'=A' B'\\)
     + \\((AB)'=A'+B'\\)
     + \\(A+B=(A' B')'\\)
     + \\(AB=(A'+B')'\\)
 + \\(\text{Ex1: AND/OR}\rightarrow\text{NAND/NAND}\\)
-    + ![tonand](/posts/LogicDesign/L6/tonand.png)
+    + ![tonand](/LogicDesign/L6/tonand.png)
 + \\(\text{Ex2: AND/OR}\rightarrow\text{NOR/NOR}\\)
-    + ![tonor](/posts/LogicDesign/L6/tonor.png)
+    + ![tonor](/LogicDesign/L6/tonor.png)
 # Multi-level NAND and NOR circuits
 + Multi-level NAND and NOR circuits
-![sample1](/posts/LogicDesign/L6/sample1.png)
+![sample1](/LogicDesign/L6/sample1.png)
     + \\(\text{to NAND gate}\\)  
-    ![sample2](/posts/LogicDesign/L6/sample2.png)
+    ![sample2](/LogicDesign/L6/sample2.png)
     + \\(\text{to NOR gate}\\)
-    ![sample3](/posts/LogicDesign/L6/sample3.png)   
+    ![sample3](/LogicDesign/L6/sample3.png)   
 
 # Multi-output circuit realization
-![MUX](/posts/LogicDesign/L6/MUX.png)
+![MUX](/LogicDesign/L6/MUX.png)
 + 實際一個多工器(multiplexer)內的電路實現，可以用 fan out 的方式達到最佳化。
 + 整體最佳不一定代表個別都為最佳。
 + 實作1:
@@ -196,8 +196,8 @@ cover:
        F_3(A,B,C,D)=A' CD+AB\\\\
        \lbrace{AB,A' CD,ACD,ABC'}\rbrace
         \\)
-![multi1](/posts/LogicDesign/L6/multi1.png)
-![multi2](/posts/LogicDesign/L6/multi2.png)
+![multi1](/LogicDesign/L6/multi1.png)
+![multi2](/LogicDesign/L6/multi2.png)
 + 實作2:  
     + \\(f_1=\sum m(2,3,5,7,8,9,10,11,13,15)=bd+b' c+ab'\\\\
        f_2=\sum m(2,3,5,6,7,10,11,14,15)=a' bd+c\\\\
@@ -297,7 +297,7 @@ cover:
 + 參考實作4，\\(a' d'(m_2),a' bc'(m_5), a' b' c'(m_1), bd'(m_{12})\\)皆為基本質函項。
 + 一般而言，不會為了共享而把基本質函項拆開。
 ## 和項共用(Shared by sum terms)
-![1](/posts/LogicDesign/L6/8421.png)
+![1](/LogicDesign/L6/8421.png)
 + 真值表   
 \\(\begin{array}{|cccc|cccc:c|}\hline
 a&b&c&d&w&x&y&z&\\\\\hline
@@ -355,9 +355,9 @@ a&b&c&d&w&x&y&z&\\\\\hline
 + Sum terms 也可以 share
 + Multi-output circuits 也可以只用 \\(\text{NAND/NOR}\\) 表示
 ## Multi-Output NAND/NOR circuits
-+ 範例![mo1](/posts/LogicDesign/L6/mo1.png)
++ 範例![mo1](/LogicDesign/L6/mo1.png)
     + \\(\text{to NAND}\\)
-    ![mo1](/posts/LogicDesign/L6/mo2.png)
+    ![mo1](/LogicDesign/L6/mo2.png)
     + \\(\text{to NOR}\\)
-    ![mo1](/posts/LogicDesign/L6/mo3.png)
+    ![mo1](/LogicDesign/L6/mo3.png)
 

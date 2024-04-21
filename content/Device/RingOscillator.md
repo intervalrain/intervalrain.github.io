@@ -28,7 +28,7 @@ cover:
 ---
 ## 前言
 *2022/3/3 更新*
-+ 此篇為筆者以工作經驗為背景寫下的筆記，如有錯誤煩請指教。[點此聯絡我](https://intervalrain.github.io/posts/aboutme/)。
++ 此篇為筆者以工作經驗為背景寫下的筆記，如有錯誤煩請指教。[點此聯絡我](https://intervalrain.github.io/aboutme/)。
 # Ring Oscillator 環形振盪器(RO)
 
 ## 簡介

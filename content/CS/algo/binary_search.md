@@ -66,6 +66,6 @@ bool canFinish(vector<int> piles, int speed, int h){
 }
 ```
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[Algo] 3-1. Two Pointer](/posts/cs/algo/two_pointer)
-+ 接著閱讀：[[Algo] 3-3. Monotonic Stack](/posts/cs/algo/monotonic_stack)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 想要複習：[[Algo] 3-1. Two Pointer](/cs/algo/two_pointer)
++ 接著閱讀：[[Algo] 3-3. Monotonic Stack](/cs/algo/monotonic_stack)

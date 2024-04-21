@@ -191,8 +191,8 @@ int main(){
 #### 32. list.emplace()
 
 + 你可能會想繼續閱讀…
-    + 回到[容器(Containers)](/posts/c++/stl_container)
-    + [vector](/posts/c++/stl_vector)
-    + [deque](/posts/c++/stl_deque)
-    + [arrays](/posts/c++/stl_arrays)
-    + [forward_list](/posts/c++/stl_forward_list)
+    + 回到[容器(Containers)](/c++/stl_container)
+    + [vector](/c++/stl_vector)
+    + [deque](/c++/stl_deque)
+    + [arrays](/c++/stl_arrays)
+    + [forward_list](/c++/stl_forward_list)

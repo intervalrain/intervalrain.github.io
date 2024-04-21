@@ -33,7 +33,7 @@ cover:
 + [Nikita Kothari](https://www.linkedin.com/in/nikita-kothari3/)
 + Software Engineer @ LinkedIn
 + The University of Texas at Dallas
-![nikiti](/posts/Life/nikita.png)
+![nikiti](/Life/nikita.png)
 
 # [正文](https://www.linkedin.com/feed/update/urn:li:activity:6940911414836416512/)
 Nikita: 

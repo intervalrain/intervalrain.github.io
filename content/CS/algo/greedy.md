@@ -117,7 +117,7 @@ vector<int> coinChange(vector<int>& nums, int money) {
                 return res;
             }
         ```
-    + 以上方法當遇到單一奇異數(無因倍數關係)的時候還可以用，但遇到多個奇異數的時候，複雜度就會明顯上升，到時後我們會遇用其它方法來解構。在後面的[動態規劃](/posts/cs/algo/dp)篇，有深入的介紹，如何利用其它技巧達到剪枝得到最佳解。
+    + 以上方法當遇到單一奇異數(無因倍數關係)的時候還可以用，但遇到多個奇異數的時候，複雜度就會明顯上升，到時後我們會遇用其它方法來解構。在後面的[動態規劃](/cs/algo/dp)篇，有深入的介紹，如何利用其它技巧達到剪枝得到最佳解。
 + 由此可發現，貪心法不一定會得到最佳解，需要嚴格的驗證「局部最佳性」，才能保證最後的解是最佳解。
 
 ### 2. 背包問題(Knapsack Problem)
@@ -174,6 +174,6 @@ vector<int> coinChange(vector<int>& nums, int money) {
     }
     ```
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[Algo] 2-1. 暴力演算法](/posts/cs/algo/brute_force)
-+ 接著閱讀：[[Algo] 2-3. 分治法](/posts/cs/algo/divide_and_conquer)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 想要複習：[[Algo] 2-1. 暴力演算法](/cs/algo/brute_force)
++ 接著閱讀：[[Algo] 2-3. 分治法](/cs/algo/divide_and_conquer)

@@ -262,5 +262,5 @@ int main(){
 ### 8. 極值(min/max)
 ### 9. 其它
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-<!-- + 想要複習：[[Algo] 1-8. priority_queue](/posts/cs/algo/priority_queue) -->
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
+<!-- + 想要複習：[[Algo] 1-8. priority_queue](/cs/algo/priority_queue) -->

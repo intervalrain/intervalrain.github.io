@@ -27,11 +27,11 @@ ShowCodeCopyButtons: true
 ## 設計(design)與架構(architecture)為何重要？
 + 軟體架構的目標是將**開發**與**維護**軟體系統所需的人力最小化。
     + 不好的設計會使維護的成本愈來愈高。
-![1-1](/posts/clean_arch/images/img1_3.png)
+![1-1](/clean_arch/images/img1_3.png)
     + 每次版本的發布時的生產力。
-![1-2](/posts/clean_arch/images/img1_4.png)
+![1-2](/clean_arch/images/img1_4.png)
     + 良好的開發模式(TDD)大幅減少開發時間。
-![1-3](/posts/clean_arch/images/img1_6.png)
+![1-3](/clean_arch/images/img1_6.png)
 
 ### 行為(behavior)與架構(architecture)
 + 行為：緊迫但並非特別重要
@@ -55,9 +55,9 @@ ShowCodeCopyButtons: true
 
 ### 物件導向設計：
 + 依賴反轉：
-![DIP](/posts/clean_arch/images/DIP.png)
+![DIP](/clean_arch/images/DIP.png)
 + 商業邏輯不依賴於 UI 與 DB，UI 與 DB 可以做為商業邏輯的插件。
-![DIP2](/posts/clean_arch/images/DIP2.png)
+![DIP2](/clean_arch/images/DIP2.png)
 
 ### 小結：
 + 三種範式都在約束你寫 code 的某些行為。這些約束就是在制定規則。
@@ -65,22 +65,22 @@ ShowCodeCopyButtons: true
 ## SOLID 設計原則
 ### SRP: 單一職責原則(The Single Responsibility Principle)
 + 一個模組只有一個原因(用戶/利益相關者)需要改變。
-![SRP](/posts/clean_arch/images/SRP.png)
+![SRP](/clean_arch/images/SRP.png)
 
 ### OCP: 開放封閉原則(The Open-Closed Principle)
 + 軟體工程應對擴展開放，但對修改封閉。
-![OCP](/posts/clean_arch/images/OCP.png)
+![OCP](/clean_arch/images/OCP.png)
 
 ### LSP: 里氏替體原則(The Liskov Substitution Principle)
 + 避免簡單的可替代性違規導致大量的額外機制。
-![LSP](/posts/clean_arch/images/LSP.png)
+![LSP](/clean_arch/images/LSP.png)
 
 ### ISP: 介面隔離原則(The Interface Segregation Principle)
 + 關注點分離。將一個多功能的物件拆成繼承三個不同功能介面的物件。
-![SRP](/posts/clean_arch/images/ISP.png)
+![SRP](/clean_arch/images/ISP.png)
 
 ### DIP: 依賴反轉原則(The Dependency Inversion Principle)
-![DIP3](/posts/clean_arch/images/DIP3.png)
+![DIP3](/clean_arch/images/DIP3.png)
 
 ## 組件原則
 + 組件是部署的單位，他們是系統的最小單元。
@@ -113,7 +113,7 @@ ShowCodeCopyButtons: true
     + 不只強調哪些組件因強耦合而應該放在同一個組件，還強調我們不應該把哪些類別放在一起。
     + 不強迫組件的使用者依賴他們不需要的東西。
     + ISP 的通用版。
-![cohesion](/posts/clean_arch/images/cohesion.png)
+![cohesion](/clean_arch/images/cohesion.png)
 
 ## 耦合(Coupling)
 ### 非循環依賴原則(The Acyclic Dependencies Principle, ADP)
@@ -128,7 +128,7 @@ ShowCodeCopyButtons: true
 
 ### 穩定依賴原則(The Stable Dependencies Principle, SDP)
 + 穩定的依賴流。
-![dependencyFlow](/posts/clean_arch/images/dependencyFlow.png)
+![dependencyFlow](/clean_arch/images/dependencyFlow.png)
 
 ### 穩定性指標
 \\(I=\frac{\text{fan-out}}{\text{fan-in + fan-out}}\\)
@@ -136,9 +136,9 @@ ShowCodeCopyButtons: true
 #### 不是所有的組件都應該是穩定的
 + 如果系統中的所有組件都是極度穩定的，代表系統是不可改變的，這並非理想的情況。
 + 好的依賴方向，由不穩定指向穩定。
-![instable](/posts/clean_arch/images/instable.png)
+![instable](/clean_arch/images/instable.png)
 + 被設計成 flexable 的組件，愈被依賴則愈難被更動，同樣應該用 DIP 來破壞對 flexable 的依賴。
-![instable2](/posts/clean_arch/images/instable2.png)
+![instable2](/clean_arch/images/instable2.png)
 
 ### 穩定抽象原則(The Stable Abstractions Principle, SAP)
 + 要使組件穩定，它應該由接口和抽象類組成，以便擴展，且要不過度限制架構。
@@ -148,7 +148,7 @@ ShowCodeCopyButtons: true
 + \\(N_c\\) 是組件中類別的數量。
 + \\(N_a\\) f是組件中的抽象類別和介面的數量
 + \\(A=\frac{N_a}{N_c}\\) 抽象度。
-![abstractions](/posts/clean_arch/images/Abstractions.png)
+![abstractions](/clean_arch/images/Abstractions.png)
 + 在上圖的座標中，愈穩定且抽象的組件位於左上角(0,1)、愈不穩定且具體的組件位於右下角(1,0)。
 + 我們無法強制所有元件均位於 (0,1) 或 (1,0)，而是定義元件合理的位置，並找出元件不應該出現的區域。
     + Zone of Pain

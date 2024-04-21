@@ -49,10 +49,10 @@ cover:
     + 比方說工廠出貨會抽樣調查產品有沒有損壞，不可能全部的產品都拿去做測試，因為成本太高。
 + 藉由普查或抽樣的結果來描述全體的行為，作為決策的依據。
 + 統計的目的：\\(\red{\text{由樣本資料推論母體參數}}\\)。  
-![statistics](/posts/Device/statistics/statistics.png)
+![statistics](/Device/statistics/statistics.png)
 
 # 解決統計問題的五大步驟
-![steps](/posts/Device/statistics/steps.png)
+![steps](/Device/statistics/steps.png)
 
 ## 問題定義
 ---
@@ -216,7 +216,7 @@ cover:
             + 也就是如果調查是正確的，我們應該只能從 1000 個人裡面找到小於 10 個極端值。不過因為 P 值是機率，我們可以拒絕，但不表示調查就是完全不正確的，也許我們再擴大調查，也許有可能在 10000 個人裡面總共只找到 45 個極端值，那這份調查又變成有效的了。
     
 ### 假設檢定
-![test](/posts/Device/statistics/test.png)
+![test](/Device/statistics/test.png)
 
 + 單尾、雙尾
     + 單尾代表只有一個拒絕域，右分為左尾與右尾。

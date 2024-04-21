@@ -56,7 +56,7 @@ The given apk_info structure is given as below.
 \end{array}\\)  
 
 ### 二、分析
-+ 重點其實就是區間求極值，所以筆者最先開始想到的是線段樹，線段樹的介紹可參考這裡：[Segment Tree 線段樹](/posts/c++/segtree)
++ 重點其實就是區間求極值，所以筆者最先開始想到的是線段樹，線段樹的介紹可參考這裡：[Segment Tree 線段樹](/c++/segtree)
 + 爾後才想到這題其實概念上很接近 [Leetcode 218. The Skyline Problem](https://leetcode.com/problems/the-skyline-problem/)
 + 上這張題後就懂了，把 apk version 看成建築的高度， min OS version 與 max OS version 看成建築的 x 座標，就變成一樣的題目了，差別在於把 skyline 建成之後，再對其作 binary search。
 ![skyline](https://assets.leetcode.com/uploads/2020/12/01/merged.jpg)

@@ -306,7 +306,7 @@ A&B&C&B'&AB'&AB'+C&A+C&B'+C&(A+C)(B'+C)\\\\\hline
 4. 利用 \\(\boxed{x+x'y=x(y+y')+x'y=xy+xy'+x' y=x+y}\\)
 5. 必要時加入 redundant terms
 
-+ [Lec3](https://intervalrain.github.io/posts/logicdesign/lec3/)會使用圖表法，較不容易出錯。
++ [Lec3](https://intervalrain.github.io/logicdesign/lec3/)會使用圖表法，較不容易出錯。
 # 如何證明布林表達式的正確性?
 1. 建構 Truth Table
 2. 簡化 LHS 和 RHS

@@ -24,8 +24,8 @@ ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
 # 前言
-<!-- {{< img "/posts/ML/lhy/1_1.png" 500 >}} -->
-<!-- ![1_1](/posts/ML/lhy/1_1.png) -->
+<!-- {{< img "/ML/lhy/1_1.png" 500 >}} -->
+<!-- ![1_1](/ML/lhy/1_1.png) -->
 {{< togb "什麼是機器學習" >}}
 + 機器學習(Machine Learning)，就是利用機器的力量幫忙找出函式。
     + Input 可以是 
@@ -37,7 +37,7 @@ ShowCodeCopyButtons: true
         + **Classification**
         + **Structed Learning**(令機器產生有結構的東西 eg. text, image)
 {{< togb "示意圖" >}}
-![1_1](/posts/ML/lhy/1_1.png)
+![1_1](/ML/lhy/1_1.png)
 {{< toge >}}
 {{< toge >}}
 {{< togb "什麼是深度學習" >}}
@@ -46,7 +46,7 @@ ShowCodeCopyButtons: true
 
 # 機器如何學習
 ## 1. 基本原理(訓練三步驟)
-![1_2](/posts/ML/lhy/1_2.png)
+![1_2](/ML/lhy/1_2.png)
 
 {{< togb "Step 1: 使用合適的 Model" >}}
 + \\(y=f(\text{\red{data}})\\)
@@ -67,7 +67,7 @@ ShowCodeCopyButtons: true
     + MSE (mean square error): \\(e=(y-\hat{y})^2\\)
     + Cross-entropy: 計算**機率分布**之間的差距
 + ***Error Surface***: 根據不同的參數，計算出 loss 所畫出來的等高線圖。
-    ![1_3](/posts/ML/lhy/1_3.png)
+    ![1_3](/ML/lhy/1_3.png)
 {{< toge >}}
 {{< togb "Step 3: Optimization" >}}
 + 找到 loss 最小的參數組合 \\((w,b)\\)
@@ -75,7 +75,7 @@ ShowCodeCopyButtons: true
     + \\(\boxed{w' = w - \red{\eta}\frac{\partial L}{\partial w}|_{w=w^0,b=b^0}}\\)
     + \\(\boxed{b' = b - \red{\eta}\frac{\partial L}{\partial b}|_{w=w^0,b=b^0}}\\)
     + \\(\red{\eta}\\): **學習率 learning rate**, 決定 gradient descent 的一步有多大步
-![1_4](/posts/ML/lhy/1_4.png)
+![1_4](/ML/lhy/1_4.png)
 {{< toge >}}
 ## 2. Linear Model
 + \\(\boxed{f\leftarrow y=b+\sum_{j=1}^{n}{w_jx_j}}\\)
@@ -88,11 +88,11 @@ ShowCodeCopyButtons: true
     + 特徵為1時，\\(\boxed{y=b+\sum_i{c_i\text{ sigmoid}(b_i+ w_ix_1)}}\\)
     + 特徵>1時，\\(\boxed{y=b+\sum_i{c_i\text{ sigmoid}(b_i+\sum_j w_{ij}x_j)}}\\)
 + 意義：一條曲線可以由多個鋸齒狀的線段(hard sigmoid)的總合，我們可以用 sigmoid 函數來逼近 hard sigmoid。事實上，sigmoid 的個數就是神經網路中一層 neuron 的 node 數，至於使用幾個 sigmoid 是 hyper parameter。
-![1_5](/posts/ML/lhy/1_5.png)
+![1_5](/ML/lhy/1_5.png)
 {{< togb "可將公式轉成矩陣計算+激勵函數的形式：" >}}
-![1_6](/posts/ML/lhy/1_6.png)
-![1_7](/posts/ML/lhy/1_7.png)
-![1_8](/posts/ML/lhy/1_8.png)
+![1_6](/ML/lhy/1_6.png)
+![1_7](/ML/lhy/1_7.png)
+![1_8](/ML/lhy/1_8.png)
 {{< toge >}}
 + 以線性代數方式表示：\\(\boxed{y=b+c^T\sigma(b_i+Wx)}\\)
     + 將 \\(b\\)、\\(b_i\\)、\\(W\\)、\\(c^T\\) 等所有參數統稱為 \\(\theta\\)
@@ -103,7 +103,7 @@ ShowCodeCopyButtons: true
     + 更新(update)計算：\\(\begin{bmatrix}\theta_1^1\\\\\theta_2^1\\\\\vdots\end{bmatrix}\leftarrow\begin{bmatrix}\theta_1^0\\\\\theta_2^0\\\\\vdots\end{bmatrix}-\begin{bmatrix}\eta \frac{\partial L}{\partial \theta_1}|_{\theta=\theta^0}\\\\\eta\frac{\partial L}{\partial\theta_2}| _{\theta=\theta^0}\\\\\vdots\end{bmatrix}\\)
     + 或寫成 \\(\theta^1\leftarrow \theta^0-\eta g\\)
     {{< togb "batch training" >}}
-    ![1_9](/posts/ML/lhy/1_9.png)
+    ![1_9](/ML/lhy/1_9.png)
     {{< toge >}}
     + 將樣本依批次(batch)進行更新，當所有的 batches 都跑過一遍，稱為一個 **epoch**
     
@@ -117,4 +117,4 @@ ShowCodeCopyButtons: true
 + Neural Network
     + \\(\boxed{y=b+c^T\sigma(b_i+Wx)}\\)
     + Multiple hidden layers -> Deep learning
-![1_10](/posts/ML/lhy/1_10.png)
+![1_10](/ML/lhy/1_10.png)

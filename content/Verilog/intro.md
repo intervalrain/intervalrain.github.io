@@ -406,7 +406,7 @@ cover:
      \\)
 
 + 邏輯閘層次模型範例
-    + ![sample1](/posts/Verilog/images/sample1.png)
+    + ![sample1](/Verilog/images/sample1.png)
         ```Verilog
         module and_or_gate(in1, in2, in3, in4, out;
         
@@ -423,9 +423,9 @@ cover:
         ```
 # 2 實作
 [Implementation in Github](https://github.com/intervalrain/Verilog)
-### 1. [HDLbits](/posts/verilog/hdlbits1/)
-### 2. [Verilog](/posts/verilog/hdlbits2/)
-### 3. [Circuits](/posts/verilog/hdlbits3/)
-### 4. [Verification: Reading Simulations](/posts/verilog/hdlbits4/)
-### 5. [Verification: Writing Testbenches](/posts/verilog/hdlbits5/)
-### 6. [CS450](/posts/verilog/hdlbits6/)
+### 1. [HDLbits](/verilog/hdlbits1/)
+### 2. [Verilog](/verilog/hdlbits2/)
+### 3. [Circuits](/verilog/hdlbits3/)
+### 4. [Verification: Reading Simulations](/verilog/hdlbits4/)
+### 5. [Verification: Writing Testbenches](/verilog/hdlbits5/)
+### 6. [CS450](/verilog/hdlbits6/)

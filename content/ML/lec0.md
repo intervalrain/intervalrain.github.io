@@ -34,14 +34,14 @@ cover:
     + 機器學習(Machine Learning, ML) → 手段
         + 深度學習(Deep Learning, DL)
         + …
-![history](/posts/ML/L0/history.png)
+![history](/ML/L0/history.png)
 
 ## 在機器學習出現之前 
 > 生物的行為取決於兩件事，一個是後天學習的結果，一個是天生的本能。
 + Hand-crafted rules: 人類為機器設定好的天生本能
     + 僵化，無法超越創造者
     + 需要大量人力，不適合小企業
-![AIinsde](/posts/ML/L0/AIinside.jpeg)
+![AIinsde](/ML/L0/AIinside.jpeg)
 
 # 機器學習
 + 寫程式讓機器可以學習 → 尋找關聯資料的函式
@@ -57,11 +57,11 @@ cover:
     \text{step2}&\boxed{\text{Evaluate goodness of function}}\\\\
     &\downarrow\\\\
     \text{step3}&\boxed{\text{Pick the best function}}\end{array}\\)
-    ![frameword](/posts/ML/L0/framework.png)
+    ![frameword](/ML/L0/framework.png)
         + 告訴機器 input 和正確的 output 這就叫作 **supervised learning**。
 
 # 機器學習相關的技術
-![terminology](/posts/ML/L0/terminology.png)
+![terminology](/ML/L0/terminology.png)
 ## 任務(Task)
 ### 迴歸(Regression)
 + Regression 指的是函數的輸出為 **scalar(數值)**，如 PM2.5。
@@ -89,17 +89,17 @@ cover:
 + Semi-supervised Learning
 + 同時有 Labelled data 與 Unlabelled data
 + 可減少資料的需求量。
-![semi-supervised](/posts/ML/L0/semi-supervised.png)
+![semi-supervised](/ML/L0/semi-supervised.png)
 ### 遷移學習
 + Transfer Leanring
 + 有大量的 Labelled data 與 Unlabelled data
 + 其中包含有關聯的與無關聯的。
-![transferlearning](/posts/ML/L0/transferlearning.png)
+![transferlearning](/ML/L0/transferlearning.png)
 ### 無監督學習
 + Unsuperviesd Learning
 + 只有大量的 inputs 而沒有 outputs
 + 或大量的 outputs 而沒有 inputs
-![unsupervised](/posts/ML/L0/unsupervised.png)
+![unsupervised](/ML/L0/unsupervised.png)
 ### 強化學習
 + 沒有告訴機器正確的答案，機器有的只是一個分數，就是它做得好或不好。
 + Alpha Go 是 Supervised learning + Reinforcement learning (先人工餵棋譜，再讓機器人互相下棋)

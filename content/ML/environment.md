@@ -53,7 +53,7 @@ jupyter notebook
 
 # For terminal user
 1. 開始 Anaconda.Navigator
-![conda](/posts/ML/images/conda.png)
+![conda](/ML/images/conda.png)
 2. 在 Environments 中安裝指定模組 ex.`tensorflow`, `keras`
 3. 在 terminal 中輸入 conda activate {環境名稱}
 ```

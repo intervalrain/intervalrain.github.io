@@ -84,22 +84,22 @@ cover:
     + 定義 `dp[i][j]`：表示第 `ith` 輪的第 `j` 種狀態。
     + 將 `dp[i][j]` 與前一輪的狀態 `dp[i-1][j]` 產生關聯。
     + 最終的結果是 `dp[n][j]` 中的某種 aggression (sum, max, min, ...)
-+ 範例：[[LeetCode] 198. House Robber](/posts/leetcode/198)
++ 範例：[[LeetCode] 198. House Robber](/leetcode/198)
     + 定義 `dp[i][j]：`第 `i` 間房子，`j == 0` 代表不搶，`j == 1` 代表搶。
     + 第 `i` 間房若搶，則前一間房必定不能搶；第 `i` 間房若不搶，前一間房可搶可不搶：
         + `dp[i][0] = max(dp[i-1][1], dp[i-1][0])`
         + `dp[i][1] = dp[i-1][0] + val[i]`
     + 最終的結果是 `max(dp[n-1][0], dp[n-1][1])`。
 + 例題：
-    + [[LeetCode] 198. House Robber](/posts/leetcode/198)
-    + [[LeetCode] 213. House Robber II](/posts/leetcode/213)
-    + [[LeetCode] 337. House Robber III](/posts/leetcode/337)
-    + [[LeetCode] 121. Best Time to Buy and Sell Stock](/posts/leetcode/121)
-    + [[LeetCode] 122. Best Time to Buy and Sell Stock II](/posts/leetcode/122)
-    + [[LeetCode] 123. Best Time to Buy and Sell Stock III](/posts/leetcode/123)
-    + [[LeetCode] 188. Best Time to Buy and Sell Stock IV](/posts/leetcode/124)
-    + [[LeetCode] 309. Best Time to Buy and Sell Stock with Cooldown](/posts/leetcode/309)
-    + [[LeetCode] 714. Best Time to Buy and Sell Stock with Transcation Fee](/posts/leetcode/714)
+    + [[LeetCode] 198. House Robber](/leetcode/198)
+    + [[LeetCode] 213. House Robber II](/leetcode/213)
+    + [[LeetCode] 337. House Robber III](/leetcode/337)
+    + [[LeetCode] 121. Best Time to Buy and Sell Stock](/leetcode/121)
+    + [[LeetCode] 122. Best Time to Buy and Sell Stock II](/leetcode/122)
+    + [[LeetCode] 123. Best Time to Buy and Sell Stock III](/leetcode/123)
+    + [[LeetCode] 188. Best Time to Buy and Sell Stock IV](/leetcode/124)
+    + [[LeetCode] 309. Best Time to Buy and Sell Stock with Cooldown](/leetcode/309)
+    + [[LeetCode] 714. Best Time to Buy and Sell Stock with Transcation Fee](/leetcode/714)
 ---
 ### 2. 不定序列型(LIS)
 ![russian doll](https://th.bing.com/th/id/R.79a96eff1e4ee74f842e254e01cccc45?rik=GwH83zY4Cs5Qzw&pid=ImgRaw&r=0)
@@ -108,7 +108,7 @@ cover:
     + 定義 `dp[i]`：表示第 `ith` 輪的狀態，一般這個狀態要求和元素 `i` 直接相關。
     + 將 `dp[i]` 與之前的某一狀態 `dp[i]` 產生關聯。
     + 最終的結果為 `dp[i]` 中的某一個。
-+ 範例：[[LeetCode] 300. Longest Increasing Subsequence](/posts/leetcode/300)
++ 範例：[[LeetCode] 300. Longest Increasing Subsequence](/leetcode/300)
     + 定義 `dp[i]` 為 `s[1:i]` 中以 `s[i]` 為結尾的最長遞增子序列長度。
     + 尋找最優的前驅狀態 `j`，將 `dp[i]` 與 `dp[j]` 產生關聯。
         + `dp[i] = max(dp[i], dp[j] + 1)`
@@ -122,7 +122,7 @@ cover:
     + 定義 `dp[i][j]`：表示針對 `s[1:i]` 和 `t[1:j]` 的子問題求解。
     + 將 `dp[i][j]` 與之前的某一狀態做關聯，如 `dp[i-1][j], dp[i][j-1], dp[i-1][j-1]`
     + 最終的結果是 `dp[m][n]`。
-+ 範例：[[LeetCode] 1143. Longest Common Subsequence](/posts/leetcode/1143)
++ 範例：[[LeetCode] 1143. Longest Common Subsequence](/leetcode/1143)
     + 定義 `dp[i][j]` 為 `s[1:i]` 與 `t[1:j]` 的 LCS 長度。
     + 利用`s[i]`與`t[j]`，使`dp[i][j]`與`dp[i-1][j]`、`dp[i][j-1]`、`dp[i-1][j-1]` 產生關聯。
         + 遍歷兩層迴圈，核心以從 `s[i]` 和 `t[j]` 的關係作破口，對 `dp[i][j]` 作轉移。
@@ -137,7 +137,7 @@ cover:
     + 定義 `dp[i][k]` 表示針對 `s[1:i]` 分為 `k` 個區間，此時能夠得到最佳解。
     + 搜尋最後一個區間的起始位置 `j`，將 `dp[i][k]` 分割成 `dp[j-1][k-1]` 和 `s[j:i]` 兩部分。
     + 最終的結果是 `dp[n][k]`。
-+ 範例：[[LeetCode] 1278. Palindrome Partitioning](/posts/leetcode/1278)
++ 範例：[[LeetCode] 1278. Palindrome Partitioning](/leetcode/1278)
     + 定義 `dp[i][j]`：`s[1:i]` 和 `t[1:j]` 的最長相同子序列(LCS)。
 ---
 ### 5. 回文型(LPS)
@@ -148,7 +148,7 @@ cover:
     + 將大區間的 `dp[i][j]` 往小區間的 `dp[i'][j']` 轉移。
         + 第一層循環是區間大小，第二層循環是起始點。
     + 最終的結果是 `dp[1][n]`。
-+ 範例：[[LeetCode] 516. Longest Palindrome Subsequence](/posts/leetcode/516)
++ 範例：[[LeetCode] 516. Longest Palindrome Subsequence](/leetcode/516)
 ---
 ### 6. 背包型
 ![backpack](https://th.bing.com/th/id/R.d85b9e734217ea3248111352673321a6?rik=6xwaTyqvmKedlw&pid=ImgRaw&r=0)
@@ -159,7 +159,7 @@ cover:
         + 第一層循環是物品編號 `i`。
         + 第二層循環是遍歷代價的所有可能值。
     + 最終的結果是 `max{dp[n][c_i]}` 
-+ 範例：[[LeetCode] 494. Target Sum](/posts/leetcode/494)
++ 範例：[[LeetCode] 494. Target Sum](/leetcode/494)
 ## 三、狀態壓縮
 1. 方法1
 + 如果轉移方程式很明顯可以省去使用空間，可利用將不需要的空間重複利用來達到狀態壓縮的效果。
@@ -206,5 +206,5 @@ cover:
 2. 方法2
 + 如果所需的空間有限制，如在 `30` 個以內的 `bool` 值，可以將之轉換成 `bit`，利用位元運算來達到空間壓縮。
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[Algo] 2-4. 回溯法 Backtacking](/posts/cs/algo/backtracking)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 想要複習：[[Algo] 2-4. 回溯法 Backtacking](/cs/algo/backtracking)

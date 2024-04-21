@@ -74,4 +74,4 @@ cover:
 
 參考來源：
 + [https://bend1031.github.io/](https://bend1031.github.io/2019/08/10/%E5%9C%A8GitHub-Pages%E4%B8%AD%E6%B8%B2%E6%9F%93-LaTex-%E5%85%AC%E5%BC%8F/)
-+ https://teddygood.github.io/posts/blog/katex/
++ https://teddygood.github.io/blog/katex/

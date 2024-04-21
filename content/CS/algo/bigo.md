@@ -47,5 +47,5 @@ cover:
 + 有時候時間複雜度的判斷沒那麼容易，主定理是一個數學推導的方法：可以參考網站https://brilliant.org/wiki/master-theorem/
 
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 接著閱讀：[[Algo] 0-2. 演算法思維](/posts/cs/algo/concept)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 接著閱讀：[[Algo] 0-2. 演算法思維](/cs/algo/concept)

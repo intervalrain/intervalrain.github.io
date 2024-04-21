@@ -46,7 +46,7 @@ cover:
         + `[3,1,2]`
         + `[3,2,1]`
     + 對應上圖的回溯樹來看，我們在每個樹的節點，都會面臨一次決策，站在樹的根時，相當於我們要選擇排列的第一位，而我們有三個**選擇**，即 `1` 或 `2` 或 `3`。若我們的第一位選擇了 `1`，代表我們選擇了 \\(\text{x}_1=1\\) 的**路徑**，故接下來我們的選擇只剩下兩個，即 `2` 或 `3`。當我們繼續往下做，直到子葉節點時，代表我們已經沒有選擇可選，此時就是我們的**終止條件**。
-    + 回憶我們在二叉樹中練習過[前序、中序、後序](/posts/cs/algo/binary_tree/#二前序中序後序)的思維，前序與後序代表我們在遍歷節點**前**與**後**的時間點，而在回溯法，這兩個時間點，各自代表了
+    + 回憶我們在二叉樹中練習過[前序、中序、後序](/cs/algo/binary_tree/#二前序中序後序)的思維，前序與後序代表我們在遍歷節點**前**與**後**的時間點，而在回溯法，這兩個時間點，各自代表了
         + **將選擇加入路徑**
         + **從路徑中撤銷選擇**
         ![order_traversal](https://labuladong.github.io/algo/images/backtracking/4.jpg)
@@ -231,6 +231,6 @@ void backtrack(vector<vector<int>>& grid, int row, int col, int left) {
 }
 ```
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[Algo] 2-3. 分治法](/posts/cs/algo/divice_and_conquer)
-+ 接著閱讀：[[Algo] 2-5. 動態規劃](/posts/cs/algo/dp)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 想要複習：[[Algo] 2-3. 分治法](/cs/algo/divice_and_conquer)
++ 接著閱讀：[[Algo] 2-5. 動態規劃](/cs/algo/dp)

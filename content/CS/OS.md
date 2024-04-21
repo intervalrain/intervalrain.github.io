@@ -22,12 +22,12 @@ ShowCodeCopyButtons: true
 ---
 # 計算機作業系統
 
-- [概述](/posts/cs/os/intro)
-- [進程管理](/posts/cs/os/processmanagement)
-- [死鎖](/posts/cs/os/deadlock)
-- [記憶體管理](/posts/cs/os/memorymanagement)
-- [設備管理](/posts/cs/os/equipmentmanagement)
-- [鏈接](/posts/cs/os/link)
+- [概述](/cs/os/intro)
+- [進程管理](/cs/os/processmanagement)
+- [死鎖](/cs/os/deadlock)
+- [記憶體管理](/cs/os/memorymanagement)
+- [設備管理](/cs/os/equipmentmanagement)
+- [鏈接](/cs/os/link)
 
 ## 參考資料
 

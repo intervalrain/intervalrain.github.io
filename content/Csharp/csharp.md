@@ -24,15 +24,15 @@ ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
 ### C#2
-#### [Generic 泛型](/posts/csharp/generic)
-#### [Nullable 可空值類型](/posts/csharp/nullable)
-#### [Delegate 委派](/posts/csharp/delegate)
-#### [Iterator 迭代器](/posts/csharp/iterator)
-#### [Partial 局部類型](/posts/csharp/partial)
-#### [Yield](/posts/csharp/yield)
-#### [Static Class 靜態類別](/posts/csharp/static)
-#### [Property getter/setter access separate 訪問權限分離](/posts/csharp/getter_setter_access_separate)
-#### [Namespace Alias 空間命名別名](/posts/csharp/namespace_alias)
+#### [Generic 泛型](/csharp/generic)
+#### [Nullable 可空值類型](/csharp/nullable)
+#### [Delegate 委派](/csharp/delegate)
+#### [Iterator 迭代器](/csharp/iterator)
+#### [Partial 局部類型](/csharp/partial)
+#### [Yield](/csharp/yield)
+#### [Static Class 靜態類別](/csharp/static)
+#### [Property getter/setter access separate 訪問權限分離](/csharp/getter_setter_access_separate)
+#### [Namespace Alias 空間命名別名](/csharp/namespace_alias)
 
 ### C#3
-#### [Linq 及其相關特性](/posts/csharp/linq_props)
+#### [Linq 及其相關特性](/csharp/linq_props)

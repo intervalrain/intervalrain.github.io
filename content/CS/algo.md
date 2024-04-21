@@ -31,13 +31,13 @@ cover:
 > 前言：
 > 全文版權沒有，翻印不究。
 > 本文全是個人創作，有誤請直接留言提點，無需口水謾罵。
-> 若有幸想要找我學習、討論或是出版(?)，可以[私訊我](/posts/aboutme)
+> 若有幸想要找我學習、討論或是出版(?)，可以[私訊我](/aboutme)
 
 ### 第零章、核心框架
-#### 0-1. [複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/posts/cs/algo/bigo)
-#### 0-2. [算法思維](/posts/cs/algo/concept)
-#### 0-3. [鏈表 Linked List](/posts/cs/algo/linked_list)
-#### 0-4. [二叉樹 Binary Tree](/posts/cs/algo/binary_tree)
+#### 0-1. [複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/cs/algo/bigo)
+#### 0-2. [算法思維](/cs/algo/concept)
+#### 0-3. [鏈表 Linked List](/cs/algo/linked_list)
+#### 0-4. [二叉樹 Binary Tree](/cs/algo/binary_tree)
 
 ### 第一章、資料結構、STL
 #### 1-1. [vector](https://en.cppreference.com/w/cpp/container/vector)
@@ -48,19 +48,19 @@ cover:
 #### 1-6. [map](https://en.cppreference.com/w/cpp/container/map), [multimap](https://en.cppreference.com/w/cpp/container/multimap), [unordered_map](https://en.cppreference.com/w/cpp/container/https://en.cppreference.com/w/cpp/container/unordered_map), [unordered_multimap](https://en.cppreference.com/w/cpp/container/unordered_multimap)
 #### 1-7. [deque](https://en.cppreference.com/w/cpp/container/deque)
 #### 1-8. [priority_queue](https://en.cppreference.com/w/cpp/container/priority_queue)
-#### 1-9. [algorithm](https://en.cppreference.com/w/cpp/algorithm) <!-- /posts/cs/algo/algorithm) -->
+#### 1-9. [algorithm](https://en.cppreference.com/w/cpp/algorithm) <!-- /cs/algo/algorithm) -->
 
 ### 第二章、演算法設計
-#### 2-1. [暴力演算法 Brute Force](/posts/cs/algo/brute_force)
-#### 2-2. [貪心演算法 Greedy](/posts/cs/algo/greedy)
-#### 2-3. [分治法 Divide and Conquer](/posts/cs/algo/divide_and_conquer)
-#### 2-4. [回溯法 Backtacking](/posts/cs/algo/backtracking)
-#### 2-5. [動態規劃 Dynamic Programming](/posts/cs/algo/dp)
+#### 2-1. [暴力演算法 Brute Force](/cs/algo/brute_force)
+#### 2-2. [貪心演算法 Greedy](/cs/algo/greedy)
+#### 2-3. [分治法 Divide and Conquer](/cs/algo/divide_and_conquer)
+#### 2-4. [回溯法 Backtacking](/cs/algo/backtracking)
+#### 2-5. [動態規劃 Dynamic Programming](/cs/algo/dp)
 
 ### 第三章、主題介紹
-#### 3-0. [Sorting](/posts/cs/algo/sorting)
-#### 3-1. [Two Pointer/Sliding Window](/posts/cs/algo/two_pointer)
-#### 3-2. [Binary Search](/posts/cs/algo/binary_search)
+#### 3-0. [Sorting](/cs/algo/sorting)
+#### 3-1. [Two Pointer/Sliding Window](/cs/algo/two_pointer)
+#### 3-2. [Binary Search](/cs/algo/binary_search)
 #### 3-3. Monotonic Stack
 #### 3-4. DFS
 #### 3-5. BFS
@@ -68,7 +68,7 @@ cover:
 #### 3-7. KMP
 #### 3-8. Prefix
 #### 3-9. Segment Tree
-#### 3-10. [Bit Indexed Tree(Fenwick Tree)](/posts/cs/algo/BIT)
+#### 3-10. [Bit Indexed Tree(Fenwick Tree)](/cs/algo/BIT)
 #### 3-11. Union Find
 #### 3-12. Trie
 #### 3-13. Bit Manipulation

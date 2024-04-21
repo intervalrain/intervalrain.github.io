@@ -36,11 +36,11 @@ cover:
 ## 一、Cheat Table
 + 首先我們需要先瞭解每一種資料結構的各種操作的時間複雜度，以便我們選擇適合的資料結構與演算法。
     + 下面這種表的 `Array`, `Stack`, `Queue`, `Linked List`, `Hash Table`, `Binary Search Tree` 基本上是要背起來的，其餘的遇到再去認識就好。
-![bigO](/posts/CS/algo/images/bigO.png)
+![bigO](/CS/algo/images/bigO.png)
 
 + 接下來就輪到練習實作了，排序演算法是個很好的練習，試著把下表中的排序演算法完成，並且計算其時間複雜度吧。
     + 參考題目 [Leetcode 912. Sort an Array](https://leetcode.com/problems/sort-an-array/)
-![chartTable](/posts/CS/algo/images/cheatTable.png)
+![chartTable](/CS/algo/images/cheatTable.png)
 
 
 ## 二、Sorting Algorithm
@@ -404,6 +404,6 @@ void sort(vector<int>& nums) {
 ```
 
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-<!-- + 想要複習：[[Algo] 4-1. 暴力演算法](/posts/cs/algo/brute_force) -->
-+ 接著閱讀：[[Algo] 3-1. Two Pointer/Sliding Window](/posts/cs/algo/two_pointer)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
+<!-- + 想要複習：[[Algo] 4-1. 暴力演算法](/cs/algo/brute_force) -->
++ 接著閱讀：[[Algo] 3-1. Two Pointer/Sliding Window](/cs/algo/two_pointer)

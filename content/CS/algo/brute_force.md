@@ -44,7 +44,7 @@ cover:
         }
         ```
     + 以上例來說，用暴力破解法求解時，求兩數和的時候，我們需進行兩個維度的 for-loop 迴圈來求解。若進一步到三數和、四數和、五數和時，我們會發現，維度會隨著多少個數字和增加。也就是三數和為 3 個迴圈，四數和為 4 個迴圈，以此類推。
-    + 以 [複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/posts/cs/algo/bigo)來分析，也就相當於 `k` 數和的時間複雜度為 \\(O(n^k)\\)，這個增長是相當恐怖的。
+    + 以 [複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/cs/algo/bigo)來分析，也就相當於 `k` 數和的時間複雜度為 \\(O(n^k)\\)，這個增長是相當恐怖的。
 
 + 暴力演算法的特點
     + 簡單粗暴
@@ -196,5 +196,5 @@ int openLock(vector<string>& deadends, string target) {
 }
 ```
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 接著閱讀：[[Algo] 2-2. 貪心演算法](/posts/cs/algo/greedy)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 接著閱讀：[[Algo] 2-2. 貪心演算法](/cs/algo/greedy)

@@ -132,6 +132,6 @@ cover:
     ```
 
 ---
-+ 回到目錄：[[Algo] 演算法筆記](/posts/cs/algo)  
-+ 想要複習：[[Algo] 0-1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/posts/cs/algo/bigo)
-+ 接著閱讀：[[Algo] 0-3. 鏈表(LinkedList)](/posts/cs/algo/linked_list)
++ 回到目錄：[[Algo] 演算法筆記](/cs/algo)  
++ 想要複習：[[Algo] 0-1. 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis](/cs/algo/bigo)
++ 接著閱讀：[[Algo] 0-3. 鏈表(LinkedList)](/cs/algo/linked_list)

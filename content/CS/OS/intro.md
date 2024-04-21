@@ -133,7 +133,7 @@ Multiprogramming Degree 愈高，則 CPU 使用度可能愈高，但若產生 **
 + 多核處理器又可分為：
     + Symmetric Multiprocessing (SMP)：對稱式多處理器，每一個處理器具有相同的功能，可靠度較高，強調負載平衡。
     + Asymmetric Multiprocessing (ASMP)：非對稱式多處理器，主僕架構。
-+ [*補充：CPU個數、CPU核心數、CPU執行緒數*](/posts/cs/os/cpucorethread/)
++ [*補充：CPU個數、CPU核心數、CPU執行緒數*](/cs/os/cpucorethread/)
 ### 5. 分散式系統(Distributed System)
 + 整合各地不同的電腦，以網路連線的方式，將工作分派給不同的電腦執行以提高效率。
 + 需滿足兩個條件：

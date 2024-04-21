@@ -316,8 +316,8 @@ Vector 2: [1, 2]
 ```
 
 + 你可能會想繼續閱讀…
-    + 回到[容器(Containers)](/posts/c++/stl_container)
-    + [list](/posts/c++/stl_list)
-    + [deque](/posts/c++/stl_deque)
-    + [arrays](/posts/c++/stl_arrays)
-    + [forward_list](/posts/c++/stl_forward_list)
+    + 回到[容器(Containers)](/c++/stl_container)
+    + [list](/c++/stl_list)
+    + [deque](/c++/stl_deque)
+    + [arrays](/c++/stl_arrays)
+    + [forward_list](/c++/stl_forward_list)

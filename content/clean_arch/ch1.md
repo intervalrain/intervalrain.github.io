@@ -23,7 +23,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
-![ch1](/posts/clean_arch/images/ch1.png)
+![ch1](/clean_arch/images/ch1.png)
 # Ch1. 設計與架構到底是什麼？
 　　對初學者而言，設計(Design) 與架構(Architecture) 基本上是沒有差別的。
 
@@ -41,15 +41,15 @@ ShowCodeCopyButtons: true
 ## 案例分析
 　　下面為書中的一個真實案例，該案例中的數據均來源於一個匿名的真實公司。
 1. 該公司的工程人員數量的增長
-![img1_1](/posts/clean_arch/images/img1_1.png)
+![img1_1](/clean_arch/images/img1_1.png)
 
 　　由圖可見，人員的增長肯定是顯示了產品重大的成功。
 2. 該公司同一時段的生滻力
-![img1_2](/posts/clean_arch/images/img1_2.png)
+![img1_2](/clean_arch/images/img1_2.png)
 
 　　從第二張圖可以發現一些端倪，雖然開發者愈來愈多，但程式碼的增長似乎接近了一個漸近線。
 3. 隨著時間推移每行程式碼的成本
-![img1_3](/posts/clean_arch/images/img1_3.png)
+![img1_3](/clean_arch/images/img1_3.png)
 
 　　從第三張圖可見，成本快速的增加，大量地消耗利潤，將公司推向停滯，甚至是完全崩潰的境地。
 
@@ -58,7 +58,7 @@ ShowCodeCopyButtons: true
 　　當系統匆忙地拼湊在一起，當程式設計師的數量成為唯一的驅動力，而沒有考量程式碼的整潔度與設計結構時，必定會走向醜陋的結局。
 
 4. 每次版本發布的生產力
-![img1_4](/posts/clean_arch/images/img1_4.png)
+![img1_4](/clean_arch/images/img1_4.png)
 
 　　這張圖顯示了開發人員對這條曲線的看法。一開始的生產力接近100%，但隨著每次發布，生產力逐漸下降，最後趨近於零。
 
@@ -67,7 +67,7 @@ ShowCodeCopyButtons: true
 ---
 ### 管理層視角
 5. 每次版本發布時的薪資支出
-![img1_5](/posts/clean_arch/images/img1_5.png)
+![img1_5](/clean_arch/images/img1_5.png)
 
 　　由圖明顯可見，後期投入的資金幾乎沒有帶來任何東西。但其中發生了什麼問題呢？
 ### 問題到底在哪裡？
@@ -79,7 +79,7 @@ ShowCodeCopyButtons: true
 　　程式開發者還相信一個更大的謊言：「沒有秩序的程式碼可以讓他們在短期內快速前進，且只會在長期才會反應出速度的變慢」，他們認為可以在未來的某個時刻從製造混亂轉換成整理混亂，但事實是，**無論使用哪種時間尺度，製造混亂總是比保持整潔更慢**。
 
 6. 完成任務所需的時間(With TDD/No TDD)
-![img1_6](/posts/clean_arch/images/img1_6.png)
+![img1_6](/clean_arch/images/img1_6.png)
 
 　　圖6是傑森戈爾曼(Json Gorman)進行的一個實驗。傑森在六天的時間內反覆進行這項測試，每一天他會完成一個整數轉羅馬數字的簡單小程式，當他通過了他預定義好的ATDD(Acceptance Tests)，他可以清楚知道他完成了程式。在過去六天內，每天的任務都花不到30分鐘。在第一、第三、第五天使用了 TDD(Test Driven Development)，而另外三天則沒有遵守。結果顯示，後期工作完成速度比前期快，而在實施 TDD 的日子裡，工作進展大約比沒有實施的日子快了 10%，即使是最慢的TDD日子也比非TDD的日子還快。
 

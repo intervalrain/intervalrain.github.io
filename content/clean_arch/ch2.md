@@ -23,7 +23,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
-![ch2](/posts/clean_arch/images/ch2.png)
+![ch2](/clean_arch/images/ch2.png)
 # Ch2. 兩個價值維度
 　　每個軟體系統都為利益相關者(stakeholders)提供兩種不同的價值維度：**行為(behavior)**與**結構(structure)**。軟體開發人員負責確保這兩種價值保持高水準。不幸的是，他們往往只關注其中一個而忽略另一個，更不幸的是，他們往往只關注較低價值的那一個，最終使軟體失去價值。
 
@@ -60,7 +60,7 @@ ShowCodeCopyButtons: true
 　　下圖為艾森豪威爾(Dwight D. Eisenhower)總統的重要性(importance)與緊迫性(urgency)的矩陣，艾森豪是這麼說的：
 > 我有兩種問題，一種是緊急的，一種是重要的。緊急的問題並不重要，而重要的問題從不緊急。
 
-![img2_1](/posts/clean_arch/images/img2_1.png)
+![img2_1](/clean_arch/images/img2_1.png)
 
 　　軟體的第一個價值 - 行為，是緊迫但並非總是特別重要。  
 　　軟體的第二個價值 - 架構，重要但從不特別緊迫。  

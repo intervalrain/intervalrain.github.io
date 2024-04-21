@@ -158,4 +158,4 @@ public static void Main(string[] args)
 // After yields
 // In finally block
 ```
-+ 更多詳細的介紹詳見 [[C#] Yield Return](/posts/csharp/yield/)
++ 更多詳細的介紹詳見 [[C#] Yield Return](/csharp/yield/)

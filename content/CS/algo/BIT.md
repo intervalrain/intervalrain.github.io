@@ -97,4 +97,4 @@ public:
     }
 }
 ```
-[回目錄 Catalog](/posts/leetcode)
+[回目錄 Catalog](/leetcode)

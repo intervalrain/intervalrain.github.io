@@ -27,12 +27,12 @@ cover:
     hidden: false
 ---
 
-[1. Getting Started](/posts/verilog/hdlbits1/#1-getting-started)  
-[2. Verilog Language](/posts/verilog/hdlbits2/#2-verilog-language)  
-[3. Circuits](/posts/verilog/hdlbits3/#3-circuits)  
-[4. Verification: Reading Simulations](/posts/verilog/hdlbits4/#4-getting-started)  
-[5. Verification: Writing Testbenches](/posts/verilog/hdlbits5/#5-verification---writing-testbenches)  
-[6. CS450](/posts/verilog/hdlbits6/#6-cs450)  
+[1. Getting Started](/verilog/hdlbits1/#1-getting-started)  
+[2. Verilog Language](/verilog/hdlbits2/#2-verilog-language)  
+[3. Circuits](/verilog/hdlbits3/#3-circuits)  
+[4. Verification: Reading Simulations](/verilog/hdlbits4/#4-getting-started)  
+[5. Verification: Writing Testbenches](/verilog/hdlbits5/#5-verification---writing-testbenches)  
+[6. CS450](/verilog/hdlbits6/#6-cs450)  
 
 # 3 Circuits
 ## 3.1 Combinational Logic
