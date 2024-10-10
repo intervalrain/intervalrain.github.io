@@ -1,11 +1,147 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Clean_arches on Rain Hu's Workspace</title><link>https://intervalrain.github.io/clean_arch/</link><description>Recent content in Clean_arches on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 03 Oct 2023 22:28:44 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/clean_arch/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] Clean Architecture - 第4章 - 結構化程式設計</title><link>https://intervalrain.github.io/clean_arch/ch4/</link><pubDate>Tue, 03 Oct 2023 22:28:44 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/ch4/</guid><description>structured programming</description></item><item><title>[IT] Clean Architecture</title><link>https://intervalrain.github.io/clean_arch/clean_arch/</link><pubDate>Fri, 29 Sep 2023 02:03:47 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/clean_arch/</guid><description>乾淨架構 設計(design)與架構(architecture)為何重要？ 軟體架構的目標是將開發與維護軟體系統所需的人力最小化。 不好的設計會使維護的成本愈來愈高。 每次版本的發布時的生產力。 良好的開發模式(TDD)大幅減少開發時間。 行為(behavior)與架構(architecture) 行為：緊迫但並非特別重要 架構：重要不緊迫
-∵ 緊急且重要 &amp;gt; 不緊急但重要 &amp;gt; 緊急但不重要 &amp;gt; 不緊急且不重要
-∴ 大多情況下，架構(設計)比行為(開發)更重要。 程式設計範式(paradigms) 結構化程式設計(structed programming) 不要使用 goto，使用結構化的設計模式。(順序、選擇、迭代) 總結：對直接控制權施加限制。 關注點：功能 物件導向程式設計(object-oriented programming) 使用多型來避免函數指針的濫用。 總結：對間接控制權施加限制。 關注點：組件分離 函式程式設計(functional programming) λ演算的概念是不可變性，符號的值不會改變，意味著沒有賦值。 總結：對賦值施加限制。 關注點：數據管理 物件導向設計： 依賴反轉： 商業邏輯不依賴於 UI 與 DB，UI 與 DB 可以做為商業邏輯的插件。 小結： 三種範式都在約束你寫 code 的某些行為。這些約束就是在制定規則。 SOLID 設計原則 SRP: 單一職責原則(The Single Responsibility Principle) 一個模組只有一個原因(用戶/利益相關者)需要改變。 OCP: 開放封閉原則(The Open-Closed Principle) 軟體工程應對擴展開放，但對修改封閉。 LSP: 里氏替體原則(The Liskov Substitution Principle) 避免簡單的可替代性違規導致大量的額外機制。 ISP: 介面隔離原則(The Interface Segregation Principle) 關注點分離。將一個多功能的物件拆成繼承三個不同功能介面的物件。 DIP: 依賴反轉原則(The Dependency Inversion Principle) 組件原則 組件是部署的單位，他們是系統的最小單元。 在 Java，他們是 jar 檔。 在 Ruby，他們是 gem 檔。 在 .</description></item><item><title>[IT] Clean Architecture - 第3章 - 程式設計範式總覽</title><link>https://intervalrain.github.io/clean_arch/ch3/</link><pubDate>Thu, 07 Sep 2023 22:07:54 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/ch3/</guid><description>paradigm overview</description></item><item><title>[IT] Clean Architecture - 第二部分 從基礎構件開始: 程式設計範式(Paradigms)</title><link>https://intervalrain.github.io/clean_arch/sec2/</link><pubDate>Tue, 05 Sep 2023 21:43:11 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/sec2/</guid><description>軟體架構始於程式碼，因此我們將從程式碼的角度開始討論架構，看看自從程式碼被寫下以來我們所學到的內容。
-1938年，艾倫·圖靈(Alan Turing)奠定了計算機編程的基礎。他並不是第一個構想可編程機器的人，但他是第一個理解程式即數據(programs are simply data)的人。到了1945年，圖靈已經在真正的電腦上用我們現在能夠認出的程式碼編寫真正的程式了。這些程式使用了循環(loops)、分支(branches)、賦值(assignment)、子程序(subroutines)、堆棧(stacks)和其他熟悉的結構。但，圖靈的語言是二進制的。
-自從那些日子以來，程式設計界發生了許多革命。其中一個我們都非常熟悉的革命就是語言的革命。首先，在1940年代末期，出現了組合語言(assemblers)。這些「語言」解放了程式設計師將他們的程式轉換成二進制的苦差。1951年，格雷斯·霍珀(Grace Hopper)發明了第一個編譯器 A0。事實上，她創造了「編譯器(compiler)」這個詞彙。Fortran 在1953年被發明出來。接著，一股源源不斷的新程式語言湧入 - COBOL、PL/1、SNOBOL、C、Pascal、C++、Java等等，無窮無盡。
-另一個可能更重要的革命是在程式設計範式方面。範式是編程的方式，與語言相對無關。範式指導了開發人員應該使用哪些程式結構，以及何時使用它們。
-迄今為止，已經有三種這樣的範式，也不太可能再有其它的範式，原因後述。</description></item><item><title>[IT] Clean Architecture - 第2章 - 兩個價值維度</title><link>https://intervalrain.github.io/clean_arch/ch2/</link><pubDate>Mon, 04 Sep 2023 15:18:12 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/ch2/</guid><description>two values</description></item><item><title>[IT] Clean Architecture - 第1章 - 設計與架構到底是什麼</title><link>https://intervalrain.github.io/clean_arch/ch1/</link><pubDate>Sun, 03 Sep 2023 23:14:07 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/ch1/</guid><description>What is design and architecture?</description></item><item><title>[IT] Clean Architecture - 第一部分 概述</title><link>https://intervalrain.github.io/clean_arch/sec1/</link><pubDate>Sun, 03 Sep 2023 22:48:22 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/sec1/</guid><description>採用好的軟體架構可以大大節省軟體項目構建與維護的人力成本。讓每次變更都短小簡單，易於實施，並且避免缺陷，用最小的成本，最大程度地滿足功能性和靈活性的要求。</description></item><item><title>[IT] Clean Architecture - Catalog</title><link>https://intervalrain.github.io/clean_arch/toc/</link><pubDate>Sun, 03 Sep 2023 22:32:22 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/toc/</guid><description> Clean Architecture
-A Craftsman&amp;rsquo;s Guide to Software Structure and Design
-中文翻譯: 無瑕的程式碼 - 整潔的軟體設計與架構
-原著: Robert C. Martin(Uncle Bob)
-目錄 第一部分 概述 第1章 - 設計與架構到底是什麼 第2章 - 兩個價值維度 第二部分 從基礎構件開始: 程式設計範式 第3章 - 程式設計範式總覽 第4章 - 結構化程式設計 第5章 - 物件導向程式設計 第6章 - 函數式程式設計 第三部分 設計原則 第7章 - SRP 單一職責原則 第8章 - OCP 開放封則原則 第9章 - LSP 里氏替換原則 第10章 - ISP 介面隔離原則 第11章 - DIP 依賴反轉原則 [第四部分 組件構建原則)(/clean_arch/sec4) 第12章 - 元件 第13章 - 元件聚合 第14章 - 元件耦合 第五部分 軟體架構 第15章 - 什麼是軟體架構 第16章 - 獨立性 第17章 - 劃分邊界 第18章 - 邊界剖析 第19章 - 策略與層次 第20章 - 業務邏輯 第21章 - 尖叫的軟體架構 第22章 - 整潔架構 第23章 - 展示器和謙卑物件 第24章 - 不完全邊界 第25章 - 層次與邊界 第26章 - Main 元件 第27章 - 服務: 宏觀與微觀 第28章 - 測試邊界 第29章 - 整潔的嵌入式架構 第六部分 實現細節] 第30章 - 數據庫只是實現細節 第31章 - Web 是實現細節 第32章 - 應用程式框架是實現細節 第33章 - 案例分析: 影片銷售網站 第34章 - 拾遺</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Clean_arches on Rain Hu's Workspace</title><link>https://intervalrain.github.io/clean_arch/</link><description>Recent content in Clean_arches on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 03 Oct 2023 22:28:44 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/clean_arch/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] Clean Architecture - 第4章 - 結構化程式設計</title><link>https://intervalrain.github.io/clean_arch/ch4/</link><pubDate>Tue, 03 Oct 2023 22:28:44 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/ch4/</guid><description>structured programming</description></item><item><title>[IT] Clean Architecture</title><link>https://intervalrain.github.io/clean_arch/clean_arch/</link><pubDate>Fri, 29 Sep 2023 02:03:47 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/clean_arch/</guid><description>&lt;h1 id="乾淨架構">乾淨架構&lt;/h1>
+&lt;h2 id="設計design與架構architecture為何重要">設計(design)與架構(architecture)為何重要？&lt;/h2>
+&lt;ul>
+&lt;li>軟體架構的目標是將&lt;strong>開發&lt;/strong>與&lt;strong>維護&lt;/strong>軟體系統所需的人力最小化。
+&lt;ul>
+&lt;li>不好的設計會使維護的成本愈來愈高。
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/img1_3.png" alt="1-1" />
+&lt;/li>
+&lt;li>每次版本的發布時的生產力。
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/img1_4.png" alt="1-2" />
+&lt;/li>
+&lt;li>良好的開發模式(TDD)大幅減少開發時間。
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/img1_6.png" alt="1-3" />
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="行為behavior與架構architecture">行為(behavior)與架構(architecture)&lt;/h3>
+&lt;ul>
+&lt;li>行為：緊迫但並非特別重要&lt;/li>
+&lt;li>架構：重要不緊迫&lt;br>
+∵ 緊急且重要 &amp;gt; 不緊急但重要 &amp;gt; 緊急但不重要 &amp;gt; 不緊急且不重要&lt;br>
+∴ 大多情況下，架構(設計)比行為(開發)更重要。&lt;/li>
+&lt;/ul>
+&lt;h2 id="程式設計範式paradigms">程式設計範式(paradigms)&lt;/h2>
+&lt;ul>
+&lt;li>結構化程式設計(structed programming)
+&lt;ul>
+&lt;li>不要使用 &lt;code>goto&lt;/code>，使用結構化的設計模式。(順序、選擇、迭代)&lt;/li>
+&lt;li>總結：對直接控制權施加限制。&lt;/li>
+&lt;li>關注點：&lt;strong>功能&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>物件導向程式設計(object-oriented programming)
+&lt;ul>
+&lt;li>使用多型來避免函數指針的濫用。&lt;/li>
+&lt;li>總結：對間接控制權施加限制。&lt;/li>
+&lt;li>關注點：&lt;strong>組件分離&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>函式程式設計(functional programming)
+&lt;ul>
+&lt;li>λ演算的概念是不可變性，符號的值不會改變，意味著沒有賦值。&lt;/li>
+&lt;li>總結：對賦值施加限制。&lt;/li>
+&lt;li>關注點：&lt;strong>數據管理&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="物件導向設計">物件導向設計：&lt;/h3>
+&lt;ul>
+&lt;li>依賴反轉：
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/DIP.png" alt="DIP" />
+&lt;/li>
+&lt;li>商業邏輯不依賴於 UI 與 DB，UI 與 DB 可以做為商業邏輯的插件。
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/DIP2.png" alt="DIP2" />
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="小結">小結：&lt;/h3>
+&lt;ul>
+&lt;li>三種範式都在約束你寫 code 的某些行為。這些約束就是在制定規則。&lt;/li>
+&lt;/ul>
+&lt;h2 id="solid-設計原則">SOLID 設計原則&lt;/h2>
+&lt;h3 id="srp-單一職責原則the-single-responsibility-principle">SRP: 單一職責原則(The Single Responsibility Principle)&lt;/h3>
+&lt;ul>
+&lt;li>一個模組只有一個原因(用戶/利益相關者)需要改變。
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/SRP.png" alt="SRP" />
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="ocp-開放封閉原則the-open-closed-principle">OCP: 開放封閉原則(The Open-Closed Principle)&lt;/h3>
+&lt;ul>
+&lt;li>軟體工程應對擴展開放，但對修改封閉。
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/OCP.png" alt="OCP" />
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="lsp-里氏替體原則the-liskov-substitution-principle">LSP: 里氏替體原則(The Liskov Substitution Principle)&lt;/h3>
+&lt;ul>
+&lt;li>避免簡單的可替代性違規導致大量的額外機制。
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/LSP.png" alt="LSP" />
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="isp-介面隔離原則the-interface-segregation-principle">ISP: 介面隔離原則(The Interface Segregation Principle)&lt;/h3>
+&lt;ul>
+&lt;li>關注點分離。將一個多功能的物件拆成繼承三個不同功能介面的物件。
+&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/ISP.png" alt="SRP" />
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="dip-依賴反轉原則the-dependency-inversion-principle">DIP: 依賴反轉原則(The Dependency Inversion Principle)&lt;/h3>
+&lt;p>&lt;img loading="lazy" src="https://intervalrain.github.io/clean_arch/images/DIP3.png" alt="DIP3" />
+&lt;/p></description></item><item><title>[IT] Clean Architecture - 第3章 - 程式設計範式總覽</title><link>https://intervalrain.github.io/clean_arch/ch3/</link><pubDate>Thu, 07 Sep 2023 22:07:54 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/ch3/</guid><description>paradigm overview</description></item><item><title>[IT] Clean Architecture - 第二部分 從基礎構件開始: 程式設計範式(Paradigms)</title><link>https://intervalrain.github.io/clean_arch/sec2/</link><pubDate>Tue, 05 Sep 2023 21:43:11 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/sec2/</guid><description>&lt;p>　　軟體架構始於程式碼，因此我們將從程式碼的角度開始討論架構，看看自從程式碼被寫下以來我們所學到的內容。&lt;/p>
+&lt;p>　　1938年，艾倫·圖靈(Alan Turing)奠定了計算機編程的基礎。他並不是第一個構想可編程機器的人，但他是第一個理解程式即數據(programs are simply data)的人。到了1945年，圖靈已經在真正的電腦上用我們現在能夠認出的程式碼編寫真正的程式了。這些程式使用了循環(loops)、分支(branches)、賦值(assignment)、子程序(subroutines)、堆棧(stacks)和其他熟悉的結構。但，圖靈的語言是二進制的。&lt;/p>
+&lt;p>　　自從那些日子以來，程式設計界發生了許多革命。其中一個我們都非常熟悉的革命就是語言的革命。首先，在1940年代末期，出現了組合語言(assemblers)。這些「語言」解放了程式設計師將他們的程式轉換成二進制的苦差。1951年，格雷斯·霍珀(Grace Hopper)發明了第一個編譯器 A0。事實上，她創造了「編譯器(compiler)」這個詞彙。Fortran 在1953年被發明出來。接著，一股源源不斷的新程式語言湧入 - COBOL、PL/1、SNOBOL、C、Pascal、C++、Java等等，無窮無盡。&lt;/p>
+&lt;p>　　另一個可能更重要的革命是在程式設計範式方面。範式是編程的方式，與語言相對無關。範式指導了開發人員應該使用哪些程式結構，以及何時使用它們。&lt;/p>
+&lt;p>　　迄今為止，已經有三種這樣的範式，也不太可能再有其它的範式，原因後述。&lt;/p></description></item><item><title>[IT] Clean Architecture - 第2章 - 兩個價值維度</title><link>https://intervalrain.github.io/clean_arch/ch2/</link><pubDate>Mon, 04 Sep 2023 15:18:12 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/ch2/</guid><description>two values</description></item><item><title>[IT] Clean Architecture - 第1章 - 設計與架構到底是什麼</title><link>https://intervalrain.github.io/clean_arch/ch1/</link><pubDate>Sun, 03 Sep 2023 23:14:07 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/ch1/</guid><description>What is design and architecture?</description></item><item><title>[IT] Clean Architecture - 第一部分 概述</title><link>https://intervalrain.github.io/clean_arch/sec1/</link><pubDate>Sun, 03 Sep 2023 22:48:22 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/sec1/</guid><description>&lt;p>　　採用好的軟體架構可以大大節省&lt;strong>軟體項目構建&lt;/strong>與&lt;strong>維護的人力成本&lt;/strong>。讓每次變更都短小簡單，易於實施，並且避免缺陷，用最小的成本，最大程度地滿足功能性和靈活性的要求。&lt;/p></description></item><item><title>[IT] Clean Architecture - Catalog</title><link>https://intervalrain.github.io/clean_arch/toc/</link><pubDate>Sun, 03 Sep 2023 22:32:22 +0800</pubDate><guid>https://intervalrain.github.io/clean_arch/toc/</guid><description>&lt;p>&lt;img loading="lazy" src="http://geekdaxue.co/uploads/projects/Clean-Architecture-zh/docs/cover.jpg" alt="CleanArchitecture" />
+&lt;/p>
+&lt;blockquote>
+&lt;p>Clean Architecture&lt;br>
+A Craftsman&amp;rsquo;s Guide to Software Structure and Design&lt;br>
+中文翻譯: 無瑕的程式碼 - 整潔的軟體設計與架構&lt;br>
+原著: Robert C. Martin(Uncle Bob)&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="目錄">目錄&lt;/h1>
+&lt;hr>
+&lt;h3 id="第一部分-概述clean_archsec1">&lt;a href="https://intervalrain.github.io/clean_arch/sec1">第一部分 概述&lt;/a>&lt;/h3>
+&lt;h4 id="第1章---設計與架構到底是什麼clean_archch1">&lt;a href="https://intervalrain.github.io/clean_arch/ch1">第1章 - 設計與架構到底是什麼&lt;/a>&lt;/h4>
+&lt;h4 id="第2章---兩個價值維度clean_archch2">&lt;a href="https://intervalrain.github.io/clean_arch/ch2">第2章 - 兩個價值維度&lt;/a>&lt;/h4>
+&lt;hr>
+&lt;h3 id="第二部分-從基礎構件開始-程式設計範式clean_archsec2">&lt;a href="https://intervalrain.github.io/clean_arch/sec2">第二部分 從基礎構件開始: 程式設計範式&lt;/a>&lt;/h3>
+&lt;h4 id="第3章---程式設計範式總覽clean_archch3">&lt;a href="https://intervalrain.github.io/clean_arch/ch3">第3章 - 程式設計範式總覽&lt;/a>&lt;/h4>
+&lt;h4 id="第4章---結構化程式設計clean_archch4">&lt;a href="https://intervalrain.github.io/clean_arch/ch4">第4章 - 結構化程式設計&lt;/a>&lt;/h4>
+&lt;h4 id="第5章---物件導向程式設計clean_archch5">&lt;a href="https://intervalrain.github.io/clean_arch/ch5">第5章 - 物件導向程式設計&lt;/a>&lt;/h4>
+&lt;h4 id="第6章---函數式程式設計clean_archch6">&lt;a href="https://intervalrain.github.io/clean_arch/ch6">第6章 - 函數式程式設計&lt;/a>&lt;/h4>
+&lt;hr>
+&lt;h3 id="第三部分-設計原則clean_archsec3">&lt;a href="https://intervalrain.github.io/clean_arch/sec3">第三部分 設計原則&lt;/a>&lt;/h3>
+&lt;h4 id="第7章---srp-單一職責原則clean_archch7">&lt;a href="https://intervalrain.github.io/clean_arch/ch7">第7章 - SRP 單一職責原則&lt;/a>&lt;/h4>
+&lt;h4 id="第8章---ocp-開放封則原則clean_archch8">&lt;a href="https://intervalrain.github.io/clean_arch/ch8">第8章 - OCP 開放封則原則&lt;/a>&lt;/h4>
+&lt;h4 id="第9章---lsp-里氏替換原則clean_archch9">&lt;a href="https://intervalrain.github.io/clean_arch/ch9">第9章 - LSP 里氏替換原則&lt;/a>&lt;/h4>
+&lt;h4 id="第10章---isp-介面隔離原則clean_archch10">&lt;a href="https://intervalrain.github.io/clean_arch/ch10">第10章 - ISP 介面隔離原則&lt;/a>&lt;/h4>
+&lt;h4 id="第11章---dip-依賴反轉原則clean_archch11">&lt;a href="https://intervalrain.github.io/clean_arch/ch11">第11章 - DIP 依賴反轉原則&lt;/a>&lt;/h4>
+&lt;hr>
+&lt;h3 id="第四部分-組件構建原則clean_archsec4">[第四部分 組件構建原則)(/clean_arch/sec4)&lt;/h3>
+&lt;h4 id="第12章---元件clean_archch12">&lt;a href="https://intervalrain.github.io/clean_arch/ch12">第12章 - 元件&lt;/a>&lt;/h4>
+&lt;h4 id="第13章---元件聚合clean_archch13">&lt;a href="https://intervalrain.github.io/clean_arch/ch13">第13章 - 元件聚合&lt;/a>&lt;/h4>
+&lt;h4 id="第14章---元件耦合clean_archch14">&lt;a href="https://intervalrain.github.io/clean_arch/ch14">第14章 - 元件耦合&lt;/a>&lt;/h4>
+&lt;hr>
+&lt;h3 id="第五部分-軟體架構clean_archsec5">&lt;a href="https://intervalrain.github.io/clean_arch/sec5">第五部分 軟體架構&lt;/a>&lt;/h3>
+&lt;h4 id="第15章---什麼是軟體架構clean_archch15">&lt;a href="https://intervalrain.github.io/clean_arch/ch15">第15章 - 什麼是軟體架構&lt;/a>&lt;/h4>
+&lt;h4 id="第16章---獨立性clean_archch16">&lt;a href="https://intervalrain.github.io/clean_arch/ch16">第16章 - 獨立性&lt;/a>&lt;/h4>
+&lt;h4 id="第17章---劃分邊界clean_archch17">&lt;a href="https://intervalrain.github.io/clean_arch/ch17">第17章 - 劃分邊界&lt;/a>&lt;/h4>
+&lt;h4 id="第18章---邊界剖析clean_archch18">&lt;a href="https://intervalrain.github.io/clean_arch/ch18">第18章 - 邊界剖析&lt;/a>&lt;/h4>
+&lt;h4 id="第19章---策略與層次clean_archch19">&lt;a href="https://intervalrain.github.io/clean_arch/ch19">第19章 - 策略與層次&lt;/a>&lt;/h4>
+&lt;h4 id="第20章---業務邏輯clean_archch20">&lt;a href="https://intervalrain.github.io/clean_arch/ch20">第20章 - 業務邏輯&lt;/a>&lt;/h4>
+&lt;h4 id="第21章---尖叫的軟體架構clean_archch21">&lt;a href="https://intervalrain.github.io/clean_arch/ch21">第21章 - 尖叫的軟體架構&lt;/a>&lt;/h4>
+&lt;h4 id="第22章---整潔架構clean_archch22">&lt;a href="https://intervalrain.github.io/clean_arch/ch22">第22章 - 整潔架構&lt;/a>&lt;/h4>
+&lt;h4 id="第23章---展示器和謙卑物件clean_archch23">&lt;a href="https://intervalrain.github.io/clean_arch/ch23">第23章 - 展示器和謙卑物件&lt;/a>&lt;/h4>
+&lt;h4 id="第24章---不完全邊界clean_archch24">&lt;a href="https://intervalrain.github.io/clean_arch/ch24">第24章 - 不完全邊界&lt;/a>&lt;/h4>
+&lt;h4 id="第25章---層次與邊界clean_archch25">&lt;a href="https://intervalrain.github.io/clean_arch/ch25">第25章 - 層次與邊界&lt;/a>&lt;/h4>
+&lt;h4 id="第26章---main-元件clean_arch_h26">&lt;a href="https://intervalrain.github.io/clean_arch_/h26">第26章 - Main 元件&lt;/a>&lt;/h4>
+&lt;h4 id="第27章---服務-宏觀與微觀clean_archch27">&lt;a href="https://intervalrain.github.io/clean_arch/ch27">第27章 - 服務: 宏觀與微觀&lt;/a>&lt;/h4>
+&lt;h4 id="第28章---測試邊界clean_archch28">&lt;a href="https://intervalrain.github.io/clean_arch/ch28">第28章 - 測試邊界&lt;/a>&lt;/h4>
+&lt;h4 id="第29章---整潔的嵌入式架構clean_archch29">&lt;a href="https://intervalrain.github.io/clean_arch/ch29">第29章 - 整潔的嵌入式架構&lt;/a>&lt;/h4>
+&lt;hr>
+&lt;h3 id="第六部分-實現細節clean_archsec6">&lt;a href="https://intervalrain.github.io/clean_arch/sec6">第六部分 實現細節&lt;/a>]&lt;/h3>
+&lt;h4 id="第30章---數據庫只是實現細節clean_archch30">&lt;a href="https://intervalrain.github.io/clean_arch/ch30">第30章 - 數據庫只是實現細節&lt;/a>&lt;/h4>
+&lt;h4 id="第31章---web-是實現細節clean_archch31">&lt;a href="https://intervalrain.github.io/clean_arch/ch31">第31章 - Web 是實現細節&lt;/a>&lt;/h4>
+&lt;h4 id="第32章---應用程式框架是實現細節clean_archch32">&lt;a href="https://intervalrain.github.io/clean_arch/ch32">第32章 - 應用程式框架是實現細節&lt;/a>&lt;/h4>
+&lt;h4 id="第33章---案例分析-影片銷售網站clean_archch33">&lt;a href="https://intervalrain.github.io/clean_arch/ch33">第33章 - 案例分析: 影片銷售網站&lt;/a>&lt;/h4>
+&lt;h4 id="第34章---拾遺clean_archch34">&lt;a href="https://intervalrain.github.io/clean_arch/ch34">第34章 - 拾遺&lt;/a>&lt;/h4></description></item></channel></rss>

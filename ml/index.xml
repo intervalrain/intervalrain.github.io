@@ -1,3 +1,230 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>MLs on Rain Hu's Workspace</title><link>https://intervalrain.github.io/ml/</link><description>Recent content in MLs on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 14 Feb 2024 15:39:25 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>[ML] 選擇 loss function/ optimizer/ metrics</title><link>https://intervalrain.github.io/ml/optimizer/</link><pubDate>Wed, 14 Feb 2024 15:39:25 +0800</pubDate><guid>https://intervalrain.github.io/ml/optimizer/</guid><description>Optimizer</description></item><item><title>[ML] General guide on ML</title><link>https://intervalrain.github.io/ml/general_guide/</link><pubDate>Sun, 14 Jan 2024 14:31:56 +0800</pubDate><guid>https://intervalrain.github.io/ml/general_guide/</guid><description>general guide on machine learning</description></item><item><title>[ML] sample1 - 手寫數字辨識</title><link>https://intervalrain.github.io/ml/ex1/</link><pubDate>Sat, 28 Oct 2023 14:11:35 +0800</pubDate><guid>https://intervalrain.github.io/ml/ex1/</guid><description>MNIST NIST(National Insitute of Standards and Technology) 是美國國家標準與技術研究院，MNIST 是由 NIST 所提供的一組經典的機器學習測資，可以想成是深度學習中的「Hello World!」，它由 60000張 訓練圖片與 10000 張測試圖片所組成，為手寫數字的灰階圖片，大小為 28 * 28 像素，分類 0 到 9 共 10 個數字。
-可透過 keras 模組直接取得資料 &amp;gt;&amp;gt;&amp;gt; from tensorflow.keras.datasets import mnist 輸入 mnist.load_data() 可取得 mnist 資料集，回傳值為 2*2 的 tuple of ndarray。 &amp;gt;&amp;gt;&amp;gt; (train_images, train_labels), (test_images, test_labels) = mnist.load_data() tuple 裡面裝載的是 NumPy 的 ndarray 物件，我們可以利用 o.shape 來取得 ndarray 的屬性 len(o) 來取得陣列的個數 &amp;gt;&amp;gt;&amp;gt; train_images.shape (60000, 28, 28) # 3 軸陣列，其大小為 60000 * 28 * 28 &amp;gt;&amp;gt;&amp;gt; test_images.</description></item><item><title>[ML] Start Tensorflow Environment with Conda</title><link>https://intervalrain.github.io/ml/environment/</link><pubDate>Wed, 11 Oct 2023 20:48:34 +0800</pubDate><guid>https://intervalrain.github.io/ml/environment/</guid><description>環境建置 安裝 Anaconda 創建虛擬環境 conda create -n tensorflow 進入虛擬環境 (macOS/Linux) source activate tensorflow 在環境內安裝 tensorflow pip install tensorflow 在環境內安裝 jupyter notebook pip install jupyter notebook 在環境內安裝 pandas pip install pandas 開啟 jupyter notebook jupyter notebook For terminal user 開始 Anaconda.Navigator 在 Environments 中安裝指定模組 ex.tensorflow, keras 在 terminal 中輸入 conda activate {環境名稱} conda activate tensorflow 開啟 python python 若成功便會顯示 python 安裝資訊
-Python 3.11.5 (main, Sep 11 2023, 08:17:37) [Clang 14.0.6 ] on darwin Type &amp;#34;help&amp;#34;, &amp;#34;copyright&amp;#34;, &amp;#34;credits&amp;#34; or &amp;#34;license&amp;#34; for more information.</description></item><item><title>[ML] 01. 機器學習基本概念簡介</title><link>https://intervalrain.github.io/ml/lhy01/</link><pubDate>Wed, 02 Aug 2023 23:56:25 +0800</pubDate><guid>https://intervalrain.github.io/ml/lhy01/</guid><description>什麼是機器學習，機器學習任務，監督式學習的運作流程</description></item><item><title>[ML] 簡單實作測試</title><link>https://intervalrain.github.io/ml/work/</link><pubDate>Sun, 30 Apr 2023 00:35:59 +0800</pubDate><guid>https://intervalrain.github.io/ml/work/</guid><description>線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = &amp;#34;sample.csv&amp;#34; data = pd.read_csv(url) x = data[&amp;#34;x-axis&amp;#34;] y = data[&amp;#34;y-axis&amp;#34;] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color=&amp;#34;red&amp;#34;, label=&amp;#34;prediction&amp;#34;) plt.scatter(x, y, color=&amp;#34;blue&amp;#34;, label=&amp;#34;data&amp;#34;, marker=&amp;#34;x&amp;#34;) plt.title(&amp;#34;Title&amp;#34;) plt.xlabel(&amp;#34;x Axis&amp;#34;) plt.ylabel(&amp;#34;y Axis&amp;#34;) plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.</description></item><item><title>[ML] 機器學習與統計學</title><link>https://intervalrain.github.io/ml/lec1/</link><pubDate>Mon, 07 Nov 2022 18:18:52 +0800</pubDate><guid>https://intervalrain.github.io/ml/lec1/</guid><description>Introduction to Machine Learning</description></item><item><title>[ML] introduction</title><link>https://intervalrain.github.io/ml/lec0/</link><pubDate>Sun, 19 Jun 2022 18:18:52 +0800</pubDate><guid>https://intervalrain.github.io/ml/lec0/</guid><description>Introduction to Machine Learning</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>MLs on Rain Hu's Workspace</title><link>https://intervalrain.github.io/ml/</link><description>Recent content in MLs on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 14 Feb 2024 15:39:25 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>[ML] 選擇 loss function/ optimizer/ metrics</title><link>https://intervalrain.github.io/ml/optimizer/</link><pubDate>Wed, 14 Feb 2024 15:39:25 +0800</pubDate><guid>https://intervalrain.github.io/ml/optimizer/</guid><description>Optimizer</description></item><item><title>[ML] General guide on ML</title><link>https://intervalrain.github.io/ml/general_guide/</link><pubDate>Sun, 14 Jan 2024 14:31:56 +0800</pubDate><guid>https://intervalrain.github.io/ml/general_guide/</guid><description>general guide on machine learning</description></item><item><title>[ML] sample1 - 手寫數字辨識</title><link>https://intervalrain.github.io/ml/ex1/</link><pubDate>Sat, 28 Oct 2023 14:11:35 +0800</pubDate><guid>https://intervalrain.github.io/ml/ex1/</guid><description>&lt;h1 id="mnist">MNIST&lt;/h1>
+&lt;p>NIST(National Insitute of Standards and Technology) 是美國國家標準與技術研究院，MNIST 是由 NIST 所提供的一組經典的機器學習測資，可以想成是深度學習中的「Hello World!」，它由 60000張 訓練圖片與 10000 張測試圖片所組成，為手寫數字的灰階圖片，大小為 28 * 28 像素，分類 0 到 9 共 10 個數字。&lt;/p>
+&lt;ul>
+&lt;li>可透過 keras 模組直接取得資料&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#f92672">from&lt;/span> tensorflow.keras.datasets &lt;span style="color:#f92672">import&lt;/span> mnist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>輸入 &lt;code>mnist.load_data()&lt;/code> 可取得 mnist 資料集，回傳值為 2*2 的 tuple of ndarray。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> (train_images, train_labels), (test_images, test_labels) &lt;span style="color:#f92672">=&lt;/span> mnist&lt;span style="color:#f92672">.&lt;/span>load_data()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>tuple 裡面裝載的是 NumPy 的 ndarray 物件，我們可以利用
+&lt;ul>
+&lt;li>&lt;code>o.shape&lt;/code> 來取得 ndarray 的屬性&lt;/li>
+&lt;li>&lt;code>len(o)&lt;/code> 來取得陣列的個數&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> train_images&lt;span style="color:#f92672">.&lt;/span>shape
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#ae81ff">60000&lt;/span>, &lt;span style="color:#ae81ff">28&lt;/span>, &lt;span style="color:#ae81ff">28&lt;/span>) &lt;span style="color:#75715e"># 3 軸陣列，其大小為 60000 * 28 * 28&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> test_images&lt;span style="color:#f92672">.&lt;/span>shape
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#ae81ff">10000&lt;/span>, &lt;span style="color:#ae81ff">28&lt;/span>, &lt;span style="color:#ae81ff">28&lt;/span>) &lt;span style="color:#75715e"># 3 軸陣列，其大小為 10000 * 28 * 28&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> len(train_labels), len(test_labels)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&lt;span style="color:#ae81ff">60000&lt;/span>, &lt;span style="color:#ae81ff">10000&lt;/span>) &lt;span style="color:#75715e"># 訓練集與測試集各有 60000 與 10000 筆 labels&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> train_labels
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>array([&lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">6&lt;/span>, &lt;span style="color:#ae81ff">8&lt;/span>], dtype&lt;span style="color:#f92672">=&lt;/span>uint8) &lt;span style="color:#75715e"># train_labels 裝 60000 筆資料對應的解答(0-9 的數字)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>我們可以利用 &lt;code>matlabplot&lt;/code> 把圖片印出來看看&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>matshow(train_images[&lt;span style="color:#ae81ff">0&lt;/span>], cmap &lt;span style="color:#f92672">=&lt;/span> plt&lt;span style="color:#f92672">.&lt;/span>get_cmap(&lt;span style="color:#e6db74">&amp;#39;gray&amp;#39;&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>show()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;img src="https://intervalrain.github.io/ML/images/mnist_0.png" width="360">
+&lt;h1 id="用-dense-層建構神經網路">用 Dense 層建構神經網路&lt;/h1>
+&lt;p>首先我們需要建立神經網路架構，層(layer)是組成神經網路的基本元件，一個層就是一個資料處理的模組。具體而言，每一層都會從資料中萃取出特定的轉換或表示法，經過數層的資料萃取(data distillation)後，將資料「過瀘」成最後特定的轉換或表達(representation)。&lt;/p></description></item><item><title>[ML] Start Tensorflow Environment with Conda</title><link>https://intervalrain.github.io/ml/environment/</link><pubDate>Wed, 11 Oct 2023 20:48:34 +0800</pubDate><guid>https://intervalrain.github.io/ml/environment/</guid><description>&lt;h1 id="環境建置">環境建置&lt;/h1>
+&lt;ol>
+&lt;li>安裝 Anaconda&lt;/li>
+&lt;li>創建虛擬環境&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>conda create -n tensorflow
+&lt;/code>&lt;/pre>&lt;ol start="3">
+&lt;li>進入虛擬環境 (macOS/Linux)&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>source activate tensorflow
+&lt;/code>&lt;/pre>&lt;ol start="4">
+&lt;li>在環境內安裝 tensorflow&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>pip install tensorflow
+&lt;/code>&lt;/pre>&lt;ol start="5">
+&lt;li>在環境內安裝 jupyter notebook&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>pip install jupyter notebook
+&lt;/code>&lt;/pre>&lt;ol start="6">
+&lt;li>在環境內安裝 pandas&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>pip install pandas
+&lt;/code>&lt;/pre>&lt;ol start="7">
+&lt;li>開啟 jupyter notebook&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>jupyter notebook
+&lt;/code>&lt;/pre>&lt;h1 id="for-terminal-user">For terminal user&lt;/h1>
+&lt;ol>
+&lt;li>開始 Anaconda.Navigator
+&lt;img loading="lazy" src="https://intervalrain.github.io/ML/images/conda.png" alt="conda" />
+&lt;/li>
+&lt;li>在 Environments 中安裝指定模組 ex.&lt;code>tensorflow&lt;/code>, &lt;code>keras&lt;/code>&lt;/li>
+&lt;li>在 terminal 中輸入 conda activate {環境名稱}&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>conda activate tensorflow
+&lt;/code>&lt;/pre>&lt;ol start="4">
+&lt;li>開啟 python&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>python
+&lt;/code>&lt;/pre>&lt;p>若成功便會顯示 python 安裝資訊&lt;/p>
+&lt;pre tabindex="0">&lt;code>Python 3.11.5 (main, Sep 11 2023, 08:17:37) [Clang 14.0.6 ] on darwin
+Type &amp;#34;help&amp;#34;, &amp;#34;copyright&amp;#34;, &amp;#34;credits&amp;#34; or &amp;#34;license&amp;#34; for more information.
+&lt;/code>&lt;/pre>&lt;p>大功告成，接著嘗試訓練第一筆資料&lt;/p></description></item><item><title>[ML] 01. 機器學習基本概念簡介</title><link>https://intervalrain.github.io/ml/lhy01/</link><pubDate>Wed, 02 Aug 2023 23:56:25 +0800</pubDate><guid>https://intervalrain.github.io/ml/lhy01/</guid><description>什麼是機器學習，機器學習任務，監督式學習的運作流程</description></item><item><title>[ML] 簡單實作測試</title><link>https://intervalrain.github.io/ml/work/</link><pubDate>Sun, 30 Apr 2023 00:35:59 +0800</pubDate><guid>https://intervalrain.github.io/ml/work/</guid><description>&lt;h2 id="線性迴歸建模">線性迴歸建模&lt;/h2>
+&lt;h3 id="載入資料">載入資料&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> pandas &lt;span style="color:#66d9ef">as&lt;/span> pd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> matplotlib.pyplot &lt;span style="color:#66d9ef">as&lt;/span> plt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> matplotlib &lt;span style="color:#66d9ef">as&lt;/span> mlp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>url &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;sample.csv&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data &lt;span style="color:#f92672">=&lt;/span> pd&lt;span style="color:#f92672">.&lt;/span>read_csv(url)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x &lt;span style="color:#f92672">=&lt;/span> data[&lt;span style="color:#e6db74">&amp;#34;x-axis&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>y &lt;span style="color:#f92672">=&lt;/span> data[&lt;span style="color:#e6db74">&amp;#34;y-axis&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="畫圖">畫圖&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">plot&lt;/span>(x, y, w, b):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> line &lt;span style="color:#f92672">=&lt;/span> w &lt;span style="color:#f92672">*&lt;/span> x &lt;span style="color:#f92672">+&lt;/span> b
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>plot(x, line, color&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;red&amp;#34;&lt;/span>, label&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;prediction&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>scatter(x, y, color&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;blue&amp;#34;&lt;/span>, label&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;data&amp;#34;&lt;/span>, marker&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;x&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>title(&lt;span style="color:#e6db74">&amp;#34;Title&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>xlabel(&lt;span style="color:#e6db74">&amp;#34;x Axis&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>ylabel(&lt;span style="color:#e6db74">&amp;#34;y Axis&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>xlim([&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">12&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>ylim([&lt;span style="color:#ae81ff">20&lt;/span>,&lt;span style="color:#ae81ff">140&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>show()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plot(x, y, &lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="定義-cost-function">定義 cost function&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">cost_function&lt;/span>(x, y, w, b):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> y2 &lt;span style="color:#f92672">=&lt;/span> w &lt;span style="color:#f92672">*&lt;/span> x &lt;span style="color:#f92672">+&lt;/span> b
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> (y &lt;span style="color:#f92672">-&lt;/span> y2) &lt;span style="color:#f92672">**&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> cost&lt;span style="color:#f92672">.&lt;/span>mean()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cost_function(x, y, &lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>假設在 b = 20 的情形下，找 w 的最小值&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>w_arr &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>costs &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> w &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">101&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> &lt;span style="color:#f92672">+&lt;/span> w&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> cost_function(x, y, w2, &lt;span style="color:#ae81ff">20&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_arr&lt;span style="color:#f92672">.&lt;/span>append(w2)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> costs&lt;span style="color:#f92672">.&lt;/span>append(cost)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> matplotlib.pyplot &lt;span style="color:#66d9ef">as&lt;/span> plt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>title(&lt;span style="color:#e6db74">&amp;#34;cost function - when b = 20)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>xlabel(&lt;span style="color:#e6db74">&amp;#34;w&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>ylabel(&lt;span style="color:#e6db74">&amp;#34;cost function&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>plot(w_arr, costs)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>show()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="利用-numpy-計算矩陣">利用 numpy 計算矩陣&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> numpy &lt;span style="color:#66d9ef">as&lt;/span> np
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ws &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>arange(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">101&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bs &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>arange(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">101&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>costs &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>zeros((&lt;span style="color:#ae81ff">201&lt;/span>, &lt;span style="color:#ae81ff">201&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> w &lt;span style="color:#f92672">in&lt;/span> ws:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> b &lt;span style="color:#f92672">in&lt;/span> bs:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> cost_function(x, y, w, b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> costs[i,j] &lt;span style="color:#f92672">=&lt;/span> cost
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j &lt;span style="color:#f92672">=&lt;/span> j&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i &lt;span style="color:#f92672">=&lt;/span> i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(costs)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="畫-3d-圖">畫 3d 圖&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>ax &lt;span style="color:#f92672">=&lt;/span> plt&lt;span style="color:#f92672">.&lt;/span>axes(projection&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;3d&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>xaxis&lt;span style="color:#f92672">.&lt;/span>set_pane_color((&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>yaxis&lt;span style="color:#f92672">.&lt;/span>set_pane_color((&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>zaxis&lt;span style="color:#f92672">.&lt;/span>set_pane_color((&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>figure(figsize&lt;span style="color:#f92672">=&lt;/span>(&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">7&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>view_init(&lt;span style="color:#ae81ff">30&lt;/span>, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">110&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>b_grid, w_grid &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>meshgrid(bs, ws)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>plot_surface(w_grid, b_grid, costs, cmap&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Spectral_r&amp;#34;&lt;/span>, alpha&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.7&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>plot_wireframe(w_grid, b_grid, costs, alpha&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_title(&lt;span style="color:#e6db74">&amp;#34;loss function&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_xlabel(&lt;span style="color:#e6db74">&amp;#34;w&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_ylabel(&lt;span style="color:#e6db74">&amp;#34;b&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_zlabel(&lt;span style="color:#e6db74">&amp;#34;loss&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>w_index, b_index &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>where(costs &lt;span style="color:#f92672">==&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>min(costs))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;red&amp;#34;&lt;/span>, s&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">40&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>show()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="計算梯度">計算梯度&lt;/h3>
+&lt;ul>
+&lt;li>\(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\
+\text{cost} = (\text{y}-(\text{w}\times\text{x}+\text{b}))^2\\
+\text{m} _\text{w} = -2\times\text{x}(\text{y-wx-b})\\
+\text{m} _\text{b} = -2\times(\text{y-wx-b})\\
+\)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">compute_gradient&lt;/span>(x, y, w, b):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_gradient &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">*&lt;/span>(w&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">+&lt;/span>b&lt;span style="color:#f92672">-&lt;/span>y)&lt;span style="color:#f92672">.&lt;/span>mean()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b_gradient &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>(w&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">+&lt;/span>b&lt;span style="color:#f92672">-&lt;/span>y)&lt;span style="color:#f92672">.&lt;/span>mean()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> w_gradient, b_gradient
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="利用梯度下降計算-cost-最小值">利用梯度下降計算 cost 最小值&lt;/h3>
+&lt;ul>
+&lt;li>\(\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\_rate}\)&lt;/li>
+&lt;li>\(\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\_rate}\)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>learning_rate &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0.001&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">10&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_gradient, b_gradient &lt;span style="color:#f92672">=&lt;/span> compute_gradient(x, y, w, b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w &lt;span style="color:#f92672">=&lt;/span> w &lt;span style="color:#f92672">-&lt;/span> w_gradient &lt;span style="color:#f92672">*&lt;/span> learning_rate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b &lt;span style="color:#f92672">=&lt;/span> b &lt;span style="color:#f92672">-&lt;/span> b_gradient &lt;span style="color:#f92672">*&lt;/span> learning_rate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> cost_function(x, y, w, b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">f&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Iteration &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>i&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> : Cost &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>cost&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">, w: &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>w&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">, b: &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>b&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="gradient_descent-函式">gradient_descent 函式&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">gradient_descent&lt;/span>(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c_hist &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_hist &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b_hist &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w &lt;span style="color:#f92672">=&lt;/span> w_init
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b &lt;span style="color:#f92672">=&lt;/span> b_init
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(run_iteration):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_gradient, b_gradient &lt;span style="color:#f92672">=&lt;/span> gradient_function(x, y, w, b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w &lt;span style="color:#f92672">=&lt;/span> w &lt;span style="color:#f92672">-&lt;/span> w_gradient &lt;span style="color:#f92672">*&lt;/span> learning_rate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b &lt;span style="color:#f92672">=&lt;/span> b &lt;span style="color:#f92672">-&lt;/span> b_gradient &lt;span style="color:#f92672">*&lt;/span> learning_rate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> cost_function(x, y, w, b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_hist&lt;span style="color:#f92672">.&lt;/span>append(w)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b_hist&lt;span style="color:#f92672">.&lt;/span>append(b)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c_hist&lt;span style="color:#f92672">.&lt;/span>append(cost)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> w, b, w_hist, b_hist, c_hist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="多特徵的預測">多特徵的預測&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> sklearn.model_selection &lt;span style="color:#f92672">import&lt;/span> train_test_split
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scaler &lt;span style="color:#f92672">=&lt;/span> StandardScaler()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scaler&lt;span style="color:#f92672">.&lt;/span>fit(x_train)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_train &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transform(x_train)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_test &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transform(x_test)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_real &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array([[&lt;span style="color:#ae81ff">5.3&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>], [&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>]])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_real &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transfrom(x_real)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>y_real &lt;span style="color:#f92672">=&lt;/span> (w_final&lt;span style="color:#f92672">*&lt;/span>x_real)&lt;span style="color:#f92672">.&lt;/span>sum(axis&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> b_final
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>y_real
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="特徵縮放加速-gradient-descent">「特徵縮放」加速 gradient descent&lt;/h3>
+&lt;ul>
+&lt;li>w1&lt;em>x1+w2&lt;/em>x2+w3&lt;em>x3+w4&lt;/em>x4+b&lt;/li>
+&lt;li>因分布範圍不同，調整參數，最好令每一個乘積都相當&lt;/li>
+&lt;li>相當於是標準化：\(\frac{\text{x-平均值}}{標準差}\)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> sklearn.preprocessing &lt;span style="color:#f92672">import&lt;/span> StandardScaler
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scaler &lt;span style="color:#f92672">=&lt;/span> StandardScaler()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scaler&lt;span style="color:#f92672">.&lt;/span>fit(x_train)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_train &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transform(x_train)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_test &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transform(x_test)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="邏輯迴歸-logistic-regression">邏輯迴歸 Logistic Regression&lt;/h2>
+&lt;h3 id="sigmoid-function">Sigmoid Function&lt;/h3>
+&lt;ul>
+&lt;li>當模性呈現 0-1 關係(邏輯迴歸)時可用&lt;/li>
+&lt;li>\(\text{Sigmoid Function}=\frac{1}{1+e^{-z}}\)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">sigmoid&lt;/span>(z):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">/&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">+&lt;/span>np&lt;span style="color:#f92672">.&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>z))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>w &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array([&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>b &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>z &lt;span style="color:#f92672">=&lt;/span> (w&lt;span style="color:#f92672">*&lt;/span>x_train)&lt;span style="color:#f92672">.&lt;/span>sum(axis&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> b
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sigmoid(z)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[ML] 機器學習與統計學</title><link>https://intervalrain.github.io/ml/lec1/</link><pubDate>Mon, 07 Nov 2022 18:18:52 +0800</pubDate><guid>https://intervalrain.github.io/ml/lec1/</guid><description>Introduction to Machine Learning</description></item><item><title>[ML] introduction</title><link>https://intervalrain.github.io/ml/lec0/</link><pubDate>Sun, 19 Jun 2022 18:18:52 +0800</pubDate><guid>https://intervalrain.github.io/ml/lec0/</guid><description>Introduction to Machine Learning</description></item></channel></rss>

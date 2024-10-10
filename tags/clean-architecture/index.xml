@@ -1,4 +1,565 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Clean Architecture on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/clean-architecture/</link><description>Recent content in Clean Architecture on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 09 Mar 2024 13:59:22 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/clean-architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] 用 C# 建置 Clean Architecture 專案</title><link>https://intervalrain.github.io/it/ca_config/</link><pubDate>Sat, 09 Mar 2024 13:59:22 +0800</pubDate><guid>https://intervalrain.github.io/it/ca_config/</guid><description>Configure C# Solution step by step 開啟 Terminal 新增解決方案 dontet new sln -o MySln 移至方案目錄 cd MySln 根據解決方案 hierarchy 建構專案 dotnet new webapi -o MySln.Api dotnet new classlib -o MySln.Application dotnet new classlib -o MySln.Domain dotnet new classlib -o MySln.Infrastructure dotnet new classlib -o MySln.Contracts 將所有專案加進解決方案 for proj in $(ls -r **/*.csproj) dotnet sln add $proj 建立專案之間的 dependency dotnet add MySln.Api reference MySln.Application MySln.Infrastructure MySln.Contracts dotnet add MySln.Infrastructure reference MySln.Application dotnet add MySln.</description></item><item><title>[IT] 使用 Clean Architecture + DDD 建置 Restful API</title><link>https://intervalrain.github.io/it/clean_arch_configuration/</link><pubDate>Mon, 26 Feb 2024 15:03:15 +0800</pubDate><guid>https://intervalrain.github.io/it/clean_arch_configuration/</guid><description>程式碼 https://github.com/intervalrain/webapi_ca/
-正文 建置 Solution 首先先參考 Clean Architecture 最經典的同心圓，來確定我們需要將我們的解決方案做哪些分層：
-我將使用 Restful API 做為我們 I/O (Presentation Layer) 並且我需要配備身份驗證的機制 (Presentation Layer) 我使用 PostgresDB 作為我的 (Infrastructure Layer) 我的核心商業邏輯 (Application / Domain Layer) 創建專案
-dotnet new sln -o Mysln 進入專案所在的資料夾 cd Mysln 根據預先的分層建立專案資料夾，並且使用 dotnet 指令建立相對應的專案類型。 Api &amp;ndash;&amp;gt; WebAPI Infrastructure &amp;ndash;&amp;gt; classlib Contracts &amp;ndash;&amp;gt; classlib Application &amp;ndash;&amp;gt; classlib Domain &amp;ndash;&amp;gt; classlib dotnet new webapi -o Mysln.Api dotnet new classlib -o Mysln.Contracts dotnet new classlib -o Mysln.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Clean Architecture on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/clean-architecture/</link><description>Recent content in Clean Architecture on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 09 Mar 2024 13:59:22 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/clean-architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] 用 C# 建置 Clean Architecture 專案</title><link>https://intervalrain.github.io/it/ca_config/</link><pubDate>Sat, 09 Mar 2024 13:59:22 +0800</pubDate><guid>https://intervalrain.github.io/it/ca_config/</guid><description>&lt;h1 id="configure-c-solution-step-by-step">Configure C# Solution step by step&lt;/h1>
+&lt;ul>
+&lt;li>開啟 Terminal&lt;/li>
+&lt;li>新增解決方案 &lt;code>dontet new sln -o MySln&lt;/code>&lt;/li>
+&lt;li>移至方案目錄 &lt;code>cd MySln&lt;/code>&lt;/li>
+&lt;li>根據解決方案 hierarchy 建構專案
+&lt;ul>
+&lt;li>&lt;code>dotnet new webapi -o MySln.Api&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet new classlib -o MySln.Application&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet new classlib -o MySln.Domain&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet new classlib -o MySln.Infrastructure&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet new classlib -o MySln.Contracts&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>將所有專案加進解決方案
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> proj in &lt;span style="color:#66d9ef">$(&lt;/span>ls -r **/*.csproj&lt;span style="color:#66d9ef">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dotnet sln add $proj
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>建立專案之間的 dependency
+&lt;ul>
+&lt;li>&lt;code>dotnet add MySln.Api reference MySln.Application MySln.Infrastructure MySln.Contracts&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet add MySln.Infrastructure reference MySln.Application&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet add MySln.Application reference MySln.Domain&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>[IT] 使用 Clean Architecture + DDD 建置 Restful API</title><link>https://intervalrain.github.io/it/clean_arch_configuration/</link><pubDate>Mon, 26 Feb 2024 15:03:15 +0800</pubDate><guid>https://intervalrain.github.io/it/clean_arch_configuration/</guid><description>&lt;h1 id="程式碼">程式碼&lt;/h1>
+&lt;p>&lt;a href="https://github.com/intervalrain/webapi_ca/">https://github.com/intervalrain/webapi_ca/&lt;/a>&lt;/p>
+&lt;h1 id="正文">正文&lt;/h1>
+&lt;h2 id="建置-solution">建置 Solution&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>首先先參考 Clean Architecture 最經典的同心圓，來確定我們需要將我們的解決方案做哪些分層：&lt;/p>
+&lt;ul>
+&lt;li>我將使用 Restful API 做為我們 I/O (Presentation Layer)&lt;/li>
+&lt;li>並且我需要配備身份驗證的機制 (Presentation Layer)&lt;/li>
+&lt;li>我使用 PostgresDB 作為我的 (Infrastructure Layer)&lt;/li>
+&lt;li>我的核心商業邏輯 (Application / Domain Layer)
+&lt;img src="https://herbertograca.files.wordpress.com/2017/04/cleanarchitecture-5c6d7ec787d447a81b708b73abba1680.jpg" width="480">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>創建專案&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>進入專案所在的資料夾&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">cd&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>根據預先的分層建立專案資料夾，並且使用 dotnet 指令建立相對應的專案類型。
+&lt;ul>
+&lt;li>Api &amp;ndash;&amp;gt; WebAPI&lt;/li>
+&lt;li>Infrastructure &amp;ndash;&amp;gt; classlib&lt;/li>
+&lt;li>Contracts &amp;ndash;&amp;gt; classlib&lt;/li>
+&lt;li>Application &amp;ndash;&amp;gt; classlib&lt;/li>
+&lt;li>Domain &amp;ndash;&amp;gt; classlib&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">webapi&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">classlib&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Contracts&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">classlib&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Infrastructure&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">classlib&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">classlib&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Domain&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們需要把產生的專案資料夾，加入到我們的 Solution。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Contracts&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Domain&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Infrastructure&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接下來按照 Clean Architecture 的依賴原則來設定 dependency，依我的專案來說依賴方向如下。
+&lt;div class="mermaid">
+graph TD;
+Api-->Contracts;
+Api-->Application;
+Infrastructure-->Application
+Application-->Domain
+Api-.->Infrastructure
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span> &lt;span style="color:#a6e22e">reference&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Contracts&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Infrastructure&lt;/span> &lt;span style="color:#a6e22e">reference&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span> &lt;span style="color:#a6e22e">reference&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Domain&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span> &lt;span style="color:#a6e22e">reference&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Infrastructure&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>至此，已經完成了基本的 hierarchy 建置，接下來要為 Restful Client 做準備。&lt;/li>
+&lt;/ul>
+&lt;h2 id="login-authentication">Login Authentication&lt;/h2>
+&lt;ul>
+&lt;li>作為驗證的需要，我們需要以下三種驗證檔案，包含兩個 Request 與一個 Response&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">record&lt;/span> &lt;span style="color:#a6e22e">RegisterRequest&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Password
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">record&lt;/span> &lt;span style="color:#a6e22e">LoginRequest&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Password
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">record&lt;/span> &lt;span style="color:#a6e22e">AuthenticationResponse&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Guid Id,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> token
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>到 Controller 去設置註冊與登入的兩個路由，並且將之後的服務介面預先注入到其中。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[ApiController]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[Route(&amp;#34;auth&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthenticationController&lt;/span> : ControllerBase
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [HttpPost(&amp;#34;register&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IActionResult Register(RegisterRequest request)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Ok(request);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [HttpPost(&amp;#34;login&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IActionResult Login(LoginRequest request)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Ok(request);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們創建 Application 中的服務，注意到因為 Application 不依賴於 Contracts，故我們這邊需要創建自己的 DataModel&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">record&lt;/span> &lt;span style="color:#a6e22e">AuthenticationResult&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Guid Id,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Token
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們定義出 Application 的 Service。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">interface&lt;/span> &lt;span style="color:#a6e22e">IAuthenticationService&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AuthenticationResult Register(&lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName, &lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AuthenticationResult Login(&lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>定義好我們的 service interface 之後，就可以到 Presentation 中將我們的 service 注入到 presentation 之中。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[ApiController]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[Route(&amp;#34;auth&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthenticationController&lt;/span> : ControllerBase
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> IAuthenticationService _authenticationService;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationController(IAuthenticationService authenticationService)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _authenticationService = authenticationService;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [HttpPost(&amp;#34;register&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IActionResult Register(RegisterRequest request)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> authResult = _authenticationService.Register(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.Password);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> response = &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResponse(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Id,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Token);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Ok(response);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [HttpPost(&amp;#34;login&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IActionResult Login(LoginRequest request)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> authResult = _authenticationService.Login(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.Password);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> response = &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResponse(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Id,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Token);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Ok(response);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>我們已經定義好我們的 service 後，便可以到 presentation 的 Program(或是其它入口點，如 Startup.cs 或 MauiProgram.cs)，做 service 的依賴注入。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> BuberDinner.Application.Services.Authentication;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> builder = WebApplication.CreateBuilder(args);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddScoped&amp;lt;IAuthenticationService, AuthenticationService&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddControllers();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddEndpointsApiExplorer();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddSwaggerGen();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> app = builder.Build();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseSwagger();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseSwaggerUI();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseHttpsRedirection();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.MapControllers();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.Run();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>最後，我們先實作一個暫時的 Service，來確認 Api 是可以作業的。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthenticationService&lt;/span> : IAuthenticationService
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationResult Register(&lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName, &lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResult(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Guid.NewGuid(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> firstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> lastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;token&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationResult Login(&lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResult(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Guid.NewGuid(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;firstName&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;lastName&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;token&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>執行 &lt;code>dotnet run --project .\Mysln.Api\&lt;/code>&lt;/li>
+&lt;li>在 Swagger 中測試我們實作的 &lt;code>register&lt;/code> 與 &lt;code>login&lt;/code> API，如果正常工作，會回傳 StatusCode: 200。&lt;/li>
+&lt;/ul>
+&lt;h2 id="dependency-injection">Dependency Injection&lt;/h2>
+&lt;ul>
+&lt;li>我們想要每一層都可以自己管理自己的注入，此時我們需要引入 &lt;code>Microsoft.Extensions.DependencyInjection&lt;/code>。&lt;/li>
+&lt;li>接下來實作 Application 的 DependencyInjection。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddApllication(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddScope&amp;lt;IAuthenticationService, AuthenticationService&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接下來實作 Infrastructure 的 DependencyInjection。(暫時還沒有注入 repository)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddInfrastructure(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 未來要注入 repositories&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接下來我們可以改寫 &lt;code>Program.cs&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> BuberDinner.Application;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> BuberDinner.Infrastructure;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> builder = WebApplication.CreateBuilder(args);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .AddApplication()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .AddInfrastructure();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddControllers();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddEndpointsApiExplorer();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddSwaggerGen();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> app = builder.Build();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseSwagger();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseSwaggerUI();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseHttpsRedirection();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.MapControllers();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.Run();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="實作-jwt-token-generator">實作 JWT Token Generator&lt;/h2>
+&lt;ul>
+&lt;li>首先先在 Application Layer 創建一個 interface 來做依賴反轉&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">interface&lt;/span> &lt;span style="color:#a6e22e">IJwtTokenGenerator&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> GenerateToken(Guid userId, &lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們到 Infrastructure Layer 來實作我們的 JwtTokenGenerator。&lt;/li>
+&lt;li>首先我們需要 &lt;code>System.IdentityModel.Tokens.Jwt&lt;/code> 這個 Package。&lt;/li>
+&lt;li>接著我們實作 &lt;code>JwtTokenGenerator&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">JwtTokenGenerator&lt;/span> : IJwtTokenGenerator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> GenerateToken(Guid userId, &lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> signingCredentials = &lt;span style="color:#66d9ef">new&lt;/span> SigningCredentials(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> SymmetricSecurityKey(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Encoding.UTF8.GetBytes(&lt;span style="color:#e6db74">&amp;#34;super-secret-key&amp;#34;&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> SecurityAlgorithms.HmacSha256);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> claims = &lt;span style="color:#66d9ef">new&lt;/span>[]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.GivenName, firstName),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.FamilyName, lastName),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> securityToken = &lt;span style="color:#66d9ef">new&lt;/span> JwtSecurityToken(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> issuer: &lt;span style="color:#e6db74">&amp;#34;Mysln&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> expires: DateTime.Now.AddDays(&lt;span style="color:#ae81ff">1&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> claims: claims,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> signingCredentials: signingCredentials);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> JwtSecurityTokenHandler().WriteToken(securityToken);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們將之注入到服務中，即大功告成了。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddInfrastructure(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IJwtTokenGenerator, JwtTokenGenerator&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="使用-options-pattern-注入-jwt-settings">使用 Options Pattern 注入 JWT Settings&lt;/h2>
+&lt;ul>
+&lt;li>接下來我們要使用 Options Pattern 將 JWT Settings 注入到 JwtTokenGenerator 中。&lt;/li>
+&lt;li>首先我們先到 &lt;code>Mysln.Api&lt;/code> 的 &lt;code>appsettings.json&lt;/code> 中將 options 設置完成。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Logging&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;LogLevel&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Default&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Information&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Microsoft.AspNetCore&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Warning&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;AllowedHosts&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;*&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;JwtSettings&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Secret&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;super-secret-key&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ExpiryMinutes&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">60&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Issuer&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Mysln&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Audience:&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Mysln&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>由於我們要使用 Options Pattern，我們需要改寫我們的 &lt;code>Program.cs&lt;/code>，並且將 ConfigurationManager 注入到 Infrastructure 的 DependencyInjection。&lt;/li>
+&lt;li>為此我們需要引入套件 &lt;code>Microsoft.Extensions.Configuration&lt;/code> 與 &lt;code>Microsoft.Extensions.Options.ConfigurationExtensions&lt;/code>。&lt;/li>
+&lt;li>並且我們需要創建一個 Model。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">JwtSettings&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> SectionName = &lt;span style="color:#e6db74">&amp;#34;JwtSettings&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Secret { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">init&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> ExpiryMinutes { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">init&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Issuer { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">init&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Audience { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">init&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>Program.cs&lt;/code> 需改寫成：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>builder.Services
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .AddApplication()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .AddInfrastructure(builder.Configuration);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>將 &lt;code>DependencyInjection&lt;/code> 改寫成：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddInfrastructure(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services, ConfigurationManager configuration)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.Configure&amp;lt;JwtSettings&amp;gt;(configuration.GetSection(JwtSettings.SectionName));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IJwtTokenGenerator, JwtTokenGenerator&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IDateTimeProvider, DateTimeProvider&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接下來，我們可以把 JwtTokenGenerator 改寫成：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">JwtTokenGenerator&lt;/span> : IJwtTokenGenerator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> JwtSettings _jwtSettings;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> IDateTimeProvider _dateTimeProvider;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> JwtTokenGenerator(IDateTimeProvider dateTimeProvider, IOptions&amp;lt;JwtSettings&amp;gt; jwtOptions)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _dateTimeProvider = dateTimeProvider;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _jwtSettings = jwtOptions.Value;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> GenerateToken(Guid userId, &lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> signingCredentials = &lt;span style="color:#66d9ef">new&lt;/span> SigningCredentials(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> SymmetricSecurityKey(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> SecurityAlgorithms.HmacSha256);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> claims = &lt;span style="color:#66d9ef">new&lt;/span>[]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.GivenName, firstName),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.FamilyName, lastName),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> securityToken = &lt;span style="color:#66d9ef">new&lt;/span> JwtSecurityToken(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> issuer: _jwtSettings.Issuer,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> audience: _jwtSettings.Audience,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> expires: _dateTimeProvider.UtcNow.AddMinutes(_jwtSettings.ExpiryMinutes),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> claims: claims,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> signingCredentials: signingCredentials);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> JwtSecurityTokenHandler().WriteToken(securityToken);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>以上就大功告成了。&lt;/li>
+&lt;/ul>
+&lt;h2 id="使用-dotnet-user-secrets-指令">使用 &lt;code>dotnet user-secrets&lt;/code> 指令&lt;/h2>
+&lt;ul>
+&lt;li>如果不想要將 Options 中的 secret 儲存在程式(appsettings.json)裡面，可以利用 &lt;code>dotnet user-secrets&lt;/code> 將 secret 儲存於環境變數裡面。&lt;/li>
+&lt;li>透過執行以下的指令來初始化專案的 &lt;code>UserSecretsId&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">user&lt;/span>-&lt;span style="color:#a6e22e">secrets&lt;/span> &lt;span style="color:#a6e22e">init&lt;/span> --&lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著將 &lt;code>UserSecretsId&lt;/code> 綁定到我們專案的 &lt;code>JwtSettings:Secret&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">user&lt;/span>-&lt;span style="color:#a6e22e">secrets&lt;/span> &lt;span style="color:#66d9ef">set&lt;/span> --&lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span> &lt;span style="color:#e6db74">&amp;#34;JwtSettings:Secret&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>日後可以經由以下指令查詢。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">user&lt;/span>-&lt;span style="color:#a6e22e">secrets&lt;/span> &lt;span style="color:#a6e22e">list&lt;/span> --&lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="domain-model">Domain Model&lt;/h2>
+&lt;ul>
+&lt;li>先建立一個簡單的 Domain Model(Entity)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">User&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> Guid Id { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = Guid.NewGuid();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> FirstName { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> LastName { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Email { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Password { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="repository-pattern">Repository Pattern&lt;/h2>
+&lt;ul>
+&lt;li>在 Application Layer 建立 IRepository&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">interface&lt;/span> &lt;span style="color:#a6e22e">IUserRepository&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User? GetUserByEmail(&lt;span style="color:#66d9ef">string&lt;/span> email);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> Add(User user);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>將 IRepository 注入 Application 的 Service&lt;/li>
+&lt;li>並用查改存推改寫 Service&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthenticationService&lt;/span> : IAuthenticationService
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> IJwtTokenGenerator _jwtTokenGenerator;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> IUserRepository _userRepository;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _jwtTokenGenerator = jwtTokenGenerator;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _userRepository = userRepository;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationResult Register(&lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName, &lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 查&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_userRepository.GetUserByEmail(email) &lt;span style="color:#66d9ef">is&lt;/span> not &lt;span style="color:#66d9ef">null&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;User with given email already exists.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 改&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> user = &lt;span style="color:#66d9ef">new&lt;/span> User
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FirstName = firstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> LastName = lastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Email = email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Password = password
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 存&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _userRepository.Add(user);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 推&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> token = _jwtTokenGenerator.GenerateToken(user.Id, firstName, lastName);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResult(user.Id, firstName, lastName, email, token);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationResult Login(&lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 查&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_userRepository.GetUserByEmail(email) &lt;span style="color:#66d9ef">is&lt;/span> not User user)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;User with given email does not exist.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (user.Password != password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;Invalid password.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 改&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> token = _jwtTokenGenerator.GenerateToken(user.Id, user.FirstName, user.LastName);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResult(user.Id, user.FirstName, user.LastName, email, token);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們在 Infrastructure Layer 實作我們的 repository，我們暫時先不接資料庫，所以先做一個 InMemory 版本的 repository 來做測試。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">UserRepository&lt;/span> : IUserRepository
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> List&amp;lt;User&amp;gt; _users = &lt;span style="color:#66d9ef">new&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Add(User user)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _users.Add(user);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> User? GetUserByEmail(&lt;span style="color:#66d9ef">string&lt;/span> email)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> _users.SingleOrDefault(u =&amp;gt; u.Email.Equals(email));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>實作完需要透過 DependencyInjection 注入到我們的 Service Container 內。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddInfrastructure(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services, ConfigurationManager configuration)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.Configure&amp;lt;JwtSettings&amp;gt;(configuration.GetSection(JwtSettings.SectionName));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IJwtTokenGenerator, JwtTokenGenerator&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IDateTimeProvider, DateTimeProvider&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IUserRepository, UserRepository&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>至此，我們已經完成了一個簡單的身份認證的 API。&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,13 +1,1068 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>C# on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/c%23/</link><description>Recent content in C# on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 11 Jun 2024 22:00:23 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/c%23/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] React + .Net</title><link>https://intervalrain.github.io/it/csharp-react/</link><pubDate>Tue, 11 Jun 2024 22:00:23 +0800</pubDate><guid>https://intervalrain.github.io/it/csharp-react/</guid><description>React + .Net 一、環境設置 Setup 1. 行前準備 Prerequisites 安裝 Node.js 和 npm node -v npm -v 安裝 .NET SDK dotnet --version 用 vs code 下載 ES7+ React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce import React from &amp;#39;react&amp;#39; const index = () =&amp;gt; { return ( &amp;lt;div&amp;gt;index&amp;lt;/div&amp;gt; ) } export default index 2. 創建 React 安裝 react npm install create-react-app 創建新的 react app (typescript) --template typescript 可指定使用 typescript npx create-react-app {project} --template typescript cd {project} 必要時可能要初始化一個新的 react 項目，確保版本是匹配的。 yarnpkg add --exact react-dom react-scripts 3.</description></item><item><title>[IT] ApiController Atrribute</title><link>https://intervalrain.github.io/it/apicontroller/</link><pubDate>Sun, 09 Jun 2024 20:27:03 +0800</pubDate><guid>https://intervalrain.github.io/it/apicontroller/</guid><description>ApiController Atrribute 當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？
-[ApiController] public class TestController : ControllerBase { } 1. 自動 HTTP 400 回應 它會自動產生一個行為過濾器(action filter)，當 ModelState.IsValid 為 false 時，自動回傳 400 Response。 2. 綁定來源參數推斷 可以更改模型綁定的約定，例如，[FromBody] 是針對複雜類型參數推斷的。 3. Multi/form-data 請求推理 對於標示 [FromForm] 的參數，推斷 Content-Type 為 multipart/form-data。 4. 屬性路由要求 強制要求所有操作都必須通過屬性路由。 使用 ApiController 的情況 數據服務：如果你要提供 JSON 或 XML 格式的數據服務給前端或其他應用程式。 RESTful API：當你需要創建 RESTful API 來處理資源（Create, Read, Update, Delete）。 不使用 ApiController 的情況 傳統 MVC 應用：如果你只是要處理 HTTP 請求並返回 HTML 視圖給用戶端。</description></item><item><title>[IT] EntityFramework Commands</title><link>https://intervalrain.github.io/it/entityframework_command/</link><pubDate>Sun, 31 Mar 2024 14:37:44 +0800</pubDate><guid>https://intervalrain.github.io/it/entityframework_command/</guid><description>Some commands to trigger migration operations</description></item><item><title>[IT] 用 C# 建置 Clean Architecture 專案</title><link>https://intervalrain.github.io/it/ca_config/</link><pubDate>Sat, 09 Mar 2024 13:59:22 +0800</pubDate><guid>https://intervalrain.github.io/it/ca_config/</guid><description>Configure C# Solution step by step 開啟 Terminal 新增解決方案 dontet new sln -o MySln 移至方案目錄 cd MySln 根據解決方案 hierarchy 建構專案 dotnet new webapi -o MySln.Api dotnet new classlib -o MySln.Application dotnet new classlib -o MySln.Domain dotnet new classlib -o MySln.Infrastructure dotnet new classlib -o MySln.Contracts 將所有專案加進解決方案 for proj in $(ls -r **/*.csproj) dotnet sln add $proj 建立專案之間的 dependency dotnet add MySln.Api reference MySln.Application MySln.Infrastructure MySln.Contracts dotnet add MySln.Infrastructure reference MySln.Application dotnet add MySln.</description></item><item><title>[IT] 使用 Clean Architecture + DDD 建置 Restful API</title><link>https://intervalrain.github.io/it/clean_arch_configuration/</link><pubDate>Mon, 26 Feb 2024 15:03:15 +0800</pubDate><guid>https://intervalrain.github.io/it/clean_arch_configuration/</guid><description>程式碼 https://github.com/intervalrain/webapi_ca/
-正文 建置 Solution 首先先參考 Clean Architecture 最經典的同心圓，來確定我們需要將我們的解決方案做哪些分層：
-我將使用 Restful API 做為我們 I/O (Presentation Layer) 並且我需要配備身份驗證的機制 (Presentation Layer) 我使用 PostgresDB 作為我的 (Infrastructure Layer) 我的核心商業邏輯 (Application / Domain Layer) 創建專案
-dotnet new sln -o Mysln 進入專案所在的資料夾 cd Mysln 根據預先的分層建立專案資料夾，並且使用 dotnet 指令建立相對應的專案類型。 Api &amp;ndash;&amp;gt; WebAPI Infrastructure &amp;ndash;&amp;gt; classlib Contracts &amp;ndash;&amp;gt; classlib Application &amp;ndash;&amp;gt; classlib Domain &amp;ndash;&amp;gt; classlib dotnet new webapi -o Mysln.Api dotnet new classlib -o Mysln.Contracts dotnet new classlib -o Mysln.</description></item><item><title>[IT] .NET Maui</title><link>https://intervalrain.github.io/it/maui/</link><pubDate>Sun, 28 Jan 2024 13:30:34 +0800</pubDate><guid>https://intervalrain.github.io/it/maui/</guid><description>.NET Maui .NET Maui 是一個跨平台的桌面與手機應用開發框架，它支援 iOS、Android、macOS、Windows。 不同於 Xamarin，.NET Maui 只需要一個專案便可以導向不同的平台。 架構 一個 .NET Maui 專案底下，預設會有幾個資料夾與檔案，其關係如下圖： /Platforms 底下的各個資料夾為不同平台的入口，不同的平台各有一個 Program.cs。 各個 Program.cs 內又會透過注入該 namespace 底下的 AppDelegate ，將入口指向 MauiProgram 的 CreateMauiApp()，就此將不同平台路由到 MauiProgram.cs 這個統一的入口。 public class Program { static void Main(string[] args) { UIApplication.Main(args, null, typeof(AppDelegate)); } } [Register(&amp;#34;AppDelegate&amp;#34;)] public class AppDelegate : MauiUIApplicationDelegate { protected override MauiApp CreateMauiApp() =&amp;gt; MauiProgram.CreateMauiApp(); } 關係如下圖： graph TD; iOS-->MauiProgram.cs; Android-->MauiProgram.cs; Windows-->MauiProgram.cs; macOS-->MauiProgram.cs; MauiProgram.cs-->App; App-->AppShell; AppShell-.->Page1; AppShell-.->Page2; AppShell-.->Page3; AppShell-.</description></item><item><title>[IT] CORS 跨原始來源要求</title><link>https://intervalrain.github.io/it/cors/</link><pubDate>Fri, 19 Jan 2024 00:41:51 +0800</pubDate><guid>https://intervalrain.github.io/it/cors/</guid><description>TL;DR CORS (Cross-Origin Resource Sharing)
-是一個支援安全跨源請求和資料傳輸的機制，用於在瀏覽器和伺服器之間進行跨源請求。
-這是一個 W3C 標準，可讓伺服器放寬相同原始來源原則。 不是安全性功能，CORS 會放寬安全性。 允許 CORS 並不會增強 API 的安全性。CORS 的運作方式 允許伺服器明確允許某些跨原始來源要求，同時拒絕其他要求。 比舊版技術 (例如：JSONP) 更安全且更有彈性。 何謂相同原始來源 如果兩個 URL 具有相同的配置、主機和連接埠，則其原始來源相同 (RFC 6454)。 這兩個 URL 具有相同的原始來源： https://example.com/foo.html https://example.com/bar.html 這些 URL 的原始來源與前兩個 URL 不同： https://example.net：不同的網域 https://www.example.com/foo.html：不同的子網域 http://example.com/foo.html：不同的配置 https://example.com:9000/foo.html：不同的連接埠 如何啟動 CORS 有三種方式可以啟用 CORS：
-在中介軟體中，使用具名原則或預設原則。 使用端點路由。 使用 [EnableCors] 屬性。 搭配具名原則使用 [EnableCors] 屬性能夠以最精細的程度來控制對於支援 CORS 之端點的限制。 必須以正確的順序呼叫 UseCors。例如，在使用 UseResponseCaching 時，必須先呼叫 UseCors，再呼叫 UseResponseCaching。
-具有具名原則和中介軟體的 CORS var MyAllowSpecificOrigins = &amp;#34;_myAllowSpecificOrigins&amp;#34;; var builder = WebApplication.</description></item><item><title>[IT] LINQ: IQueryable Provider</title><link>https://intervalrain.github.io/it/iq1/</link><pubDate>Thu, 21 Sep 2023 11:34:15 +0800</pubDate><guid>https://intervalrain.github.io/it/iq1/</guid><description>一系列關於如何建立 LINQ IQueryable Provider 的文章，每篇都是建立在前一篇的基礎上。</description></item><item><title>[C#] Large Object Heap</title><link>https://intervalrain.github.io/csharp/loh/</link><pubDate>Sat, 22 Jul 2023 20:59:57 +0800</pubDate><guid>https://intervalrain.github.io/csharp/loh/</guid><description>Introduction to Large Object Heap</description></item><item><title>[CS] Sample cost for performance test</title><link>https://intervalrain.github.io/csharp/performancetest/</link><pubDate>Tue, 16 May 2023 21:26:24 +0800</pubDate><guid>https://intervalrain.github.io/csharp/performancetest/</guid><description>Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks; namespace Rainspace.PlayGround { public class Program { public static void Main(string[] args) { Stopwatch sw = new Stopwatch(); sw.Start(); System.Console.WriteLine(&amp;#34;==============Accumulate1==============&amp;#34;); System.Console.WriteLine(&amp;#34;Result: &amp;#34; + Accumulate(0, 100, 0)); sw.Stop(); System.Console.WriteLine(&amp;#34;Time cost: &amp;#34; + (sw.ElapsedTicks/1.0e6).ToString() + &amp;#34;ms&amp;#34;); sw.Reset(); sw.Start(); System.Console.WriteLine(&amp;#34;==============Accumulate2==============&amp;#34;); System.Console.WriteLine(&amp;#34;Result: &amp;#34; + Accumulate(0, 100, 0)); sw.Stop(); System.Console.WriteLine(&amp;#34;Time cost: &amp;#34; + (sw.</description></item><item><title>[C#] C#3、LINQ 及相關特性</title><link>https://intervalrain.github.io/csharp/linq_props/</link><pubDate>Mon, 01 May 2023 14:10:48 +0800</pubDate><guid>https://intervalrain.github.io/csharp/linq_props/</guid><description>Introduction to LINQ in C#</description></item><item><title>[C#] Namespace Alias 命名空間別名</title><link>https://intervalrain.github.io/csharp/namespace_alias/</link><pubDate>Tue, 28 Feb 2023 22:51:08 +0800</pubDate><guid>https://intervalrain.github.io/csharp/namespace_alias/</guid><description>Namespace alias in C#</description></item><item><title>[C#] Property getter/setter access separate 訪問權限分離</title><link>https://intervalrain.github.io/csharp/getter_setter_access_separate/</link><pubDate>Tue, 28 Feb 2023 22:18:25 +0800</pubDate><guid>https://intervalrain.github.io/csharp/getter_setter_access_separate/</guid><description>Separate getter/setter property access in C#</description></item><item><title>[C#] static class 靜態類別</title><link>https://intervalrain.github.io/csharp/static/</link><pubDate>Tue, 28 Feb 2023 21:08:01 +0800</pubDate><guid>https://intervalrain.github.io/csharp/static/</guid><description>Introduction to static class in C#</description></item><item><title>[C#] C# 筆記</title><link>https://intervalrain.github.io/csharp/csharp/</link><pubDate>Tue, 28 Feb 2023 18:49:39 +0800</pubDate><guid>https://intervalrain.github.io/csharp/csharp/</guid><description>Notes for C#</description></item><item><title>[C#] Partial Type 局部類型</title><link>https://intervalrain.github.io/csharp/partial/</link><pubDate>Tue, 28 Feb 2023 15:11:11 +0800</pubDate><guid>https://intervalrain.github.io/csharp/partial/</guid><description>Introduction to partial class ans partial method in C#</description></item><item><title>[C#] IEnumerable &amp; IEnumerator 迭代器</title><link>https://intervalrain.github.io/csharp/iterator/</link><pubDate>Mon, 27 Feb 2023 11:50:20 +0800</pubDate><guid>https://intervalrain.github.io/csharp/iterator/</guid><description>Introduction to Iterator in C#, including IEnumerator and IEnumerable</description></item><item><title>[C#] Delegate 委派</title><link>https://intervalrain.github.io/csharp/delegate/</link><pubDate>Sun, 26 Feb 2023 19:24:56 +0800</pubDate><guid>https://intervalrain.github.io/csharp/delegate/</guid><description>Introduction to Delegate in C#</description></item><item><title>[C#] Nullable 可空值類型</title><link>https://intervalrain.github.io/csharp/nullable/</link><pubDate>Thu, 23 Feb 2023 21:40:03 +0800</pubDate><guid>https://intervalrain.github.io/csharp/nullable/</guid><description>Introduction to Nullable in C#</description></item><item><title>[C#] Generic 泛型</title><link>https://intervalrain.github.io/csharp/generic/</link><pubDate>Wed, 22 Feb 2023 21:39:56 +0800</pubDate><guid>https://intervalrain.github.io/csharp/generic/</guid><description>Introduction to Generic in C#</description></item><item><title>[IT] C# Depth Ch.2 C# 2</title><link>https://intervalrain.github.io/it/csharp_depth_ch2/</link><pubDate>Fri, 20 Jan 2023 10:10:46 +0800</pubDate><guid>https://intervalrain.github.io/it/csharp_depth_ch2/</guid><description>C# 2 一、泛型 使用泛型(generic type)可以在編寫在編譯時類型安全的通用程式碼，無須事先知道要使用的具體類型。 示例1: array類型: 大小需預先設定，若要添加需要重新分配 public static void Main(string[] args) { PrintNames(GenerateNames()); } public static void PrintNames(string[] names) { foreach (string name in names) { Console.WriteLine(name); } } public static string[] GenerateNames() { string[] names = new string[4]; names[0] = &amp;#34;Mike&amp;#34;; names[1] = &amp;#34;Rain&amp;#34;; names[2] = &amp;#34;Jessica&amp;#34;; names[3] = &amp;#34;Billy&amp;#34;; return names; } 示例2: ArrayList類型: ArrayList.Add是Object的方法，但如果塞入不適合的參數類型，可能會引發InvalidCastException
-public static void Main(string[] args) { PrintNames(GenerateNames()); } public static void PrintNames(ArrayList names) { foreach (object name in names) { Console.</description></item><item><title>[IT] C# Depth Ch.1 與時俱進的語言</title><link>https://intervalrain.github.io/it/csharp_depth_ch1/</link><pubDate>Tue, 17 Jan 2023 22:27:58 +0800</pubDate><guid>https://intervalrain.github.io/it/csharp_depth_ch1/</guid><description>與時俱進的語言 一、System Class 1. 泛型(genric) 可更清楚的描述序列中每個元素的類型。 C#1 示例
-public class Bookshelf { public IEnumerable Books { get { ... } } } C#2 示例：泛型
-public class Bookshelf { public IEnumerable&amp;lt;Book&amp;gt; Books { get { ... } } } 2. 可空值類型(nullable value type) 可有效的表示未定的變量值，以擺脫魔數(用-1當集合索引，用 MinValue 或 MaxValue 做為初始值)。 示例
-string? a = null; Console.WriteLine(a ?? &amp;#34;null&amp;#34;); // null a = &amp;#34;abc&amp;#34;; Console.WriteLine(a ?? &amp;#34;null&amp;#34;); // abc 3. 匿名類型(anonymous type)、隱式局部變數(var) 兩者皆可解決靜態類型語言的缺陷：程式碼冗長。 示例1: 匿名類型(anonymous type)</description></item><item><title>[C#] Yield Return</title><link>https://intervalrain.github.io/csharp/yield/</link><pubDate>Sun, 01 Jan 2023 21:40:25 +0800</pubDate><guid>https://intervalrain.github.io/csharp/yield/</guid><description>Introduction to yield return in C#, and the background of IEnumerable and IEnumerator</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>C# on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/c%23/</link><description>Recent content in C# on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 11 Jun 2024 22:00:23 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/c%23/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] React + .Net</title><link>https://intervalrain.github.io/it/csharp-react/</link><pubDate>Tue, 11 Jun 2024 22:00:23 +0800</pubDate><guid>https://intervalrain.github.io/it/csharp-react/</guid><description>&lt;h1 id="react--net">React + .Net&lt;/h1>
+&lt;h2 id="一環境設置-setup">一、環境設置 Setup&lt;/h2>
+&lt;h3 id="1-行前準備-prerequisites">1. 行前準備 Prerequisites&lt;/h3>
+&lt;ul>
+&lt;li>安裝 Node.js 和 npm&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>node -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm -v
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>安裝 .NET SDK&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>dotnet --version
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>用 vs code 下載 &lt;code>ES7+ React/Redux/React-Native snippets&lt;/code>
+因為 &lt;code>rafce&lt;/code> 很好用, 相當於, typescript 則是 &lt;code>tsrafce&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">React&lt;/span> &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#39;react&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">index&lt;/span> &lt;span style="color:#f92672">=&lt;/span> () =&amp;gt; {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">div&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">index&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/div&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">export&lt;/span> &lt;span style="color:#66d9ef">default&lt;/span> &lt;span style="color:#a6e22e">index&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-創建-react">2. 創建 React&lt;/h3>
+&lt;ul>
+&lt;li>安裝 react&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npm install create-react-app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>創建新的 react app (typescript)
+&lt;ul>
+&lt;li>&lt;code>--template typescript&lt;/code> 可指定使用 typescript&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npx create-react-app &lt;span style="color:#f92672">{&lt;/span>project&lt;span style="color:#f92672">}&lt;/span> --template typescript
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd &lt;span style="color:#f92672">{&lt;/span>project&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>必要時可能要初始化一個新的 react 項目，確保版本是匹配的。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yarnpkg add --exact react-dom react-scripts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-基本結構">3. 基本結構&lt;/h3>
+&lt;ol>
+&lt;li>函數式元件(Functional Component):&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tsx" data-lang="tsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">Card&lt;/span>: &lt;span style="color:#66d9ef">React.FC&lt;/span>&amp;lt;&lt;span style="color:#f92672">Props&lt;/span>&amp;gt; &lt;span style="color:#f92672">=&lt;/span> ({
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">companyName&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">ticker&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">price&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">Props&lt;/span>)&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">JSX&lt;/span>.&lt;span style="color:#a6e22e">Element&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> { ... }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>Card&lt;/code> 是一個函數式元件，使用 TypeScript 和 React。&lt;/li>
+&lt;li>&lt;code>React.FC&amp;lt;Props&amp;gt;&lt;/code> 指定這個元件是接受 &lt;code>Props&lt;/code> 作為參數的 React 函數式元件&lt;/li>
+&lt;li>&lt;code>({ companyName, ticker, price })&lt;/code> 是從 &lt;code>Props&lt;/code> 解構的屬性，這些屬性將會被傳入元件&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>JSX 標籤:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tsx" data-lang="tsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">return&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">className&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;card&amp;#39;&lt;/span>&amp;gt;...&amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>這是元件返回的 JSX，它描述了元件應該如何渲染。&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-state">4. State&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tsx" data-lang="tsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">React&lt;/span>, { &lt;span style="color:#a6e22e">useState&lt;/span> } &lt;span style="color:#66d9ef">from&lt;/span> &lt;span style="color:#e6db74">&amp;#39;react&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">type&lt;/span> &lt;span style="color:#a6e22e">Props&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">Button&lt;/span>: &lt;span style="color:#66d9ef">React.FC&lt;/span>&amp;lt;&lt;span style="color:#f92672">Props&lt;/span>&amp;gt; &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#a6e22e">props&lt;/span>: &lt;span style="color:#66d9ef">Props&lt;/span>)&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">JSX&lt;/span>.&lt;span style="color:#a6e22e">Element&lt;/span> &lt;span style="color:#f92672">=&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">const&lt;/span> [&lt;span style="color:#a6e22e">count&lt;/span>, &lt;span style="color:#a6e22e">setCount&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">useState&lt;/span>&amp;lt;&lt;span style="color:#f92672">number&lt;/span>&amp;gt;(&lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">onClick&lt;/span> &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#a6e22e">e&lt;/span>: &lt;span style="color:#66d9ef">any&lt;/span>) &lt;span style="color:#f92672">=&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">setCount&lt;/span>(&lt;span style="color:#a6e22e">count&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">e&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">button&lt;/span> &lt;span style="color:#a6e22e">onClick&lt;/span>&lt;span style="color:#f92672">=&lt;/span>{(&lt;span style="color:#a6e22e">e&lt;/span>) &lt;span style="color:#f92672">=&amp;gt;&lt;/span> &lt;span style="color:#a6e22e">onClick&lt;/span>(&lt;span style="color:#a6e22e">e&lt;/span>)}&amp;gt;&lt;span style="color:#a6e22e">Click&lt;/span> &lt;span style="color:#a6e22e">me&lt;/span>&amp;lt;/&lt;span style="color:#f92672">button&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">p&lt;/span>&amp;gt;&lt;span style="color:#a6e22e">You&lt;/span> &lt;span style="color:#a6e22e">clicked&lt;/span> {&lt;span style="color:#a6e22e">count&lt;/span>} &lt;span style="color:#a6e22e">times&lt;/span>&amp;lt;/&lt;span style="color:#f92672">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">export&lt;/span> &lt;span style="color:#66d9ef">default&lt;/span> &lt;span style="color:#a6e22e">Button&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>引入 React 和 useState Hook:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tsx" data-lang="tsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">import&lt;/span> &lt;span style="color:#a6e22e">React&lt;/span>, { &lt;span style="color:#a6e22e">useState&lt;/span> } &lt;span style="color:#66d9ef">from&lt;/span> &lt;span style="color:#e6db74">&amp;#39;react&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>從 React 包中引入 &lt;code>useState&lt;/code> Hook，用於函數式元件中添加狀態。&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>使用 &lt;code>useState&lt;/code> Hook 定義狀態&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tsx" data-lang="tsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> [&lt;span style="color:#a6e22e">count&lt;/span>, &lt;span style="color:#a6e22e">setCount&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">useState&lt;/span>&amp;lt;&lt;span style="color:#f92672">number&lt;/span>&amp;gt;(&lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>定義一個名為 &lt;code>count&lt;/code> 的狀態變量，初始值為 0。&lt;/li>
+&lt;li>&lt;code>setCount&lt;/code> 是用來更新 &lt;code>count&lt;/code> 的函數。&lt;/li>
+&lt;li>&lt;code>useState&amp;lt;number&amp;gt;(0)&lt;/code> 指定 &lt;code>count&lt;/code> 的類型為 &lt;code>number&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;ol start="3">
+&lt;li>定義 &lt;code>onClick&lt;/code> 事件處理函數:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tsx" data-lang="tsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">onClick&lt;/span> &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#a6e22e">e&lt;/span>: &lt;span style="color:#66d9ef">any&lt;/span>) &lt;span style="color:#f92672">=&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">setCount&lt;/span>(&lt;span style="color:#a6e22e">count&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">e&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>onClick&lt;/code> 是一個事件處理函數，接受一個事件參數 &lt;code>e&lt;/code>。&lt;/li>
+&lt;li>每當按鈕被點擊時， &lt;code>count&lt;/code> 會加 1，並且會在控制台輸出事件 &lt;code>e&lt;/code>。&lt;/li>
+&lt;li>&lt;code>any&lt;/code> 也可被寫成 &lt;code>MounthEvent&lt;/code> 或 &lt;code>SyntheticEvent&lt;/code>。&lt;/li>
+&lt;/ul></description></item><item><title>[IT] ApiController Atrribute</title><link>https://intervalrain.github.io/it/apicontroller/</link><pubDate>Sun, 09 Jun 2024 20:27:03 +0800</pubDate><guid>https://intervalrain.github.io/it/apicontroller/</guid><description>&lt;h1 id="apicontroller-atrribute">ApiController Atrribute&lt;/h1>
+&lt;blockquote>
+&lt;p>當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[ApiController]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">TestController&lt;/span> : ControllerBase
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="1-自動-http-400-回應">1. 自動 HTTP 400 回應&lt;/h2>
+&lt;ul>
+&lt;li>它會自動產生一個行為過濾器(action filter)，當 &lt;code>ModelState.IsValid&lt;/code> 為 &lt;code>false&lt;/code> 時，自動回傳 400 Response。&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-綁定來源參數推斷">2. 綁定來源參數推斷&lt;/h2>
+&lt;ul>
+&lt;li>可以更改模型綁定的約定，例如，&lt;code>[FromBody]&lt;/code> 是針對複雜類型參數推斷的。&lt;/li>
+&lt;/ul>
+&lt;h2 id="3-multiform-data-請求推理">3. Multi/form-data 請求推理&lt;/h2>
+&lt;ul>
+&lt;li>對於標示 &lt;code>[FromForm]&lt;/code> 的參數，推斷 Content-Type 為 &lt;code>multipart/form-data&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;h2 id="4-屬性路由要求">4. 屬性路由要求&lt;/h2>
+&lt;ul>
+&lt;li>強制要求所有操作都必須通過屬性路由。&lt;/li>
+&lt;/ul>
+&lt;style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}&lt;/style>
+&lt;div>&lt;svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg">&lt;symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/>&lt;/symbol>&lt;symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/>&lt;/symbol>&lt;symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/>&lt;/symbol>&lt;symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/>&lt;/symbol>&lt;/svg>&lt;/div>&lt;div class="notice info" >
+&lt;p class="first notice-title">&lt;span class="icon-notice baseline">&lt;svg>&lt;use href="#info-notice">&lt;/use>&lt;/svg>&lt;/span>&lt;/p></description></item><item><title>[IT] EntityFramework Commands</title><link>https://intervalrain.github.io/it/entityframework_command/</link><pubDate>Sun, 31 Mar 2024 14:37:44 +0800</pubDate><guid>https://intervalrain.github.io/it/entityframework_command/</guid><description>Some commands to trigger migration operations</description></item><item><title>[IT] 用 C# 建置 Clean Architecture 專案</title><link>https://intervalrain.github.io/it/ca_config/</link><pubDate>Sat, 09 Mar 2024 13:59:22 +0800</pubDate><guid>https://intervalrain.github.io/it/ca_config/</guid><description>&lt;h1 id="configure-c-solution-step-by-step">Configure C# Solution step by step&lt;/h1>
+&lt;ul>
+&lt;li>開啟 Terminal&lt;/li>
+&lt;li>新增解決方案 &lt;code>dontet new sln -o MySln&lt;/code>&lt;/li>
+&lt;li>移至方案目錄 &lt;code>cd MySln&lt;/code>&lt;/li>
+&lt;li>根據解決方案 hierarchy 建構專案
+&lt;ul>
+&lt;li>&lt;code>dotnet new webapi -o MySln.Api&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet new classlib -o MySln.Application&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet new classlib -o MySln.Domain&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet new classlib -o MySln.Infrastructure&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet new classlib -o MySln.Contracts&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>將所有專案加進解決方案
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> proj in &lt;span style="color:#66d9ef">$(&lt;/span>ls -r **/*.csproj&lt;span style="color:#66d9ef">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dotnet sln add $proj
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>建立專案之間的 dependency
+&lt;ul>
+&lt;li>&lt;code>dotnet add MySln.Api reference MySln.Application MySln.Infrastructure MySln.Contracts&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet add MySln.Infrastructure reference MySln.Application&lt;/code>&lt;/li>
+&lt;li>&lt;code>dotnet add MySln.Application reference MySln.Domain&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>[IT] 使用 Clean Architecture + DDD 建置 Restful API</title><link>https://intervalrain.github.io/it/clean_arch_configuration/</link><pubDate>Mon, 26 Feb 2024 15:03:15 +0800</pubDate><guid>https://intervalrain.github.io/it/clean_arch_configuration/</guid><description>&lt;h1 id="程式碼">程式碼&lt;/h1>
+&lt;p>&lt;a href="https://github.com/intervalrain/webapi_ca/">https://github.com/intervalrain/webapi_ca/&lt;/a>&lt;/p>
+&lt;h1 id="正文">正文&lt;/h1>
+&lt;h2 id="建置-solution">建置 Solution&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>首先先參考 Clean Architecture 最經典的同心圓，來確定我們需要將我們的解決方案做哪些分層：&lt;/p>
+&lt;ul>
+&lt;li>我將使用 Restful API 做為我們 I/O (Presentation Layer)&lt;/li>
+&lt;li>並且我需要配備身份驗證的機制 (Presentation Layer)&lt;/li>
+&lt;li>我使用 PostgresDB 作為我的 (Infrastructure Layer)&lt;/li>
+&lt;li>我的核心商業邏輯 (Application / Domain Layer)
+&lt;img src="https://herbertograca.files.wordpress.com/2017/04/cleanarchitecture-5c6d7ec787d447a81b708b73abba1680.jpg" width="480">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>創建專案&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>進入專案所在的資料夾&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">cd&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>根據預先的分層建立專案資料夾，並且使用 dotnet 指令建立相對應的專案類型。
+&lt;ul>
+&lt;li>Api &amp;ndash;&amp;gt; WebAPI&lt;/li>
+&lt;li>Infrastructure &amp;ndash;&amp;gt; classlib&lt;/li>
+&lt;li>Contracts &amp;ndash;&amp;gt; classlib&lt;/li>
+&lt;li>Application &amp;ndash;&amp;gt; classlib&lt;/li>
+&lt;li>Domain &amp;ndash;&amp;gt; classlib&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">webapi&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">classlib&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Contracts&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">classlib&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Infrastructure&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">classlib&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">new&lt;/span> &lt;span style="color:#a6e22e">classlib&lt;/span> -&lt;span style="color:#a6e22e">o&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Domain&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們需要把產生的專案資料夾，加入到我們的 Solution。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Contracts&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Domain&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">sln&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Infrastructure&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接下來按照 Clean Architecture 的依賴原則來設定 dependency，依我的專案來說依賴方向如下。
+&lt;div class="mermaid">
+graph TD;
+Api-->Contracts;
+Api-->Application;
+Infrastructure-->Application
+Application-->Domain
+Api-.->Infrastructure
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span> &lt;span style="color:#a6e22e">reference&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Contracts&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Infrastructure&lt;/span> &lt;span style="color:#a6e22e">reference&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Application&lt;/span> &lt;span style="color:#a6e22e">reference&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Domain&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span> &lt;span style="color:#a6e22e">reference&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Infrastructure&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>至此，已經完成了基本的 hierarchy 建置，接下來要為 Restful Client 做準備。&lt;/li>
+&lt;/ul>
+&lt;h2 id="login-authentication">Login Authentication&lt;/h2>
+&lt;ul>
+&lt;li>作為驗證的需要，我們需要以下三種驗證檔案，包含兩個 Request 與一個 Response&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">record&lt;/span> &lt;span style="color:#a6e22e">RegisterRequest&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Password
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">record&lt;/span> &lt;span style="color:#a6e22e">LoginRequest&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Password
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">record&lt;/span> &lt;span style="color:#a6e22e">AuthenticationResponse&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Guid Id,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> token
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>到 Controller 去設置註冊與登入的兩個路由，並且將之後的服務介面預先注入到其中。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[ApiController]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[Route(&amp;#34;auth&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthenticationController&lt;/span> : ControllerBase
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [HttpPost(&amp;#34;register&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IActionResult Register(RegisterRequest request)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Ok(request);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [HttpPost(&amp;#34;login&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IActionResult Login(LoginRequest request)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Ok(request);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們創建 Application 中的服務，注意到因為 Application 不依賴於 Contracts，故我們這邊需要創建自己的 DataModel&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">record&lt;/span> &lt;span style="color:#a6e22e">AuthenticationResult&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Guid Id,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> Token
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們定義出 Application 的 Service。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">interface&lt;/span> &lt;span style="color:#a6e22e">IAuthenticationService&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AuthenticationResult Register(&lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName, &lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> AuthenticationResult Login(&lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>定義好我們的 service interface 之後，就可以到 Presentation 中將我們的 service 注入到 presentation 之中。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[ApiController]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[Route(&amp;#34;auth&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthenticationController&lt;/span> : ControllerBase
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> IAuthenticationService _authenticationService;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationController(IAuthenticationService authenticationService)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _authenticationService = authenticationService;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [HttpPost(&amp;#34;register&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IActionResult Register(RegisterRequest request)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> authResult = _authenticationService.Register(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.Password);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> response = &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResponse(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Id,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Token);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Ok(response);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e"> [HttpPost(&amp;#34;login&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IActionResult Login(LoginRequest request)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> authResult = _authenticationService.Login(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> request.Password);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> response = &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResponse(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Id,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.FirstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.LastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> authResult.Token);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> Ok(response);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>我們已經定義好我們的 service 後，便可以到 presentation 的 Program(或是其它入口點，如 Startup.cs 或 MauiProgram.cs)，做 service 的依賴注入。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> BuberDinner.Application.Services.Authentication;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> builder = WebApplication.CreateBuilder(args);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddScoped&amp;lt;IAuthenticationService, AuthenticationService&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddControllers();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddEndpointsApiExplorer();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddSwaggerGen();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> app = builder.Build();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseSwagger();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseSwaggerUI();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseHttpsRedirection();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.MapControllers();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.Run();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>最後，我們先實作一個暫時的 Service，來確認 Api 是可以作業的。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthenticationService&lt;/span> : IAuthenticationService
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationResult Register(&lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName, &lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResult(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Guid.NewGuid(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> firstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> lastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;token&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationResult Login(&lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResult(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Guid.NewGuid(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;firstName&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;lastName&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;token&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> );
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>執行 &lt;code>dotnet run --project .\Mysln.Api\&lt;/code>&lt;/li>
+&lt;li>在 Swagger 中測試我們實作的 &lt;code>register&lt;/code> 與 &lt;code>login&lt;/code> API，如果正常工作，會回傳 StatusCode: 200。&lt;/li>
+&lt;/ul>
+&lt;h2 id="dependency-injection">Dependency Injection&lt;/h2>
+&lt;ul>
+&lt;li>我們想要每一層都可以自己管理自己的注入，此時我們需要引入 &lt;code>Microsoft.Extensions.DependencyInjection&lt;/code>。&lt;/li>
+&lt;li>接下來實作 Application 的 DependencyInjection。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddApllication(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddScope&amp;lt;IAuthenticationService, AuthenticationService&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接下來實作 Infrastructure 的 DependencyInjection。(暫時還沒有注入 repository)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddInfrastructure(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 未來要注入 repositories&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接下來我們可以改寫 &lt;code>Program.cs&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> BuberDinner.Application;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> BuberDinner.Infrastructure;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> builder = WebApplication.CreateBuilder(args);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .AddApplication()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .AddInfrastructure();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddControllers();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddEndpointsApiExplorer();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder.Services.AddSwaggerGen();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> app = builder.Build();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseSwagger();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseSwaggerUI();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.UseHttpsRedirection();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.MapControllers();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app.Run();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="實作-jwt-token-generator">實作 JWT Token Generator&lt;/h2>
+&lt;ul>
+&lt;li>首先先在 Application Layer 創建一個 interface 來做依賴反轉&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">interface&lt;/span> &lt;span style="color:#a6e22e">IJwtTokenGenerator&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span> GenerateToken(Guid userId, &lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們到 Infrastructure Layer 來實作我們的 JwtTokenGenerator。&lt;/li>
+&lt;li>首先我們需要 &lt;code>System.IdentityModel.Tokens.Jwt&lt;/code> 這個 Package。&lt;/li>
+&lt;li>接著我們實作 &lt;code>JwtTokenGenerator&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">JwtTokenGenerator&lt;/span> : IJwtTokenGenerator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> GenerateToken(Guid userId, &lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> signingCredentials = &lt;span style="color:#66d9ef">new&lt;/span> SigningCredentials(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> SymmetricSecurityKey(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Encoding.UTF8.GetBytes(&lt;span style="color:#e6db74">&amp;#34;super-secret-key&amp;#34;&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> SecurityAlgorithms.HmacSha256);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> claims = &lt;span style="color:#66d9ef">new&lt;/span>[]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.GivenName, firstName),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.FamilyName, lastName),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> securityToken = &lt;span style="color:#66d9ef">new&lt;/span> JwtSecurityToken(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> issuer: &lt;span style="color:#e6db74">&amp;#34;Mysln&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> expires: DateTime.Now.AddDays(&lt;span style="color:#ae81ff">1&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> claims: claims,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> signingCredentials: signingCredentials);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> JwtSecurityTokenHandler().WriteToken(securityToken);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們將之注入到服務中，即大功告成了。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddInfrastructure(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IJwtTokenGenerator, JwtTokenGenerator&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="使用-options-pattern-注入-jwt-settings">使用 Options Pattern 注入 JWT Settings&lt;/h2>
+&lt;ul>
+&lt;li>接下來我們要使用 Options Pattern 將 JWT Settings 注入到 JwtTokenGenerator 中。&lt;/li>
+&lt;li>首先我們先到 &lt;code>Mysln.Api&lt;/code> 的 &lt;code>appsettings.json&lt;/code> 中將 options 設置完成。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Logging&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;LogLevel&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Default&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Information&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Microsoft.AspNetCore&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Warning&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> },
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;AllowedHosts&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;*&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;JwtSettings&amp;#34;&lt;/span>: {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Secret&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;super-secret-key&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;ExpiryMinutes&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">60&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Issuer&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Mysln&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;Audience:&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Mysln&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>由於我們要使用 Options Pattern，我們需要改寫我們的 &lt;code>Program.cs&lt;/code>，並且將 ConfigurationManager 注入到 Infrastructure 的 DependencyInjection。&lt;/li>
+&lt;li>為此我們需要引入套件 &lt;code>Microsoft.Extensions.Configuration&lt;/code> 與 &lt;code>Microsoft.Extensions.Options.ConfigurationExtensions&lt;/code>。&lt;/li>
+&lt;li>並且我們需要創建一個 Model。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">JwtSettings&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> SectionName = &lt;span style="color:#e6db74">&amp;#34;JwtSettings&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Secret { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">init&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> ExpiryMinutes { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">init&lt;/span>; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Issuer { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">init&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Audience { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">init&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>Program.cs&lt;/code> 需改寫成：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>builder.Services
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .AddApplication()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .AddInfrastructure(builder.Configuration);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>將 &lt;code>DependencyInjection&lt;/code> 改寫成：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddInfrastructure(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services, ConfigurationManager configuration)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.Configure&amp;lt;JwtSettings&amp;gt;(configuration.GetSection(JwtSettings.SectionName));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IJwtTokenGenerator, JwtTokenGenerator&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IDateTimeProvider, DateTimeProvider&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接下來，我們可以把 JwtTokenGenerator 改寫成：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">JwtTokenGenerator&lt;/span> : IJwtTokenGenerator
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> JwtSettings _jwtSettings;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> IDateTimeProvider _dateTimeProvider;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> JwtTokenGenerator(IDateTimeProvider dateTimeProvider, IOptions&amp;lt;JwtSettings&amp;gt; jwtOptions)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _dateTimeProvider = dateTimeProvider;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _jwtSettings = jwtOptions.Value;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> GenerateToken(Guid userId, &lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> signingCredentials = &lt;span style="color:#66d9ef">new&lt;/span> SigningCredentials(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> SymmetricSecurityKey(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> SecurityAlgorithms.HmacSha256);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> claims = &lt;span style="color:#66d9ef">new&lt;/span>[]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.GivenName, firstName),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.FamilyName, lastName),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">new&lt;/span> Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> securityToken = &lt;span style="color:#66d9ef">new&lt;/span> JwtSecurityToken(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> issuer: _jwtSettings.Issuer,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> audience: _jwtSettings.Audience,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> expires: _dateTimeProvider.UtcNow.AddMinutes(_jwtSettings.ExpiryMinutes),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> claims: claims,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> signingCredentials: signingCredentials);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> JwtSecurityTokenHandler().WriteToken(securityToken);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>以上就大功告成了。&lt;/li>
+&lt;/ul>
+&lt;h2 id="使用-dotnet-user-secrets-指令">使用 &lt;code>dotnet user-secrets&lt;/code> 指令&lt;/h2>
+&lt;ul>
+&lt;li>如果不想要將 Options 中的 secret 儲存在程式(appsettings.json)裡面，可以利用 &lt;code>dotnet user-secrets&lt;/code> 將 secret 儲存於環境變數裡面。&lt;/li>
+&lt;li>透過執行以下的指令來初始化專案的 &lt;code>UserSecretsId&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">user&lt;/span>-&lt;span style="color:#a6e22e">secrets&lt;/span> &lt;span style="color:#a6e22e">init&lt;/span> --&lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著將 &lt;code>UserSecretsId&lt;/code> 綁定到我們專案的 &lt;code>JwtSettings:Secret&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">user&lt;/span>-&lt;span style="color:#a6e22e">secrets&lt;/span> &lt;span style="color:#66d9ef">set&lt;/span> --&lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span> &lt;span style="color:#e6db74">&amp;#34;JwtSettings:Secret&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>日後可以經由以下指令查詢。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vim" data-lang="vim">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">dotnet&lt;/span> &lt;span style="color:#a6e22e">user&lt;/span>-&lt;span style="color:#a6e22e">secrets&lt;/span> &lt;span style="color:#a6e22e">list&lt;/span> --&lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#a6e22e">Mysln&lt;/span>.&lt;span style="color:#a6e22e">Api&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="domain-model">Domain Model&lt;/h2>
+&lt;ul>
+&lt;li>先建立一個簡單的 Domain Model(Entity)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">User&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> Guid Id { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = Guid.NewGuid();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> FirstName { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> LastName { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Email { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> Password { &lt;span style="color:#66d9ef">get&lt;/span>; &lt;span style="color:#66d9ef">set&lt;/span>; } = &lt;span style="color:#66d9ef">null&lt;/span>!;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="repository-pattern">Repository Pattern&lt;/h2>
+&lt;ul>
+&lt;li>在 Application Layer 建立 IRepository&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">interface&lt;/span> &lt;span style="color:#a6e22e">IUserRepository&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User? GetUserByEmail(&lt;span style="color:#66d9ef">string&lt;/span> email);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> Add(User user);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>將 IRepository 注入 Application 的 Service&lt;/li>
+&lt;li>並用查改存推改寫 Service&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AuthenticationService&lt;/span> : IAuthenticationService
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> IJwtTokenGenerator _jwtTokenGenerator;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> IUserRepository _userRepository;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _jwtTokenGenerator = jwtTokenGenerator;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _userRepository = userRepository;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationResult Register(&lt;span style="color:#66d9ef">string&lt;/span> firstName, &lt;span style="color:#66d9ef">string&lt;/span> lastName, &lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 查&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_userRepository.GetUserByEmail(email) &lt;span style="color:#66d9ef">is&lt;/span> not &lt;span style="color:#66d9ef">null&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;User with given email already exists.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 改&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> user = &lt;span style="color:#66d9ef">new&lt;/span> User
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FirstName = firstName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> LastName = lastName,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Email = email,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Password = password
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 存&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _userRepository.Add(user);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 推&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> token = _jwtTokenGenerator.GenerateToken(user.Id, firstName, lastName);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResult(user.Id, firstName, lastName, email, token);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AuthenticationResult Login(&lt;span style="color:#66d9ef">string&lt;/span> email, &lt;span style="color:#66d9ef">string&lt;/span> password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 查&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_userRepository.GetUserByEmail(email) &lt;span style="color:#66d9ef">is&lt;/span> not User user)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;User with given email does not exist.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (user.Password != password)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;Invalid password.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 改&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> token = _jwtTokenGenerator.GenerateToken(user.Id, user.FirstName, user.LastName);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> AuthenticationResult(user.Id, user.FirstName, user.LastName, email, token);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>接著我們在 Infrastructure Layer 實作我們的 repository，我們暫時先不接資料庫，所以先做一個 InMemory 版本的 repository 來做測試。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">UserRepository&lt;/span> : IUserRepository
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">readonly&lt;/span> List&amp;lt;User&amp;gt; _users = &lt;span style="color:#66d9ef">new&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Add(User user)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _users.Add(user);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> User? GetUserByEmail(&lt;span style="color:#66d9ef">string&lt;/span> email)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> _users.SingleOrDefault(u =&amp;gt; u.Email.Equals(email));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>實作完需要透過 DependencyInjection 注入到我們的 Service Container 內。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DependencyInjection&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> IServiceCollection AddInfrastructure(&lt;span style="color:#66d9ef">this&lt;/span> IServiceCollection services, ConfigurationManager configuration)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.Configure&amp;lt;JwtSettings&amp;gt;(configuration.GetSection(JwtSettings.SectionName));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IJwtTokenGenerator, JwtTokenGenerator&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IDateTimeProvider, DateTimeProvider&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> services.AddSingleton&amp;lt;IUserRepository, UserRepository&amp;gt;();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> services;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>至此，我們已經完成了一個簡單的身份認證的 API。&lt;/li>
+&lt;/ul></description></item><item><title>[IT] .NET Maui</title><link>https://intervalrain.github.io/it/maui/</link><pubDate>Sun, 28 Jan 2024 13:30:34 +0800</pubDate><guid>https://intervalrain.github.io/it/maui/</guid><description>&lt;h1 id="net-maui">.NET Maui&lt;/h1>
+&lt;ul>
+&lt;li>.NET Maui 是一個跨平台的桌面與手機應用開發框架，它支援 iOS、Android、macOS、Windows。&lt;/li>
+&lt;li>不同於 Xamarin，.NET Maui 只需要一個專案便可以導向不同的平台。
+&lt;img src="https://intervalrain.github.io/IT/img/maui.jpg" width="300">&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="架構">架構&lt;/h2>
+&lt;img src="https://intervalrain.github.io/IT/img/maui_hierarchy.jpg" width="300">
+&lt;ul>
+&lt;li>一個 .NET Maui 專案底下，預設會有幾個資料夾與檔案，其關係如下圖：
+&lt;ul>
+&lt;li>&lt;code>/Platforms&lt;/code> 底下的各個資料夾為不同平台的入口，不同的平台各有一個 &lt;code>Program.cs&lt;/code>。&lt;/li>
+&lt;li>各個 &lt;code>Program.cs&lt;/code> 內又會透過注入該 namespace 底下的 &lt;code>AppDelegate&lt;/code> ，將入口指向 &lt;code>MauiProgram&lt;/code> 的 &lt;code>CreateMauiApp()&lt;/code>，就此將不同平台路由到 &lt;code>MauiProgram.cs&lt;/code> 這個統一的入口。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Program&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Main(&lt;span style="color:#66d9ef">string&lt;/span>[] args)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> UIApplication.Main(args, &lt;span style="color:#66d9ef">null&lt;/span>, &lt;span style="color:#66d9ef">typeof&lt;/span>(AppDelegate));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[Register(&amp;#34;AppDelegate&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AppDelegate&lt;/span> : MauiUIApplicationDelegate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">protected&lt;/span> &lt;span style="color:#66d9ef">override&lt;/span> MauiApp CreateMauiApp() =&amp;gt; MauiProgram.CreateMauiApp();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>關係如下圖：
+&lt;div class="mermaid">
+graph TD;
+iOS-->MauiProgram.cs;
+Android-->MauiProgram.cs;
+Windows-->MauiProgram.cs;
+macOS-->MauiProgram.cs;
+MauiProgram.cs-->App;
+App-->AppShell;
+AppShell-.->Page1;
+AppShell-.->Page2;
+AppShell-.->Page3;
+AppShell-.->Page4;
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">MauiProgram&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> MauiApp CreateMauiApp()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> builder = MauiApp.CreateBuilder();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> builder
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .UseMauiApp&amp;lt;App&amp;gt;()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> .ConfigureFonts(fonts =&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fonts.AddFont(&lt;span style="color:#e6db74">&amp;#34;OpenSans-Regular.ttf&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;OpenSansRegular&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fonts.AddFont(&lt;span style="color:#e6db74">&amp;#34;OpenSans-Semibold.ttf&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;OpenSansSemibold&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> });
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> builder.Build();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">partial&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">App&lt;/span> : Application
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> App()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> InitializeComponent();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> MainPage = &lt;span style="color:#66d9ef">new&lt;/span> AppShell();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>從上面兩段程式 &lt;code>MauiProgram.cs&lt;/code> 與 &lt;code>App.xaml.cs&lt;/code> 可以看出，這個統一的進入點會開啟 App，並將 &lt;code>AppShell&lt;/code> 作為 MainPage 開放。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="router">Router&lt;/h2>
+&lt;ul>
+&lt;li>在此可以發現 &lt;code>AppShell&lt;/code> 作為一個 Controller 的功能，用來引導頁面的路由。&lt;/li>
+&lt;li>我們可以透過 &lt;code>RegisterRoute&lt;/code> 來注冊要顯示的頁面。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">partial&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">AppShell&lt;/span> : Shell
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> AppShell()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> InitializeComponent();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Routing.RegisterRoute(nameof(Page1), &lt;span style="color:#66d9ef">typeof&lt;/span>(Page1));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Routing.RegisterRoute(nameof(Page2), &lt;span style="color:#66d9ef">typeof&lt;/span>(Page2));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Routing.RegisterRoute(nameof(Page3), &lt;span style="color:#66d9ef">typeof&lt;/span>(Page3));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="xaml">xaml&lt;/h2>
+&lt;ul>
+&lt;li>上述的頁面可以透過新增 &lt;code>xaml&lt;/code> 檔來建立：&lt;/li>
+&lt;li>以下為一個 &lt;code>xaml&lt;/code> 檔的 sample
+&lt;ul>
+&lt;li>&lt;code>x:class=&amp;quot;MoneyTrack.AppShell&amp;quot;&lt;/code> 表示該檔案的路徑為 &lt;code>MoneyTrack.AppShell&lt;/code>&lt;/li>
+&lt;li>&lt;code>mlns&lt;/code> 關鍵字很像是 &lt;code>using&lt;/code>：
+&lt;ul>
+&lt;li>&lt;code>xmlns:views=&amp;quot;clr-namespace:MoneyTrack.Views&amp;quot;&lt;/code>: 代表將 &lt;code>MoneyTrack.Views&lt;/code> 這個路徑命名成 &lt;code>views&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ShellContent 內代表是首頁要導引至的頁面，如下例會導向 &lt;code>view:MoneyTackPage&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">Shell&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">x:Class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;MoneyTrack.AppShell&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">xmlns&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;http://schemas.microsoft.com/dotnet/2021/maui&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">xmlns:x&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;http://schemas.microsoft.com/winfx/2009/xaml&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">xmlns:local&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;clr-namespace:MoneyTrack&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">xmlns:views&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;clr-namespace:MoneyTrack.Views&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">Shell&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">.&lt;/span>&lt;span style="color:#a6e22e">FlyoutBehavior&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Disabled&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">Title&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;MoneyTrack&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">ShellContent&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">Title&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Home&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">ContentTemplate&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;{DataTemplate views:MoneyTackPage}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">Route&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;MoneyTackPage&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">Shell&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34; ?&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">ContentPage&lt;/span> &lt;span style="color:#a6e22e">xmlns&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;http://schemas.microsoft.com/dotnet/2021/maui&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">xmlns:x&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;http://schemas.microsoft.com/winfx/2009/xaml&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">x:Class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;MoneyTrack.Views.ContactsPage&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">Title&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Contacts&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">VerticalStackLayout&lt;/span> &lt;span style="color:#a6e22e">Spacing&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;5&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">Label&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">Text&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Welcome to .NET MAUI!&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">VerticalOptions&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Center&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">HorizontalOptions&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Center&amp;#34;&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">Button&lt;/span> &lt;span style="color:#a6e22e">x:Name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;btn1&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">Clicked&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;btn1_Clicked&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">Text&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;click1&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">Button&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#f92672">Button&lt;/span> &lt;span style="color:#a6e22e">x:Name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;btn2&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">Clicked&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;btn2_Clicked&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">Text&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;click2&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">Button&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#f92672">VerticalStackLayout&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">ContentPage&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="shell">Shell&lt;/h2>
+&lt;ul>
+&lt;li>接著我們可以透過 &lt;code>Shell&lt;/code> 來控制面版上要顯示的頁面：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> btnPage1_Clicked()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Shell.Current.GoToAsync(nameof(Page1));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="gotoasync">GoToAsync&lt;/h2>
+&lt;ul>
+&lt;li>Shell 本身是一個 View，也是一個 Layout&lt;/li>
+&lt;li>&lt;code>GoToAsync&lt;/code> 可以用來切換頁面&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> btnPage1_Clicked(&lt;span style="color:#66d9ef">object&lt;/span> sender, EvertArgs e)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Shell.Current.GoToAsync(&lt;span style="color:#e6db74">$&amp;#34;{nameof(Page1)}&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// 前往 Page1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> btnCancel_Clicked(&lt;span style="color:#66d9ef">object&lt;/span> sender, EvertArgs e)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Shell.Current.GoToAsync(&lt;span style="color:#e6db74">$&amp;#34;//{nameof(MainPage)}&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// 回到 MainPage&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> btnCancel_Clicked(&lt;span style="color:#66d9ef">object&lt;/span> sender, EvertArgs e)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Shell.Current.GoToAsync(&lt;span style="color:#e6db74">$&amp;#34;..&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// 回到上一頁&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="queryproperty">QueryProperty&lt;/h2>
+&lt;ul>
+&lt;li>透過 &lt;code>QueryPropertyAttribute&lt;/code> 可以達到如 http method 裡的 get 的方法。&lt;/li>
+&lt;li>以下範例等同於實現 &lt;code>page1?Id=1&lt;/code>，在路由到 page1 的同時，將 property: Id 賦值。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[QueryProperty(nameof(PageId), &amp;#34;Id&amp;#34;)]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">partial&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Page1&lt;/span> : ContentPage
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> EditContactPage()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> InitializeComponent();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span> ContactId
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">set&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> lblName.Text = Id;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[IT] CORS 跨原始來源要求</title><link>https://intervalrain.github.io/it/cors/</link><pubDate>Fri, 19 Jan 2024 00:41:51 +0800</pubDate><guid>https://intervalrain.github.io/it/cors/</guid><description>&lt;h2 id="tldr">TL;DR&lt;/h2>
+&lt;blockquote>
+&lt;p>CORS (Cross-Origin Resource Sharing)&lt;br>
+是一個支援安全跨源請求和資料傳輸的機制，用於在瀏覽器和伺服器之間進行跨源請求。&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>這是一個 W3C 標準，可讓伺服器放寬相同原始來源原則。&lt;/li>
+&lt;li>不是安全性功能，CORS 會放寬安全性。 允許 CORS 並不會增強 API 的安全性。&lt;a href="https://learn.microsoft.com/zh-tw/aspnet/core/security/cors?view=aspnetcore-8.0#how-cors">CORS 的運作方式&lt;/a>&lt;/li>
+&lt;li>允許伺服器明確允許某些跨原始來源要求，同時拒絕其他要求。&lt;/li>
+&lt;li>比舊版技術 (例如：&lt;a href="https://learn.microsoft.com/zh-tw/dotnet/framework/wcf/samples/jsonp">JSONP&lt;/a>) 更安全且更有彈性。&lt;/li>
+&lt;/ul>
+&lt;h2 id="何謂相同原始來源">何謂相同原始來源&lt;/h2>
+&lt;ul>
+&lt;li>如果兩個 URL 具有相同的配置、主機和連接埠，則其原始來源相同 (&lt;a href="https://tools.ietf.org/html/rfc6454">RFC 6454&lt;/a>)。
+&lt;ul>
+&lt;li>這兩個 URL 具有相同的原始來源：
+&lt;ul>
+&lt;li>&lt;code>https://example.com/foo.html&lt;/code>&lt;/li>
+&lt;li>&lt;code>https://example.com/bar.html&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>這些 URL 的原始來源與前兩個 URL 不同：
+&lt;ul>
+&lt;li>&lt;code>https://example.net：不同的&lt;/code>網域&lt;/li>
+&lt;li>&lt;code>https://www.example.com/foo.html&lt;/code>：不同的子網域&lt;/li>
+&lt;li>&lt;code>http://example.com/foo.html&lt;/code>：不同的配置&lt;/li>
+&lt;li>&lt;code>https://example.com:9000/foo.html&lt;/code>：不同的連接埠&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="如何啟動-cors">如何啟動 CORS&lt;/h2>
+&lt;p>有三種方式可以啟用 CORS：&lt;/p>
+&lt;ul>
+&lt;li>在中介軟體中，使用&lt;strong>具名原則&lt;/strong>或&lt;strong>預設原則&lt;/strong>。&lt;/li>
+&lt;li>使用&lt;strong>端點路由&lt;/strong>。&lt;/li>
+&lt;li>使用 &lt;strong>[EnableCors]&lt;/strong> 屬性。
+搭配具名原則使用 [EnableCors] 屬性能夠以最精細的程度來控制對於支援 CORS 之端點的限制。&lt;/li>
+&lt;/ul>
+&lt;style type="text/css">.notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}&lt;/style>
+&lt;div>&lt;svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg">&lt;symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/>&lt;/symbol>&lt;symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/>&lt;/symbol>&lt;symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/>&lt;/symbol>&lt;symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/>&lt;/symbol>&lt;/svg>&lt;/div>&lt;div class="notice warning" >
+&lt;p class="first notice-title">&lt;span class="icon-notice baseline">&lt;svg>&lt;use href="#warning-notice">&lt;/use>&lt;/svg>&lt;/span>&lt;/p></description></item><item><title>[IT] LINQ: IQueryable Provider</title><link>https://intervalrain.github.io/it/iq1/</link><pubDate>Thu, 21 Sep 2023 11:34:15 +0800</pubDate><guid>https://intervalrain.github.io/it/iq1/</guid><description>一系列關於如何建立 LINQ IQueryable Provider 的文章，每篇都是建立在前一篇的基礎上。</description></item><item><title>[C#] Large Object Heap</title><link>https://intervalrain.github.io/csharp/loh/</link><pubDate>Sat, 22 Jul 2023 20:59:57 +0800</pubDate><guid>https://intervalrain.github.io/csharp/loh/</guid><description>Introduction to Large Object Heap</description></item><item><title>[CS] Sample cost for performance test</title><link>https://intervalrain.github.io/csharp/performancetest/</link><pubDate>Tue, 16 May 2023 21:26:24 +0800</pubDate><guid>https://intervalrain.github.io/csharp/performancetest/</guid><description>&lt;h3 id="sample-code-for-stop-watch">Sample code for stop watch&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Collections.Generic;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Data;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Linq;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Runtime.CompilerServices;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Data.Common;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Diagnostics;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Drawing;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Text;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> System.Threading.Tasks;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">namespace&lt;/span> Rainspace.PlayGround
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Program&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Main(&lt;span style="color:#66d9ef">string&lt;/span>[] args)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Stopwatch sw = &lt;span style="color:#66d9ef">new&lt;/span> Stopwatch();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sw.Start();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> System.Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;==============Accumulate1==============&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> System.Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Result: &amp;#34;&lt;/span> + Accumulate(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sw.Stop();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> System.Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Time cost: &amp;#34;&lt;/span> + (sw.ElapsedTicks/&lt;span style="color:#ae81ff">1.0e6&lt;/span>).ToString() + &lt;span style="color:#e6db74">&amp;#34;ms&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sw.Reset();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sw.Start();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> System.Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;==============Accumulate2==============&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> System.Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Result: &amp;#34;&lt;/span> + Accumulate(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sw.Stop();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> System.Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Time cost: &amp;#34;&lt;/span> + (sw.ElapsedTicks/&lt;span style="color:#ae81ff">1.0e6&lt;/span>).ToString() + &lt;span style="color:#e6db74">&amp;#34;ms&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Accumulate(&lt;span style="color:#66d9ef">int&lt;/span> begin, &lt;span style="color:#66d9ef">int&lt;/span> end, &lt;span style="color:#66d9ef">int&lt;/span> sum = &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res = sum;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (end &amp;lt; begin) &lt;span style="color:#66d9ef">return&lt;/span> Accumulate(end, begin, sum);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i = begin; i &amp;lt; end; i++)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res += i;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Accumulate2(&lt;span style="color:#66d9ef">int&lt;/span> begin, &lt;span style="color:#66d9ef">int&lt;/span> end, &lt;span style="color:#66d9ef">int&lt;/span> sum = &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res = (begin + end) * (end - begin) / &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res + sum;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[C#] C#3、LINQ 及相關特性</title><link>https://intervalrain.github.io/csharp/linq_props/</link><pubDate>Mon, 01 May 2023 14:10:48 +0800</pubDate><guid>https://intervalrain.github.io/csharp/linq_props/</guid><description>Introduction to LINQ in C#</description></item><item><title>[C#] Namespace Alias 命名空間別名</title><link>https://intervalrain.github.io/csharp/namespace_alias/</link><pubDate>Tue, 28 Feb 2023 22:51:08 +0800</pubDate><guid>https://intervalrain.github.io/csharp/namespace_alias/</guid><description>Namespace alias in C#</description></item><item><title>[C#] Property getter/setter access separate 訪問權限分離</title><link>https://intervalrain.github.io/csharp/getter_setter_access_separate/</link><pubDate>Tue, 28 Feb 2023 22:18:25 +0800</pubDate><guid>https://intervalrain.github.io/csharp/getter_setter_access_separate/</guid><description>Separate getter/setter property access in C#</description></item><item><title>[C#] static class 靜態類別</title><link>https://intervalrain.github.io/csharp/static/</link><pubDate>Tue, 28 Feb 2023 21:08:01 +0800</pubDate><guid>https://intervalrain.github.io/csharp/static/</guid><description>Introduction to static class in C#</description></item><item><title>[C#] C# 筆記</title><link>https://intervalrain.github.io/csharp/csharp/</link><pubDate>Tue, 28 Feb 2023 18:49:39 +0800</pubDate><guid>https://intervalrain.github.io/csharp/csharp/</guid><description>Notes for C#</description></item><item><title>[C#] Partial Type 局部類型</title><link>https://intervalrain.github.io/csharp/partial/</link><pubDate>Tue, 28 Feb 2023 15:11:11 +0800</pubDate><guid>https://intervalrain.github.io/csharp/partial/</guid><description>Introduction to partial class ans partial method in C#</description></item><item><title>[C#] IEnumerable &amp; IEnumerator 迭代器</title><link>https://intervalrain.github.io/csharp/iterator/</link><pubDate>Mon, 27 Feb 2023 11:50:20 +0800</pubDate><guid>https://intervalrain.github.io/csharp/iterator/</guid><description>Introduction to Iterator in C#, including IEnumerator and IEnumerable</description></item><item><title>[C#] Delegate 委派</title><link>https://intervalrain.github.io/csharp/delegate/</link><pubDate>Sun, 26 Feb 2023 19:24:56 +0800</pubDate><guid>https://intervalrain.github.io/csharp/delegate/</guid><description>Introduction to Delegate in C#</description></item><item><title>[C#] Nullable 可空值類型</title><link>https://intervalrain.github.io/csharp/nullable/</link><pubDate>Thu, 23 Feb 2023 21:40:03 +0800</pubDate><guid>https://intervalrain.github.io/csharp/nullable/</guid><description>Introduction to Nullable in C#</description></item><item><title>[C#] Generic 泛型</title><link>https://intervalrain.github.io/csharp/generic/</link><pubDate>Wed, 22 Feb 2023 21:39:56 +0800</pubDate><guid>https://intervalrain.github.io/csharp/generic/</guid><description>Introduction to Generic in C#</description></item><item><title>[IT] C# Depth Ch.2 C# 2</title><link>https://intervalrain.github.io/it/csharp_depth_ch2/</link><pubDate>Fri, 20 Jan 2023 10:10:46 +0800</pubDate><guid>https://intervalrain.github.io/it/csharp_depth_ch2/</guid><description>&lt;h1 id="c-2">C# 2&lt;/h1>
+&lt;h2 id="一泛型">一、泛型&lt;/h2>
+&lt;ul>
+&lt;li>使用泛型(generic type)可以在編寫在編譯時類型安全的通用程式碼，無須事先知道要使用的具體類型。
+&lt;em>示例1: array類型: 大小需預先設定，若要添加需要重新分配&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Main(&lt;span style="color:#66d9ef">string&lt;/span>[] args)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> PrintNames(GenerateNames());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> PrintNames(&lt;span style="color:#66d9ef">string&lt;/span>[] names)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">foreach&lt;/span> (&lt;span style="color:#66d9ef">string&lt;/span> name &lt;span style="color:#66d9ef">in&lt;/span> names)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(name);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span>[] GenerateNames()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">string&lt;/span>[] names = &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#66d9ef">string&lt;/span>[&lt;span style="color:#ae81ff">4&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> names[&lt;span style="color:#ae81ff">0&lt;/span>] = &lt;span style="color:#e6db74">&amp;#34;Mike&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> names[&lt;span style="color:#ae81ff">1&lt;/span>] = &lt;span style="color:#e6db74">&amp;#34;Rain&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> names[&lt;span style="color:#ae81ff">2&lt;/span>] = &lt;span style="color:#e6db74">&amp;#34;Jessica&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> names[&lt;span style="color:#ae81ff">3&lt;/span>] = &lt;span style="color:#e6db74">&amp;#34;Billy&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> names;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>示例2: ArrayList類型: ArrayList.Add是Object的方法，但如果塞入不適合的參數類型，可能會引發InvalidCastException&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> Main(&lt;span style="color:#66d9ef">string&lt;/span>[] args)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> PrintNames(GenerateNames());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> PrintNames(ArrayList names)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">foreach&lt;/span> (&lt;span style="color:#66d9ef">object&lt;/span> name &lt;span style="color:#66d9ef">in&lt;/span> names)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(name);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> ArrayList GenerateNames()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ArrayList names = &lt;span style="color:#66d9ef">new&lt;/span> ArrayList();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> names.Add(&lt;span style="color:#e6db74">&amp;#34;Mike&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> names.Add(&lt;span style="color:#e6db74">&amp;#34;Rain&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> names.Add(&lt;span style="color:#e6db74">&amp;#34;Jessica&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> names.Add(&lt;span style="color:#e6db74">&amp;#34;Billy&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> names;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>示例3: StringCollection專用類型: 解決前述兩個問題，但也限制了返回值。&lt;/em>&lt;/p></description></item><item><title>[IT] C# Depth Ch.1 與時俱進的語言</title><link>https://intervalrain.github.io/it/csharp_depth_ch1/</link><pubDate>Tue, 17 Jan 2023 22:27:58 +0800</pubDate><guid>https://intervalrain.github.io/it/csharp_depth_ch1/</guid><description>&lt;h1 id="與時俱進的語言">與時俱進的語言&lt;/h1>
+&lt;h2 id="一system-class">一、System Class&lt;/h2>
+&lt;h3 id="1-泛型genric">1. 泛型(genric)&lt;/h3>
+&lt;ul>
+&lt;li>可更清楚的描述序列中每個元素的類型。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>C#1 示例&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Bookshelf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IEnumerable Books { &lt;span style="color:#66d9ef">get&lt;/span> { ... } }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>C#2 示例：泛型&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Bookshelf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">public&lt;/span> IEnumerable&amp;lt;Book&amp;gt; Books { &lt;span style="color:#66d9ef">get&lt;/span> { ... } }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="2-可空值類型nullable-value-type">2. 可空值類型(nullable value type)&lt;/h3>
+&lt;ul>
+&lt;li>可有效的表示未定的變量值，以擺脫魔數(用&lt;code>-1&lt;/code>當集合索引，用 &lt;code>MinValue&lt;/code> 或 &lt;code>MaxValue&lt;/code> 做為初始值)。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>示例&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">string?&lt;/span> a = &lt;span style="color:#66d9ef">null&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Console.WriteLine(a ?? &lt;span style="color:#e6db74">&amp;#34;null&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// null&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>a = &lt;span style="color:#e6db74">&amp;#34;abc&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Console.WriteLine(a ?? &lt;span style="color:#e6db74">&amp;#34;null&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// abc&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="3-匿名類型anonymous-type隱式局部變數var">3. 匿名類型(anonymous type)、隱式局部變數(var)&lt;/h3>
+&lt;ul>
+&lt;li>兩者皆可解決靜態類型語言的缺陷：程式碼冗長。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>示例1: 匿名類型(anonymous type)&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Csharp" data-lang="Csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">var&lt;/span> book = &lt;span style="color:#66d9ef">new&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Title = &lt;span style="color:#e6db74">&amp;#34;Harry Potter&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Author = &lt;span style="color:#e6db74">&amp;#34;J.K. Rowling&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">string&lt;/span> title = book.Title;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">string&lt;/span> author = book.Author;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>若已經調用了建構式的話，就無需顯式的宣該告變數的類型了。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>示例2: 隱式類型(implicit typing)&lt;/em>&lt;/p></description></item><item><title>[C#] Yield Return</title><link>https://intervalrain.github.io/csharp/yield/</link><pubDate>Sun, 01 Jan 2023 21:40:25 +0800</pubDate><guid>https://intervalrain.github.io/csharp/yield/</guid><description>Introduction to yield return in C#, and the background of IEnumerable and IEnumerator</description></item></channel></rss>

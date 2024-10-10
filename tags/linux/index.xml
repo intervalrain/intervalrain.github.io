@@ -1,8 +1,97 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Linux on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/linux/</link><description>Recent content in Linux on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 12 Jan 2023 23:34:41 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] Shell 筆記</title><link>https://intervalrain.github.io/it/shell/</link><pubDate>Thu, 12 Jan 2023 23:34:41 +0800</pubDate><guid>https://intervalrain.github.io/it/shell/</guid><description>Reference
-https://blog.csdn.net/w918589859/article/details/108752592
-https://www.w3cschool.cn/linux/linux-Shell.html
-一、Shell 簡介 什麼是 Shell?
-Shell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。
-Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?
-Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)
-是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。 二、 Shell 入門 1. Shell 環境 Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有： Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) &amp;hellip;&amp;hellip; 2.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Linux on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/linux/</link><description>Recent content in Linux on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 12 Jan 2023 23:34:41 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] Shell 筆記</title><link>https://intervalrain.github.io/it/shell/</link><pubDate>Thu, 12 Jan 2023 23:34:41 +0800</pubDate><guid>https://intervalrain.github.io/it/shell/</guid><description>&lt;blockquote>
+&lt;p>&lt;strong>Reference&lt;/strong>&lt;br>
+&lt;a href="https://blog.csdn.net/w918589859/article/details/108752592">https://blog.csdn.net/w918589859/article/details/108752592&lt;/a>&lt;br>
+&lt;a href="https://www.w3cschool.cn/linux/linux-Shell.html">https://www.w3cschool.cn/linux/linux-Shell.html&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="一shell-簡介">一、Shell 簡介&lt;/h2>
+&lt;ul>
+&lt;li>什麼是 Shell?&lt;br>
+Shell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。&lt;br>
+Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。&lt;/li>
+&lt;li>為什麼要學習和使用 Shell?&lt;br>
+Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。&lt;/li>
+&lt;li>Shell 腳本(Shell script)&lt;br>
+是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。&lt;/li>
+&lt;/ul>
+&lt;h2 id="二-shell-入門">二、 Shell 入門&lt;/h2>
+&lt;h3 id="1-shell-環境">1. Shell 環境&lt;/h3>
+&lt;ul>
+&lt;li>Shell 編程需要能編寫程式碼的&lt;strong>文本編輯器&lt;/strong>和一個能解釋執行的&lt;strong>腳本解釋器&lt;/strong>。&lt;/li>
+&lt;li>在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。&lt;/li>
+&lt;li>Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 &lt;code>#!/bin/sh&lt;/code> 也可以被替換成 &lt;code>#!/bin/bash&lt;/code>&lt;/li>
+&lt;li>Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有：
+&lt;ul>
+&lt;li>Bourne Shell (&lt;code>/usr/bin/sh&lt;/code> 或 &lt;code>/bin/sh&lt;/code>)&lt;/li>
+&lt;li>Bourne Again Shell (&lt;code>/bin/bash&lt;/code>)&lt;/li>
+&lt;li>C Shell (&lt;code>/usr/bin/csh&lt;/code>)&lt;/li>
+&lt;li>K Shell (&lt;code>/usr/bin/ksh&lt;/code>)&lt;/li>
+&lt;li>Shell for Root(&lt;code>sbin/sh&lt;/code>)&lt;/li>
+&lt;li>&amp;hellip;&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-bash-常用快捷鏈">2. Bash 常用快捷鏈&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: center">快捷鏈&lt;/th>
+&lt;th style="text-align: left">功能&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+A&lt;/td>
+&lt;td style="text-align: left">把游標移動到命令行開頭。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+E&lt;/td>
+&lt;td style="text-align: left">把游標移動到命令行結尾。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+C&lt;/td>
+&lt;td style="text-align: left">強制終止當前的命令。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+L&lt;/td>
+&lt;td style="text-align: left">清除螢幕，等於 &lt;code>clear&lt;/code> 指令。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+U&lt;/td>
+&lt;td style="text-align: left">清除並剪下當前命令。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+K&lt;/td>
+&lt;td style="text-align: left">刪除並剪下游標以後的命令。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+Y&lt;/td>
+&lt;td style="text-align: left">貼上。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+R&lt;/td>
+&lt;td style="text-align: left">在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+D&lt;/td>
+&lt;td style="text-align: left">退出當前終端機。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+Z&lt;/td>
+&lt;td style="text-align: left">暫停，並放入後台。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+S&lt;/td>
+&lt;td style="text-align: left">暫停螢幕輸出。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">Ctrl+Q&lt;/td>
+&lt;td style="text-align: left">恢復螢幕輸出。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h3 id="3-輸入與輸出-io">3. 輸入與輸出 I/O&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>linux 的標準輸入與輸出&lt;/strong>&lt;/p></description></item></channel></rss>
