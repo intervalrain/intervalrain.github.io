@@ -3,7 +3,7 @@
 
 baseURL: "https://intervalrain.github.io/"
 title: "Rain Hu's Workspace"
-paginate: 5
+pagination.pagerSize: 5
 theme: hugo-PaperMod
 
 # menu
