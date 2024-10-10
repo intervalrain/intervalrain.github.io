@@ -54,7 +54,7 @@ cover:
 + 嗜好：彈吉他、喝咖啡、看劇、刷Leetcode(?)
 + 學歷：國立清華大學 材料工程學系
 ---
-- [Resume](../resume2024.pdf)
+- [Resume](../resume2024Oct.pdf)
 + 簡歷：
     + 2018 Aug. - 2022 Aug. 半導體元件開發工程師 Semiconductor Devcie Engineer (UMC)
         + 在特殊技術開發部門中針對 eHV(embedded High Voltage) 製程進行開發  
