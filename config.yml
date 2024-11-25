@@ -117,9 +117,18 @@ params:
         url: "csharp/csharp"
 
   markup:
-    goldenmark:
-      renderer:
-        unsafe: true
+    asciidocExt:
+      attributes: {}
+      backend: html5
+      extensions: []
+      failureLevel: fatal
+      noHeaderOrFooter: true
+      preserveTOC: false
+      safeMode: unsafe
+      sectionNumbers: false
+      trace: false
+      verbose: false
+      workingFolderCurrent: false
 
   social:
     facebook: intervalrain
