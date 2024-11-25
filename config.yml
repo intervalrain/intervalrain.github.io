@@ -1,180 +1,136 @@
-
-# Default Theme light/dark/auto
-
 baseURL: "https://intervalrain.github.io/"
 title: "Rain Hu's Workspace"
 pagination.pagerSize: 5
 theme: hugo-PaperMod
 
-# menu
 menu:
-  main:
-    - identifier: search
-      name: Search
-      url: /search
-      weight: 1
-    - identifier: aboutme
-      name: About me
-      url: /aboutme
-      weight: 10
-    - identifier: archives
-      name: Archives
-      url: /archives
-      weight: 20
-    - identifier: categories
-      name: Categories
-      url: /categories/
-      weight: 30
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 40
-    - identifier: csindex
-      name: CS
-      url: /csindex
-      weight: 50
-    - identifier: leetcodepage
-      name: LeetCode
-      url: /leetcode
-      weight: 50
-    - identifier: Csharp
-      name: C#
-      url: /csharp/csharp
-      weight: 50
-
-
-# enableRobotsTXT: true
-# buildDrafts: false
-# buildFuture: false
-# buildExpired: false
-
-# googleAnalytics: UA-123-45
-
-# minify:
-#   disableXML: true
-#   minifyOutput: true
+ main:
+   - identifier: search
+     name: Search
+     url: /search
+     weight: 1
+   - identifier: aboutme
+     name: About me
+     url: /aboutme
+     weight: 10
+   - identifier: archives
+     name: Archives
+     url: /archives
+     weight: 20
+   - identifier: categories
+     name: Categories
+     url: /categories/
+     weight: 30
+   - identifier: tags
+     name: Tags
+     url: /tags/
+     weight: 40
+   - identifier: csindex
+     name: CS
+     url: /csindex
+     weight: 50
+   - identifier: leetcodepage
+     name: LeetCode
+     url: /leetcode
+     weight: 50
+   - identifier: Csharp
+     name: C#
+     url: /csharp/csharp
+     weight: 50
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-#   title: ExampleSite
-  description: "Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"
-  keywords: ["rainhu", "intervcalrain", "陣雨", "胡鎮宇", "leetcode", "Rain's Blog", "rainhu's workspace"]
-  author: ["Rain Hu", "intervarrain", "陣雨"]
-#   images: ["<link or path of image for opengraph, twitter-cards>"]
-#   DateFormat: "January 2, 2006"
-#   defaultTheme: auto # dark, light
-#   disableThemeToggle: false
-  ShowAllPagesInArchive: true
-  # ShowReadingTime: true
-  # ShowShareButtons: true
-  # ShareButtons: ["facebook", "linkedin", "twitter", "reddit", "github", "whatsapp", "telegram"] # To customize which share buttons to be enabled on page
-  # ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  # ShowCodeCopyButtons: false
-  # disableSpecial1stPost: false
-  # disableScrollToTop: false
-  comments: true
-  GHissueID: 2
-  # hidemeta: false
-  # hideSummary: false
-  # showtoc: false
-  # tocopen: false
-  assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: "/images/rain.png"
-    favicon16x16: "/images/rain.png"
-    favicon32x32: "/images/rain.png"
-    apple_touch_icon: "/images/rain.png"
-    safari_pinned_tab: "/images/rain.png"
+ env: production
+ description: "Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"
+ keywords: ["rainhu", "intervcalrain", "陣雨", "胡鎮宇", "leetcode", "Rain's Blog", "rainhu's workspace"]
+ author: ["Rain Hu", "intervarrain", "陣雨"]
+ ShowAllPagesInArchive: true
+ ShowBreadCrumbs: true
+ comments: true
+ GHissueID: 2
 
-  label:
-    text: "Rain Hu's Workspace"
-    icon: /images/rain.png
-    iconHeight: 35
+ assets:
+   favicon: "/images/rain.png"
+   favicon16x16: "/images/rain.png"
+   favicon32x32: "/images/rain.png"
+   apple_touch_icon: "/images/rain.png"
+   safari_pinned_tab: "/images/rain.png"
 
-# profile-mode
-  profileMode:
-    enabled: true
-    title: "Rain Hu's Workspace"
-    subtitle: "To enjoy the rainbow, first enjoy the rain"
-    imageUrl: "/images/rain.png"
-    imageTitle: "Is it raining outside?"
-    imageWidth: 120
-    imageHeight: 120
-    buttons:
-      - name: "Music"
-        url: "/tags/music/"
-      - name: "Leetcode"
-        url: "/leetcode/"
-      - name: "IT Notes"
-        url: "/csindex"
-      - name: "Algorithm"
-        url: "/cs/algo/"
-      - name: "Life"
-        url: "/categories/life"
-      - name: "C#"
-        url: "csharp/csharp"
+ label:
+   text: "Rain Hu's Workspace"
+   icon: /images/rain.png
+   iconHeight: 35
 
-  markup:
-    asciidocExt:
-      attributes: {}
-      backend: html5
-      extensions: []
-      failureLevel: fatal
-      noHeaderOrFooter: true
-      preserveTOC: false
-      safeMode: unsafe
-      sectionNumbers: false
-      trace: false
-      verbose: false
-      workingFolderCurrent: false
+ profileMode:
+   enabled: true
+   title: "Rain Hu's Workspace"
+   subtitle: "To enjoy the rainbow, first enjoy the rain"
+   imageUrl: "/images/rain.png"
+   imageTitle: "Is it raining outside?"
+   imageWidth: 120
+   imageHeight: 120
+   buttons:
+     - name: "Music"
+       url: "/tags/music/"
+     - name: "Leetcode"
+       url: "/leetcode/"
+     - name: "IT Notes"
+       url: "/csindex"
+     - name: "Algorithm"
+       url: "/cs/algo/"
+     - name: "Life"
+       url: "/categories/life"
+     - name: "C#"
+       url: "csharp/csharp"
+ 
+ socialIcons:
+   - name: facebook
+     url: "https://facebook.com/intervalrain"
+   - name: instagram
+     url: "https://instagram.com/intervalrain"
+   - name: linkedin
+     url: "https://linkedin.com/in/intervalrain"
+   - name: github
+     url: "https://github.com/intervalrain"
+   - name: twitter
+     url: "https://twitter.com/intervalrain"
+   - name: youtube
+     url: "https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA"
 
-  social:
-    facebook: intervalrain
-    instagram: intervalrain
-    linkedin: intervalrain
-    github: intervalrain
-    twitter: intervalrain
-    youtube: UCE0Y75__1fPNJGmwbMG0MSA
+ analytics:
+   google:
+     SiteVerificationTag: "XYZabc"
+   bing:
+     SiteVerificationTag: "XYZabc"
 
-  # socialIcons:
-  #   - name: facebook
-  #     url: "https://facebook.com/intervalrain"
-  #   - name: instagram
-  #     url: "https://instagram.com/intervalrain"
-  #   - name: linkedin
-  #     url: "https://linkedin.com/in/intervalrain"
-  #   - name: github
-  #     url: "https://github.com/intervalrain"
-  #   - name: twitter
-  #     url: "https://twitter.com/intervalrain"
-  #   - name: youtube
-  #     url: "https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA"
+ editPost:
+   URL: "https://github.com/intervalrain/intervalrain.github.io/tree/main/content/"
+   Text: "Suggest Changes"
+   appendFilePath: true
 
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
+ fuseOpts:
+   isCaseSensitive: false
+   shouldSort: true
+   location: 0
+   distance: 1000
+   threshold: 0.4
+   minMatchCharLength: 0
+   keys: ["title", "permalink", "summary", "content"]
 
-  editPost:
-    URL: "https://github.com/intervalrain/intervalrain.github.io/tree/main/content/"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+markup:
+ goldmark:
+   renderer:
+     unsafe: true
 
-# search Page
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+social:
+ facebook: intervalrain
+ instagram: intervalrain
+ linkedin: intervalrain
+ github: intervalrain
+ twitter: intervalrain
+ youtube: UCE0Y75__1fPNJGmwbMG0MSA
 
 outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
+ home:
+   - HTML
+   - RSS
+   - JSON
