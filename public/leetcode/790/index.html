@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 790. Domino and Tromino Tiling | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="790. Domino and Tromino Tiling
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Dynamic Programming   一、題目 You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Dynamic Programming
+
+
+一、題目
+You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.
+
 Given an integer n, return the number of ways to tile an 2 x n board. Since the answer may be very large, return it modulo 10^9 &#43; 7.
-In a tiling, every square must be covered by a tile.">
+In a tiling, every square must be covered by a tile. Two tilings are different if and only if there are two 4-directionally adjacent cells on the board such that exactly one of the tilings has both squares occupied by a tile.">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/790/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +48,7 @@ In a tiling, every square must be covered by a tile.">
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,23 +81,33 @@ In a tiling, every square must be covered by a tile.">
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 790. Domino and Tromino Tiling" />
-<meta property="og:description" content="790. Domino and Tromino Tiling
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Dynamic Programming   一、題目 You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/790/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 790. Domino and Tromino Tiling">
+  <meta property="og:description" content="790. Domino and Tromino Tiling
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Dynamic Programming 一、題目 You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.
 Given an integer n, return the number of ways to tile an 2 x n board. Since the answer may be very large, return it modulo 10^9 &#43; 7.
-In a tiling, every square must be covered by a tile." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/790/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-12-24T23:53:10&#43;08:00" />
-<meta property="article:modified_time" content="2022-12-24T23:53:10&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 790. Domino and Tromino Tiling"/>
+In a tiling, every square must be covered by a tile. Two tilings are different if and only if there are two 4-directionally adjacent cells on the board such that exactly one of the tilings has both squares occupied by a tile.">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-12-24T23:53:10+08:00">
+    <meta property="article:modified_time" content="2022-12-24T23:53:10+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 790. Domino and Tromino Tiling">
 <meta name="twitter:description" content="790. Domino and Tromino Tiling
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Dynamic Programming   一、題目 You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Dynamic Programming
+
+
+一、題目
+You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.
+
 Given an integer n, return the number of ways to tile an 2 x n board. Since the answer may be very large, return it modulo 10^9 &#43; 7.
-In a tiling, every square must be covered by a tile."/>
-<meta name="twitter:site" content="@intervalrain"/>
+In a tiling, every square must be covered by a tile. Two tilings are different if and only if there are two 4-directionally adjacent cells on the board such that exactly one of the tilings has both squares occupied by a tile.">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -103,14 +118,8 @@ In a tiling, every square must be covered by a tile."/>
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 790. Domino and Tromino Tiling",
-      "item": "https://intervalrain.github.io/leetcode/790/"
+      "item": "http://localhost:1313/leetcode/790/"
     }
   ]
 }
@@ -121,13 +130,13 @@ In a tiling, every square must be covered by a tile."/>
   "@type": "BlogPosting",
   "headline": "[LeetCode] 790. Domino and Tromino Tiling",
   "name": "[LeetCode] 790. Domino and Tromino Tiling",
-  "description": "790. Domino and Tromino Tiling\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Dynamic Programming   一、題目 You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.\nGiven an integer n, return the number of ways to tile an 2 x n board. Since the answer may be very large, return it modulo 10^9 + 7.\nIn a tiling, every square must be covered by a tile.",
+  "description": "790. Domino and Tromino Tiling\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Dynamic Programming 一、題目 You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.\nGiven an integer n, return the number of ways to tile an 2 x n board. Since the answer may be very large, return it modulo 10^9 + 7.\nIn a tiling, every square must be covered by a tile. Two tilings are different if and only if there are two 4-directionally adjacent cells on the board such that exactly one of the tilings has both squares occupied by a tile.\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "790. Domino and Tromino Tiling\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Dynamic Programming   一、題目 You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.\nGiven an integer n, return the number of ways to tile an 2 x n board. Since the answer may be very large, return it modulo 10^9 + 7.\nIn a tiling, every square must be covered by a tile. Two tilings are different if and only if there are two 4-directionally adjacent cells on the board such that exactly one of the tilings has both squares occupied by a tile.\nExample 1:\n Input: n = 3 Output: 5 Explanation: The five different ways are show above.  Example 2:\n Input: n = 1 Output: 1  Constraints:\n 1    二、分析  直覺上列出前 5 個解為：1,2,5,11,24，若用觀察法猜公式可以猜到dp[n] = 2*dp[n-1] + dp[n-3]，便可以快速解出答案。 以下為網友的分析\n也就是說，\n\\( \\text{dp[n] = dp[n-1]+dp[n-2]+2(dp[n-3]+…+dp[0])}\\\\ \\text{dp[n-1] = dp[n-2]+dp[n-3]+2(dp[n-4]+…+dp[0])}\\\\ \\text{dp[n]=2}\\times\\text{dp[n-1]+dp[n-3]} \\)  三、解題 1. DP  Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\)  int numTilings(int n) {  int MOD = (int)1e9+7;  if (n  2) return n;  if (n == 3) return 5;  vectorlong long int dp(n+1);  dp[1] = 1;  dp[2] = 2;  dp[3] = 5;  for (int i = 4; i  n; i++) {  dp[i] = (dp[i-1]*2 + dp[i-3]) % MOD;  }  return (int)dp[n]; } 回目錄 Catalog\n",
+  "articleBody": "790. Domino and Tromino Tiling\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Dynamic Programming 一、題目 You have two types of tiles: a 2 x 1 domino shape and a tromino shape. You may rotate these shapes.\nGiven an integer n, return the number of ways to tile an 2 x n board. Since the answer may be very large, return it modulo 10^9 + 7.\nIn a tiling, every square must be covered by a tile. Two tilings are different if and only if there are two 4-directionally adjacent cells on the board such that exactly one of the tilings has both squares occupied by a tile.\nExample 1:\nInput: n = 3 Output: 5 Explanation: The five different ways are show above. Example 2:\nInput: n = 1 Output: 1 Constraints:\n1 \u003c= n \u003c= 1000 二、分析 直覺上列出前 5 個解為：1,2,5,11,24，若用觀察法猜公式可以猜到dp[n] = 2*dp[n-1] + dp[n-3]，便可以快速解出答案。 以下為網友的分析\n也就是說，\n\\( \\text{dp[n] = dp[n-1]+dp[n-2]+2(dp[n-3]+…+dp[0])}\\\\ \\text{dp[n-1] = dp[n-2]+dp[n-3]+2(dp[n-4]+…+dp[0])}\\\\ \\text{dp[n]=2}\\times\\text{dp[n-1]+dp[n-3]} \\) 三、解題 1. DP Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\) int numTilings(int n) { int MOD = (int)1e9+7; if (n \u003c= 2) return n; if (n == 3) return 5; vector\u003clong long int\u003e dp(n+1); dp[1] = 1; dp[2] = 2; dp[3] = 5; for (int i = 4; i \u003c= n; i++) { dp[i] = (dp[i-1]*2 + dp[i-3]) % MOD; } return (int)dp[n]; } 回目錄 Catalog\n",
   "wordCount" : "218",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-12-24T23:53:10+08:00",
   "dateModified": "2022-12-24T23:53:10+08:00",
   "author":{
@@ -136,14 +145,14 @@ In a tiling, every square must be covered by a tile."/>
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/790/"
+    "@id": "http://localhost:1313/leetcode/790/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -165,17 +174,17 @@ In a tiling, every square must be covered by a tile."/>
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -189,46 +198,46 @@ In a tiling, every square must be covered by a tile."/>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -236,20 +245,21 @@ In a tiling, every square must be covered by a tile."/>
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 790. Domino and Tromino Tiling
     </h1>
-    <div class="post-meta"><span title='2022-12-24 23:53:10 +0800 CST'>December 24, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/790.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-12-24 23:53:10 +0800 CST'>December 24, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/790.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -338,13 +348,11 @@ In a tiling, every square must be covered by a tile."/>
 <hr>
 <h3 id="一題目">一、題目<a hidden class="anchor" aria-hidden="true" href="#一題目">#</a></h3>
 <p>You have two types of tiles: a <code>2 x 1</code> domino shape and a tromino shape. You may rotate these shapes.<br>
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2021/07/15/lc-domino.jpg" alt="domino"  />
-
+<img alt="domino" loading="lazy" src="https://assets.leetcode.com/uploads/2021/07/15/lc-domino.jpg">
 Given an integer n, return <em>the number of ways to tile an</em> <code>2 x n</code> <em>board</em>. Since the answer may be very large, return it <strong>modulo</strong> <code>10^9 + 7</code>.<br>
 In a tiling, every square must be covered by a tile. Two tilings are different if and only if there are two 4-directionally adjacent cells on the board such that exactly one of the tilings has both squares occupied by a tile.</p>
 <p><strong>Example 1:</strong><br>
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2021/07/15/lc-domino1.jpg" alt="domino1"  />
-</p>
+<img alt="domino1" loading="lazy" src="https://assets.leetcode.com/uploads/2021/07/15/lc-domino1.jpg"></p>
 <ul>
 <li><strong>Input:</strong> n = 3</li>
 <li><strong>Output:</strong> 5</li>
@@ -364,8 +372,7 @@ In a tiling, every square must be covered by a tile. Two tilings are different i
 <ul>
 <li>直覺上列出前 5 個解為：<code>1,2,5,11,24</code>，若用觀察法猜公式可以猜到<code>dp[n] = 2*dp[n-1] + dp[n-3]</code>，便可以快速解出答案。</li>
 <li>以下為網友的分析<br>
-<img loading="lazy" src="https://s3-lc-upload.s3.amazonaws.com/users/zhengkaiwei/image_1519539268.png" alt="zhengkaiwei"  />
-
+<img alt="zhengkaiwei" loading="lazy" src="https://s3-lc-upload.s3.amazonaws.com/users/zhengkaiwei/image_1519539268.png">
 也就是說，<br>
 \(
 \text{dp[n] = dp[n-1]+dp[n-2]+2(dp[n-3]+&hellip;+dp[0])}\\
@@ -399,16 +406,16 @@ In a tiling, every square must be covered by a tile. Two tilings are different i
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/2389/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/2389/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 2389. Longest Subsequence With Limited Sum</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/841/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/841/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 841. Keys and Rooms</span>
   </a>
@@ -426,11 +433,12 @@ In a tiling, every square must be covered by a tile. Two tilings are different i
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -499,12 +507,12 @@ In a tiling, every square must be covered by a tile. Two tilings are different i
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

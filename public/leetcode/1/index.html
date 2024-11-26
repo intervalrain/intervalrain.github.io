@@ -1,33 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 1. Two Sum | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="1. Two Sum
- Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Array、Hash Table   一、題目 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+Hardness: \(\color{green}\textsf{Easy}\)
+Ralated Topics: Array、Hash Table
+
+
+一、題目
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.
 Example 1:
- Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] &#43; nums[1] == 9, we return [0,1].">
+
+Input: nums = [2,7,11,15], taget = 9
+Output: [0,1]
+Explanation: Because nums[0] &#43; nums[1] == 9, we return [0,1].
+
+Example 2:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/1/">
 <noscript>
     <style>
         #theme-toggle,
@@ -45,7 +54,7 @@ Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -78,27 +87,41 @@ Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 1. Two Sum" />
-<meta property="og:description" content="1. Two Sum
- Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Array、Hash Table   一、題目 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/1/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 1. Two Sum">
+  <meta property="og:description" content="1. Two Sum
+Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Array、Hash Table 一、題目 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.
 Example 1:
- Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] &#43; nums[1] == 9, we return [0,1]." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/1/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-10-25T12:41:32&#43;08:00" />
-<meta property="article:modified_time" content="2022-10-25T12:41:32&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 1. Two Sum"/>
+Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] &#43; nums[1] == 9, we return [0,1]. Example 2:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-10-25T12:41:32+08:00">
+    <meta property="article:modified_time" content="2022-10-25T12:41:32+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 1. Two Sum">
 <meta name="twitter:description" content="1. Two Sum
- Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Array、Hash Table   一、題目 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+Hardness: \(\color{green}\textsf{Easy}\)
+Ralated Topics: Array、Hash Table
+
+
+一、題目
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.
 Example 1:
- Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] &#43; nums[1] == 9, we return [0,1]."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Input: nums = [2,7,11,15], taget = 9
+Output: [0,1]
+Explanation: Because nums[0] &#43; nums[1] == 9, we return [0,1].
+
+Example 2:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -109,14 +132,8 @@ Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 1. Two Sum",
-      "item": "https://intervalrain.github.io/leetcode/1/"
+      "item": "http://localhost:1313/leetcode/1/"
     }
   ]
 }
@@ -127,13 +144,13 @@ Example 1:
   "@type": "BlogPosting",
   "headline": "[LeetCode] 1. Two Sum",
   "name": "[LeetCode] 1. Two Sum",
-  "description": "1. Two Sum\n Hardness: \\(\\color{green}\\textsf{Easy}\\) Ralated Topics: Array、Hash Table   一、題目 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.\nExample 1:\n Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0,1].",
+  "description": "1. Two Sum\nHardness: \\(\\color{green}\\textsf{Easy}\\) Ralated Topics: Array、Hash Table 一、題目 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.\nExample 1:\nInput: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0,1]. Example 2:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "1. Two Sum\n Hardness: \\(\\color{green}\\textsf{Easy}\\) Ralated Topics: Array、Hash Table   一、題目 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.\nExample 1:\n Input: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0,1].  Example 2:\n Input: nums = [3,2,4], taget = 6 Output: [1,2]  Example 3:\n Input: nums = [3,3], taget = 6 Output: [0,1]  Constraints:\n 2  -10^9  -10^9  Only one valid answer exists   二、分析  可藉由兩個迴圈暴力解求值，其時間複雜度為 \\(O(n^2)\\)。 若我們將已迭代過的值存入 HashMap，接下來我們就只需要找 HashMap 中是否有值與當下的值 nums[i] 相加為 target。因為只迭代一遍，故時間複雜度為 \\(O(n)\\)。  三、解題 1. HashMap  Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\)  vectorint twoSum(vectorint\u0026 nums, int target) {  unordered_mapint,int map; // {值, 索引}  int i; // 將 i 宣告在 for-loop 外  for (i = 0; i  nums.size(); i++) {  if (map.find(target - nums[i]) != map.end())  break; // 若找到答案，則退出迴圈  map[nums[i]] = i; // 若沒有符合的答案，將值加入 HashMap  }  return {map[target-nums[i]], i}; // 注意加入 HashMap 的索引值會比當下的 i 值還小 } 回目錄 Catalog\n",
+  "articleBody": "1. Two Sum\nHardness: \\(\\color{green}\\textsf{Easy}\\) Ralated Topics: Array、Hash Table 一、題目 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.\nExample 1:\nInput: nums = [2,7,11,15], taget = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0,1]. Example 2:\nInput: nums = [3,2,4], taget = 6 Output: [1,2] Example 3:\nInput: nums = [3,3], taget = 6 Output: [0,1] Constraints:\n2 \u003c= nums.length \u003c= 10^4 -10^9 \u003c= nums[i] \u003c= 10^9 -10^9 \u003c= target \u003c= 10^9\u003e Only one valid answer exists 二、分析 可藉由兩個迴圈暴力解求值，其時間複雜度為 \\(O(n^2)\\)。 若我們將已迭代過的值存入 HashMap，接下來我們就只需要找 HashMap 中是否有值與當下的值 nums[i] 相加為 target。因為只迭代一遍，故時間複雜度為 \\(O(n)\\)。 三、解題 1. HashMap Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\) vector\u003cint\u003e twoSum(vector\u003cint\u003e\u0026 nums, int target) { unordered_map\u003cint,int\u003e map; // {值, 索引} int i; // 將 i 宣告在 for-loop 外 for (i = 0; i \u003c nums.size(); i++) { if (map.find(target - nums[i]) != map.end()) break; // 若找到答案，則退出迴圈 map[nums[i]] = i; // 若沒有符合的答案，將值加入 HashMap } return {map[target-nums[i]], i}; // 注意加入 HashMap 的索引值會比當下的 i 值還小 } 回目錄 Catalog\n",
   "wordCount" : "201",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-10-25T12:41:32+08:00",
   "dateModified": "2022-10-25T12:41:32+08:00",
   "author":{
@@ -142,14 +159,14 @@ Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/1/"
+    "@id": "http://localhost:1313/leetcode/1/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -171,17 +188,17 @@ Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -195,46 +212,46 @@ Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -242,20 +259,21 @@ Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 1. Two Sum
     </h1>
-    <div class="post-meta"><span title='2022-10-25 12:41:32 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/1.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-10-25 12:41:32 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/1.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -398,16 +416,16 @@ You can return the answer in any order.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/2/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/2/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 2. Add Two Numbers</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/versionquery/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/versionquery/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[Problem] Version Query</span>
   </a>
@@ -425,11 +443,12 @@ You can return the answer in any order.</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -498,12 +517,12 @@ You can return the answer in any order.</p>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

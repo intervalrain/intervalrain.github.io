@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[C#] IEnumerable &amp; IEnumerator 迭代器 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="C#, IEnumerable, IEnumerator, 迭代器" />
+<meta name="keywords" content="C#, IEnumerable, IEnumerator, 迭代器">
 <meta name="description" content="Introduction to Iterator in C#, including IEnumerator and IEnumerable">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/csharp/iterator/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +74,20 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[C#] IEnumerable &amp; IEnumerator 迭代器" />
-<meta property="og:description" content="Introduction to Iterator in C#, including IEnumerator and IEnumerable" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/csharp/iterator/" /><meta property="article:section" content="Csharp" />
-<meta property="article:published_time" content="2023-02-27T11:50:20&#43;08:00" />
-<meta property="article:modified_time" content="2023-02-27T11:50:20&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[C#] IEnumerable &amp; IEnumerator 迭代器"/>
-<meta name="twitter:description" content="Introduction to Iterator in C#, including IEnumerator and IEnumerable"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/csharp/iterator/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[C#] IEnumerable & IEnumerator 迭代器">
+  <meta property="og:description" content="Introduction to Iterator in C#, including IEnumerator and IEnumerable">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="csharp">
+    <meta property="article:published_time" content="2023-02-27T11:50:20+08:00">
+    <meta property="article:modified_time" content="2023-02-27T11:50:20+08:00">
+    <meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[C#] IEnumerable &amp; IEnumerator 迭代器">
+<meta name="twitter:description" content="Introduction to Iterator in C#, including IEnumerator and IEnumerable">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +99,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Csharps",
-      "item": "https://intervalrain.github.io/csharp/"
+      "item": "http://localhost:1313/csharp/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[C#] IEnumerable \u0026 IEnumerator 迭代器",
-      "item": "https://intervalrain.github.io/csharp/iterator/"
+      "item": "http://localhost:1313/csharp/iterator/"
     }
   ]
 }
@@ -119,9 +120,9 @@
   "keywords": [
     "C#", "IEnumerable", "IEnumerator", "迭代器"
   ],
-  "articleBody": "1. 簡介  迭代器包含了以下四種類型  IEnumerable IEnumerable IEnumerator IEnumerator   根據迭代器的返回類型，每個迭代器都有一個 yield type。  IEnuerable 返回 object IEnuerable 返回 string   基本的語法為：  public static IEnumerable GetFibonacciSeries(int end) { int cnt = 0; int prev = 0; int curr = 1; while (true) { if (cnt == end) yield break; cnt++; int tmp = curr + prev; yield return curr; prev = curr; curr = tmp; } } public static void Main(string[] args) { foreach(int val in GetFibonacciSeries(10)) { Console.WriteLine(val); } } 2. 延遲執行  雖然同樣的程式可以用 List 的方式重新寫成下面的程式碼，其列印結果也會一樣，但在執行期卻會有很大的差異。  public static List GetFibonacciSeriesList(int end) { int cnt = 0; int prev = 0; int curr = 1; List res = new List(); while (true) { if (cnt == end) break; cnt++; int tmp = curr + prev; res.Add(curr); prev = curr; curr = tmp; } return res; } public static void Main(string[] args) { foreach(int val in GetFibonacciSeriesList(10)) { Console.WriteLine(val); } }  延遲執行屬於 lambda 演算的一部分，目的是「只在需要獲取計算結果時執行程式」。  public static void Main(string[] args) { // 調用迭代器的方法，從 IEnumerable 取得 IEnumerator using (var reader = GetFibonacciSeries(10).GetEnumerator()) { while (reader.MoveNext()) { int val = reader.Current; Console.WriteLine(val); } } }  以上兩段程式碼兩段程式碼在執行期的差別為：  前者在執行到 foreach(int val in GetFibonacciSeriesList(10)) 時，會先將 GetFibonacciSeriesList(10) 執行完取得 List 之後才開始 for loop。 後者在執行到 MoveNext() 時，程式碼才真正被執行。   執行 yield 語句時，程式碼會停止執行：  拋出 exception 方法執行完畢 遇到 yield break 執行到 yield return，迭代器準備返回值。   那麼延遲執行有什麼好處呢？  不必預先創建一個 List，在 List 本身很大的情況下，可以節省空間。 試想今天的數列是無窮無盡的(如上例的 fibonacci 數列)，使用 List 就顯得太冗餘了。 使用迭代器可以達到 Design Pattern 中的關注點分離(Iteration/Process 分離)，也就是說，在叫用迭代器時，只需關心有沒有辦法迭代到下一個元素。 程式只需完成需求即可退出，大大的增加效率。  試想今天需要向資料庫拿去十筆最新的資料，若不用延遲執行的話，需要將整筆資料庫的資料用某種資料結構儲存下來，再 for-loop 取出十筆。 若使用延遲執行，取得十筆資料就立即退出，可以大大減少執行時間。      3. finally 的處理  觀察下面的程式碼，並對照輸出結果，可以發現，只有出現一次的 In finally block。  只有在執行了 IEnumerator.Dispose() 方法時，才會調用 finally 的區塊。 而每次的 IEnumerator.MoveNext() 都會使程式停止在 yield return。   不管是用 using 搭配 IEnumerable.GetEnumerator()，或是使用 foreach(var val in Iterator()) 回傳的結果都是只有出現一次的 In finally block，代表後者隱含了一條 using 的語句。  public static IEnumerable Iterator() { try { Console.WriteLine(\"Before first yield\"); yield return \"first\"; Console.WriteLine(\"Between yields\"); yield return \"second\"; Console.WriteLine(\"After yields\"); } finally { Console.WriteLine(\"In finally block\"); } } public static void Main(string[] args) { using (var reader = Iterator().GetEnumerator()) { while (reader.MoveNext()) { string val = reader.Current; Console.WriteLine(val); } } } // Before first yield // first // Between yields // second // After yields // In finally block  更多詳細的介紹詳見 [C#] Yield Return  ",
+  "articleBody": "1. 簡介 迭代器包含了以下四種類型 IEnumerable IEnumerable IEnumerator IEnumerator 根據迭代器的返回類型，每個迭代器都有一個 yield type。 IEnuerable 返回 object IEnuerable 返回 string 基本的語法為： public static IEnumerable GetFibonacciSeries(int end) { int cnt = 0; int prev = 0; int curr = 1; while (true) { if (cnt == end) yield break; cnt++; int tmp = curr + prev; yield return curr; prev = curr; curr = tmp; } } public static void Main(string[] args) { foreach(int val in GetFibonacciSeries(10)) { Console.WriteLine(val); } } 2. 延遲執行 雖然同樣的程式可以用 List 的方式重新寫成下面的程式碼，其列印結果也會一樣，但在執行期卻會有很大的差異。 public static List GetFibonacciSeriesList(int end) { int cnt = 0; int prev = 0; int curr = 1; List res = new List(); while (true) { if (cnt == end) break; cnt++; int tmp = curr + prev; res.Add(curr); prev = curr; curr = tmp; } return res; } public static void Main(string[] args) { foreach(int val in GetFibonacciSeriesList(10)) { Console.WriteLine(val); } } 延遲執行屬於 lambda 演算的一部分，目的是「只在需要獲取計算結果時執行程式」。 public static void Main(string[] args) { // 調用迭代器的方法，從 IEnumerable 取得 IEnumerator using (var reader = GetFibonacciSeries(10).GetEnumerator()) { while (reader.MoveNext()) { int val = reader.Current; Console.WriteLine(val); } } } 以上兩段程式碼兩段程式碼在執行期的差別為： 前者在執行到 foreach(int val in GetFibonacciSeriesList(10)) 時，會先將 GetFibonacciSeriesList(10) 執行完取得 List 之後才開始 for loop。 後者在執行到 MoveNext() 時，程式碼才真正被執行。 執行 yield 語句時，程式碼會停止執行： 拋出 exception 方法執行完畢 遇到 yield break 執行到 yield return，迭代器準備返回值。 那麼延遲執行有什麼好處呢？ 不必預先創建一個 List，在 List 本身很大的情況下，可以節省空間。 試想今天的數列是無窮無盡的(如上例的 fibonacci 數列)，使用 List 就顯得太冗餘了。 使用迭代器可以達到 Design Pattern 中的關注點分離(Iteration/Process 分離)，也就是說，在叫用迭代器時，只需關心有沒有辦法迭代到下一個元素。 程式只需完成需求即可退出，大大的增加效率。 試想今天需要向資料庫拿去十筆最新的資料，若不用延遲執行的話，需要將整筆資料庫的資料用某種資料結構儲存下來，再 for-loop 取出十筆。 若使用延遲執行，取得十筆資料就立即退出，可以大大減少執行時間。 3. finally 的處理 觀察下面的程式碼，並對照輸出結果，可以發現，只有出現一次的 In finally block。 只有在執行了 IEnumerator.Dispose() 方法時，才會調用 finally 的區塊。 而每次的 IEnumerator.MoveNext() 都會使程式停止在 yield return。 不管是用 using 搭配 IEnumerable.GetEnumerator()，或是使用 foreach(var val in Iterator()) 回傳的結果都是只有出現一次的 In finally block，代表後者隱含了一條 using 的語句。 public static IEnumerable Iterator() { try { Console.WriteLine(\"Before first yield\"); yield return \"first\"; Console.WriteLine(\"Between yields\"); yield return \"second\"; Console.WriteLine(\"After yields\"); } finally { Console.WriteLine(\"In finally block\"); } } public static void Main(string[] args) { using (var reader = Iterator().GetEnumerator()) { while (reader.MoveNext()) { string val = reader.Current; Console.WriteLine(val); } } } // Before first yield // first // Between yields // second // After yields // In finally block 更多詳細的介紹詳見 [C#] Yield Return ",
   "wordCount" : "327",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-02-27T11:50:20+08:00",
   "dateModified": "2023-02-27T11:50:20+08:00",
   "author":{
@@ -130,14 +131,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/csharp/iterator/"
+    "@id": "http://localhost:1313/csharp/iterator/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +160,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +184,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,23 +231,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/csharp/">Csharps</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/csharp/">Csharps</a></div>
+    <h1 class="post-title entry-hint-parent">
       [C#] IEnumerable &amp; IEnumerator 迭代器
     </h1>
     <div class="post-description">
       Introduction to Iterator in C#, including IEnumerator and IEnumerable
     </div>
-    <div class="post-meta"><span title='2023-02-27 11:50:20 +0800 CST'>February 27, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/iterator.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-02-27 11:50:20 +0800 CST'>February 27, 2023</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/iterator.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -449,15 +451,15 @@ public static void Main(string[] args)
 {
     try 
     {
-        Console.WriteLine(&quot;Before first yield&quot;);
-        yield return &quot;first&quot;;
-        Console.WriteLine(&quot;Between yields&quot;);
-        yield return &quot;second&quot;;
-        Console.WriteLine(&quot;After yields&quot;);    
+        Console.WriteLine(&#34;Before first yield&#34;);
+        yield return &#34;first&#34;;
+        Console.WriteLine(&#34;Between yields&#34;);
+        yield return &#34;second&#34;;
+        Console.WriteLine(&#34;After yields&#34;);    
     }
     finally
     {
-        Console.WriteLine(&quot;In finally block&quot;);
+        Console.WriteLine(&#34;In finally block&#34;);
     }
     
 }
@@ -487,7 +489,7 @@ public static void Main(string[] args)
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/c#/">C#</a></li>
+      <li><a href="http://localhost:1313/tags/c%23/">C#</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -502,11 +504,12 @@ public static void Main(string[] args)
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -575,12 +578,12 @@ public static void Main(string[] args)
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

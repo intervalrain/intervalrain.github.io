@@ -1,30 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 1706. Where Will the Ball Fall | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="1706. Where Will the Ball Fall
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation   一、題目 You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.
-Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.">
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation
+
+
+一、題目
+You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.
+Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.
+
+A board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as 1.
+A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as -1.
+We drop one ball at the top of each column of the box. Each ball can get stuck in the box or fall out of the bottom. A ball get stuck if it hits a &ldquo;V&rdquo; shaped pattern between two boards or if a board redirects the ball into either wall of the box.
+Return an array answer of size n where answer[i] is the column that the ball falls out of at the bottom after dropping the ball from the ith column at the top, or -1 if the ball gets stuck in the box.
+
+Example 1:
+">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/1706/">
 <noscript>
     <style>
         #theme-toggle,
@@ -42,7 +54,7 @@ Each cell in the box has a diagonal board spanning two corners of the cell that 
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -75,21 +87,41 @@ Each cell in the box has a diagonal board spanning two corners of the cell that 
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 1706. Where Will the Ball Fall" />
-<meta property="og:description" content="1706. Where Will the Ball Fall
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation   一、題目 You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.
-Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/1706/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-01T19:02:00&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-01T19:02:00&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 1706. Where Will the Ball Fall"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/1706/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 1706. Where Will the Ball Fall">
+  <meta property="og:description" content="1706. Where Will the Ball Fall
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation 一、題目 You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.
+Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.
+A board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as 1. A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as -1.
+We drop one ball at the top of each column of the box. Each ball can get stuck in the box or fall out of the bottom. A ball get stuck if it hits a “V” shaped pattern between two boards or if a board redirects the ball into either wall of the box.
+Return an array answer of size n where answer[i] is the column that the ball falls out of at the bottom after dropping the ball from the ith column at the top, or -1 if the ball gets stuck in the box. Example 1:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-01T19:02:00+08:00">
+    <meta property="article:modified_time" content="2022-11-01T19:02:00+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 1706. Where Will the Ball Fall">
 <meta name="twitter:description" content="1706. Where Will the Ball Fall
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation   一、題目 You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.
-Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation
+
+
+一、題目
+You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.
+Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.
+
+A board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as 1.
+A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as -1.
+We drop one ball at the top of each column of the box. Each ball can get stuck in the box or fall out of the bottom. A ball get stuck if it hits a &ldquo;V&rdquo; shaped pattern between two boards or if a board redirects the ball into either wall of the box.
+Return an array answer of size n where answer[i] is the column that the ball falls out of at the bottom after dropping the ball from the ith column at the top, or -1 if the ball gets stuck in the box.
+
+Example 1:
+">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -100,14 +132,8 @@ Each cell in the box has a diagonal board spanning two corners of the cell that 
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 1706. Where Will the Ball Fall",
-      "item": "https://intervalrain.github.io/leetcode/1706/"
+      "item": "http://localhost:1313/leetcode/1706/"
     }
   ]
 }
@@ -118,13 +144,13 @@ Each cell in the box has a diagonal board spanning two corners of the cell that 
   "@type": "BlogPosting",
   "headline": "[LeetCode] 1706. Where Will the Ball Fall",
   "name": "[LeetCode] 1706. Where Will the Ball Fall",
-  "description": "1706. Where Will the Ball Fall\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation   一、題目 You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.\nEach cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.",
+  "description": "1706. Where Will the Ball Fall\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation 一、題目 You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.\nEach cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.\nA board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as 1. A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as -1.\nWe drop one ball at the top of each column of the box. Each ball can get stuck in the box or fall out of the bottom. A ball get stuck if it hits a \u0026ldquo;V\u0026rdquo; shaped pattern between two boards or if a board redirects the ball into either wall of the box.\nReturn an array answer of size n where answer[i] is the column that the ball falls out of at the bottom after dropping the ball from the ith column at the top, or -1 if the ball gets stuck in the box. Example 1:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "1706. Where Will the Ball Fall\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation   一、題目 You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.\nEach cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.\n A board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as 1. A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as -1.\nWe drop one ball at the top of each column of the box. Each ball can get stuck in the box or fall out of the bottom. A ball get stuck if it hits a “V” shaped pattern between two boards or if a board redirects the ball into either wall of the box.\nReturn an array answer of size n where answer[i] is the column that the ball falls out of at the bottom after dropping the ball from the ith column at the top, or -1 if the ball gets stuck in the box.  Example 1:\n Input: grid = [[1,1,1,-1,-1],[1,1,1,-1,-1],[-1,-1,-1,1,1],[1,1,1,1,-1],[-1,-1,-1,-1,-1]] Output: [1,-1,-1,-1,-1] Explanation: This example is shown in the photo.\nBall b0 is dropped at column 0 and falls out of the box at column 1.\nBall b1 is dropped at column 1 and will get stuck in the box between column 2 and 3 and row 1.\nBall b2 is dropped at column 2 and will get stuck on the box between column 2 and 3 and row 0.\nBall b3 is dropped at column 3 and will get stuck on the box between column 2 and 3 and row 0.\nBall b4 is dropped at column 4 and will get stuck on the box between column 2 and 3 and row 1.  Example 2:\n Input: grid = [[-1]] Output: [-1] Explanation: The ball gets stuck against the left wall.  Example 3:\n Input: grid = [[1,1,1,1,1,1],[-1,-1,-1,-1,-1,-1],[1,1,1,1,1,1],[-1,-1,-1,-1,-1,-1]] Output: [0,1,2,3,4,-1]  Constraints:\n m == grid.length n == grid[i].length 1  grid[i][j] is 1 or -1.   二、分析  這一題根據題意，球在落下的過程中，若碰到v-型或是牆，都會被卡住，可以歸納出下面幾條規則：(假設以 col 代表球的位置)  grid[row][0] == -1 與 grid[row][n-1] == 1 代表撞到牆 當 grid[row][col] == 1 且 grid[row][col+1] == 1 時球可以落下。\n或 grid[row][col] == -1 且 grid[row][col-1] == -1 時球可以落下。    三、解題 1. DP  Time complexity: \\(O(m\\times n)\\) Space complexity: \\(O(n)\\)  vectorint findBall(vectorvectorint\u0026 grid) {  int m = grid.size(), n = grid[0].size();  vectorint state;  for (int col = 0; col  grid[0].size(); col++) state.push_back(col); // 初始化球當前的位置  for (auto\u0026 boards : grid) {  for (int col = 0; col  n; col++) {  if (state[col] == -1) continue; // 球已經卡住了  int\u0026 pos = state[col];  if ((pos == 0 \u0026\u0026 boards[pos] == -1) || (pos == n-1 \u0026\u0026 boards[pos] == 1)) // 撞牆  pos = -1;  else if (boards[pos] == 1 \u0026\u0026 boards[pos+1] == 1) // 球往右移  pos += 1;  else if (boards[pos] == -1 \u0026\u0026 boards[pos-1] == -1) // 球往左移  pos -= 1;  else // 球卡住  pos = -1;  }  }  return state; } 2. DFS  Time complexity: \\(O(m\\times n)\\) Space complexity: \\(O(n)\\)  int m, n; vectorint findBall(vectorvectorint\u0026 grid) {  m = grid.size(), n = grid[0].size();  vectorint res(n);  for (int col = 0; col  n; col++) {  res[col] = dfs(grid, 0, col);  }  return res; } int dfs(vectorvectorint\u0026 grid, int row, int col) {  if (row == m) return col; // 終止條件: 落地  if (col  0 || col = n) return -1; // 撞牆  if (col+1  n \u0026\u0026 grid[row][col] == 1 \u0026\u0026 grid[row][col+1] == 1) // 右移  return dfs(grid, row+1, col+1);  if (col-1 = 0 \u0026\u0026 grid[row][col] == -1 \u0026\u0026 grid[row][col-1] == -1) // 左移  return dfs(grid, row+1, col-1);  return -1; } 回目錄 Catalog\n",
+  "articleBody": "1706. Where Will the Ball Fall\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Dynamic Programming、Depth-First Search、Matrix、Simulation 一、題目 You have a 2-D grid of size m x n representing a box, and you have n balls. The box is open on the top and bottom sides.\nEach cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.\nA board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as 1. A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as -1.\nWe drop one ball at the top of each column of the box. Each ball can get stuck in the box or fall out of the bottom. A ball get stuck if it hits a “V” shaped pattern between two boards or if a board redirects the ball into either wall of the box.\nReturn an array answer of size n where answer[i] is the column that the ball falls out of at the bottom after dropping the ball from the ith column at the top, or -1 if the ball gets stuck in the box. Example 1:\nInput: grid = [[1,1,1,-1,-1],[1,1,1,-1,-1],[-1,-1,-1,1,1],[1,1,1,1,-1],[-1,-1,-1,-1,-1]] Output: [1,-1,-1,-1,-1] Explanation: This example is shown in the photo.\nBall b0 is dropped at column 0 and falls out of the box at column 1.\nBall b1 is dropped at column 1 and will get stuck in the box between column 2 and 3 and row 1.\nBall b2 is dropped at column 2 and will get stuck on the box between column 2 and 3 and row 0.\nBall b3 is dropped at column 3 and will get stuck on the box between column 2 and 3 and row 0.\nBall b4 is dropped at column 4 and will get stuck on the box between column 2 and 3 and row 1. Example 2:\nInput: grid = [[-1]] Output: [-1] Explanation: The ball gets stuck against the left wall. Example 3:\nInput: grid = [[1,1,1,1,1,1],[-1,-1,-1,-1,-1,-1],[1,1,1,1,1,1],[-1,-1,-1,-1,-1,-1]] Output: [0,1,2,3,4,-1] Constraints:\nm == grid.length n == grid[i].length 1 \u003c= m, n \u003c= 100 grid[i][j] is 1 or -1. 二、分析 這一題根據題意，球在落下的過程中，若碰到v-型或是牆，都會被卡住，可以歸納出下面幾條規則：(假設以 col 代表球的位置) grid[row][0] == -1 與 grid[row][n-1] == 1 代表撞到牆 當 grid[row][col] == 1 且 grid[row][col+1] == 1 時球可以落下。\n或 grid[row][col] == -1 且 grid[row][col-1] == -1 時球可以落下。 三、解題 1. DP Time complexity: \\(O(m\\times n)\\) Space complexity: \\(O(n)\\) vector\u003cint\u003e findBall(vector\u003cvector\u003cint\u003e\u003e\u0026 grid) { int m = grid.size(), n = grid[0].size(); vector\u003cint\u003e state; for (int col = 0; col \u003c grid[0].size(); col++) state.push_back(col); // 初始化球當前的位置 for (auto\u0026 boards : grid) { for (int col = 0; col \u003c n; col++) { if (state[col] == -1) continue; // 球已經卡住了 int\u0026 pos = state[col]; if ((pos == 0 \u0026\u0026 boards[pos] == -1) || (pos == n-1 \u0026\u0026 boards[pos] == 1)) // 撞牆 pos = -1; else if (boards[pos] == 1 \u0026\u0026 boards[pos+1] == 1) // 球往右移 pos += 1; else if (boards[pos] == -1 \u0026\u0026 boards[pos-1] == -1) // 球往左移 pos -= 1; else // 球卡住 pos = -1; } } return state; } 2. DFS Time complexity: \\(O(m\\times n)\\) Space complexity: \\(O(n)\\) int m, n; vector\u003cint\u003e findBall(vector\u003cvector\u003cint\u003e\u003e\u0026 grid) { m = grid.size(), n = grid[0].size(); vector\u003cint\u003e res(n); for (int col = 0; col \u003c n; col++) { res[col] = dfs(grid, 0, col); } return res; } int dfs(vector\u003cvector\u003cint\u003e\u003e\u0026 grid, int row, int col) { if (row == m) return col; // 終止條件: 落地 if (col \u003c 0 || col \u003e= n) return -1; // 撞牆 if (col+1 \u003c n \u0026\u0026 grid[row][col] == 1 \u0026\u0026 grid[row][col+1] == 1) // 右移 return dfs(grid, row+1, col+1); if (col-1 \u003e= 0 \u0026\u0026 grid[row][col] == -1 \u0026\u0026 grid[row][col-1] == -1) // 左移 return dfs(grid, row+1, col-1); return -1; } 回目錄 Catalog\n",
   "wordCount" : "643",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-01T19:02:00+08:00",
   "dateModified": "2022-11-01T19:02:00+08:00",
   "author":{
@@ -133,14 +159,14 @@ Each cell in the box has a diagonal board spanning two corners of the cell that 
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/1706/"
+    "@id": "http://localhost:1313/leetcode/1706/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -162,17 +188,17 @@ Each cell in the box has a diagonal board spanning two corners of the cell that 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -186,46 +212,46 @@ Each cell in the box has a diagonal board spanning two corners of the cell that 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -233,20 +259,21 @@ Each cell in the box has a diagonal board spanning two corners of the cell that 
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 1706. Where Will the Ball Fall
     </h1>
-    <div class="post-meta"><span title='2022-11-01 19:02:00 +0800 CST'>November 1, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/1706.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-01 19:02:00 +0800 CST'>November 1, 2022</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/1706.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -345,8 +372,7 @@ We drop one ball at the top of each column of the box. Each ball can get stuck i
 Return <em>an array</em> <code>answer</code> <em>of size</em> <code>n</code> <em>where</em> <code>answer[i]</code> <em>is the column that the ball falls out of at the bottom after dropping the ball from the</em> <code>ith</code> <em>column at the top, or</em> <code>-1</code> <em>if the ball gets stuck in the box.</em></li>
 </ul>
 <p><strong>Example 1:</strong><br>
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2019/09/26/ball.jpg" alt="ball"  />
-</p>
+<img alt="ball" loading="lazy" src="https://assets.leetcode.com/uploads/2019/09/26/ball.jpg"></p>
 <ul>
 <li><strong>Input:</strong> grid = [[1,1,1,-1,-1],[1,1,1,-1,-1],[-1,-1,-1,1,1],[1,1,1,1,-1],[-1,-1,-1,-1,-1]]</li>
 <li><strong>Output:</strong> [1,-1,-1,-1,-1]</li>
@@ -442,16 +468,16 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/20/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/20/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 20. Valid Parentheses</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/766/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/766/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 766. Toeplitz Matrix</span>
   </a>
@@ -469,11 +495,12 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -542,12 +569,12 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

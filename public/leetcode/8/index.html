@@ -1,31 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Leetcode] 8. String to Integer (atoi) | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="8. String to Integer (atoi)
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String   一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C&#43;&#43;&rsquo;s atoi function).
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: String
+
+
+一、題目
+Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C&#43;&#43;&rsquo;s atoi function).
 The algorithm for myAtoi(string s) is as follows:
- Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is &#39;-&#39; or &#39;&#43;&#39;. Read this character in if it is either.">
+
+Read in and ignore any leading whitespace.
+Check if the next character (if not already at the end of the string) is &#39;-&#39; or &#39;&#43;&#39;. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present.
+Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored.
+Convert these digits into an integer (i.e. &quot;123&quot; -&gt; 123, &quot;0032&quot; -&gt; 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2).
+If the integer is out of the 32-bit signed integer range [-2^31, 2^31-1], then clamp the integer so that it remains in the range. Specifically, integers less than -2^31 should be clamped to -2^31, and integer greater than 2^31-1 should be clamped to 2^31-1.
+Return the integer as the final result.
+
+Note:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/8/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +55,7 @@ The algorithm for myAtoi(string s) is as follows:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,23 +88,40 @@ The algorithm for myAtoi(string s) is as follows:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Leetcode] 8. String to Integer (atoi)" />
-<meta property="og:description" content="8. String to Integer (atoi)
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String   一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C&#43;&#43;&rsquo;s atoi function).
+</script><meta property="og:url" content="http://localhost:1313/leetcode/8/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Leetcode] 8. String to Integer (atoi)">
+  <meta property="og:description" content="8. String to Integer (atoi)
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String 一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C&#43;&#43;’s atoi function).
 The algorithm for myAtoi(string s) is as follows:
- Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is &#39;-&#39; or &#39;&#43;&#39;. Read this character in if it is either." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/8/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-10-26T00:21:56&#43;08:00" />
-<meta property="article:modified_time" content="2022-10-26T00:21:56&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Leetcode] 8. String to Integer (atoi)"/>
+Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is &#39;-&#39; or &#39;&#43;&#39;. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present. Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored. Convert these digits into an integer (i.e. &#34;123&#34; -&gt; 123, &#34;0032&#34; -&gt; 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2). If the integer is out of the 32-bit signed integer range [-2^31, 2^31-1], then clamp the integer so that it remains in the range. Specifically, integers less than -2^31 should be clamped to -2^31, and integer greater than 2^31-1 should be clamped to 2^31-1. Return the integer as the final result. Note:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-10-26T00:21:56+08:00">
+    <meta property="article:modified_time" content="2022-10-26T00:21:56+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Leetcode] 8. String to Integer (atoi)">
 <meta name="twitter:description" content="8. String to Integer (atoi)
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String   一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C&#43;&#43;&rsquo;s atoi function).
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: String
+
+
+一、題目
+Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C&#43;&#43;&rsquo;s atoi function).
 The algorithm for myAtoi(string s) is as follows:
- Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is &#39;-&#39; or &#39;&#43;&#39;. Read this character in if it is either."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Read in and ignore any leading whitespace.
+Check if the next character (if not already at the end of the string) is &#39;-&#39; or &#39;&#43;&#39;. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present.
+Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored.
+Convert these digits into an integer (i.e. &quot;123&quot; -&gt; 123, &quot;0032&quot; -&gt; 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2).
+If the integer is out of the 32-bit signed integer range [-2^31, 2^31-1], then clamp the integer so that it remains in the range. Specifically, integers less than -2^31 should be clamped to -2^31, and integer greater than 2^31-1 should be clamped to 2^31-1.
+Return the integer as the final result.
+
+Note:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -103,14 +132,8 @@ The algorithm for myAtoi(string s) is as follows:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[Leetcode] 8. String to Integer (atoi)",
-      "item": "https://intervalrain.github.io/leetcode/8/"
+      "item": "http://localhost:1313/leetcode/8/"
     }
   ]
 }
@@ -121,13 +144,13 @@ The algorithm for myAtoi(string s) is as follows:
   "@type": "BlogPosting",
   "headline": "[Leetcode] 8. String to Integer (atoi)",
   "name": "[Leetcode] 8. String to Integer (atoi)",
-  "description": "8. String to Integer (atoi)\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: String   一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++\u0026rsquo;s atoi function).\nThe algorithm for myAtoi(string s) is as follows:\n Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is '-' or '+'. Read this character in if it is either.",
+  "description": "8. String to Integer (atoi)\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: String 一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++\u0026rsquo;s atoi function).\nThe algorithm for myAtoi(string s) is as follows:\nRead in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is '-' or '+'. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present. Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored. Convert these digits into an integer (i.e. \u0026quot;123\u0026quot; -\u0026gt; 123, \u0026quot;0032\u0026quot; -\u0026gt; 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2). If the integer is out of the 32-bit signed integer range [-2^31, 2^31-1], then clamp the integer so that it remains in the range. Specifically, integers less than -2^31 should be clamped to -2^31, and integer greater than 2^31-1 should be clamped to 2^31-1. Return the integer as the final result. Note:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "8. String to Integer (atoi)\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: String   一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++’s atoi function).\nThe algorithm for myAtoi(string s) is as follows:\n Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is '-' or '+'. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present. Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored. Convert these digits into an integer (i.e. \"123\" - 123, \"0032\" - 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2). If the integer is out of the 32-bit signed integer range [-2^31, 2^31-1], then clamp the integer so that it remains in the range. Specifically, integers less than -2^31 should be clamped to -2^31, and integer greater than 2^31-1 should be clamped to 2^31-1. Return the integer as the final result.  Note:\n Only the space character ' ' is considered a whitespace character. Do not ignore any characters other than the leading whitespace or the rest of the string after the digits.  Example 1:\n Input: s = “42” Output: 42 Explanation: The underlined characters are what is read in, the caret is the current reader position.\nStep 1: “42” (no characters read because there is no leading whitespace) Step 2: “42” (no characters read because there is neither a ‘-’ nor ‘+')\nStep 3: “42” (“42” is read in)\nThe parsed integer is 42.\nSince 42 is in the range [-2^31, 2^31 - 1], the final result is 42.  Example 2:\n Input: s = \" -42\" Output: -42 Explanation:\nStep 1: \" -42\" (leading whitespace is read and ignored)\nStep 2: \" -42\" ('-’ is read, so the result should be negative)\nStep 3: \" -42\" (“42” is read in)\nThe parsed integer is -42.\nSince -42 is in the range [-2^31, 2^31 - 1], the final result is -42.  Example 3:\n Input: s = “4193 with words” Output: 4193 Explanation:\nStep 1: “4193 with words” (no characters read because there is no leading whitespace)\nStep 2: “4193 with words” (no characters read because there is neither a ‘-’ nor ‘+')\nStep 3: “4193 with words” (“4193” is read in; reading stops because the next character is a non-digit)\nThe parsed integer is 4193.\nSince 4193 is in the range [-2^31, 2^31 - 1], the final result is 4193.  Constraints:\n 0  s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.   二、分析  此題只需根據條件一一去排除：  處理 leading spaces 判斷 s[0] 處理超過範圍 [-2^31, 2^31-1] 的數 處理終止條件   可代入幾個處理字串常用的自訂函式：  判斷是否為英文字母 isLetter()  bool isLetter(char c) {  return (c = 'a' \u0026\u0026 c  'z') || (c = 'A' \u0026\u0026 c  'Z'); }  判斷是否為數字 isDigit()  bool isDigit(char c) {  return c = '0' \u0026\u0026 c  '9'; }  去除左邊空白、右邊空白 ltrim()、rtrim()  void ltrim(string\u0026 s) {  s.erase(  s.begin(),  find_if(s.begin(), s.end(), not1(ptr_funint, int(isspace)))  ); } void rtrim(string\u0026 s) {  s.erase(  find_if(s.rbegin(), s.rend(), not1(ptr_funint, int(isspace))).base(),  s.end()   ); }  分隔 split()  vectorstring split(string\u0026 s, char del) {  stringstream ss(str);  string item;  vectorstring res;  while (getline(ss, item, del))  if (!item.empty()) res.push_back(item);  return res; }  合併 concat()  string concat(vectorstring\u0026 svec, char del) {  stringstream ss;  for (const auto\u0026 s : svec) ss  s  del;  return ss.str(); }   三、解題 1. String  Time complexity: \\(O(n)\\) Space complexity: \\(O(1)\\)  // 判斷是否為英文字母 bool isLetter(char c) {  return (c = 'a' \u0026\u0026 c  'z') || (c = 'A' \u0026\u0026 c  'Z'); } // 判斷是否為數字 bool isDigit(char c) {  return c = '0' \u0026\u0026 c  '9'; } // 去除左邊空白 void ltrim(string\u0026 s) {  s.erase(  s.begin(),  find_if(s.begin(), s.end(), not1(ptr_funint, int(isspace)))  ); } int myAtoi(string s) {  int res = 0;   // 去除左邊空白  ltrim(s);   // 判斷 s[0]，取正負值  bool neg = false;  if (s[0] == '-')  neg = true;  else if (isEnglish(s[0]) || s[0] == '.')  return 0;  else if (isDigit(s[0]))  res += (s[0] - '0');   for (int i = 1; i  s.length(); i++) {  // 終止條件：不再是數字  if (!isDigit(s[i])) break;   // 超出數字範圍  if (neg \u0026\u0026 (res  INT_MIN/10 || (res == INT_MIN/10 \u0026\u0026 s[i] == '9'))) return INT_MIN;  else if (!neg \u0026\u0026 (res  INT_MAX/10 || (res == INT_MAX/10 \u0026\u0026 s[i] = '8'))) return INT_MAX;   // 累計數值  if (neg)  res = 10 * res - (s[i] - '0');  else  res = 10 * res + (s[i] - '0');  }  return res;  }  回目錄 Catalog\n",
+  "articleBody": "8. String to Integer (atoi)\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: String 一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++’s atoi function).\nThe algorithm for myAtoi(string s) is as follows:\nRead in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is '-' or '+'. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present. Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored. Convert these digits into an integer (i.e. \"123\" -\u003e 123, \"0032\" -\u003e 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2). If the integer is out of the 32-bit signed integer range [-2^31, 2^31-1], then clamp the integer so that it remains in the range. Specifically, integers less than -2^31 should be clamped to -2^31, and integer greater than 2^31-1 should be clamped to 2^31-1. Return the integer as the final result. Note:\nOnly the space character ' ' is considered a whitespace character. Do not ignore any characters other than the leading whitespace or the rest of the string after the digits. Example 1:\nInput: s = “42” Output: 42 Explanation: The underlined characters are what is read in, the caret is the current reader position.\nStep 1: “42” (no characters read because there is no leading whitespace) Step 2: “42” (no characters read because there is neither a ‘-’ nor ‘+’)\nStep 3: “42” (“42” is read in)\nThe parsed integer is 42.\nSince 42 is in the range [-2^31, 2^31 - 1], the final result is 42. Example 2:\nInput: s = \" -42\" Output: -42 Explanation:\nStep 1: \" -42\" (leading whitespace is read and ignored)\nStep 2: \" -42\" (’-’ is read, so the result should be negative)\nStep 3: \" -42\" (“42” is read in)\nThe parsed integer is -42.\nSince -42 is in the range [-2^31, 2^31 - 1], the final result is -42. Example 3:\nInput: s = “4193 with words” Output: 4193 Explanation:\nStep 1: “4193 with words” (no characters read because there is no leading whitespace)\nStep 2: “4193 with words” (no characters read because there is neither a ‘-’ nor ‘+’)\nStep 3: “4193 with words” (“4193” is read in; reading stops because the next character is a non-digit)\nThe parsed integer is 4193.\nSince 4193 is in the range [-2^31, 2^31 - 1], the final result is 4193. Constraints:\n0 \u003c= s.length \u003c= 200 s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'. 二、分析 此題只需根據條件一一去排除： 處理 leading spaces 判斷 s[0] 處理超過範圍 [-2^31, 2^31-1] 的數 處理終止條件 可代入幾個處理字串常用的自訂函式： 判斷是否為英文字母 isLetter() bool isLetter(char c) { return (c \u003e= 'a' \u0026\u0026 c \u003c= 'z') || (c \u003e= 'A' \u0026\u0026 c \u003c= 'Z'); } 判斷是否為數字 isDigit() bool isDigit(char c) { return c \u003e= '0' \u0026\u0026 c \u003c= '9'; } 去除左邊空白、右邊空白 ltrim()、rtrim() void ltrim(string\u0026 s) { s.erase( s.begin(), find_if(s.begin(), s.end(), not1(ptr_fun\u003cint, int\u003e(isspace))) ); } void rtrim(string\u0026 s) { s.erase( find_if(s.rbegin(), s.rend(), not1(ptr_fun\u003cint, int\u003e(isspace))).base(), s.end() ); } 分隔 split() vector\u003cstring\u003e split(string\u0026 s, char del) { stringstream ss(str); string item; vector\u003cstring\u003e res; while (getline(ss, item, del)) if (!item.empty()) res.push_back(item); return res; } 合併 concat() string concat(vector\u003cstring\u003e\u0026 svec, char del) { stringstream ss; for (const auto\u0026 s : svec) ss \u003c\u003c s \u003c\u003c del; return ss.str(); } 三、解題 1. String Time complexity: \\(O(n)\\) Space complexity: \\(O(1)\\) // 判斷是否為英文字母 bool isLetter(char c) { return (c \u003e= 'a' \u0026\u0026 c \u003c= 'z') || (c \u003e= 'A' \u0026\u0026 c \u003c= 'Z'); } // 判斷是否為數字 bool isDigit(char c) { return c \u003e= '0' \u0026\u0026 c \u003c= '9'; } // 去除左邊空白 void ltrim(string\u0026 s) { s.erase( s.begin(), find_if(s.begin(), s.end(), not1(ptr_fun\u003cint, int\u003e(isspace))) ); } int myAtoi(string s) { int res = 0; // 去除左邊空白 ltrim(s); // 判斷 s[0]，取正負值 bool neg = false; if (s[0] == '-') neg = true; else if (isEnglish(s[0]) || s[0] == '.') return 0; else if (isDigit(s[0])) res += (s[0] - '0'); for (int i = 1; i \u003c s.length(); i++) { // 終止條件：不再是數字 if (!isDigit(s[i])) break; // 超出數字範圍 if (neg \u0026\u0026 (res \u003c INT_MIN/10 || (res == INT_MIN/10 \u0026\u0026 s[i] == '9'))) return INT_MIN; else if (!neg \u0026\u0026 (res \u003e INT_MAX/10 || (res == INT_MAX/10 \u0026\u0026 s[i] \u003e= '8'))) return INT_MAX; // 累計數值 if (neg) res = 10 * res - (s[i] - '0'); else res = 10 * res + (s[i] - '0'); } return res; } 回目錄 Catalog\n",
   "wordCount" : "775",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-10-26T00:21:56+08:00",
   "dateModified": "2022-10-26T00:21:56+08:00",
   "author":{
@@ -136,14 +159,14 @@ The algorithm for myAtoi(string s) is as follows:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/8/"
+    "@id": "http://localhost:1313/leetcode/8/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -165,17 +188,17 @@ The algorithm for myAtoi(string s) is as follows:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -189,46 +212,46 @@ The algorithm for myAtoi(string s) is as follows:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -236,20 +259,21 @@ The algorithm for myAtoi(string s) is as follows:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Leetcode] 8. String to Integer (atoi)
     </h1>
-    <div class="post-meta"><span title='2022-10-26 00:21:56 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/8.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-10-26 00:21:56 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/8.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -358,7 +382,7 @@ The algorithm for <code>myAtoi(string s)</code> is as follows:</p>
 <li><strong>Output:</strong> 42</li>
 <li><strong>Explanation</strong>: The underlined characters are what is read in, the caret is the current reader position.<br>
 Step 1: &ldquo;42&rdquo; (no characters read because there is no leading whitespace) <br>
-Step 2: &ldquo;42&rdquo; (no characters read because there is neither a &lsquo;-&rsquo; nor &lsquo;+')<br>
+Step 2: &ldquo;42&rdquo; (no characters read because there is neither a &lsquo;-&rsquo; nor &lsquo;+&rsquo;)<br>
 Step 3: &ldquo;42&rdquo; (&ldquo;42&rdquo; is read in)<br>
 The parsed integer is 42.<br>
 Since 42 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is 42.</li>
@@ -369,7 +393,7 @@ Since 42 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is 42.
 <li><strong>Output:</strong> -42</li>
 <li><strong>Explanation</strong>:<br>
 Step 1: &quot;   -42&quot; (leading whitespace is read and ignored)<br>
-Step 2: &quot;   -42&quot; ('-&rsquo; is read, so the result should be negative)<br>
+Step 2: &quot;   -42&quot; (&rsquo;-&rsquo; is read, so the result should be negative)<br>
 Step 3: &quot;   -42&quot; (&ldquo;42&rdquo; is read in)<br>
 The parsed integer is -42.<br>
 Since -42 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is -42.</li>
@@ -380,7 +404,7 @@ Since -42 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is -4
 <li><strong>Output:</strong> 4193</li>
 <li><strong>Explanation:</strong><br>
 Step 1: &ldquo;4193 with words&rdquo; (no characters read because there is no leading whitespace)<br>
-Step 2: &ldquo;4193 with words&rdquo; (no characters read because there is neither a &lsquo;-&rsquo; nor &lsquo;+')<br>
+Step 2: &ldquo;4193 with words&rdquo; (no characters read because there is neither a &lsquo;-&rsquo; nor &lsquo;+&rsquo;)<br>
 Step 3: &ldquo;4193 with words&rdquo; (&ldquo;4193&rdquo; is read in; reading stops because the next character is a non-digit)<br>
 The parsed integer is 4193.<br>
 Since 4193 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is 4193.</li>
@@ -504,7 +528,6 @@ Since 4193 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is 4
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res;
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
 </span></span></code></pre></div><p><a href="/leetcode">回目錄 Catalog</a></p>
 
 
@@ -512,16 +535,16 @@ Since 4193 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is 4
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/9/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/9/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[Leetcode] 9. Palindrome Number</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/7/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/7/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[Leetcode] 7. Reverse Integer</span>
   </a>
@@ -539,11 +562,12 @@ Since 4193 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is 4
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -612,12 +636,12 @@ Since 4193 is in the range <code>[-2^31, 2^31 - 1]</code>, the final result is 4
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

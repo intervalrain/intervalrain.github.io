@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[DXP] Spotfire Extension 擴充程式 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="spotfire, dxp, extension, 擴充" />
+<meta name="keywords" content="spotfire, dxp, extension, 擴充">
 <meta name="description" content="spotfire sdk 介紹">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/dxp/extension/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +74,21 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[DXP] Spotfire Extension 擴充程式" />
-<meta property="og:description" content="spotfire sdk 介紹" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/dxp/extension/" /><meta property="article:section" content="dxp" />
-<meta property="article:published_time" content="2023-06-23T03:03:52&#43;08:00" />
-<meta property="article:modified_time" content="2023-06-23T03:03:52&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[DXP] Spotfire Extension 擴充程式"/>
-<meta name="twitter:description" content="spotfire sdk 介紹"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/dxp/extension/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[DXP] Spotfire Extension 擴充程式">
+  <meta property="og:description" content="spotfire sdk 介紹">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="dxp">
+    <meta property="article:published_time" content="2023-06-23T03:03:52+08:00">
+    <meta property="article:modified_time" content="2023-06-23T03:03:52+08:00">
+    <meta property="article:tag" content="Spotfire">
+    <meta property="article:tag" content="Dxp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[DXP] Spotfire Extension 擴充程式">
+<meta name="twitter:description" content="spotfire sdk 介紹">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +100,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Dxps",
-      "item": "https://intervalrain.github.io/dxp/"
+      "item": "http://localhost:1313/dxp/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[DXP] Spotfire Extension 擴充程式",
-      "item": "https://intervalrain.github.io/dxp/extension/"
+      "item": "http://localhost:1313/dxp/extension/"
     }
   ]
 }
@@ -119,9 +121,9 @@
   "keywords": [
     "spotfire", "dxp", "extension", "擴充"
   ],
-  "articleBody": "Spotfire Extension  Spotfire Extension 是添加到平台的最小功能單元。它是在 Visual Studio® 中開發的，並包含在 Spotfire 外掛中，使版本控制、授權、部署和加載成為可能。本主題描述了開發 Extension 時需要的關鍵概念，以添加自定義功能到 Spotfire 平台。\n Add-in  Extensions 以 add-in 的方式載入 Spotifre 中。Spotfire 處理版本控制、部署及為擴充功能註冊。Spotfire extension 的設計燈南規定每個 add-in 都必須包含一個繼承 AddIn Class 的類別。Add-in 基本上是由在從 SDK 模板創建專案時提供的資訊所定義的。Add-in project 可以包含一或多個 extensions，故專案也可以輕鬆的透過添加其它擴充來建立新的版本。 每個擴充功能都是由一組類別實現的，通常是透過 override base class 來定義擴充類別，並透過覆寫特定擴充類別的方法 Register[ExtensionType]()，宣告式地進行 add-in 的註冊。每個這樣的方法都會傳遞一個 registrar，允許 add-in 在適當的 registry 進行註冊。例如在註冊新的工具(tool)時，必須要 override 方法 RegisterTools(ToolRegister)。在授權擴充功能時也會使用類似的方法。 如果一個模組有有效的模組定義檔案，則被定義為適合在 Spotfire 中載入。它通過定義 AddIn 類別的完全限定類型名稱和組件名稱來向應用程式聲明這個外掛程式。它還聲明了一個唯一的專案GUID和 assembly 的強名稱(string name)。這些組合唯一地識別了專案和外掛程式。因此，Extension assembly 必須使用強名稱金鑰(string name key)文件（.snk）簽名。擴展專案模板包含一個默認金鑰。可以用自己的金鑰文件替換此金鑰文件，但如果這樣做，請務必相應地修改模組定義檔案。  Extesnion Type  IronPython 提供一種輕量的方式，便可在分析本身中添加複雜的行為，無需透過開發工具與部署機制，便可快速的創建小型的應用程序。而當需要創建自定義的功能時，就需要用到 C# 的擴充機制。   Custom Tool  Custom Tool 用於擴充在 Spotfire 中特定文本(context) 上的操作。文本可以是 Spotfire 應用程式(application)本身、檔案庫(document)、或是每個特定的可視化類型(visualization)。 包含 Custom Tool、Custom Export Tool、Custom Share Tool  Custom Panel  Custom Panel 是通用 UI 組件，用於視覺化文本資訊、添加控制項或其它特定的功能。  Custom Visualization  Custom Visualization 可用來擴充 Spotfire 的 Visualization Set，使之可以從 Visualization 選單中、繪圖文本(plot context)清單上、工具列中被選擇，並與其它繪圖工具一樣享有數據集、標記(marking)、與篩選(filtering )功能。  Custom Value Renderer  Custom Value Renderer 用來呈現表格視覺化列中的值。最常見的情況是將數據值轉成圖像，在表格中呈現。  Custom Data Source  Custom Data Source 用來匯入任何自訂的外部資料來源。  Custom Data Function  Custom Data Function 用自定義的公式將文件中的資料進行計算後輸出到文件的其它位置。  Custom Data Tranformation  Custom Data Transformation 在資料讀取和建立表格之間添加了一層，提供在匯入資料前修改資料的方法。資料轉換將一個規則或函數應用於檢索到的資料，以準備進行分析。  Custom Data Writer  Custom Data Writer 用於匯出自定義格式的檔案。  Custom Expression Functions  Custom Expression Functions 可以擴展在自定義表達式和計算列中使用的表達式語言。可以是基於行、列或聚合方法。  Custom Fitting Model  Custom Fitting Model 由 Visualization 的座標和參數計算出值，以繪值對應的參考點或曲線。  Custom Virtual Column  Custom Virtual Column 根據一個或多個現有的列和文件屬性創建新的欄。  Custom Preference  Custom Preference 偏好設定，也稱作 Configuration Sets。  Custom License  Custom License 可用於自訂授權。  Custom Node  Custom Node 可以添加項目到 spotfire document model 中，並序列化到 dxp 文件中。  Custom Application Event Handler  Custom Application Event Handler 可用來監控並回應應用程式事件。  ",
+  "articleBody": "Spotfire Extension Spotfire Extension 是添加到平台的最小功能單元。它是在 Visual Studio® 中開發的，並包含在 Spotfire 外掛中，使版本控制、授權、部署和加載成為可能。本主題描述了開發 Extension 時需要的關鍵概念，以添加自定義功能到 Spotfire 平台。\nAdd-in Extensions 以 add-in 的方式載入 Spotifre 中。Spotfire 處理版本控制、部署及為擴充功能註冊。Spotfire extension 的設計燈南規定每個 add-in 都必須包含一個繼承 AddIn Class 的類別。Add-in 基本上是由在從 SDK 模板創建專案時提供的資訊所定義的。Add-in project 可以包含一或多個 extensions，故專案也可以輕鬆的透過添加其它擴充來建立新的版本。 每個擴充功能都是由一組類別實現的，通常是透過 override base class 來定義擴充類別，並透過覆寫特定擴充類別的方法 Register[ExtensionType]()，宣告式地進行 add-in 的註冊。每個這樣的方法都會傳遞一個 registrar，允許 add-in 在適當的 registry 進行註冊。例如在註冊新的工具(tool)時，必須要 override 方法 RegisterTools(ToolRegister)。在授權擴充功能時也會使用類似的方法。 如果一個模組有有效的模組定義檔案，則被定義為適合在 Spotfire 中載入。它通過定義 AddIn 類別的完全限定類型名稱和組件名稱來向應用程式聲明這個外掛程式。它還聲明了一個唯一的專案GUID和 assembly 的強名稱(string name)。這些組合唯一地識別了專案和外掛程式。因此，Extension assembly 必須使用強名稱金鑰(string name key)文件（.snk）簽名。擴展專案模板包含一個默認金鑰。可以用自己的金鑰文件替換此金鑰文件，但如果這樣做，請務必相應地修改模組定義檔案。 Extesnion Type IronPython 提供一種輕量的方式，便可在分析本身中添加複雜的行為，無需透過開發工具與部署機制，便可快速的創建小型的應用程序。而當需要創建自定義的功能時，就需要用到 C# 的擴充機制。 Custom Tool Custom Tool 用於擴充在 Spotfire 中特定文本(context) 上的操作。文本可以是 Spotfire 應用程式(application)本身、檔案庫(document)、或是每個特定的可視化類型(visualization)。 包含 Custom Tool、Custom Export Tool、Custom Share Tool Custom Panel Custom Panel 是通用 UI 組件，用於視覺化文本資訊、添加控制項或其它特定的功能。 Custom Visualization Custom Visualization 可用來擴充 Spotfire 的 Visualization Set，使之可以從 Visualization 選單中、繪圖文本(plot context)清單上、工具列中被選擇，並與其它繪圖工具一樣享有數據集、標記(marking)、與篩選(filtering )功能。 Custom Value Renderer Custom Value Renderer 用來呈現表格視覺化列中的值。最常見的情況是將數據值轉成圖像，在表格中呈現。 Custom Data Source Custom Data Source 用來匯入任何自訂的外部資料來源。 Custom Data Function Custom Data Function 用自定義的公式將文件中的資料進行計算後輸出到文件的其它位置。 Custom Data Tranformation Custom Data Transformation 在資料讀取和建立表格之間添加了一層，提供在匯入資料前修改資料的方法。資料轉換將一個規則或函數應用於檢索到的資料，以準備進行分析。 Custom Data Writer Custom Data Writer 用於匯出自定義格式的檔案。 Custom Expression Functions Custom Expression Functions 可以擴展在自定義表達式和計算列中使用的表達式語言。可以是基於行、列或聚合方法。 Custom Fitting Model Custom Fitting Model 由 Visualization 的座標和參數計算出值，以繪值對應的參考點或曲線。 Custom Virtual Column Custom Virtual Column 根據一個或多個現有的列和文件屬性創建新的欄。 Custom Preference Custom Preference 偏好設定，也稱作 Configuration Sets。 Custom License Custom License 可用於自訂授權。 Custom Node Custom Node 可以添加項目到 spotfire document model 中，並序列化到 dxp 文件中。 Custom Application Event Handler Custom Application Event Handler 可用來監控並回應應用程式事件。 ",
   "wordCount" : "196",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-06-23T03:03:52+08:00",
   "dateModified": "2023-06-23T03:03:52+08:00",
   "author":{
@@ -130,14 +132,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/dxp/extension/"
+    "@id": "http://localhost:1313/dxp/extension/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +161,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +185,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,23 +232,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/dxp/">Dxps</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/dxp/">Dxps</a></div>
+    <h1 class="post-title entry-hint-parent">
       [DXP] Spotfire Extension 擴充程式
     </h1>
     <div class="post-description">
       spotfire sdk 介紹
     </div>
-    <div class="post-meta"><span title='2023-06-23 03:03:52 +0800 CST'>June 23, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//dxp/extension.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-06-23 03:03:52 +0800 CST'>June 23, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//dxp/extension.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -371,8 +374,7 @@
 <h2 id="extesnion-type">Extesnion Type<a hidden class="anchor" aria-hidden="true" href="#extesnion-type">#</a></h2>
 <ul>
 <li>IronPython 提供一種輕量的方式，便可在分析本身中添加複雜的行為，無需透過開發工具與部署機制，便可快速的創建小型的應用程序。而當需要創建自定義的功能時，就需要用到 C# 的擴充機制。
-<img loading="lazy" src="https://supportinfo.tibco.com/stca/comm/How-to-choose-between-using-IronPython-scripting-and-creating-a-C-Extension-when-developing-for-TIBCO-Spotfire-3.png" alt="extension type"  />
-</li>
+<img alt="extension type" loading="lazy" src="https://supportinfo.tibco.com/stca/comm/How-to-choose-between-using-IronPython-scripting-and-creating-a-C-Extension-when-developing-for-TIBCO-Spotfire-3.png"></li>
 </ul>
 <h3 id="custom-tool">Custom Tool<a hidden class="anchor" aria-hidden="true" href="#custom-tool">#</a></h3>
 <ul>
@@ -441,8 +443,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/spotfire/">spotfire</a></li>
-      <li><a href="https://intervalrain.github.io/tags/dxp/">dxp</a></li>
+      <li><a href="http://localhost:1313/tags/spotfire/">Spotfire</a></li>
+      <li><a href="http://localhost:1313/tags/dxp/">Dxp</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -457,11 +459,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -530,12 +533,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

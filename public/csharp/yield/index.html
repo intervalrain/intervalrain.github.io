@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[C#] Yield Return | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="C#, yield return, IEnumerable, IEnumerator, 迭代器" />
+<meta name="keywords" content="C#, yield return, IEnumerable, IEnumerator, 迭代器">
 <meta name="description" content="Introduction to yield return in C#, and the background of IEnumerable and IEnumerator ">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/csharp/yield/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +74,20 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[C#] Yield Return" />
-<meta property="og:description" content="Introduction to yield return in C#, and the background of IEnumerable and IEnumerator " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/csharp/yield/" /><meta property="article:section" content="Csharp" />
-<meta property="article:published_time" content="2023-01-01T21:40:25&#43;08:00" />
-<meta property="article:modified_time" content="2023-01-01T21:40:25&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[C#] Yield Return"/>
-<meta name="twitter:description" content="Introduction to yield return in C#, and the background of IEnumerable and IEnumerator "/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/csharp/yield/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[C#] Yield Return">
+  <meta property="og:description" content="Introduction to yield return in C#, and the background of IEnumerable and IEnumerator ">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="csharp">
+    <meta property="article:published_time" content="2023-01-01T21:40:25+08:00">
+    <meta property="article:modified_time" content="2023-01-01T21:40:25+08:00">
+    <meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[C#] Yield Return">
+<meta name="twitter:description" content="Introduction to yield return in C#, and the background of IEnumerable and IEnumerator ">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +99,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Csharps",
-      "item": "https://intervalrain.github.io/csharp/"
+      "item": "http://localhost:1313/csharp/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[C#] Yield Return",
-      "item": "https://intervalrain.github.io/csharp/yield/"
+      "item": "http://localhost:1313/csharp/yield/"
     }
   ]
 }
@@ -119,9 +120,9 @@
   "keywords": [
     "C#", "yield return", "IEnumerable", "IEnumerator", "迭代器"
   ],
-  "articleBody": "C# 中的 Yield Return 與 IEnumerable  在使用過 C# 與 Java 兩種語言之後會發現，Java 為了跨平台的特性，鮮少修改 VM 規格，相較 .NET 為了語法簡潔，編譯器往往會做出讓步，也因此 C# 比起 Java 多了許多語法糖。如 delegate 等，在這邊預留一些內容到下一次寫，今天專注於 yield return 與 IEnumerable。\n 起源 為何需要 IEnumerable?  1. 目標：依序印出 1 ~ 100 的數字\n 一般來說，若要做到以上的目標，只需要用到簡單的 for_loop 即可。\nstatic void Main(string[] args) {  for (int i = 1; i 100; i++)  {  Console.Write(\"{0} \", i);  } }  IEnumerable 是什麼？要做什麼用？  IEnumerator 是一種列舉器，它是特化用來專門處理 iteration 的工具。 在 Design Patterns 中有一種設計模式叫作 Iterator，它的目的就是要在：\n不需要知道物件的內部細節，即可依序存取內含的每一個元素。 IEnumerator 物件的實作： public class Enumerator1 : IEnumeratorint {  private int _start;  private int _end;  private int _curr;   public Enumerator1(int start, int end)  {  _start = start;  _end = end;  this.Reset();  }  public int Current  {  get { return this._curr; }  }  public void Dispose()  {  }  object System.Collections.IEnumerator.Current  {  get { return this._curr; }  }   public bool MoveNext()  {  this._curr++;  return !(this._curr  this._end);  }  public void Reset()  {  this._curr = this._start;  } }  於是，我們若要遍歷這個物件的內容，只需要： static void Main(string[] args) {  Enumerator1 e = new Enumerator1(1, 100);  do  {  Console.Write(\"{0} \", e.Current);  } while (e.MoveNext()); }     Iteration/Process 分離  當我們今天不想管 collection 裡每一個物件是怎麼擺的，用什麼結構裝、用什麼邏輯或演算法處理的，只想要依序將安排好的元素拿出來。也就是說，我們想把物件遍歷的(iteration) 與拿到它後要做什麼事(process) 分開，那麼就可以用到 Iterator Pattern。   2. 目標：依序印出 1 ~ 100 中的質數\n 使用一般的 for_loop 來實現的話會是：\n static void Main(string[] args)  {  for (int i = 1; i 100; i++) {  if (isPrime(i)) Console.Write(\"{0} \", i);  }  }  static bool isPrime(int num)  {  if (num 1) return false;  for (int i = 2; i  {  if (num % i == 0) return false;  }  return true;  } 會發現，Iteration 與 Process 已經混在一起。\n那用 IEnumerator 來實作呢?\nclass Test {  public class PrimeEnumerator : IEnumeratorint  {  private int _start;  private int _end;  private int _curr;  private Listint list;   public PrimeEnumerator(int start, int end)  {  _start = start;  _end = end;  this.init();  this.Reset();  }  private void init()  {  list = new Listint();  bool[] arr = new bool[_end+1];  for (int i = 2; i _end; i++)  {  arr[i] = true;  }  for (int i = 2; i _end; i++)  {  if (!arr[i]) continue;  for (int j = 2*i; j _end; j += i)  {  arr[j] = false;  }  }  for (int i = _start; i _end; i++)  {  if (arr[i])  {  list.Add(i);  }  }  }  public int Current  {  get { return this.list[this._curr]; }  }  public void Dispose()  {  }  object System.Collections.IEnumerator.Current  {  get { return this.list[this._curr]; }  }   public bool MoveNext()  {  this._curr++;  return !(this._curr+1  this.list.Count);  }  public void Reset()  {  this._curr = 0;  }  } } 則要遍歷這個物件，跟原本的程式完全一樣：\n static void Main(string[] args)  {  PrimeEnumerator e = new PrimeEnumerator(1, 100);  do {  Console.Write(\"{0} \", e.Current);  } while (e.MoveNext());  } IEnumerable 實作  但是若要作到 Process 與 Iteration 分離，每次都要 Implement IEnumerator，那也太累了吧，於是就有了 IEnumerable 這個語法糖：  class PrimeArray {  static bool isPrime(int num)  {  if (num 1) return false;  for (int i = 2; i  {  if (num % i == 0) return false;  }  return true;  }  static IEnumerableint PrimeEnumerable(int _start, int _end)  {  for (int i = _start; i _end; i++)  {  if (!isPrime(i)) continue;  yield return i;  }  }  static void Main(string[] args)  {  foreach (int i in PrimeEnumerable(1, 100))  {  Console.Write(\"{0} \", i);  }  } } 用以上的寫法，Iterator Patterns 變得非常的精簡，但是使用 yeild 使得違背了原本 function call/return 的概念。但其實如果反組譯其程式碼可以發現，yield return的寫法，其實就是編譯器在編譯的時候，電腦幫你實作了一個 IEnumerator，故事實上就是 C# 送你的一個語法糖。\n",
+  "articleBody": "C# 中的 Yield Return 與 IEnumerable 在使用過 C# 與 Java 兩種語言之後會發現，Java 為了跨平台的特性，鮮少修改 VM 規格，相較 .NET 為了語法簡潔，編譯器往往會做出讓步，也因此 C# 比起 Java 多了許多語法糖。如 delegate 等，在這邊預留一些內容到下一次寫，今天專注於 yield return 與 IEnumerable。\n起源 為何需要 IEnumerable? 1. 目標：依序印出 1 ~ 100 的數字\n一般來說，若要做到以上的目標，只需要用到簡單的 for_loop 即可。\nstatic void Main(string[] args) { for (int i = 1; i \u003c= 100; i++) { Console.Write(\"{0} \", i); } } IEnumerable 是什麼？要做什麼用？ IEnumerator 是一種列舉器，它是特化用來專門處理 iteration 的工具。 在 Design Patterns 中有一種設計模式叫作 Iterator，它的目的就是要在：\n不需要知道物件的內部細節，即可依序存取內含的每一個元素。 IEnumerator 物件的實作： public class Enumerator1 : IEnumerator\u003cint\u003e { private int _start; private int _end; private int _curr; public Enumerator1(int start, int end) { _start = start; _end = end; this.Reset(); } public int Current { get { return this._curr; } } public void Dispose() { } object System.Collections.IEnumerator.Current { get { return this._curr; } } public bool MoveNext() { this._curr++; return !(this._curr \u003e this._end); } public void Reset() { this._curr = this._start; } } 於是，我們若要遍歷這個物件的內容，只需要： static void Main(string[] args) { Enumerator1 e = new Enumerator1(1, 100); do { Console.Write(\"{0} \", e.Current); } while (e.MoveNext()); } Iteration/Process 分離 當我們今天不想管 collection 裡每一個物件是怎麼擺的，用什麼結構裝、用什麼邏輯或演算法處理的，只想要依序將安排好的元素拿出來。也就是說，我們想把物件遍歷的(iteration) 與拿到它後要做什麼事(process) 分開，那麼就可以用到 Iterator Pattern。 2. 目標：依序印出 1 ~ 100 中的質數\n使用一般的 for_loop 來實現的話會是：\nstatic void Main(string[] args) { for (int i = 1; i \u003c= 100; i++) { if (isPrime(i)) Console.Write(\"{0} \", i); } } static bool isPrime(int num) { if (num \u003c= 1) return false; for (int i = 2; i \u003c= Math.Sqrt(num); i++) { if (num % i == 0) return false; } return true; } 會發現，Iteration 與 Process 已經混在一起。\n那用 IEnumerator 來實作呢?\nclass Test { public class PrimeEnumerator : IEnumerator\u003cint\u003e { private int _start; private int _end; private int _curr; private List\u003cint\u003e list; public PrimeEnumerator(int start, int end) { _start = start; _end = end; this.init(); this.Reset(); } private void init() { list = new List\u003cint\u003e(); bool[] arr = new bool[_end+1]; for (int i = 2; i \u003c= _end; i++) { arr[i] = true; } for (int i = 2; i \u003c= _end; i++) { if (!arr[i]) continue; for (int j = 2*i; j \u003c= _end; j += i) { arr[j] = false; } } for (int i = _start; i \u003c= _end; i++) { if (arr[i]) { list.Add(i); } } } public int Current { get { return this.list[this._curr]; } } public void Dispose() { } object System.Collections.IEnumerator.Current { get { return this.list[this._curr]; } } public bool MoveNext() { this._curr++; return !(this._curr+1 \u003e this.list.Count); } public void Reset() { this._curr = 0; } } } 則要遍歷這個物件，跟原本的程式完全一樣：\nstatic void Main(string[] args) { PrimeEnumerator e = new PrimeEnumerator(1, 100); do { Console.Write(\"{0} \", e.Current); } while (e.MoveNext()); } IEnumerable 實作 但是若要作到 Process 與 Iteration 分離，每次都要 Implement IEnumerator，那也太累了吧，於是就有了 IEnumerable 這個語法糖： class PrimeArray { static bool isPrime(int num) { if (num \u003c= 1) return false; for (int i = 2; i \u003c= Math.Sqrt(num); i++) { if (num % i == 0) return false; } return true; } static IEnumerable\u003cint\u003e PrimeEnumerable(int _start, int _end) { for (int i = _start; i \u003c= _end; i++) { if (!isPrime(i)) continue; yield return i; } } static void Main(string[] args) { foreach (int i in PrimeEnumerable(1, 100)) { Console.Write(\"{0} \", i); } } } 用以上的寫法，Iterator Patterns 變得非常的精簡，但是使用 yeild 使得違背了原本 function call/return 的概念。但其實如果反組譯其程式碼可以發現，yield return的寫法，其實就是編譯器在編譯的時候，電腦幫你實作了一個 IEnumerator，故事實上就是 C# 送你的一個語法糖。\n",
   "wordCount" : "522",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-01-01T21:40:25+08:00",
   "dateModified": "2023-01-01T21:40:25+08:00",
   "author":{
@@ -130,14 +131,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/csharp/yield/"
+    "@id": "http://localhost:1313/csharp/yield/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +160,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +184,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,28 +231,29 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/csharp/">Csharps</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/csharp/">Csharps</a></div>
+    <h1 class="post-title entry-hint-parent">
       [C#] Yield Return
     </h1>
     <div class="post-description">
       Introduction to yield return in C#, and the background of IEnumerable and IEnumerator 
     </div>
-    <div class="post-meta"><span title='2023-01-01 21:40:25 +0800 CST'>January 1, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/yield.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-01-01 21:40:25 +0800 CST'>January 1, 2023</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/yield.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
                     <li>
-                        <a href="#c-%e4%b8%ad%e7%9a%84-yield-return-%e8%88%87-ienumerablet" aria-label="C# 中的 Yield Return 與 IEnumerable&amp;lt;T&amp;gt;">C# 中的 Yield Return 與 <code>IEnumerable&lt;T&gt;</code></a><ul>
+                        <a href="#c-%e4%b8%ad%e7%9a%84-yield-return-%e8%88%87-ienumerablet" aria-label="C# 中的 Yield Return 與 IEnumerable&lt;T&gt;">C# 中的 Yield Return 與 <code>IEnumerable&lt;T&gt;</code></a><ul>
                             
                     <li>
                         <a href="#%e8%b5%b7%e6%ba%90" aria-label="起源">起源</a><ul>
@@ -358,36 +360,36 @@
 <li><code>IEnumerator</code> 物件的實作：
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Enumerator1</span> : IEnumerator&lt;<span style="color:#66d9ef">int</span>&gt;
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">_</span>start;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">_</span>end;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">_</span>curr;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> _start;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> _end;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> _curr;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Enumerator1(<span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">int</span> end)
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">_</span>start = start;
-</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">_</span>end = end;
+</span></span><span style="display:flex;"><span>        _start = start;
+</span></span><span style="display:flex;"><span>        _end = end;
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.Reset();
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Current
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>._curr; }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Dispose()
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">object</span> System.Collections.IEnumerator.Current
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>._curr; }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> MoveNext()
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr++;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> !(<span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr &gt; <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>end);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>._curr++;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> !(<span style="color:#66d9ef">this</span>._curr &gt; <span style="color:#66d9ef">this</span>._end);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Reset()
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr = <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>start;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>._curr = <span style="color:#66d9ef">this</span>._start;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></li>
@@ -433,35 +435,35 @@
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrimeEnumerator</span> : IEnumerator&lt;<span style="color:#66d9ef">int</span>&gt;
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">_</span>start;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">_</span>end;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">_</span>curr;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> _start;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> _end;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> _curr;
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> List&lt;<span style="color:#66d9ef">int</span>&gt; list;
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> PrimeEnumerator(<span style="color:#66d9ef">int</span> start, <span style="color:#66d9ef">int</span> end)
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">_</span>start = start;
-</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">_</span>end = end;
+</span></span><span style="display:flex;"><span>            _start = start;
+</span></span><span style="display:flex;"><span>            _end = end;
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#66d9ef">init</span>();
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.Reset();
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#66d9ef">init</span>()
 </span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>            list = <span style="color:#66d9ef">new</span> List&lt;<span style="color:#66d9ef">int</span>&gt;();
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">bool</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span>[<span style="color:#ae81ff">_</span>end+<span style="color:#ae81ff">1</span>];
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">2</span>; i &lt;= <span style="color:#ae81ff">_</span>end; i++) 
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">bool</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span>[_end+<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">2</span>; i &lt;= _end; i++) 
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>                arr[i] = <span style="color:#66d9ef">true</span>;
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">2</span>; i &lt;= <span style="color:#ae81ff">_</span>end; i++)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">2</span>; i &lt;= _end; i++)
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (!arr[i]) <span style="color:#66d9ef">continue</span>;
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j = <span style="color:#ae81ff">2</span>*i; j &lt;= <span style="color:#ae81ff">_</span>end; j += i)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j = <span style="color:#ae81ff">2</span>*i; j &lt;= _end; j += i)
 </span></span><span style="display:flex;"><span>                {
 </span></span><span style="display:flex;"><span>                    arr[j] = <span style="color:#66d9ef">false</span>;
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">_</span>start; i &lt;= <span style="color:#ae81ff">_</span>end; i++)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = _start; i &lt;= _end; i++)
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (arr[i])
 </span></span><span style="display:flex;"><span>                {
@@ -471,24 +473,24 @@
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Current
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.list[<span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr]; }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.list[<span style="color:#66d9ef">this</span>._curr]; }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Dispose()
 </span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">object</span> System.Collections.IEnumerator.Current
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.list[<span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr]; }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.list[<span style="color:#66d9ef">this</span>._curr]; }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> MoveNext()
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr++;
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> !(<span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr+<span style="color:#ae81ff">1</span> &gt; <span style="color:#66d9ef">this</span>.list.Count);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>._curr++;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> !(<span style="color:#66d9ef">this</span>._curr+<span style="color:#ae81ff">1</span> &gt; <span style="color:#66d9ef">this</span>.list.Count);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Reset()
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#ae81ff">_</span>curr = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>._curr = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -515,9 +517,9 @@
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; PrimeEnumerable(<span style="color:#66d9ef">int</span> <span style="color:#ae81ff">_</span>start, <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">_</span>end)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; PrimeEnumerable(<span style="color:#66d9ef">int</span> _start, <span style="color:#66d9ef">int</span> _end)
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">_</span>start; i &lt;= <span style="color:#ae81ff">_</span>end; i++)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = _start; i &lt;= _end; i++)
 </span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (!isPrime(i)) <span style="color:#66d9ef">continue</span>;
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">yield</span> <span style="color:#66d9ef">return</span> i;
@@ -538,7 +540,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/c#/">C#</a></li>
+      <li><a href="http://localhost:1313/tags/c%23/">C#</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -553,11 +555,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -626,12 +629,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

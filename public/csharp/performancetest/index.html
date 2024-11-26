@@ -1,28 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[CS] Sample cost for performance test | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="C#, performance, Diagnostics, Stopwatch" />
-<meta name="description" content="Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks;  namespace Rainspace.PlayGround {  public class Program  {  public static void Main(string[] args)  {  Stopwatch sw = new Stopwatch();  sw.Start();  System.Console.WriteLine(&#34;==============Accumulate1==============&#34;);  System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0));  sw.Stop();  System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;);  sw.">
+<meta name="keywords" content="C#, performance, Diagnostics, Stopwatch">
+<meta name="description" content="Sample code for stop watch
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Data.Common;
+using System.Diagnostics;
+using System.Drawing;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Rainspace.PlayGround
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            System.Console.WriteLine(&#34;==============Accumulate1==============&#34;);
+            System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0));
+            sw.Stop();
+            System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;);
+            sw.Reset();
+            sw.Start();
+            System.Console.WriteLine(&#34;==============Accumulate2==============&#34;);
+            System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0));
+            sw.Stop();
+            System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;);
+        }
+        public static int Accumulate(int begin, int end, int sum = 0)
+        {
+            int res = sum;
+            if (end &lt; begin) return Accumulate(end, begin, sum);
+            for (int i = begin; i &lt; end; i&#43;&#43;) 
+            {
+                res &#43;= i;
+            }
+            return res;
+        }
+        public static int Accumulate2(int begin, int end, int sum = 0)
+        {
+            int res = (begin &#43; end) * (end - begin) / 2;
+            return res &#43; sum;
+        }
+    }
+}
+">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/csharp/performancetest/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +86,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +122,68 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[CS] Sample cost for performance test" />
-<meta property="og:description" content="Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks;  namespace Rainspace.PlayGround {  public class Program  {  public static void Main(string[] args)  {  Stopwatch sw = new Stopwatch();  sw.Start();  System.Console.WriteLine(&#34;==============Accumulate1==============&#34;);  System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0));  sw.Stop();  System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;);  sw." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/csharp/performancetest/" /><meta property="article:section" content="Csharp" />
-<meta property="article:published_time" content="2023-05-16T21:26:24&#43;08:00" />
-<meta property="article:modified_time" content="2023-05-16T21:26:24&#43;08:00" />
+</script><meta property="og:url" content="http://localhost:1313/csharp/performancetest/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[CS] Sample cost for performance test">
+  <meta property="og:description" content="Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks; namespace Rainspace.PlayGround { public class Program { public static void Main(string[] args) { Stopwatch sw = new Stopwatch(); sw.Start(); System.Console.WriteLine(&#34;==============Accumulate1==============&#34;); System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0)); sw.Stop(); System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;); sw.Reset(); sw.Start(); System.Console.WriteLine(&#34;==============Accumulate2==============&#34;); System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0)); sw.Stop(); System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;); } public static int Accumulate(int begin, int end, int sum = 0) { int res = sum; if (end &lt; begin) return Accumulate(end, begin, sum); for (int i = begin; i &lt; end; i&#43;&#43;) { res &#43;= i; } return res; } public static int Accumulate2(int begin, int end, int sum = 0) { int res = (begin &#43; end) * (end - begin) / 2; return res &#43; sum; } } } ">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="csharp">
+    <meta property="article:published_time" content="2023-05-16T21:26:24+08:00">
+    <meta property="article:modified_time" content="2023-05-16T21:26:24+08:00">
+    <meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[CS] Sample cost for performance test">
+<meta name="twitter:description" content="Sample code for stop watch
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Data.Common;
+using System.Diagnostics;
+using System.Drawing;
+using System.Text;
+using System.Threading.Tasks;
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[CS] Sample cost for performance test"/>
-<meta name="twitter:description" content="Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks;  namespace Rainspace.PlayGround {  public class Program  {  public static void Main(string[] args)  {  Stopwatch sw = new Stopwatch();  sw.Start();  System.Console.WriteLine(&#34;==============Accumulate1==============&#34;);  System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0));  sw.Stop();  System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;);  sw."/>
-<meta name="twitter:site" content="@intervalrain"/>
+namespace Rainspace.PlayGround
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            System.Console.WriteLine(&#34;==============Accumulate1==============&#34;);
+            System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0));
+            sw.Stop();
+            System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;);
+            sw.Reset();
+            sw.Start();
+            System.Console.WriteLine(&#34;==============Accumulate2==============&#34;);
+            System.Console.WriteLine(&#34;Result: &#34; &#43; Accumulate(0, 100, 0));
+            sw.Stop();
+            System.Console.WriteLine(&#34;Time cost: &#34; &#43; (sw.ElapsedTicks/1.0e6).ToString() &#43; &#34;ms&#34;);
+        }
+        public static int Accumulate(int begin, int end, int sum = 0)
+        {
+            int res = sum;
+            if (end &lt; begin) return Accumulate(end, begin, sum);
+            for (int i = begin; i &lt; end; i&#43;&#43;) 
+            {
+                res &#43;= i;
+            }
+            return res;
+        }
+        public static int Accumulate2(int begin, int end, int sum = 0)
+        {
+            int res = (begin &#43; end) * (end - begin) / 2;
+            return res &#43; sum;
+        }
+    }
+}
+">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +195,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Csharps",
-      "item": "https://intervalrain.github.io/csharp/"
+      "item": "http://localhost:1313/csharp/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[CS] Sample cost for performance test",
-      "item": "https://intervalrain.github.io/csharp/performancetest/"
+      "item": "http://localhost:1313/csharp/performancetest/"
     }
   ]
 }
@@ -115,13 +212,13 @@
   "@type": "BlogPosting",
   "headline": "[CS] Sample cost for performance test",
   "name": "[CS] Sample cost for performance test",
-  "description": "Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks;  namespace Rainspace.PlayGround {  public class Program  {  public static void Main(string[] args)  {  Stopwatch sw = new Stopwatch();  sw.Start();  System.Console.WriteLine(\u0026#34;==============Accumulate1==============\u0026#34;);  System.Console.WriteLine(\u0026#34;Result: \u0026#34; + Accumulate(0, 100, 0));  sw.Stop();  System.Console.WriteLine(\u0026#34;Time cost: \u0026#34; + (sw.ElapsedTicks/1.0e6).ToString() + \u0026#34;ms\u0026#34;);  sw.",
+  "description": "Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks; namespace Rainspace.PlayGround { public class Program { public static void Main(string[] args) { Stopwatch sw = new Stopwatch(); sw.Start(); System.Console.WriteLine(\u0026#34;==============Accumulate1==============\u0026#34;); System.Console.WriteLine(\u0026#34;Result: \u0026#34; + Accumulate(0, 100, 0)); sw.Stop(); System.Console.WriteLine(\u0026#34;Time cost: \u0026#34; + (sw.ElapsedTicks/1.0e6).ToString() + \u0026#34;ms\u0026#34;); sw.Reset(); sw.Start(); System.Console.WriteLine(\u0026#34;==============Accumulate2==============\u0026#34;); System.Console.WriteLine(\u0026#34;Result: \u0026#34; + Accumulate(0, 100, 0)); sw.Stop(); System.Console.WriteLine(\u0026#34;Time cost: \u0026#34; + (sw.ElapsedTicks/1.0e6).ToString() + \u0026#34;ms\u0026#34;); } public static int Accumulate(int begin, int end, int sum = 0) { int res = sum; if (end \u0026lt; begin) return Accumulate(end, begin, sum); for (int i = begin; i \u0026lt; end; i++) { res += i; } return res; } public static int Accumulate2(int begin, int end, int sum = 0) { int res = (begin + end) * (end - begin) / 2; return res + sum; } } } ",
   "keywords": [
     "C#", "performance", "Diagnostics", "Stopwatch"
   ],
-  "articleBody": "Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks;  namespace Rainspace.PlayGround {  public class Program  {  public static void Main(string[] args)  {  Stopwatch sw = new Stopwatch();  sw.Start();  System.Console.WriteLine(\"==============Accumulate1==============\");  System.Console.WriteLine(\"Result: \" + Accumulate(0, 100, 0));  sw.Stop();  System.Console.WriteLine(\"Time cost: \" + (sw.ElapsedTicks/1.0e6).ToString() + \"ms\");  sw.Reset();  sw.Start();  System.Console.WriteLine(\"==============Accumulate2==============\");  System.Console.WriteLine(\"Result: \" + Accumulate(0, 100, 0));  sw.Stop();  System.Console.WriteLine(\"Time cost: \" + (sw.ElapsedTicks/1.0e6).ToString() + \"ms\");  }  public static int Accumulate(int begin, int end, int sum = 0)  {  int res = sum;  if (end return Accumulate(end, begin, sum);  for (int i = begin; i  {  res += i;  }  return res;  }  public static int Accumulate2(int begin, int end, int sum = 0)  {  int res = (begin + end) * (end - begin) / 2;  return res + sum;  }  } } ",
+  "articleBody": "Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks; namespace Rainspace.PlayGround { public class Program { public static void Main(string[] args) { Stopwatch sw = new Stopwatch(); sw.Start(); System.Console.WriteLine(\"==============Accumulate1==============\"); System.Console.WriteLine(\"Result: \" + Accumulate(0, 100, 0)); sw.Stop(); System.Console.WriteLine(\"Time cost: \" + (sw.ElapsedTicks/1.0e6).ToString() + \"ms\"); sw.Reset(); sw.Start(); System.Console.WriteLine(\"==============Accumulate2==============\"); System.Console.WriteLine(\"Result: \" + Accumulate(0, 100, 0)); sw.Stop(); System.Console.WriteLine(\"Time cost: \" + (sw.ElapsedTicks/1.0e6).ToString() + \"ms\"); } public static int Accumulate(int begin, int end, int sum = 0) { int res = sum; if (end \u003c begin) return Accumulate(end, begin, sum); for (int i = begin; i \u003c end; i++) { res += i; } return res; } public static int Accumulate2(int begin, int end, int sum = 0) { int res = (begin + end) * (end - begin) / 2; return res + sum; } } } ",
   "wordCount" : "149",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-05-16T21:26:24+08:00",
   "dateModified": "2023-05-16T21:26:24+08:00",
   "author":{
@@ -130,14 +227,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/csharp/performancetest/"
+    "@id": "http://localhost:1313/csharp/performancetest/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +256,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +280,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,20 +327,21 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/csharp/">Csharps</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/csharp/">Csharps</a></div>
+    <h1 class="post-title entry-hint-parent">
       [CS] Sample cost for performance test
     </h1>
-    <div class="post-meta"><span title='2023-05-16 21:26:24 +0800 CST'>May 16, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/performanceTest.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-05-16 21:26:24 +0800 CST'>May 16, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/performanceTest.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -369,7 +467,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/c#/">C#</a></li>
+      <li><a href="http://localhost:1313/tags/c%23/">C#</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -384,11 +482,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -457,12 +556,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

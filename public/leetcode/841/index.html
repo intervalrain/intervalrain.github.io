@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 841. Keys and Rooms | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="841. Keys and Rooms
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Depth-First Search、Breadth-First Search、Graph   一、題目 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
-When you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.">
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Depth-First Search、Breadth-First Search、Graph
+
+
+一、題目
+There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
+When you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.
+Given an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i, return true if you can visit all the rooms, or false otherwise.">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/841/">
 <noscript>
     <style>
         #theme-toggle,
@@ -42,7 +47,7 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -75,21 +80,32 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 841. Keys and Rooms" />
-<meta property="og:description" content="841. Keys and Rooms
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Depth-First Search、Breadth-First Search、Graph   一、題目 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
-When you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/841/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-12-20T23:00:22&#43;08:00" />
-<meta property="article:modified_time" content="2022-12-20T23:00:22&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 841. Keys and Rooms"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/841/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 841. Keys and Rooms">
+  <meta property="og:description" content="841. Keys and Rooms
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Depth-First Search、Breadth-First Search、Graph 一、題目 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
+When you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.
+Given an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i, return true if you can visit all the rooms, or false otherwise.">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-12-20T23:00:22+08:00">
+    <meta property="article:modified_time" content="2022-12-20T23:00:22+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 841. Keys and Rooms">
 <meta name="twitter:description" content="841. Keys and Rooms
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Depth-First Search、Breadth-First Search、Graph   一、題目 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
-When you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Depth-First Search、Breadth-First Search、Graph
+
+
+一、題目
+There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.
+When you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.
+Given an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i, return true if you can visit all the rooms, or false otherwise.">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -100,14 +116,8 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 841. Keys and Rooms",
-      "item": "https://intervalrain.github.io/leetcode/841/"
+      "item": "http://localhost:1313/leetcode/841/"
     }
   ]
 }
@@ -118,13 +128,13 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
   "@type": "BlogPosting",
   "headline": "[LeetCode] 841. Keys and Rooms",
   "name": "[LeetCode] 841. Keys and Rooms",
-  "description": "841. Keys and Rooms\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Depth-First Search、Breadth-First Search、Graph   一、題目 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.\nWhen you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.",
+  "description": "841. Keys and Rooms\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Depth-First Search、Breadth-First Search、Graph 一、題目 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.\nWhen you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.\nGiven an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i, return true if you can visit all the rooms, or false otherwise.\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "841. Keys and Rooms\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Depth-First Search、Breadth-First Search、Graph   一、題目 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.\nWhen you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.\nGiven an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i, return true if you can visit all the rooms, or false otherwise.\nExample 1:\n Input: rooms = [[1],[2],[3]] Output: true Explanation: We visit room 0 and pick up key 1.\nWe then visit room 1 and pick up key 2.\nWe then visit room 2 and pick up key 3.\nWe then visit room 3.\nSince we were able to visit every room, we return true.  Example 2:\n Input: rooms = [[1,3],[3,0,1],[2],[0]] Output: false Explanation: We can not enter room number 2 since the only key that unlocks it is in that room.  Constraints:\n n == rooms.length 2  0  1  0  All the values of rooms[i] are unique.   二、分析  典型的 Graph 問題，利用 visited 來記錄拜訪過了沒，並用 BFS 來遍歷整個 Graph，每次拜訪一間新的 room 時，將 key 加入到新的佇列中，看是否能能遍歷整個 graph。  三、解題 1. BFS  Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\)  bool canVisitAllRooms(vectorvectorint\u0026 rooms) {  queueint q;  q.push(0);  int cnt = rooms.size();  vectorbool used(rooms.size(), false);  while (!q.empty()){  int key = q.front();  q.pop();  if (used[key]) continue;  cnt--;  if (cnt == 0) break;  used[key] = true;  for (int next : rooms[key]){  if (used[next]) continue;  q.push(next);  }  }  return cnt == 0; } 回目錄 Catalog\n",
+  "articleBody": "841. Keys and Rooms\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Depth-First Search、Breadth-First Search、Graph 一、題目 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.\nWhen you visit a room, you may find a set of distinct keys in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.\nGiven an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i, return true if you can visit all the rooms, or false otherwise.\nExample 1:\nInput: rooms = [[1],[2],[3]] Output: true Explanation: We visit room 0 and pick up key 1.\nWe then visit room 1 and pick up key 2.\nWe then visit room 2 and pick up key 3.\nWe then visit room 3.\nSince we were able to visit every room, we return true. Example 2:\nInput: rooms = [[1,3],[3,0,1],[2],[0]] Output: false Explanation: We can not enter room number 2 since the only key that unlocks it is in that room. Constraints:\nn == rooms.length 2 \u003c= n \u003c= 1000 0 \u003c= rooms[i].length \u003c= 1000 1 \u003c= sum(rooms[i].length) \u003c= 3000 0 \u003c= rooms[i][j] \u003c n All the values of rooms[i] are unique. 二、分析 典型的 Graph 問題，利用 visited 來記錄拜訪過了沒，並用 BFS 來遍歷整個 Graph，每次拜訪一間新的 room 時，將 key 加入到新的佇列中，看是否能能遍歷整個 graph。 三、解題 1. BFS Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\) bool canVisitAllRooms(vector\u003cvector\u003cint\u003e\u003e\u0026 rooms) { queue\u003cint\u003e q; q.push(0); int cnt = rooms.size(); vector\u003cbool\u003e used(rooms.size(), false); while (!q.empty()){ int key = q.front(); q.pop(); if (used[key]) continue; cnt--; if (cnt == 0) break; used[key] = true; for (int next : rooms[key]){ if (used[next]) continue; q.push(next); } } return cnt == 0; } 回目錄 Catalog\n",
   "wordCount" : "311",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-12-20T23:00:22+08:00",
   "dateModified": "2022-12-20T23:00:22+08:00",
   "author":{
@@ -133,14 +143,14 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/841/"
+    "@id": "http://localhost:1313/leetcode/841/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -162,17 +172,17 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -186,46 +196,46 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -233,20 +243,21 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 841. Keys and Rooms
     </h1>
-    <div class="post-meta"><span title='2022-12-20 23:00:22 +0800 CST'>December 20, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/841.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-12-20 23:00:22 +0800 CST'>December 20, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/841.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -400,16 +411,16 @@ Since we were able to visit every room, we return true.</li>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/790/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/790/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 790. Domino and Tromino Tiling</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/25/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/25/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 25. Reverse Nodes in k-Group</span>
   </a>
@@ -427,11 +438,12 @@ Since we were able to visit every room, we return true.</li>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -500,12 +512,12 @@ Since we were able to visit every room, we return true.</li>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

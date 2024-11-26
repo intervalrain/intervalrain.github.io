@@ -1,27 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Leetcodes | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="" />
-<meta name="description" content="Leetcodes - Rain Hu&#39;s Workspace">
-<meta name="author" content="Rain Hu, intervarrain, 陣雨">
-<link rel="canonical" href="https://intervalrain.github.io/leetcode/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<title>[LeetCode] Catalog | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="Leetcode">
+<meta name="description" content="Catalog
+一、依題號
+1-500(45)
+1. Two Sum
+2. Add Two Numbers
+3. Longest Substring Without Repeating Characters
+4. Median of Two Sorted Array
+5. Longest Palindromic Substring
+6. Zigzag Conversion
+7. Reverse Integer
+8. String to Integer (atoi)
+9. Palindrome Number
+10. Regular Expression Matching
+11. Container With Most Water
+12. Integer to Roman
+13. Roman to Integer
+14. Longest Common Prefix
+15. 3Sum
+16. 3Sum Closet
+17. Letter Combinations of a Phone Number
+18. 4Sum
+19. Remove Nth Node From End of List
+20. Valid Parentheses
+21. Merge Two Sorted Lists
+22. Generate Parentheses
+23. Merge k Sorted Lists
+24. Swap Nodes in Pairs
+25. Reverse Nodes in k-Group
+53. Maximum Subarray
+70. Climbing Stairs
+79. Word Search
+100. Same Tree
+124. Binary Tree Maximum Path Sum
+132. Palindrome Partitioning II
+149. Max Points on a Line
+151. Reverse Words in a String
+198. House Robber
+212. Word Search II
+213. House Robber II
+223. Rectangle Area
+279. Perfect Squares
+290. Word Pattern
+300. Longest Increasing Subsequence
+322. Coin Change
+328. Odd Even Linked List
+337. House Robber III
+347. Top K Frequent Elements
+374. Guess Number Higher or Lower II
+433. Minimum Genetic Mutation
+446. Arithmetic Slices II - Subsequence
+452. Minimum Number of Arrows to Burst Balloons">
+<meta name="author" content="Rain Hu">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://intervalrain.github.io/leetcode/index.xml">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/">
 <noscript>
     <style>
         #theme-toggle,
@@ -39,7 +88,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -59,6 +108,11 @@
 
     </style>
 </noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
 
 <script src="https://utteranc.es/client.js"
     repo="intervalrain.github.io"
@@ -67,15 +121,116 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="Leetcodes" />
-<meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Leetcodes"/>
-<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] Catalog">
+  <meta property="og:description" content="Catalog 一、依題號 1-500(45) 1. Two Sum
+2. Add Two Numbers
+3. Longest Substring Without Repeating Characters
+4. Median of Two Sorted Array
+5. Longest Palindromic Substring
+6. Zigzag Conversion
+7. Reverse Integer
+8. String to Integer (atoi)
+9. Palindrome Number
+10. Regular Expression Matching
+11. Container With Most Water
+12. Integer to Roman
+13. Roman to Integer
+14. Longest Common Prefix
+15. 3Sum
+16. 3Sum Closet
+17. Letter Combinations of a Phone Number
+18. 4Sum
+19. Remove Nth Node From End of List
+20. Valid Parentheses
+21. Merge Two Sorted Lists
+22. Generate Parentheses
+23. Merge k Sorted Lists
+24. Swap Nodes in Pairs
+25. Reverse Nodes in k-Group
+53. Maximum Subarray
+70. Climbing Stairs
+79. Word Search
+100. Same Tree
+124. Binary Tree Maximum Path Sum
+132. Palindrome Partitioning II
+149. Max Points on a Line
+151. Reverse Words in a String
+198. House Robber
+212. Word Search II
+213. House Robber II
+223. Rectangle Area
+279. Perfect Squares
+290. Word Pattern
+300. Longest Increasing Subsequence
+322. Coin Change
+328. Odd Even Linked List
+337. House Robber III
+347. Top K Frequent Elements
+374. Guess Number Higher or Lower II
+433. Minimum Genetic Mutation
+446. Arithmetic Slices II - Subsequence
+452. Minimum Number of Arrows to Burst Balloons">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2022-10-25T11:30:32+08:00">
+    <meta property="article:modified_time" content="2022-10-25T11:30:32+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] Catalog">
+<meta name="twitter:description" content="Catalog
+一、依題號
+1-500(45)
+1. Two Sum
+2. Add Two Numbers
+3. Longest Substring Without Repeating Characters
+4. Median of Two Sorted Array
+5. Longest Palindromic Substring
+6. Zigzag Conversion
+7. Reverse Integer
+8. String to Integer (atoi)
+9. Palindrome Number
+10. Regular Expression Matching
+11. Container With Most Water
+12. Integer to Roman
+13. Roman to Integer
+14. Longest Common Prefix
+15. 3Sum
+16. 3Sum Closet
+17. Letter Combinations of a Phone Number
+18. 4Sum
+19. Remove Nth Node From End of List
+20. Valid Parentheses
+21. Merge Two Sorted Lists
+22. Generate Parentheses
+23. Merge k Sorted Lists
+24. Swap Nodes in Pairs
+25. Reverse Nodes in k-Group
+53. Maximum Subarray
+70. Climbing Stairs
+79. Word Search
+100. Same Tree
+124. Binary Tree Maximum Path Sum
+132. Palindrome Partitioning II
+149. Max Points on a Line
+151. Reverse Words in a String
+198. House Robber
+212. Word Search II
+213. House Robber II
+223. Rectangle Area
+279. Perfect Squares
+290. Word Pattern
+300. Longest Increasing Subsequence
+322. Coin Change
+328. Odd Even Linked List
+337. House Robber III
+347. Top K Frequent Elements
+374. Guess Number Higher or Lower II
+433. Minimum Genetic Mutation
+446. Arithmetic Slices II - Subsequence
+452. Minimum Number of Arrows to Burst Balloons">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -86,15 +241,48 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
+      "name": "[LeetCode] Catalog",
+      "item": "http://localhost:1313/leetcode/"
     }
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[LeetCode] Catalog",
+  "name": "[LeetCode] Catalog",
+  "description": "Catalog 一、依題號 1-500(45) 1. Two Sum\n2. Add Two Numbers\n3. Longest Substring Without Repeating Characters\n4. Median of Two Sorted Array\n5. Longest Palindromic Substring\n6. Zigzag Conversion\n7. Reverse Integer\n8. String to Integer (atoi)\n9. Palindrome Number\n10. Regular Expression Matching\n11. Container With Most Water\n12. Integer to Roman\n13. Roman to Integer\n14. Longest Common Prefix\n15. 3Sum\n16. 3Sum Closet\n17. Letter Combinations of a Phone Number\n18. 4Sum\n19. Remove Nth Node From End of List\n20. Valid Parentheses\n21. Merge Two Sorted Lists\n22. Generate Parentheses\n23. Merge k Sorted Lists\n24. Swap Nodes in Pairs\n25. Reverse Nodes in k-Group\n53. Maximum Subarray\n70. Climbing Stairs\n79. Word Search\n100. Same Tree\n124. Binary Tree Maximum Path Sum\n132. Palindrome Partitioning II\n149. Max Points on a Line\n151. Reverse Words in a String\n198. House Robber\n212. Word Search II\n213. House Robber II\n223. Rectangle Area\n279. Perfect Squares\n290. Word Pattern\n300. Longest Increasing Subsequence\n322. Coin Change\n328. Odd Even Linked List\n337. House Robber III\n347. Top K Frequent Elements\n374. Guess Number Higher or Lower II\n433. Minimum Genetic Mutation\n446. Arithmetic Slices II - Subsequence\n452. Minimum Number of Arrows to Burst Balloons\n",
+  "keywords": [
+    "Leetcode"
+  ],
+  "articleBody": "Catalog 一、依題號 1-500(45) 1. Two Sum\n2. Add Two Numbers\n3. Longest Substring Without Repeating Characters\n4. Median of Two Sorted Array\n5. Longest Palindromic Substring\n6. Zigzag Conversion\n7. Reverse Integer\n8. String to Integer (atoi)\n9. Palindrome Number\n10. Regular Expression Matching\n11. Container With Most Water\n12. Integer to Roman\n13. Roman to Integer\n14. Longest Common Prefix\n15. 3Sum\n16. 3Sum Closet\n17. Letter Combinations of a Phone Number\n18. 4Sum\n19. Remove Nth Node From End of List\n20. Valid Parentheses\n21. Merge Two Sorted Lists\n22. Generate Parentheses\n23. Merge k Sorted Lists\n24. Swap Nodes in Pairs\n25. Reverse Nodes in k-Group\n53. Maximum Subarray\n70. Climbing Stairs\n79. Word Search\n100. Same Tree\n124. Binary Tree Maximum Path Sum\n132. Palindrome Partitioning II\n149. Max Points on a Line\n151. Reverse Words in a String\n198. House Robber\n212. Word Search II\n213. House Robber II\n223. Rectangle Area\n279. Perfect Squares\n290. Word Pattern\n300. Longest Increasing Subsequence\n322. Coin Change\n328. Odd Even Linked List\n337. House Robber III\n347. Top K Frequent Elements\n374. Guess Number Higher or Lower II\n433. Minimum Genetic Mutation\n446. Arithmetic Slices II - Subsequence\n452. Minimum Number of Arrows to Burst Balloons\n501-1000(14) 520. Detect Capital\n587. Erect the Fence\n766. Toeplitz Matrix\n790. Domino and Tromino Tiling\n835. Image Overlap\n841. Keys and Rooms\n872. Leaf-Similar Trees\n901. Online Stock Span\n918. Maximum Sum Circular Subarray\n926. Flip String to Monotone Increasing\n931. Minimum Falling Path Sum\n938. Range Sum of BST\n944. Delete Columns to Make Sorted\n947. Most Stones Removed with Same Row or Column\n1001-1500(7) 1026. Maximum Difference Between Node and Ancestor\n1047. Remove All Adjacent Duplicates In String\n1143. Longest Common Subsequence\n1235. Maximum Profit in Job Scheduling\n1293. Shortest Path in a Grid with Obstacles Elimination\n1323. Maximum 69 Number\n1339. Maximum Product of Splitted Binary Tree\n1501-2000(6) 1519. Number of Nodes in the Sub-Tree With the Same Label\n1544. Make The String Great\n1706. Where Will the Ball Fall\n1834. Single-Threaded CPU\n1926. Nearest Exit from Entrance in Maze\n1962. Remove Stones to Minimize the Total\n2001-2500(21) 2131. Longest Palindrome by Concatenating Two Letter Words\n2136. Earliest Possible Day of Full Bloom\n2279. Maximum Bags With Full Capacity of Rocks\n2389. Longest Subsequence With Limited Sum\n2460. Apply Operations to an Array\n2461. Maximum Sum of Distinct Subarrays With Length K\n2462. Total Cost to Hire K\n2463. Minimum Total Distance Traveled\n2465. Number of Distinct Averages\n2466. Count Ways To Build Good Strings\n2467. Most Profitable Path in a Tree\n2468. Split Message Based on Limit\n2469. Convert the Temperature\n2470. Number of Subarrays With LCM Equal to K\n2471. Minimum Number of Operations to Sort a Binary Tree by Level\n2472. Maximum Number of Non-overlapping Palindrome Substrings\n2485. Find the Pivot Integer\n2486. Accept Characters to String to Make Subsequence\n2487. Remove Nodes From Linked List\n2488. Count Subarrays With Median K\n2500. Delete Greatest Value in Each Row\n2501-3000(5) 2501. Longest Square Streak in an Array\n2520. Count the Digits That Divide a Number\n2521. Distinct Prime Factors of Product of Array\n2522. Partition String Into Substrings With Values at Most K\n2523. Closest Prime Numbers in Range\n二、依難度 Easy(24) 1. Two Sum\n9. Palindrome Number\n13. Roman to Integer\n14. Longest Common Prefix\n20. Valid Parentheses\n21. Merge Two Sorted Lists\n70. Climbing Stairs\n100. Same Tree\n374. Guess Number Higher or Lower II\n520. Detect Capital\n766. Toeplitz Matrix\n872. Leaf-Similar Trees\n938. Range Sum of BST\n944. Delete Columns to Make Sorted\n1047. Remove All Adjacent Duplicates In String\n1323. Maximum 69 Number\n1544. Make The String Great\n2389. Longest Subsequence With Limited Sum\n2460. Apply Operations to an Array\n2465. Number of Distinct Averages\n2469. Convert the Temperature\n2485. Find the Pivot Integer\n2500. Delete Greatest Value in Each Row\n2520. Count the Digits That Divide a Number\nMedium(59) 2. Add Two Numbers\n3. Longest Substring Without Repeating Characters\n5. Longest Palindromic Substring\n6. Zigzag Conversion\n7. Reverse Integer\n8. String to Integer (atoi)\n11. Container With Most Water\n12. Integer to Roman\n15. 3Sum\n16. 3Sum Closet\n17. Letter Combinations of a Phone Number\n18. 4Sum\n19. Remove Nth Node From End of List\n22. Generate Parentheses\n24. Swap Nodes in Pairs\n53. Maximum Subarray\n79. Word Search\n151. Reverse Words in a String\n198. House Robber\n213. House Robber II\n223. Rectangle Area\n279. Perfect Squares\n300. Longest Increasing Subsequence\n322. Coin Change\n328. Odd Even Linked List\n337. House Robber III\n347. Top K Frequent Elements\n433. Minimum Genetic Mutation\n452. Minimum Number of Arrows to Burst Balloons\n790. Domino and Tromino Tiling\n835. Image Overlap\n841. Keys and Rooms\n901. Online Stock Span\n918. Maximum Sum Circular Subarray\n926. Flip String to Monotone Increasing\n931. Minimum Falling Path Sum\n947. Most Stones Removed with Same Row or Column\n1026. Maximum Difference Between Node and Ancestor\n1143. Longest Common Subsequence\n1339. Maximum Product of Splitted Binary Tree\n1519. Number of Nodes in the Sub-Tree With the Same Label\n1706. Where Will the Ball Fall\n1834. Single-Threaded CPU\n1926. Nearest Exit from Entrance in Maze\n1962. Remove Stones to Minimize the Total\n2131. Longest Palindrome by Concatenating Two Letter Words\n2279. Maximum Bags With Full Capacity of Rocks\n2461. Maximum Sum of Distinct Subarrays With Length K\n2462. Total Cost to Hire K\n2466. Count Ways To Build Good Strings\n2467. Most Profitable Path in a Tree\n2470. Number of Subarrays With LCM Equal to K\n2471. Minimum Number of Operations to Sort a Binary Tree by Level\n2486. Accept Characters to String to Make Subsequence\n2487. Remove Nodes From Linked List\n2501. Longest Square Streak in an Array\n2521. Distinct Prime Factors of Product of Array\n2522. Partition String Into Substrings With Values at Most K\n2523. Closest Prime Numbers in Range\nHard(17) 4. Median of Two Sorted Array\n10. Regular Expression Matching\n23. Merge k Sorted Lists\n25. Reverse Nodes in k-Group\n124. Binary Tree Maximum Path Sum\n132. Palindrome Partitioning II\n149. Max Points on a Line\n212. Word Search II\n446. Arithmetic Slices II - Subsequence\n587. Erect the Fence\n1235. Maximum Profit in Job Scheduling\n1293. Shortest Path in a Grid with Obstacles Elimination\n2136. Earliest Possible Day of Full Bloom\n2463. Minimum Total Distance Traveled\n2468. Split Message Based on Limit\n2472. Maximum Number of Non-overlapping Palindrome Substrings\n2488. Count Subarrays With Median K\n三、依分類 Array(43) 1. Two Sum\n4. Median of Two Sorted Array\n11. Container With Most Water\n15. 3Sum\n16. 3Sum Closet\n18. 4Sum\n53. Maximum Subarray\n79. Word Search\n149. Max Points on a Line\n198. House Robber\n212. Word Search II\n213. House Robber II\n300. Longest Increasing Subsequence\n322. Coin Change\n347. Top K Frequent Elements\n446. Arithmetic Slices II - Subsequence\n452. Minimum Number of Arrows to Burst Balloons\n587. Erect the Fence\n766. Toeplitz Matrix\n835. Image Overlap\n918. Maximum Sum Circular Subarray\n931. Minimum Falling Path Sum\n944. Delete Columns to Make Sorted\n1235. Maximum Profit in Job Scheduling\n1293. Shortest Path in a Grid with Obstacles Elimination\n1706. Where Will the Ball Fall\n1834. Single-Threaded CPU\n1926. Nearest Exit from Entrance in Maze\n1962. Remove Stones to Minimize the Total\n2131. Longest Palindrome by Concatenating Two Letter Words\n2136. Earliest Possible Day of Full Bloom\n2279. Maximum Bags With Full Capacity of Rocks\n2389. Longest Subsequence With Limited Sum\n2460. Apply Operations to an Array\n2461. Maximum Sum of Distinct Subarrays With Length K\n2462. Total Cost to Hire K\n2463. Minimum Total Distance Traveled\n2465. Number of Distinct Averages\n2467. Most Profitable Path in a Tree\n2470. Number of Subarrays With LCM Equal to K\n2488. Count Subarrays With Median K\n2500. Delete Greatest Value in Each Row\n2501. Longest Square Streak in an Array\nBacktracking(4) 17. Letter Combinations of a Phone Number\n22. Generate Parentheses\n79. Word Search\n212. Word Search II\nBinary Search(7) 4. Median of Two Sorted Array\n300. Longest Increasing Subsequence\n374. Guess Number Higher or Lower II\n1235. Maximum Profit in Job Scheduling\n2389. Longest Subsequence With Limited Sum\n2468. Split Message Based on Limit\n2501. Longest Square Streak in an Array\nBinary Search Tree(1) 938. Range Sum of BST\nBinary Tree(8) 100. Same Tree\n124. Binary Tree Maximum Path Sum\n337. House Robber III\n938. Range Sum of BST\n872. Leaf-Similar Trees\n1026. Maximum Difference Between Node and Ancestor\n1339. Maximum Product of Splitted Binary Tree\n2471. Minimum Number of Operations to Sort a Binary Tree by Level\nBreadth-First Search(10) 100. Same Tree\n279. Perfect Squares\n322. Coin Change\n433. Minimum Genetic Mutation\n841. Keys and Rooms\n1293. Shortest Path in a Grid with Obstacles Elimination\n1519. Number of Nodes in the Sub-Tree With the Same Label\n1926. Nearest Exit from Entrance in Maze\n2467. Most Profitable Path in a Tree\n2471. Minimum Number of Operations to Sort a Binary Tree by Level\nBucket Sort(1) 347. Top K Frequent Elements\nCounting(3) 347. Top K Frequent Elements\n1519. Number of Nodes in the Sub-Tree With the Same Label\n2131. Longest Palindrome by Concatenating Two Letter Words\nData Stream(1) 901. Online Stock Span\nDepth-First Search(12) 100. Same Tree\n124. Binary Tree Maximum Path Sum\n337. House Robber III\n841. Keys and Rooms\n872. Leaf-Similar Trees\n938. Range Sum of BST\n947. Most Stones Removed with Same Row or Column\n1026. Maximum Difference Between Node and Ancestor\n1339. Maximum Product of Splitted Binary Tree\n1519. Number of Nodes in the Sub-Tree With the Same Label\n1706. Where Will the Ball Fall\n2467. Most Profitable Path in a Tree\nDesign(1) 901. Online Stock Span\nDivide and Conquer(5) 4. Median of Two Sorted Array\n23. Merge k Sorted Lists\n53. Maximum Subarray\n347. Top K Frequent Elements\n918. Maximum Sum Circular Subarray\nDynamic Programming(25) 5. Longest Palindromic Substring\n10. Regular Expression Matching\n22. Generate Parentheses\n53. Maximum Subarray\n70. Climbing Stairs\n124. Binary Tree Maximum Path Sum\n132. Palindrome Partitioning II\n198. House Robber\n213. House Robber II\n279. Perfect Squares\n300. Longest Increasing Subsequence\n322. Coin Change\n337. House Robber III\n446. Arithmetic Slices II - Subsequence\n790. Domino and Tromino Tiling\n918. Maximum Sum Circular Subarray\n926. Flip String to Monotone Increasing\n931. Minimum Falling Path Sum\n1143. Longest Common Subsequence\n1235. Maximum Profit in Job Scheduling\n1706. Where Will the Ball Fall\n2463. minimum Total Distance Traveled\n2466. Count Ways To Build Good Strings\n2472. Maximum Number of Non-overlapping Palindrome Substrings\n2501. Longest Square Streak in an Array\nGeometry(3) 149. Max Points on a Line\n223. Rectangle Area\n587. Erect the Fence\nGraph(3) 841. Keys and Rooms\n947. Most Stones Removed with Same Row or Column\n2467. Most Profitable Path in a Tree\nGreedy(8) 11. Container With Most Water\n452. Minimum Number of Arrows to Burst Balloons\n1323. Maximum 69 Number\n2131. Longest Palindrome by Concatenating Two Letter Words\n2136. Earliest Possible Day of Full Bloom\n2279. Maximum Bags With Full Capacity of Rocks\n2389. Longest Subsequence With Limited Sum\n2486. Accept Characters to String to Make Subsequence\nHash Table(15) 1. Two Sum\n3. Longest Substring Without Repeating Characters\n12. Integer to Roman\n13. Roman to Integer\n17. Letter Combinations of a Phone Number\n149. Max Points on a Line\n290. Word Pattern\n347. Top K Frequent Elements\n433. Minimum Genetic Mutation\n1519. Number of Nodes in the Sub-Tree With the Same Label\n2131. Longest Palindrome by Concatenating Two Letter Words\n2461. Maximum Sum of Distinct Subarrays With Length K\n2465. Number of Distinct Averages\n2488. Count Subarrays With Median K\n2501. Longest Square Streak in an Array\nHeap (Priority Queue)(5) 23. Merge k Sorted Lists\n347. Top K Frequent Elements\n1834. Single-Threaded CPU\n1962. Remove Stones to Minimize the Total\n2462. Total Cost to Hire K\nInteractive(1) 374. Guess Number Higher or Lower II\nLinked List(8) 2. Add Two Numbers\n19. Remove Nth Node From End of List\n21. Merge Two Sorted Lists\n23. Merge k Sorted Lists\n24. Swap Nodes in Pairs\n25. Reverse Nodes in k-Group\n328. Odd Even Linked List\n2487. Remove Nodes From Linked List\nMath(14) 2. Add Two Numbers\n7. Reverse Integer\n9. Palindrome Number\n12. Integer to Roman\n13. Roman to Integer\n70. Climbing Stairs\n149. Max Points on a Line\n223. Rectangle Area\n279. Perfect Squares\n587. Erect the Fence\n1323. Maximum 69 Number\n2469. Convert the Temperature\n2470. Number of Subarrays With LCM Equal to K\n2485. Find the Pivot Integer\nMatrix(9) 79. Word Search\n212. Word Search II\n766. Toeplitz Matrix\n835. Image Overlap\n931. Minimum Falling Path Sum\n1293. Shortest Path in a Grid with Obstacles Elimination\n1706. Where Will the Ball Fall\n1926. Nearest Exit from Entrance in Maze\n2500. Delete Greatest Value in Each Row\nMemoization(1) 70. Climbing Stairs\nMerge Sort(1) 23. Merge k Sorted Lists\nMonotonic Stack(2) 901. Online Stock Span\n2487. Remove Nodes From Linked List\nMonotonic Queue(1) 918. Maximum Sum Circular Subarray\nNumber Theory(1) 2470. Number of Subarrays With LCM Equal to K\nPrefix Sum(3) 2389. Longest Subsequence With Limited Sum\n2485. Find the Pivot Integer\n2488. Count Subarrays With Median K\nQueue(1) 918. Maximum Sum Circular Subarray\nQuickselect(1) 347. Top K Frequent Elements\nRecursion(6) 2. Add Two Numbers\n10. Regular Expression Matching\n21. Merge Two Sorted Lists\n24. Swap Nodes in Pairs\n25. Reverse Nodes in k-Group\n2487. Remove Nodes From Linked List\nSimulation(3) 1706. Where Will the Ball Fall\n2460. Apply Operations to an Array\n2462. Total Cost to Hire K\nSliding Window(2) 3. Longest Substring Without Repeating Characters\n2461. Maximum Sum of Distinct Subarrays With Length K\nSorting(14) 15. 3Sum\n16. 3Sum Closet\n18. 4Sum\n347. Top K Frequent Elements\n452. Minimum Number of Arrows to Burst Balloons\n1235. Maximum Profit in Job Scheduling\n1834. Single-Threaded CPU\n2136. Earliest Possible Day of Full Bloom\n2279. Maximum Bags With Full Capacity of Rocks\n2389. Longest Subsequence With Limited Sum\n2463. Minimum Total Distance Traveled\n2465. Number of Distinct Averages\n2500. Delete Greatest Value in Each Row\n2501. Longest Square Streak in an Array\nStack(5) 20. Valid Parentheses\n901. Online Stock Span\n1047. Remove All Adjacent Duplicates In String\n1544. Make The String Great\n2487. Remove Nodes From Linked List\nString(26) 3. Longest Substring Without Repeating Characters\n5. Longest Palindromic Substring\n6. Zigzag Conversion\n8. String to Integer (atoi)\n10. Regular Expression Matching\n12. Integer to Roman\n13. Roman to Integer\n14. Longest Common Prefix\n17. Letter Combinations of a Phone Number\n20. Valid Parentheses\n22. Generate Parentheses\n132. Palindrome Partitioning II\n151. Reverse Words in a String\n212. Word Search II\n290. Word Pattern\n433. Minimum Genetic Mutation\n520. Detect Capital\n926. Flip String to Monotone Increasing\n944. Delete Columns to Make Sorted\n1047. Remove All Adjacent Duplicates In String\n1143. Longest Common Subsequence\n1544. Make The String Great\n2131. Longest Palindrome by Concatenating Two Letter Words\n2468. Split Message Based on Limit\n2472. Maximum Number of Non-overlapping Palindrome Substrings\n2486. Accept Characters to String to Make Subsequence\nTree(10) 100. Same Tree\n124. Binary Tree Maximum Path Sum\n337. House Robber III\n872. Leaf-Similar Trees\n938. Range Sum of BST\n1026. Maximum Difference Between Node and Ancestor\n1339. Maximum Product of Splitted Binary Tree\n1519. Number of Nodes in the Sub-Tree With the Same Label\n2467. Most Profitable Path in a Tree\n2471. Minimum Number of Operations to Sort a Binary Tree by Level\nTrie(1) 212. Word Search II\nTwo Pointer(9) 11. Container With Most Water\n15. 3Sum\n16. 3Sum Closet\n18. 4Sum\n19. Remove Nth Node From End of List\n151. Reverse Words in a String\n2462. Total Cost to Hire K\n2465. Number of Distinct Averages\n2486. Accept Characters to String to Make Subsequence\nUnion Find(1) 947. Most Stones Removed with Same Row or Column\n",
+  "wordCount" : "2629",
+  "inLanguage": "zh-tw",
+  "datePublished": "2022-10-25T11:30:32+08:00",
+  "dateModified": "2022-10-25T11:30:32+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Rain Hu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/leetcode/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rain Hu's Workspace",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/images/rain.png"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -109,17 +297,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -133,221 +321,808 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span class="active">LeetCode</span>
                 </a>
             </li>
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a></div>
-  <h1>Leetcodes</h1>
-</header>
+<main class="main">
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[Leetcode] Arrangement
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>   題號 題目 類別 題解     1 Two Sum Hash Table Hash Table   2 Add Two numbers Linked List Recursion   201 Bitwise AND of Numbers Range Bitwise Operation Lowbit = x&amp;(~x&#43;1)   204 Count Primes Math Thetory The Sieve of Eratosthenes   408 Valid Word Abbreviation Two Pointers 字串轉數字    </p>
-  </section>
-  <footer class="entry-footer"><span title='2023-10-06 16:30:47 +0800 CST'>October 6, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [Leetcode] Arrangement" href="https://intervalrain.github.io/leetcode/summary/"></a>
-</article>
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [LeetCode] Catalog
+    </h1>
+    <div class="post-meta"><span title='2022-10-25 11:30:32 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;13 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 132. Palindrome Partitioning II
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>132. Palindrome Partitioning II
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: string, dynamic programming   一、題目 Given a string s, partition s such that every substring of the partition is a palindrome.
-Return the minimum cuts needed for a palindrome partitioning of s.
-Example 1:
- Input: s = “aab” Output: 1 Explanation: The palindrome partitioning [“aa”, “b”] could be produced using 1 cut.  Example 2:
- Input: s = “a” Output: 0  Example 3:...</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-03-18 16:10:36 +0800 CST'>March 18, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 132. Palindrome Partitioning II" href="https://intervalrain.github.io/leetcode/132/"></a>
-</article>
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目錄</span>
+            </summary>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 491. Non-decreasing Subsequences
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>491. Non-decreasing Subsequences
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Backtracking、Bit Manipulation   一、題目 Given an integer array nums, return all the different possible non-decreasing subsequences of the given array with at least two elements. You may return the answer in any order.
-Example 1:
- Input: nums = [4,6,7,7] Output: [[4,6],[4,6,7],[4,6,7,7],[4,7],[4,7,7],[6,7],[6,7,7],[7,7]] Explanation:  Example 2:
- Input: nums = [4,4,3,2,1] Output: [[4,4]]  Constraints:
-  &lt;= nums.length &lt;= 15 -100 &lt;= nums[i] &lt;= 100   二、分析  這一很典型的是一個 backtrack 的問題，只要熟悉回溯法的框架並注意終止條件與處理重覆子序列即可。 終止條件為 i == nums....</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-01-20 21:39:50 +0800 CST'>January 20, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 491. Non-decreasing Subsequences" href="https://intervalrain.github.io/leetcode/491/"></a>
-</article>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#catalog" aria-label="Catalog"><strong>Catalog</strong></a></li>
+                    <li>
+                        <a href="#%e4%b8%80%e4%be%9d%e9%a1%8c%e8%99%9f" aria-label="一、依題號">一、依題號</a><ul>
+                            
+                    <li>
+                        <a href="#1-50045" aria-label="1-500(45)">1-500(45)</a></li>
+                    <li>
+                        <a href="#501-100014" aria-label="501-1000(14)">501-1000(14)</a></li>
+                    <li>
+                        <a href="#1001-15007" aria-label="1001-1500(7)">1001-1500(7)</a></li>
+                    <li>
+                        <a href="#1501-20006" aria-label="1501-2000(6)">1501-2000(6)</a></li>
+                    <li>
+                        <a href="#2001-250021" aria-label="2001-2500(21)">2001-2500(21)</a></li>
+                    <li>
+                        <a href="#2501-30005" aria-label="2501-3000(5)">2501-3000(5)</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e4%ba%8c%e4%be%9d%e9%9b%a3%e5%ba%a6" aria-label="二、依難度">二、依難度</a><ul>
+                            
+                    <li>
+                        <a href="#easy24" aria-label="Easy(24)">Easy(24)</a></li>
+                    <li>
+                        <a href="#medium59" aria-label="Medium(59)">Medium(59)</a></li>
+                    <li>
+                        <a href="#hard17" aria-label="Hard(17)">Hard(17)</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e4%b8%89%e4%be%9d%e5%88%86%e9%a1%9e" aria-label="三、依分類">三、依分類</a><ul>
+                            
+                    <li>
+                        <a href="#array43" aria-label="Array(43)">Array(43)</a></li>
+                    <li>
+                        <a href="#backtracking4" aria-label="Backtracking(4)">Backtracking(4)</a></li>
+                    <li>
+                        <a href="#binary-search7" aria-label="Binary Search(7)">Binary Search(7)</a></li>
+                    <li>
+                        <a href="#binary-search-tree1" aria-label="Binary Search Tree(1)">Binary Search Tree(1)</a></li>
+                    <li>
+                        <a href="#binary-tree8" aria-label="Binary Tree(8)">Binary Tree(8)</a></li>
+                    <li>
+                        <a href="#breadth-first-search10" aria-label="Breadth-First Search(10)">Breadth-First Search(10)</a></li>
+                    <li>
+                        <a href="#bucket-sort1" aria-label="Bucket Sort(1)">Bucket Sort(1)</a></li>
+                    <li>
+                        <a href="#counting3" aria-label="Counting(3)">Counting(3)</a></li>
+                    <li>
+                        <a href="#data-stream1" aria-label="Data Stream(1)">Data Stream(1)</a></li>
+                    <li>
+                        <a href="#depth-first-search12" aria-label="Depth-First Search(12)">Depth-First Search(12)</a></li>
+                    <li>
+                        <a href="#design1" aria-label="Design(1)">Design(1)</a></li>
+                    <li>
+                        <a href="#divide-and-conquer5" aria-label="Divide and Conquer(5)">Divide and Conquer(5)</a></li>
+                    <li>
+                        <a href="#dynamic-programming25" aria-label="Dynamic Programming(25)">Dynamic Programming(25)</a></li>
+                    <li>
+                        <a href="#geometry3" aria-label="Geometry(3)">Geometry(3)</a></li>
+                    <li>
+                        <a href="#graph3" aria-label="Graph(3)">Graph(3)</a></li>
+                    <li>
+                        <a href="#greedy8" aria-label="Greedy(8)">Greedy(8)</a></li>
+                    <li>
+                        <a href="#hash-table15" aria-label="Hash Table(15)">Hash Table(15)</a></li>
+                    <li>
+                        <a href="#heap-priority-queue5" aria-label="Heap (Priority Queue)(5)">Heap (Priority Queue)(5)</a></li>
+                    <li>
+                        <a href="#interactive1" aria-label="Interactive(1)">Interactive(1)</a></li>
+                    <li>
+                        <a href="#linked-list8" aria-label="Linked List(8)">Linked List(8)</a></li>
+                    <li>
+                        <a href="#math14" aria-label="Math(14)">Math(14)</a></li>
+                    <li>
+                        <a href="#matrix9" aria-label="Matrix(9)">Matrix(9)</a></li>
+                    <li>
+                        <a href="#memoization1" aria-label="Memoization(1)">Memoization(1)</a></li>
+                    <li>
+                        <a href="#merge-sort1" aria-label="Merge Sort(1)">Merge Sort(1)</a></li>
+                    <li>
+                        <a href="#monotonic-stack2" aria-label="Monotonic Stack(2)">Monotonic Stack(2)</a></li>
+                    <li>
+                        <a href="#monotonic-queue1" aria-label="Monotonic Queue(1)">Monotonic Queue(1)</a></li>
+                    <li>
+                        <a href="#number-theory1" aria-label="Number Theory(1)">Number Theory(1)</a></li>
+                    <li>
+                        <a href="#prefix-sum3" aria-label="Prefix Sum(3)">Prefix Sum(3)</a></li>
+                    <li>
+                        <a href="#queue1" aria-label="Queue(1)">Queue(1)</a></li>
+                    <li>
+                        <a href="#quickselect1" aria-label="Quickselect(1)">Quickselect(1)</a></li>
+                    <li>
+                        <a href="#recursion6" aria-label="Recursion(6)">Recursion(6)</a></li>
+                    <li>
+                        <a href="#simulation3" aria-label="Simulation(3)">Simulation(3)</a></li>
+                    <li>
+                        <a href="#sliding-window2" aria-label="Sliding Window(2)">Sliding Window(2)</a></li>
+                    <li>
+                        <a href="#sorting14" aria-label="Sorting(14)">Sorting(14)</a></li>
+                    <li>
+                        <a href="#stack5" aria-label="Stack(5)">Stack(5)</a></li>
+                    <li>
+                        <a href="#string26" aria-label="String(26)">String(26)</a></li>
+                    <li>
+                        <a href="#tree10" aria-label="Tree(10)">Tree(10)</a></li>
+                    <li>
+                        <a href="#trie1" aria-label="Trie(1)">Trie(1)</a></li>
+                    <li>
+                        <a href="#two-pointer9" aria-label="Two Pointer(9)">Two Pointer(9)</a></li>
+                    <li>
+                        <a href="#union-find1" aria-label="Union Find(1)">Union Find(1)</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 974. Subarray Sums Divisible by K
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>974. Subarray Sums Divisible by K
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Prefix Sum   一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.
-A subarray is a contiguous part of an array.
-Example 1:
- Input: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:...</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-01-19 13:50:19 +0800 CST'>January 19, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 974. Subarray Sums Divisible by K" href="https://intervalrain.github.io/leetcode/974/"></a>
-</article>
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 53. Maximum Subarray
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>53. Maxmimum Subarray
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Divide and Conquer、Dynamic Programming   一、題目 Given an integer array num, find the subarray with the largest sum, and return its sum.
-Example 1:
- Input: nums = [-2,1,-3,4,-1,2,1,-5,4] Output: 6 Explanation: The subarray [4,-1,2,1] has the largest sum 6.  Example 2:
- Input: nums = [1] Output: 1 Explanation: The subarray [1] has the largest sum 1.  Example 3:...</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-01-18 23:20:08 +0800 CST'>January 18, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 53. Maximum Subarray" href="https://intervalrain.github.io/leetcode/53/"></a>
-</article>
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 918. Maximum Sum Circular Subarray
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>918. Maximum Sum Circular Subarray
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Divide and Conquer、Dynamic Programming、Queue、Monotonic Queue   一、題目 Given a circular integer array nums of length n, return the maximum possible sum of a non-empty subarray of nums.
-A circular array means the end of the array connects to the beginning of the array. Formally, the next element of nums[i] is nums[(i &#43; 1) % n] and the previous element of nums[i] is nums[(i - 1 &#43; n) % n]....</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-01-18 23:07:56 +0800 CST'>January 18, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 918. Maximum Sum Circular Subarray" href="https://intervalrain.github.io/leetcode/918/"></a>
-</article>
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 926. Flip String to Monotone Increasing
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>926. Flip String to Monotone Increasing
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String、Dynamic Programming   一、題目 A binary string is monotone increasing if it consists of some number of 0’s (possibly none), followed by some number of 1’s (also possibly none).
-You are given a binary string s. You can flip s[i] changing 0 to 1 or from 1 to 0.
-Return the minimum number of flips to make s monotone increasing....</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-01-17 16:36:26 +0800 CST'>January 17, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 926. Flip String to Monotone Increasing" href="https://intervalrain.github.io/leetcode/926/"></a>
-</article>
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 1519. Number of Nodes in the Sub-Tree With the Same Level
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>1519. Number of Nodes in the Sub-Tree With the Same Level
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table、Tree、Depth-First Search、Breadth-First Search、Counting   一、題目 You are given a tree (i.e. a connected, undirected graph that has no cycles) consisting of n nodes numbered from 0 to n - 1 and exactly n - 1 edges. The root of the tree is the node 0, and each node of the tree has a label which is a lower-case character given in the string labels (i....</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-01-12 22:56:18 +0800 CST'>January 12, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 1519. Number of Nodes in the Sub-Tree With the Same Level" href="https://intervalrain.github.io/leetcode/1519/"></a>
-</article>
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 100. Same Tree
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>100. Same Tree
- Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Tree、Depth-First Search、Breadth-First Search、Binary Tree   一、題目 Given the roots of two binary tree p and q, write a function to check if they are the same or not.
-Two binary tree are considered the same if they are structurally iedntical, and the nodes have the same value.
-Example 1:
- Input: p = [1,2,3], q = [1,2,3] Output: true  Example 2:...</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-01-10 21:48:09 +0800 CST'>January 10, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 100. Same Tree" href="https://intervalrain.github.io/leetcode/100/"></a>
-</article>
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>[LeetCode] 149. Max Points on a Line
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>149. Max Points on a Line
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Math、Geometry   一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.
-Example 1:
- Input: points = [[1,1],[2,2],[3,3]] Output: 3  Example 2:  Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4  Constraints:
- 1 &lt;= points....</p>
-  </section>
-  <footer class="entry-footer"><span title='2023-01-08 23:44:07 +0800 CST'>January 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [LeetCode] 149. Max Points on a Line" href="https://intervalrain.github.io/leetcode/149/"></a>
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h2 id="catalog"><strong>Catalog</strong><a hidden class="anchor" aria-hidden="true" href="#catalog">#</a></h2>
+<h2 id="一依題號">一、依題號<a hidden class="anchor" aria-hidden="true" href="#一依題號">#</a></h2>
+<h3 id="1-50045">1-500(45)<a hidden class="anchor" aria-hidden="true" href="#1-50045">#</a></h3>
+<p><a href="/leetcode/1">1. Two Sum</a><br>
+<a href="/leetcode/2">2. Add Two Numbers</a><br>
+<a href="/leetcode/3">3. Longest Substring Without Repeating Characters</a><br>
+<a href="/leetcode/4">4. Median of Two Sorted Array</a><br>
+<a href="/leetcode/5">5. Longest Palindromic Substring</a><br>
+<a href="/leetcode/6">6. Zigzag Conversion</a><br>
+<a href="/leetcode/7">7. Reverse Integer</a><br>
+<a href="/leetcode/8">8. String to Integer (atoi)</a><br>
+<a href="/leetcode/9">9. Palindrome Number</a><br>
+<a href="/leetcode/10">10. Regular Expression Matching</a><br>
+<a href="/leetcode/11">11. Container With Most Water</a><br>
+<a href="/leetcode/12">12. Integer to Roman</a><br>
+<a href="/leetcode/13">13. Roman to Integer</a><br>
+<a href="/leetcode/14">14. Longest Common Prefix</a><br>
+<a href="/leetcode/15">15. 3Sum</a><br>
+<a href="/leetcode/16">16. 3Sum Closet</a><br>
+<a href="/leetcode/17">17. Letter Combinations of a Phone Number</a><br>
+<a href="/leetcode/18">18. 4Sum</a><br>
+<a href="/leetcode/19">19. Remove Nth Node From End of List</a><br>
+<a href="/leetcode/20">20. Valid Parentheses</a><br>
+<a href="/leetcode/21">21. Merge Two Sorted Lists</a><br>
+<a href="/leetcode/22">22. Generate Parentheses</a><br>
+<a href="/leetcode/23">23. Merge k Sorted Lists</a><br>
+<a href="/leetcode/24">24. Swap Nodes in Pairs</a><br>
+<a href="/leetcode/25">25. Reverse Nodes in k-Group</a><br>
+<a href="/leetcode/53">53. Maximum Subarray</a><br>
+<a href="/leetcode/70">70. Climbing Stairs</a><br>
+<a href="/leetcode/79">79. Word Search</a><br>
+<a href="/leetcode/100">100. Same Tree</a><br>
+<a href="/leetcode/124">124. Binary Tree Maximum Path Sum</a><br>
+<a href="/leetcode/132">132. Palindrome Partitioning II</a><br>
+<a href="/leetcode/149">149. Max Points on a Line</a><br>
+<a href="/leetcode/151">151. Reverse Words in a String</a><br>
+<a href="/leetcode/198">198. House Robber</a><br>
+<a href="/leetcode/212">212. Word Search II</a><br>
+<a href="/leetcode/213">213. House Robber II</a><br>
+<a href="/leetcode/223">223. Rectangle Area</a><br>
+<a href="/leetcode/279">279. Perfect Squares</a><br>
+<a href="/leetcode/290">290. Word Pattern</a><br>
+<a href="/leetcode/300">300. Longest Increasing Subsequence</a><br>
+<a href="/leetcode/322">322. Coin Change</a><br>
+<a href="/leetcode/328">328. Odd Even Linked List</a><br>
+<a href="/leetcode/337">337. House Robber III</a><br>
+<a href="/leetcode/347">347. Top K Frequent Elements</a><br>
+<a href="/leetcode/374">374. Guess Number Higher or Lower II</a><br>
+<a href="/leetcode/433">433. Minimum Genetic Mutation</a><br>
+<a href="/leetcode/446">446. Arithmetic Slices II - Subsequence</a><br>
+<a href="/leetcode/452">452. Minimum Number of Arrows to Burst Balloons</a></p>
+<h3 id="501-100014">501-1000(14)<a hidden class="anchor" aria-hidden="true" href="#501-100014">#</a></h3>
+<p><a href="/leetcode/520">520. Detect Capital</a><br>
+<a href="/leetcode/587">587. Erect the Fence</a><br>
+<a href="/leetcode/766">766. Toeplitz Matrix</a><br>
+<a href="/leetcode/790">790. Domino and Tromino Tiling</a><br>
+<a href="/leetcode/835">835. Image Overlap</a><br>
+<a href="/leetcode/841">841. Keys and Rooms</a><br>
+<a href="/leetcode/872">872. Leaf-Similar Trees</a><br>
+<a href="/leetcode/901">901. Online Stock Span</a><br>
+<a href="/leetcode/918">918. Maximum Sum Circular Subarray</a><br>
+<a href="/leetcode/926">926. Flip String to Monotone Increasing</a><br>
+<a href="/leetcode/931">931. Minimum Falling Path Sum</a><br>
+<a href="/leetcode/938">938. Range Sum of BST</a><br>
+<a href="/leetcode/944">944. Delete Columns to Make Sorted</a><br>
+<a href="/leetcode/947">947. Most Stones Removed with Same Row or Column</a></p>
+<h3 id="1001-15007">1001-1500(7)<a hidden class="anchor" aria-hidden="true" href="#1001-15007">#</a></h3>
+<p><a href="/leetcode/1026">1026. Maximum Difference Between Node and Ancestor</a><br>
+<a href="/leetcode/1047">1047. Remove All Adjacent Duplicates In String</a><br>
+<a href="/leetcode/1143">1143. Longest Common Subsequence</a><br>
+<a href="/leetcode/1235">1235. Maximum Profit in Job Scheduling</a><br>
+<a href="/leetcode/1293">1293. Shortest Path in a Grid with Obstacles Elimination</a><br>
+<a href="/leetcode/1323">1323. Maximum 69 Number</a><br>
+<a href="/leetcode/1339">1339. Maximum Product of Splitted Binary Tree</a></p>
+<h3 id="1501-20006">1501-2000(6)<a hidden class="anchor" aria-hidden="true" href="#1501-20006">#</a></h3>
+<p><a href="/leetcode/1519">1519. Number of Nodes in the Sub-Tree With the Same Label</a><br>
+<a href="/leetcode/1544">1544. Make The String Great</a><br>
+<a href="/leetcode/1706">1706. Where Will the Ball Fall</a><br>
+<a href="/leetcode/1834">1834. Single-Threaded CPU</a><br>
+<a href="/leetcode/1926">1926. Nearest Exit from Entrance in Maze</a><br>
+<a href="/leetcode/1962">1962. Remove Stones to Minimize the Total</a></p>
+<h3 id="2001-250021">2001-2500(21)<a hidden class="anchor" aria-hidden="true" href="#2001-250021">#</a></h3>
+<p><a href="/leetcode/2131">2131. Longest Palindrome by Concatenating Two Letter Words</a><br>
+<a href="/leetcode/2136">2136. Earliest Possible Day of Full Bloom</a><br>
+<a href="/leetcode/2279">2279. Maximum Bags With Full Capacity of Rocks</a><br>
+<a href="/leetcode/2389">2389. Longest Subsequence With Limited Sum</a><br>
+<a href="/leetcode/2460">2460. Apply Operations to an Array</a><br>
+<a href="/leetcode/2461">2461. Maximum Sum of Distinct Subarrays With Length K</a><br>
+<a href="/leetcode/2462">2462. Total Cost to Hire K</a><br>
+<a href="/leetcode/2463">2463. Minimum Total Distance Traveled</a><br>
+<a href="/leetcode/2465">2465. Number of Distinct Averages</a><br>
+<a href="/leetcode/2466">2466. Count Ways To Build Good Strings</a><br>
+<a href="/leetcode/2467">2467. Most Profitable Path in a Tree</a><br>
+<a href="/leetcode/2468">2468. Split Message Based on Limit</a><br>
+<a href="/leetcode/2469">2469. Convert the Temperature</a><br>
+<a href="/leetcode/2470">2470. Number of Subarrays With LCM Equal to K</a><br>
+<a href="/leetcode/2471">2471. Minimum Number of Operations to Sort a Binary Tree by Level</a><br>
+<a href="/leetcode/2472">2472. Maximum Number of Non-overlapping Palindrome Substrings</a><br>
+<a href="/leetcode/2485">2485. Find the Pivot Integer</a><br>
+<a href="/leetcode/2486">2486. Accept Characters to String to Make Subsequence</a><br>
+<a href="/leetcode/2487">2487. Remove Nodes From Linked List</a><br>
+<a href="/leetcode/2488">2488. Count Subarrays With Median K</a><br>
+<a href="/leetcode/2500">2500. Delete Greatest Value in Each Row</a></p>
+<h3 id="2501-30005">2501-3000(5)<a hidden class="anchor" aria-hidden="true" href="#2501-30005">#</a></h3>
+<p><a href="/leetcode/2501">2501. Longest Square Streak in an Array</a><br>
+<a href="/leetcode/2520">2520. Count the Digits That Divide a Number</a><br>
+<a href="/leetcode/2521">2521. Distinct Prime Factors of Product of Array</a><br>
+<a href="/leetcode/2522">2522. Partition String Into Substrings With Values at Most K</a><br>
+<a href="/leetcode/2523">2523. Closest Prime Numbers in Range</a></p>
+<hr>
+<h2 id="二依難度">二、依難度<a hidden class="anchor" aria-hidden="true" href="#二依難度">#</a></h2>
+<h3 id="easy24">Easy(24)<a hidden class="anchor" aria-hidden="true" href="#easy24">#</a></h3>
+<p><a href="/leetcode/1">1. Two Sum</a><br>
+<a href="/leetcode/9">9. Palindrome Number</a><br>
+<a href="/leetcode/13">13. Roman to Integer</a><br>
+<a href="/leetcode/14">14. Longest Common Prefix</a><br>
+<a href="/leetcode/20">20. Valid Parentheses</a><br>
+<a href="/leetcode/21">21. Merge Two Sorted Lists</a><br>
+<a href="/leetcode/70">70. Climbing Stairs</a><br>
+<a href="/leetcode/100">100. Same Tree</a><br>
+<a href="/leetcode/374">374. Guess Number Higher or Lower II</a><br>
+<a href="/leetcode/520">520. Detect Capital</a><br>
+<a href="/leetcode/766">766. Toeplitz Matrix</a><br>
+<a href="/leetcode/872">872. Leaf-Similar Trees</a><br>
+<a href="/leetcode/938">938. Range Sum of BST</a><br>
+<a href="/leetcode/944">944. Delete Columns to Make Sorted</a><br>
+<a href="/leetcode/1047">1047. Remove All Adjacent Duplicates In String</a><br>
+<a href="/leetcode/1323">1323. Maximum 69 Number</a><br>
+<a href="/leetcode/1544">1544. Make The String Great</a><br>
+<a href="/leetcode/2389">2389. Longest Subsequence With Limited Sum</a><br>
+<a href="/leetcode/2460">2460. Apply Operations to an Array</a><br>
+<a href="/leetcode/2465">2465. Number of Distinct Averages</a><br>
+<a href="/leetcode/2469">2469. Convert the Temperature</a><br>
+<a href="/leetcode/2485">2485. Find the Pivot Integer</a><br>
+<a href="/leetcode/2500">2500. Delete Greatest Value in Each Row</a><br>
+<a href="/leetcode/2520">2520. Count the Digits That Divide a Number</a></p>
+<h3 id="medium59">Medium(59)<a hidden class="anchor" aria-hidden="true" href="#medium59">#</a></h3>
+<p><a href="/leetcode/2">2. Add Two Numbers</a><br>
+<a href="/leetcode/3">3. Longest Substring Without Repeating Characters</a><br>
+<a href="/leetcode/5">5. Longest Palindromic Substring</a><br>
+<a href="/leetcode/6">6. Zigzag Conversion</a><br>
+<a href="/leetcode/7">7. Reverse Integer</a><br>
+<a href="/leetcode/8">8. String to Integer (atoi)</a><br>
+<a href="/leetcode/11">11. Container With Most Water</a><br>
+<a href="/leetcode/12">12. Integer to Roman</a><br>
+<a href="/leetcode/15">15. 3Sum</a><br>
+<a href="/leetcode/16">16. 3Sum Closet</a><br>
+<a href="/leetcode/17">17. Letter Combinations of a Phone Number</a><br>
+<a href="/leetcode/18">18. 4Sum</a><br>
+<a href="/leetcode/19">19. Remove Nth Node From End of List</a><br>
+<a href="/leetcode/22">22. Generate Parentheses</a><br>
+<a href="/leetcode/24">24. Swap Nodes in Pairs</a><br>
+<a href="/leetcode/53">53. Maximum Subarray</a><br>
+<a href="/leetcode/79">79. Word Search</a><br>
+<a href="/leetcode/151">151. Reverse Words in a String</a><br>
+<a href="/leetcode/198">198. House Robber</a><br>
+<a href="/leetcode/213">213. House Robber II</a><br>
+<a href="/leetcode/223">223. Rectangle Area</a><br>
+<a href="/leetcode/279">279. Perfect Squares</a><br>
+<a href="/leetcode/300">300. Longest Increasing Subsequence</a><br>
+<a href="/leetcode/322">322. Coin Change</a><br>
+<a href="/leetcode/328">328. Odd Even Linked List</a><br>
+<a href="/leetcode/337">337. House Robber III</a><br>
+<a href="/leetcode/347">347. Top K Frequent Elements</a><br>
+<a href="/leetcode/433">433. Minimum Genetic Mutation</a><br>
+<a href="/leetcode/452">452. Minimum Number of Arrows to Burst Balloons</a><br>
+<a href="/leetcode/790">790. Domino and Tromino Tiling</a><br>
+<a href="/leetcode/835">835. Image Overlap</a><br>
+<a href="/leetcode/841">841. Keys and Rooms</a><br>
+<a href="/leetcode/901">901. Online Stock Span</a><br>
+<a href="/leetcode/918">918. Maximum Sum Circular Subarray</a><br>
+<a href="/leetcode/926">926. Flip String to Monotone Increasing</a><br>
+<a href="/leetcode/931">931. Minimum Falling Path Sum</a><br>
+<a href="/leetcode/947">947. Most Stones Removed with Same Row or Column</a><br>
+<a href="/leetcode/1026">1026. Maximum Difference Between Node and Ancestor</a><br>
+<a href="/leetcode/1143">1143. Longest Common Subsequence</a><br>
+<a href="/leetcode/1339">1339. Maximum Product of Splitted Binary Tree</a><br>
+<a href="/leetcode/1519">1519. Number of Nodes in the Sub-Tree With the Same Label</a><br>
+<a href="/leetcode/1706">1706. Where Will the Ball Fall</a><br>
+<a href="/leetcode/1834">1834. Single-Threaded CPU</a><br>
+<a href="/leetcode/1926">1926. Nearest Exit from Entrance in Maze</a><br>
+<a href="/leetcode/1962">1962. Remove Stones to Minimize the Total</a><br>
+<a href="/leetcode/2131">2131. Longest Palindrome by Concatenating Two Letter Words</a><br>
+<a href="/leetcode/2279">2279. Maximum Bags With Full Capacity of Rocks</a><br>
+<a href="leetcode/2461">2461. Maximum Sum of Distinct Subarrays With Length K</a><br>
+<a href="leetcode/2462">2462. Total Cost to Hire K</a><br>
+<a href="/leetcode/2466">2466. Count Ways To Build Good Strings</a><br>
+<a href="/leetcode/2467">2467. Most Profitable Path in a Tree</a><br>
+<a href="/leetcode/2470">2470. Number of Subarrays With LCM Equal to K</a><br>
+<a href="/leetcode/2471">2471. Minimum Number of Operations to Sort a Binary Tree by Level</a><br>
+<a href="/leetcode/2486">2486. Accept Characters to String to Make Subsequence</a><br>
+<a href="/leetcode/2487">2487. Remove Nodes From Linked List</a><br>
+<a href="/leetcode/2501">2501. Longest Square Streak in an Array</a><br>
+<a href="/leetcode/2521">2521. Distinct Prime Factors of Product of Array</a><br>
+<a href="/leetcode/2522">2522. Partition String Into Substrings With Values at Most K</a><br>
+<a href="/leetcode/2523">2523. Closest Prime Numbers in Range</a></p>
+<h3 id="hard17">Hard(17)<a hidden class="anchor" aria-hidden="true" href="#hard17">#</a></h3>
+<p><a href="/leetcode/4">4. Median of Two Sorted Array</a><br>
+<a href="/leetcode/10">10. Regular Expression Matching</a><br>
+<a href="/leetcode/23">23. Merge k Sorted Lists</a><br>
+<a href="/leetcode/25">25. Reverse Nodes in k-Group</a><br>
+<a href="/leetcode/124">124. Binary Tree Maximum Path Sum</a><br>
+<a href="/leetcode/132">132. Palindrome Partitioning II</a><br>
+<a href="/leetcode/149">149. Max Points on a Line</a><br>
+<a href="/leetcode/212">212. Word Search II</a><br>
+<a href="/leetcode/446">446. Arithmetic Slices II - Subsequence</a><br>
+<a href="/leetcode/587">587. Erect the Fence</a><br>
+<a href="/leetcode/1235">1235. Maximum Profit in Job Scheduling</a><br>
+<a href="/leetcode/1293">1293. Shortest Path in a Grid with Obstacles Elimination</a><br>
+<a href="/leetcode/2136">2136. Earliest Possible Day of Full Bloom</a><br>
+<a href="/leetcode/2463">2463. Minimum Total Distance Traveled</a><br>
+<a href="/leetcode/2468">2468. Split Message Based on Limit</a><br>
+<a href="/leetcode/2472">2472. Maximum Number of Non-overlapping Palindrome Substrings</a><br>
+<a href="/leetcode/2488">2488. Count Subarrays With Median K</a></p>
+<hr>
+<h2 id="三依分類">三、依分類<a hidden class="anchor" aria-hidden="true" href="#三依分類">#</a></h2>
+<h3 id="array43">Array(43)<a hidden class="anchor" aria-hidden="true" href="#array43">#</a></h3>
+<p><a href="/leetcode/1">1. Two Sum</a><br>
+<a href="/leetcode/4">4. Median of Two Sorted Array</a><br>
+<a href="/leetcode/11">11. Container With Most Water</a><br>
+<a href="/leetcode/15">15. 3Sum</a><br>
+<a href="/leetcode/16">16. 3Sum Closet</a><br>
+<a href="/leetcode/18">18. 4Sum</a><br>
+<a href="/leetcode/53">53. Maximum Subarray</a><br>
+<a href="/leetcode/79">79. Word Search</a><br>
+<a href="/leetcode/149">149. Max Points on a Line</a><br>
+<a href="/leetcode/198">198. House Robber</a><br>
+<a href="/leetcode/212">212. Word Search II</a><br>
+<a href="/leetcode/213">213. House Robber II</a><br>
+<a href="/leetcode/300">300. Longest Increasing Subsequence</a><br>
+<a href="/leetcode/322">322. Coin Change</a><br>
+<a href="/leetcode/347">347. Top K Frequent Elements</a><br>
+<a href="/leetcode/446">446. Arithmetic Slices II - Subsequence</a><br>
+<a href="/leetcode/452">452. Minimum Number of Arrows to Burst Balloons</a><br>
+<a href="/leetcode/587">587. Erect the Fence</a><br>
+<a href="/leetcode/766">766. Toeplitz Matrix</a><br>
+<a href="/leetcode/835">835. Image Overlap</a><br>
+<a href="/leetcode/918">918. Maximum Sum Circular Subarray</a><br>
+<a href="/leetcode/931">931. Minimum Falling Path Sum</a><br>
+<a href="/leetcode/944">944. Delete Columns to Make Sorted</a><br>
+<a href="/leetcode/1235">1235. Maximum Profit in Job Scheduling</a><br>
+<a href="/leetcode/1293">1293. Shortest Path in a Grid with Obstacles Elimination</a><br>
+<a href="/leetcode/1706">1706. Where Will the Ball Fall</a><br>
+<a href="/leetcode/1834">1834. Single-Threaded CPU</a><br>
+<a href="/leetcode/1926">1926. Nearest Exit from Entrance in Maze</a><br>
+<a href="/leetcode/1962">1962. Remove Stones to Minimize the Total</a><br>
+<a href="/leetcode/2131">2131. Longest Palindrome by Concatenating Two Letter Words</a><br>
+<a href="/leetcode/2136">2136. Earliest Possible Day of Full Bloom</a><br>
+<a href="/leetcode/2279">2279. Maximum Bags With Full Capacity of Rocks</a><br>
+<a href="/leetcode/2389">2389. Longest Subsequence With Limited Sum</a><br>
+<a href="leetcode/2460">2460. Apply Operations to an Array</a><br>
+<a href="leetcode/2461">2461. Maximum Sum of Distinct Subarrays With Length K</a><br>
+<a href="leetcode/2462">2462. Total Cost to Hire K</a><br>
+<a href="/leetcode/2463">2463. Minimum Total Distance Traveled</a><br>
+<a href="/leetcode/2465">2465. Number of Distinct Averages</a><br>
+<a href="/leetcode/2467">2467. Most Profitable Path in a Tree</a><br>
+<a href="/leetcode/2470">2470. Number of Subarrays With LCM Equal to K</a><br>
+<a href="/leetcode/2488">2488. Count Subarrays With Median K</a><br>
+<a href="/leetcode/2500">2500. Delete Greatest Value in Each Row</a><br>
+<a href="/leetcode/2501">2501. Longest Square Streak in an Array</a></p>
+<h3 id="backtracking4">Backtracking(4)<a hidden class="anchor" aria-hidden="true" href="#backtracking4">#</a></h3>
+<p><a href="/leetcode/17">17. Letter Combinations of a Phone Number</a><br>
+<a href="/leetcode/22">22. Generate Parentheses</a><br>
+<a href="/leetcode/79">79. Word Search</a><br>
+<a href="/leetcode/212">212. Word Search II</a></p>
+<h3 id="binary-search7">Binary Search(7)<a hidden class="anchor" aria-hidden="true" href="#binary-search7">#</a></h3>
+<p><a href="/leetcode/4">4. Median of Two Sorted Array</a><br>
+<a href="/leetcode/300">300. Longest Increasing Subsequence</a><br>
+<a href="/leetcode/374">374. Guess Number Higher or Lower II</a><br>
+<a href="/leetcode/1235">1235. Maximum Profit in Job Scheduling</a><br>
+<a href="/leetcode/2389">2389. Longest Subsequence With Limited Sum</a><br>
+<a href="/leetcode/2468">2468. Split Message Based on Limit</a><br>
+<a href="/leetcode/2501">2501. Longest Square Streak in an Array</a></p>
+<h3 id="binary-search-tree1">Binary Search Tree(1)<a hidden class="anchor" aria-hidden="true" href="#binary-search-tree1">#</a></h3>
+<p><a href="/leetcode/938">938. Range Sum of BST</a></p>
+<h3 id="binary-tree8">Binary Tree(8)<a hidden class="anchor" aria-hidden="true" href="#binary-tree8">#</a></h3>
+<p><a href="/leetcode/100">100. Same Tree</a><br>
+<a href="/leetcode/124">124. Binary Tree Maximum Path Sum</a><br>
+<a href="/leetcode/337">337. House Robber III</a><br>
+<a href="/leetcode/938">938. Range Sum of BST</a><br>
+<a href="/leetcode/872">872. Leaf-Similar Trees</a><br>
+<a href="/leetcode/1026">1026. Maximum Difference Between Node and Ancestor</a><br>
+<a href="/leetcode/1339">1339. Maximum Product of Splitted Binary Tree</a><br>
+<a href="/leetcode/2471">2471. Minimum Number of Operations to Sort a Binary Tree by Level</a></p>
+<h3 id="breadth-first-search10">Breadth-First Search(10)<a hidden class="anchor" aria-hidden="true" href="#breadth-first-search10">#</a></h3>
+<p><a href="/leetcode/100">100. Same Tree</a><br>
+<a href="/leetcode/279">279. Perfect Squares</a><br>
+<a href="/leetcode/322">322. Coin Change</a><br>
+<a href="/leetcode/433">433. Minimum Genetic Mutation</a><br>
+<a href="/leetcode/841">841. Keys and Rooms</a><br>
+<a href="/leetcode/1293">1293. Shortest Path in a Grid with Obstacles Elimination</a><br>
+<a href="/leetcode/1519">1519. Number of Nodes in the Sub-Tree With the Same Label</a><br>
+<a href="/leetcode/1926">1926. Nearest Exit from Entrance in Maze</a><br>
+<a href="/leetcode/2467">2467. Most Profitable Path in a Tree</a><br>
+<a href="/leetcode/2471">2471. Minimum Number of Operations to Sort a Binary Tree by Level</a></p>
+<h3 id="bucket-sort1">Bucket Sort(1)<a hidden class="anchor" aria-hidden="true" href="#bucket-sort1">#</a></h3>
+<p><a href="/leetcode/347">347. Top K Frequent Elements</a></p>
+<h3 id="counting3">Counting(3)<a hidden class="anchor" aria-hidden="true" href="#counting3">#</a></h3>
+<p><a href="/leetcode/347">347. Top K Frequent Elements</a><br>
+<a href="/leetcode/1519">1519. Number of Nodes in the Sub-Tree With the Same Label</a><br>
+<a href="/leetcode/2131">2131. Longest Palindrome by Concatenating Two Letter Words</a></p>
+<h3 id="data-stream1">Data Stream(1)<a hidden class="anchor" aria-hidden="true" href="#data-stream1">#</a></h3>
+<p><a href="/leetcode/901">901. Online Stock Span</a></p>
+<h3 id="depth-first-search12">Depth-First Search(12)<a hidden class="anchor" aria-hidden="true" href="#depth-first-search12">#</a></h3>
+<p><a href="/leetcode/100">100. Same Tree</a><br>
+<a href="/leetcode/124">124. Binary Tree Maximum Path Sum</a><br>
+<a href="/leetcode/337">337. House Robber III</a><br>
+<a href="/leetcode/841">841. Keys and Rooms</a><br>
+<a href="/leetcode/872">872. Leaf-Similar Trees</a><br>
+<a href="/leetcode/938">938. Range Sum of BST</a><br>
+<a href="/leetcode/947">947. Most Stones Removed with Same Row or Column</a><br>
+<a href="/leetcode/1026">1026. Maximum Difference Between Node and Ancestor</a><br>
+<a href="/leetcode/1339">1339. Maximum Product of Splitted Binary Tree</a><br>
+<a href="/leetcode/1519">1519. Number of Nodes in the Sub-Tree With the Same Label</a><br>
+<a href="/leetcode/1706">1706. Where Will the Ball Fall</a><br>
+<a href="/leetcode/2467">2467. Most Profitable Path in a Tree</a></p>
+<h3 id="design1">Design(1)<a hidden class="anchor" aria-hidden="true" href="#design1">#</a></h3>
+<p><a href="/leetcode/901">901. Online Stock Span</a></p>
+<h3 id="divide-and-conquer5">Divide and Conquer(5)<a hidden class="anchor" aria-hidden="true" href="#divide-and-conquer5">#</a></h3>
+<p><a href="/leetcode/4">4. Median of Two Sorted Array</a><br>
+<a href="/leetcode/23">23. Merge k Sorted Lists</a><br>
+<a href="/leetcode/53">53. Maximum Subarray</a><br>
+<a href="/leetcode/347">347. Top K Frequent Elements</a><br>
+<a href="/leetcode/918">918. Maximum Sum Circular Subarray</a></p>
+<h3 id="dynamic-programming25">Dynamic Programming(25)<a hidden class="anchor" aria-hidden="true" href="#dynamic-programming25">#</a></h3>
+<p><a href="/leetcode/5">5. Longest Palindromic Substring</a><br>
+<a href="/leetcode/10">10. Regular Expression Matching</a><br>
+<a href="/leetcode/22">22. Generate Parentheses</a><br>
+<a href="/leetcode/53">53. Maximum Subarray</a><br>
+<a href="/leetcode/70">70. Climbing Stairs</a><br>
+<a href="/leetcode/124">124. Binary Tree Maximum Path Sum</a><br>
+<a href="/leetcode/132">132. Palindrome Partitioning II</a><br>
+<a href="/leetcode/198">198. House Robber</a><br>
+<a href="/leetcode/213">213. House Robber II</a><br>
+<a href="/leetcode/279">279. Perfect Squares</a><br>
+<a href="/leetcode/300">300. Longest Increasing Subsequence</a><br>
+<a href="/leetcode/322">322. Coin Change</a><br>
+<a href="/leetcode/337">337. House Robber III</a><br>
+<a href="/leetcode/446">446. Arithmetic Slices II - Subsequence</a><br>
+<a href="/leetcode/790">790. Domino and Tromino Tiling</a><br>
+<a href="/leetcode/918">918. Maximum Sum Circular Subarray</a><br>
+<a href="/leetcode/926">926. Flip String to Monotone Increasing</a><br>
+<a href="/leetcode/931">931. Minimum Falling Path Sum</a><br>
+<a href="/leetcode/1143">1143. Longest Common Subsequence</a><br>
+<a href="/leetcode/1235">1235. Maximum Profit in Job Scheduling</a><br>
+<a href="/leetcode/1706">1706. Where Will the Ball Fall</a><br>
+<a href="/leetcode/2463">2463. minimum Total Distance Traveled</a><br>
+<a href="/leetcode/2466">2466. Count Ways To Build Good Strings</a><br>
+<a href="/leetcode/2472">2472. Maximum Number of Non-overlapping Palindrome Substrings</a><br>
+<a href="/leetcode/2501">2501. Longest Square Streak in an Array</a></p>
+<h3 id="geometry3">Geometry(3)<a hidden class="anchor" aria-hidden="true" href="#geometry3">#</a></h3>
+<p><a href="/leetcode/149">149. Max Points on a Line</a><br>
+<a href="/leetcode/223">223. Rectangle Area</a><br>
+<a href="/leetcode/587">587. Erect the Fence</a></p>
+<h3 id="graph3">Graph(3)<a hidden class="anchor" aria-hidden="true" href="#graph3">#</a></h3>
+<p><a href="/leetcode/841">841. Keys and Rooms</a><br>
+<a href="/leetcode/947">947. Most Stones Removed with Same Row or Column</a><br>
+<a href="/leetcode/2467">2467. Most Profitable Path in a Tree</a></p>
+<h3 id="greedy8">Greedy(8)<a hidden class="anchor" aria-hidden="true" href="#greedy8">#</a></h3>
+<p><a href="/leetcode/11">11. Container With Most Water</a><br>
+<a href="/leetcode/452">452. Minimum Number of Arrows to Burst Balloons</a><br>
+<a href="/leetcode/1323">1323. Maximum 69 Number</a><br>
+<a href="/leetcode/2131">2131. Longest Palindrome by Concatenating Two Letter Words</a><br>
+<a href="/leetcode/2136">2136. Earliest Possible Day of Full Bloom</a><br>
+<a href="/leetcode/2279">2279. Maximum Bags With Full Capacity of Rocks</a><br>
+<a href="/leetcode/2389">2389. Longest Subsequence With Limited Sum</a><br>
+<a href="/leetcode/2486">2486. Accept Characters to String to Make Subsequence</a></p>
+<h3 id="hash-table15">Hash Table(15)<a hidden class="anchor" aria-hidden="true" href="#hash-table15">#</a></h3>
+<p><a href="/leetcode/1">1. Two Sum</a><br>
+<a href="/leetcode/3">3. Longest Substring Without Repeating Characters</a><br>
+<a href="/leetcode/12">12. Integer to Roman</a><br>
+<a href="/leetcode/13">13. Roman to Integer</a><br>
+<a href="/leetcode/17">17. Letter Combinations of a Phone Number</a><br>
+<a href="/leetcode/149">149. Max Points on a Line</a><br>
+<a href="/leetcode/290">290. Word Pattern</a><br>
+<a href="/leetcode/347">347. Top K Frequent Elements</a><br>
+<a href="/leetcode/433">433. Minimum Genetic Mutation</a><br>
+<a href="/leetcode/1519">1519. Number of Nodes in the Sub-Tree With the Same Label</a><br>
+<a href="/leetcode/2131">2131. Longest Palindrome by Concatenating Two Letter Words</a><br>
+<a href="leetcode/2461">2461. Maximum Sum of Distinct Subarrays With Length K</a><br>
+<a href="/leetcode/2465">2465. Number of Distinct Averages</a><br>
+<a href="/leetcode/2488">2488. Count Subarrays With Median K</a><br>
+<a href="/leetcode/2501">2501. Longest Square Streak in an Array</a></p>
+<h3 id="heap-priority-queue5">Heap (Priority Queue)(5)<a hidden class="anchor" aria-hidden="true" href="#heap-priority-queue5">#</a></h3>
+<p><a href="/leetcode/23">23. Merge k Sorted Lists</a><br>
+<a href="/leetcode/347">347. Top K Frequent Elements</a><br>
+<a href="/leetcode/1834">1834. Single-Threaded CPU</a><br>
+<a href="/leetcode/1962">1962. Remove Stones to Minimize the Total</a><br>
+<a href="leetcode/2462">2462. Total Cost to Hire K</a></p>
+<h3 id="interactive1">Interactive(1)<a hidden class="anchor" aria-hidden="true" href="#interactive1">#</a></h3>
+<p><a href="/leetcode/374">374. Guess Number Higher or Lower II</a></p>
+<h3 id="linked-list8">Linked List(8)<a hidden class="anchor" aria-hidden="true" href="#linked-list8">#</a></h3>
+<p><a href="/leetcode/2">2. Add Two Numbers</a><br>
+<a href="/leetcode/19">19. Remove Nth Node From End of List</a><br>
+<a href="/leetcode/21">21. Merge Two Sorted Lists</a><br>
+<a href="/leetcode/23">23. Merge k Sorted Lists</a><br>
+<a href="/leetcode/24">24. Swap Nodes in Pairs</a><br>
+<a href="/leetcode/25">25. Reverse Nodes in k-Group</a><br>
+<a href="/leetcode/328">328. Odd Even Linked List</a><br>
+<a href="/leetcode/2487">2487. Remove Nodes From Linked List</a></p>
+<h3 id="math14">Math(14)<a hidden class="anchor" aria-hidden="true" href="#math14">#</a></h3>
+<p><a href="/leetcode/2">2. Add Two Numbers</a><br>
+<a href="/leetcode/7">7. Reverse Integer</a><br>
+<a href="/leetcode/9">9. Palindrome Number</a><br>
+<a href="/leetcode/12">12. Integer to Roman</a><br>
+<a href="/leetcode/13">13. Roman to Integer</a><br>
+<a href="/leetcode/70">70. Climbing Stairs</a><br>
+<a href="/leetcode/149">149. Max Points on a Line</a><br>
+<a href="/leetcode/223">223. Rectangle Area</a><br>
+<a href="/leetcode/279">279. Perfect Squares</a><br>
+<a href="/leetcode/587">587. Erect the Fence</a><br>
+<a href="/leetcode/1323">1323. Maximum 69 Number</a><br>
+<a href="/leetcode/2469">2469. Convert the Temperature</a><br>
+<a href="/leetcode/2470">2470. Number of Subarrays With LCM Equal to K</a><br>
+<a href="/leetcode/2485">2485. Find the Pivot Integer</a></p>
+<h3 id="matrix9">Matrix(9)<a hidden class="anchor" aria-hidden="true" href="#matrix9">#</a></h3>
+<p><a href="/leetcode/79">79. Word Search</a><br>
+<a href="/leetcode/212">212. Word Search II</a><br>
+<a href="/leetcode/766">766. Toeplitz Matrix</a><br>
+<a href="/leetcode/835">835. Image Overlap</a><br>
+<a href="/leetcode/931">931. Minimum Falling Path Sum</a><br>
+<a href="/leetcode/1293">1293. Shortest Path in a Grid with Obstacles Elimination</a><br>
+<a href="/leetcode/1706">1706. Where Will the Ball Fall</a><br>
+<a href="/leetcode/1926">1926. Nearest Exit from Entrance in Maze</a><br>
+<a href="/leetcode/2500">2500. Delete Greatest Value in Each Row</a></p>
+<h3 id="memoization1">Memoization(1)<a hidden class="anchor" aria-hidden="true" href="#memoization1">#</a></h3>
+<p><a href="/leetcode/70">70. Climbing Stairs</a></p>
+<h3 id="merge-sort1">Merge Sort(1)<a hidden class="anchor" aria-hidden="true" href="#merge-sort1">#</a></h3>
+<p><a href="/leetcode/23">23. Merge k Sorted Lists</a></p>
+<h3 id="monotonic-stack2">Monotonic Stack(2)<a hidden class="anchor" aria-hidden="true" href="#monotonic-stack2">#</a></h3>
+<p><a href="/leetcode/901">901. Online Stock Span</a><br>
+<a href="/leetcode/2487">2487. Remove Nodes From Linked List</a></p>
+<h3 id="monotonic-queue1">Monotonic Queue(1)<a hidden class="anchor" aria-hidden="true" href="#monotonic-queue1">#</a></h3>
+<p><a href="/leetcode/918">918. Maximum Sum Circular Subarray</a></p>
+<h3 id="number-theory1">Number Theory(1)<a hidden class="anchor" aria-hidden="true" href="#number-theory1">#</a></h3>
+<p><a href="/leetcode/2470">2470. Number of Subarrays With LCM Equal to K</a></p>
+<h3 id="prefix-sum3">Prefix Sum(3)<a hidden class="anchor" aria-hidden="true" href="#prefix-sum3">#</a></h3>
+<p><a href="/leetcode/2389">2389. Longest Subsequence With Limited Sum</a><br>
+<a href="/leetcode/2485">2485. Find the Pivot Integer</a><br>
+<a href="/leetcode/2488">2488. Count Subarrays With Median K</a></p>
+<h3 id="queue1">Queue(1)<a hidden class="anchor" aria-hidden="true" href="#queue1">#</a></h3>
+<p><a href="/leetcode/918">918. Maximum Sum Circular Subarray</a></p>
+<h3 id="quickselect1">Quickselect(1)<a hidden class="anchor" aria-hidden="true" href="#quickselect1">#</a></h3>
+<p><a href="/leetcode/347">347. Top K Frequent Elements</a></p>
+<h3 id="recursion6">Recursion(6)<a hidden class="anchor" aria-hidden="true" href="#recursion6">#</a></h3>
+<p><a href="/leetcode/2">2. Add Two Numbers</a><br>
+<a href="/leetcode/10">10. Regular Expression Matching</a><br>
+<a href="/leetcode/21">21. Merge Two Sorted Lists</a><br>
+<a href="/leetcode/24">24. Swap Nodes in Pairs</a><br>
+<a href="/leetcode/25">25. Reverse Nodes in k-Group</a><br>
+<a href="/leetcode/2487">2487. Remove Nodes From Linked List</a></p>
+<h3 id="simulation3">Simulation(3)<a hidden class="anchor" aria-hidden="true" href="#simulation3">#</a></h3>
+<p><a href="/leetcode/1706">1706. Where Will the Ball Fall</a><br>
+<a href="leetcode/2460">2460. Apply Operations to an Array</a><br>
+<a href="leetcode/2462">2462. Total Cost to Hire K</a></p>
+<h3 id="sliding-window2">Sliding Window(2)<a hidden class="anchor" aria-hidden="true" href="#sliding-window2">#</a></h3>
+<p><a href="/leetcode/3">3. Longest Substring Without Repeating Characters</a><br>
+<a href="leetcode/2461">2461. Maximum Sum of Distinct Subarrays With Length K</a></p>
+<h3 id="sorting14">Sorting(14)<a hidden class="anchor" aria-hidden="true" href="#sorting14">#</a></h3>
+<p><a href="/leetcode/15">15. 3Sum</a><br>
+<a href="/leetcode/16">16. 3Sum Closet</a><br>
+<a href="/leetcode/18">18. 4Sum</a><br>
+<a href="/leetcode/347">347. Top K Frequent Elements</a><br>
+<a href="/leetcode/452">452. Minimum Number of Arrows to Burst Balloons</a><br>
+<a href="/leetcode/1235">1235. Maximum Profit in Job Scheduling</a><br>
+<a href="/leetcode/1834">1834. Single-Threaded CPU</a><br>
+<a href="/leetcode/2136">2136. Earliest Possible Day of Full Bloom</a><br>
+<a href="/leetcode/2279">2279. Maximum Bags With Full Capacity of Rocks</a><br>
+<a href="/leetcode/2389">2389. Longest Subsequence With Limited Sum</a><br>
+<a href="/leetcode/2463">2463. Minimum Total Distance Traveled</a><br>
+<a href="/leetcode/2465">2465. Number of Distinct Averages</a><br>
+<a href="/leetcode/2500">2500. Delete Greatest Value in Each Row</a><br>
+<a href="/leetcode/2501">2501. Longest Square Streak in an Array</a></p>
+<h3 id="stack5">Stack(5)<a hidden class="anchor" aria-hidden="true" href="#stack5">#</a></h3>
+<p><a href="/leetcode/20">20. Valid Parentheses</a><br>
+<a href="/leetcode/901">901. Online Stock Span</a><br>
+<a href="/leetcode/1047">1047. Remove All Adjacent Duplicates In String</a><br>
+<a href="/leetcode/1544">1544. Make The String Great</a><br>
+<a href="/leetcode/2487">2487. Remove Nodes From Linked List</a></p>
+<h3 id="string26">String(26)<a hidden class="anchor" aria-hidden="true" href="#string26">#</a></h3>
+<p><a href="/leetcode/3">3. Longest Substring Without Repeating Characters</a><br>
+<a href="/leetcode/5">5. Longest Palindromic Substring</a><br>
+<a href="/leetcode/6">6. Zigzag Conversion</a><br>
+<a href="/leetcode/8">8. String to Integer (atoi)</a><br>
+<a href="/leetcode/10">10. Regular Expression Matching</a><br>
+<a href="/leetcode/12">12. Integer to Roman</a><br>
+<a href="/leetcode/13">13. Roman to Integer</a><br>
+<a href="/leetcode/14">14. Longest Common Prefix</a><br>
+<a href="/leetcode/17">17. Letter Combinations of a Phone Number</a><br>
+<a href="/leetcode/20">20. Valid Parentheses</a><br>
+<a href="/leetcode/22">22. Generate Parentheses</a><br>
+<a href="/leetcode/132">132. Palindrome Partitioning II</a><br>
+<a href="/leetcode/151">151. Reverse Words in a String</a><br>
+<a href="/leetcode/212">212. Word Search II</a><br>
+<a href="/leetcode/290">290. Word Pattern</a><br>
+<a href="/leetcode/433">433. Minimum Genetic Mutation</a><br>
+<a href="/leetcode/520">520. Detect Capital</a><br>
+<a href="/leetcode/926">926. Flip String to Monotone Increasing</a><br>
+<a href="/leetcode/944">944. Delete Columns to Make Sorted</a><br>
+<a href="/leetcode/1047">1047. Remove All Adjacent Duplicates In String</a><br>
+<a href="/leetcode/1143">1143. Longest Common Subsequence</a><br>
+<a href="/leetcode/1544">1544. Make The String Great</a><br>
+<a href="/leetcode/2131">2131. Longest Palindrome by Concatenating Two Letter Words</a><br>
+<a href="/leetcode/2468">2468. Split Message Based on Limit</a><br>
+<a href="/leetcode/2472">2472. Maximum Number of Non-overlapping Palindrome Substrings</a><br>
+<a href="/leetcode/2486">2486. Accept Characters to String to Make Subsequence</a></p>
+<h3 id="tree10">Tree(10)<a hidden class="anchor" aria-hidden="true" href="#tree10">#</a></h3>
+<p><a href="/leetcode/100">100. Same Tree</a><br>
+<a href="/leetcode/124">124. Binary Tree Maximum Path Sum</a><br>
+<a href="/leetcode/337">337. House Robber III</a><br>
+<a href="/leetcode/872">872. Leaf-Similar Trees</a><br>
+<a href="/leetcode/938">938. Range Sum of BST</a><br>
+<a href="/leetcode/1026">1026. Maximum Difference Between Node and Ancestor</a><br>
+<a href="/leetcode/1339">1339. Maximum Product of Splitted Binary Tree</a><br>
+<a href="/leetcode/1519">1519. Number of Nodes in the Sub-Tree With the Same Label</a><br>
+<a href="/leetcode/2467">2467. Most Profitable Path in a Tree</a><br>
+<a href="/leetcode/2471">2471. Minimum Number of Operations to Sort a Binary Tree by Level</a></p>
+<h3 id="trie1">Trie(1)<a hidden class="anchor" aria-hidden="true" href="#trie1">#</a></h3>
+<p><a href="/leetcode/212">212. Word Search II</a></p>
+<h3 id="two-pointer9">Two Pointer(9)<a hidden class="anchor" aria-hidden="true" href="#two-pointer9">#</a></h3>
+<p><a href="/leetcode/11">11. Container With Most Water</a><br>
+<a href="/leetcode/15">15. 3Sum</a><br>
+<a href="/leetcode/16">16. 3Sum Closet</a><br>
+<a href="/leetcode/18">18. 4Sum</a><br>
+<a href="/leetcode/19">19. Remove Nth Node From End of List</a><br>
+<a href="/leetcode/151">151. Reverse Words in a String</a><br>
+<a href="leetcode/2462">2462. Total Cost to Hire K</a><br>
+<a href="/leetcode/2465">2465. Number of Distinct Averages</a><br>
+<a href="/leetcode/2486">2486. Accept Characters to String to Make Subsequence</a></p>
+<h3 id="union-find1">Union Find(1)<a hidden class="anchor" aria-hidden="true" href="#union-find1">#</a></h3>
+<p><a href="/leetcode/947">947. Most Stones Removed with Same Row or Column</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
+    </ul>
+
+  </footer><script src="https://utteranc.es/client.js"
+    repo="Reid00/hugo-blog-talks"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
 </article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="next" href="https://intervalrain.github.io/leetcode/page/2/">Next Page »</a>
-  </nav>
-</footer>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -409,6 +1184,53 @@ Example 1:
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '複製';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已複製！';
+            setTimeout(() => {
+                copybutton.innerHTML = '複製';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

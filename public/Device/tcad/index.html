@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[TCAD] 工具語言 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Programming, Semiconductor, TCAD" />
+<meta name="keywords" content="Programming, Semiconductor, TCAD">
 <meta name="description" content="TCAD learning notes">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/device/tcad/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,19 +71,24 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[TCAD] 工具語言" />
-<meta property="og:description" content="TCAD learning notes" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/device/tcad/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/cover.jpg" /><meta property="article:section" content="Device" />
-<meta property="article:published_time" content="2022-03-26T21:46:26&#43;08:00" />
-<meta property="article:modified_time" content="2022-03-26T21:46:26&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/cover.jpg" />
-<meta name="twitter:title" content="[TCAD] 工具語言"/>
-<meta name="twitter:description" content="TCAD learning notes"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/device/tcad/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[TCAD] 工具語言">
+  <meta property="og:description" content="TCAD learning notes">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="device">
+    <meta property="article:published_time" content="2022-03-26T21:46:26+08:00">
+    <meta property="article:modified_time" content="2022-03-26T21:46:26+08:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Semiconductor">
+    <meta property="article:tag" content="TCAD">
+    <meta property="og:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:title" content="[TCAD] 工具語言">
+<meta name="twitter:description" content="TCAD learning notes">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,13 +100,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Devices",
-      "item": "https://intervalrain.github.io/device/"
+      "item": "http://localhost:1313/device/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[TCAD] 工具語言",
-      "item": "https://intervalrain.github.io/device/tcad/"
+      "item": "http://localhost:1313/device/tcad/"
     }
   ]
 }
@@ -118,10 +121,10 @@
   "keywords": [
     "Programming", "Semiconductor", "TCAD"
   ],
-  "articleBody": "TCAD 常用的三種程式語言 工具語言  用於操作 Sentaurus 工具的指令，例如：  snmesh sdevice    預處理語言  Sentaurus Workbench Preprocessing Language(SPP)：在 SWB 執行指令檔之前，會先翻譯 SPP 語言。(類似於 C 的 macro)  例如：  #define __x__ 1 // 將所有 __x__ 字串取代成字串 1   TCL  公用語言，通常用來處理字串與數據。  範例  SPP 語言：@...@、#開頭的敘述都是 SPP 語言  #if \"@tunneling@ == \"Hurkx\" #define _B2BTunnelModel_ Band2Band(Model=Hurkx) #define _B2BTunnelMath_ NoSRHperPotential #elif \"@tunneling@ == \"E1\" #define _B2BTunnelModel_ Band2Band(Model=E1) #define _B2BTunnelMath_ NoSRHperPotential #elif \"@tunneling@ == \"E1_5\" #define _B2BTunnelModel_ Band2Band(Model=E1_5) #define _B2BTunnelMath_ NoSRHperPotential #elif \"@tunneling@ == \"E2\" #define _B2BTunnelModel_ Band2Band(Model=E2) #define _B2BTunnelMath_ NoSRHperPotential #else #define _B2BTunnelModel_ #define _B2BTunnelMath_ #endif  TCL 語言：set 與 puts  其中 @…@ 因為是 SPP 語言，故會先被前面定義好的 header 取代，之後才會執向 .cmd 檔。    set A [expr -@BF_Thick@-@AB_Thick@-@GR_Thick@-@CH_Thick@-@ML_Thick@] puts \"DOE: Xmin [format %.2f $A]\" ",
+  "articleBody": "TCAD 常用的三種程式語言 工具語言 用於操作 Sentaurus 工具的指令，例如： snmesh sdevice 預處理語言 Sentaurus Workbench Preprocessing Language(SPP)：在 SWB 執行指令檔之前，會先翻譯 SPP 語言。(類似於 C 的 macro) 例如： #define __x__ 1 // 將所有 __x__ 字串取代成字串 1 TCL 公用語言，通常用來處理字串與數據。 範例 SPP 語言：@...@、#開頭的敘述都是 SPP 語言 #if \"@tunneling@ == \"Hurkx\" #define _B2BTunnelModel_ Band2Band(Model=Hurkx) #define _B2BTunnelMath_ NoSRHperPotential #elif \"@tunneling@ == \"E1\" #define _B2BTunnelModel_ Band2Band(Model=E1) #define _B2BTunnelMath_ NoSRHperPotential #elif \"@tunneling@ == \"E1_5\" #define _B2BTunnelModel_ Band2Band(Model=E1_5) #define _B2BTunnelMath_ NoSRHperPotential #elif \"@tunneling@ == \"E2\" #define _B2BTunnelModel_ Band2Band(Model=E2) #define _B2BTunnelMath_ NoSRHperPotential #else #define _B2BTunnelModel_ #define _B2BTunnelMath_ #endif TCL 語言：set 與 puts 其中 @…@ 因為是 SPP 語言，故會先被前面定義好的 header 取代，之後才會執向 .cmd 檔。 set A [expr -@BF_Thick@-@AB_Thick@-@GR_Thick@-@CH_Thick@-@ML_Thick@] puts \"DOE: Xmin [format %.2f $A]\" ",
   "wordCount" : "105",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/cover.jpg","datePublished": "2022-03-26T21:46:26+08:00",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/cover.jpg","datePublished": "2022-03-26T21:46:26+08:00",
   "dateModified": "2022-03-26T21:46:26+08:00",
   "author":{
     "@type": "Person",
@@ -129,14 +132,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/device/tcad/"
+    "@id": "http://localhost:1313/device/tcad/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -158,17 +161,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -182,46 +185,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -229,26 +232,27 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/device/">Devices</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/device/">Devices</a></div>
+    <h1 class="post-title entry-hint-parent">
       [TCAD] 工具語言
     </h1>
     <div class="post-description">
       TCAD learning notes
     </div>
-    <div class="post-meta"><span title='2022-03-26 21:46:26 +0800 CST'>March 26, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Device/TCAD.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-03-26 21:46:26 +0800 CST'>March 26, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Device/TCAD.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -360,16 +364,16 @@
 <ul>
 <li>SPP 語言：<code>@...@</code>、<code>#</code>開頭的敘述都是 SPP 語言</li>
 </ul>
-<pre tabindex="0"><code class="language-SPP" data-lang="SPP">#if &quot;@tunneling@ == &quot;Hurkx&quot;
+<pre tabindex="0"><code class="language-SPP" data-lang="SPP">#if &#34;@tunneling@ == &#34;Hurkx&#34;
     #define _B2BTunnelModel_ Band2Band(Model=Hurkx)
     #define _B2BTunnelMath_ NoSRHperPotential
-#elif &quot;@tunneling@ == &quot;E1&quot;
+#elif &#34;@tunneling@ == &#34;E1&#34;
     #define _B2BTunnelModel_ Band2Band(Model=E1)
     #define _B2BTunnelMath_ NoSRHperPotential
-#elif &quot;@tunneling@ == &quot;E1_5&quot;
+#elif &#34;@tunneling@ == &#34;E1_5&#34;
     #define _B2BTunnelModel_ Band2Band(Model=E1_5)
     #define _B2BTunnelMath_ NoSRHperPotential
-#elif &quot;@tunneling@ == &quot;E2&quot;
+#elif &#34;@tunneling@ == &#34;E2&#34;
     #define _B2BTunnelModel_ Band2Band(Model=E2)
     #define _B2BTunnelMath_ NoSRHperPotential
 #else
@@ -391,9 +395,9 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/programming/">Programming</a></li>
-      <li><a href="https://intervalrain.github.io/tags/semiconductor/">Semiconductor</a></li>
-      <li><a href="https://intervalrain.github.io/tags/tcad/">TCAD</a></li>
+      <li><a href="http://localhost:1313/tags/programming/">Programming</a></li>
+      <li><a href="http://localhost:1313/tags/semiconductor/">Semiconductor</a></li>
+      <li><a href="http://localhost:1313/tags/tcad/">TCAD</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -408,11 +412,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -481,12 +486,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

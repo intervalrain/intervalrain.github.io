@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 433. Minimum Genetic Mutation | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="433. Minimum Genetic Mutation
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table、String、Breadth-First Search   一、題目 A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Hash Table、String、Breadth-First Search
+
+
+一、題目
+A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.
 Suppose we need to investigate a mutation from a gene string start to a gene string end where one mutation is defined as one single character changed in the gene string.
- For example, &quot;AACCGGTT&quot; --&gt; &quot;AACCGGTA&quot; is one mutation.">
+
+For example, &quot;AACCGGTT&quot; --&gt; &quot;AACCGGTA&quot; is one mutation.
+There is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.
+Given the two gene strings start and end and the gene bank bank, return the minimum number of mutations needed to mutate from start to end. If there is no such a mutation, return -1.
+Note that the starting point is assumed to be valid, so it might not be included in the bank.
+
+Example 1:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/433/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +53,7 @@ Suppose we need to investigate a mutation from a gene string start to a gene str
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,23 +86,41 @@ Suppose we need to investigate a mutation from a gene string start to a gene str
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 433. Minimum Genetic Mutation" />
-<meta property="og:description" content="433. Minimum Genetic Mutation
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table、String、Breadth-First Search   一、題目 A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/433/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 433. Minimum Genetic Mutation">
+  <meta property="og:description" content="433. Minimum Genetic Mutation
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table、String、Breadth-First Search 一、題目 A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.
 Suppose we need to investigate a mutation from a gene string start to a gene string end where one mutation is defined as one single character changed in the gene string.
- For example, &quot;AACCGGTT&quot; --&gt; &quot;AACCGGTA&quot; is one mutation." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/433/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-02T23:36:32&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-02T23:36:32&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 433. Minimum Genetic Mutation"/>
+For example, &#34;AACCGGTT&#34; --&gt; &#34;AACCGGTA&#34; is one mutation.
+There is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.
+Given the two gene strings start and end and the gene bank bank, return the minimum number of mutations needed to mutate from start to end. If there is no such a mutation, return -1.
+Note that the starting point is assumed to be valid, so it might not be included in the bank. Example 1:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-02T23:36:32+08:00">
+    <meta property="article:modified_time" content="2022-11-02T23:36:32+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 433. Minimum Genetic Mutation">
 <meta name="twitter:description" content="433. Minimum Genetic Mutation
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table、String、Breadth-First Search   一、題目 A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Hash Table、String、Breadth-First Search
+
+
+一、題目
+A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.
 Suppose we need to investigate a mutation from a gene string start to a gene string end where one mutation is defined as one single character changed in the gene string.
- For example, &quot;AACCGGTT&quot; --&gt; &quot;AACCGGTA&quot; is one mutation."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+For example, &quot;AACCGGTT&quot; --&gt; &quot;AACCGGTA&quot; is one mutation.
+There is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.
+Given the two gene strings start and end and the gene bank bank, return the minimum number of mutations needed to mutate from start to end. If there is no such a mutation, return -1.
+Note that the starting point is assumed to be valid, so it might not be included in the bank.
+
+Example 1:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -103,14 +131,8 @@ Suppose we need to investigate a mutation from a gene string start to a gene str
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 433. Minimum Genetic Mutation",
-      "item": "https://intervalrain.github.io/leetcode/433/"
+      "item": "http://localhost:1313/leetcode/433/"
     }
   ]
 }
@@ -121,13 +143,13 @@ Suppose we need to investigate a mutation from a gene string start to a gene str
   "@type": "BlogPosting",
   "headline": "[LeetCode] 433. Minimum Genetic Mutation",
   "name": "[LeetCode] 433. Minimum Genetic Mutation",
-  "description": "433. Minimum Genetic Mutation\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Hash Table、String、Breadth-First Search   一、題目 A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.\nSuppose we need to investigate a mutation from a gene string start to a gene string end where one mutation is defined as one single character changed in the gene string.\n For example, \u0026quot;AACCGGTT\u0026quot; --\u0026gt; \u0026quot;AACCGGTA\u0026quot; is one mutation.",
+  "description": "433. Minimum Genetic Mutation\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Hash Table、String、Breadth-First Search 一、題目 A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.\nSuppose we need to investigate a mutation from a gene string start to a gene string end where one mutation is defined as one single character changed in the gene string.\nFor example, \u0026quot;AACCGGTT\u0026quot; --\u0026gt; \u0026quot;AACCGGTA\u0026quot; is one mutation.\nThere is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.\nGiven the two gene strings start and end and the gene bank bank, return the minimum number of mutations needed to mutate from start to end. If there is no such a mutation, return -1.\nNote that the starting point is assumed to be valid, so it might not be included in the bank. Example 1:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "433. Minimum Genetic Mutation\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Hash Table、String、Breadth-First Search   一、題目 A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.\nSuppose we need to investigate a mutation from a gene string start to a gene string end where one mutation is defined as one single character changed in the gene string.\n For example, \"AACCGGTT\" -- \"AACCGGTA\" is one mutation.\nThere is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.\nGiven the two gene strings start and end and the gene bank bank, return the minimum number of mutations needed to mutate from start to end. If there is no such a mutation, return -1.\nNote that the starting point is assumed to be valid, so it might not be included in the bank.  Example 1:\n Input: start = “AACCGGTT”, end = “AACCGGTA”, bank = [“AACCGGTA”] Output: 1  Example 2:\n Input: start = “AACCGGTT”, end = “AAACGGTA”, bank = [“AACCGGTA”,“AACCGCTA”,“AAACGGTA”] Output: 2  Example 3:\n Input: start = “AAAAACCC”, end = “AACCCCCC”, bank = [“AAAACCCC”,“AAACCCCC”,“AACCCCCC”] Output: 3  Constraints:\n start.length == 8 end.length == 8 0  bank[i].length == 8 start, end, and bank[i] consist of only the characters ['A', 'C', 'G', 'T'].   二、分析  用 BFS 的策略，可以找到最快到達的路徑。 相互比較 gene string 是否是相鄰(mutation)，效率不如取代字元再去找是否存在路徑。  三、解題 1. BFS  Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\)  const string code = \"ATCG\"; int minMutation(string start, string end, vectorstring\u0026 bank) {  unordered_setstring set(bank.begin(), bank.end());  if (!set.count(end)) return -1;  queuestring q;  q.push(start);  int cnt = 0;  while (!q.empty()) {  int sz = q.size();  while (sz--) {  string curr = q.front();  q.pop();  if (curr == end) return cnt;  set.erase(curr);  for (int i = 0; i  start.length(); i++) {  string tmp = curr;  for (char c : code){  tmp[i] = c;  if (set.count(tmp)) q.push(tmp);  }  }  }  cnt++;  }  return -1; } 回目錄 Catalog\n",
+  "articleBody": "433. Minimum Genetic Mutation\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Hash Table、String、Breadth-First Search 一、題目 A gene string can be represented by an 8-character long string, with choices from A, C, G, and T.\nSuppose we need to investigate a mutation from a gene string start to a gene string end where one mutation is defined as one single character changed in the gene string.\nFor example, \"AACCGGTT\" --\u003e \"AACCGGTA\" is one mutation.\nThere is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.\nGiven the two gene strings start and end and the gene bank bank, return the minimum number of mutations needed to mutate from start to end. If there is no such a mutation, return -1.\nNote that the starting point is assumed to be valid, so it might not be included in the bank. Example 1:\nInput: start = “AACCGGTT”, end = “AACCGGTA”, bank = [“AACCGGTA”] Output: 1 Example 2:\nInput: start = “AACCGGTT”, end = “AAACGGTA”, bank = [“AACCGGTA”,“AACCGCTA”,“AAACGGTA”] Output: 2 Example 3:\nInput: start = “AAAAACCC”, end = “AACCCCCC”, bank = [“AAAACCCC”,“AAACCCCC”,“AACCCCCC”] Output: 3 Constraints:\nstart.length == 8 end.length == 8 0 \u003c= bank.length \u003c= 10 bank[i].length == 8 start, end, and bank[i] consist of only the characters ['A', 'C', 'G', 'T']. 二、分析 用 BFS 的策略，可以找到最快到達的路徑。 相互比較 gene string 是否是相鄰(mutation)，效率不如取代字元再去找是否存在路徑。 三、解題 1. BFS Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\) const string code = \"ATCG\"; int minMutation(string start, string end, vector\u003cstring\u003e\u0026 bank) { unordered_set\u003cstring\u003e set(bank.begin(), bank.end()); if (!set.count(end)) return -1; queue\u003cstring\u003e q; q.push(start); int cnt = 0; while (!q.empty()) { int sz = q.size(); while (sz--) { string curr = q.front(); q.pop(); if (curr == end) return cnt; set.erase(curr); for (int i = 0; i \u003c start.length(); i++) { string tmp = curr; for (char c : code){ tmp[i] = c; if (set.count(tmp)) q.push(tmp); } } } cnt++; } return -1; } 回目錄 Catalog\n",
   "wordCount" : "322",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-02T23:36:32+08:00",
   "dateModified": "2022-11-02T23:36:32+08:00",
   "author":{
@@ -136,14 +158,14 @@ Suppose we need to investigate a mutation from a gene string start to a gene str
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/433/"
+    "@id": "http://localhost:1313/leetcode/433/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -165,17 +187,17 @@ Suppose we need to investigate a mutation from a gene string start to a gene str
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -189,46 +211,46 @@ Suppose we need to investigate a mutation from a gene string start to a gene str
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -236,20 +258,21 @@ Suppose we need to investigate a mutation from a gene string start to a gene str
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 433. Minimum Genetic Mutation
     </h1>
-    <div class="post-meta"><span title='2022-11-02 23:36:32 +0800 CST'>November 2, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/433.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-02 23:36:32 +0800 CST'>November 2, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/433.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -413,16 +436,16 @@ Note that the starting point is assumed to be valid, so it might not be included
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/2131/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/2131/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 2131. Longest Palindrome by Concatenating Two Letter Words</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/20/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/20/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 20. Valid Parentheses</span>
   </a>
@@ -440,11 +463,12 @@ Note that the starting point is assumed to be valid, so it might not be included
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -513,12 +537,12 @@ Note that the starting point is assumed to be valid, so it might not be included
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

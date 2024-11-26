@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[C&#43;&#43;] Segment Tree | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Segment Tree, 線段樹, zkw, C&#43;&#43;" />
+<meta name="keywords" content="Segment Tree, 線段樹, zkw, C&#43;&#43;">
 <meta name="description" content="用 C&#43;&#43; 介紹資料結構線段樹">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/c&#43;&#43;/segtree/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,19 +71,23 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[C&#43;&#43;] Segment Tree" />
-<meta property="og:description" content="用 C&#43;&#43; 介紹資料結構線段樹" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/c&#43;&#43;/segtree/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/cover.jpg" /><meta property="article:section" content="C&#43;&#43;" />
-<meta property="article:published_time" content="2022-10-18T23:14:38&#43;08:00" />
-<meta property="article:modified_time" content="2022-10-18T23:14:38&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/cover.jpg" />
-<meta name="twitter:title" content="[C&#43;&#43;] Segment Tree"/>
-<meta name="twitter:description" content="用 C&#43;&#43; 介紹資料結構線段樹"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/c&#43;&#43;/segtree/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[C&#43;&#43;] Segment Tree">
+  <meta property="og:description" content="用 C&#43;&#43; 介紹資料結構線段樹">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="c&#43;&#43;">
+    <meta property="article:published_time" content="2022-10-18T23:14:38+08:00">
+    <meta property="article:modified_time" content="2022-10-18T23:14:38+08:00">
+    <meta property="article:tag" content="C&#43;&#43;">
+    <meta property="article:tag" content="Programming">
+    <meta property="og:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:title" content="[C&#43;&#43;] Segment Tree">
+<meta name="twitter:description" content="用 C&#43;&#43; 介紹資料結構線段樹">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,13 +99,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "C++s",
-      "item": "https://intervalrain.github.io/c++/"
+      "item": "http://localhost:1313/c++/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[C++] Segment Tree",
-      "item": "https://intervalrain.github.io/c++/segtree/"
+      "item": "http://localhost:1313/c++/segtree/"
     }
   ]
 }
@@ -118,10 +120,10 @@
   "keywords": [
     "Segment Tree", "線段樹", "zkw", "C++"
   ],
-  "articleBody": "線段樹 Segment Tree 簡介  線段樹是演算法中常用來維護區間訊息的資料結構。 空間複雜度為 \\(O(n)\\)，\\(n\\) 代表區間數。 查詢的時間複雜度為 \\(O(\\log n+k)\\)，\\(k\\) 代表符合條件的區間數量。 線段樹將每個長度為為 1 的區間劃分為左右兩個區間遞迴求解，把整個線段劃分為一個樹型結構，通過合併左右兩個區間訊息來求得該區間的訊息。 在實現時，我們考慮遞迴建樹，設當前的根節點為 root，如果根節點管轄的區間長度已經是 1，則可以直接根據數組上相應位置的值初始化該節點。否則需將該區間從中點處分割為兩個子區間，分別進入左右子節點遞迴建樹，最後合併兩個子節點的訊息，  建樹 build void build(int s, int t, int p, const vectorint\u0026 arr){  if (s == t){  tree[p] = SegmentItem(arr[s], 1);  return;  }  int m = s + ((t - s)  1);  build(s, m, p*2, arr);  build(m+1, t, p*2+1, arr);  // push_up  tree[p] = tree[p*2] + tree[(p*2)+1]; } 查詢 query SegmentItem find(int l, int r, int s, int t, int p){  if (l  s \u0026\u0026 t  r){  return tree[p];  }  int m = s + ((t - s)  1);  SegmentItem sum;  if (r  m) return find(l, r, s, m, p*2);  if (l  m) return find(l, r, m+1, t, p*2+1);  return find(l, r, s, m, p*2) + find(l, r, m+1, t, p*2+1); } zkw 線段樹  來自清華大學張昆瑋(zkw)-《統計的力量》 以非遞迴的方式構建，效率更高，程式更短。 普通的線段樹是從上到下做處理，容易定位根節點，卻不容易定位子節點。 zkw 線段樹是當二叉樹是滿二叉樹時，因為子節點的編號具有以下規律：  葉子節點(left) 全部退化為線段 \\([x,x]\\) 。 \\(n\\) 個數據點則取大於等 \\(n\\)且為 \\(2\\) 的冪次的兩倍作為數組大小。 \\((m=2^a\\ge n)\\) for (int m = 1; m  n; m = 1)  維護點為 \\(n\\) 個。索引為\\([m,m+n)\\)。 子葉數目為 \\(m\\) 個。索引為\\([m,2m)\\) 節點數為 \\(2m-1\\) 個。(數組大小需設 \\(2m\\) 因為 zkw tree是 1-index的) 樹高 \\(H=\\log_2(m)+1\\) 層。  第 \\(h\\) 層有 \\(2^{h-1}\\) 個節點， 該層線段長度為 \\(2^{H-h}\\)。   若某節點為 \\(p\\)，父節點為 \\(p/2\\)，子節點為 \\(2p\\) 和 \\(2p+1\\) int parent = p  1; int left = p  1; int right = p  1 | 1;  若兩節點為 \\(p\\) 與 \\(q\\)，且兩節點互為兄弟節點，則 \\(p\\oplus q=1\\) if (left ^ right)  // left 與 right 為兄弟節點 else  // left 與 right 不為兄弟節點  除根節點外，左節點皆為偶數，右節點皆為奇數 if (i == 1)  // i 為根節點 else if (i \u0026 1)  // i 為奇數，為右節點 else if (!(i \u0026 1))  // i 為偶數，為左節點     結構  線段樹索引堆疊：  轉成二進制：  規律：  一個節點的父節點是該數右移 1，低位捨棄。 一個節點的左子節點是該數左移 1，右子節點是該數左移 1 再加 1。 同一層的節點是依次遞增的，第 \\(n\\) 層有 \\(2^{n-1}\\)個節點 最後一層有多少個節點，值域就是多少。    建樹 build  取 m 值有許多版本，有些版本會直接取 \\(m=2^{log_2(n+5)+1}\\)以節省迭代計算  寫成 int n = 1    可以有開區間與閉區間兩種做法，差別在於從子葉節點的最左邊 \\(m+i\\) 開始，或是第二個子葉節點 \\(m+1+i\\) 開始。 由下而上更新時，開區間與閉區間的終止條件不同：  開區間的終止條件為兩子節點互為兄弟節點 while (i^j^1)  // operation  閉區間的終止條件為右節點小於左節點 while (i  j)  // operation     class Tree { private:  vectorint arr;  int n, m; // n 為維護點數, m 為 zkw-tree 子葉節點數 public:  Tree (vectorint\u0026 nums){  n = nums.size();  for (m = 1; m  n; m  1); // 取大於等於 n 且為 2 的冪次的最小整數  arr.assign(2*m, 0); // 節點數設為 2m 個，其中 0 為空節點  }  void build(vectorint nums){  for (int i = 0; i  n; i++) {  arr[i+m] = nums[i]; // 從子葉節點最左邊往右更新節點。  mx[i+m] = nums[i];  mn[i+m] = nums[i];  }  for (int i = m-1; i; i--){ // 向上更新父節點。  arr[i] = in(x);  }  } };  根據不同需求代換 \\(\\text{in(x)}\\)：取和、最大值、最小平   // 取和  arr[i] = arr[i1] + arr[i1|1];  // 取最大值  arr[i] = max(arr[i1], arr[i1|1]);  // 取最小值  arr[i] = min(arr[i1], arr[i1|1]); 更新 update  單點修改(以和為例) 更新時，以差分方式，將所有父節點加上更新點的差值。  void update(int i, int val){  int diff = val - arr[m+i] // 原值 arr[m+i] 與新值 val 的差  for (i += m; i; i = 1){  arr[i] += diff;  } } 查詢 query  單點查詢(以和為例)：閉區間做法 判斷左邊界是否為右節點，若為右節點則加上後往右邊的父節點移動。 判斷右邊界是否為左節點，若為左節點則加上後往左邊的父節點移動。   int query(int left, int right){  int sum = 0;  int i = left+m; // 左閉區間  int j = right+m; // 右閉區間  for (; i  j; i = 1, j = 1){  if (i \u0026 1) sum += arr[i++];  if (!(j \u0026 1)) sum += arr[j--];  }  return sum; }   備註：開區間作法 (0-index 時會出現 -1 的情形，建議使用閉區間)  int query(int left, int right){  int sum = 0;  int i = left+m-1;  int j = right+m+1;  for(; i^j^1; i = 1, j = 1){  if (~i \u0026 1) sum += arr[i^1];  if (j \u0026 1) sum += arr[j^1];  }  return sum; } 區間修改  在非遞迴的情況下，標記下傳是比較困難的，所以作法上改成將標記永久化。 具體而言，與查詢類似，當左端點是左子節點且右端點是右子節點時，我們對它的兄弟節點進行修改並標記，表示這顆子樹中的每個節點都要被修改。但單純這樣還不夠，因上述修改還會波及到這些節點的各級祖先，所以我們需要在途中根據實際修改的區間長度來更新各級祖先的值，這種操作需要一路上推到根節點。 (開區間作法)  void update(int left, int right, int diff){  int len = 1, cntl = 0, cntr = 0; // cntl, cntr 是左右邊分別實際修改的區間長度  left += m-1;  right += m+1;  for (; left^right^1; left  1, right  1, len  1){  arr[left] += cntl * diff;  arr[right] += cntr * diff;  if (~left \u0026 1) {  arr[left^1] += diff * len;  mark[left^1] += diff;  cntl += len;  }  if (right \u0026 1) {  arr[right^1] += diff * len;  mark[right^1] += diff;  cntr += len;  }  }  for (; left; left = 1, right = 1){  arr[left] += cntl * diff;  arr[right] += cntr * diff;  } }  在有區間修改存在時，區間查詢也需要考慮標記的影響。 所以除了加上端點的兄弟節點訊息，沿途中遇到的標記也對答案有貢獻，同樣需要上推到根節點。   int query(int left, int right){  int sum = 0, len = 1, cntl = 0, cntr = 0;  left += m - 1;  right += m + 1;  for (; left^right^1; left = 1, right = 1, len  1){  sum += cntl * mark[left] + cntr * mark[right];  if (~left \u0026 1) sum += arr[left^1], cntl += len;  if (right \u0026 1) sum += arr[right^1], cntr += len;  }  for (; left; left  1, right  1){  sum += cntl * mark[left] + cntr * mark[right];  }  return sum; }  區間查詢最大值：  void update(int l, int r, int d) {  for (l += N - 1, r += N + 1; l ^ r ^ 1; l = 1, r = 1)  {  if (l  N) tree[l] = max(tree[l  1], tree[l  1 | 1]) + mark[l],  tree[r] = max(tree[r  1], tree[r  1 | 1]) + mark[r];  if (~l \u0026 1) tree[l ^ 1] += d, mark[l ^ 1] += d;  if (r \u0026 1) tree[r ^ 1] += d, mark[r ^ 1] += d;  }  for (; l; l = 1, r = 1)  if (l  N) tree[l] = max(tree[l  1], tree[l  1 | 1]) + mark[l],  tree[r] = max(tree[r  1], tree[r  1 | 1]) + mark[r]; }; int query(int l, int r) {  int maxl = -INF, maxr = -INF;  for (l += N - 1, r += N + 1; l ^ r ^ 1; l = 1, r = 1)  {  maxl += mark[l], maxr += mark[r];  if (~l \u0026 1) cmax(maxl, tree[l ^ 1]);  if (r \u0026 1) cmax(maxr, tree[r ^ 1]);  }  for (; l; l = 1, r = 1)  maxl += mark[l], maxr += mark[r];  return max(maxl, maxr); }; Leetcode. 307 範例  https://leetcode.com/problems/range-sum-query-mutable/   TreeNode 變形  class NumArray {  class SegTree {  public:  int val;  int begin, end;  SegTree* left, *right;  SegTree(int v):val(v) {}  SegTree(int v, int b, int e):val(v), begin(b), end(e) {}  SegTree(int v, int b, int e, SegTree* l, SegTree* r)  :val(v), begin(b), end(e), left(l), right(r) {}  };   SegTree* root;   SegTree* build(vectorint\u0026 nums, int b, int e){  if (e  b) return NULL;  if (b == e) return new SegTree(nums[b], b, b);  int mid = b + (e-b)/2;  SegTree* left = build(nums, b, mid);  SegTree* right = build(nums, mid+1, e);  return new SegTree(left-val + right-val, b, e, left, right);  }   void update(SegTree* node, int index, int val){  if (node-begin == index \u0026\u0026 node-end == index){  node-val = val;  } else {  int mid = node-begin + (node-end - node-begin)/2;  if (index  mid){  update(node-left, index, val);  } else {  update(node-right, index, val);  }  node-val = node-left-val + node-right-val;  }  }  int query(SegTree* node, int left, int right){  if (node-begin == left \u0026\u0026 node-end == right){  return node-val;  }  int mid = node-begin + (node-end - node-begin)/2;  if (right  mid){  return query(node-left, left, right);  } else if (left  mid){  return query(node-right, left, right);  }  return query(node-left, left, mid) + query(node-right, mid+1, right);  }  public:  NumArray(vectorint\u0026 nums) {  root = build(nums, 0, nums.size()-1);  }   void update(int index, int val) {  update(root, index, val);  }   int sumRange(int left, int right) {  return query(root, left, right);  } }; zkw 線段樹  class NumArray {  class SegTree {  vectorint arr;  int m, n;  public:  SegTree(vectorint\u0026 nums) {  n = nums.size();  for (m = 1; m  n; m  1);  build(nums);  }  void build(vectorint\u0026 nums) {  arr.assign(2*m, 0);  for (int i = 0; i  n; ++i) arr[m+i] = nums[i];  for (int i = m-1; i; --i) arr[i] = arr[i1] + arr[i1|1];  }  void update(int index, int val) {  int diff = val - arr[m+index];  for (index += m; index; index = 1) arr[index] += diff;  }  int query(int left, int right) {  int sum = 0;  for (int i = left+m, j = right+m; i  j; i = 1, j = 1){  if (i \u0026 1) sum += arr[i++];  if (!(j \u0026 1)) sum += arr[j--];  }  return sum;  }  }; public:  SegTree* root;  NumArray(vectorint\u0026 nums) {  root = new SegTree(nums);  }   void update(int index, int val) {  root-update(index, val);  }   int sumRange(int left, int right) {  return root-query(left, right);  } }; BIT(binary indexed tree) class NumArray { public:  class Bit {  public:  vectorint bit;  int n;  Bit(vectorint\u0026 nums) {  n = nums.size();  bit.assign(n+1, 0);  for (int i = 0; i  n; i++){  build(i+1, nums[i]);  }  }  void build(int index, int val) {  while (index  n){  bit[index] += val;  index = next(index);  }  }  int next(int index) {  return index + (index \u0026 -index);  }  int parent(int index) {  return index - (index \u0026 -index);  }  int getSum(int index) {  int sum = 0;  while (index){  sum += bit[index];  index = parent(index);  }  return sum;  }  };  Bit* bit;  NumArray(vectorint\u0026 nums) {  bit = new Bit(nums);  }   void update(int index, int val) {  int diff = val - sumRange(index, index);  bit-build(index+1, diff);  }   int sumRange(int left, int right) {  return bit-getSum(right+1) - bit-getSum(left);  } }; ",
+  "articleBody": "線段樹 Segment Tree 簡介 線段樹是演算法中常用來維護區間訊息的資料結構。 空間複雜度為 \\(O(n)\\)，\\(n\\) 代表區間數。 查詢的時間複雜度為 \\(O(\\log n+k)\\)，\\(k\\) 代表符合條件的區間數量。 線段樹將每個長度為為 1 的區間劃分為左右兩個區間遞迴求解，把整個線段劃分為一個樹型結構，通過合併左右兩個區間訊息來求得該區間的訊息。 在實現時，我們考慮遞迴建樹，設當前的根節點為 root，如果根節點管轄的區間長度已經是 1，則可以直接根據數組上相應位置的值初始化該節點。否則需將該區間從中點處分割為兩個子區間，分別進入左右子節點遞迴建樹，最後合併兩個子節點的訊息， 建樹 build void build(int s, int t, int p, const vector\u003cint\u003e\u0026 arr){ if (s == t){ tree[p] = SegmentItem(arr[s], 1); return; } int m = s + ((t - s) \u003e\u003e 1); build(s, m, p*2, arr); build(m+1, t, p*2+1, arr); // push_up tree[p] = tree[p*2] + tree[(p*2)+1]; } 查詢 query SegmentItem find(int l, int r, int s, int t, int p){ if (l \u003c= s \u0026\u0026 t \u003c= r){ return tree[p]; } int m = s + ((t - s) \u003e\u003e 1); SegmentItem sum; if (r \u003c= m) return find(l, r, s, m, p*2); if (l \u003e m) return find(l, r, m+1, t, p*2+1); return find(l, r, s, m, p*2) + find(l, r, m+1, t, p*2+1); } zkw 線段樹 來自清華大學張昆瑋(zkw)-《統計的力量》 以非遞迴的方式構建，效率更高，程式更短。 普通的線段樹是從上到下做處理，容易定位根節點，卻不容易定位子節點。 zkw 線段樹是當二叉樹是滿二叉樹時，因為子節點的編號具有以下規律： 葉子節點(left) 全部退化為線段 \\([x,x]\\) 。 \\(n\\) 個數據點則取大於等 \\(n\\)且為 \\(2\\) 的冪次的兩倍作為數組大小。 \\((m=2^a\\ge n)\\) for (int m = 1; m \u003c= n; m \u003e\u003e= 1) 維護點為 \\(n\\) 個。索引為\\([m,m+n)\\)。 子葉數目為 \\(m\\) 個。索引為\\([m,2m)\\) 節點數為 \\(2m-1\\) 個。(數組大小需設 \\(2m\\) 因為 zkw tree是 1-index的) 樹高 \\(H=\\log_2(m)+1\\) 層。 第 \\(h\\) 層有 \\(2^{h-1}\\) 個節點， 該層線段長度為 \\(2^{H-h}\\)。 若某節點為 \\(p\\)，父節點為 \\(p/2\\)，子節點為 \\(2p\\) 和 \\(2p+1\\) int parent = p \u003e\u003e 1; int left = p \u003c\u003c 1; int right = p \u003c\u003c 1 | 1; 若兩節點為 \\(p\\) 與 \\(q\\)，且兩節點互為兄弟節點，則 \\(p\\oplus q=1\\) if (left ^ right) // left 與 right 為兄弟節點 else // left 與 right 不為兄弟節點 除根節點外，左節點皆為偶數，右節點皆為奇數 if (i == 1) // i 為根節點 else if (i \u0026 1) // i 為奇數，為右節點 else if (!(i \u0026 1)) // i 為偶數，為左節點 結構 線段樹索引堆疊： 轉成二進制： 規律： 一個節點的父節點是該數右移 1，低位捨棄。 一個節點的左子節點是該數左移 1，右子節點是該數左移 1 再加 1。 同一層的節點是依次遞增的，第 \\(n\\) 層有 \\(2^{n-1}\\)個節點 最後一層有多少個節點，值域就是多少。 建樹 build 取 m 值有許多版本，有些版本會直接取 \\(m=2^{log_2(n+5)+1}\\)以節省迭代計算 寫成 int n = 1 \u003c\u003c __lg(n+5)+1; 可以有開區間與閉區間兩種做法，差別在於從子葉節點的最左邊 \\(m+i\\) 開始，或是第二個子葉節點 \\(m+1+i\\) 開始。 由下而上更新時，開區間與閉區間的終止條件不同： 開區間的終止條件為兩子節點互為兄弟節點 while (i^j^1) // operation 閉區間的終止條件為右節點小於左節點 while (i \u003c= j) // operation class Tree { private: vector\u003cint\u003e arr; int n, m; // n 為維護點數, m 為 zkw-tree 子葉節點數 public: Tree (vector\u003cint\u003e\u0026 nums){ n = nums.size(); for (m = 1; m \u003c= n; m \u003c\u003c= 1); // 取大於等於 n 且為 2 的冪次的最小整數 arr.assign(2*m, 0); // 節點數設為 2m 個，其中 0 為空節點 } void build(vector\u003cint\u003e nums){ for (int i = 0; i \u003c n; i++) { arr[i+m] = nums[i]; // 從子葉節點最左邊往右更新節點。 mx[i+m] = nums[i]; mn[i+m] = nums[i]; } for (int i = m-1; i; i--){ // 向上更新父節點。 arr[i] = in(x); } } }; 根據不同需求代換 \\(\\text{in(x)}\\)：取和、最大值、最小平 // 取和 arr[i] = arr[i\u003c\u003c1] + arr[i\u003c\u003c1|1]; // 取最大值 arr[i] = max(arr[i\u003c\u003c1], arr[i\u003c\u003c1|1]); // 取最小值 arr[i] = min(arr[i\u003c\u003c1], arr[i\u003c\u003c1|1]); 更新 update 單點修改(以和為例) 更新時，以差分方式，將所有父節點加上更新點的差值。 void update(int i, int val){ int diff = val - arr[m+i] // 原值 arr[m+i] 與新值 val 的差 for (i += m; i; i \u003e\u003e= 1){ arr[i] += diff; } } 查詢 query 單點查詢(以和為例)：閉區間做法 判斷左邊界是否為右節點，若為右節點則加上後往右邊的父節點移動。 判斷右邊界是否為左節點，若為左節點則加上後往左邊的父節點移動。 int query(int left, int right){ int sum = 0; int i = left+m; // 左閉區間 int j = right+m; // 右閉區間 for (; i \u003c= j; i \u003e\u003e= 1, j \u003e\u003e= 1){ if (i \u0026 1) sum += arr[i++]; if (!(j \u0026 1)) sum += arr[j--]; } return sum; } 備註：開區間作法 (0-index 時會出現 -1 的情形，建議使用閉區間) int query(int left, int right){ int sum = 0; int i = left+m-1; int j = right+m+1; for(; i^j^1; i \u003e\u003e= 1, j \u003e\u003e= 1){ if (~i \u0026 1) sum += arr[i^1]; if (j \u0026 1) sum += arr[j^1]; } return sum; } 區間修改 在非遞迴的情況下，標記下傳是比較困難的，所以作法上改成將標記永久化。 具體而言，與查詢類似，當左端點是左子節點且右端點是右子節點時，我們對它的兄弟節點進行修改並標記，表示這顆子樹中的每個節點都要被修改。但單純這樣還不夠，因上述修改還會波及到這些節點的各級祖先，所以我們需要在途中根據實際修改的區間長度來更新各級祖先的值，這種操作需要一路上推到根節點。 (開區間作法) void update(int left, int right, int diff){ int len = 1, cntl = 0, cntr = 0; // cntl, cntr 是左右邊分別實際修改的區間長度 left += m-1; right += m+1; for (; left^right^1; left \u003e\u003e 1, right \u003e\u003e 1, len \u003c\u003c 1){ arr[left] += cntl * diff; arr[right] += cntr * diff; if (~left \u0026 1) { arr[left^1] += diff * len; mark[left^1] += diff; cntl += len; } if (right \u0026 1) { arr[right^1] += diff * len; mark[right^1] += diff; cntr += len; } } for (; left; left \u003e\u003e= 1, right \u003e\u003e= 1){ arr[left] += cntl * diff; arr[right] += cntr * diff; } } 在有區間修改存在時，區間查詢也需要考慮標記的影響。 所以除了加上端點的兄弟節點訊息，沿途中遇到的標記也對答案有貢獻，同樣需要上推到根節點。 int query(int left, int right){ int sum = 0, len = 1, cntl = 0, cntr = 0; left += m - 1; right += m + 1; for (; left^right^1; left \u003e\u003e= 1, right \u003e\u003e= 1, len \u003c\u003c 1){ sum += cntl * mark[left] + cntr * mark[right]; if (~left \u0026 1) sum += arr[left^1], cntl += len; if (right \u0026 1) sum += arr[right^1], cntr += len; } for (; left; left \u003e\u003e 1, right \u003e\u003e 1){ sum += cntl * mark[left] + cntr * mark[right]; } return sum; } 區間查詢最大值： void update(int l, int r, int d) { for (l += N - 1, r += N + 1; l ^ r ^ 1; l \u003e\u003e= 1, r \u003e\u003e= 1) { if (l \u003c N) tree[l] = max(tree[l \u003c\u003c 1], tree[l \u003c\u003c 1 | 1]) + mark[l], tree[r] = max(tree[r \u003c\u003c 1], tree[r \u003c\u003c 1 | 1]) + mark[r]; if (~l \u0026 1) tree[l ^ 1] += d, mark[l ^ 1] += d; if (r \u0026 1) tree[r ^ 1] += d, mark[r ^ 1] += d; } for (; l; l \u003e\u003e= 1, r \u003e\u003e= 1) if (l \u003c N) tree[l] = max(tree[l \u003c\u003c 1], tree[l \u003c\u003c 1 | 1]) + mark[l], tree[r] = max(tree[r \u003c\u003c 1], tree[r \u003c\u003c 1 | 1]) + mark[r]; }; int query(int l, int r) { int maxl = -INF, maxr = -INF; for (l += N - 1, r += N + 1; l ^ r ^ 1; l \u003e\u003e= 1, r \u003e\u003e= 1) { maxl += mark[l], maxr += mark[r]; if (~l \u0026 1) cmax(maxl, tree[l ^ 1]); if (r \u0026 1) cmax(maxr, tree[r ^ 1]); } for (; l; l \u003e\u003e= 1, r \u003e\u003e= 1) maxl += mark[l], maxr += mark[r]; return max(maxl, maxr); }; Leetcode. 307 範例 https://leetcode.com/problems/range-sum-query-mutable/ TreeNode 變形 class NumArray { class SegTree { public: int val; int begin, end; SegTree* left, *right; SegTree(int v):val(v) {} SegTree(int v, int b, int e):val(v), begin(b), end(e) {} SegTree(int v, int b, int e, SegTree* l, SegTree* r) :val(v), begin(b), end(e), left(l), right(r) {} }; SegTree* root; SegTree* build(vector\u003cint\u003e\u0026 nums, int b, int e){ if (e \u003c b) return NULL; if (b == e) return new SegTree(nums[b], b, b); int mid = b + (e-b)/2; SegTree* left = build(nums, b, mid); SegTree* right = build(nums, mid+1, e); return new SegTree(left-\u003eval + right-\u003eval, b, e, left, right); } void update(SegTree* node, int index, int val){ if (node-\u003ebegin == index \u0026\u0026 node-\u003eend == index){ node-\u003eval = val; } else { int mid = node-\u003ebegin + (node-\u003eend - node-\u003ebegin)/2; if (index \u003c= mid){ update(node-\u003eleft, index, val); } else { update(node-\u003eright, index, val); } node-\u003eval = node-\u003eleft-\u003eval + node-\u003eright-\u003eval; } } int query(SegTree* node, int left, int right){ if (node-\u003ebegin == left \u0026\u0026 node-\u003eend == right){ return node-\u003eval; } int mid = node-\u003ebegin + (node-\u003eend - node-\u003ebegin)/2; if (right \u003c= mid){ return query(node-\u003eleft, left, right); } else if (left \u003e mid){ return query(node-\u003eright, left, right); } return query(node-\u003eleft, left, mid) + query(node-\u003eright, mid+1, right); } public: NumArray(vector\u003cint\u003e\u0026 nums) { root = build(nums, 0, nums.size()-1); } void update(int index, int val) { update(root, index, val); } int sumRange(int left, int right) { return query(root, left, right); } }; zkw 線段樹 class NumArray { class SegTree { vector\u003cint\u003e arr; int m, n; public: SegTree(vector\u003cint\u003e\u0026 nums) { n = nums.size(); for (m = 1; m \u003c n; m \u003c\u003c= 1); build(nums); } void build(vector\u003cint\u003e\u0026 nums) { arr.assign(2*m, 0); for (int i = 0; i \u003c n; ++i) arr[m+i] = nums[i]; for (int i = m-1; i; --i) arr[i] = arr[i\u003c\u003c1] + arr[i\u003c\u003c1|1]; } void update(int index, int val) { int diff = val - arr[m+index]; for (index += m; index; index \u003e\u003e= 1) arr[index] += diff; } int query(int left, int right) { int sum = 0; for (int i = left+m, j = right+m; i \u003c= j; i \u003e\u003e= 1, j \u003e\u003e= 1){ if (i \u0026 1) sum += arr[i++]; if (!(j \u0026 1)) sum += arr[j--]; } return sum; } }; public: SegTree* root; NumArray(vector\u003cint\u003e\u0026 nums) { root = new SegTree(nums); } void update(int index, int val) { root-\u003eupdate(index, val); } int sumRange(int left, int right) { return root-\u003equery(left, right); } }; BIT(binary indexed tree) class NumArray { public: class Bit { public: vector\u003cint\u003e bit; int n; Bit(vector\u003cint\u003e\u0026 nums) { n = nums.size(); bit.assign(n+1, 0); for (int i = 0; i \u003c n; i++){ build(i+1, nums[i]); } } void build(int index, int val) { while (index \u003c= n){ bit[index] += val; index = next(index); } } int next(int index) { return index + (index \u0026 -index); } int parent(int index) { return index - (index \u0026 -index); } int getSum(int index) { int sum = 0; while (index){ sum += bit[index]; index = parent(index); } return sum; } }; Bit* bit; NumArray(vector\u003cint\u003e\u0026 nums) { bit = new Bit(nums); } void update(int index, int val) { int diff = val - sumRange(index, index); bit-\u003ebuild(index+1, diff); } int sumRange(int left, int right) { return bit-\u003egetSum(right+1) - bit-\u003egetSum(left); } }; ",
   "wordCount" : "1497",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/cover.jpg","datePublished": "2022-10-18T23:14:38+08:00",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/cover.jpg","datePublished": "2022-10-18T23:14:38+08:00",
   "dateModified": "2022-10-18T23:14:38+08:00",
   "author":{
     "@type": "Person",
@@ -129,14 +131,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/c++/segtree/"
+    "@id": "http://localhost:1313/c++/segtree/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -158,17 +160,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -182,46 +184,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -229,26 +231,27 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/c&#43;&#43;/">C&#43;&#43;s</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/c&#43;&#43;/">C&#43;&#43;s</a></div>
+    <h1 class="post-title entry-hint-parent">
       [C&#43;&#43;] Segment Tree
     </h1>
     <div class="post-description">
       用 C&#43;&#43; 介紹資料結構線段樹
     </div>
-    <div class="post-meta"><span title='2022-10-18 23:14:38 +0800 CST'>October 18, 2022</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//C&#43;&#43;/segTree.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-10-18 23:14:38 +0800 CST'>October 18, 2022</span>&nbsp;·&nbsp;8 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//C&#43;&#43;/segTree.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -384,8 +387,7 @@
 <li>以非遞迴的方式構建，效率更高，程式更短。</li>
 <li>普通的線段樹是從上到下做處理，容易定位根節點，卻不容易定位子節點。</li>
 <li>zkw 線段樹是當二叉樹是<strong>滿二叉樹</strong>時，因為子節點的編號具有以下規律：
-<img loading="lazy" src="https://pic2.zhimg.com/80/v2-0cf514ed4d2feb7db4acf069659c6921_1440w.webp" alt="complete tree"  />
-
+<img alt="complete tree" loading="lazy" src="https://pic2.zhimg.com/80/v2-0cf514ed4d2feb7db4acf069659c6921_1440w.webp">
 <ul>
 <li>葉子節點(left) 全部退化為線段 \([x,x]\) 。</li>
 <li>\(n\) 個數據點則取大於等 \(n\)且為 \(2\) 的冪次的兩倍作為數組大小。 \((m=2^a\ge n)\)
@@ -425,11 +427,9 @@
 <h2 id="結構">結構<a hidden class="anchor" aria-hidden="true" href="#結構">#</a></h2>
 <ul>
 <li>線段樹索引堆疊：
-<img loading="lazy" src="/images/zkw1.jpg" alt="zkw1"  />
-</li>
+<img alt="zkw1" loading="lazy" src="/images/zkw1.jpg"></li>
 <li>轉成二進制：
-<img loading="lazy" src="/images/zkw2.jpg" alt="zkw2"  />
-</li>
+<img alt="zkw2" loading="lazy" src="/images/zkw2.jpg"></li>
 <li>規律：
 <ul>
 <li>一個節點的父節點是該數右移 1，低位捨棄。</li>
@@ -506,8 +506,7 @@
 <li>單點查詢(以和為例)：閉區間做法</li>
 <li>判斷左邊界是否為右節點，若為右節點則加上後往右邊的父節點移動。</li>
 <li>判斷右邊界是否為左節點，若為左節點則加上後往左邊的父節點移動。
-<img loading="lazy" src="https://pic2.zhimg.com/80/v2-e3823c417f81dedca9de97ce81fb25f5_1440w.webp" alt="query"  />
-</li>
+<img alt="query" loading="lazy" src="https://pic2.zhimg.com/80/v2-e3823c417f81dedca9de97ce81fb25f5_1440w.webp"></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">query</span>(<span style="color:#66d9ef">int</span> left, <span style="color:#66d9ef">int</span> right){
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
@@ -519,7 +518,6 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sum;
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
 </span></span></code></pre></div><ul>
 <li>備註：開區間作法 (0-index 時會出現 -1 的情形，建議使用閉區間)</li>
 </ul>
@@ -537,8 +535,7 @@
 <ul>
 <li>在非遞迴的情況下，標記下傳是比較困難的，所以作法上改成將標記永久化。</li>
 <li>具體而言，與查詢類似，當左端點是左子節點且右端點是右子節點時，我們對它的兄弟節點進行修改並標記，表示這顆子樹中的每個節點都要被修改。但單純這樣還不夠，因上述修改還會波及到這些節點的各級祖先，所以我們需要在途中根據實際修改的區間長度來更新各級祖先的值，這種操作需要一路上推到根節點。
-<img loading="lazy" src="https://pic3.zhimg.com/80/v2-107685cb9a76db558ed75ce3979dacde_1440w.webp" alt="range_revise"  />
-
+<img alt="range_revise" loading="lazy" src="https://pic3.zhimg.com/80/v2-107685cb9a76db558ed75ce3979dacde_1440w.webp">
 (開區間作法)</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span>(<span style="color:#66d9ef">int</span> left, <span style="color:#66d9ef">int</span> right, <span style="color:#66d9ef">int</span> diff){
@@ -567,8 +564,7 @@
 </span></span></code></pre></div><ul>
 <li>在有區間修改存在時，區間查詢也需要考慮標記的影響。</li>
 <li>所以除了加上端點的兄弟節點訊息，沿途中遇到的標記也對答案有貢獻，同樣需要上推到根節點。
-<img loading="lazy" src="https://pic4.zhimg.com/80/v2-c02f4a74602fbf8b1d8c90012550af77_1440w.webp" alt="range_query"  />
-</li>
+<img alt="range_query" loading="lazy" src="https://pic4.zhimg.com/80/v2-c02f4a74602fbf8b1d8c90012550af77_1440w.webp"></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">query</span>(<span style="color:#66d9ef">int</span> left, <span style="color:#66d9ef">int</span> right){
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, len <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, cntl <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, cntr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
@@ -780,8 +776,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
-      <li><a href="https://intervalrain.github.io/tags/programming/">Programming</a></li>
+      <li><a href="http://localhost:1313/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
+      <li><a href="http://localhost:1313/tags/programming/">Programming</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -796,11 +792,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -869,12 +866,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

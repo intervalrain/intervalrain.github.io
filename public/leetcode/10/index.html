@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Leetcode] 10. Regular Expression Matching | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="10. Regular Expression Matching
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Dynamic Programming、Recursion   一、題目 Given an input string s and a pattern p, implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where:
- &#39;.&#39; Matches any single character. &#39;*&#39; Matches zero or more of the preceding element.
-The matching should cover the entire input string (not partial).  Example 1:
- Input: s = &ldquo;aa&rdquo;, p = &ldquo;a&rdquo; Output: false Explanation: &ldquo;a&rdquo; does not match the entire string &ldquo;aa&rdquo;.">
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: String、Dynamic Programming、Recursion
+
+
+一、題目
+Given an input string s and a pattern p, implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where:
+
+&#39;.&#39; Matches any single character.
+&#39;*&#39; Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial).
+
+Example 1:
+
+Input: s = &ldquo;aa&rdquo;, p = &ldquo;a&rdquo;
+Output: false
+Explanation: &ldquo;a&rdquo; does not match the entire string &ldquo;aa&rdquo;.
+
+Example 2:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/10/">
 <noscript>
     <style>
         #theme-toggle,
@@ -44,7 +57,7 @@ The matching should cover the entire input string (not partial).  Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -77,25 +90,43 @@ The matching should cover the entire input string (not partial).  Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Leetcode] 10. Regular Expression Matching" />
-<meta property="og:description" content="10. Regular Expression Matching
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Dynamic Programming、Recursion   一、題目 Given an input string s and a pattern p, implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where:
- &#39;.&#39; Matches any single character. &#39;*&#39; Matches zero or more of the preceding element.
-The matching should cover the entire input string (not partial).  Example 1:
- Input: s = &ldquo;aa&rdquo;, p = &ldquo;a&rdquo; Output: false Explanation: &ldquo;a&rdquo; does not match the entire string &ldquo;aa&rdquo;." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/10/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-10-26T18:36:01&#43;08:00" />
-<meta property="article:modified_time" content="2022-10-26T18:36:01&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Leetcode] 10. Regular Expression Matching"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/10/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Leetcode] 10. Regular Expression Matching">
+  <meta property="og:description" content="10. Regular Expression Matching
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Dynamic Programming、Recursion 一、題目 Given an input string s and a pattern p, implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where:
+&#39;.&#39; Matches any single character. &#39;*&#39; Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial). Example 1:
+Input: s = “aa”, p = “a” Output: false Explanation: “a” does not match the entire string “aa”. Example 2:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-10-26T18:36:01+08:00">
+    <meta property="article:modified_time" content="2022-10-26T18:36:01+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Leetcode] 10. Regular Expression Matching">
 <meta name="twitter:description" content="10. Regular Expression Matching
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Dynamic Programming、Recursion   一、題目 Given an input string s and a pattern p, implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where:
- &#39;.&#39; Matches any single character. &#39;*&#39; Matches zero or more of the preceding element.
-The matching should cover the entire input string (not partial).  Example 1:
- Input: s = &ldquo;aa&rdquo;, p = &ldquo;a&rdquo; Output: false Explanation: &ldquo;a&rdquo; does not match the entire string &ldquo;aa&rdquo;."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: String、Dynamic Programming、Recursion
+
+
+一、題目
+Given an input string s and a pattern p, implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where:
+
+&#39;.&#39; Matches any single character.
+&#39;*&#39; Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial).
+
+Example 1:
+
+Input: s = &ldquo;aa&rdquo;, p = &ldquo;a&rdquo;
+Output: false
+Explanation: &ldquo;a&rdquo; does not match the entire string &ldquo;aa&rdquo;.
+
+Example 2:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -106,14 +137,8 @@ The matching should cover the entire input string (not partial).  Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[Leetcode] 10. Regular Expression Matching",
-      "item": "https://intervalrain.github.io/leetcode/10/"
+      "item": "http://localhost:1313/leetcode/10/"
     }
   ]
 }
@@ -124,13 +149,13 @@ The matching should cover the entire input string (not partial).  Example 1:
   "@type": "BlogPosting",
   "headline": "[Leetcode] 10. Regular Expression Matching",
   "name": "[Leetcode] 10. Regular Expression Matching",
-  "description": "10. Regular Expression Matching\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: String、Dynamic Programming、Recursion   一、題目 Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:\n '.' Matches any single character. '*' Matches zero or more of the preceding element.\nThe matching should cover the entire input string (not partial).  Example 1:\n Input: s = \u0026ldquo;aa\u0026rdquo;, p = \u0026ldquo;a\u0026rdquo; Output: false Explanation: \u0026ldquo;a\u0026rdquo; does not match the entire string \u0026ldquo;aa\u0026rdquo;.",
+  "description": "10. Regular Expression Matching\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: String、Dynamic Programming、Recursion 一、題目 Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:\n'.' Matches any single character. '*' Matches zero or more of the preceding element.\nThe matching should cover the entire input string (not partial). Example 1:\nInput: s = \u0026ldquo;aa\u0026rdquo;, p = \u0026ldquo;a\u0026rdquo; Output: false Explanation: \u0026ldquo;a\u0026rdquo; does not match the entire string \u0026ldquo;aa\u0026rdquo;. Example 2:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "10. Regular Expression Matching\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: String、Dynamic Programming、Recursion   一、題目 Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:\n '.' Matches any single character. '*' Matches zero or more of the preceding element.\nThe matching should cover the entire input string (not partial).  Example 1:\n Input: s = “aa”, p = “a” Output: false Explanation: “a” does not match the entire string “aa”.  Example 2:\n Input: s = “aa”, p = “a*” Output: true Explanation: ‘*’ means zero or more of the preceding element, ‘a’. Therefore, by repeating ‘a’ once, it becomes “aa”.  Example 3:\n Input: s = “ab”, p = “.*” Output: true Explanation: “.*” means “zero or more (*) of any character (.)”.  Constraints:\n 1  1  s contains only lowercase English letters. p contains only lowercase English letters, '.', and '*'. It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.   二、分析  觀察規律：  當 p 為空時，若 s 不為空回傳 false， s 為空回傳 true。 當 p 不為空時，分為以下情況：  當 *p 為英文字元，則 *s 必定為相同的英文字元，否則回傳 false。 當 *p 為 . 時，則 *s 可以為任意英文字元。 當 *p 為 * 時，則 *s 可以為 ' '、前一相符的字合，在此稱為 firstMatch。       三、解題 1. DFS   Time complexity: \\(O(C(m+n,m))，\\text{m }為\\text{ s }的長度，\\text{n }為\\text{ p }的長度\\)，\n\\(\\begin{array}{l} T(m,n)=T(m,n-2)+T(m-1,n-2)+T(m-2,n-2)+…+T(1,n-2)\\\\ T(m-1,n)=T(m-1,n-2)+T(m-2,n-2)+…+T(1,n-2)\\\\ T(m,n)=T(m-1,n)+T(m,n-2)\\\\ T(0,n)=n, T(m,0)=1\\\\ \\end{array}\\)\n  Space complexity: \\(O(C(m+n,m))\\)\n  int m, n; string s, p; bool isMatch(string s, string p) {  this-s = s;  this-p = p;  this-m = s.length();  this-n = p.length();   return dfs(0, 0); } // 分別對應到 s 的第 i 個字元與 p 的第 j 個字元 bool dfs(int i, int j) {  // 當 p 為空時，若 s 不為空回傳 false，s 為空回傳 true。  if (j == n) return i == m;  // firstMatch 的情形  bool firstMatch = i  m \u0026\u0026 (s[i] == p[j] || p[j] == '.');  // *p 為 '*' 的情形  if (j+1  n \u0026\u0026 p[j+1] == '*')  return dfs(i, j+2) || (firstMatch \u0026\u0026 dfs(i+1, j));  return firstMatch \u0026\u0026 dfs(i+1, j+1); } 2. DFS + DP(Top Bottom)  Time complexity: \\(O(m\\times n)，\\text{m }為\\text{ s }的長度，\\text{n }為\\text{ p }的長度\\)， Space complexity: \\(O(m\\times n)\\)  int m, n; string s, p; vectorvectorint dp; bool isMatch(string s, string p) {  this-m = s.length();  this-n = p.length();  this-s = s;  this-p = p;  dp = vectorvectorint(m+1, vectorint(n+1, -1)); // 用 dp[i][j] 記錄 s 前進 i 位與 p 前進 j 位的狀況   return dfs(0, 0); } bool dfs(int i, int j) {  if (dp[i][j] != -1) return dp[i][j];  if (j == n) {  dp[i][j] = i == m;  return dp[i][j];  }  bool firstMatch = i  m \u0026\u0026 (s[i] == p[j] || p[j] == '.');  if (j+1  n \u0026\u0026 p[j+1] == '*')  dp[i][j] = dfs(i, j+2) || (firstMatch \u0026\u0026 dfs(i+1, j));  else  dp[i][j] = firstMatch \u0026\u0026 dfs(i+1, j+1);  return dp[i][j]; } 3. DP (Bottom Up)  Time complexity: \\(O(m\\times n)，\\text{m }為\\text{ s }的長度，\\text{n }為\\text{ p }的長度\\)， Space complexity: \\(O(m\\times n)\\)  bool isMatch(string s, string p) {  int m = s.length(), n = p.length();  if (n == 0) return m == 0;   bool dp[m+1][n+1];  memset(dp, false, sizeof(dp));  dp[0][0] = true;   for (int i = 2; i  n; i++) {  if (p[i-1] == '*') {  dp[0][i] = dp[0][i-2];  }  }   for (int i = 1; i  m; i++) {  for (int j = 1; j  n; j++) {  if (s[i-1] == p[j-1] || p[j-1] == '.') {  dp[i][j] = dp[i-1][j-1];  } else if (p[j-1] == '*') {  dp[i][j] = dp[i][j-2] || ((s[i-1] == p[j-2] || p[j-2] == '.') \u0026\u0026 dp[i-1][j]);  }  }  }  return dp[m][n]; } 回目錄 Catalog\n",
+  "articleBody": "10. Regular Expression Matching\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: String、Dynamic Programming、Recursion 一、題目 Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:\n'.' Matches any single character. '*' Matches zero or more of the preceding element.\nThe matching should cover the entire input string (not partial). Example 1:\nInput: s = “aa”, p = “a” Output: false Explanation: “a” does not match the entire string “aa”. Example 2:\nInput: s = “aa”, p = “a*” Output: true Explanation: ‘*’ means zero or more of the preceding element, ‘a’. Therefore, by repeating ‘a’ once, it becomes “aa”. Example 3:\nInput: s = “ab”, p = “.*” Output: true Explanation: “.*” means “zero or more (*) of any character (.)”. Constraints:\n1 \u003c= s.length \u003c= 20 1 \u003c= p.length \u003c= 30 s contains only lowercase English letters. p contains only lowercase English letters, '.', and '*'. It is guaranteed for each appearance of the character '*', there will be a previous valid character to match. 二、分析 觀察規律： 當 p 為空時，若 s 不為空回傳 false， s 為空回傳 true。 當 p 不為空時，分為以下情況： 當 *p 為英文字元，則 *s 必定為相同的英文字元，否則回傳 false。 當 *p 為 . 時，則 *s 可以為任意英文字元。 當 *p 為 * 時，則 *s 可以為 ' '、前一相符的字合，在此稱為 firstMatch。 三、解題 1. DFS Time complexity: \\(O(C(m+n,m))，\\text{m }為\\text{ s }的長度，\\text{n }為\\text{ p }的長度\\)，\n\\(\\begin{array}{l} T(m,n)=T(m,n-2)+T(m-1,n-2)+T(m-2,n-2)+…+T(1,n-2)\\\\ T(m-1,n)=T(m-1,n-2)+T(m-2,n-2)+…+T(1,n-2)\\\\ T(m,n)=T(m-1,n)+T(m,n-2)\\\\ T(0,n)=n, T(m,0)=1\\\\ \\end{array}\\)\nSpace complexity: \\(O(C(m+n,m))\\)\nint m, n; string s, p; bool isMatch(string s, string p) { this-\u003es = s; this-\u003ep = p; this-\u003em = s.length(); this-\u003en = p.length(); return dfs(0, 0); } // 分別對應到 s 的第 i 個字元與 p 的第 j 個字元 bool dfs(int i, int j) { // 當 p 為空時，若 s 不為空回傳 false，s 為空回傳 true。 if (j == n) return i == m; // firstMatch 的情形 bool firstMatch = i \u003c m \u0026\u0026 (s[i] == p[j] || p[j] == '.'); // *p 為 '*' 的情形 if (j+1 \u003c n \u0026\u0026 p[j+1] == '*') return dfs(i, j+2) || (firstMatch \u0026\u0026 dfs(i+1, j)); return firstMatch \u0026\u0026 dfs(i+1, j+1); } 2. DFS + DP(Top Bottom) Time complexity: \\(O(m\\times n)，\\text{m }為\\text{ s }的長度，\\text{n }為\\text{ p }的長度\\)， Space complexity: \\(O(m\\times n)\\) int m, n; string s, p; vector\u003cvector\u003cint\u003e\u003e dp; bool isMatch(string s, string p) { this-\u003em = s.length(); this-\u003en = p.length(); this-\u003es = s; this-\u003ep = p; dp = vector\u003cvector\u003cint\u003e\u003e(m+1, vector\u003cint\u003e(n+1, -1)); // 用 dp[i][j] 記錄 s 前進 i 位與 p 前進 j 位的狀況 return dfs(0, 0); } bool dfs(int i, int j) { if (dp[i][j] != -1) return dp[i][j]; if (j == n) { dp[i][j] = i == m; return dp[i][j]; } bool firstMatch = i \u003c m \u0026\u0026 (s[i] == p[j] || p[j] == '.'); if (j+1 \u003c n \u0026\u0026 p[j+1] == '*') dp[i][j] = dfs(i, j+2) || (firstMatch \u0026\u0026 dfs(i+1, j)); else dp[i][j] = firstMatch \u0026\u0026 dfs(i+1, j+1); return dp[i][j]; } 3. DP (Bottom Up) Time complexity: \\(O(m\\times n)，\\text{m }為\\text{ s }的長度，\\text{n }為\\text{ p }的長度\\)， Space complexity: \\(O(m\\times n)\\) bool isMatch(string s, string p) { int m = s.length(), n = p.length(); if (n == 0) return m == 0; bool dp[m+1][n+1]; memset(dp, false, sizeof(dp)); dp[0][0] = true; for (int i = 2; i \u003c= n; i++) { if (p[i-1] == '*') { dp[0][i] = dp[0][i-2]; } } for (int i = 1; i \u003c= m; i++) { for (int j = 1; j \u003c= n; j++) { if (s[i-1] == p[j-1] || p[j-1] == '.') { dp[i][j] = dp[i-1][j-1]; } else if (p[j-1] == '*') { dp[i][j] = dp[i][j-2] || ((s[i-1] == p[j-2] || p[j-2] == '.') \u0026\u0026 dp[i-1][j]); } } } return dp[m][n]; } 回目錄 Catalog\n",
   "wordCount" : "595",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-10-26T18:36:01+08:00",
   "dateModified": "2022-10-26T18:36:01+08:00",
   "author":{
@@ -139,14 +164,14 @@ The matching should cover the entire input string (not partial).  Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/10/"
+    "@id": "http://localhost:1313/leetcode/10/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -168,17 +193,17 @@ The matching should cover the entire input string (not partial).  Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -192,46 +217,46 @@ The matching should cover the entire input string (not partial).  Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -239,20 +264,21 @@ The matching should cover the entire input string (not partial).  Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Leetcode] 10. Regular Expression Matching
     </h1>
-    <div class="post-meta"><span title='2022-10-26 18:36:01 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/10.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-10-26 18:36:01 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/10.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -497,16 +523,16 @@ T(0,n)=n, T(m,0)=1\\
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/11/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/11/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[Leetcode] 11. Container With Most Water</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/9/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/9/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[Leetcode] 9. Palindrome Number</span>
   </a>
@@ -524,11 +550,12 @@ T(0,n)=n, T(m,0)=1\\
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -597,12 +624,12 @@ T(0,n)=n, T(m,0)=1\\
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

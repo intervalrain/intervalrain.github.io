@@ -1,64 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>spotfire on Rain Hu&#39;s Workspace</title>
-    <link>https://intervalrain.github.io/tags/spotfire/</link>
-    <description>Recent content in spotfire on Rain Hu&#39;s Workspace</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Aug 2023 22:54:55 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/spotfire/index.xml" rel="self" type="application/rss+xml" />
+    <title>Spotfire on Rain Hu&#39;s Workspace</title>
+    <link>http://localhost:1313/tags/spotfire/</link>
+    <description>Recent content in Spotfire on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- 0.139.2</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Mon, 14 Aug 2023 22:54:55 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/spotfire/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[DXP] 在 spotfire 中創建自定義視覺化工具</title>
-      <link>https://intervalrain.github.io/dxp/customvisualization/</link>
+      <link>http://localhost:1313/dxp/customvisualization/</link>
       <pubDate>Mon, 14 Aug 2023 22:54:55 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/dxp/customvisualization/</guid>
+      <guid>http://localhost:1313/dxp/customvisualization/</guid>
       <description>在 spotfire 中創建自定義的視覺化工具</description>
     </item>
-    
     <item>
       <title>[DXP] Spotfire Extension 擴充程式</title>
-      <link>https://intervalrain.github.io/dxp/extension/</link>
+      <link>http://localhost:1313/dxp/extension/</link>
       <pubDate>Fri, 23 Jun 2023 03:03:52 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/dxp/extension/</guid>
+      <guid>http://localhost:1313/dxp/extension/</guid>
       <description>spotfire sdk 介紹</description>
     </item>
-    
     <item>
       <title>[DXP] Spotfire Developer SDK</title>
-      <link>https://intervalrain.github.io/dxp/sdk/</link>
+      <link>http://localhost:1313/dxp/sdk/</link>
       <pubDate>Thu, 22 Jun 2023 21:43:13 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/dxp/sdk/</guid>
+      <guid>http://localhost:1313/dxp/sdk/</guid>
       <description>spotfire sdk 介紹</description>
     </item>
-    
     <item>
       <title>[DXP] 在 spotfire 中創建自定義工具</title>
-      <link>https://intervalrain.github.io/dxp/customtool/</link>
+      <link>http://localhost:1313/dxp/customtool/</link>
       <pubDate>Tue, 06 Jun 2023 22:38:08 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/dxp/customtool/</guid>
+      <guid>http://localhost:1313/dxp/customtool/</guid>
       <description>在 spotfire 中創建自定義工具</description>
     </item>
-    
     <item>
       <title>[DXP] 在 spotfire 中創建自定義任務</title>
-      <link>https://intervalrain.github.io/dxp/customtask/</link>
+      <link>http://localhost:1313/dxp/customtask/</link>
       <pubDate>Tue, 06 Jun 2023 21:36:12 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/dxp/customtask/</guid>
+      <guid>http://localhost:1313/dxp/customtask/</guid>
       <description>在 spotfire 中創建自定義任務</description>
     </item>
-    
     <item>
       <title>[DXP] 使用 Visual Studio 對 Spotfire 開發進行環境設置</title>
-      <link>https://intervalrain.github.io/dxp/config/</link>
+      <link>http://localhost:1313/dxp/config/</link>
       <pubDate>Tue, 06 Jun 2023 20:58:59 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/dxp/config/</guid>
+      <guid>http://localhost:1313/dxp/config/</guid>
       <description>spotfire 開發環境設置</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,33 +1,151 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 22. Generate Parentheses | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="22. Generate Parentheses
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String、Dynamic Programming、Backtracking   一、題目 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: String、Dynamic Programming、Backtracking
+
+
+一、題目
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 Example 1:
- Input: n = 3 Output: [&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&quot;,&quot;()(())&quot;,&quot;()()()&quot;]  Example 2:
- Input: n = 1 Output: [&quot;()&quot;]  Constraints:
- 1 &lt;= n &lt;= 8   二、分析  DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題：  路徑(PATH)：已做出的選擇。 選項(OPTION)：當前可以做的選擇。 終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。   以下為回溯法的框架：  vector&lt;PATH&gt; res; void backtrack(PATH, OPTION) {  if (TERMINATE) {  res.">
+
+Input: n = 3
+Output: [&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&quot;,&quot;()(())&quot;,&quot;()()()&quot;]
+
+Example 2:
+
+Input: n = 1
+Output: [&quot;()&quot;]
+
+Constraints:
+
+1 &lt;= n &lt;= 8
+
+
+二、分析
+
+DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題：
+
+路徑(PATH)：已做出的選擇。
+選項(OPTION)：當前可以做的選擇。
+終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。
+
+
+以下為回溯法的框架：
+
+vector&lt;PATH&gt; res;
+void backtrack(PATH, OPTION) {
+    if (TERMINATE) {
+        res.push_back(PATH);
+        return;
+    }
+    for (CHOICE : OPTION) {
+        DO OPTION;
+        backtrack(PATH, OPTION);
+        CANCEL OPTION;
+    }
+}
+
+本題的終止條件是當 path 的長度為 2n 的時候。
+而選項是增加左括號 ( 與增加右括號 )。
+加上兩個子節點的條件便完成，
+
+左節點需滿足 left &lt; n。
+右節點需滿足 right &lt; n &amp;&amp; right &lt; left。
+
+
+
+
+DP 動態規劃則需觀察轉移方程式。
+
+dp[0] base case： ``
+dp[1] 很容易得到：()
+dp[2] 也不難：()()、(())
+接下來觀察 dp[3]，可以分解為下面三個：
+
+( &#43; dp[0] &#43; ) &#43; dp[2]：()()()、()(())
+( &#43; dp[1] &#43; ) &#43; dp[1]：(())()
+( &#43; dp[2] &#43; ) &#43; dp[0]：(()())、((()))
+換句話說，轉移方程式可以寫成：dp[i] = &quot;(&quot; &#43; dp[j] &#43; &quot;)&quot; &#43; dp[i-j-1]
+
+
+
+
+
+三、解題
+1. Backtrack
+
+Time complexity: \(O(2^{2n})\)，Wiki - Catalan number
+Space complexity: \(O(n)\)
+
+vector&lt;string&gt; generateParenthesis(int n) {
+    string path;
+    vector&lt;string&gt; res;
+    backtrack(n, 0, 0, res, path);
+    return res;
+}
+void backtrack(int n, int left, int right, vector&lt;string&gt;&amp; res, string&amp; path) {
+    // terminate
+    if (path.length() == 2*n) {
+        res.push_back(path);
+        return;
+    }
+
+    // select
+    if (left &lt; n) {
+        path.push_back(&#39;(&#39;);
+        backtrack(n, left&#43;1, right, res, path);
+        path.pop_back();
+    }
+    if (right &lt; n &amp;&amp; right &lt; left) {
+        path.push_back(&#39;)&#39;);
+        backtrack(n, left, right&#43;1, res, path);
+        path.pop_back();
+    }
+}
+2. Dynamic Programming
+
+Time complexity: \(O(n^4)\)
+Space complexity: \(O(n)\)
+
+vector&lt;string&gt; generateParenthesis(int n) {
+    vector&lt;vector&lt;string&gt;&gt; dp(n&#43;1);
+    dp[0] = {&#34;&#34;}; 
+    for(int i=1;i&lt;=n;i&#43;&#43;){
+        for(int j=0;j&lt;i;j&#43;&#43;){
+            vector&lt;string&gt; left = dp[j];
+            vector&lt;string&gt; right = dp[i-j-1];
+            for(int k=0;k&lt;left.size();k&#43;&#43;){
+                for(int l=0;l&lt;right.size();l&#43;&#43;){
+                    dp[i].push_back(&#34;(&#34; &#43; left[k] &#43; &#34;)&#34; &#43; right[l]);
+                }
+            }
+        }
+    }
+    return dp[n];
+}
+回目錄 Catalog">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/22/">
 <noscript>
     <style>
         #theme-toggle,
@@ -45,7 +163,7 @@ Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -78,27 +196,150 @@ Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 22. Generate Parentheses" />
-<meta property="og:description" content="22. Generate Parentheses
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String、Dynamic Programming、Backtracking   一、題目 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/22/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 22. Generate Parentheses">
+  <meta property="og:description" content="22. Generate Parentheses
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String、Dynamic Programming、Backtracking 一、題目 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 Example 1:
- Input: n = 3 Output: [&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&quot;,&quot;()(())&quot;,&quot;()()()&quot;]  Example 2:
- Input: n = 1 Output: [&quot;()&quot;]  Constraints:
- 1 &lt;= n &lt;= 8   二、分析  DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題：  路徑(PATH)：已做出的選擇。 選項(OPTION)：當前可以做的選擇。 終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。   以下為回溯法的框架：  vector&lt;PATH&gt; res; void backtrack(PATH, OPTION) {  if (TERMINATE) {  res." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/22/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-10T23:44:24&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-10T23:44:24&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 22. Generate Parentheses"/>
+Input: n = 3 Output: [&#34;((()))&#34;,&#34;(()())&#34;,&#34;(())()&#34;,&#34;()(())&#34;,&#34;()()()&#34;] Example 2:
+Input: n = 1 Output: [&#34;()&#34;] Constraints:
+1 &lt;= n &lt;= 8 二、分析 DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題： 路徑(PATH)：已做出的選擇。 選項(OPTION)：當前可以做的選擇。 終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。 以下為回溯法的框架： vector&lt;PATH&gt; res; void backtrack(PATH, OPTION) { if (TERMINATE) { res.push_back(PATH); return; } for (CHOICE : OPTION) { DO OPTION; backtrack(PATH, OPTION); CANCEL OPTION; } } 本題的終止條件是當 path 的長度為 2n 的時候。 而選項是增加左括號 ( 與增加右括號 )。 加上兩個子節點的條件便完成， 左節點需滿足 left &lt; n。 右節點需滿足 right &lt; n &amp;&amp; right &lt; left。 DP 動態規劃則需觀察轉移方程式。 dp[0] base case： `` dp[1] 很容易得到：() dp[2] 也不難：()()、(()) 接下來觀察 dp[3]，可以分解為下面三個： ( &#43; dp[0] &#43; ) &#43; dp[2]：()()()、()(()) ( &#43; dp[1] &#43; ) &#43; dp[1]：(())() ( &#43; dp[2] &#43; ) &#43; dp[0]：(()())、((())) 換句話說，轉移方程式可以寫成：dp[i] = &#34;(&#34; &#43; dp[j] &#43; &#34;)&#34; &#43; dp[i-j-1] 三、解題 1. Backtrack Time complexity: \(O(2^{2n})\)，Wiki - Catalan number Space complexity: \(O(n)\) vector&lt;string&gt; generateParenthesis(int n) { string path; vector&lt;string&gt; res; backtrack(n, 0, 0, res, path); return res; } void backtrack(int n, int left, int right, vector&lt;string&gt;&amp; res, string&amp; path) { // terminate if (path.length() == 2*n) { res.push_back(path); return; } // select if (left &lt; n) { path.push_back(&#39;(&#39;); backtrack(n, left&#43;1, right, res, path); path.pop_back(); } if (right &lt; n &amp;&amp; right &lt; left) { path.push_back(&#39;)&#39;); backtrack(n, left, right&#43;1, res, path); path.pop_back(); } } 2. Dynamic Programming Time complexity: \(O(n^4)\) Space complexity: \(O(n)\) vector&lt;string&gt; generateParenthesis(int n) { vector&lt;vector&lt;string&gt;&gt; dp(n&#43;1); dp[0] = {&#34;&#34;}; for(int i=1;i&lt;=n;i&#43;&#43;){ for(int j=0;j&lt;i;j&#43;&#43;){ vector&lt;string&gt; left = dp[j]; vector&lt;string&gt; right = dp[i-j-1]; for(int k=0;k&lt;left.size();k&#43;&#43;){ for(int l=0;l&lt;right.size();l&#43;&#43;){ dp[i].push_back(&#34;(&#34; &#43; left[k] &#43; &#34;)&#34; &#43; right[l]); } } } } return dp[n]; } 回目錄 Catalog">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-10T23:44:24+08:00">
+    <meta property="article:modified_time" content="2022-11-10T23:44:24+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 22. Generate Parentheses">
 <meta name="twitter:description" content="22. Generate Parentheses
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String、Dynamic Programming、Backtracking   一、題目 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: String、Dynamic Programming、Backtracking
+
+
+一、題目
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 Example 1:
- Input: n = 3 Output: [&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&quot;,&quot;()(())&quot;,&quot;()()()&quot;]  Example 2:
- Input: n = 1 Output: [&quot;()&quot;]  Constraints:
- 1 &lt;= n &lt;= 8   二、分析  DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題：  路徑(PATH)：已做出的選擇。 選項(OPTION)：當前可以做的選擇。 終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。   以下為回溯法的框架：  vector&lt;PATH&gt; res; void backtrack(PATH, OPTION) {  if (TERMINATE) {  res."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Input: n = 3
+Output: [&quot;((()))&quot;,&quot;(()())&quot;,&quot;(())()&quot;,&quot;()(())&quot;,&quot;()()()&quot;]
+
+Example 2:
+
+Input: n = 1
+Output: [&quot;()&quot;]
+
+Constraints:
+
+1 &lt;= n &lt;= 8
+
+
+二、分析
+
+DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題：
+
+路徑(PATH)：已做出的選擇。
+選項(OPTION)：當前可以做的選擇。
+終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。
+
+
+以下為回溯法的框架：
+
+vector&lt;PATH&gt; res;
+void backtrack(PATH, OPTION) {
+    if (TERMINATE) {
+        res.push_back(PATH);
+        return;
+    }
+    for (CHOICE : OPTION) {
+        DO OPTION;
+        backtrack(PATH, OPTION);
+        CANCEL OPTION;
+    }
+}
+
+本題的終止條件是當 path 的長度為 2n 的時候。
+而選項是增加左括號 ( 與增加右括號 )。
+加上兩個子節點的條件便完成，
+
+左節點需滿足 left &lt; n。
+右節點需滿足 right &lt; n &amp;&amp; right &lt; left。
+
+
+
+
+DP 動態規劃則需觀察轉移方程式。
+
+dp[0] base case： ``
+dp[1] 很容易得到：()
+dp[2] 也不難：()()、(())
+接下來觀察 dp[3]，可以分解為下面三個：
+
+( &#43; dp[0] &#43; ) &#43; dp[2]：()()()、()(())
+( &#43; dp[1] &#43; ) &#43; dp[1]：(())()
+( &#43; dp[2] &#43; ) &#43; dp[0]：(()())、((()))
+換句話說，轉移方程式可以寫成：dp[i] = &quot;(&quot; &#43; dp[j] &#43; &quot;)&quot; &#43; dp[i-j-1]
+
+
+
+
+
+三、解題
+1. Backtrack
+
+Time complexity: \(O(2^{2n})\)，Wiki - Catalan number
+Space complexity: \(O(n)\)
+
+vector&lt;string&gt; generateParenthesis(int n) {
+    string path;
+    vector&lt;string&gt; res;
+    backtrack(n, 0, 0, res, path);
+    return res;
+}
+void backtrack(int n, int left, int right, vector&lt;string&gt;&amp; res, string&amp; path) {
+    // terminate
+    if (path.length() == 2*n) {
+        res.push_back(path);
+        return;
+    }
+
+    // select
+    if (left &lt; n) {
+        path.push_back(&#39;(&#39;);
+        backtrack(n, left&#43;1, right, res, path);
+        path.pop_back();
+    }
+    if (right &lt; n &amp;&amp; right &lt; left) {
+        path.push_back(&#39;)&#39;);
+        backtrack(n, left, right&#43;1, res, path);
+        path.pop_back();
+    }
+}
+2. Dynamic Programming
+
+Time complexity: \(O(n^4)\)
+Space complexity: \(O(n)\)
+
+vector&lt;string&gt; generateParenthesis(int n) {
+    vector&lt;vector&lt;string&gt;&gt; dp(n&#43;1);
+    dp[0] = {&#34;&#34;}; 
+    for(int i=1;i&lt;=n;i&#43;&#43;){
+        for(int j=0;j&lt;i;j&#43;&#43;){
+            vector&lt;string&gt; left = dp[j];
+            vector&lt;string&gt; right = dp[i-j-1];
+            for(int k=0;k&lt;left.size();k&#43;&#43;){
+                for(int l=0;l&lt;right.size();l&#43;&#43;){
+                    dp[i].push_back(&#34;(&#34; &#43; left[k] &#43; &#34;)&#34; &#43; right[l]);
+                }
+            }
+        }
+    }
+    return dp[n];
+}
+回目錄 Catalog">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -109,14 +350,8 @@ Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 22. Generate Parentheses",
-      "item": "https://intervalrain.github.io/leetcode/22/"
+      "item": "http://localhost:1313/leetcode/22/"
     }
   ]
 }
@@ -127,13 +362,13 @@ Example 1:
   "@type": "BlogPosting",
   "headline": "[LeetCode] 22. Generate Parentheses",
   "name": "[LeetCode] 22. Generate Parentheses",
-  "description": "22. Generate Parentheses\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: String、Dynamic Programming、Backtracking   一、題目 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.\nExample 1:\n Input: n = 3 Output: [\u0026quot;((()))\u0026quot;,\u0026quot;(()())\u0026quot;,\u0026quot;(())()\u0026quot;,\u0026quot;()(())\u0026quot;,\u0026quot;()()()\u0026quot;]  Example 2:\n Input: n = 1 Output: [\u0026quot;()\u0026quot;]  Constraints:\n 1 \u0026lt;= n \u0026lt;= 8   二、分析  DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題：  路徑(PATH)：已做出的選擇。 選項(OPTION)：當前可以做的選擇。 終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。   以下為回溯法的框架：  vector\u0026lt;PATH\u0026gt; res; void backtrack(PATH, OPTION) {  if (TERMINATE) {  res.",
+  "description": "22. Generate Parentheses\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: String、Dynamic Programming、Backtracking 一、題目 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.\nExample 1:\nInput: n = 3 Output: [\u0026quot;((()))\u0026quot;,\u0026quot;(()())\u0026quot;,\u0026quot;(())()\u0026quot;,\u0026quot;()(())\u0026quot;,\u0026quot;()()()\u0026quot;] Example 2:\nInput: n = 1 Output: [\u0026quot;()\u0026quot;] Constraints:\n1 \u0026lt;= n \u0026lt;= 8 二、分析 DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題： 路徑(PATH)：已做出的選擇。 選項(OPTION)：當前可以做的選擇。 終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。 以下為回溯法的框架： vector\u0026lt;PATH\u0026gt; res; void backtrack(PATH, OPTION) { if (TERMINATE) { res.push_back(PATH); return; } for (CHOICE : OPTION) { DO OPTION; backtrack(PATH, OPTION); CANCEL OPTION; } } 本題的終止條件是當 path 的長度為 2n 的時候。 而選項是增加左括號 ( 與增加右括號 )。 加上兩個子節點的條件便完成， 左節點需滿足 left \u0026lt; n。 右節點需滿足 right \u0026lt; n \u0026amp;\u0026amp; right \u0026lt; left。 DP 動態規劃則需觀察轉移方程式。 dp[0] base case： `` dp[1] 很容易得到：() dp[2] 也不難：()()、(()) 接下來觀察 dp[3]，可以分解為下面三個： ( + dp[0] + ) + dp[2]：()()()、()(()) ( + dp[1] + ) + dp[1]：(())() ( + dp[2] + ) + dp[0]：(()())、((())) 換句話說，轉移方程式可以寫成：dp[i] = \u0026quot;(\u0026quot; + dp[j] + \u0026quot;)\u0026quot; + dp[i-j-1] 三、解題 1. Backtrack Time complexity: \\(O(2^{2n})\\)，Wiki - Catalan number Space complexity: \\(O(n)\\) vector\u0026lt;string\u0026gt; generateParenthesis(int n) { string path; vector\u0026lt;string\u0026gt; res; backtrack(n, 0, 0, res, path); return res; } void backtrack(int n, int left, int right, vector\u0026lt;string\u0026gt;\u0026amp; res, string\u0026amp; path) { // terminate if (path.length() == 2*n) { res.push_back(path); return; } // select if (left \u0026lt; n) { path.push_back(\u0026#39;(\u0026#39;); backtrack(n, left+1, right, res, path); path.pop_back(); } if (right \u0026lt; n \u0026amp;\u0026amp; right \u0026lt; left) { path.push_back(\u0026#39;)\u0026#39;); backtrack(n, left, right+1, res, path); path.pop_back(); } } 2. Dynamic Programming Time complexity: \\(O(n^4)\\) Space complexity: \\(O(n)\\) vector\u0026lt;string\u0026gt; generateParenthesis(int n) { vector\u0026lt;vector\u0026lt;string\u0026gt;\u0026gt; dp(n+1); dp[0] = {\u0026#34;\u0026#34;}; for(int i=1;i\u0026lt;=n;i++){ for(int j=0;j\u0026lt;i;j++){ vector\u0026lt;string\u0026gt; left = dp[j]; vector\u0026lt;string\u0026gt; right = dp[i-j-1]; for(int k=0;k\u0026lt;left.size();k++){ for(int l=0;l\u0026lt;right.size();l++){ dp[i].push_back(\u0026#34;(\u0026#34; + left[k] + \u0026#34;)\u0026#34; + right[l]); } } } } return dp[n]; } 回目錄 Catalog\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "22. Generate Parentheses\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: String、Dynamic Programming、Backtracking   一、題目 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.\nExample 1:\n Input: n = 3 Output: [\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]  Example 2:\n Input: n = 1 Output: [\"()\"]  Constraints:\n 1    二、分析  DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題：  路徑(PATH)：已做出的選擇。 選項(OPTION)：當前可以做的選擇。 終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。   以下為回溯法的框架：  vectorPATH res; void backtrack(PATH, OPTION) {  if (TERMINATE) {  res.push_back(PATH);  return;  }  for (CHOICE : OPTION) {  DO OPTION;  backtrack(PATH, OPTION);  CANCEL OPTION;  } }  本題的終止條件是當 path 的長度為 2n 的時候。 而選項是增加左括號 ( 與增加右括號 )。 加上兩個子節點的條件便完成，  左節點需滿足 left 。 右節點需滿足 right 。     DP 動態規劃則需觀察轉移方程式。  dp[0] base case： `` dp[1] 很容易得到：() dp[2] 也不難：()()、(()) 接下來觀察 dp[3]，可以分解為下面三個：  ( + dp[0] + ) + dp[2]：()()()、()(()) ( + dp[1] + ) + dp[1]：(())() ( + dp[2] + ) + dp[0]：(()())、((())) 換句話說，轉移方程式可以寫成：dp[i] = \"(\" + dp[j] + \")\" + dp[i-j-1]      三、解題 1. Backtrack  Time complexity: \\(O(2^{2n})\\)，Wiki - Catalan number Space complexity: \\(O(n)\\)  vectorstring generateParenthesis(int n) {  string path;  vectorstring res;  backtrack(n, 0, 0, res, path);  return res; } void backtrack(int n, int left, int right, vectorstring\u0026 res, string\u0026 path) {  // terminate  if (path.length() == 2*n) {  res.push_back(path);  return;  }   // select  if (left  n) {  path.push_back('(');  backtrack(n, left+1, right, res, path);  path.pop_back();  }  if (right  n \u0026\u0026 right  left) {  path.push_back(')');  backtrack(n, left, right+1, res, path);  path.pop_back();  } } 2. Dynamic Programming  Time complexity: \\(O(n^4)\\) Space complexity: \\(O(n)\\)  vectorstring generateParenthesis(int n) {  vectorvectorstring dp(n+1);  dp[0] = {\"\"};  for(int i=1;in;i++){  for(int j=0;ji;j++){  vectorstring left = dp[j];  vectorstring right = dp[i-j-1];  for(int k=0;kleft.size();k++){  for(int l=0;lright.size();l++){  dp[i].push_back(\"(\" + left[k] + \")\" + right[l]);  }  }  }  }  return dp[n]; } 回目錄 Catalog\n",
+  "articleBody": "22. Generate Parentheses\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: String、Dynamic Programming、Backtracking 一、題目 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.\nExample 1:\nInput: n = 3 Output: [\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"] Example 2:\nInput: n = 1 Output: [\"()\"] Constraints:\n1 \u003c= n \u003c= 8 二、分析 DFS 演算法是在遍歷「節點」，而回溯法是在遍歷「樹枝」。站在一個節點上，需思考三個問題： 路徑(PATH)：已做出的選擇。 選項(OPTION)：當前可以做的選擇。 終止條件(TERMINATE)：到達決策樹的底層，無法再做其它選擇。 以下為回溯法的框架： vector\u003cPATH\u003e res; void backtrack(PATH, OPTION) { if (TERMINATE) { res.push_back(PATH); return; } for (CHOICE : OPTION) { DO OPTION; backtrack(PATH, OPTION); CANCEL OPTION; } } 本題的終止條件是當 path 的長度為 2n 的時候。 而選項是增加左括號 ( 與增加右括號 )。 加上兩個子節點的條件便完成， 左節點需滿足 left \u003c n。 右節點需滿足 right \u003c n \u0026\u0026 right \u003c left。 DP 動態規劃則需觀察轉移方程式。 dp[0] base case： `` dp[1] 很容易得到：() dp[2] 也不難：()()、(()) 接下來觀察 dp[3]，可以分解為下面三個： ( + dp[0] + ) + dp[2]：()()()、()(()) ( + dp[1] + ) + dp[1]：(())() ( + dp[2] + ) + dp[0]：(()())、((())) 換句話說，轉移方程式可以寫成：dp[i] = \"(\" + dp[j] + \")\" + dp[i-j-1] 三、解題 1. Backtrack Time complexity: \\(O(2^{2n})\\)，Wiki - Catalan number Space complexity: \\(O(n)\\) vector\u003cstring\u003e generateParenthesis(int n) { string path; vector\u003cstring\u003e res; backtrack(n, 0, 0, res, path); return res; } void backtrack(int n, int left, int right, vector\u003cstring\u003e\u0026 res, string\u0026 path) { // terminate if (path.length() == 2*n) { res.push_back(path); return; } // select if (left \u003c n) { path.push_back('('); backtrack(n, left+1, right, res, path); path.pop_back(); } if (right \u003c n \u0026\u0026 right \u003c left) { path.push_back(')'); backtrack(n, left, right+1, res, path); path.pop_back(); } } 2. Dynamic Programming Time complexity: \\(O(n^4)\\) Space complexity: \\(O(n)\\) vector\u003cstring\u003e generateParenthesis(int n) { vector\u003cvector\u003cstring\u003e\u003e dp(n+1); dp[0] = {\"\"}; for(int i=1;i\u003c=n;i++){ for(int j=0;j\u003ci;j++){ vector\u003cstring\u003e left = dp[j]; vector\u003cstring\u003e right = dp[i-j-1]; for(int k=0;k\u003cleft.size();k++){ for(int l=0;l\u003cright.size();l++){ dp[i].push_back(\"(\" + left[k] + \")\" + right[l]); } } } } return dp[n]; } 回目錄 Catalog\n",
   "wordCount" : "276",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-10T23:44:24+08:00",
   "dateModified": "2022-11-10T23:44:24+08:00",
   "author":{
@@ -142,14 +377,14 @@ Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/22/"
+    "@id": "http://localhost:1313/leetcode/22/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -171,17 +406,17 @@ Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -195,46 +430,46 @@ Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -242,20 +477,21 @@ Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 22. Generate Parentheses
     </h1>
-    <div class="post-meta"><span title='2022-11-10 23:44:24 +0800 CST'>November 10, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/22.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-10 23:44:24 +0800 CST'>November 10, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/22.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -470,16 +706,16 @@ Example 1:
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/23/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/23/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 23. Merge k Sorted Lists</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/21/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/21/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 21. Merge Two Sorted Lists</span>
   </a>
@@ -497,11 +733,12 @@ Example 1:
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -570,12 +807,12 @@ Example 1:
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

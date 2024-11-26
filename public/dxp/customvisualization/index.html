@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[DXP] 在 spotfire 中創建自定義視覺化工具 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="spotfire, dxp, custom visualization, visual" />
+<meta name="keywords" content="spotfire, dxp, custom visualization, visual">
 <meta name="description" content="在 spotfire 中創建自定義的視覺化工具">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/dxp/customvisualization/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +74,21 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[DXP] 在 spotfire 中創建自定義視覺化工具" />
-<meta property="og:description" content="在 spotfire 中創建自定義的視覺化工具" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/dxp/customvisualization/" /><meta property="article:section" content="dxp" />
-<meta property="article:published_time" content="2023-08-14T22:54:55&#43;08:00" />
-<meta property="article:modified_time" content="2023-08-14T22:54:55&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[DXP] 在 spotfire 中創建自定義視覺化工具"/>
-<meta name="twitter:description" content="在 spotfire 中創建自定義的視覺化工具"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/dxp/customvisualization/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[DXP] 在 spotfire 中創建自定義視覺化工具">
+  <meta property="og:description" content="在 spotfire 中創建自定義的視覺化工具">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="dxp">
+    <meta property="article:published_time" content="2023-08-14T22:54:55+08:00">
+    <meta property="article:modified_time" content="2023-08-14T22:54:55+08:00">
+    <meta property="article:tag" content="Spotfire">
+    <meta property="article:tag" content="Dxp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[DXP] 在 spotfire 中創建自定義視覺化工具">
+<meta name="twitter:description" content="在 spotfire 中創建自定義的視覺化工具">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +100,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Dxps",
-      "item": "https://intervalrain.github.io/dxp/"
+      "item": "http://localhost:1313/dxp/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[DXP] 在 spotfire 中創建自定義視覺化工具",
-      "item": "https://intervalrain.github.io/dxp/customvisualization/"
+      "item": "http://localhost:1313/dxp/customvisualization/"
     }
   ]
 }
@@ -119,9 +121,9 @@
   "keywords": [
     "spotfire", "dxp", "custom visualization", "visual"
   ],
-  "articleBody": "簡介  Spotifre 的視覺化工具(visualization)是可以被擴展的。已在 Spotfire 環境中部署的自定義視覺化工具將會出現在相同的位置並以相同的方式運作，就像 Spotfire 原生的視覺化工具一樣：它們可以從視覺化選單(visualization menu)、繪圖文本選單(plot context menus)、工具列中被訪問，並且可以與其它繪圖(plots)共享數據集(data sets)、標記(marking)和篩選(filtering)。  需要擴充的點 可視化框架的擴充點包括：\n CustomVisual, CustomVisualization - custom visuals 的基礎類別，custom visualization 是 custom visual 的子類別，具有一此額外的功能。 CustomVisualFactory - custom visualizations 的工廠基類(Factory base)，用於創建自定義可視化工具的實例。 CustomVisualView - CustomVisual 視圖的基類。  實作 建立模型 模型部分繼承自 CustomVisual 或 CustomVisualization。 CustomVisualization 是 CustomVisual 的子類別，並添加了指定 data table 和 marking 的功能。能夠指定當前 data table 和當前 marking 使視覺化能夠參與主細節情境。它還使框架能夠在 marking 記錄上實現命令並在狀態欄中顯示有關 filtering 和 marking 的行數的訊息。\nCustomVisualization 的 model資料可以來源自一個或一個以上的 data tables；而 CustomVisual 則是可以在 Page 中實作原生的 Text Area 和其它各種控制面板。\nThe model achieves this dual requirement by overriding two virtual methods defined by CustomVisual: 視覺化工具應該要能自行渲染，它應該要能感知到外觀變化並能通知環境產生對應動作。模型透該 overrides 兩個虛擬方法(virtual methods)來實現這兩個需求：\n 覆寫 RenderCore 方法以執行繪圖。 覆寫 GetRenderTriggerCore 以定義何時需要重新繪製視覺區。  以下範例展示了一個最簡單的 visualization。它有兩個屬性(PropertyName)，代表資料表(data table)和標記(marking)。範例會繪製一個字串，說明在資料表中被標記的行數。\n[Serializable] [PersistenceVersion(1, 0)] public class MyVisualization : CustomVisualization { public new abstract class PropertyNames : CustomVisualization.PropertyNames { public static readonly PropertyName DataTableReference = CreatePropertyName(\"DataTableReference\"); public static readonly PropertyName MarkingReference = CreatePropertyName(\"MarkingReference\"); } private readonly UndoableCrossReferenceProperty dataTableReference; private readonly UndoableCrossReferenceProperty markingReference; internal MyVisualization() { CreateProperty(PropertyNames.DataTableReference, out this.dataTableReference, null); CreateProperty(PropertyNames.MarkingReference, out this.markingReference, null); } public DataTable DataTableReference { get { return this.dataTableReference.Value; } set { this.dataTableReference.Value = value; } } public DataMarkingSelection MarkingReference { get { return this.markingReference.Value; } set { this.markingReference.Value = value; } } protected override void RenderCore(RenderArgs renderArgs) { // Clear our drawing surface. renderArgs.Graphics.FillRectangle(Brushes.White, renderArgs.Bounds); // Draw a string showing the number of marked rows. if (this.DataTableReference != null \u0026\u0026 this.MarkingReference != null) { int markedRowsCount = this.MarkingReference.GetSelection(this.DataTableReference).IncludedRowCount; string message = string.Format( \"{0} marked rows in table {1}\", markedRowsCount, this.DataTableReference.Name); renderArgs.Graphics.DrawString(message, SystemFonts.DefaultFont, Brushes.Black, renderArgs.Bounds); } } protected override Trigger GetRenderTriggerCore() { // Return a trigger that fires when the data table or marking properties change // or when the content of the marking changes. return Trigger.CreateCompositeTrigger( Trigger.CreatePropertyTrigger( this, PropertyNames.DataTableReference, PropertyNames.MarkingReference ), Trigger.CreateMutablePropertyTrigger( this, PropertyNames.MarkingReference, DataMarkingSelection.PropertyNames.Selection ) ); } protected override DataTable GetActiveDataTableReference() { return this.dataTableReference.Value; } protected override Trigger GetActiveDataTableReferenceTriggerCore() { return Trigger.CreatePropertyTrigger(this, PropertyNames.DataTableReference); } protected override DataMarkingSelection GetActiveMarkingReferenceCore() { return this.markingReference.Value; } protected override Trigger GetActiveMarkingReferenceTriggerCore() { return Trigger.CreatePropertyTrigger(this, PropertyNames.MarkingReference); } private MyVisualization(SerializationInfo info, StreamingContext context) : base(info, context) { DeserializeProperty(info, context, PropertyNames.DataTableReference, out this.dataTableReference); DeserializeProperty(info, context, PropertyNames.MarkingReference, out this.markingReference); } protected override void GetObjectData(SerializationInfo info, StreamingContext context) { base.GetObjectData(info, context); SerializeProperty(info, context, this.dataTableReference); SerializeProperty(info, context, this.markingReference); } } 建立工廠 為了創建可視化工具，必須為其指定自定義工廠(custom factory)。該工廠負責創建和初始配置。還包含一些 metadata 如 UI commands 和 type identifier。\npublic sealed class MyCustomIdentifiers : CustomTypeIdentifiers { public static readonly CustomTypeIdentifier MyVisualizationIdentifier = CreateTypeIdentifier( \"Acme.MyVisualization\", // Name \"My Visualization\", // Display name \"This is a description\"); // Description } internal sealed class MyVisualizationFactory : CustomVisualFactory { internal MyVisualizationFactory() : base( MyCustomIdentifiers.MyVisualizationIdentifier, VisualCategory.Visualization, Properties.Resources.MyVisualizationImage, null) { } protected override void AutoConfigureCore(MyVisualization visualization) { // Find good default values for properties. DataManager dataManager = visualization.Context.GetService(); visualization.DataTableReference = dataManager.Tables.DefaultTableReference; visualization.MarkingReference = dataManager.Markings.DefaultMarkingReference; } } 可視化工廠是從 CustomVisualFactory 衍生而來的。請注意，自定義工廠類別並不會實例化可視化。實例化可視化是透過可視化的無參數建構函式由工廠基底類別來完成的。建構函式不必是公開的；但事實上，它不應該是公開的，因為讓 API 使用者建立可視化，然後將其插入到文件中是不合理的。\n當視覺化已經被創建並插入到文件節點層次結構中時，框架會在工廠上調用兩個虛擬方法：\n InitializeCore：它設置與數據無直接關係的屬性。 AutoConfigureCore：它使用適當的默認值為數據相關屬性（例如數據表、標記和列）配置視覺化。在上面的例子中，只有AutoConfigureCore方法被覆蓋。  註冊 Visualization 最後，視覺化工廠必須在框架中註冊。透過 overrides Add-in 中的 RegisterVisuals 完成。\npublic sealed class MyVisualizationAddIn : AddIn { protected override void RegisterVisuals(AddIn.VisualRegistrar registrar) { registrar.Register(new MyVisualizationFactory()); } } 現在，可以在 TIBCO Spotfire 中創建 visualization 了。然而，無法以任何方式配置視覺化或與之互動。為了進行這樣的操作，必須為之一個視圖(view)。\n建立視圖 自訂視覺化檢視 API 是在 Spotfire 應用程式中建立自訂視覺化的統一 API。隨著 TIBCO Spotfire 7.5 中修改的架構，帶來了代碼共享的好處。現在建議只使用基於 Web 的方法，而不是在 TIBCO Spotfire Analyst 和 TIBCO Spotfire Consumer 和 Business Author 中維護一個自訂代碼。基於 Web 的自訂視覺化將嵌入 TIBCO Spotfire Analyst 中，就像任何內部視覺化一樣。\n如果希望任何先前創建的自定義視覺化與新的 API 配合使用，則需要進行轉換。有關更多信息，請參閱將自定義 Web 視覺化轉換為 CustomVisualView API。\n一個自訂的視圖類別是從基礎類別 CustomVisualView 繼承而來。在 AddIn 類別中，該視圖在 RegisterViews 方法中註冊，例如：\nprotected override void RegisterViews(ViewRegistrar registrar) { base.RegisterViews(registrar); registrar.Register(typeof(CustomVisualView), typeof(MyVisual), typeof(MyVisualView)); } 初始化 Visualization CustomVisualView 的一個實例可以被視為一個嵌入式 Web 伺服器，通常會提供一個 HTML 檔案，以及一些資源，例如 JavaScript 檔案、圖片等。 為了初始化視覺化，要 override GetResourceCore 方法：\nprotected override HttpContent GetResourceCore(string path, NameValueCollection query, MyVisual snapshotNode) { if (string.IsNullOrEmpty(path)) { path = \"MyVisual.html\"; } var bytes = GetEmbeddedResource(\"SpotfireDeveloper.CustomVisualsExample.webroot.\" + path); return new HttpContent(\"text/html\", bytes); } 從技術上講，當最終用戶創建自定義類型的可視化時，內部將發生的是一個“嵌入式 Web 客戶端”（一個 iFrame HTML 元素）將出現在當前頁面上，並且該 Web 客戶端將使用 URL “/” 進行 HTTP 請求。該請求將被路由到調用上面的 GetResourceCore 方法。在上面的示例中，將檢索 MyVisual.html。該 HTML 文件可能反過來加載任何資源：\nscript src=”http://code.jquery.com/jquery-1.11.2.min.js”script script src=”myscript.js”script 請求 myscript.js 是使用相對路徑指定的，因此它將由被覆蓋的 GetResourceCore 方法處理。在上面的示例中，查找 webroot 文件夾中 JavaScript 文件的位置並嵌入該文件。但是，JavaScript 文件可以以任何方式獲取。例如，在調試的情況下，從硬編碼的路徑獲取文件可能很有用，以避免重建項目。\n客戶導向互動 您的自訂視覺化可以被視為分為客戶端和服務器端，其中客戶端是“視圖”，服務器端是“模型”。 提供了一些工具來簡化與伺服器的通訊。\n讀取資料 當「SpotfireLoaded」事件被觸發時，客戶端和伺服器之間的通訊通道就會開啟。在這個例子中，Spotfire.read 函數會從伺服器取回資料。\n$(window).on(\"SpotfireLoaded\", function()  {  Spotfire.read(\"GetData\", {\"argument\": \"value\"}, function(data)  {  if (data)  {  // typically re-render the visualization, but this example  // just displays the returned value  alert(data);  }  });  }); Spotfire.read 函數需要三個參數：\n 一個方法識別符(method identifier)。 一個參數物件(argument object) 一個 callback 在伺服器端，讀取呼叫由ReadCore方法處理：  protected override string ReadCore(string method, string args, MyVisual snapshotNode) { if (method.Equals(\"GetData\", StringComparison.OrdinalIgnoreCase)) { // typically retrieve some data from the document, // but this example just echoes the input argument return args; } return base.ReadCore(method, args, snapshotNode); } 請注意，當讀取數據時，服務代碼會在後台線程上執行。這允許多個同時讀取操作。\n寫入數據 當客戶需要修改文件時，例如標記數據時，請使用：\nSpotfire.modify(\"Mark\", {'rectangle': someObject}); 在伺服器端，修改呼叫由 ModifyCore 方法處理：\nprotected override void ModifyCore(string method, string args, MyVisual liveNode) { if (\"Mark\".Equals(method, StringComparison.Ordinal)) { liveNode.MarkArea(/* … */); } } 請注意，文件的修改是在主線程上執行的，因此修改文件是安全的。\n伺服器驅動的互動 從伺服器端，可以觸發客戶端的事件處理程序，例如：\nprotected override void OnUpdateRequiredCore() { this.InvokeClientEventHandler(\"render\", null); } 如需更多資訊，請參閱 OnUpdateRequiredCore。 當客戶端必須更新時，此代碼將運行，通過觸發\"渲染\"事件。 在客戶端：\nvar render = function(data) {  // Typically call Spotfire.read(...)  // data will be the argument from the server invocation - null in this example };  Spotfire.addEventHandler(\"render\", render); 匯出時呈現自訂視覺效果。 在使用 7.10 中引入的新匯出框架進行匯出時，有一些事情需要考慮，以使自訂視覺效果呈現得漂亮。在此處了解更多。\n",
+  "articleBody": "簡介 Spotifre 的視覺化工具(visualization)是可以被擴展的。已在 Spotfire 環境中部署的自定義視覺化工具將會出現在相同的位置並以相同的方式運作，就像 Spotfire 原生的視覺化工具一樣：它們可以從視覺化選單(visualization menu)、繪圖文本選單(plot context menus)、工具列中被訪問，並且可以與其它繪圖(plots)共享數據集(data sets)、標記(marking)和篩選(filtering)。 需要擴充的點 可視化框架的擴充點包括：\nCustomVisual, CustomVisualization - custom visuals 的基礎類別，custom visualization 是 custom visual 的子類別，具有一此額外的功能。 CustomVisualFactory - custom visualizations 的工廠基類(Factory base)，用於創建自定義可視化工具的實例。 CustomVisualView - CustomVisual 視圖的基類。 實作 建立模型 模型部分繼承自 CustomVisual 或 CustomVisualization。 CustomVisualization 是 CustomVisual 的子類別，並添加了指定 data table 和 marking 的功能。能夠指定當前 data table 和當前 marking 使視覺化能夠參與主細節情境。它還使框架能夠在 marking 記錄上實現命令並在狀態欄中顯示有關 filtering 和 marking 的行數的訊息。\nCustomVisualization 的 model資料可以來源自一個或一個以上的 data tables；而 CustomVisual 則是可以在 Page 中實作原生的 Text Area 和其它各種控制面板。\nThe model achieves this dual requirement by overriding two virtual methods defined by CustomVisual: 視覺化工具應該要能自行渲染，它應該要能感知到外觀變化並能通知環境產生對應動作。模型透該 overrides 兩個虛擬方法(virtual methods)來實現這兩個需求：\n覆寫 RenderCore 方法以執行繪圖。 覆寫 GetRenderTriggerCore 以定義何時需要重新繪製視覺區。 以下範例展示了一個最簡單的 visualization。它有兩個屬性(PropertyName)，代表資料表(data table)和標記(marking)。範例會繪製一個字串，說明在資料表中被標記的行數。\n[Serializable] [PersistenceVersion(1, 0)] public class MyVisualization : CustomVisualization { public new abstract class PropertyNames : CustomVisualization.PropertyNames { public static readonly PropertyName DataTableReference = CreatePropertyName(\"DataTableReference\"); public static readonly PropertyName MarkingReference = CreatePropertyName(\"MarkingReference\"); } private readonly UndoableCrossReferenceProperty dataTableReference; private readonly UndoableCrossReferenceProperty markingReference; internal MyVisualization() { CreateProperty(PropertyNames.DataTableReference, out this.dataTableReference, null); CreateProperty(PropertyNames.MarkingReference, out this.markingReference, null); } public DataTable DataTableReference { get { return this.dataTableReference.Value; } set { this.dataTableReference.Value = value; } } public DataMarkingSelection MarkingReference { get { return this.markingReference.Value; } set { this.markingReference.Value = value; } } protected override void RenderCore(RenderArgs renderArgs) { // Clear our drawing surface. renderArgs.Graphics.FillRectangle(Brushes.White, renderArgs.Bounds); // Draw a string showing the number of marked rows. if (this.DataTableReference != null \u0026\u0026 this.MarkingReference != null) { int markedRowsCount = this.MarkingReference.GetSelection(this.DataTableReference).IncludedRowCount; string message = string.Format( \"{0} marked rows in table {1}\", markedRowsCount, this.DataTableReference.Name); renderArgs.Graphics.DrawString(message, SystemFonts.DefaultFont, Brushes.Black, renderArgs.Bounds); } } protected override Trigger GetRenderTriggerCore() { // Return a trigger that fires when the data table or marking properties change // or when the content of the marking changes. return Trigger.CreateCompositeTrigger( Trigger.CreatePropertyTrigger( this, PropertyNames.DataTableReference, PropertyNames.MarkingReference ), Trigger.CreateMutablePropertyTrigger( this, PropertyNames.MarkingReference, DataMarkingSelection.PropertyNames.Selection ) ); } protected override DataTable GetActiveDataTableReference() { return this.dataTableReference.Value; } protected override Trigger GetActiveDataTableReferenceTriggerCore() { return Trigger.CreatePropertyTrigger(this, PropertyNames.DataTableReference); } protected override DataMarkingSelection GetActiveMarkingReferenceCore() { return this.markingReference.Value; } protected override Trigger GetActiveMarkingReferenceTriggerCore() { return Trigger.CreatePropertyTrigger(this, PropertyNames.MarkingReference); } private MyVisualization(SerializationInfo info, StreamingContext context) : base(info, context) { DeserializeProperty(info, context, PropertyNames.DataTableReference, out this.dataTableReference); DeserializeProperty(info, context, PropertyNames.MarkingReference, out this.markingReference); } protected override void GetObjectData(SerializationInfo info, StreamingContext context) { base.GetObjectData(info, context); SerializeProperty(info, context, this.dataTableReference); SerializeProperty(info, context, this.markingReference); } } 建立工廠 為了創建可視化工具，必須為其指定自定義工廠(custom factory)。該工廠負責創建和初始配置。還包含一些 metadata 如 UI commands 和 type identifier。\npublic sealed class MyCustomIdentifiers : CustomTypeIdentifiers { public static readonly CustomTypeIdentifier MyVisualizationIdentifier = CreateTypeIdentifier( \"Acme.MyVisualization\", // Name \"My Visualization\", // Display name \"This is a description\"); // Description } internal sealed class MyVisualizationFactory : CustomVisualFactory { internal MyVisualizationFactory() : base( MyCustomIdentifiers.MyVisualizationIdentifier, VisualCategory.Visualization, Properties.Resources.MyVisualizationImage, null) { } protected override void AutoConfigureCore(MyVisualization visualization) { // Find good default values for properties. DataManager dataManager = visualization.Context.GetService(); visualization.DataTableReference = dataManager.Tables.DefaultTableReference; visualization.MarkingReference = dataManager.Markings.DefaultMarkingReference; } } 可視化工廠是從 CustomVisualFactory 衍生而來的。請注意，自定義工廠類別並不會實例化可視化。實例化可視化是透過可視化的無參數建構函式由工廠基底類別來完成的。建構函式不必是公開的；但事實上，它不應該是公開的，因為讓 API 使用者建立可視化，然後將其插入到文件中是不合理的。\n當視覺化已經被創建並插入到文件節點層次結構中時，框架會在工廠上調用兩個虛擬方法：\nInitializeCore：它設置與數據無直接關係的屬性。 AutoConfigureCore：它使用適當的默認值為數據相關屬性（例如數據表、標記和列）配置視覺化。在上面的例子中，只有AutoConfigureCore方法被覆蓋。 註冊 Visualization 最後，視覺化工廠必須在框架中註冊。透過 overrides Add-in 中的 RegisterVisuals 完成。\npublic sealed class MyVisualizationAddIn : AddIn { protected override void RegisterVisuals(AddIn.VisualRegistrar registrar) { registrar.Register(new MyVisualizationFactory()); } } 現在，可以在 TIBCO Spotfire 中創建 visualization 了。然而，無法以任何方式配置視覺化或與之互動。為了進行這樣的操作，必須為之一個視圖(view)。\n建立視圖 自訂視覺化檢視 API 是在 Spotfire 應用程式中建立自訂視覺化的統一 API。隨著 TIBCO Spotfire 7.5 中修改的架構，帶來了代碼共享的好處。現在建議只使用基於 Web 的方法，而不是在 TIBCO Spotfire Analyst 和 TIBCO Spotfire Consumer 和 Business Author 中維護一個自訂代碼。基於 Web 的自訂視覺化將嵌入 TIBCO Spotfire Analyst 中，就像任何內部視覺化一樣。\n如果希望任何先前創建的自定義視覺化與新的 API 配合使用，則需要進行轉換。有關更多信息，請參閱將自定義 Web 視覺化轉換為 CustomVisualView API。\n一個自訂的視圖類別是從基礎類別 CustomVisualView 繼承而來。在 AddIn 類別中，該視圖在 RegisterViews 方法中註冊，例如：\nprotected override void RegisterViews(ViewRegistrar registrar) { base.RegisterViews(registrar); registrar.Register(typeof(CustomVisualView), typeof(MyVisual), typeof(MyVisualView)); } 初始化 Visualization CustomVisualView 的一個實例可以被視為一個嵌入式 Web 伺服器，通常會提供一個 HTML 檔案，以及一些資源，例如 JavaScript 檔案、圖片等。 為了初始化視覺化，要 override GetResourceCore 方法：\nprotected override HttpContent GetResourceCore(string path, NameValueCollection query, MyVisual snapshotNode) { if (string.IsNullOrEmpty(path)) { path = \"MyVisual.html\"; } var bytes = GetEmbeddedResource(\"SpotfireDeveloper.CustomVisualsExample.webroot.\" + path); return new HttpContent(\"text/html\", bytes); } 從技術上講，當最終用戶創建自定義類型的可視化時，內部將發生的是一個“嵌入式 Web 客戶端”（一個 iFrame HTML 元素）將出現在當前頁面上，並且該 Web 客戶端將使用 URL “/” 進行 HTTP 請求。該請求將被路由到調用上面的 GetResourceCore 方法。在上面的示例中，將檢索 MyVisual.html。該 HTML 文件可能反過來加載任何資源：\n\u003cscript src=”http://code.jquery.com/jquery-1.11.2.min.js”\u003e\u003c/script\u003e \u003cscript src=”myscript.js”\u003e\u003c/script\u003e 請求 myscript.js 是使用相對路徑指定的，因此它將由被覆蓋的 GetResourceCore 方法處理。在上面的示例中，查找 webroot 文件夾中 JavaScript 文件的位置並嵌入該文件。但是，JavaScript 文件可以以任何方式獲取。例如，在調試的情況下，從硬編碼的路徑獲取文件可能很有用，以避免重建項目。\n客戶導向互動 您的自訂視覺化可以被視為分為客戶端和服務器端，其中客戶端是“視圖”，服務器端是“模型”。 提供了一些工具來簡化與伺服器的通訊。\n讀取資料 當「SpotfireLoaded」事件被觸發時，客戶端和伺服器之間的通訊通道就會開啟。在這個例子中，Spotfire.read 函數會從伺服器取回資料。\n$(window).on(\"SpotfireLoaded\", function() { Spotfire.read(\"GetData\", {\"argument\": \"value\"}, function(data) { if (data) { // typically re-render the visualization, but this example // just displays the returned value alert(data); } }); }); Spotfire.read 函數需要三個參數：\n一個方法識別符(method identifier)。 一個參數物件(argument object) 一個 callback 在伺服器端，讀取呼叫由ReadCore方法處理： protected override string ReadCore(string method, string args, MyVisual snapshotNode) { if (method.Equals(\"GetData\", StringComparison.OrdinalIgnoreCase)) { // typically retrieve some data from the document, // but this example just echoes the input argument return args; } return base.ReadCore(method, args, snapshotNode); } 請注意，當讀取數據時，服務代碼會在後台線程上執行。這允許多個同時讀取操作。\n寫入數據 當客戶需要修改文件時，例如標記數據時，請使用：\nSpotfire.modify(\"Mark\", {'rectangle': someObject}); 在伺服器端，修改呼叫由 ModifyCore 方法處理：\nprotected override void ModifyCore(string method, string args, MyVisual liveNode) { if (\"Mark\".Equals(method, StringComparison.Ordinal)) { liveNode.MarkArea(/* … */); } } 請注意，文件的修改是在主線程上執行的，因此修改文件是安全的。\n伺服器驅動的互動 從伺服器端，可以觸發客戶端的事件處理程序，例如：\nprotected override void OnUpdateRequiredCore() { this.InvokeClientEventHandler(\"render\", null); } 如需更多資訊，請參閱 OnUpdateRequiredCore。 當客戶端必須更新時，此代碼將運行，通過觸發\"渲染\"事件。 在客戶端：\nvar render = function(data) { // Typically call Spotfire.read(...) // data will be the argument from the server invocation - null in this example }; Spotfire.addEventHandler(\"render\", render); 匯出時呈現自訂視覺效果。 在使用 7.10 中引入的新匯出框架進行匯出時，有一些事情需要考慮，以使自訂視覺效果呈現得漂亮。在此處了解更多。\n",
   "wordCount" : "757",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-08-14T22:54:55+08:00",
   "dateModified": "2023-08-14T22:54:55+08:00",
   "author":{
@@ -130,14 +132,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/dxp/customvisualization/"
+    "@id": "http://localhost:1313/dxp/customvisualization/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +161,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +185,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,23 +232,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/dxp/">Dxps</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/dxp/">Dxps</a></div>
+    <h1 class="post-title entry-hint-parent">
       [DXP] 在 spotfire 中創建自定義視覺化工具
     </h1>
     <div class="post-description">
       在 spotfire 中創建自定義的視覺化工具
     </div>
-    <div class="post-meta"><span title='2023-08-14 22:54:55 +0800 CST'>August 14, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//dxp/customVisualization.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-08-14 22:54:55 +0800 CST'>August 14, 2023</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//dxp/customVisualization.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -373,8 +376,8 @@ public class MyVisualization : CustomVisualization
 {
     public new abstract class PropertyNames : CustomVisualization.PropertyNames
     {
-        public static readonly PropertyName DataTableReference = CreatePropertyName(&quot;DataTableReference&quot;);
-        public static readonly PropertyName MarkingReference = CreatePropertyName(&quot;MarkingReference&quot;);
+        public static readonly PropertyName DataTableReference = CreatePropertyName(&#34;DataTableReference&#34;);
+        public static readonly PropertyName MarkingReference = CreatePropertyName(&#34;MarkingReference&#34;);
     }
 
     private readonly UndoableCrossReferenceProperty&lt;DataTable&gt; dataTableReference;
@@ -408,7 +411,7 @@ public class MyVisualization : CustomVisualization
         {
             int markedRowsCount = this.MarkingReference.GetSelection(this.DataTableReference).IncludedRowCount;
             string message = string.Format(
-                &quot;{0} marked rows in table {1}&quot;,
+                &#34;{0} marked rows in table {1}&#34;,
                 markedRowsCount,
                 this.DataTableReference.Name);
 
@@ -474,9 +477,9 @@ public class MyVisualization : CustomVisualization
 {
     public static readonly CustomTypeIdentifier MyVisualizationIdentifier =
         CreateTypeIdentifier(
-            &quot;Acme.MyVisualization&quot;,    // Name
-            &quot;My Visualization&quot;,        // Display name
-            &quot;This is a description&quot;);  // Description
+            &#34;Acme.MyVisualization&#34;,    // Name
+            &#34;My Visualization&#34;,        // Display name
+            &#34;This is a description&#34;);  // Description
 }
  
 internal sealed class MyVisualizationFactory : CustomVisualFactory&lt;MyVisualization&gt;
@@ -530,11 +533,11 @@ internal sealed class MyVisualizationFactory : CustomVisualFactory&lt;MyVisualiz
 {
     if (string.IsNullOrEmpty(path))
     {
-        path = &quot;MyVisual.html&quot;;
+        path = &#34;MyVisual.html&#34;;
     }
 
-    var bytes = GetEmbeddedResource(&quot;SpotfireDeveloper.CustomVisualsExample.webroot.&quot; + path);
-    return new HttpContent(&quot;text/html&quot;, bytes);
+    var bytes = GetEmbeddedResource(&#34;SpotfireDeveloper.CustomVisualsExample.webroot.&#34; + path);
+    return new HttpContent(&#34;text/html&#34;, bytes);
 }
 </code></pre><p>從技術上講，當最終用戶創建自定義類型的可視化時，內部將發生的是一個“嵌入式 Web 客戶端”（一個 iFrame HTML 元素）將出現在當前頁面上，並且該 Web 客戶端將使用 URL &ldquo;/&rdquo; 進行 HTTP 請求。該請求將被路由到調用上面的 GetResourceCore 方法。在上面的示例中，將檢索 MyVisual.html。該 HTML 文件可能反過來加載任何資源：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">”http://code.jquery.com/jquery-1.11.2.min.js”</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
@@ -566,7 +569,7 @@ internal sealed class MyVisualizationFactory : CustomVisualFactory&lt;MyVisualiz
 </ul>
 <pre tabindex="0"><code class="language-Cs" data-lang="Cs">protected override string ReadCore(string method, string args, MyVisual snapshotNode)
 {
-    if (method.Equals(&quot;GetData&quot;, StringComparison.OrdinalIgnoreCase))
+    if (method.Equals(&#34;GetData&#34;, StringComparison.OrdinalIgnoreCase))
     {
         // typically retrieve some data from the document, 
         // but this example just echoes the input argument
@@ -582,7 +585,7 @@ internal sealed class MyVisualizationFactory : CustomVisualFactory&lt;MyVisualiz
 </span></span></code></pre></div><p>在伺服器端，修改呼叫由 <code>ModifyCore</code> 方法處理：</p>
 <pre tabindex="0"><code class="language-Cs" data-lang="Cs">protected override void ModifyCore(string method, string args, MyVisual liveNode)
 {
-    if (&quot;Mark&quot;.Equals(method, StringComparison.Ordinal))
+    if (&#34;Mark&#34;.Equals(method, StringComparison.Ordinal))
     { 
         liveNode.MarkArea(/* … */);
     }
@@ -592,7 +595,7 @@ internal sealed class MyVisualizationFactory : CustomVisualFactory&lt;MyVisualiz
 <p>從伺服器端，可以觸發客戶端的事件處理程序，例如：</p>
 <pre tabindex="0"><code class="language-Cs" data-lang="Cs">protected override void OnUpdateRequiredCore()
 {
-    this.InvokeClientEventHandler(&quot;render&quot;, null);
+    this.InvokeClientEventHandler(&#34;render&#34;, null);
 }
 </code></pre><p>如需更多資訊，請參閱 <a href="https://docs.tibco.com/pub/doc_remote/sfire_dev/area/doc/api/TIB_sfire-analyst_api/?topic=html/M_Spotfire_Dxp_Application_Extension_CustomVisualView_OnUpdateRequiredCore.htm&amp;_ga=2.219012633.123850125.1692024818-1463462807.1662359000">OnUpdateRequiredCore</a>。
 當客戶端必須更新時，此代碼將運行，通過觸發&quot;渲染&quot;事件。
@@ -612,8 +615,8 @@ internal sealed class MyVisualizationFactory : CustomVisualFactory&lt;MyVisualiz
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/spotfire/">spotfire</a></li>
-      <li><a href="https://intervalrain.github.io/tags/dxp/">dxp</a></li>
+      <li><a href="http://localhost:1313/tags/spotfire/">Spotfire</a></li>
+      <li><a href="http://localhost:1313/tags/dxp/">Dxp</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -628,11 +631,12 @@ internal sealed class MyVisualizationFactory : CustomVisualFactory&lt;MyVisualiz
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -701,12 +705,12 @@ internal sealed class MyVisualizationFactory : CustomVisualFactory&lt;MyVisualiz
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

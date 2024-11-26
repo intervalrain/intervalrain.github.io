@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 931. Minimum Falling Path Sum | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="931. Minimum Falling Path Sum
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Dynamic Programming、Matrix   一、題目 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Dynamic Programming、Matrix
+
+
+一、題目
+Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.
 A falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row &#43; 1, col - 1), (row &#43; 1, col), or (row &#43; 1, col &#43; 1).">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/931/">
 <noscript>
     <style>
         #theme-toggle,
@@ -42,7 +46,7 @@ A falling path starts at any element in the first row and chooses the element in
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -75,21 +79,30 @@ A falling path starts at any element in the first row and chooses the element in
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 931. Minimum Falling Path Sum" />
-<meta property="og:description" content="931. Minimum Falling Path Sum
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Dynamic Programming、Matrix   一、題目 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.
-A falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row &#43; 1, col - 1), (row &#43; 1, col), or (row &#43; 1, col &#43; 1)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/931/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-12-13T21:53:27&#43;08:00" />
-<meta property="article:modified_time" content="2022-12-13T21:53:27&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 931. Minimum Falling Path Sum"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/931/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 931. Minimum Falling Path Sum">
+  <meta property="og:description" content="931. Minimum Falling Path Sum
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Dynamic Programming、Matrix 一、題目 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.
+A falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row &#43; 1, col - 1), (row &#43; 1, col), or (row &#43; 1, col &#43; 1).">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-12-13T21:53:27+08:00">
+    <meta property="article:modified_time" content="2022-12-13T21:53:27+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 931. Minimum Falling Path Sum">
 <meta name="twitter:description" content="931. Minimum Falling Path Sum
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Dynamic Programming、Matrix   一、題目 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.
-A falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row &#43; 1, col - 1), (row &#43; 1, col), or (row &#43; 1, col &#43; 1)."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Dynamic Programming、Matrix
+
+
+一、題目
+Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.
+A falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row &#43; 1, col - 1), (row &#43; 1, col), or (row &#43; 1, col &#43; 1).">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -100,14 +113,8 @@ A falling path starts at any element in the first row and chooses the element in
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 931. Minimum Falling Path Sum",
-      "item": "https://intervalrain.github.io/leetcode/931/"
+      "item": "http://localhost:1313/leetcode/931/"
     }
   ]
 }
@@ -118,13 +125,13 @@ A falling path starts at any element in the first row and chooses the element in
   "@type": "BlogPosting",
   "headline": "[LeetCode] 931. Minimum Falling Path Sum",
   "name": "[LeetCode] 931. Minimum Falling Path Sum",
-  "description": "931. Minimum Falling Path Sum\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Dynamic Programming、Matrix   一、題目 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.\nA falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row + 1, col - 1), (row + 1, col), or (row + 1, col + 1).",
+  "description": "931. Minimum Falling Path Sum\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Dynamic Programming、Matrix 一、題目 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.\nA falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row + 1, col - 1), (row + 1, col), or (row + 1, col + 1).\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "931. Minimum Falling Path Sum\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Dynamic Programming、Matrix   一、題目 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.\nA falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row + 1, col - 1), (row + 1, col), or (row + 1, col + 1).\nExample 1:\n Input: matrix = [[2,1,3],[6,5,4],[7,8,9]] Output: 13 Explanation: There are two falling paths with a minimum sum as shown.  Example 2:\n Input: matrix = [[-19,57],[-40,-5]] Output: -59 Explanation: The falling path with a minimum sum is shown.  Constraints:\n n == matrix.length == matrix[i].length 1  -100    二、分析  這題也是典型的動態規劃問題，每一層可能的最小值，會影響到下一層的最小值，所以我們只需記錄每一層的狀態再將狀態往下一層推移即可。 定義 dp[m][n] 為第 m 層，第 n 欄的累計最小值。 轉移方程式為 dp[m][n] = min({dp[m-1][n-1], dp[m-1][n], dp[m-1][n+1]}) + row[m][n]。  但要注意最左邊跟最右邊要另外處理以避免出界。   從轉移方程式可以注意到，狀態的轉移只跟上一層有關係，故可以做空間壓縮，就空間複雜度壓到 \\(O(n)\\)  三、解題 1. DP  Time complexity: \\(O(m\\times n)\\) Space complexity: \\(O(m\\times n)\\)  int minFallingPathSum(vectorvectorint\u0026 matrix) {  int m = matrix.size(), n = matrix[0].size();  if (m == 1) return matrix[0][0];  vectorvectorint dp(m+1, vectorint(n));  for (int i = 0; i  m; i++) {  vectorint\u0026 row = matrix[i];  dp[i+1][0] = min(dp[i][0], dp[i][1]) + row[0];  dp[i+1][n-1] = min(dp[i][n-1], dp[i][n-2]) + row[n-1];  for (int j = 1; j  n-1; j++) {  dp[i+1][j] = min({dp[i][j-1], dp[i][j], dp[i][j+1]}) + row[j];  }  }  int res = INT_MAX;  for (int j = 0; j  n; j++) {  res = min(res, dp[m][j]);  }  return res; } 2. DP space-optimized  Time complexity: \\(O(m\\times n)\\) Space complexity: \\(O(n)\\)  int minFallingPathSum(vectorvectorint\u0026 matrix) {  int m = matrix.size(), n = matrix[0].size();  if (m == 1) return matrix[0][0];  // 利用奇數層跟偶數層做切換  vectorvectorint dp(2, vectorint(n));  for (int i = 0; i  m-1; i++) {  vectorint\u0026 row = matrix[i];  dp[i%2][0] = min(dp[(i+1)%2][0], dp[(i+1)%2][1]) + row[0];  dp[i%2][n-1] = min(dp[(i+1)%2][n-1], dp[(i+1)%2][n-2]) + row[n-1];  for (int j = 1; j  matrix[0].size()-1; j++) {  dp[i%2][j] = min({dp[(i+1)%2][j-1], dp[(i+1)%2][j], dp[(i+1)%2][j+1]}) + row[j];  }  }  int res = INT_MAX;  dp[(m-1)%2][0] = min(dp[m%2][0], dp[m%2][1]) + matrix[m-1][0];  dp[(m-1)%2][n-1] = min(dp[m%2][n-1], dp[m%2][n-2]) + matrix[m-1][n-1];  res = min({res, dp[(m-1)%2][0], dp[(m-1)%2][n-1]});  for (int j = 1; j  matrix[0].size()-1; j++) {  dp[(m-1)%2][j] = min({dp[m%2][j-1], dp[m%2][j], dp[m%2][j+1]}) + matrix[m-1][j];  res = min(res, dp[(m-1)%2][j]);  }  return res; } 回目錄 Catalog\n",
+  "articleBody": "931. Minimum Falling Path Sum\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Dynamic Programming、Matrix 一、題目 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.\nA falling path starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position (row, col) will be (row + 1, col - 1), (row + 1, col), or (row + 1, col + 1).\nExample 1:\nInput: matrix = [[2,1,3],[6,5,4],[7,8,9]] Output: 13 Explanation: There are two falling paths with a minimum sum as shown. Example 2:\nInput: matrix = [[-19,57],[-40,-5]] Output: -59 Explanation: The falling path with a minimum sum is shown. Constraints:\nn == matrix.length == matrix[i].length 1 \u003c= n \u003c= 100 -100 \u003c= matrix[i][j] \u003c= 100 二、分析 這題也是典型的動態規劃問題，每一層可能的最小值，會影響到下一層的最小值，所以我們只需記錄每一層的狀態再將狀態往下一層推移即可。 定義 dp[m][n] 為第 m 層，第 n 欄的累計最小值。 轉移方程式為 dp[m][n] = min({dp[m-1][n-1], dp[m-1][n], dp[m-1][n+1]}) + row[m][n]。 但要注意最左邊跟最右邊要另外處理以避免出界。 從轉移方程式可以注意到，狀態的轉移只跟上一層有關係，故可以做空間壓縮，就空間複雜度壓到 \\(O(n)\\) 三、解題 1. DP Time complexity: \\(O(m\\times n)\\) Space complexity: \\(O(m\\times n)\\) int minFallingPathSum(vector\u003cvector\u003cint\u003e\u003e\u0026 matrix) { int m = matrix.size(), n = matrix[0].size(); if (m == 1) return matrix[0][0]; vector\u003cvector\u003cint\u003e\u003e dp(m+1, vector\u003cint\u003e(n)); for (int i = 0; i \u003c m; i++) { vector\u003cint\u003e\u0026 row = matrix[i]; dp[i+1][0] = min(dp[i][0], dp[i][1]) + row[0]; dp[i+1][n-1] = min(dp[i][n-1], dp[i][n-2]) + row[n-1]; for (int j = 1; j \u003c n-1; j++) { dp[i+1][j] = min({dp[i][j-1], dp[i][j], dp[i][j+1]}) + row[j]; } } int res = INT_MAX; for (int j = 0; j \u003c n; j++) { res = min(res, dp[m][j]); } return res; } 2. DP space-optimized Time complexity: \\(O(m\\times n)\\) Space complexity: \\(O(n)\\) int minFallingPathSum(vector\u003cvector\u003cint\u003e\u003e\u0026 matrix) { int m = matrix.size(), n = matrix[0].size(); if (m == 1) return matrix[0][0]; // 利用奇數層跟偶數層做切換 vector\u003cvector\u003cint\u003e\u003e dp(2, vector\u003cint\u003e(n)); for (int i = 0; i \u003c m-1; i++) { vector\u003cint\u003e\u0026 row = matrix[i]; dp[i%2][0] = min(dp[(i+1)%2][0], dp[(i+1)%2][1]) + row[0]; dp[i%2][n-1] = min(dp[(i+1)%2][n-1], dp[(i+1)%2][n-2]) + row[n-1]; for (int j = 1; j \u003c matrix[0].size()-1; j++) { dp[i%2][j] = min({dp[(i+1)%2][j-1], dp[(i+1)%2][j], dp[(i+1)%2][j+1]}) + row[j]; } } int res = INT_MAX; dp[(m-1)%2][0] = min(dp[m%2][0], dp[m%2][1]) + matrix[m-1][0]; dp[(m-1)%2][n-1] = min(dp[m%2][n-1], dp[m%2][n-2]) + matrix[m-1][n-1]; res = min({res, dp[(m-1)%2][0], dp[(m-1)%2][n-1]}); for (int j = 1; j \u003c matrix[0].size()-1; j++) { dp[(m-1)%2][j] = min({dp[m%2][j-1], dp[m%2][j], dp[m%2][j+1]}) + matrix[m-1][j]; res = min(res, dp[(m-1)%2][j]); } return res; } 回目錄 Catalog\n",
   "wordCount" : "382",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-12-13T21:53:27+08:00",
   "dateModified": "2022-12-13T21:53:27+08:00",
   "author":{
@@ -133,14 +140,14 @@ A falling path starts at any element in the first row and chooses the element in
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/931/"
+    "@id": "http://localhost:1313/leetcode/931/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -162,17 +169,17 @@ A falling path starts at any element in the first row and chooses the element in
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -186,46 +193,46 @@ A falling path starts at any element in the first row and chooses the element in
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -233,20 +240,21 @@ A falling path starts at any element in the first row and chooses the element in
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 931. Minimum Falling Path Sum
     </h1>
-    <div class="post-meta"><span title='2022-12-13 21:53:27 +0800 CST'>December 13, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/931.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-12-13 21:53:27 +0800 CST'>December 13, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/931.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -339,15 +347,13 @@ A falling path starts at any element in the first row and chooses the element in
 <p>Given an <code>n x n</code> array of integers <code>matrix</code>, return <em>the <strong>minimum sum</strong> of any <strong>falling path</strong> through</em> <code>matrix</code>.<br>
 A <strong>falling path</strong> starts at any element in the first row and chooses the element in the next row that is either directly below or diagonally left/right. Specifically, the next element from position <code>(row, col)</code> will be <code>(row + 1, col - 1)</code>, <code>(row + 1, col)</code>, or <code>(row + 1, col + 1)</code>.</p>
 <p><strong>Example 1:</strong><br>
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2021/11/03/failing1-grid.jpg" alt="falling1-grid"  />
-</p>
+<img alt="falling1-grid" loading="lazy" src="https://assets.leetcode.com/uploads/2021/11/03/failing1-grid.jpg"></p>
 <ul>
 <li><strong>Input:</strong> matrix = [[2,1,3],[6,5,4],[7,8,9]]</li>
 <li><strong>Output:</strong> 13</li>
 <li><strong>Explanation:</strong> There are two falling paths with a minimum sum as shown.</li>
 </ul>
-<p><img loading="lazy" src="https://assets.leetcode.com/uploads/2021/11/03/failing2-grid.jpg" alt="falling2-grid"  />
-
+<p><img alt="falling2-grid" loading="lazy" src="https://assets.leetcode.com/uploads/2021/11/03/failing2-grid.jpg">
 <strong>Example 2:</strong></p>
 <ul>
 <li><strong>Input:</strong> matrix = [[-19,57],[-40,-5]]</li>
@@ -431,16 +437,16 @@ A <strong>falling path</strong> starts at any element in the first row and choos
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/24/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/24/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 24. Swap Nodes in Pairs</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/70/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/70/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 70. Climbing Stairs</span>
   </a>
@@ -458,11 +464,12 @@ A <strong>falling path</strong> starts at any element in the first row and choos
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -531,12 +538,12 @@ A <strong>falling path</strong> starts at any element in the first row and choos
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

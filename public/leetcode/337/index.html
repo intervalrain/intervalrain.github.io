@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 337. House Robber III | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="337. House Robber III
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree   一、題目 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root. Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night.">
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree
+
+
+一、題目
+The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root.
+Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night.
+Given the root of the binary tree, return the maximum amount of money the thief can rob without alerting the police.">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/337/">
 <noscript>
     <style>
         #theme-toggle,
@@ -41,7 +47,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -74,19 +80,30 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 337. House Robber III" />
-<meta property="og:description" content="337. House Robber III
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree   一、題目 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root. Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/337/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-19T21:43:08&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-19T21:43:08&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 337. House Robber III"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/337/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 337. House Robber III">
+  <meta property="og:description" content="337. House Robber III
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree 一、題目 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root. Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night. Given the root of the binary tree, return the maximum amount of money the thief can rob without alerting the police.">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-19T21:43:08+08:00">
+    <meta property="article:modified_time" content="2022-11-19T21:43:08+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 337. House Robber III">
 <meta name="twitter:description" content="337. House Robber III
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree   一、題目 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root. Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree
+
+
+一、題目
+The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root.
+Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night.
+Given the root of the binary tree, return the maximum amount of money the thief can rob without alerting the police.">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,14 +114,8 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 337. House Robber III",
-      "item": "https://intervalrain.github.io/leetcode/337/"
+      "item": "http://localhost:1313/leetcode/337/"
     }
   ]
 }
@@ -115,13 +126,13 @@
   "@type": "BlogPosting",
   "headline": "[LeetCode] 337. House Robber III",
   "name": "[LeetCode] 337. House Robber III",
-  "description": "337. House Robber III\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree   一、題目 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root. Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night.",
+  "description": "337. House Robber III\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree 一、題目 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root. Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night. Given the root of the binary tree, return the maximum amount of money the thief can rob without alerting the police.\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "337. House Robber III\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree   一、題目 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root. Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night. Given the root of the binary tree, return the maximum amount of money the thief can rob without alerting the police.\nExample 1:\n Input: root = [3,2,3,null,3,null,1] Output: 7 Explanation: Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.  Example 2:\n Input: root = [3,4,5,1,3,null,1] Output: 9 Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.  Constraints:\n The number of nodes in the tree is in the range [1, 10^4]. 0    二、分析  遵循第 i 間房若搶，則前一間房必定不能搶；第 i 間房若不搶，前一間房可搶可不搶：  用一個 pair 來記錄每個節點搶與不搶的結果，最後再將兩者做比較。  dp[i][0] = max(dp[i-1][1], dp[i-1][0]) dp[i][1] = dp[i-1][0] + val[i]   改寫成：  int pass = max(left.first, left.second) + max(right.first, right.second) int rob = root-val + left.second + right.second      三、解題 1. DP  Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\)  int rob(TreeNode* root) {  pairint,int res = helper(root); // {搶, 不搶}  return max(res.first); } pairint,int helper(TreeNode* root) {  if (!root) return {0, 0};  pairint,int left = helper(root-left);  pairint,int right = helper(root-right);  return {root-val + left.second + right.second, max(left.first, left.second) + max(right.first, right.second)}; } 回目錄 Catalog\n",
+  "articleBody": "337. House Robber III\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Dynamic Programming、Tree、Depth-First Search、Binary Tree 一、題目 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root. Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night. Given the root of the binary tree, return the maximum amount of money the thief can rob without alerting the police.\nExample 1:\nInput: root = [3,2,3,null,3,null,1] Output: 7 Explanation: Maximum amount of money the thief can rob = 3 + 3 + 1 = 7. Example 2:\nInput: root = [3,4,5,1,3,null,1] Output: 9 Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9. Constraints:\nThe number of nodes in the tree is in the range [1, 10^4]. 0 \u003c= Node.val \u003c= 10^4 二、分析 遵循第 i 間房若搶，則前一間房必定不能搶；第 i 間房若不搶，前一間房可搶可不搶： 用一個 pair 來記錄每個節點搶與不搶的結果，最後再將兩者做比較。 dp[i][0] = max(dp[i-1][1], dp[i-1][0]) dp[i][1] = dp[i-1][0] + val[i] 改寫成： int pass = max(left.first, left.second) + max(right.first, right.second) int rob = root-\u003eval + left.second + right.second 三、解題 1. DP Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\) int rob(TreeNode* root) { pair\u003cint,int\u003e res = helper(root); // {搶, 不搶} return max(res.first); } pair\u003cint,int\u003e helper(TreeNode* root) { if (!root) return {0, 0}; pair\u003cint,int\u003e left = helper(root-\u003eleft); pair\u003cint,int\u003e right = helper(root-right); return {root-\u003eval + left.second + right.second, max(left.first, left.second) + max(right.first, right.second)}; } 回目錄 Catalog\n",
   "wordCount" : "258",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-19T21:43:08+08:00",
   "dateModified": "2022-11-19T21:43:08+08:00",
   "author":{
@@ -130,14 +141,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/337/"
+    "@id": "http://localhost:1313/leetcode/337/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +170,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +194,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,20 +241,21 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 337. House Robber III
     </h1>
-    <div class="post-meta"><span title='2022-11-19 21:43:08 +0800 CST'>November 19, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/337.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-19 21:43:08 +0800 CST'>November 19, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/337.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -394,16 +406,16 @@ Given the <code>root</code> of the binary tree, return <em>the maximum amount of
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/279/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/279/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 279. Perfect Squares</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/587/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/587/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 587. Erect the Fence</span>
   </a>
@@ -421,11 +433,12 @@ Given the <code>root</code> of the binary tree, return <em>the maximum amount of
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -494,12 +507,12 @@ Given the <code>root</code> of the binary tree, return <em>the maximum amount of
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

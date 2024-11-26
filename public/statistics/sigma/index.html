@@ -1,28 +1,121 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Statistics] a群體與b群體各別標準差求整體標準差 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Statistics" />
-<meta name="description" content="Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\) 1. 簡化 \(\sigma\)  將 \(\sigma\) 乘開  \(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\) \(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}&#43;n\bar x^2}}{n}}\)   平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故  \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}&#43;\frac{n\bar x^2}{n}}\) \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2&#43;\bar x^2}\) 得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\)    2. 求個別平方和  由\((1)\)式可推得各別的標準差為  \(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\)   且  \(\boxed{n = n_a&#43;n_b}-(3)\) \(\boxed{\sum x_i^2=\sum x_{ai}^2&#43;\sum x_{bi}^2}-(4)\)   欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開  \(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\) \(\sigma_a^2&#43;\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\) 得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2&#43;\bar x_a^2)}-(5)\)    3.">
+<meta name="keywords" content="Statistics">
+<meta name="description" content="Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\)
+1. 簡化 \(\sigma\)
+
+將 \(\sigma\) 乘開
+
+\(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\)
+\(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}&#43;n\bar x^2}}{n}}\)
+
+
+平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故
+
+\(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}&#43;\frac{n\bar x^2}{n}}\)
+\(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2&#43;\bar x^2}\)
+得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\)
+
+
+
+2. 求個別平方和
+
+由\((1)\)式可推得各別的標準差為
+
+\(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\)
+
+
+且
+
+\(\boxed{n = n_a&#43;n_b}-(3)\)
+\(\boxed{\sum x_i^2=\sum x_{ai}^2&#43;\sum x_{bi}^2}-(4)\)
+
+
+欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開
+
+\(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\)
+\(\sigma_a^2&#43;\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\)
+得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2&#43;\bar x_a^2)}-(5)\)
+
+
+
+3. 求總體標準差
+
+由\((1)\)式展開
+
+得 \(\boxed{\sigma = \sqrt{\frac{(\sum x_{ai}^2&#43;\sum x_{bi}^2)}{n}-\bar x^2}}-(6)\)
+
+
+將\((5)\)代入\((6)\)
+
+\(\boxed{\sigma=\sqrt{\frac{n_a(\sigma_a^2&#43;\bar x_a^2)&#43;n_b(\sigma_b^2&#43;\bar x_n^2)}{n}-\bar x^2}}-(7)\)
+
+
+其中 \(\boxed{\bar x=\frac{n_a\bar x_a &#43; n_b\bar x_b}{n}}-(8)\)
+故我們可以從上式輾轉得通式：
+
+\(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))}{n}-\bar x^2}}-(9)\)
+或寫成
+\(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{n}}}-(9)\)
+
+
+
+summary
+
+個數
+
+\(\boxed{n=n_a&#43;n_b=\sum n_i}\)
+
+
+平均數
+
+\(\boxed{\bar x=\frac{n_a\bar x_a&#43;n_b\bar x_b}{n_a&#43;n_b}=\frac{\sum{n_i\bar x_i}}{\sum{n_i}}}\)
+
+
+標準差
+
+\(\boxed{\sigma=\sqrt{\frac{n_{ai}(\sigma_{ai}^2&#43;\bar x_{ai}^2)&#43;n_{bi}(\sigma_{bi}^2&#43;\bar x_{bi}^2)-(n_a\bar x_a&#43;n_b\bar x_b)}{n_a&#43;n_b}}=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{\sum n_i}}}\)
+
+
+
+4. sql
+
+現有一 table 存有
+avg_value
+std_value
+site_count
+
+with stats as (
+    select
+        ...
+        sum(site_count*avg_value)/sum(site_count) as avg_value,
+        sqrt((sum(site_count*(square(std_value)&#43;square(avg_value)))-sum(site_count*avg_value))/sum(site_count)) as std_value,
+        sum(site_count) as site_count
+    from data
+    where ...
+    group by ...
+)
+select * from stats
+">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/statistics/sigma/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +133,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +169,115 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Statistics] a群體與b群體各別標準差求整體標準差" />
-<meta property="og:description" content="Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\) 1. 簡化 \(\sigma\)  將 \(\sigma\) 乘開  \(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\) \(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}&#43;n\bar x^2}}{n}}\)   平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故  \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}&#43;\frac{n\bar x^2}{n}}\) \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2&#43;\bar x^2}\) 得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\)    2. 求個別平方和  由\((1)\)式可推得各別的標準差為  \(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\)   且  \(\boxed{n = n_a&#43;n_b}-(3)\) \(\boxed{\sum x_i^2=\sum x_{ai}^2&#43;\sum x_{bi}^2}-(4)\)   欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開  \(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\) \(\sigma_a^2&#43;\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\) 得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2&#43;\bar x_a^2)}-(5)\)    3." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/statistics/sigma/" /><meta property="article:section" content="statistics" />
-<meta property="article:published_time" content="2023-12-12T22:16:04&#43;08:00" />
-<meta property="article:modified_time" content="2023-12-12T22:16:04&#43;08:00" />
+</script><meta property="og:url" content="http://localhost:1313/statistics/sigma/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Statistics] a群體與b群體各別標準差求整體標準差">
+  <meta property="og:description" content="Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\) 1. 簡化 \(\sigma\) 將 \(\sigma\) 乘開 \(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\) \(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}&#43;n\bar x^2}}{n}}\) 平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故 \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}&#43;\frac{n\bar x^2}{n}}\) \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2&#43;\bar x^2}\) 得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\) 2. 求個別平方和 由\((1)\)式可推得各別的標準差為 \(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\) 且 \(\boxed{n = n_a&#43;n_b}-(3)\) \(\boxed{\sum x_i^2=\sum x_{ai}^2&#43;\sum x_{bi}^2}-(4)\) 欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開 \(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\) \(\sigma_a^2&#43;\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\) 得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2&#43;\bar x_a^2)}-(5)\) 3. 求總體標準差 由\((1)\)式展開 得 \(\boxed{\sigma = \sqrt{\frac{(\sum x_{ai}^2&#43;\sum x_{bi}^2)}{n}-\bar x^2}}-(6)\) 將\((5)\)代入\((6)\) \(\boxed{\sigma=\sqrt{\frac{n_a(\sigma_a^2&#43;\bar x_a^2)&#43;n_b(\sigma_b^2&#43;\bar x_n^2)}{n}-\bar x^2}}-(7)\) 其中 \(\boxed{\bar x=\frac{n_a\bar x_a &#43; n_b\bar x_b}{n}}-(8)\) 故我們可以從上式輾轉得通式： \(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))}{n}-\bar x^2}}-(9)\) 或寫成 \(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{n}}}-(9)\) summary 個數 \(\boxed{n=n_a&#43;n_b=\sum n_i}\) 平均數 \(\boxed{\bar x=\frac{n_a\bar x_a&#43;n_b\bar x_b}{n_a&#43;n_b}=\frac{\sum{n_i\bar x_i}}{\sum{n_i}}}\) 標準差 \(\boxed{\sigma=\sqrt{\frac{n_{ai}(\sigma_{ai}^2&#43;\bar x_{ai}^2)&#43;n_{bi}(\sigma_{bi}^2&#43;\bar x_{bi}^2)-(n_a\bar x_a&#43;n_b\bar x_b)}{n_a&#43;n_b}}=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{\sum n_i}}}\) 4. sql 現有一 table 存有 avg_value std_value site_count with stats as ( select ... sum(site_count*avg_value)/sum(site_count) as avg_value, sqrt((sum(site_count*(square(std_value)&#43;square(avg_value)))-sum(site_count*avg_value))/sum(site_count)) as std_value, sum(site_count) as site_count from data where ... group by ... ) select * from stats ">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="statistics">
+    <meta property="article:published_time" content="2023-12-12T22:16:04+08:00">
+    <meta property="article:modified_time" content="2023-12-12T22:16:04+08:00">
+    <meta property="article:tag" content="Statistics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Statistics] a群體與b群體各別標準差求整體標準差">
+<meta name="twitter:description" content="Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\)
+1. 簡化 \(\sigma\)
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Statistics] a群體與b群體各別標準差求整體標準差"/>
-<meta name="twitter:description" content="Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\) 1. 簡化 \(\sigma\)  將 \(\sigma\) 乘開  \(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\) \(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}&#43;n\bar x^2}}{n}}\)   平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故  \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}&#43;\frac{n\bar x^2}{n}}\) \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2&#43;\bar x^2}\) 得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\)    2. 求個別平方和  由\((1)\)式可推得各別的標準差為  \(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\)   且  \(\boxed{n = n_a&#43;n_b}-(3)\) \(\boxed{\sum x_i^2=\sum x_{ai}^2&#43;\sum x_{bi}^2}-(4)\)   欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開  \(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\) \(\sigma_a^2&#43;\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\) 得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2&#43;\bar x_a^2)}-(5)\)    3."/>
-<meta name="twitter:site" content="@intervalrain"/>
+將 \(\sigma\) 乘開
+
+\(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\)
+\(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}&#43;n\bar x^2}}{n}}\)
+
+
+平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故
+
+\(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}&#43;\frac{n\bar x^2}{n}}\)
+\(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2&#43;\bar x^2}\)
+得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\)
+
+
+
+2. 求個別平方和
+
+由\((1)\)式可推得各別的標準差為
+
+\(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\)
+
+
+且
+
+\(\boxed{n = n_a&#43;n_b}-(3)\)
+\(\boxed{\sum x_i^2=\sum x_{ai}^2&#43;\sum x_{bi}^2}-(4)\)
+
+
+欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開
+
+\(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\)
+\(\sigma_a^2&#43;\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\)
+得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2&#43;\bar x_a^2)}-(5)\)
+
+
+
+3. 求總體標準差
+
+由\((1)\)式展開
+
+得 \(\boxed{\sigma = \sqrt{\frac{(\sum x_{ai}^2&#43;\sum x_{bi}^2)}{n}-\bar x^2}}-(6)\)
+
+
+將\((5)\)代入\((6)\)
+
+\(\boxed{\sigma=\sqrt{\frac{n_a(\sigma_a^2&#43;\bar x_a^2)&#43;n_b(\sigma_b^2&#43;\bar x_n^2)}{n}-\bar x^2}}-(7)\)
+
+
+其中 \(\boxed{\bar x=\frac{n_a\bar x_a &#43; n_b\bar x_b}{n}}-(8)\)
+故我們可以從上式輾轉得通式：
+
+\(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))}{n}-\bar x^2}}-(9)\)
+或寫成
+\(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{n}}}-(9)\)
+
+
+
+summary
+
+個數
+
+\(\boxed{n=n_a&#43;n_b=\sum n_i}\)
+
+
+平均數
+
+\(\boxed{\bar x=\frac{n_a\bar x_a&#43;n_b\bar x_b}{n_a&#43;n_b}=\frac{\sum{n_i\bar x_i}}{\sum{n_i}}}\)
+
+
+標準差
+
+\(\boxed{\sigma=\sqrt{\frac{n_{ai}(\sigma_{ai}^2&#43;\bar x_{ai}^2)&#43;n_{bi}(\sigma_{bi}^2&#43;\bar x_{bi}^2)-(n_a\bar x_a&#43;n_b\bar x_b)}{n_a&#43;n_b}}=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{\sum n_i}}}\)
+
+
+
+4. sql
+
+現有一 table 存有
+avg_value
+std_value
+site_count
+
+with stats as (
+    select
+        ...
+        sum(site_count*avg_value)/sum(site_count) as avg_value,
+        sqrt((sum(site_count*(square(std_value)&#43;square(avg_value)))-sum(site_count*avg_value))/sum(site_count)) as std_value,
+        sum(site_count) as site_count
+    from data
+    where ...
+    group by ...
+)
+select * from stats
+">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +289,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Statistics",
-      "item": "https://intervalrain.github.io/statistics/"
+      "item": "http://localhost:1313/statistics/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[Statistics] a群體與b群體各別標準差求整體標準差",
-      "item": "https://intervalrain.github.io/statistics/sigma/"
+      "item": "http://localhost:1313/statistics/sigma/"
     }
   ]
 }
@@ -115,13 +306,13 @@
   "@type": "BlogPosting",
   "headline": "[Statistics] a群體與b群體各別標準差求整體標準差",
   "name": "[Statistics] a群體與b群體各別標準差求整體標準差",
-  "description": "Given \\(\\sigma_a\\) and \\(\\sigma_b\\), Ask for \\(\\sigma\\) 1. 簡化 \\(\\sigma\\)  將 \\(\\sigma\\) 乘開  \\(\\sigma = \\sqrt{\\frac{\\sum{(x_i-\\bar x)^2}}{n}}\\) \\(\\sigma = \\sqrt{\\frac{\\sum{x_i^2-2\\bar x\\sum{x_i}+n\\bar x^2}}{n}}\\)   平均等於總和除以個數 \\(\\frac{\\sum x_i}{n}=\\bar x\\)，故  \\(\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-\\frac{2\\bar x\\sum x_i}{n}+\\frac{n\\bar x^2}{n}}\\) \\(\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-2\\bar x^2+\\bar x^2}\\) 得 \\(\\boxed{\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-\\bar x^2}}-(1)\\)    2. 求個別平方和  由\\((1)\\)式可推得各別的標準差為  \\(\\boxed{\\sigma_a = \\sqrt{\\frac{\\sum x_{ai}^2}{n_a}-\\bar x_a^2}}-(2)\\)   且  \\(\\boxed{n = n_a+n_b}-(3)\\) \\(\\boxed{\\sum x_i^2=\\sum x_{ai}^2+\\sum x_{bi}^2}-(4)\\)   欲求 \\(\\sum x_{ai}^2\\)，我們將\\((2)\\)式展開  \\(\\sigma_a^2 = \\frac{\\sum x_{ai}^2}{n_a}-\\bar x_a^2\\) \\(\\sigma_a^2+\\bar x_a^2= \\frac{\\sum x_{ai}^2}{n_a}\\) 得\\(\\boxed{\\sum x_{ai}^2=n_a(\\sigma_a^2+\\bar x_a^2)}-(5)\\)    3.",
+  "description": "Given \\(\\sigma_a\\) and \\(\\sigma_b\\), Ask for \\(\\sigma\\) 1. 簡化 \\(\\sigma\\) 將 \\(\\sigma\\) 乘開 \\(\\sigma = \\sqrt{\\frac{\\sum{(x_i-\\bar x)^2}}{n}}\\) \\(\\sigma = \\sqrt{\\frac{\\sum{x_i^2-2\\bar x\\sum{x_i}+n\\bar x^2}}{n}}\\) 平均等於總和除以個數 \\(\\frac{\\sum x_i}{n}=\\bar x\\)，故 \\(\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-\\frac{2\\bar x\\sum x_i}{n}+\\frac{n\\bar x^2}{n}}\\) \\(\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-2\\bar x^2+\\bar x^2}\\) 得 \\(\\boxed{\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-\\bar x^2}}-(1)\\) 2. 求個別平方和 由\\((1)\\)式可推得各別的標準差為 \\(\\boxed{\\sigma_a = \\sqrt{\\frac{\\sum x_{ai}^2}{n_a}-\\bar x_a^2}}-(2)\\) 且 \\(\\boxed{n = n_a+n_b}-(3)\\) \\(\\boxed{\\sum x_i^2=\\sum x_{ai}^2+\\sum x_{bi}^2}-(4)\\) 欲求 \\(\\sum x_{ai}^2\\)，我們將\\((2)\\)式展開 \\(\\sigma_a^2 = \\frac{\\sum x_{ai}^2}{n_a}-\\bar x_a^2\\) \\(\\sigma_a^2+\\bar x_a^2= \\frac{\\sum x_{ai}^2}{n_a}\\) 得\\(\\boxed{\\sum x_{ai}^2=n_a(\\sigma_a^2+\\bar x_a^2)}-(5)\\) 3. 求總體標準差 由\\((1)\\)式展開 得 \\(\\boxed{\\sigma = \\sqrt{\\frac{(\\sum x_{ai}^2+\\sum x_{bi}^2)}{n}-\\bar x^2}}-(6)\\) 將\\((5)\\)代入\\((6)\\) \\(\\boxed{\\sigma=\\sqrt{\\frac{n_a(\\sigma_a^2+\\bar x_a^2)+n_b(\\sigma_b^2+\\bar x_n^2)}{n}-\\bar x^2}}-(7)\\) 其中 \\(\\boxed{\\bar x=\\frac{n_a\\bar x_a + n_b\\bar x_b}{n}}-(8)\\) 故我們可以從上式輾轉得通式： \\(\\boxed{\\sigma=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))}{n}-\\bar x^2}}-(9)\\) 或寫成 \\(\\boxed{\\sigma=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))-\\sum n_i\\bar x_i}{n}}}-(9)\\) summary 個數 \\(\\boxed{n=n_a+n_b=\\sum n_i}\\) 平均數 \\(\\boxed{\\bar x=\\frac{n_a\\bar x_a+n_b\\bar x_b}{n_a+n_b}=\\frac{\\sum{n_i\\bar x_i}}{\\sum{n_i}}}\\) 標準差 \\(\\boxed{\\sigma=\\sqrt{\\frac{n_{ai}(\\sigma_{ai}^2+\\bar x_{ai}^2)+n_{bi}(\\sigma_{bi}^2+\\bar x_{bi}^2)-(n_a\\bar x_a+n_b\\bar x_b)}{n_a+n_b}}=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))-\\sum n_i\\bar x_i}{\\sum n_i}}}\\) 4. sql 現有一 table 存有 avg_value std_value site_count with stats as ( select ... sum(site_count*avg_value)/sum(site_count) as avg_value, sqrt((sum(site_count*(square(std_value)+square(avg_value)))-sum(site_count*avg_value))/sum(site_count)) as std_value, sum(site_count) as site_count from data where ... group by ... ) select * from stats ",
   "keywords": [
     "Statistics"
   ],
-  "articleBody": "Given \\(\\sigma_a\\) and \\(\\sigma_b\\), Ask for \\(\\sigma\\) 1. 簡化 \\(\\sigma\\)  將 \\(\\sigma\\) 乘開  \\(\\sigma = \\sqrt{\\frac{\\sum{(x_i-\\bar x)^2}}{n}}\\) \\(\\sigma = \\sqrt{\\frac{\\sum{x_i^2-2\\bar x\\sum{x_i}+n\\bar x^2}}{n}}\\)   平均等於總和除以個數 \\(\\frac{\\sum x_i}{n}=\\bar x\\)，故  \\(\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-\\frac{2\\bar x\\sum x_i}{n}+\\frac{n\\bar x^2}{n}}\\) \\(\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-2\\bar x^2+\\bar x^2}\\) 得 \\(\\boxed{\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-\\bar x^2}}-(1)\\)    2. 求個別平方和  由\\((1)\\)式可推得各別的標準差為  \\(\\boxed{\\sigma_a = \\sqrt{\\frac{\\sum x_{ai}^2}{n_a}-\\bar x_a^2}}-(2)\\)   且  \\(\\boxed{n = n_a+n_b}-(3)\\) \\(\\boxed{\\sum x_i^2=\\sum x_{ai}^2+\\sum x_{bi}^2}-(4)\\)   欲求 \\(\\sum x_{ai}^2\\)，我們將\\((2)\\)式展開  \\(\\sigma_a^2 = \\frac{\\sum x_{ai}^2}{n_a}-\\bar x_a^2\\) \\(\\sigma_a^2+\\bar x_a^2= \\frac{\\sum x_{ai}^2}{n_a}\\) 得\\(\\boxed{\\sum x_{ai}^2=n_a(\\sigma_a^2+\\bar x_a^2)}-(5)\\)    3. 求總體標準差  由\\((1)\\)式展開  得 \\(\\boxed{\\sigma = \\sqrt{\\frac{(\\sum x_{ai}^2+\\sum x_{bi}^2)}{n}-\\bar x^2}}-(6)\\)   將\\((5)\\)代入\\((6)\\)  \\(\\boxed{\\sigma=\\sqrt{\\frac{n_a(\\sigma_a^2+\\bar x_a^2)+n_b(\\sigma_b^2+\\bar x_n^2)}{n}-\\bar x^2}}-(7)\\)   其中 \\(\\boxed{\\bar x=\\frac{n_a\\bar x_a + n_b\\bar x_b}{n}}-(8)\\) 故我們可以從上式輾轉得通式：  \\(\\boxed{\\sigma=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))}{n}-\\bar x^2}}-(9)\\) 或寫成 \\(\\boxed{\\sigma=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))-\\sum n_i\\bar x_i}{n}}}-(9)\\)    summary  個數  \\(\\boxed{n=n_a+n_b=\\sum n_i}\\)   平均數  \\(\\boxed{\\bar x=\\frac{n_a\\bar x_a+n_b\\bar x_b}{n_a+n_b}=\\frac{\\sum{n_i\\bar x_i}}{\\sum{n_i}}}\\)   標準差  \\(\\boxed{\\sigma=\\sqrt{\\frac{n_{ai}(\\sigma_{ai}^2+\\bar x_{ai}^2)+n_{bi}(\\sigma_{bi}^2+\\bar x_{bi}^2)-(n_a\\bar x_a+n_b\\bar x_b)}{n_a+n_b}}=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))-\\sum n_i\\bar x_i}{\\sum n_i}}}\\)    4. sql  現有一 table 存有 avg_value std_value site_count  with stats as (  select  ...  sum(site_count*avg_value)/sum(site_count) as avg_value,  sqrt((sum(site_count*(square(std_value)+square(avg_value)))-sum(site_count*avg_value))/sum(site_count)) as std_value,  sum(site_count) as site_count  from data  where ...  group by ... ) select * from stats ",
+  "articleBody": "Given \\(\\sigma_a\\) and \\(\\sigma_b\\), Ask for \\(\\sigma\\) 1. 簡化 \\(\\sigma\\) 將 \\(\\sigma\\) 乘開 \\(\\sigma = \\sqrt{\\frac{\\sum{(x_i-\\bar x)^2}}{n}}\\) \\(\\sigma = \\sqrt{\\frac{\\sum{x_i^2-2\\bar x\\sum{x_i}+n\\bar x^2}}{n}}\\) 平均等於總和除以個數 \\(\\frac{\\sum x_i}{n}=\\bar x\\)，故 \\(\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-\\frac{2\\bar x\\sum x_i}{n}+\\frac{n\\bar x^2}{n}}\\) \\(\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-2\\bar x^2+\\bar x^2}\\) 得 \\(\\boxed{\\sigma = \\sqrt{\\frac{\\sum x_i^2}{n}-\\bar x^2}}-(1)\\) 2. 求個別平方和 由\\((1)\\)式可推得各別的標準差為 \\(\\boxed{\\sigma_a = \\sqrt{\\frac{\\sum x_{ai}^2}{n_a}-\\bar x_a^2}}-(2)\\) 且 \\(\\boxed{n = n_a+n_b}-(3)\\) \\(\\boxed{\\sum x_i^2=\\sum x_{ai}^2+\\sum x_{bi}^2}-(4)\\) 欲求 \\(\\sum x_{ai}^2\\)，我們將\\((2)\\)式展開 \\(\\sigma_a^2 = \\frac{\\sum x_{ai}^2}{n_a}-\\bar x_a^2\\) \\(\\sigma_a^2+\\bar x_a^2= \\frac{\\sum x_{ai}^2}{n_a}\\) 得\\(\\boxed{\\sum x_{ai}^2=n_a(\\sigma_a^2+\\bar x_a^2)}-(5)\\) 3. 求總體標準差 由\\((1)\\)式展開 得 \\(\\boxed{\\sigma = \\sqrt{\\frac{(\\sum x_{ai}^2+\\sum x_{bi}^2)}{n}-\\bar x^2}}-(6)\\) 將\\((5)\\)代入\\((6)\\) \\(\\boxed{\\sigma=\\sqrt{\\frac{n_a(\\sigma_a^2+\\bar x_a^2)+n_b(\\sigma_b^2+\\bar x_n^2)}{n}-\\bar x^2}}-(7)\\) 其中 \\(\\boxed{\\bar x=\\frac{n_a\\bar x_a + n_b\\bar x_b}{n}}-(8)\\) 故我們可以從上式輾轉得通式： \\(\\boxed{\\sigma=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))}{n}-\\bar x^2}}-(9)\\) 或寫成 \\(\\boxed{\\sigma=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))-\\sum n_i\\bar x_i}{n}}}-(9)\\) summary 個數 \\(\\boxed{n=n_a+n_b=\\sum n_i}\\) 平均數 \\(\\boxed{\\bar x=\\frac{n_a\\bar x_a+n_b\\bar x_b}{n_a+n_b}=\\frac{\\sum{n_i\\bar x_i}}{\\sum{n_i}}}\\) 標準差 \\(\\boxed{\\sigma=\\sqrt{\\frac{n_{ai}(\\sigma_{ai}^2+\\bar x_{ai}^2)+n_{bi}(\\sigma_{bi}^2+\\bar x_{bi}^2)-(n_a\\bar x_a+n_b\\bar x_b)}{n_a+n_b}}=\\sqrt{\\frac{\\sum(n_i(\\sigma_i^2+\\bar x_i^2))-\\sum n_i\\bar x_i}{\\sum n_i}}}\\) 4. sql 現有一 table 存有 avg_value std_value site_count with stats as ( select ... sum(site_count*avg_value)/sum(site_count) as avg_value, sqrt((sum(site_count*(square(std_value)+square(avg_value)))-sum(site_count*avg_value))/sum(site_count)) as std_value, sum(site_count) as site_count from data where ... group by ... ) select * from stats ",
   "wordCount" : "162",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-12-12T22:16:04+08:00",
   "dateModified": "2023-12-12T22:16:04+08:00",
   "author":{
@@ -130,14 +321,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/statistics/sigma/"
+    "@id": "http://localhost:1313/statistics/sigma/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +350,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +374,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,20 +421,21 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/statistics/">Statistics</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/statistics/">Statistics</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Statistics] a群體與b群體各別標準差求整體標準差
     </h1>
-    <div class="post-meta"><span title='2023-12-12 22:16:04 +0800 CST'>December 12, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//statistics/sigma.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-12-12 22:16:04 +0800 CST'>December 12, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//statistics/sigma.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -429,7 +621,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/statistics/">Statistics</a></li>
+      <li><a href="http://localhost:1313/tags/statistics/">Statistics</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -444,11 +636,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -517,12 +710,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

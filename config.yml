@@ -1,5 +1,7 @@
 baseURL: "https://intervalrain.github.io/"
 title: "Rain Hu's Workspace"
+languageCode: "zh-tw"
+defaultContentLanguage: "zh-tw"
 pagination.pagerSize: 5
 theme: hugo-PaperMod
 
@@ -47,6 +49,7 @@ params:
   ShowBreadCrumbs: true
   comments: true
   GHissueID: 2
+  locale: 'zh-tw'
 
   social:
     facebook: intervalrain

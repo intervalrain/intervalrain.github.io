@@ -1,33 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 16. 3Sum Closet | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
-<meta name="description" content="no. 
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointers、Sorting   一、題目 Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closet to target.
-Return *the sum of the three integers`.
-You may assume that each input would have exactly one solution.
-Example 1:
- Input: nums = [-1,2,1,-4], target = 1 Output: 2 Explanation: The sum that is closet to the target is 2.">
+<meta name="keywords" content="Leetcode">
+<meta name="description" content="no. &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hardness: \(\color{orange}\textsf{Medium}\)&lt;/li&gt;
+&lt;li&gt;Ralated Topics: &lt;code&gt;Array&lt;/code&gt;、&lt;code&gt;Two Pointers&lt;/code&gt;、&lt;code&gt;Sorting&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;一題目&#34;&gt;一、題目&lt;/h3&gt;
+&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; of length &lt;code&gt;n&lt;/code&gt; and an integer &lt;code&gt;target&lt;/code&gt;, find three integers in &lt;code&gt;nums&lt;/code&gt; such that the sum is closet to &lt;code&gt;target&lt;/code&gt;.&lt;br&gt;
+Return *the sum of the three integers`.&lt;br&gt;
+You may assume that each input would have exactly one solution.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Input:&lt;/strong&gt; nums = [-1,2,1,-4], target = 1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Output:&lt;/strong&gt; 2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; The sum that is closet to the target is 2. (-1 &#43; 2 &#43; 1 = 2).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt;&lt;/p&gt;">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/16/">
 <noscript>
     <style>
         #theme-toggle,
@@ -45,7 +54,7 @@ Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -78,27 +87,41 @@ Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 16. 3Sum Closet" />
-<meta property="og:description" content="no. 
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointers、Sorting   一、題目 Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closet to target.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/16/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 16. 3Sum Closet">
+  <meta property="og:description" content="no. &lt;/strong&gt;
+&lt;ul&gt; &lt;li&gt;Hardness: \(\color{orange}\textsf{Medium}\)&lt;/li&gt; &lt;li&gt;Ralated Topics: &lt;code&gt;Array&lt;/code&gt;、&lt;code&gt;Two Pointers&lt;/code&gt;、&lt;code&gt;Sorting&lt;/code&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr&gt; &lt;h3 id=&#34;一題目&#34;&gt;一、題目&lt;/h3&gt; &lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; of length &lt;code&gt;n&lt;/code&gt; and an integer &lt;code&gt;target&lt;/code&gt;, find three integers in &lt;code&gt;nums&lt;/code&gt; such that the sum is closet to &lt;code&gt;target&lt;/code&gt;.
 Return *the sum of the three integers`.
 You may assume that each input would have exactly one solution.
-Example 1:
- Input: nums = [-1,2,1,-4], target = 1 Output: 2 Explanation: The sum that is closet to the target is 2." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/16/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-10-28T21:51:20&#43;08:00" />
-<meta property="article:modified_time" content="2022-10-28T21:51:20&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 16. 3Sum Closet"/>
-<meta name="twitter:description" content="no. 
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointers、Sorting   一、題目 Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closet to target.
-Return *the sum of the three integers`.
-You may assume that each input would have exactly one solution.
-Example 1:
- Input: nums = [-1,2,1,-4], target = 1 Output: 2 Explanation: The sum that is closet to the target is 2."/>
-<meta name="twitter:site" content="@intervalrain"/>
+&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;
+&lt;ul&gt; &lt;li&gt;&lt;strong&gt;Input:&lt;/strong&gt; nums = [-1,2,1,-4], target = 1&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Output:&lt;/strong&gt; 2&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; The sum that is closet to the target is 2. (-1 &#43; 2 &#43; 1 = 2).&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt;">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-10-28T21:51:20+08:00">
+    <meta property="article:modified_time" content="2022-10-28T21:51:20+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 16. 3Sum Closet">
+<meta name="twitter:description" content="no. &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hardness: \(\color{orange}\textsf{Medium}\)&lt;/li&gt;
+&lt;li&gt;Ralated Topics: &lt;code&gt;Array&lt;/code&gt;、&lt;code&gt;Two Pointers&lt;/code&gt;、&lt;code&gt;Sorting&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;一題目&#34;&gt;一、題目&lt;/h3&gt;
+&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; of length &lt;code&gt;n&lt;/code&gt; and an integer &lt;code&gt;target&lt;/code&gt;, find three integers in &lt;code&gt;nums&lt;/code&gt; such that the sum is closet to &lt;code&gt;target&lt;/code&gt;.&lt;br&gt;
+Return *the sum of the three integers`.&lt;br&gt;
+You may assume that each input would have exactly one solution.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Input:&lt;/strong&gt; nums = [-1,2,1,-4], target = 1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Output:&lt;/strong&gt; 2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; The sum that is closet to the target is 2. (-1 &#43; 2 &#43; 1 = 2).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt;&lt;/p&gt;">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -109,14 +132,8 @@ Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 16. 3Sum Closet",
-      "item": "https://intervalrain.github.io/leetcode/16/"
+      "item": "http://localhost:1313/leetcode/16/"
     }
   ]
 }
@@ -127,13 +144,13 @@ Example 1:
   "@type": "BlogPosting",
   "headline": "[LeetCode] 16. 3Sum Closet",
   "name": "[LeetCode] 16. 3Sum Closet",
-  "description": "no. \n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointers、Sorting   一、題目 Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closet to target.\nReturn *the sum of the three integers`.\nYou may assume that each input would have exactly one solution.\nExample 1:\n Input: nums = [-1,2,1,-4], target = 1 Output: 2 Explanation: The sum that is closet to the target is 2.",
+  "description": "no. \u003c/strong\u003e\n\u003cul\u003e \u003cli\u003eHardness: \\(\\color{orange}\\textsf{Medium}\\)\u003c/li\u003e \u003cli\u003eRalated Topics: \u003ccode\u003eArray\u003c/code\u003e、\u003ccode\u003eTwo Pointers\u003c/code\u003e、\u003ccode\u003eSorting\u003c/code\u003e\u003c/li\u003e \u003c/ul\u003e \u003chr\u003e \u003ch3 id=\"一題目\"\u003e一、題目\u003c/h3\u003e \u003cp\u003eGiven an integer array \u003ccode\u003enums\u003c/code\u003e of length \u003ccode\u003en\u003c/code\u003e and an integer \u003ccode\u003etarget\u003c/code\u003e, find three integers in \u003ccode\u003enums\u003c/code\u003e such that the sum is closet to \u003ccode\u003etarget\u003c/code\u003e.\nReturn *the sum of the three integers`.\nYou may assume that each input would have exactly one solution.\n\u003cp\u003e\u003cstrong\u003eExample 1:\u003c/strong\u003e\n\u003cul\u003e \u003cli\u003e\u003cstrong\u003eInput:\u003c/strong\u003e nums = [-1,2,1,-4], target = 1\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e 2\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eExplanation:\u003c/strong\u003e The sum that is closet to the target is 2. (-1 + 2 + 1 = 2).\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003cstrong\u003eExample 2:\u003c/strong\u003e\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "no. \n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointers、Sorting   一、題目 Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closet to target.\nReturn *the sum of the three integers`.\nYou may assume that each input would have exactly one solution.\nExample 1:\n Input: nums = [-1,2,1,-4], target = 1 Output: 2 Explanation: The sum that is closet to the target is 2. (-1 + 2 + 1 = 2).  Example 2:\n Input: nums = [0,0,0], target = 1 Output: 0 Explanation: The sum that is closet to the target is 0. (0 + 0 + 0 = 0).  Constraints:\n 3  -1000  -10^4    二、分析  若用暴力解求解的話，時間複雜度為 \\(O(n^3)\\)。 故我們可以嘗試先進行排序來簡化問題，時間複雜度為\\(O(n\\log n)\\)。 此題因為是找最接近的，所以無法用 HashMap 解。 使用 Two Pointer，並藉由比較和與 target 的差值來找到最接近的解。  三、解題 1. Two Pointer  Time complexity: \\(O(n^2)\\) Space complexity: \\(O(1)\\)  int threeSumCloset(vectorint\u0026 nums, int target) {  int res = INT_MAX;  int n = nums.size();  if (n == 3) return accumulate(nums.begin(), nums.end(), 0); // 當 n = 3 時，這三個值必為解。  sort(nums.begin(), nums.end()) // 排序  for (int i = 0; i  n-2; i++) {  int left = i+1, right = n-1;  while (left  right) {  int sum = nums[i] + nums[left] + nums[right];  if (abs(res - target)  abs(sum - target))  res = sum;  if (sum  target) {  right--;  } else if (sum  target) {  left++;  } else {  return sum; // 差值等於 0 時，不會再有更小的差值  }  }  }  return res; } 回目錄 Catalog\n",
-  "wordCount" : "252",
-  "inLanguage": "en",
+  "articleBody": "no. \u003c/strong\u003e\n\u003cul\u003e \u003cli\u003eHardness: \\(\\color{orange}\\textsf{Medium}\\)\u003c/li\u003e \u003cli\u003eRalated Topics: \u003ccode\u003eArray\u003c/code\u003e、\u003ccode\u003eTwo Pointers\u003c/code\u003e、\u003ccode\u003eSorting\u003c/code\u003e\u003c/li\u003e \u003c/ul\u003e \u003chr\u003e \u003ch3 id=\"一題目\"\u003e一、題目\u003c/h3\u003e \u003cp\u003eGiven an integer array \u003ccode\u003enums\u003c/code\u003e of length \u003ccode\u003en\u003c/code\u003e and an integer \u003ccode\u003etarget\u003c/code\u003e, find three integers in \u003ccode\u003enums\u003c/code\u003e such that the sum is closet to \u003ccode\u003etarget\u003c/code\u003e.\nReturn *the sum of the three integers`.\nYou may assume that each input would have exactly one solution.\n\u003cp\u003e\u003cstrong\u003eExample 1:\u003c/strong\u003e\n\u003cul\u003e \u003cli\u003e\u003cstrong\u003eInput:\u003c/strong\u003e nums = [-1,2,1,-4], target = 1\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e 2\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eExplanation:\u003c/strong\u003e The sum that is closet to the target is 2. (-1 + 2 + 1 = 2).\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003cstrong\u003eExample 2:\u003c/strong\u003e\n\u003cul\u003e \u003cli\u003e\u003cstrong\u003eInput:\u003c/strong\u003e nums = [0,0,0], target = 1\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eOutput:\u003c/strong\u003e 0\u003c/li\u003e \u003cli\u003e\u003cstrong\u003eExplanation:\u003c/strong\u003e The sum that is closet to the target is 0. (0 + 0 + 0 = 0).\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003cstrong\u003eConstraints:\u003c/strong\u003e\n\u003cul\u003e \u003cli\u003e\u003ccode\u003e3 \u003c= nums.length \u003c= 500\u003c/code\u003e\u003c/li\u003e \u003cli\u003e\u003ccode\u003e-1000 \u003c= nums[i] \u003c= 1000\u003c/code\u003e\u003c/li\u003e \u003cli\u003e\u003ccode\u003e-10^4 \u003c= target \u003c= 10^4\u003c/code\u003e\u003c/li\u003e \u003c/ul\u003e \u003chr\u003e \u003ch3 id=\"二分析\"\u003e二、分析\u003c/h3\u003e \u003cul\u003e \u003cli\u003e若用暴力解求解的話，時間複雜度為 \\(O(n^3)\\)。\u003c/li\u003e \u003cli\u003e故我們可以嘗試先進行排序來簡化問題，時間複雜度為\\(O(n\\log n)\\)。\u003c/li\u003e \u003cli\u003e此題因為是找最接近的，所以無法用 HashMap 解。\u003c/li\u003e \u003cli\u003e使用 Two Pointer，並藉由比較和與 \u003ccode\u003etarget\u003c/code\u003e 的差值來找到最接近的解。\u003c/li\u003e \u003c/ul\u003e \u003ch3 id=\"三解題\"\u003e三、解題\u003c/h3\u003e \u003ch4 id=\"1-two-pointer\"\u003e1. Two Pointer\u003c/h4\u003e \u003cul\u003e \u003cli\u003eTime complexity: \\(O(n^2)\\)\u003c/li\u003e \u003cli\u003eSpace complexity: \\(O(1)\\)\u003c/li\u003e \u003c/ul\u003e \u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-C++\" data-lang=\"C++\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#66d9ef\"\u003eint\u003c/span\u003e \u003cspan style=\"color:#a6e22e\"\u003ethreeSumCloset\u003c/span\u003e(vector\u003cspan style=\"color:#f92672\"\u003e\u003c\u003c/span\u003e\u003cspan style=\"color:#66d9ef\"\u003eint\u003c/span\u003e\u003cspan style=\"color:#f92672\"\u003e\u003e\u0026\u003c/span\u003e nums, \u003cspan style=\"color:#66d9ef\"\u003eint\u003c/span\u003e target) { \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003eint\u003c/span\u003e res \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e INT_MAX; \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003eint\u003c/span\u003e n \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e nums.size(); \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003eif\u003c/span\u003e (n \u003cspan style=\"color:#f92672\"\u003e==\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e3\u003c/span\u003e) \u003cspan style=\"color:#66d9ef\"\u003ereturn\u003c/span\u003e accumulate(nums.begin(), nums.end(), \u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e); \u003cspan style=\"color:#75715e\"\u003e// 當 n = 3 時，這三個值必為解。 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#75715e\"\u003e\u003c/span\u003e sort(nums.begin(), nums.end()) \u003cspan style=\"color:#75715e\"\u003e// 排序 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#75715e\"\u003e\u003c/span\u003e \u003cspan style=\"color:#66d9ef\"\u003efor\u003c/span\u003e (\u003cspan style=\"color:#66d9ef\"\u003eint\u003c/span\u003e i \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e; i \u003cspan style=\"color:#f92672\"\u003e\u003c\u003c/span\u003e n\u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e; i\u003cspan style=\"color:#f92672\"\u003e++\u003c/span\u003e) { \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003eint\u003c/span\u003e left \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e i\u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e, right \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e n\u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e; \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003ewhile\u003c/span\u003e (left \u003cspan style=\"color:#f92672\"\u003e\u003c\u003c/span\u003e right) { \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003eint\u003c/span\u003e sum \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e nums[i] \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e nums[left] \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e nums[right]; \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003eif\u003c/span\u003e (abs(res \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e target) \u003cspan style=\"color:#f92672\"\u003e\u003e\u003c/span\u003e abs(sum \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e target)) \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e res \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e sum; \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003eif\u003c/span\u003e (sum \u003cspan style=\"color:#f92672\"\u003e\u003e\u003c/span\u003e target) { \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e right\u003cspan style=\"color:#f92672\"\u003e--\u003c/span\u003e; \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e } \u003cspan style=\"color:#66d9ef\"\u003eelse\u003c/span\u003e \u003cspan style=\"color:#66d9ef\"\u003eif\u003c/span\u003e (sum \u003cspan style=\"color:#f92672\"\u003e\u003c\u003c/span\u003e target) { \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e left\u003cspan style=\"color:#f92672\"\u003e++\u003c/span\u003e; \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e } \u003cspan style=\"color:#66d9ef\"\u003eelse\u003c/span\u003e { \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003ereturn\u003c/span\u003e sum; \u003cspan style=\"color:#75715e\"\u003e// 差值等於 0 時，不會再有更小的差值 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#75715e\"\u003e\u003c/span\u003e } \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e } \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e } \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e \u003cspan style=\"color:#66d9ef\"\u003ereturn\u003c/span\u003e res; \u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e} \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003ca href=\"/leetcode\"\u003e回目錄 Catalog\u003c/a\u003e\n",
+  "wordCount" : "376",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-10-28T21:51:20+08:00",
   "dateModified": "2022-10-28T21:51:20+08:00",
   "author":{
@@ -142,14 +159,14 @@ Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/16/"
+    "@id": "http://localhost:1313/leetcode/16/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -171,17 +188,17 @@ Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -195,46 +212,46 @@ Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -242,20 +259,21 @@ Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 16. 3Sum Closet
     </h1>
-    <div class="post-meta"><span title='2022-10-28 21:51:20 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/16.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-10-28 21:51:20 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/16.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -407,16 +425,16 @@ You may assume that each input would have exactly one solution.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/17/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/17/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 17. Letter Combinations of a Phone Number</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/15/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/15/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 15. 3Sum</span>
   </a>
@@ -434,11 +452,12 @@ You may assume that each input would have exactly one solution.</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -507,12 +526,12 @@ You may assume that each input would have exactly one solution.</p>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

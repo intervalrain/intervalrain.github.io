@@ -1,32 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 149. Max Points on a Line | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="149. Max Points on a Line
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Math、Geometry   一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、Hash Table、Math、Geometry
+
+
+一、題目
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.
 Example 1:
- Input: points = [[1,1],[2,2],[3,3]] Output: 3  Example 2:  Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4  Constraints:
- 1 &lt;= points.">
+
+
+Input: points = [[1,1],[2,2],[3,3]]
+Output: 3
+
+Example 2:
+
+
+Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
+Output: 4
+
+Constraints:
+
+1 &lt;= points.length &lt;= 300
+points[i].length == 2
+-10^4 &lt;= xi, yi &lt;= 10^4
+All the points are unique.
+
+
+二、分析
+
+若干點在同一條線上，表示這些點的斜率都相同，注意題目有提示不會有相同的點，故兩點間必定有斜率。
+
+特別注意當分母為 0 時要特別處理。
+題目有限制 -10^4 &lt;= xi, yi &lt;= 10^4，故斜率最大 10^8，所以我們可以將分母為零的斜率暫定為 INT_MAX(2147483647)。
+
+
+遍歷每個點，並統計該點與其它點之間的斜率，將斜率用 unordered_map 記錄下來，其每個斜率的直線上總共會有 m&#43;1 (加上自己)。
+
+三、解題
+1.
+
+Time complexity: \(O(n^2)\)
+Space complexity: \(O(n)\)
+
+int maxPoints(vector&lt;vector&lt;int&gt;&gt;&amp; points) {
+    int n = points.size();
+    int res = 0;
+    for (int i = 0; i &lt; n; i&#43;&#43;) {
+        int&amp; x0 = points[i][0];
+        int&amp; y0 = points[i][1];
+        unordered_map&lt;double,int&gt; map;
+        for (int j = 0; j &lt; n; j&#43;&#43;) {
+            if (i == j) continue;                   // 若等於自己則跳過
+            int&amp; x1 = points[j][0];
+            int&amp; y1 = points[j][1];
+            if (x0 == x1) {                         // 當分母為 0 時特別處理
+                int&amp; cnt = &#43;&#43;map[INT_MAX];
+                res = max(res, cnt);
+            } else {
+                double m = (y1-y0)/(1.0*(x1-x0));   // 注意將斜率轉成 double
+                int&amp; cnt = &#43;&#43;map[m];
+                res = max(res, cnt);
+            }
+        }
+    }
+    return res &#43; 1;                                 // 答案記得加 1，加上自己
+}
+回目錄 Catalog">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/149/">
 <noscript>
     <style>
         #theme-toggle,
@@ -44,7 +105,7 @@ Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -77,25 +138,91 @@ Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 149. Max Points on a Line" />
-<meta property="og:description" content="149. Max Points on a Line
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Math、Geometry   一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/149/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 149. Max Points on a Line">
+  <meta property="og:description" content="149. Max Points on a Line
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Math、Geometry 一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.
 Example 1:
- Input: points = [[1,1],[2,2],[3,3]] Output: 3  Example 2:  Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4  Constraints:
- 1 &lt;= points." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/149/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2023-01-08T23:44:07&#43;08:00" />
-<meta property="article:modified_time" content="2023-01-08T23:44:07&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 149. Max Points on a Line"/>
+Input: points = [[1,1],[2,2],[3,3]] Output: 3 Example 2: Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4 Constraints:
+1 &lt;= points.length &lt;= 300 points[i].length == 2 -10^4 &lt;= xi, yi &lt;= 10^4 All the points are unique. 二、分析 若干點在同一條線上，表示這些點的斜率都相同，注意題目有提示不會有相同的點，故兩點間必定有斜率。 特別注意當分母為 0 時要特別處理。 題目有限制 -10^4 &lt;= xi, yi &lt;= 10^4，故斜率最大 10^8，所以我們可以將分母為零的斜率暫定為 INT_MAX(2147483647)。 遍歷每個點，並統計該點與其它點之間的斜率，將斜率用 unordered_map 記錄下來，其每個斜率的直線上總共會有 m&#43;1 (加上自己)。 三、解題 1. Time complexity: \(O(n^2)\) Space complexity: \(O(n)\) int maxPoints(vector&lt;vector&lt;int&gt;&gt;&amp; points) { int n = points.size(); int res = 0; for (int i = 0; i &lt; n; i&#43;&#43;) { int&amp; x0 = points[i][0]; int&amp; y0 = points[i][1]; unordered_map&lt;double,int&gt; map; for (int j = 0; j &lt; n; j&#43;&#43;) { if (i == j) continue; // 若等於自己則跳過 int&amp; x1 = points[j][0]; int&amp; y1 = points[j][1]; if (x0 == x1) { // 當分母為 0 時特別處理 int&amp; cnt = &#43;&#43;map[INT_MAX]; res = max(res, cnt); } else { double m = (y1-y0)/(1.0*(x1-x0)); // 注意將斜率轉成 double int&amp; cnt = &#43;&#43;map[m]; res = max(res, cnt); } } } return res &#43; 1; // 答案記得加 1，加上自己 } 回目錄 Catalog">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2023-01-08T23:44:07+08:00">
+    <meta property="article:modified_time" content="2023-01-08T23:44:07+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 149. Max Points on a Line">
 <meta name="twitter:description" content="149. Max Points on a Line
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Math、Geometry   一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、Hash Table、Math、Geometry
+
+
+一、題目
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.
 Example 1:
- Input: points = [[1,1],[2,2],[3,3]] Output: 3  Example 2:  Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4  Constraints:
- 1 &lt;= points."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+
+Input: points = [[1,1],[2,2],[3,3]]
+Output: 3
+
+Example 2:
+
+
+Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
+Output: 4
+
+Constraints:
+
+1 &lt;= points.length &lt;= 300
+points[i].length == 2
+-10^4 &lt;= xi, yi &lt;= 10^4
+All the points are unique.
+
+
+二、分析
+
+若干點在同一條線上，表示這些點的斜率都相同，注意題目有提示不會有相同的點，故兩點間必定有斜率。
+
+特別注意當分母為 0 時要特別處理。
+題目有限制 -10^4 &lt;= xi, yi &lt;= 10^4，故斜率最大 10^8，所以我們可以將分母為零的斜率暫定為 INT_MAX(2147483647)。
+
+
+遍歷每個點，並統計該點與其它點之間的斜率，將斜率用 unordered_map 記錄下來，其每個斜率的直線上總共會有 m&#43;1 (加上自己)。
+
+三、解題
+1.
+
+Time complexity: \(O(n^2)\)
+Space complexity: \(O(n)\)
+
+int maxPoints(vector&lt;vector&lt;int&gt;&gt;&amp; points) {
+    int n = points.size();
+    int res = 0;
+    for (int i = 0; i &lt; n; i&#43;&#43;) {
+        int&amp; x0 = points[i][0];
+        int&amp; y0 = points[i][1];
+        unordered_map&lt;double,int&gt; map;
+        for (int j = 0; j &lt; n; j&#43;&#43;) {
+            if (i == j) continue;                   // 若等於自己則跳過
+            int&amp; x1 = points[j][0];
+            int&amp; y1 = points[j][1];
+            if (x0 == x1) {                         // 當分母為 0 時特別處理
+                int&amp; cnt = &#43;&#43;map[INT_MAX];
+                res = max(res, cnt);
+            } else {
+                double m = (y1-y0)/(1.0*(x1-x0));   // 注意將斜率轉成 double
+                int&amp; cnt = &#43;&#43;map[m];
+                res = max(res, cnt);
+            }
+        }
+    }
+    return res &#43; 1;                                 // 答案記得加 1，加上自己
+}
+回目錄 Catalog">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -106,14 +233,8 @@ Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 149. Max Points on a Line",
-      "item": "https://intervalrain.github.io/leetcode/149/"
+      "item": "http://localhost:1313/leetcode/149/"
     }
   ]
 }
@@ -124,13 +245,13 @@ Example 1:
   "@type": "BlogPosting",
   "headline": "[LeetCode] 149. Max Points on a Line",
   "name": "[LeetCode] 149. Max Points on a Line",
-  "description": "149. Max Points on a Line\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Hash Table、Math、Geometry   一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.\nExample 1:\n Input: points = [[1,1],[2,2],[3,3]] Output: 3  Example 2:  Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4  Constraints:\n 1 \u0026lt;= points.",
+  "description": "149. Max Points on a Line\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Hash Table、Math、Geometry 一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.\nExample 1:\nInput: points = [[1,1],[2,2],[3,3]] Output: 3 Example 2: Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4 Constraints:\n1 \u0026lt;= points.length \u0026lt;= 300 points[i].length == 2 -10^4 \u0026lt;= xi, yi \u0026lt;= 10^4 All the points are unique. 二、分析 若干點在同一條線上，表示這些點的斜率都相同，注意題目有提示不會有相同的點，故兩點間必定有斜率。 特別注意當分母為 0 時要特別處理。 題目有限制 -10^4 \u0026lt;= xi, yi \u0026lt;= 10^4，故斜率最大 10^8，所以我們可以將分母為零的斜率暫定為 INT_MAX(2147483647)。 遍歷每個點，並統計該點與其它點之間的斜率，將斜率用 unordered_map 記錄下來，其每個斜率的直線上總共會有 m+1 (加上自己)。 三、解題 1. Time complexity: \\(O(n^2)\\) Space complexity: \\(O(n)\\) int maxPoints(vector\u0026lt;vector\u0026lt;int\u0026gt;\u0026gt;\u0026amp; points) { int n = points.size(); int res = 0; for (int i = 0; i \u0026lt; n; i++) { int\u0026amp; x0 = points[i][0]; int\u0026amp; y0 = points[i][1]; unordered_map\u0026lt;double,int\u0026gt; map; for (int j = 0; j \u0026lt; n; j++) { if (i == j) continue; // 若等於自己則跳過 int\u0026amp; x1 = points[j][0]; int\u0026amp; y1 = points[j][1]; if (x0 == x1) { // 當分母為 0 時特別處理 int\u0026amp; cnt = ++map[INT_MAX]; res = max(res, cnt); } else { double m = (y1-y0)/(1.0*(x1-x0)); // 注意將斜率轉成 double int\u0026amp; cnt = ++map[m]; res = max(res, cnt); } } } return res + 1; // 答案記得加 1，加上自己 } 回目錄 Catalog\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "149. Max Points on a Line\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Hash Table、Math、Geometry   一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.\nExample 1:\n Input: points = [[1,1],[2,2],[3,3]] Output: 3  Example 2:  Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4  Constraints:\n 1  points[i].length == 2 -10^4  All the points are unique.   二、分析  若干點在同一條線上，表示這些點的斜率都相同，注意題目有提示不會有相同的點，故兩點間必定有斜率。  特別注意當分母為 0 時要特別處理。 題目有限制 -10^4 ，故斜率最大 10^8，所以我們可以將分母為零的斜率暫定為 INT_MAX(2147483647)。   遍歷每個點，並統計該點與其它點之間的斜率，將斜率用 unordered_map 記錄下來，其每個斜率的直線上總共會有 m+1 (加上自己)。  三、解題 1.  Time complexity: \\(O(n^2)\\) Space complexity: \\(O(n)\\)  int maxPoints(vectorvectorint\u0026 points) {  int n = points.size();  int res = 0;  for (int i = 0; i  n; i++) {  int\u0026 x0 = points[i][0];  int\u0026 y0 = points[i][1];  unordered_mapdouble,int map;  for (int j = 0; j  n; j++) {  if (i == j) continue; // 若等於自己則跳過  int\u0026 x1 = points[j][0];  int\u0026 y1 = points[j][1];  if (x0 == x1) { // 當分母為 0 時特別處理  int\u0026 cnt = ++map[INT_MAX];  res = max(res, cnt);  } else {  double m = (y1-y0)/(1.0*(x1-x0)); // 注意將斜率轉成 double  int\u0026 cnt = ++map[m];  res = max(res, cnt);  }  }  }  return res + 1; // 答案記得加 1，加上自己 } 回目錄 Catalog\n",
+  "articleBody": "149. Max Points on a Line\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Hash Table、Math、Geometry 一、題目 Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.\nExample 1:\nInput: points = [[1,1],[2,2],[3,3]] Output: 3 Example 2: Input: points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]] Output: 4 Constraints:\n1 \u003c= points.length \u003c= 300 points[i].length == 2 -10^4 \u003c= xi, yi \u003c= 10^4 All the points are unique. 二、分析 若干點在同一條線上，表示這些點的斜率都相同，注意題目有提示不會有相同的點，故兩點間必定有斜率。 特別注意當分母為 0 時要特別處理。 題目有限制 -10^4 \u003c= xi, yi \u003c= 10^4，故斜率最大 10^8，所以我們可以將分母為零的斜率暫定為 INT_MAX(2147483647)。 遍歷每個點，並統計該點與其它點之間的斜率，將斜率用 unordered_map 記錄下來，其每個斜率的直線上總共會有 m+1 (加上自己)。 三、解題 1. Time complexity: \\(O(n^2)\\) Space complexity: \\(O(n)\\) int maxPoints(vector\u003cvector\u003cint\u003e\u003e\u0026 points) { int n = points.size(); int res = 0; for (int i = 0; i \u003c n; i++) { int\u0026 x0 = points[i][0]; int\u0026 y0 = points[i][1]; unordered_map\u003cdouble,int\u003e map; for (int j = 0; j \u003c n; j++) { if (i == j) continue; // 若等於自己則跳過 int\u0026 x1 = points[j][0]; int\u0026 y1 = points[j][1]; if (x0 == x1) { // 當分母為 0 時特別處理 int\u0026 cnt = ++map[INT_MAX]; res = max(res, cnt); } else { double m = (y1-y0)/(1.0*(x1-x0)); // 注意將斜率轉成 double int\u0026 cnt = ++map[m]; res = max(res, cnt); } } } return res + 1; // 答案記得加 1，加上自己 } 回目錄 Catalog\n",
   "wordCount" : "211",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-01-08T23:44:07+08:00",
   "dateModified": "2023-01-08T23:44:07+08:00",
   "author":{
@@ -139,14 +260,14 @@ Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/149/"
+    "@id": "http://localhost:1313/leetcode/149/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -168,17 +289,17 @@ Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -192,46 +313,46 @@ Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -239,20 +360,21 @@ Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 149. Max Points on a Line
     </h1>
-    <div class="post-meta"><span title='2023-01-08 23:44:07 +0800 CST'>January 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/149.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-01-08 23:44:07 +0800 CST'>January 8, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/149.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -342,15 +464,13 @@ Example 1:
 <h3 id="一題目">一、題目<a hidden class="anchor" aria-hidden="true" href="#一題目">#</a></h3>
 <p>Given an array of <code>points</code> where <code>points[i] = [xi, yi]</code> represents a point on the <strong>X-Y</strong> plane, return <em>the maximum number of points that lie on the same straight line</em>.</p>
 <p><strong>Example 1:</strong><br>
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2021/02/25/plane1.jpg" alt="plane1"  />
-</p>
+<img alt="plane1" loading="lazy" src="https://assets.leetcode.com/uploads/2021/02/25/plane1.jpg"></p>
 <ul>
 <li><strong>Input:</strong> points = [[1,1],[2,2],[3,3]]</li>
 <li><strong>Output:</strong> 3</li>
 </ul>
 <p><strong>Example 2:</strong>
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2021/02/25/plane2.jpg" alt="plane2"  />
-</p>
+<img alt="plane2" loading="lazy" src="https://assets.leetcode.com/uploads/2021/02/25/plane2.jpg"></p>
 <ul>
 <li><strong>Input:</strong> points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]</li>
 <li><strong>Output:</strong> 4</li>
@@ -409,16 +529,16 @@ Example 1:
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/100/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/100/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 100. Same Tree</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/452/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/452/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 452. Minimum Number of Arrows to Burst Balloons</span>
   </a>
@@ -436,11 +556,12 @@ Example 1:
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -509,12 +630,12 @@ Example 1:
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

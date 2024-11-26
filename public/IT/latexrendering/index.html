@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[IT] 在 GitHub Pages 中渲染 KaTex 公式 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="IT" />
+<meta name="keywords" content="IT">
 <meta name="description" content="如何讓 GitHub Pages 中支援 Latex 語法">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/it/latexrendering/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -68,19 +66,22 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[IT] 在 GitHub Pages 中渲染 KaTex 公式" />
-<meta property="og:description" content="如何讓 GitHub Pages 中支援 Latex 語法" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/it/latexrendering/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/cover.jpg" /><meta property="article:section" content="IT" />
-<meta property="article:published_time" content="2022-02-22T01:38:30&#43;08:00" />
-<meta property="article:modified_time" content="2022-02-22T01:38:30&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/cover.jpg" />
-<meta name="twitter:title" content="[IT] 在 GitHub Pages 中渲染 KaTex 公式"/>
-<meta name="twitter:description" content="如何讓 GitHub Pages 中支援 Latex 語法"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/it/latexrendering/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[IT] 在 GitHub Pages 中渲染 KaTex 公式">
+  <meta property="og:description" content="如何讓 GitHub Pages 中支援 Latex 語法">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="it">
+    <meta property="article:published_time" content="2022-02-22T01:38:30+08:00">
+    <meta property="article:modified_time" content="2022-02-22T01:38:30+08:00">
+    <meta property="article:tag" content="IT">
+    <meta property="og:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:title" content="[IT] 在 GitHub Pages 中渲染 KaTex 公式">
+<meta name="twitter:description" content="如何讓 GitHub Pages 中支援 Latex 語法">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -92,13 +93,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "ITs",
-      "item": "https://intervalrain.github.io/it/"
+      "item": "http://localhost:1313/it/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[IT] 在 GitHub Pages 中渲染 KaTex 公式",
-      "item": "https://intervalrain.github.io/it/latexrendering/"
+      "item": "http://localhost:1313/it/latexrendering/"
     }
   ]
 }
@@ -113,10 +114,10 @@
   "keywords": [
     "IT"
   ],
-  "articleBody": "0. 前言  以往寫筆記通常是使用 Notion，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。 雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。 而此處介紹的是在網頁上顯示較為輕便的 KaTex。  1. 解決方法  利用 KaTex，在靜態頁面掛載 JavaScript 程式碼。 其在官網的描述是：   Beautilful math in all browsers A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.\n Step 1. 創建一個可常駐的靜態頁面  在 \\layouts\\partials\\ 下創建一個叫作 math.html 的頁面。  注意是 global 的 layouts 文件夾中不是 hugo themes 中的文件夾   開啟頁面之後，在  與  之間加入下一步驟內的 JavaScript 程式碼。  Step 2. 將 JavaScript 程式碼貼入 math.html link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css\" integrity=\"sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET\" crossorigin=\"anonymous\" script defer src=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js\" integrity=\"sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb\" crossorigin=\"anonymous\"/script script defer src=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js\" integrity=\"sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl\" crossorigin=\"anonymous\"  onload=\"renderMathInElement(document.body);\"/script  上面的程式碼是將 KaTex 的渲染程式碼寫到 math.html 中。  Step 3. 將 Hugo theme 中的 header.html 複製出來  同樣將 header.html 複製到 global 下的 \\layout\\partials，並貼入  {{- /* Head custom content area start */ -}} {{- /* Insert any custom code (web-analytics, resources, etc.) - it will appear in the  section of every page. */ -}} {{- /* Can be overwritten by partial with the same name in the global layouts. */ -}} {{ if or .Params.math .Site.Params.math }} {{ partial \"math.html\" . }} {{ end }} {{- /* Head custom content area end */ -}}  上面的程式碼的功能將 math.html 嵌進 header.html 中，並以 config.yml 中的 .param.math 指令來控制。  Step 4. 開始撰寫 KaTex  一開始先將標頭的定義區將 math: true，即可開啟該頁面的 KaTex 渲染功能。 在 \\\\( 符號與 \\\\) 符號間進行 inline equation 插入。 或在 $ $ 符號與 $ $ 間進行 block equation 的插入。 LaTex 的語法可以參考https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html  參考來源：\n https://bend1031.github.io/ https://teddygood.github.io/blog/katex/  ",
+  "articleBody": "0. 前言 以往寫筆記通常是使用 Notion，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。 雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。 而此處介紹的是在網頁上顯示較為輕便的 KaTex。 1. 解決方法 利用 KaTex，在靜態頁面掛載 JavaScript 程式碼。 其在官網的描述是： Beautilful math in all browsers A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.\nStep 1. 創建一個可常駐的靜態頁面 在 \\layouts\\partials\\ 下創建一個叫作 math.html 的頁面。 注意是 global 的 layouts 文件夾中不是 hugo themes 中的文件夾 開啟頁面之後，在 與 之間加入下一步驟內的 JavaScript 程式碼。 Step 2. 將 JavaScript 程式碼貼入 math.html \u003clink rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css\" integrity=\"sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET\" crossorigin=\"anonymous\"\u003e \u003cscript defer src=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js\" integrity=\"sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb\" crossorigin=\"anonymous\"\u003e\u003c/script\u003e \u003cscript defer src=\"https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js\" integrity=\"sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl\" crossorigin=\"anonymous\" onload=\"renderMathInElement(document.body);\"\u003e\u003c/script\u003e 上面的程式碼是將 KaTex 的渲染程式碼寫到 math.html 中。 Step 3. 將 Hugo theme 中的 header.html 複製出來 同樣將 header.html 複製到 global 下的 \\layout\\partials，並貼入 {{- /* Head custom content area start */ -}} {{- /* Insert any custom code (web-analytics, resources, etc.) - it will appear in the section of every page. */ -}} {{- /* Can be overwritten by partial with the same name in the global layouts. */ -}} {{ if or .Params.math .Site.Params.math }} {{ partial \"math.html\" . }} {{ end }} {{- /* Head custom content area end */ -}} 上面的程式碼的功能將 math.html 嵌進 header.html 中，並以 config.yml 中的 .param.math 指令來控制。 Step 4. 開始撰寫 KaTex 一開始先將標頭的定義區將 math: true，即可開啟該頁面的 KaTex 渲染功能。 在 \\\\( 符號與 \\\\) 符號間進行 inline equation 插入。 或在 $ $ 符號與 $ $ 間進行 block equation 的插入。 LaTex 的語法可以參考https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html 參考來源：\nhttps://bend1031.github.io/ https://teddygood.github.io/blog/katex/ ",
   "wordCount" : "227",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/cover.jpg","datePublished": "2022-02-22T01:38:30+08:00",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/cover.jpg","datePublished": "2022-02-22T01:38:30+08:00",
   "dateModified": "2022-02-22T01:38:30+08:00",
   "author":{
     "@type": "Person",
@@ -124,14 +125,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/it/latexrendering/"
+    "@id": "http://localhost:1313/it/latexrendering/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -153,17 +154,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -177,46 +178,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -224,26 +225,27 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/it/">ITs</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/it/">ITs</a></div>
+    <h1 class="post-title entry-hint-parent">
       [IT] 在 GitHub Pages 中渲染 KaTex 公式
     </h1>
     <div class="post-description">
       如何讓 GitHub Pages 中支援 Latex 語法
     </div>
-    <div class="post-meta"><span title='2022-02-22 01:38:30 +0800 CST'>February 22, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/latexRendering.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-02-22 01:38:30 +0800 CST'>February 22, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/latexRendering.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details >
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -367,7 +369,7 @@
 {{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the &lt;head&gt;&lt;/head&gt; section of every page. */ -}}
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
 {{ if or .Params.math .Site.Params.math }}
-{{ partial &quot;math.html&quot; . }}
+{{ partial &#34;math.html&#34; . }}
 {{ end }}
 {{- /* Head custom content area end */ -}}
 </code></pre><ul>
@@ -391,7 +393,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/it/">IT</a></li>
+      <li><a href="http://localhost:1313/tags/it/">IT</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -406,11 +408,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -479,12 +482,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

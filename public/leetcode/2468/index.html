@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 2468. Split Message Based on Limit | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="2468. Split Message Based on Limit
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Binary Search \(\color{blue}\textsf{Biweekly Contest 91}\)   一、題目 You are given a string, message, and a positive integer, limit.
-You must split message into one or more parts based on limit. Each resulting part should have the suffix &quot;&lt;a/b&gt;&quot;, where &quot;b&quot; is to be replaced with the total number of parts and &quot;a&quot; is to be replaced with the index of the part, starting from 1 and going up to b.">
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: String、Binary Search
+\(\color{blue}\textsf{Biweekly Contest 91}\)
+
+
+一、題目
+You are given a string, message, and a positive integer, limit.
+You must split message into one or more parts based on limit. Each resulting part should have the suffix &quot;&lt;a/b&gt;&quot;, where &quot;b&quot; is to be replaced with the total number of parts and &quot;a&quot; is to be replaced with the index of the part, starting from 1 and going up to b. Additionally, the length of each resulting part (including its suffix) should be equal to limit, except for the last part whose length can be at most limit.">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/2468/">
 <noscript>
     <style>
         #theme-toggle,
@@ -42,7 +47,7 @@ You must split message into one or more parts based on limit. Each resulting par
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -75,21 +80,31 @@ You must split message into one or more parts based on limit. Each resulting par
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 2468. Split Message Based on Limit" />
-<meta property="og:description" content="2468. Split Message Based on Limit
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Binary Search \(\color{blue}\textsf{Biweekly Contest 91}\)   一、題目 You are given a string, message, and a positive integer, limit.
-You must split message into one or more parts based on limit. Each resulting part should have the suffix &quot;&lt;a/b&gt;&quot;, where &quot;b&quot; is to be replaced with the total number of parts and &quot;a&quot; is to be replaced with the index of the part, starting from 1 and going up to b." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/2468/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-24T01:09:57&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-24T01:09:57&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 2468. Split Message Based on Limit"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/2468/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 2468. Split Message Based on Limit">
+  <meta property="og:description" content="2468. Split Message Based on Limit
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Binary Search \(\color{blue}\textsf{Biweekly Contest 91}\) 一、題目 You are given a string, message, and a positive integer, limit.
+You must split message into one or more parts based on limit. Each resulting part should have the suffix &#34;&lt;a/b&gt;&#34;, where &#34;b&#34; is to be replaced with the total number of parts and &#34;a&#34; is to be replaced with the index of the part, starting from 1 and going up to b. Additionally, the length of each resulting part (including its suffix) should be equal to limit, except for the last part whose length can be at most limit.">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-24T01:09:57+08:00">
+    <meta property="article:modified_time" content="2022-11-24T01:09:57+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 2468. Split Message Based on Limit">
 <meta name="twitter:description" content="2468. Split Message Based on Limit
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Binary Search \(\color{blue}\textsf{Biweekly Contest 91}\)   一、題目 You are given a string, message, and a positive integer, limit.
-You must split message into one or more parts based on limit. Each resulting part should have the suffix &quot;&lt;a/b&gt;&quot;, where &quot;b&quot; is to be replaced with the total number of parts and &quot;a&quot; is to be replaced with the index of the part, starting from 1 and going up to b."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: String、Binary Search
+\(\color{blue}\textsf{Biweekly Contest 91}\)
+
+
+一、題目
+You are given a string, message, and a positive integer, limit.
+You must split message into one or more parts based on limit. Each resulting part should have the suffix &quot;&lt;a/b&gt;&quot;, where &quot;b&quot; is to be replaced with the total number of parts and &quot;a&quot; is to be replaced with the index of the part, starting from 1 and going up to b. Additionally, the length of each resulting part (including its suffix) should be equal to limit, except for the last part whose length can be at most limit.">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -100,14 +115,8 @@ You must split message into one or more parts based on limit. Each resulting par
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 2468. Split Message Based on Limit",
-      "item": "https://intervalrain.github.io/leetcode/2468/"
+      "item": "http://localhost:1313/leetcode/2468/"
     }
   ]
 }
@@ -118,13 +127,13 @@ You must split message into one or more parts based on limit. Each resulting par
   "@type": "BlogPosting",
   "headline": "[LeetCode] 2468. Split Message Based on Limit",
   "name": "[LeetCode] 2468. Split Message Based on Limit",
-  "description": "2468. Split Message Based on Limit\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: String、Binary Search \\(\\color{blue}\\textsf{Biweekly Contest 91}\\)   一、題目 You are given a string, message, and a positive integer, limit.\nYou must split message into one or more parts based on limit. Each resulting part should have the suffix \u0026quot;\u0026lt;a/b\u0026gt;\u0026quot;, where \u0026quot;b\u0026quot; is to be replaced with the total number of parts and \u0026quot;a\u0026quot; is to be replaced with the index of the part, starting from 1 and going up to b.",
+  "description": "2468. Split Message Based on Limit\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: String、Binary Search \\(\\color{blue}\\textsf{Biweekly Contest 91}\\) 一、題目 You are given a string, message, and a positive integer, limit.\nYou must split message into one or more parts based on limit. Each resulting part should have the suffix \u0026quot;\u0026lt;a/b\u0026gt;\u0026quot;, where \u0026quot;b\u0026quot; is to be replaced with the total number of parts and \u0026quot;a\u0026quot; is to be replaced with the index of the part, starting from 1 and going up to b. Additionally, the length of each resulting part (including its suffix) should be equal to limit, except for the last part whose length can be at most limit.\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "2468. Split Message Based on Limit\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: String、Binary Search \\(\\color{blue}\\textsf{Biweekly Contest 91}\\)   一、題目 You are given a string, message, and a positive integer, limit.\nYou must split message into one or more parts based on limit. Each resulting part should have the suffix \"\", where \"b\" is to be replaced with the total number of parts and \"a\" is to be replaced with the index of the part, starting from 1 and going up to b. Additionally, the length of each resulting part (including its suffix) should be equal to limit, except for the last part whose length can be at most limit.\nThe resulting parts should be formed such that when their suffixes are removed and they are all concatenated in order, they should be equal to message. Also, the result should contain as few parts as possible.\nReturn the parts message would be split into as an array of strings. If it is impossible to split message as required, return an empty array.\nExample 1:\n input: message = “this is really a very awesome message”, limit = 9 Output: [“thi”,“s i”,“s r”,“eal”,“ly ”,“a v”,“ery”,\" aw\",“eso”,“me”,\" m\",“es”,“sa”,“ge\"] Explanation:\nThe first 9 parts take 3 characters each from the beginning of message.\nThe next 5 parts take 2 characters each to finish splitting message.\nIn this example, each part, including the last, has length 9.\nIt can be shown it is not possible to split message into less than 14 parts.  Example 2:\n Input: message = “short message”, limit = 15 Output: [“short mess”,“age\"] Explanation:\nUnder the given constraints, the string can be split into two parts:   The first part comprises of the first 10 characters, and has a length 15. The next part comprises of the last 3 characters, and has a length 8.  Constraints:\n 1  message consists only of lowercase English letters and ' '. 1    二、分析  令 n 為最後答案 vector 的總數，注意並非 n 愈大，能裝載的 string 就愈多。 limit * n = f(n) + len 時，message 可以被裝載，其中 len 為其長度，f(n)為 n 時所需額外的字元長度。 觀察可得 f(n) 為：  n 時，5*n。 n 時，7*n - 9。 n 時，9*n - 9 - 99。 n 時，11*n - 9 - 99 - 999。 …    三、解題 1. Math  Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\)   vectorstring splitMessage(string message, int limit) {  if (limit  5) return {};  int len = message.length();  int left = 1;  for ( ;left  len; left++) {  if (limit * left = f(left) + len) break;  }  if (limit * left  f(left) + len) return {};  vectorstring res(left);  int strlen = to_string(left).length() + 3;  int acc = 0;  for (int i = 1; i  left; i++) {  len = strlen + to_string(i).length();  res[i-1] = message.substr(acc, limit-len) + \" + to_string(i) + \"/\" + to_string(left) + \"\";  acc += limit-len;  }  return res; } int f(int n) {  if (n  10) {  return n*5;  } else if (n  100) {  return n*7-9;  } else if (n  1000) {  return n*9-108;  } else if (n  10000) {  return n*11-1107;  }  return n*13-11106; } 2. Binary Search  Time complexity: \\(O(\\log n)\\) Space complexity: \\(O(n)\\)  vectorstring splitMessage(string message, int limit) {  int b = 0 , cnt = 0 , sm = 0;  vectorstring ans;  for(int i=1; i10000; i++) {  sm+=Size(i); // sum of length of ('1') + ('2')... ('i') , we are calculating sum of length of all a's.  int cnt = ((3 + Size(i)) * i) + message.size() + sm; // sum of (3 is \"\" + i's size ) * i times , message , sm  int len = (i-1) * limit; // till second last  if(cnt - len  limit) { // if last is bigger than limit , its invalid!  b = i;  break;  }  }  string s = \"\";  cnt = 1;  for(int i=0; imessage.size(); i++) {  if(limit - (3 + Size(cnt) + Size(b) + (int)s.size())0) {  s+=message[i];  }else {  string word = s + \" + to_string(cnt) + \"/\" + to_string(b) + \"\";  ans.push_back(word);  s = message[i];  cnt++;  }  }  string word = s + \" + to_string(cnt) + \"/\" + to_string(b) + \"\";  ans.push_back(word);  if(cntb || word.size()limit) return {}; // cnt is last value of a which should never be  than b , also last word size should be  return ans; } int Size(int n) {  return to_string(n).size(); } 回目錄 Catalog\n",
+  "articleBody": "2468. Split Message Based on Limit\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: String、Binary Search \\(\\color{blue}\\textsf{Biweekly Contest 91}\\) 一、題目 You are given a string, message, and a positive integer, limit.\nYou must split message into one or more parts based on limit. Each resulting part should have the suffix \"\", where \"b\" is to be replaced with the total number of parts and \"a\" is to be replaced with the index of the part, starting from 1 and going up to b. Additionally, the length of each resulting part (including its suffix) should be equal to limit, except for the last part whose length can be at most limit.\nThe resulting parts should be formed such that when their suffixes are removed and they are all concatenated in order, they should be equal to message. Also, the result should contain as few parts as possible.\nReturn the parts message would be split into as an array of strings. If it is impossible to split message as required, return an empty array.\nExample 1:\ninput: message = “this is really a very awesome message”, limit = 9 Output: [“thi\u003c1/14\u003e”,“s i\u003c2/14\u003e”,“s r\u003c3/14\u003e”,“eal\u003c4/14\u003e”,“ly \u003c5/14\u003e”,“a v\u003c6/14\u003e”,“ery\u003c7/14\u003e”,\" aw\u003c8/14\u003e\",“eso\u003c9/14\u003e”,“me\u003c10/14\u003e”,\" m\u003c11/14\u003e\",“es\u003c12/14\u003e”,“sa\u003c13/14\u003e”,“ge\u003c14/14\u003e”] Explanation:\nThe first 9 parts take 3 characters each from the beginning of message.\nThe next 5 parts take 2 characters each to finish splitting message.\nIn this example, each part, including the last, has length 9.\nIt can be shown it is not possible to split message into less than 14 parts. Example 2:\nInput: message = “short message”, limit = 15 Output: [“short mess\u003c1/2\u003e”,“age\u003c2/2\u003e”] Explanation:\nUnder the given constraints, the string can be split into two parts: The first part comprises of the first 10 characters, and has a length 15. The next part comprises of the last 3 characters, and has a length 8. Constraints:\n1 \u003c= message.length \u003c= 10^4 message consists only of lowercase English letters and ' '. 1 \u003c= limit \u003c= 10^4 二、分析 令 n 為最後答案 vector 的總數，注意並非 n 愈大，能裝載的 string 就愈多。 limit * n \u003e= f(n) + len 時，message 可以被裝載，其中 len 為其長度，f(n)為 n 時所需額外的字元長度。 觀察可得 f(n) 為： n \u003c 10 時，5*n。 n \u003c 100 時，7*n - 9。 n \u003c 1000 時，9*n - 9 - 99。 n \u003c 10000 時，11*n - 9 - 99 - 999。 … 三、解題 1. Math Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\) vector\u003cstring\u003e splitMessage(string message, int limit) { if (limit \u003c= 5) return {}; int len = message.length(); int left = 1; for ( ;left \u003c len; left++) { if (limit * left \u003e= f(left) + len) break; } if (limit * left \u003c f(left) + len) return {}; vector\u003cstring\u003e res(left); int strlen = to_string(left).length() + 3; int acc = 0; for (int i = 1; i \u003c= left; i++) { len = strlen + to_string(i).length(); res[i-1] = message.substr(acc, limit-len) + \"\u003c\" + to_string(i) + \"/\" + to_string(left) + \"\u003e\"; acc += limit-len; } return res; } int f(int n) { if (n \u003c 10) { return n*5; } else if (n \u003c 100) { return n*7-9; } else if (n \u003c 1000) { return n*9-108; } else if (n \u003c 10000) { return n*11-1107; } return n*13-11106; } 2. Binary Search Time complexity: \\(O(\\log n)\\) Space complexity: \\(O(n)\\) vector\u003cstring\u003e splitMessage(string message, int limit) { int b = 0 , cnt = 0 , sm = 0; vector\u003cstring\u003e ans; for(int i=1; i\u003c=10000; i++) { sm+=Size(i); // sum of length of ('1') + ('2')... ('i') , we are calculating sum of length of all a's. int cnt = ((3 + Size(i)) * i) + message.size() + sm; // sum of (3 is \"\u003c/\u003e\" + i's size ) * i times , message , sm int len = (i-1) * limit; // till second last if(cnt - len \u003c= limit) { // if last is bigger than limit , its invalid! b = i; break; } } string s = \"\"; cnt = 1; for(int i=0; i\u003cmessage.size(); i++) { if(limit - (3 + Size(cnt) + Size(b) + (int)s.size())\u003e0) { s+=message[i]; }else { string word = s + \"\u003c\" + to_string(cnt) + \"/\" + to_string(b) + \"\u003e\"; ans.push_back(word); s = message[i]; cnt++; } } string word = s + \"\u003c\" + to_string(cnt) + \"/\" + to_string(b) + \"\u003e\"; ans.push_back(word); if(cnt\u003eb || word.size()\u003elimit) return {}; // cnt is last value of a which should never be \u003e than b , also last word size should be \u003c= limit! return ans; } int Size(int n) { return to_string(n).size(); } 回目錄 Catalog\n",
   "wordCount" : "737",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-24T01:09:57+08:00",
   "dateModified": "2022-11-24T01:09:57+08:00",
   "author":{
@@ -133,14 +142,14 @@ You must split message into one or more parts based on limit. Each resulting par
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/2468/"
+    "@id": "http://localhost:1313/leetcode/2468/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -162,17 +171,17 @@ You must split message into one or more parts based on limit. Each resulting par
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -186,46 +195,46 @@ You must split message into one or more parts based on limit. Each resulting par
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -233,20 +242,21 @@ You must split message into one or more parts based on limit. Each resulting par
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 2468. Split Message Based on Limit
     </h1>
-    <div class="post-meta"><span title='2022-11-24 01:09:57 +0800 CST'>November 24, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/2468.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-24 01:09:57 +0800 CST'>November 24, 2022</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/2468.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -344,7 +354,7 @@ You must split message into one or more parts based on limit. Each resulting par
 <p><strong>Example 1:</strong></p>
 <ul>
 <li><strong>input:</strong> message = &ldquo;this is really a very awesome message&rdquo;, limit = 9</li>
-<li><strong>Output:</strong> [&ldquo;thi&lt;1/14&gt;&rdquo;,&ldquo;s i&lt;2/14&gt;&rdquo;,&ldquo;s r&lt;3/14&gt;&rdquo;,&ldquo;eal&lt;4/14&gt;&rdquo;,&ldquo;ly &lt;5/14&gt;&rdquo;,&ldquo;a v&lt;6/14&gt;&rdquo;,&ldquo;ery&lt;7/14&gt;&rdquo;,&quot; aw&lt;8/14&gt;&quot;,&ldquo;eso&lt;9/14&gt;&rdquo;,&ldquo;me&lt;10/14&gt;&rdquo;,&quot; m&lt;11/14&gt;&quot;,&ldquo;es&lt;12/14&gt;&rdquo;,&ldquo;sa&lt;13/14&gt;&rdquo;,&ldquo;ge&lt;14/14&gt;&quot;]</li>
+<li><strong>Output:</strong> [&ldquo;thi&lt;1/14&gt;&rdquo;,&ldquo;s i&lt;2/14&gt;&rdquo;,&ldquo;s r&lt;3/14&gt;&rdquo;,&ldquo;eal&lt;4/14&gt;&rdquo;,&ldquo;ly &lt;5/14&gt;&rdquo;,&ldquo;a v&lt;6/14&gt;&rdquo;,&ldquo;ery&lt;7/14&gt;&rdquo;,&quot; aw&lt;8/14&gt;&quot;,&ldquo;eso&lt;9/14&gt;&rdquo;,&ldquo;me&lt;10/14&gt;&rdquo;,&quot; m&lt;11/14&gt;&quot;,&ldquo;es&lt;12/14&gt;&rdquo;,&ldquo;sa&lt;13/14&gt;&rdquo;,&ldquo;ge&lt;14/14&gt;&rdquo;]</li>
 <li><strong>Explanation:</strong><br>
 The first 9 parts take 3 characters each from the beginning of message.<br>
 The next 5 parts take 2 characters each to finish splitting message.<br>
@@ -354,7 +364,7 @@ It can be shown it is not possible to split message into less than 14 parts.</li
 <p><strong>Example 2:</strong></p>
 <ul>
 <li><strong>Input:</strong> message = &ldquo;short message&rdquo;, limit = 15</li>
-<li><strong>Output:</strong> [&ldquo;short mess&lt;1/2&gt;&rdquo;,&ldquo;age&lt;2/2&gt;&quot;]</li>
+<li><strong>Output:</strong> [&ldquo;short mess&lt;1/2&gt;&rdquo;,&ldquo;age&lt;2/2&gt;&rdquo;]</li>
 <li><strong>Explanation:</strong><br>
 Under the given constraints, the string can be split into two parts:</li>
 </ul>
@@ -463,16 +473,16 @@ Under the given constraints, the string can be split into two parts:</li>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/300/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/300/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 300. Longest Increasing Subsequence</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/2467/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/2467/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 2467. Most Profitable Path in a Tree</span>
   </a>
@@ -490,11 +500,12 @@ Under the given constraints, the string can be split into two parts:</li>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -563,12 +574,12 @@ Under the given constraints, the string can be split into two parts:</li>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

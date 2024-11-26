@@ -1,28 +1,284 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[IT] 事件總線 EventBus | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="EventBus, MacOS, cocoa" />
-<meta name="description" content="EventBus  EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。  Interfaces IEventData public interface IEventData {  DateTime EventTime { get; set; }  object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler&lt;TEventData&gt; : IEventHandler where TEventData : IEventData {  void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData {  public DateTime EventTIme { get; set; }  object EventSource { get; set; }   public EventData()  {  EventTime = DateTime.">
+<meta name="keywords" content="EventBus, MacOS, cocoa">
+<meta name="description" content="EventBus
+
+
+EventBus 用於維護一個事件源與事件處理的映射字典
+通過 Singleton，確保 EventBus 的唯一入口
+利用反射完成事件源與件事處理的初始化綁定
+提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。
+
+Interfaces
+IEventData
+public interface IEventData
+{
+    DateTime EventTime { get; set; }
+    object EventSource {get; set; }
+}
+IEventHandler
+public interface IEventHandler
+{
+}
+IEventHandler`1
+public interface IEventHandler&lt;TEventData&gt; : IEventHandler where TEventData : IEventData
+{
+    void HandlerEvent(TEventData eventData);
+}
+base class
+EventData
+public class EventData : IEventData
+{
+    public DateTime EventTIme { get; set; }
+    object EventSource { get; set; }
+
+    public EventData()
+    {
+        EventTime = DateTime.Now;
+    }
+}
+Domain
+FishType
+public enum FishType
+{
+    None,
+    鯽魚,
+    鯉魚,
+    黑魚,
+    青魚,
+    草魚,
+    鱸魚
+}
+FishingEventData : EventData
+public class FishingEventData : EventData
+{
+    public FishType FishType { get; set; }
+    public FishingMan FishingMan { get; set; }
+}
+FishingEventHandler : IEventHandler
+public class FishingEventHandler : IEventHandler&lt;FishingEventData&gt;
+{
+    public void HandleEvent(FishingEventData eventData)
+    {
+        var type = eventData.FishType;
+        var fishMan = eventData.FishingMan;
+        
+        var Name = fishMan.Name;
+
+        if (type == FishType.None)
+        {
+            fishMan.Message = string.Format(&#34;{0}: 沒有釣到魚, 累計釣了{1}條魚&#34;, Name, fishMan.FishCount);
+        }
+        else
+        {
+            fishMan.FishCount&#43;&#43;;
+            fishMan.Message = string.Format(&#34;{0}: 釣到一條[{2}], 累計釣了{1}條魚&#34;, Name, fishMan.FishCount, type);
+        }
+    }
+}
+FishingMan
+public class FishingMan
+{
+    public string Name { get; set; }
+    public int FishCount { get; set; }
+    public FishingRod FishingRod { get; set; }
+
+    public string Message { get; set; }
+
+    public FishingMan(string name)
+    {
+        Name = name;
+        FishCount = 0;
+    }
+
+    public void Fishing()
+    {
+        FishingRod.ThrowHook(this);
+    }
+}
+FishingRod
+
+用反射註冊事件
+
+public class FishingRod
+{
+    public string Message { get; private set; }
+
+    public FishingRod()
+    {
+    }
+
+    public void ThrowHook(FishingMan man)
+    {
+        if (new Random().Next() % 2 == 0)
+        {
+            var type = (FishType)(new Random().Next(0, 5) &#43; 1);
+            Message = (&#34;魚兒上鉤了!&#34;);
+            if (FishingEvent != null)
+            {
+                var eventData = new FishingEventData
+                {
+                    FishingMan = man,
+                    FishType = type
+                };
+                EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData);
+            }
+        }
+        else
+        {
+            var type = FishType.None;
+            Message = (&#34;可惜了!&#34;);
+            if (FishingEvent != null)
+            {
+                var eventData = new FishingEventData
+                {
+                    FishingMan = man,
+                    FishType = type
+                };
+                EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData);
+            }
+        }
+    }
+}
+EventBus 實作
+
+用一個靜態單例來統一管理事件
+
+public class EventBus
+{
+	public static EventBus Default =&gt; new EventBus();
+
+	private readonly ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt; _eventAndHandlerMapping;
+
+	private EventBus()
+	{
+		_eventAndHandlerMapping = new ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt;();
+		MapEventToHandler();
+	}
+
+	private void MapEventToHandler()
+	{
+		Assembly assembly = Assembly.GetEntryAssembly();
+		foreach (var type in assembly.GetTypes())
+		{
+			if (typeof(IEventHandler).IsAssignableFrom(type))
+			{
+				Type handlerInterface = type.GetInterface(&#34;IEventHandler`1&#34;);
+				if (handlerInterface == null) continue;
+				Type eventDataType = handlerInterface.GetGenericArguments()[0];
+
+				if (_eventAndHandlerMapping.ContainsKey(eventDataType))
+				{
+					List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[eventDataType];
+					handlerTypes.Add(type);
+					_eventAndHandlerMapping[eventDataType] = handlerTypes;
+				}
+				else
+				{
+					var handlerTypes = new List&lt;Type&gt; { type };
+					_eventAndHandlerMapping[eventDataType] = handlerTypes;
+				}
+			}
+		}
+	}
+
+	public void Register&lt;TEventData&gt;(Type eventHandler)
+	{
+		List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)];
+		if (!handlerTypes.Contains(eventHandler))
+		{
+			handlerTypes.Add(eventHandler);
+			_eventAndHandlerMapping[typeof(TEventData)] = handlerTypes;
+		}
+	}
+
+	public void Unsubscribe&lt;TEventData&gt;(Type eventHandler)
+	{
+        List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)];
+        if (!handlerTypes.Contains(eventHandler))
+        {
+            handlerTypes.Remove(eventHandler);
+            _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes;
+        }
+    }
+
+	public void Trigger&lt;TEventData&gt;(TEventData eventData) where TEventData : IEventData
+	{
+        List&lt;Type&gt; handlers = _eventAndHandlerMapping[eventData.GetType()];
+		if (handlers != null &amp;&amp; handlers.Count &gt; 0)
+		{
+			foreach (var handler in handlers)
+			{
+				MethodInfo methodInfo = handler.GetMethod(&#34;HandleEvent&#34;);
+				if (methodInfo != null)
+				{
+					object obj = Activator.CreateInstance(handler);
+					methodInfo.Invoke(obj, new object[] { eventData });
+				}
+			}
+		}
+    }
+}
+demo
+
+MacOs Cocoa Project
+
+public partial class ViewController : NSViewController
+{
+    public ViewController (IntPtr handle) : base (handle)
+    {
+    }
+
+    public override void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        jeff = new FishingMan(&#34;Jeff&#34;);
+        rod = new FishingRod();
+        jeff.FishingRod = rod;
+        EventBus eventBus = EventBus.Default;
+        eventBus.Register&lt;FishingEventData&gt;(typeof(FishingEventHandler));
+    }
+    
+    FishingMan jeff;
+    FishingRod rod;
+
+    public override NSObject RepresentedObject {
+        get {
+            return base.RepresentedObject;
+        }
+        set {
+            base.RepresentedObject = value;
+        }
+    }
+
+    partial void Button_Click(NSButton sender)
+    {
+        jeff.Fishing();
+        TextLabel.StringValue = rod.Message;
+        TextLabel2.StringValue = jeff.Message ?? &#34;&#34;;
+    }
+}
+">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/it/eventbus/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +296,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +332,278 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[IT] 事件總線 EventBus" />
-<meta property="og:description" content="EventBus  EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。  Interfaces IEventData public interface IEventData {  DateTime EventTime { get; set; }  object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler&lt;TEventData&gt; : IEventHandler where TEventData : IEventData {  void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData {  public DateTime EventTIme { get; set; }  object EventSource { get; set; }   public EventData()  {  EventTime = DateTime." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/it/eventbus/" /><meta property="article:section" content="IT" />
-<meta property="article:published_time" content="2023-09-25T23:50:02&#43;08:00" />
-<meta property="article:modified_time" content="2023-09-25T23:50:02&#43;08:00" />
+</script><meta property="og:url" content="http://localhost:1313/it/eventbus/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[IT] 事件總線 EventBus">
+  <meta property="og:description" content="EventBus EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。 Interfaces IEventData public interface IEventData { DateTime EventTime { get; set; } object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler&lt;TEventData&gt; : IEventHandler where TEventData : IEventData { void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData { public DateTime EventTIme { get; set; } object EventSource { get; set; } public EventData() { EventTime = DateTime.Now; } } Domain FishType public enum FishType { None, 鯽魚, 鯉魚, 黑魚, 青魚, 草魚, 鱸魚 } FishingEventData : EventData public class FishingEventData : EventData { public FishType FishType { get; set; } public FishingMan FishingMan { get; set; } } FishingEventHandler : IEventHandler public class FishingEventHandler : IEventHandler&lt;FishingEventData&gt; { public void HandleEvent(FishingEventData eventData) { var type = eventData.FishType; var fishMan = eventData.FishingMan; var Name = fishMan.Name; if (type == FishType.None) { fishMan.Message = string.Format(&#34;{0}: 沒有釣到魚, 累計釣了{1}條魚&#34;, Name, fishMan.FishCount); } else { fishMan.FishCount&#43;&#43;; fishMan.Message = string.Format(&#34;{0}: 釣到一條[{2}], 累計釣了{1}條魚&#34;, Name, fishMan.FishCount, type); } } } FishingMan public class FishingMan { public string Name { get; set; } public int FishCount { get; set; } public FishingRod FishingRod { get; set; } public string Message { get; set; } public FishingMan(string name) { Name = name; FishCount = 0; } public void Fishing() { FishingRod.ThrowHook(this); } } FishingRod 用反射註冊事件 public class FishingRod { public string Message { get; private set; } public FishingRod() { } public void ThrowHook(FishingMan man) { if (new Random().Next() % 2 == 0) { var type = (FishType)(new Random().Next(0, 5) &#43; 1); Message = (&#34;魚兒上鉤了!&#34;); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData); } } else { var type = FishType.None; Message = (&#34;可惜了!&#34;); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData); } } } } EventBus 實作 用一個靜態單例來統一管理事件 public class EventBus { public static EventBus Default =&gt; new EventBus(); private readonly ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt; _eventAndHandlerMapping; private EventBus() { _eventAndHandlerMapping = new ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt;(); MapEventToHandler(); } private void MapEventToHandler() { Assembly assembly = Assembly.GetEntryAssembly(); foreach (var type in assembly.GetTypes()) { if (typeof(IEventHandler).IsAssignableFrom(type)) { Type handlerInterface = type.GetInterface(&#34;IEventHandler`1&#34;); if (handlerInterface == null) continue; Type eventDataType = handlerInterface.GetGenericArguments()[0]; if (_eventAndHandlerMapping.ContainsKey(eventDataType)) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[eventDataType]; handlerTypes.Add(type); _eventAndHandlerMapping[eventDataType] = handlerTypes; } else { var handlerTypes = new List&lt;Type&gt; { type }; _eventAndHandlerMapping[eventDataType] = handlerTypes; } } } } public void Register&lt;TEventData&gt;(Type eventHandler) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; if (!handlerTypes.Contains(eventHandler)) { handlerTypes.Add(eventHandler); _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; } } public void Unsubscribe&lt;TEventData&gt;(Type eventHandler) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; if (!handlerTypes.Contains(eventHandler)) { handlerTypes.Remove(eventHandler); _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; } } public void Trigger&lt;TEventData&gt;(TEventData eventData) where TEventData : IEventData { List&lt;Type&gt; handlers = _eventAndHandlerMapping[eventData.GetType()]; if (handlers != null &amp;&amp; handlers.Count &gt; 0) { foreach (var handler in handlers) { MethodInfo methodInfo = handler.GetMethod(&#34;HandleEvent&#34;); if (methodInfo != null) { object obj = Activator.CreateInstance(handler); methodInfo.Invoke(obj, new object[] { eventData }); } } } } } demo MacOs Cocoa Project public partial class ViewController : NSViewController { public ViewController (IntPtr handle) : base (handle) { } public override void ViewDidLoad () { base.ViewDidLoad (); jeff = new FishingMan(&#34;Jeff&#34;); rod = new FishingRod(); jeff.FishingRod = rod; EventBus eventBus = EventBus.Default; eventBus.Register&lt;FishingEventData&gt;(typeof(FishingEventHandler)); } FishingMan jeff; FishingRod rod; public override NSObject RepresentedObject { get { return base.RepresentedObject; } set { base.RepresentedObject = value; } } partial void Button_Click(NSButton sender) { jeff.Fishing(); TextLabel.StringValue = rod.Message; TextLabel2.StringValue = jeff.Message ?? &#34;&#34;; } } ">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="it">
+    <meta property="article:published_time" content="2023-09-25T23:50:02+08:00">
+    <meta property="article:modified_time" content="2023-09-25T23:50:02+08:00">
+    <meta property="article:tag" content="IT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[IT] 事件總線 EventBus">
+<meta name="twitter:description" content="EventBus
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[IT] 事件總線 EventBus"/>
-<meta name="twitter:description" content="EventBus  EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。  Interfaces IEventData public interface IEventData {  DateTime EventTime { get; set; }  object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler&lt;TEventData&gt; : IEventHandler where TEventData : IEventData {  void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData {  public DateTime EventTIme { get; set; }  object EventSource { get; set; }   public EventData()  {  EventTime = DateTime."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+EventBus 用於維護一個事件源與事件處理的映射字典
+通過 Singleton，確保 EventBus 的唯一入口
+利用反射完成事件源與件事處理的初始化綁定
+提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。
+
+Interfaces
+IEventData
+public interface IEventData
+{
+    DateTime EventTime { get; set; }
+    object EventSource {get; set; }
+}
+IEventHandler
+public interface IEventHandler
+{
+}
+IEventHandler`1
+public interface IEventHandler&lt;TEventData&gt; : IEventHandler where TEventData : IEventData
+{
+    void HandlerEvent(TEventData eventData);
+}
+base class
+EventData
+public class EventData : IEventData
+{
+    public DateTime EventTIme { get; set; }
+    object EventSource { get; set; }
+
+    public EventData()
+    {
+        EventTime = DateTime.Now;
+    }
+}
+Domain
+FishType
+public enum FishType
+{
+    None,
+    鯽魚,
+    鯉魚,
+    黑魚,
+    青魚,
+    草魚,
+    鱸魚
+}
+FishingEventData : EventData
+public class FishingEventData : EventData
+{
+    public FishType FishType { get; set; }
+    public FishingMan FishingMan { get; set; }
+}
+FishingEventHandler : IEventHandler
+public class FishingEventHandler : IEventHandler&lt;FishingEventData&gt;
+{
+    public void HandleEvent(FishingEventData eventData)
+    {
+        var type = eventData.FishType;
+        var fishMan = eventData.FishingMan;
+        
+        var Name = fishMan.Name;
+
+        if (type == FishType.None)
+        {
+            fishMan.Message = string.Format(&#34;{0}: 沒有釣到魚, 累計釣了{1}條魚&#34;, Name, fishMan.FishCount);
+        }
+        else
+        {
+            fishMan.FishCount&#43;&#43;;
+            fishMan.Message = string.Format(&#34;{0}: 釣到一條[{2}], 累計釣了{1}條魚&#34;, Name, fishMan.FishCount, type);
+        }
+    }
+}
+FishingMan
+public class FishingMan
+{
+    public string Name { get; set; }
+    public int FishCount { get; set; }
+    public FishingRod FishingRod { get; set; }
+
+    public string Message { get; set; }
+
+    public FishingMan(string name)
+    {
+        Name = name;
+        FishCount = 0;
+    }
+
+    public void Fishing()
+    {
+        FishingRod.ThrowHook(this);
+    }
+}
+FishingRod
+
+用反射註冊事件
+
+public class FishingRod
+{
+    public string Message { get; private set; }
+
+    public FishingRod()
+    {
+    }
+
+    public void ThrowHook(FishingMan man)
+    {
+        if (new Random().Next() % 2 == 0)
+        {
+            var type = (FishType)(new Random().Next(0, 5) &#43; 1);
+            Message = (&#34;魚兒上鉤了!&#34;);
+            if (FishingEvent != null)
+            {
+                var eventData = new FishingEventData
+                {
+                    FishingMan = man,
+                    FishType = type
+                };
+                EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData);
+            }
+        }
+        else
+        {
+            var type = FishType.None;
+            Message = (&#34;可惜了!&#34;);
+            if (FishingEvent != null)
+            {
+                var eventData = new FishingEventData
+                {
+                    FishingMan = man,
+                    FishType = type
+                };
+                EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData);
+            }
+        }
+    }
+}
+EventBus 實作
+
+用一個靜態單例來統一管理事件
+
+public class EventBus
+{
+	public static EventBus Default =&gt; new EventBus();
+
+	private readonly ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt; _eventAndHandlerMapping;
+
+	private EventBus()
+	{
+		_eventAndHandlerMapping = new ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt;();
+		MapEventToHandler();
+	}
+
+	private void MapEventToHandler()
+	{
+		Assembly assembly = Assembly.GetEntryAssembly();
+		foreach (var type in assembly.GetTypes())
+		{
+			if (typeof(IEventHandler).IsAssignableFrom(type))
+			{
+				Type handlerInterface = type.GetInterface(&#34;IEventHandler`1&#34;);
+				if (handlerInterface == null) continue;
+				Type eventDataType = handlerInterface.GetGenericArguments()[0];
+
+				if (_eventAndHandlerMapping.ContainsKey(eventDataType))
+				{
+					List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[eventDataType];
+					handlerTypes.Add(type);
+					_eventAndHandlerMapping[eventDataType] = handlerTypes;
+				}
+				else
+				{
+					var handlerTypes = new List&lt;Type&gt; { type };
+					_eventAndHandlerMapping[eventDataType] = handlerTypes;
+				}
+			}
+		}
+	}
+
+	public void Register&lt;TEventData&gt;(Type eventHandler)
+	{
+		List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)];
+		if (!handlerTypes.Contains(eventHandler))
+		{
+			handlerTypes.Add(eventHandler);
+			_eventAndHandlerMapping[typeof(TEventData)] = handlerTypes;
+		}
+	}
+
+	public void Unsubscribe&lt;TEventData&gt;(Type eventHandler)
+	{
+        List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)];
+        if (!handlerTypes.Contains(eventHandler))
+        {
+            handlerTypes.Remove(eventHandler);
+            _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes;
+        }
+    }
+
+	public void Trigger&lt;TEventData&gt;(TEventData eventData) where TEventData : IEventData
+	{
+        List&lt;Type&gt; handlers = _eventAndHandlerMapping[eventData.GetType()];
+		if (handlers != null &amp;&amp; handlers.Count &gt; 0)
+		{
+			foreach (var handler in handlers)
+			{
+				MethodInfo methodInfo = handler.GetMethod(&#34;HandleEvent&#34;);
+				if (methodInfo != null)
+				{
+					object obj = Activator.CreateInstance(handler);
+					methodInfo.Invoke(obj, new object[] { eventData });
+				}
+			}
+		}
+    }
+}
+demo
+
+MacOs Cocoa Project
+
+public partial class ViewController : NSViewController
+{
+    public ViewController (IntPtr handle) : base (handle)
+    {
+    }
+
+    public override void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        jeff = new FishingMan(&#34;Jeff&#34;);
+        rod = new FishingRod();
+        jeff.FishingRod = rod;
+        EventBus eventBus = EventBus.Default;
+        eventBus.Register&lt;FishingEventData&gt;(typeof(FishingEventHandler));
+    }
+    
+    FishingMan jeff;
+    FishingRod rod;
+
+    public override NSObject RepresentedObject {
+        get {
+            return base.RepresentedObject;
+        }
+        set {
+            base.RepresentedObject = value;
+        }
+    }
+
+    partial void Button_Click(NSButton sender)
+    {
+        jeff.Fishing();
+        TextLabel.StringValue = rod.Message;
+        TextLabel2.StringValue = jeff.Message ?? &#34;&#34;;
+    }
+}
+">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +615,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "ITs",
-      "item": "https://intervalrain.github.io/it/"
+      "item": "http://localhost:1313/it/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[IT] 事件總線 EventBus",
-      "item": "https://intervalrain.github.io/it/eventbus/"
+      "item": "http://localhost:1313/it/eventbus/"
     }
   ]
 }
@@ -115,13 +632,13 @@
   "@type": "BlogPosting",
   "headline": "[IT] 事件總線 EventBus",
   "name": "[IT] 事件總線 EventBus",
-  "description": "EventBus  EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。  Interfaces IEventData public interface IEventData {  DateTime EventTime { get; set; }  object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler\u0026lt;TEventData\u0026gt; : IEventHandler where TEventData : IEventData {  void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData {  public DateTime EventTIme { get; set; }  object EventSource { get; set; }   public EventData()  {  EventTime = DateTime.",
+  "description": "EventBus EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。 Interfaces IEventData public interface IEventData { DateTime EventTime { get; set; } object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler\u0026lt;TEventData\u0026gt; : IEventHandler where TEventData : IEventData { void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData { public DateTime EventTIme { get; set; } object EventSource { get; set; } public EventData() { EventTime = DateTime.Now; } } Domain FishType public enum FishType { None, 鯽魚, 鯉魚, 黑魚, 青魚, 草魚, 鱸魚 } FishingEventData : EventData public class FishingEventData : EventData { public FishType FishType { get; set; } public FishingMan FishingMan { get; set; } } FishingEventHandler : IEventHandler public class FishingEventHandler : IEventHandler\u0026lt;FishingEventData\u0026gt; { public void HandleEvent(FishingEventData eventData) { var type = eventData.FishType; var fishMan = eventData.FishingMan; var Name = fishMan.Name; if (type == FishType.None) { fishMan.Message = string.Format(\u0026#34;{0}: 沒有釣到魚, 累計釣了{1}條魚\u0026#34;, Name, fishMan.FishCount); } else { fishMan.FishCount++; fishMan.Message = string.Format(\u0026#34;{0}: 釣到一條[{2}], 累計釣了{1}條魚\u0026#34;, Name, fishMan.FishCount, type); } } } FishingMan public class FishingMan { public string Name { get; set; } public int FishCount { get; set; } public FishingRod FishingRod { get; set; } public string Message { get; set; } public FishingMan(string name) { Name = name; FishCount = 0; } public void Fishing() { FishingRod.ThrowHook(this); } } FishingRod 用反射註冊事件 public class FishingRod { public string Message { get; private set; } public FishingRod() { } public void ThrowHook(FishingMan man) { if (new Random().Next() % 2 == 0) { var type = (FishType)(new Random().Next(0, 5) + 1); Message = (\u0026#34;魚兒上鉤了!\u0026#34;); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger\u0026lt;FishingEventData\u0026gt;(eventData); } } else { var type = FishType.None; Message = (\u0026#34;可惜了!\u0026#34;); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger\u0026lt;FishingEventData\u0026gt;(eventData); } } } } EventBus 實作 用一個靜態單例來統一管理事件 public class EventBus { public static EventBus Default =\u0026gt; new EventBus(); private readonly ConcurrentDictionary\u0026lt;Type, List\u0026lt;Type\u0026gt;\u0026gt; _eventAndHandlerMapping; private EventBus() { _eventAndHandlerMapping = new ConcurrentDictionary\u0026lt;Type, List\u0026lt;Type\u0026gt;\u0026gt;(); MapEventToHandler(); } private void MapEventToHandler() { Assembly assembly = Assembly.GetEntryAssembly(); foreach (var type in assembly.GetTypes()) { if (typeof(IEventHandler).IsAssignableFrom(type)) { Type handlerInterface = type.GetInterface(\u0026#34;IEventHandler`1\u0026#34;); if (handlerInterface == null) continue; Type eventDataType = handlerInterface.GetGenericArguments()[0]; if (_eventAndHandlerMapping.ContainsKey(eventDataType)) { List\u0026lt;Type\u0026gt; handlerTypes = _eventAndHandlerMapping[eventDataType]; handlerTypes.Add(type); _eventAndHandlerMapping[eventDataType] = handlerTypes; } else { var handlerTypes = new List\u0026lt;Type\u0026gt; { type }; _eventAndHandlerMapping[eventDataType] = handlerTypes; } } } } public void Register\u0026lt;TEventData\u0026gt;(Type eventHandler) { List\u0026lt;Type\u0026gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; if (!handlerTypes.Contains(eventHandler)) { handlerTypes.Add(eventHandler); _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; } } public void Unsubscribe\u0026lt;TEventData\u0026gt;(Type eventHandler) { List\u0026lt;Type\u0026gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; if (!handlerTypes.Contains(eventHandler)) { handlerTypes.Remove(eventHandler); _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; } } public void Trigger\u0026lt;TEventData\u0026gt;(TEventData eventData) where TEventData : IEventData { List\u0026lt;Type\u0026gt; handlers = _eventAndHandlerMapping[eventData.GetType()]; if (handlers != null \u0026amp;\u0026amp; handlers.Count \u0026gt; 0) { foreach (var handler in handlers) { MethodInfo methodInfo = handler.GetMethod(\u0026#34;HandleEvent\u0026#34;); if (methodInfo != null) { object obj = Activator.CreateInstance(handler); methodInfo.Invoke(obj, new object[] { eventData }); } } } } } demo MacOs Cocoa Project public partial class ViewController : NSViewController { public ViewController (IntPtr handle) : base (handle) { } public override void ViewDidLoad () { base.ViewDidLoad (); jeff = new FishingMan(\u0026#34;Jeff\u0026#34;); rod = new FishingRod(); jeff.FishingRod = rod; EventBus eventBus = EventBus.Default; eventBus.Register\u0026lt;FishingEventData\u0026gt;(typeof(FishingEventHandler)); } FishingMan jeff; FishingRod rod; public override NSObject RepresentedObject { get { return base.RepresentedObject; } set { base.RepresentedObject = value; } } partial void Button_Click(NSButton sender) { jeff.Fishing(); TextLabel.StringValue = rod.Message; TextLabel2.StringValue = jeff.Message ?? \u0026#34;\u0026#34;; } } ",
   "keywords": [
     "EventBus", "MacOS", "cocoa"
   ],
-  "articleBody": "EventBus  EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。  Interfaces IEventData public interface IEventData {  DateTime EventTime { get; set; }  object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler : IEventHandler where TEventData : IEventData {  void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData {  public DateTime EventTIme { get; set; }  object EventSource { get; set; }   public EventData()  {  EventTime = DateTime.Now;  } } Domain FishType public enum FishType {  None,  鯽魚,  鯉魚,  黑魚,  青魚,  草魚,  鱸魚 } FishingEventData : EventData public class FishingEventData : EventData {  public FishType FishType { get; set; }  public FishingMan FishingMan { get; set; } } FishingEventHandler : IEventHandler public class FishingEventHandler : IEventHandler {  public void HandleEvent(FishingEventData eventData)  {  var type = eventData.FishType;  var fishMan = eventData.FishingMan;   var Name = fishMan.Name;   if (type == FishType.None)  {  fishMan.Message = string.Format(\"{0}: 沒有釣到魚, 累計釣了{1}條魚\", Name, fishMan.FishCount);  }  else  {  fishMan.FishCount++;  fishMan.Message = string.Format(\"{0}: 釣到一條[{2}], 累計釣了{1}條魚\", Name, fishMan.FishCount, type);  }  } } FishingMan public class FishingMan {  public string Name { get; set; }  public int FishCount { get; set; }  public FishingRod FishingRod { get; set; }   public string Message { get; set; }   public FishingMan(string name)  {  Name = name;  FishCount = 0;  }   public void Fishing()  {  FishingRod.ThrowHook(this);  } } FishingRod  用反射註冊事件  public class FishingRod {  public string Message { get; private set; }   public FishingRod()  {  }   public void ThrowHook(FishingMan man)  {  if (new Random().Next() % 2 == 0)  {  var type = (FishType)(new Random().Next(0, 5) + 1);  Message = (\"魚兒上鉤了!\");  if (FishingEvent != null)  {  var eventData = new FishingEventData  {  FishingMan = man,  FishType = type  };  EventBus.Default.Trigger(eventData);  }  }  else  {  var type = FishType.None;  Message = (\"可惜了!\");  if (FishingEvent != null)  {  var eventData = new FishingEventData  {  FishingMan = man,  FishType = type  };  EventBus.Default.Trigger(eventData);  }  }  } } EventBus 實作  用一個靜態單例來統一管理事件  public class EventBus { \tpublic static EventBus Default = new EventBus();  \tprivate readonly ConcurrentDictionary _eventAndHandlerMapping;  \tprivate EventBus() \t{ \t_eventAndHandlerMapping = new ConcurrentDictionary(); \tMapEventToHandler(); \t}  \tprivate void MapEventToHandler() \t{ \tAssembly assembly = Assembly.GetEntryAssembly(); \tforeach (var type in assembly.GetTypes()) \t{ \tif (typeof(IEventHandler).IsAssignableFrom(type)) \t{ \tType handlerInterface = type.GetInterface(\"IEventHandler`1\"); \tif (handlerInterface == null) continue; \tType eventDataType = handlerInterface.GetGenericArguments()[0];  \tif (_eventAndHandlerMapping.ContainsKey(eventDataType)) \t{ \tList handlerTypes = _eventAndHandlerMapping[eventDataType]; \thandlerTypes.Add(type); \t_eventAndHandlerMapping[eventDataType] = handlerTypes; \t} \telse \t{ \tvar handlerTypes = new List { type }; \t_eventAndHandlerMapping[eventDataType] = handlerTypes; \t} \t} \t} \t}  \tpublic void Register(Type eventHandler) \t{ \tList handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; \tif (!handlerTypes.Contains(eventHandler)) \t{ \thandlerTypes.Add(eventHandler); \t_eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; \t} \t}  \tpublic void Unsubscribe(Type eventHandler) \t{  List handlerTypes = _eventAndHandlerMapping[typeof(TEventData)];  if (!handlerTypes.Contains(eventHandler))  {  handlerTypes.Remove(eventHandler);  _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes;  }  }  \tpublic void Trigger(TEventData eventData) where TEventData : IEventData \t{  List handlers = _eventAndHandlerMapping[eventData.GetType()]; \tif (handlers != null \u0026\u0026 handlers.Count  0) \t{ \tforeach (var handler in handlers) \t{ \tMethodInfo methodInfo = handler.GetMethod(\"HandleEvent\"); \tif (methodInfo != null) \t{ \tobject obj = Activator.CreateInstance(handler); \tmethodInfo.Invoke(obj, new object[] { eventData }); \t} \t} \t}  } } demo  MacOs Cocoa Project  public partial class ViewController : NSViewController {  public ViewController (IntPtr handle) : base (handle)  {  }   public override void ViewDidLoad ()  {  base.ViewDidLoad ();   jeff = new FishingMan(\"Jeff\");  rod = new FishingRod();  jeff.FishingRod = rod;  EventBus eventBus = EventBus.Default;  eventBus.Register(typeof(FishingEventHandler));  }   FishingMan jeff;  FishingRod rod;   public override NSObject RepresentedObject {  get {  return base.RepresentedObject;  }  set {  base.RepresentedObject = value;  }  }   partial void Button_Click(NSButton sender)  {  jeff.Fishing();  TextLabel.StringValue = rod.Message;  TextLabel2.StringValue = jeff.Message ?? \"\";  } } ",
+  "articleBody": "EventBus EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。 Interfaces IEventData public interface IEventData { DateTime EventTime { get; set; } object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler : IEventHandler where TEventData : IEventData { void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData { public DateTime EventTIme { get; set; } object EventSource { get; set; } public EventData() { EventTime = DateTime.Now; } } Domain FishType public enum FishType { None, 鯽魚, 鯉魚, 黑魚, 青魚, 草魚, 鱸魚 } FishingEventData : EventData public class FishingEventData : EventData { public FishType FishType { get; set; } public FishingMan FishingMan { get; set; } } FishingEventHandler : IEventHandler public class FishingEventHandler : IEventHandler { public void HandleEvent(FishingEventData eventData) { var type = eventData.FishType; var fishMan = eventData.FishingMan; var Name = fishMan.Name; if (type == FishType.None) { fishMan.Message = string.Format(\"{0}: 沒有釣到魚, 累計釣了{1}條魚\", Name, fishMan.FishCount); } else { fishMan.FishCount++; fishMan.Message = string.Format(\"{0}: 釣到一條[{2}], 累計釣了{1}條魚\", Name, fishMan.FishCount, type); } } } FishingMan public class FishingMan { public string Name { get; set; } public int FishCount { get; set; } public FishingRod FishingRod { get; set; } public string Message { get; set; } public FishingMan(string name) { Name = name; FishCount = 0; } public void Fishing() { FishingRod.ThrowHook(this); } } FishingRod 用反射註冊事件 public class FishingRod { public string Message { get; private set; } public FishingRod() { } public void ThrowHook(FishingMan man) { if (new Random().Next() % 2 == 0) { var type = (FishType)(new Random().Next(0, 5) + 1); Message = (\"魚兒上鉤了!\"); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger(eventData); } } else { var type = FishType.None; Message = (\"可惜了!\"); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger(eventData); } } } } EventBus 實作 用一個靜態單例來統一管理事件 public class EventBus { public static EventBus Default =\u003e new EventBus(); private readonly ConcurrentDictionary",
   "wordCount" : "573",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-09-25T23:50:02+08:00",
   "dateModified": "2023-09-25T23:50:02+08:00",
   "author":{
@@ -130,14 +647,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/it/eventbus/"
+    "@id": "http://localhost:1313/it/eventbus/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +676,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +700,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,20 +747,21 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/it/">ITs</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/it/">ITs</a></div>
+    <h1 class="post-title entry-hint-parent">
       [IT] 事件總線 EventBus
     </h1>
-    <div class="post-meta"><span title='2023-09-25 23:50:02 +0800 CST'>September 25, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/EventBus.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-09-25 23:50:02 +0800 CST'>September 25, 2023</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/EventBus.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -352,8 +870,7 @@
 </script>
 
   <div class="post-content"><h1 id="eventbus">EventBus<a hidden class="anchor" aria-hidden="true" href="#eventbus">#</a></h1>
-<p><img loading="lazy" src="https://th.bing.com/th/id/R.87d7f0f7e01b188aa312c91b2be45fe8?rik=TjWnWJ%2fkTukAaA&amp;pid=ImgRaw&amp;r=0" alt="eventBus"  />
-</p>
+<p><img alt="eventBus" loading="lazy" src="https://th.bing.com/th/id/R.87d7f0f7e01b188aa312c91b2be45fe8?rik=TjWnWJ%2fkTukAaA&pid=ImgRaw&r=0"></p>
 <ul>
 <li>EventBus 用於維護一個事件源與事件處理的映射字典</li>
 <li>通過 Singleton，確保 EventBus 的唯一入口</li>
@@ -499,11 +1016,11 @@
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> EventBus Default =&gt; <span style="color:#66d9ef">new</span> EventBus();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt; <span style="color:#ae81ff">_</span>eventAndHandlerMapping;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt; _eventAndHandlerMapping;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">private</span> EventBus()
 </span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>		<span style="color:#ae81ff">_</span>eventAndHandlerMapping = <span style="color:#66d9ef">new</span> ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt;();
+</span></span><span style="display:flex;"><span>		_eventAndHandlerMapping = <span style="color:#66d9ef">new</span> ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt;();
 </span></span><span style="display:flex;"><span>		MapEventToHandler();
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
@@ -518,16 +1035,16 @@
 </span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> (handlerInterface == <span style="color:#66d9ef">null</span>) <span style="color:#66d9ef">continue</span>;
 </span></span><span style="display:flex;"><span>				Type eventDataType = handlerInterface.GetGenericArguments()[<span style="color:#ae81ff">0</span>];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">_</span>eventAndHandlerMapping.ContainsKey(eventDataType))
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> (_eventAndHandlerMapping.ContainsKey(eventDataType))
 </span></span><span style="display:flex;"><span>				{
-</span></span><span style="display:flex;"><span>					List&lt;Type&gt; handlerTypes = <span style="color:#ae81ff">_</span>eventAndHandlerMapping[eventDataType];
+</span></span><span style="display:flex;"><span>					List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[eventDataType];
 </span></span><span style="display:flex;"><span>					handlerTypes.Add(type);
-</span></span><span style="display:flex;"><span>					<span style="color:#ae81ff">_</span>eventAndHandlerMapping[eventDataType] = handlerTypes;
+</span></span><span style="display:flex;"><span>					_eventAndHandlerMapping[eventDataType] = handlerTypes;
 </span></span><span style="display:flex;"><span>				}
 </span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">else</span>
 </span></span><span style="display:flex;"><span>				{
 </span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">var</span> handlerTypes = <span style="color:#66d9ef">new</span> List&lt;Type&gt; { type };
-</span></span><span style="display:flex;"><span>					<span style="color:#ae81ff">_</span>eventAndHandlerMapping[eventDataType] = handlerTypes;
+</span></span><span style="display:flex;"><span>					_eventAndHandlerMapping[eventDataType] = handlerTypes;
 </span></span><span style="display:flex;"><span>				}
 </span></span><span style="display:flex;"><span>			}
 </span></span><span style="display:flex;"><span>		}
@@ -535,27 +1052,27 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Register&lt;TEventData&gt;(Type eventHandler)
 </span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>		List&lt;Type&gt; handlerTypes = <span style="color:#ae81ff">_</span>eventAndHandlerMapping[<span style="color:#66d9ef">typeof</span>(TEventData)];
+</span></span><span style="display:flex;"><span>		List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[<span style="color:#66d9ef">typeof</span>(TEventData)];
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (!handlerTypes.Contains(eventHandler))
 </span></span><span style="display:flex;"><span>		{
 </span></span><span style="display:flex;"><span>			handlerTypes.Add(eventHandler);
-</span></span><span style="display:flex;"><span>			<span style="color:#ae81ff">_</span>eventAndHandlerMapping[<span style="color:#66d9ef">typeof</span>(TEventData)] = handlerTypes;
+</span></span><span style="display:flex;"><span>			_eventAndHandlerMapping[<span style="color:#66d9ef">typeof</span>(TEventData)] = handlerTypes;
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Unsubscribe&lt;TEventData&gt;(Type eventHandler)
 </span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>        List&lt;Type&gt; handlerTypes = <span style="color:#ae81ff">_</span>eventAndHandlerMapping[<span style="color:#66d9ef">typeof</span>(TEventData)];
+</span></span><span style="display:flex;"><span>        List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[<span style="color:#66d9ef">typeof</span>(TEventData)];
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (!handlerTypes.Contains(eventHandler))
 </span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>            handlerTypes.Remove(eventHandler);
-</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">_</span>eventAndHandlerMapping[<span style="color:#66d9ef">typeof</span>(TEventData)] = handlerTypes;
+</span></span><span style="display:flex;"><span>            _eventAndHandlerMapping[<span style="color:#66d9ef">typeof</span>(TEventData)] = handlerTypes;
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Trigger&lt;TEventData&gt;(TEventData eventData) <span style="color:#66d9ef">where</span> TEventData : IEventData
 </span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>        List&lt;Type&gt; handlers = <span style="color:#ae81ff">_</span>eventAndHandlerMapping[eventData.GetType()];
+</span></span><span style="display:flex;"><span>        List&lt;Type&gt; handlers = _eventAndHandlerMapping[eventData.GetType()];
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (handlers != <span style="color:#66d9ef">null</span> &amp;&amp; handlers.Count &gt; <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>		{
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> handler <span style="color:#66d9ef">in</span> handlers)
@@ -616,7 +1133,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/it/">IT</a></li>
+      <li><a href="http://localhost:1313/tags/it/">IT</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -631,11 +1148,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -704,12 +1222,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

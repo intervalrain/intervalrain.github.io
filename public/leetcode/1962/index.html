@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 1962. Remove Stones to Minimize the Total | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="1962. Remove Stones to Minimize the Total
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Heap (Priority Queue)   一、題目 You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:
-Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that you can apply the operation on the same pile more than once.">
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Heap (Priority Queue)
+
+
+一、題目
+You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:
+Choose any piles[i] and remove floor(piles[i] / 2) stones from it.
+Notice that you can apply the operation on the same pile more than once.
+Return the minimum possible total number of stones remaining after applying the k operations.
+floor(x) is the greatest integer that is smaller than or equal to x (i.e., rounds x down).">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/1962/">
 <noscript>
     <style>
         #theme-toggle,
@@ -42,7 +49,7 @@ Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that y
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -75,21 +82,35 @@ Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that y
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 1962. Remove Stones to Minimize the Total" />
-<meta property="og:description" content="1962. Remove Stones to Minimize the Total
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Heap (Priority Queue)   一、題目 You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:
-Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that you can apply the operation on the same pile more than once." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/1962/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-12-29T00:03:22&#43;08:00" />
-<meta property="article:modified_time" content="2022-12-29T00:03:22&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 1962. Remove Stones to Minimize the Total"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/1962/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 1962. Remove Stones to Minimize the Total">
+  <meta property="og:description" content="1962. Remove Stones to Minimize the Total
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Heap (Priority Queue) 一、題目 You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:
+Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that you can apply the operation on the same pile more than once.
+Return the minimum possible total number of stones remaining after applying the k operations.
+floor(x) is the greatest integer that is smaller than or equal to x (i.e., rounds x down).">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-12-29T00:03:22+08:00">
+    <meta property="article:modified_time" content="2022-12-29T00:03:22+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 1962. Remove Stones to Minimize the Total">
 <meta name="twitter:description" content="1962. Remove Stones to Minimize the Total
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Heap (Priority Queue)   一、題目 You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:
-Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that you can apply the operation on the same pile more than once."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Heap (Priority Queue)
+
+
+一、題目
+You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:
+Choose any piles[i] and remove floor(piles[i] / 2) stones from it.
+Notice that you can apply the operation on the same pile more than once.
+Return the minimum possible total number of stones remaining after applying the k operations.
+floor(x) is the greatest integer that is smaller than or equal to x (i.e., rounds x down).">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -100,14 +121,8 @@ Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that y
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 1962. Remove Stones to Minimize the Total",
-      "item": "https://intervalrain.github.io/leetcode/1962/"
+      "item": "http://localhost:1313/leetcode/1962/"
     }
   ]
 }
@@ -118,13 +133,13 @@ Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that y
   "@type": "BlogPosting",
   "headline": "[LeetCode] 1962. Remove Stones to Minimize the Total",
   "name": "[LeetCode] 1962. Remove Stones to Minimize the Total",
-  "description": "1962. Remove Stones to Minimize the Total\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Heap (Priority Queue)   一、題目 You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:\nChoose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that you can apply the operation on the same pile more than once.",
+  "description": "1962. Remove Stones to Minimize the Total\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Heap (Priority Queue) 一、題目 You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:\nChoose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that you can apply the operation on the same pile more than once.\nReturn the minimum possible total number of stones remaining after applying the k operations.\nfloor(x) is the greatest integer that is smaller than or equal to x (i.e., rounds x down).\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "1962. Remove Stones to Minimize the Total\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Heap (Priority Queue)   一、題目 You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:\nChoose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that you can apply the operation on the same pile more than once.\nReturn the minimum possible total number of stones remaining after applying the k operations.\nfloor(x) is the greatest integer that is smaller than or equal to x (i.e., rounds x down).\nExample 1:\n Input: piles = [5,4,9], k = 2 Output: 12 Explanation: Steps of a possible scenario are:   Apply the operation on pile 2. The resulting piles are [5,4,5]. Apply the operation on pile 0. The resulting piles are [3,4,5].\nThe total number of stones in [3,4,5] is 12.  Example 2:\n Input: piles = [4,3,6,7], k = 3 Output: 12 Explanation: Steps of a possible scenario are:   Apply the operation on pile 2. The resulting piles are [4,3,3,7]. Apply the operation on pile 3. The resulting piles are [4,3,3,4]. Apply the operation on pile 0. The resulting piles are [2,3,3,4].\nThe total number of stones in [2,3,3,4] is 12.  Constraints:\n 1  1  1    二、分析  用 greedy 的思維來思考這一題，每次動作會減去 piles[i] 一半的石頭，要使 k 次後石頭總數最小，那必定是每次都要選在石頭最多的堆來動作。 由於石頭最多的堆是動態更新的，也就是說不能單純用 sort 來解決。舉例來說，每堆的石頭有非常多，那它執行許多次動作仍可能是最多的。 利用 max heap 將最多石頭的堆重覆推到 top，反覆動作 k 次即可解。  三、解題 1. Heap (Priority Queue)  Time complexity: \\(O(k\\log n+n)\\) Space complexity: \\(O(n)\\)  int minStoneSum(vectorint\u0026 piles, int k) {  priority_queueint pq;  int res = 0;  for (const auto\u0026 pile : piles) {  pq.push(pile); // 先將所有堆都推到 priority queue 上  res += pile; // 順便將原本的石頭總數算出來  }  while (k--) {  int curr = pq.top(); pq.pop();  int loss = curr  1; // 當下的 max heap 的堆頂除於 2 即為當下可以一次取到最多的石頭  pq.push(curr - loss); // 將取完的堆放回 priority queue 上  res -= loss; // 將總數減掉拿掉的石頭  }  return res; } 回目錄 Catalog\n",
+  "articleBody": "1962. Remove Stones to Minimize the Total\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Heap (Priority Queue) 一、題目 You are given a 0-indexed integer array piles, where piles[i] represents the number of stones in the ith pile, and an integer k. You should apply the following operation exactly k times:\nChoose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that you can apply the operation on the same pile more than once.\nReturn the minimum possible total number of stones remaining after applying the k operations.\nfloor(x) is the greatest integer that is smaller than or equal to x (i.e., rounds x down).\nExample 1:\nInput: piles = [5,4,9], k = 2 Output: 12 Explanation: Steps of a possible scenario are: Apply the operation on pile 2. The resulting piles are [5,4,5]. Apply the operation on pile 0. The resulting piles are [3,4,5].\nThe total number of stones in [3,4,5] is 12. Example 2:\nInput: piles = [4,3,6,7], k = 3 Output: 12 Explanation: Steps of a possible scenario are: Apply the operation on pile 2. The resulting piles are [4,3,3,7]. Apply the operation on pile 3. The resulting piles are [4,3,3,4]. Apply the operation on pile 0. The resulting piles are [2,3,3,4].\nThe total number of stones in [2,3,3,4] is 12. Constraints:\n1 \u003c= piles.length \u003c= 10^5 1 \u003c= piles[i] \u003c= 10^4 1 \u003c= k \u003c= 10^5 二、分析 用 greedy 的思維來思考這一題，每次動作會減去 piles[i] 一半的石頭，要使 k 次後石頭總數最小，那必定是每次都要選在石頭最多的堆來動作。 由於石頭最多的堆是動態更新的，也就是說不能單純用 sort 來解決。舉例來說，每堆的石頭有非常多，那它執行許多次動作仍可能是最多的。 利用 max heap 將最多石頭的堆重覆推到 top，反覆動作 k 次即可解。 三、解題 1. Heap (Priority Queue) Time complexity: \\(O(k\\log n+n)\\) Space complexity: \\(O(n)\\) int minStoneSum(vector\u003cint\u003e\u0026 piles, int k) { priority_queue\u003cint\u003e pq; int res = 0; for (const auto\u0026 pile : piles) { pq.push(pile); // 先將所有堆都推到 priority queue 上 res += pile; // 順便將原本的石頭總數算出來 } while (k--) { int curr = pq.top(); pq.pop(); int loss = curr \u003e\u003e 1; // 當下的 max heap 的堆頂除於 2 即為當下可以一次取到最多的石頭 pq.push(curr - loss); // 將取完的堆放回 priority queue 上 res -= loss; // 將總數減掉拿掉的石頭 } return res; } 回目錄 Catalog\n",
   "wordCount" : "329",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-12-29T00:03:22+08:00",
   "dateModified": "2022-12-29T00:03:22+08:00",
   "author":{
@@ -133,14 +148,14 @@ Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that y
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/1962/"
+    "@id": "http://localhost:1313/leetcode/1962/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -162,17 +177,17 @@ Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that y
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -186,46 +201,46 @@ Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that y
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -233,20 +248,21 @@ Choose any piles[i] and remove floor(piles[i] / 2) stones from it. Notice that y
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 1962. Remove Stones to Minimize the Total
     </h1>
-    <div class="post-meta"><span title='2022-12-29 00:03:22 +0800 CST'>December 29, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/1962.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-12-29 00:03:22 +0800 CST'>December 29, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/1962.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -403,16 +419,16 @@ The total number of stones in [2,3,3,4] is 12.</li>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/1834/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/1834/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 1834. Single-Threaded CPU</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/2279/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/2279/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 2279. Maximum Bags With Full Capacity of Rocks</span>
   </a>
@@ -430,11 +446,12 @@ The total number of stones in [2,3,3,4] is 12.</li>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -503,12 +520,12 @@ The total number of stones in [2,3,3,4] is 12.</li>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

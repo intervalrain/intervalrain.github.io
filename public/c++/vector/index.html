@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[C&#43;&#43;] STL: Vector 的使用與實作 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="C&#43;&#43;, STL, vector" />
+<meta name="keywords" content="C&#43;&#43;, STL, vector">
 <meta name="description" content="C&#43;&#43; 中 STL 的 vector 的用法整理">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/c&#43;&#43;/vector/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,19 +71,23 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[C&#43;&#43;] STL: Vector 的使用與實作" />
-<meta property="og:description" content="C&#43;&#43; 中 STL 的 vector 的用法整理" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/c&#43;&#43;/vector/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/cover.jpg" /><meta property="article:section" content="C&#43;&#43;" />
-<meta property="article:published_time" content="2022-04-03T18:14:14&#43;08:00" />
-<meta property="article:modified_time" content="2022-04-03T18:14:14&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/cover.jpg" />
-<meta name="twitter:title" content="[C&#43;&#43;] STL: Vector 的使用與實作"/>
-<meta name="twitter:description" content="C&#43;&#43; 中 STL 的 vector 的用法整理"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/c&#43;&#43;/vector/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[C&#43;&#43;] STL: Vector 的使用與實作">
+  <meta property="og:description" content="C&#43;&#43; 中 STL 的 vector 的用法整理">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="c&#43;&#43;">
+    <meta property="article:published_time" content="2022-04-03T18:14:14+08:00">
+    <meta property="article:modified_time" content="2022-04-03T18:14:14+08:00">
+    <meta property="article:tag" content="C&#43;&#43;">
+    <meta property="article:tag" content="Programming">
+    <meta property="og:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:title" content="[C&#43;&#43;] STL: Vector 的使用與實作">
+<meta name="twitter:description" content="C&#43;&#43; 中 STL 的 vector 的用法整理">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,13 +99,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "C++s",
-      "item": "https://intervalrain.github.io/c++/"
+      "item": "http://localhost:1313/c++/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[C++] STL: Vector 的使用與實作",
-      "item": "https://intervalrain.github.io/c++/vector/"
+      "item": "http://localhost:1313/c++/vector/"
     }
   ]
 }
@@ -118,10 +120,10 @@
   "keywords": [
     "C++", "STL", "vector"
   ],
-  "articleBody": "vector 的介紹  vector 是可變大小陣列的序列容器，採用連續的儲存空間來儲存元素，意味著可以採用下標來對 vector 的元素進行存取，和陣列 array 一樣高效，但是又不像陣列的大小是固定的，vector 的大小可以被動態處理，隨著元素量而增加。 #include   vector 的使用 建構式 constructor vectorint v1; // 不進行初始化 vectorint v2 = {1,2,3}; // 像陣列一樣初始化 vectorint v3(v2); // 利用vector初始化 vectorint v4(v2.begin(), v2.end()-1); // 利用iterator初始化 vectorint v5(3, 0); // 含有3個0的vector  談一下特殊的二維vector，其實就是二維矩陣，寫法為  vectorvectorint vv(3, vectorint(5, 0)); // vv[0] = [0, 0, 0, 0, 0] // vv[1] = [0, 0, 0, 0, 0] // vv[2] = [0, 0, 0, 0, 0] 遍歷 traverse  遍歷的方法有三種，分別是iterator，for loop，[]，其中**[]下標運算子只有string和vector**可以使用，因為他們的地址是連續的。 三種方法均是可讀、可寫。  vectorint v = {0, 9, 3, 1, 6, 3, 9, 4, 3, 3};  // 1. iterator vectorint::iterator it = v.begin(); while (it != v.end()){  cout  *it  \" \";  it++; } cout  endl;  // 2. for loop for (int e : v){  cout  e  \" \"; cout  endl; }  // 3. [] for (size_t i = 0; i  v.size(); ++i){  cout  v[i]  \" \"; cout  endl; }  資料的資刪查改 \\( \\def\\arraystrecth{1.4}\\begin{array}{|l|l|}\\hline \\text{methods}\u0026\\text{description}\\\\\\hline\\hline \\text{push\\_back}\u0026\\text{Add element at the end}\\\\\\hline \\text{pop\\_back}\u0026\\text{Delete last element}\\\\\\hline \\text{insert}\u0026\\text{Insert elements}\\\\\\hline \\text{erase}\u0026\\text{Erase elements}\\\\\\hline \\end{array} \\)\n#include #include  using namespace std;  int main(){  vectorint vec;  vec.push_back(0); [0]  vec.push_back(1); [0,1]  vec.push_back(3); [0,1,3]  vec.push_back(4); [0,1,3,4]  vec.pop_back(); [0,1,3]  vectorint::iterator it = vec.begin();  vec.insert(it + 2, 2); // 在下標為1的位置，插入2 [0,1,2,3]  vec.erase(it); [1,2,3]   return 0; } resize 和 reserve int main(){  cout  \"size: \"  v.size()  \"\\n\"; // 0  cout  \"capacity: \"  v.capacity()()  \"\\n\"; // 0  v.resize(30);  cout  \"size: \"  v.size()  \"\\n\"; // 30  cout  \"capacity: \"  v.capacity()()  \"\\n\"; // 30  v.reservse(50);  cout  \"size: \"  v.size()  \"\\n\"; // 30  cout  \"capacity: \"  v.capacity()()  \"\\n\"; // 50 } vector 的實作 member variables template class T class myVector{ private:  size_t _size; // 儲存現有 elements 的數目  size_t _capacity; // 此時陣列所有的最大容量 public:  T* arr; // 儲存 elements 的陣列指標 }; 建構式 constructor public:  // 無引數的初始化  myVector(){  this-_size = 0;  this-_capacity = DEFAULT_CAPACITY;  this-arr = new int[this-_capacity];  }   // 指定容量的初始化  myVector(int capacity){  this-_size = 0;  this-_capacity = capacity;  this-arr = new int[this-capacity];  }   // 以另一個 myVector 初始化  myVector(const myVectorT\u0026 v):  _size(v.size),  _capacity(v._capacity)  {  this-reserve(v.capacity);  for (size_t i = 0; i  v._size; ++i){  this-push_back(v[i]);  }  }   // 填滿 n 個 val 的初始化  myVector(size_t n, T val):  _size(n),  _capacity(n)  {  this-arr = new int[this-_capacity];  for (size_t i = 0; i  n; ++i){  this-arr[i] = val;  }  } 解構式 destructor public:  ~myVector(){  // 將原有的陣列丟棄  delete[] this-arr;  } 運算子多載 operator overload public:  // 令 myVector 可讀可寫  T\u0026 operator[](size_t i){  assert (i  this-_size);  return this-arr[i];  } 函式 Methods public:  // 回傳 vector 元素的數目  size_t size(){  return this-_size;  }   // 回傳當前 vector 的容量  size_t capacity(){  return this-_capacity;  }   // 回傳指向陣列的下標 0 位置  T* begin(){  return this-arr;  }   // 回傳指向陣列的最末位 + 1  T* end(){  return this-arr + this-_size;  }   const T* begin() const{  return this-arr;  }   const T* end() const{  return this-arr + this-_size;  }   // 回傳此 myVector 是否含有元素  bool isEmpty(){  return this-_size == 0;  } reserve 和 resize public:  // force to resize with a n capacity  void reserve(size_t n){  if (n  this-_capacity){  T* tmp = new T[n];  if (arr != nullptr){  for (size_t i = 0; i  this-_size; ++i){  tmp[i] = this-arr[i];  }  delete[] this-arr;  }  this-arr = tmp;  _capacity = n;  }  }   // expand the capacity while adding elements  void resize(){  this-_capacity *= 2;  int* tmp = new int[this-_capacity];  for (size_t i = 0; i  this-_size; ++i){  tmp[i] = this-arr[i];  }  delete[] this-arr;  this-arr = tmp;  } 資料的增刪查改 public:   // adding elements in the last of vector  void push_back(T val){  if (this-_capacity  this-_size + 1)  resize();  this-arr[this-_size] = val;  this-_size++;  }   // remove elements in the last of vector  T pop_back(){  assert(!this-isEmpty());  T tmp = *(this-end()-1);  this-_size--;  return tmp;  }   // insert element by the index.  void insert(size_t i, T val){  assert (i  this-_size);  if (this-_size + 1  this-capacity()) resize();  int* ptr = this-begin() + i;  for (int* it = this-end(); it != ptr; --it)  *it = *(it - 1);  *ptr = val;  this-_size++;  }   //erase element by the index  T erase(size_t i){  assert(i  this-_size);  int* it = this-begin() + i;  T tmp = *it;  for (; it != this-end(); ++it){  *it = *(it + 1);  }  this-_size--;  return tmp;  } Reference: 有解無憂 UJ5U.com\n",
-  "wordCount" : "699",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/cover.jpg","datePublished": "2022-04-03T18:14:14+08:00",
+  "articleBody": "vector 的介紹 vector 是可變大小陣列的序列容器，採用連續的儲存空間來儲存元素，意味著可以採用下標來對 vector 的元素進行存取，和陣列 array 一樣高效，但是又不像陣列的大小是固定的，vector 的大小可以被動態處理，隨著元素量而增加。 #include vector 的使用 建構式 constructor vector\u003cint\u003e v1; // 不進行初始化 vector\u003cint\u003e v2 = {1,2,3}; // 像陣列一樣初始化 vector\u003cint\u003e v3(v2); // 利用vector初始化 vector\u003cint\u003e v4(v2.begin(), v2.end()-1); // 利用iterator初始化 vector\u003cint\u003e v5(3, 0); // 含有3個0的vector 談一下特殊的二維vector，其實就是二維矩陣，寫法為 vector\u003cvector\u003cint\u003e\u003e vv(3, vector\u003cint\u003e(5, 0)); // vv[0] = [0, 0, 0, 0, 0] // vv[1] = [0, 0, 0, 0, 0] // vv[2] = [0, 0, 0, 0, 0] 遍歷 traverse 遍歷的方法有三種，分別是iterator，for loop，[]，其中**[]下標運算子只有string和vector**可以使用，因為他們的地址是連續的。 三種方法均是可讀、可寫。 vector\u003cint\u003e v = {0, 9, 3, 1, 6, 3, 9, 4, 3, 3}; // 1. iterator vector\u003cint\u003e::iterator it = v.begin(); while (it != v.end()){ cout \u003c\u003c *it \u003c\u003c \" \"; it++; } cout \u003c\u003c endl; // 2. for loop for (int e : v){ cout \u003c\u003c e \u003c\u003c \" \"; cout \u003c\u003c endl; } // 3. [] for (size_t i = 0; i \u003c v.size(); ++i){ cout \u003c\u003c v[i] \u003c\u003c \" \"; cout \u003c\u003c endl; } 資料的資刪查改 \\( \\def\\arraystrecth{1.4}\\begin{array}{|l|l|}\\hline \\text{methods}\u0026\\text{description}\\\\\\hline\\hline \\text{push\\_back}\u0026\\text{Add element at the end}\\\\\\hline \\text{pop\\_back}\u0026\\text{Delete last element}\\\\\\hline \\text{insert}\u0026\\text{Insert elements}\\\\\\hline \\text{erase}\u0026\\text{Erase elements}\\\\\\hline \\end{array} \\)\n#include #include using namespace std; int main(){ vector\u003cint\u003e vec; vec.push_back(0); [0] vec.push_back(1); [0,1] vec.push_back(3); [0,1,3] vec.push_back(4); [0,1,3,4] vec.pop_back(); [0,1,3] vector\u003cint\u003e::iterator it = vec.begin(); vec.insert(it + 2, 2); // 在下標為1的位置，插入2 [0,1,2,3] vec.erase(it); [1,2,3] return 0; } resize 和 reserve int main(){ cout \u003c\u003c \"size: \" \u003c\u003c v.size() \u003c\u003c \"\\n\"; // 0 cout \u003c\u003c \"capacity: \" \u003c\u003c v.capacity()() \u003c\u003c \"\\n\"; // 0 v.resize(30); cout \u003c\u003c \"size: \" \u003c\u003c v.size() \u003c\u003c \"\\n\"; // 30 cout \u003c\u003c \"capacity: \" \u003c\u003c v.capacity()() \u003c\u003c \"\\n\"; // 30 v.reservse(50); cout \u003c\u003c \"size: \" \u003c\u003c v.size() \u003c\u003c \"\\n\"; // 30 cout \u003c\u003c \"capacity: \" \u003c\u003c v.capacity()() \u003c\u003c \"\\n\"; // 50 } vector 的實作 member variables template \u003cclass T\u003e class myVector{ private: size_t _size; // 儲存現有 elements 的數目 size_t _capacity; // 此時陣列所有的最大容量 public: T* arr; // 儲存 elements 的陣列指標 }; 建構式 constructor public: // 無引數的初始化 myVector(){ this-\u003e_size = 0; this-\u003e_capacity = DEFAULT_CAPACITY; this-\u003earr = new int[this-\u003e_capacity]; } // 指定容量的初始化 myVector(int capacity){ this-\u003e_size = 0; this-\u003e_capacity = capacity; this-\u003earr = new int[this-\u003ecapacity]; } // 以另一個 myVector 初始化 myVector(const myVector\u003cT\u003e\u0026 v): _size(v.size), _capacity(v._capacity) { this-\u003ereserve(v.capacity); for (size_t i = 0; i \u003c v._size; ++i){ this-\u003epush_back(v[i]); } } // 填滿 n 個 val 的初始化 myVector(size_t n, T val): _size(n), _capacity(n) { this-\u003earr = new int[this-\u003e_capacity]; for (size_t i = 0; i \u003c n; ++i){ this-\u003earr[i] = val; } } 解構式 destructor public: ~myVector(){ // 將原有的陣列丟棄 delete[] this-\u003earr; } 運算子多載 operator overload public: // 令 myVector 可讀可寫 T\u0026 operator[](size_t i){ assert (i \u003c this-\u003e_size); return this-\u003earr[i]; } 函式 Methods public: // 回傳 vector 元素的數目 size_t size(){ return this-\u003e_size; } // 回傳當前 vector 的容量 size_t capacity(){ return this-\u003e_capacity; } // 回傳指向陣列的下標 0 位置 T* begin(){ return this-\u003earr; } // 回傳指向陣列的最末位 + 1 T* end(){ return this-\u003earr + this-\u003e_size; } const T* begin() const{ return this-\u003earr; } const T* end() const{ return this-\u003earr + this-\u003e_size; } // 回傳此 myVector 是否含有元素 bool isEmpty(){ return this-\u003e_size == 0; } reserve 和 resize public: // force to resize with a n capacity void reserve(size_t n){ if (n \u003e this-\u003e_capacity){ T* tmp = new T[n]; if (arr != nullptr){ for (size_t i = 0; i \u003c this-\u003e_size; ++i){ tmp[i] = this-\u003earr[i]; } delete[] this-\u003earr; } this-\u003earr = tmp; _capacity = n; } } // expand the capacity while adding elements void resize(){ this-\u003e_capacity *= 2; int* tmp = new int[this-\u003e_capacity]; for (size_t i = 0; i \u003c this-\u003e_size; ++i){ tmp[i] = this-\u003earr[i]; } delete[] this-\u003earr; this-\u003earr = tmp; } 資料的增刪查改 public: // adding elements in the last of vector void push_back(T val){ if (this-\u003e_capacity \u003c this-\u003e_size + 1) resize(); this-\u003earr[this-\u003e_size] = val; this-\u003e_size++; } // remove elements in the last of vector T pop_back(){ assert(!this-\u003eisEmpty()); T tmp = *(this-\u003eend()-1); this-\u003e_size--; return tmp; } // insert element by the index. void insert(size_t i, T val){ assert (i \u003c= this-\u003e_size); if (this-\u003e_size + 1 \u003e this-\u003ecapacity()) resize(); int* ptr = this-\u003ebegin() + i; for (int* it = this-\u003eend(); it != ptr; --it) *it = *(it - 1); *ptr = val; this-\u003e_size++; } //erase element by the index T erase(size_t i){ assert(i \u003c this-\u003e_size); int* it = this-\u003ebegin() + i; T tmp = *it; for (; it != this-\u003eend(); ++it){ *it = *(it + 1); } this-\u003e_size--; return tmp; } Reference: 有解無憂 UJ5U.com\n",
+  "wordCount" : "700",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/cover.jpg","datePublished": "2022-04-03T18:14:14+08:00",
   "dateModified": "2022-04-03T18:14:14+08:00",
   "author":{
     "@type": "Person",
@@ -129,14 +131,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/c++/vector/"
+    "@id": "http://localhost:1313/c++/vector/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -158,17 +160,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -182,46 +184,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -229,26 +231,27 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/c&#43;&#43;/">C&#43;&#43;s</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/c&#43;&#43;/">C&#43;&#43;s</a></div>
+    <h1 class="post-title entry-hint-parent">
       [C&#43;&#43;] STL: Vector 的使用與實作
     </h1>
     <div class="post-description">
       C&#43;&#43; 中 STL 的 vector 的用法整理
     </div>
-    <div class="post-meta"><span title='2022-04-03 18:14:14 +0800 CST'>April 3, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//C&#43;&#43;/vector.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-04-03 18:14:14 +0800 CST'>April 3, 2022</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//C&#43;&#43;/vector.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -396,7 +399,6 @@
 </span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> v[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
 </span></span><span style="display:flex;"><span>cout <span style="color:#f92672">&lt;&lt;</span> endl;
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
 </span></span></code></pre></div><h2 id="資料的資刪查改">資料的資刪查改<a hidden class="anchor" aria-hidden="true" href="#資料的資刪查改">#</a></h2>
 <p>\(
 \def\arraystrecth{1.4}\begin{array}{|l|l|}\hline
@@ -605,8 +607,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
-      <li><a href="https://intervalrain.github.io/tags/programming/">Programming</a></li>
+      <li><a href="http://localhost:1313/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
+      <li><a href="http://localhost:1313/tags/programming/">Programming</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -621,11 +623,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -694,12 +697,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

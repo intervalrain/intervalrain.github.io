@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[C#] Delegate 委派 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="C#, Delegate, 委派" />
+<meta name="keywords" content="C#, Delegate, 委派">
 <meta name="description" content="Introduction to Delegate in C#">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/csharp/delegate/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +74,20 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[C#] Delegate 委派" />
-<meta property="og:description" content="Introduction to Delegate in C#" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/csharp/delegate/" /><meta property="article:section" content="Csharp" />
-<meta property="article:published_time" content="2023-02-26T19:24:56&#43;08:00" />
-<meta property="article:modified_time" content="2023-02-26T19:24:56&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[C#] Delegate 委派"/>
-<meta name="twitter:description" content="Introduction to Delegate in C#"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/csharp/delegate/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[C#] Delegate 委派">
+  <meta property="og:description" content="Introduction to Delegate in C#">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="csharp">
+    <meta property="article:published_time" content="2023-02-26T19:24:56+08:00">
+    <meta property="article:modified_time" content="2023-02-26T19:24:56+08:00">
+    <meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[C#] Delegate 委派">
+<meta name="twitter:description" content="Introduction to Delegate in C#">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +99,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Csharps",
-      "item": "https://intervalrain.github.io/csharp/"
+      "item": "http://localhost:1313/csharp/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[C#] Delegate 委派",
-      "item": "https://intervalrain.github.io/csharp/delegate/"
+      "item": "http://localhost:1313/csharp/delegate/"
     }
   ]
 }
@@ -119,9 +120,9 @@
   "keywords": [
     "C#", "Delegate", "委派"
   ],
-  "articleBody": "1. 委派語法  委派 (Delegate) 類似於 C/C++ 中的函式指針，是可存有對某個方法的引用的一種引用類型變數。 宣告語法：delegate    // 宣告一個委派，裝載 void function(string) public delegate void PrintString(string text); public static void Main(string[] args) { // 新增一個委派事件，指向 ToUpperCase PrintString e = new PrintString(ToUpperCase); string text = \"Hello World!\"; e.Invoke(text); // HELLO WORLD! // 將另一個事件加到委派中，指向 ToLowerCase e += ToLowerCase; e.Invoke(text); // HELLO WORLD! // hello world! // 將委派中的 ToUpperCase 取消掉 e -= ToUpperCase; e.Invoke(text); // hello world! } public static void ToUpperCase(string text) { Console.WriteLine(text.ToUpper()); } public static void ToLowerCase(string text) = Console.WriteLine(text.ToLower()); 2. 簡化事件註冊  假設想為一個按鍵註冊事件：  // 定義 EventHandler 為可以接收物件與傳參的委派 public delegate void EventHandler(object sender, EventArgs e); // 定義傳參可以儲存的內容 public class HandleClickEventArgs : EventArgs { public string Message; } // 創建一個按鍵並為其創建一個可以註冊事件的委派 public class Button { public string name; public Button(string _name) { name = _name; } // 在物件內部定義一個委派存放事件 private event EventHandler Click; public notify() { // 執行委派 // Handler.Invoke(this, e); Handler(this, e); } } // 註冊事件的傳參需與委派的傳參一致 private static void Click(object sender, EventArgs e) { Console.WriteLine( sender.GetType() + \" \" + (e as HandleClickEventArgs)?.Message ); } public void static Main(string[] args) { EventArgs = new HandleClikEventArgs() { Message = \"is clicked!\" }; Button button = new Button(\"TV Remote Button\"); button.Click += new EventHandler(Click); button.Click += Click; button.Click += delegate { Console.WriteLine(\"Check! Check!\"); }; button.Click += (sender, e) = Console.WriteLine( (sender as Button)?.name + \" \" + (e as HandleClickEventArgs)?.Message ); button.notify(e); // Button is clicked! // Button is clicked! // Check! Check! // TV Remote Button is clicked! }  注意到 Button 內有一個委派被定義為 delegate void function(object sender, EventArgs e)，並被命名為 Click，故我們會向它註冊事件。  在 C#1 中，完整的寫法是：  button.Click += new EventHandler(Click);   在 C#2，透過 Method group conversion 可將其簡化成(條件是兩者的傳參要相同)：  button.Click += Click;   如果方法較簡單也可以透過匿名方法(anonymous method)註冊：  需要傳參時：  button.Click += delegate(object sender, EventArgs e) { Console.WriteLine(\"Click!\"); };   不需要傳參時：  button.Click += delegate { Console.WriteLine(\"Click!\"); };     在 C#3 中，可以透過 Lambda 表達式來創建。  button.Click += (sender, e) = Console.WriteLine(\"Click!\");      ",
+  "articleBody": "1. 委派語法 委派 (Delegate) 類似於 C/C++ 中的函式指針，是可存有對某個方法的引用的一種引用類型變數。 宣告語法：delegate // 宣告一個委派，裝載 void function(string) public delegate void PrintString(string text); public static void Main(string[] args) { // 新增一個委派事件，指向 ToUpperCase PrintString e = new PrintString(ToUpperCase); string text = \"Hello World!\"; e.Invoke(text); // HELLO WORLD! // 將另一個事件加到委派中，指向 ToLowerCase e += ToLowerCase; e.Invoke(text); // HELLO WORLD! // hello world! // 將委派中的 ToUpperCase 取消掉 e -= ToUpperCase; e.Invoke(text); // hello world! } public static void ToUpperCase(string text) { Console.WriteLine(text.ToUpper()); } public static void ToLowerCase(string text) =\u003e Console.WriteLine(text.ToLower()); 2. 簡化事件註冊 假設想為一個按鍵註冊事件： // 定義 EventHandler 為可以接收物件與傳參的委派 public delegate void EventHandler(object sender, EventArgs e); // 定義傳參可以儲存的內容 public class HandleClickEventArgs : EventArgs { public string Message; } // 創建一個按鍵並為其創建一個可以註冊事件的委派 public class Button { public string name; public Button(string _name) { name = _name; } // 在物件內部定義一個委派存放事件 private event EventHandler Click; public notify() { // 執行委派 // Handler.Invoke(this, e); Handler(this, e); } } // 註冊事件的傳參需與委派的傳參一致 private static void Click(object sender, EventArgs e) { Console.WriteLine( sender.GetType() + \" \" + (e as HandleClickEventArgs)?.Message ); } public void static Main(string[] args) { EventArgs = new HandleClikEventArgs() { Message = \"is clicked!\" }; Button button = new Button(\"TV Remote Button\"); button.Click += new EventHandler(Click); button.Click += Click; button.Click += delegate { Console.WriteLine(\"Check! Check!\"); }; button.Click += (sender, e) =\u003e Console.WriteLine( (sender as Button)?.name + \" \" + (e as HandleClickEventArgs)?.Message ); button.notify(e); // Button is clicked! // Button is clicked! // Check! Check! // TV Remote Button is clicked! } 注意到 Button 內有一個委派被定義為 delegate void function(object sender, EventArgs e)，並被命名為 Click，故我們會向它註冊事件。 在 C#1 中，完整的寫法是： button.Click += new EventHandler(Click); 在 C#2，透過 Method group conversion 可將其簡化成(條件是兩者的傳參要相同)： button.Click += Click; 如果方法較簡單也可以透過匿名方法(anonymous method)註冊： 需要傳參時： button.Click += delegate(object sender, EventArgs e) { Console.WriteLine(\"Click!\"); }; 不需要傳參時： button.Click += delegate { Console.WriteLine(\"Click!\"); }; 在 C#3 中，可以透過 Lambda 表達式來創建。 button.Click += (sender, e) =\u003e Console.WriteLine(\"Click!\"); ",
   "wordCount" : "296",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-02-26T19:24:56+08:00",
   "dateModified": "2023-02-26T19:24:56+08:00",
   "author":{
@@ -130,14 +131,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/csharp/delegate/"
+    "@id": "http://localhost:1313/csharp/delegate/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +160,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +184,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,23 +231,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/csharp/">Csharps</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/csharp/">Csharps</a></div>
+    <h1 class="post-title entry-hint-parent">
       [C#] Delegate 委派
     </h1>
     <div class="post-description">
       Introduction to Delegate in C#
     </div>
-    <div class="post-meta"><span title='2023-02-26 19:24:56 +0800 CST'>February 26, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/delegate.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-02-26 19:24:56 +0800 CST'>February 26, 2023</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/delegate.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -331,7 +333,7 @@ public static void Main(string[] args)
 {
     // 新增一個委派事件，指向 ToUpperCase
     PrintString e = new PrintString(ToUpperCase);
-    string text = &quot;Hello World!&quot;;
+    string text = &#34;Hello World!&#34;;
     e.Invoke(text);
     // HELLO WORLD!
 
@@ -383,7 +385,7 @@ public class Button
 private static void Click(object sender, EventArgs e)
 {
     Console.WriteLine(
-        sender.GetType() + &quot; &quot; + 
+        sender.GetType() + &#34; &#34; + 
         (e as HandleClickEventArgs)?.Message
     );
 }
@@ -391,17 +393,17 @@ public void static Main(string[] args)
 {
     EventArgs = new HandleClikEventArgs()
     {
-        Message = &quot;is clicked!&quot;
+        Message = &#34;is clicked!&#34;
     };
-        Button button = new Button(&quot;TV Remote Button&quot;);
+        Button button = new Button(&#34;TV Remote Button&#34;);
         button.Click += new EventHandler(Click);
         button.Click += Click;
         button.Click += delegate
         {
-            Console.WriteLine(&quot;Check! Check!&quot;);
+            Console.WriteLine(&#34;Check! Check!&#34;);
         };
         button.Click += (sender, e) =&gt; Console.WriteLine(
-            (sender as Button)?.name + &quot; &quot; +
+            (sender as Button)?.name + &#34; &#34; +
             (e as HandleClickEventArgs)?.Message
         );
         button.notify(e);
@@ -451,7 +453,7 @@ public void static Main(string[] args)
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/c#/">C#</a></li>
+      <li><a href="http://localhost:1313/tags/c%23/">C#</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -466,11 +468,12 @@ public void static Main(string[] args)
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -539,12 +542,12 @@ public void static Main(string[] args)
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

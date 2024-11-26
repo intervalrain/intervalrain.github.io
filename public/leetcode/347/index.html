@@ -1,32 +1,51 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Leetcode] 347. Top K Frequent Elements | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="347. Top K Frequent Elements
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect   一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect
+
+
+一、題目
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
 Example 1:
- Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2]  Example 2:
- Input: nums = [1], k = 1 Output: [1]  Constraints:">
+
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+
+Example 2:
+
+Input: nums = [1], k = 1
+Output: [1]
+
+Constraints:
+
+1 &lt;= nums.length &lt;= 10^5
+-10^4 &lt;= nums[i] &lt;= 10^4
+k is in the range [1, the number of unique elements in the array].
+It is guaranteed that the answer is unique.
+
+Follow up: Your algorithm&rsquo;s time complexity must be better than O(n log n), where n is the array&rsquo;s size.">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/347/">
 <noscript>
     <style>
         #theme-toggle,
@@ -44,7 +63,7 @@ Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -77,25 +96,50 @@ Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Leetcode] 347. Top K Frequent Elements" />
-<meta property="og:description" content="347. Top K Frequent Elements
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect   一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/347/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Leetcode] 347. Top K Frequent Elements">
+  <meta property="og:description" content="347. Top K Frequent Elements
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect 一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
 Example 1:
- Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2]  Example 2:
- Input: nums = [1], k = 1 Output: [1]  Constraints:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/347/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-07-23T23:48:15&#43;08:00" />
-<meta property="article:modified_time" content="2022-07-23T23:48:15&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Leetcode] 347. Top K Frequent Elements"/>
+Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2] Example 2:
+Input: nums = [1], k = 1 Output: [1] Constraints:
+1 &lt;= nums.length &lt;= 10^5 -10^4 &lt;= nums[i] &lt;= 10^4 k is in the range [1, the number of unique elements in the array]. It is guaranteed that the answer is unique. Follow up: Your algorithm’s time complexity must be better than O(n log n), where n is the array’s size.">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-07-23T23:48:15+08:00">
+    <meta property="article:modified_time" content="2022-07-23T23:48:15+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Leetcode] 347. Top K Frequent Elements">
 <meta name="twitter:description" content="347. Top K Frequent Elements
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect   一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect
+
+
+一、題目
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
 Example 1:
- Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2]  Example 2:
- Input: nums = [1], k = 1 Output: [1]  Constraints:"/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+
+Example 2:
+
+Input: nums = [1], k = 1
+Output: [1]
+
+Constraints:
+
+1 &lt;= nums.length &lt;= 10^5
+-10^4 &lt;= nums[i] &lt;= 10^4
+k is in the range [1, the number of unique elements in the array].
+It is guaranteed that the answer is unique.
+
+Follow up: Your algorithm&rsquo;s time complexity must be better than O(n log n), where n is the array&rsquo;s size.">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -106,14 +150,8 @@ Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[Leetcode] 347. Top K Frequent Elements",
-      "item": "https://intervalrain.github.io/leetcode/347/"
+      "item": "http://localhost:1313/leetcode/347/"
     }
   ]
 }
@@ -124,13 +162,13 @@ Example 1:
   "@type": "BlogPosting",
   "headline": "[Leetcode] 347. Top K Frequent Elements",
   "name": "[Leetcode] 347. Top K Frequent Elements",
-  "description": "347. Top K Frequent Elements\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect   一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.\nExample 1:\n Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2]  Example 2:\n Input: nums = [1], k = 1 Output: [1]  Constraints:",
+  "description": "347. Top K Frequent Elements\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect 一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.\nExample 1:\nInput: nums = [1,1,1,2,2,3], k = 2 Output: [1,2] Example 2:\nInput: nums = [1], k = 1 Output: [1] Constraints:\n1 \u0026lt;= nums.length \u0026lt;= 10^5 -10^4 \u0026lt;= nums[i] \u0026lt;= 10^4 k is in the range [1, the number of unique elements in the array]. It is guaranteed that the answer is unique. Follow up: Your algorithm\u0026rsquo;s time complexity must be better than O(n log n), where n is the array\u0026rsquo;s size.\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "347. Top K Frequent Elements\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect   一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.\nExample 1:\n Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2]  Example 2:\n Input: nums = [1], k = 1 Output: [1]  Constraints:\n 1  -10^4  k is in the range [1, the number of unique elements in the array]. It is guaranteed that the answer is unique.  Follow up: Your algorithm’s time complexity must be better than O(n log n), where n is the array’s size.\n二、分析  先以 HashMap 統計每個數字出現的頻率後，再以出現的頻率做排序。Bucket sort 或是 max heap。 priority_queue 的宣告方式。  greater 與 less  priority_queueint, vectorint, greaterint pq; // descending order (min heap) priority_queueint, vectorint, lessint pq; // ascending order (max heap) custom comparactor  auto comp = [](const auto\u0026 a, const auto\u0026 b) { return condition; } ; priority_queueelement, container, decltype(comp) pq(iterator::start, iterator::end, comp); default: max heap  priority_queueelement pq; // 預設為 max heap   三、解題 1. Priority Queue  Time complexity: \\(O(n\\log k)\\) Space complexity: \\(O(n)\\)  vectorint topKFrequent(vectorint\u0026 nums, int k) {  unordered_mapint,int freq;  for (const int\u0026 num : nums) // 統計每個數字出現的次數  freq[num]++;  priority_queuepairint,int pq;  for (const auto\u0026 x : freq) // 用 max_heap 裝 {頻率, 數字}  pq.push(make_pair(x.second, x.first));  vectorint res;  while (k--) { // 取出現頻率前 k 高的  res.push_back(pq.top().second);  pq.pop();  }  return res; } 2. Bucket Sort  Time complexity: \\(O(n)\\) Space complexity: \\(O(1)\\)  vectorint topKFrequent(vectorint\u0026 nums, int k) {  unordered_mapint,int freq;  for (const int\u0026 num : nums) // 統計每個數字出現的次數  freq[num]++;  vectorvectorint bucket;  for (const auto f : freq) {  while (bucket.size()  f.second) { // 將數字，依不同頻率次數放到相對應的 vector 中  bucket.push_back({});  }  bucket[f.second].push_back(f.first);  }  vectorint res;  for (int i = bucket.size()-1; i = 0; i--) {  for (int j = 0; j  bucket[i].size() \u0026\u0026 k; j++, k--) { // 拿頻率前 k 多的元素  res.push_back(bucket[i][j]);  }  }  return res; } 回目錄 Catalog\n",
+  "articleBody": "347. Top K Frequent Elements\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Hash Table、Divide and Conquer、Sorting、Heap (Priority Queue)、Bucket Sort、Counting、Quickselect 一、題目 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.\nExample 1:\nInput: nums = [1,1,1,2,2,3], k = 2 Output: [1,2] Example 2:\nInput: nums = [1], k = 1 Output: [1] Constraints:\n1 \u003c= nums.length \u003c= 10^5 -10^4 \u003c= nums[i] \u003c= 10^4 k is in the range [1, the number of unique elements in the array]. It is guaranteed that the answer is unique. Follow up: Your algorithm’s time complexity must be better than O(n log n), where n is the array’s size.\n二、分析 先以 HashMap 統計每個數字出現的頻率後，再以出現的頻率做排序。Bucket sort 或是 max heap。 priority_queue 的宣告方式。 greater\u003c\u003e 與 less\u003c\u003e priority_queue\u003cint, vector\u003cint\u003e, greater\u003cint\u003e\u003e pq; // descending order (min heap) priority_queue\u003cint, vector\u003cint\u003e, less\u003cint\u003e\u003e pq; // ascending order (max heap) custom comparactor auto comp = [](const auto\u0026 a, const auto\u0026 b) { return condition; } ; priority_queue\u003celement, container, decltype(comp)\u003e pq(iterator::start, iterator::end, comp); default: max heap priority_queue\u003celement\u003e pq; // 預設為 max heap 三、解題 1. Priority Queue Time complexity: \\(O(n\\log k)\\) Space complexity: \\(O(n)\\) vector\u003cint\u003e topKFrequent(vector\u003cint\u003e\u0026 nums, int k) { unordered_map\u003cint,int\u003e freq; for (const int\u0026 num : nums) // 統計每個數字出現的次數 freq[num]++; priority_queue\u003cpair\u003cint,int\u003e\u003e pq; for (const auto\u0026 x : freq) // 用 max_heap 裝 {頻率, 數字} pq.push(make_pair(x.second, x.first)); vector\u003cint\u003e res; while (k--) { // 取出現頻率前 k 高的 res.push_back(pq.top().second); pq.pop(); } return res; } 2. Bucket Sort Time complexity: \\(O(n)\\) Space complexity: \\(O(1)\\) vector\u003cint\u003e topKFrequent(vector\u003cint\u003e\u0026 nums, int k) { unordered_map\u003cint,int\u003e freq; for (const int\u0026 num : nums) // 統計每個數字出現的次數 freq[num]++; vector\u003cvector\u003cint\u003e\u003e bucket; for (const auto f : freq) { while (bucket.size() \u003c= f.second) { // 將數字，依不同頻率次數放到相對應的 vector 中 bucket.push_back({}); } bucket[f.second].push_back(f.first); } vector\u003cint\u003e res; for (int i = bucket.size()-1; i \u003e= 0; i--) { for (int j = 0; j \u003c bucket[i].size() \u0026\u0026 k; j++, k--) { // 拿頻率前 k 多的元素 res.push_back(bucket[i][j]); } } return res; } 回目錄 Catalog\n",
   "wordCount" : "320",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-07-23T23:48:15+08:00",
   "dateModified": "2022-07-23T23:48:15+08:00",
   "author":{
@@ -139,14 +177,14 @@ Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/347/"
+    "@id": "http://localhost:1313/leetcode/347/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -168,17 +206,17 @@ Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -192,46 +230,46 @@ Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -239,20 +277,21 @@ Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Leetcode] 347. Top K Frequent Elements
     </h1>
-    <div class="post-meta"><span title='2022-07-23 23:48:15 +0800 CST'>July 23, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/347.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-07-23 23:48:15 +0800 CST'>July 23, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/347.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -432,16 +471,16 @@ Example 1:
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/versionquery/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/versionquery/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[Problem] Version Query</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/freqstack/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/freqstack/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[Leetcode] Maximum Frequency Stack 最大頻率堆疊</span>
   </a>
@@ -459,11 +498,12 @@ Example 1:
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -532,12 +572,12 @@ Example 1:
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

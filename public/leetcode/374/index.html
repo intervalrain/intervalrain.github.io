@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 374. Guess Number Higher or Lower | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="374. Guess Number Higher or Lower
- Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Binary Search、Interactive   一、題目 We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess. You call a pre-defined API int guess(int num), which returns three possible results:">
+
+Hardness: \(\color{green}\textsf{Easy}\)
+Ralated Topics: Binary Search、Interactive
+
+
+一、題目
+We are playing the Guess Game. The game is as follows:
+I pick a number from 1 to n. You have to guess which number I picked.
+Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
+You call a pre-defined API int guess(int num), which returns three possible results:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/374/">
 <noscript>
     <style>
         #theme-toggle,
@@ -41,7 +48,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -74,19 +81,31 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 374. Guess Number Higher or Lower" />
-<meta property="og:description" content="374. Guess Number Higher or Lower
- Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Binary Search、Interactive   一、題目 We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess. You call a pre-defined API int guess(int num), which returns three possible results:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/374/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-16T22:57:11&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-16T22:57:11&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 374. Guess Number Higher or Lower"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/374/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 374. Guess Number Higher or Lower">
+  <meta property="og:description" content="374. Guess Number Higher or Lower
+Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Binary Search、Interactive 一、題目 We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess. You call a pre-defined API int guess(int num), which returns three possible results:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-16T22:57:11+08:00">
+    <meta property="article:modified_time" content="2022-11-16T22:57:11+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 374. Guess Number Higher or Lower">
 <meta name="twitter:description" content="374. Guess Number Higher or Lower
- Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Binary Search、Interactive   一、題目 We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess. You call a pre-defined API int guess(int num), which returns three possible results:"/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{green}\textsf{Easy}\)
+Ralated Topics: Binary Search、Interactive
+
+
+一、題目
+We are playing the Guess Game. The game is as follows:
+I pick a number from 1 to n. You have to guess which number I picked.
+Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
+You call a pre-defined API int guess(int num), which returns three possible results:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,14 +116,8 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 374. Guess Number Higher or Lower",
-      "item": "https://intervalrain.github.io/leetcode/374/"
+      "item": "http://localhost:1313/leetcode/374/"
     }
   ]
 }
@@ -115,13 +128,13 @@
   "@type": "BlogPosting",
   "headline": "[LeetCode] 374. Guess Number Higher or Lower",
   "name": "[LeetCode] 374. Guess Number Higher or Lower",
-  "description": "374. Guess Number Higher or Lower\n Hardness: \\(\\color{green}\\textsf{Easy}\\) Ralated Topics: Binary Search、Interactive   一、題目 We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess. You call a pre-defined API int guess(int num), which returns three possible results:",
+  "description": "374. Guess Number Higher or Lower\nHardness: \\(\\color{green}\\textsf{Easy}\\) Ralated Topics: Binary Search、Interactive 一、題目 We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess. You call a pre-defined API int guess(int num), which returns three possible results:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "374. Guess Number Higher or Lower\n Hardness: \\(\\color{green}\\textsf{Easy}\\) Ralated Topics: Binary Search、Interactive   一、題目 We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess. You call a pre-defined API int guess(int num), which returns three possible results:\n -1: Your guess is higher than the number I picked (i.e. num  pick). 1: Your guess is lower than the number I picked (i.e. num ). 0: your guess is equal to the number I picked (i.e. num == pick). Return the number that I picked.  Example 1:\n Input: n = 10, pick = 6 Output: 6  Example 2:\n Input: n = 1, pick = 1 Output: 1  Example 3:\n Input: n = 2, pick 1 Output: 1  Constraints:\n 1  1    二、分析  簡單的 Binary Search 問題，題目有提供 API，所以我們只需針對 API 傳回的結果就相對應的事情。 Binary Search 的框架  bool BinarySearch(int x, int lo, int hi) {  while (lo  hi) {  int mid = lo + (hi - lo)/2;  if (API(mid) == 0) {  return true;  } else if (API(mid)  0) { // 往左收斂  right = mid-1;  } else if (API(mid)  0) { // 往右收斂  left = mid+1;  }  return false  } } 三、解題 1. Binary Search  Time complexity: \\(O(n\\log n)\\) Space complexity: \\(O(`)\\)  int guessNumber(int n) {  int left = 1, right = n;  while(left  right) {  int mid = left + (right - left)/2;  if (guess(mid) == 0) {  return mid;  } else if (guess(mid)  0) {  right = mid-1;  } else {  left = mid + 1;  }  }  return -1; } 回目錄 Catalog\n",
+  "articleBody": "374. Guess Number Higher or Lower\nHardness: \\(\\color{green}\\textsf{Easy}\\) Ralated Topics: Binary Search、Interactive 一、題目 We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess. You call a pre-defined API int guess(int num), which returns three possible results:\n-1: Your guess is higher than the number I picked (i.e. num \u003e pick). 1: Your guess is lower than the number I picked (i.e. num \u003c pick). 0: your guess is equal to the number I picked (i.e. num == pick). Return the number that I picked. Example 1:\nInput: n = 10, pick = 6 Output: 6 Example 2:\nInput: n = 1, pick = 1 Output: 1 Example 3:\nInput: n = 2, pick 1 Output: 1 Constraints:\n1 \u003c= n \u003c= 23^1 - 1 1 \u003c= pick \u003c= n 二、分析 簡單的 Binary Search 問題，題目有提供 API，所以我們只需針對 API 傳回的結果就相對應的事情。 Binary Search 的框架 bool BinarySearch(int x, int lo, int hi) { while (lo \u003c= hi) { int mid = lo + (hi - lo)/2; if (API(mid) == 0) { return true; } else if (API(mid) \u003e 0) { // 往左收斂 right = mid-1; } else if (API(mid) \u003c 0) { // 往右收斂 left = mid+1; } return false } } 三、解題 1. Binary Search Time complexity: \\(O(n\\log n)\\) Space complexity: \\(O(`)\\) int guessNumber(int n) { int left = 1, right = n; while(left \u003c= right) { int mid = left + (right - left)/2; if (guess(mid) == 0) { return mid; } else if (guess(mid) \u003c 0) { right = mid-1; } else { left = mid + 1; } } return -1; } 回目錄 Catalog\n",
   "wordCount" : "301",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-16T22:57:11+08:00",
   "dateModified": "2022-11-16T22:57:11+08:00",
   "author":{
@@ -130,14 +143,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/374/"
+    "@id": "http://localhost:1313/leetcode/374/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +172,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +196,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,20 +243,21 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 374. Guess Number Higher or Lower
     </h1>
-    <div class="post-meta"><span title='2022-11-16 22:57:11 +0800 CST'>November 16, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/374.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-16 22:57:11 +0800 CST'>November 16, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/374.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -407,16 +421,16 @@ Return <em>the number that I picked</em>.</li>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/223/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/223/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 223. Rectangle Area</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/213/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/213/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 213. House Robber II</span>
   </a>
@@ -434,11 +448,12 @@ Return <em>the number that I picked</em>.</li>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -507,12 +522,12 @@ Return <em>the number that I picked</em>.</li>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

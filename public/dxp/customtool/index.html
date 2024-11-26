@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[DXP] 在 spotfire 中創建自定義工具 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="spotfire, dxp, custom tool" />
+<meta name="keywords" content="spotfire, dxp, custom tool">
 <meta name="description" content="在 spotfire 中創建自定義工具">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/dxp/customtool/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +74,21 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[DXP] 在 spotfire 中創建自定義工具" />
-<meta property="og:description" content="在 spotfire 中創建自定義工具" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/dxp/customtool/" /><meta property="article:section" content="dxp" />
-<meta property="article:published_time" content="2023-06-06T22:38:08&#43;08:00" />
-<meta property="article:modified_time" content="2023-06-06T22:38:08&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[DXP] 在 spotfire 中創建自定義工具"/>
-<meta name="twitter:description" content="在 spotfire 中創建自定義工具"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/dxp/customtool/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[DXP] 在 spotfire 中創建自定義工具">
+  <meta property="og:description" content="在 spotfire 中創建自定義工具">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="dxp">
+    <meta property="article:published_time" content="2023-06-06T22:38:08+08:00">
+    <meta property="article:modified_time" content="2023-06-06T22:38:08+08:00">
+    <meta property="article:tag" content="Spotfire">
+    <meta property="article:tag" content="Dxp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[DXP] 在 spotfire 中創建自定義工具">
+<meta name="twitter:description" content="在 spotfire 中創建自定義工具">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +100,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Dxps",
-      "item": "https://intervalrain.github.io/dxp/"
+      "item": "http://localhost:1313/dxp/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[DXP] 在 spotfire 中創建自定義工具",
-      "item": "https://intervalrain.github.io/dxp/customtool/"
+      "item": "http://localhost:1313/dxp/customtool/"
     }
   ]
 }
@@ -119,9 +121,9 @@
   "keywords": [
     "spotfire", "dxp", "custom tool"
   ],
-  "articleBody": "簡介  Custom Tool 是一種通用 Spotfire 擴充類型，用於在特定文本中(spotfire app, docuemnt, visual, …)執行某些動作，且可顯示或隱藏於菜單中。   概要  開發者需新建一個類別，並繼承並實作 CustomTool 類別。然後這個類別會在 AddIn 類別的 RegisterTools 方法中註冊。此時，也可以使用CustomMenuGroup 類別指定將工具放置在自訂菜單組中。 在創建 CustomTool 類別時，工具文本被指定為類型參數，例如對於 Document 需使用使用 CustomTool，對於 Page 需使用CustomTool。 可以將提示添加到工具中。提示對話框可以添加到 Windows 客戶端和 Web 客戶端。 在實作 custom tool 時，需注意到以下的特性：  Tools 是靜態的(static)：工具只有一個實例，該實例從調用 Execute() 方法的文本引數中接收其文本的處理。 Tools 是無狀態的(stateless)：一個狀態只能從一個繼承自 DocumentNode 類別並附加到文件模型的實例中保存在文件中。使用 CustomNode 類別和 Document.CustomNodes 屬性。 Tools 只執行一個動作。：通常，該動作需要在一個 undo stack 上產生一個 undo state。因此，所有更改文檔狀態的工具都應該被包裝在其 Transaction 中。     Tools 文本 1. Application public sealed class MyApplicationTool : CustomTool  AnalysisApplication tools 可從「Tools」選單中取得，在啟動 Spotfire 後即可啟用。  2. Document public sealed class MyDocumentTool : CustomTool  Document tools 可從「工具」選單中取得，在文件開啟時啟用。  3. Page public sealed class MyPageTool : CustomTool  Page tools 可從頁面文本選單中使用，但 web client 無法使用。  4. Visual public sealed class MyVisualTool : CustomTool  VisualContent 文本為頁面上的所有視覺工具提供了一個工具。還有針對特定可視化類型應用的視覺工具的子文本：  Visualization: 所有可視區，不包括繪圖區(plot area)。 BarChart: 僅限長條圖。 BoxPlot: 僅限箱形圖。 CombinationChart: 僅限組合圖表。 CrossTablePlot: 僅限交叉圖表。 GraphicalTable: 僅限圖形表格繪圖。 KPIChart: 僅限KPI圖表。 LineChart: 僅限折線圖。 MapChart: 僅限地圖圖表。 ParallelCoordinatePlot PieChart: 僅限圓餅圖。 ScatterPlot: 僅限散佈圖。 ScatterPlot3D: 僅限3D散佈圖。 SummaryTable: 僅限摘要表格。 TablePlot: 僅限表格繪圖。 TextArea: 僅限文字區域。 WaterfallChart: 僅限瀑布圖表。   通過覆寫 IsVisibleCore 方法，可以將多個子文本結合起來，從而隱藏除了有明確定的子文本以外的工具。例如，擁有一個僅對散點圖和條形圖可用的工具，並在有標記(marking)時啟用。  5. TablePlot TablePlotColumn\npublic sealed class MyTablePlotColumnTool : CustomTool  當右鍵點擊列標題時，可在文本菜單中找到。   TablePlotCell\npublic sealed class MyTablePlotCellTool : CustomTool  在表格中右鍵點擊單元格時顯示的文本菜單選單中可用。   TablePlotCopyCellValue\npublic sealed class MyTablePlotCopyCellValueTool : CustomTool   在表格中右鍵點擊單元格時，可以在文本菜單的「Copy Cell」子菜單中找到。根據右鍵點擊的儲存格內容，且沒有添加任何擴展功能，子菜單標題可能包含以下一個或多個項目：\n Value: 當所點擊的儲存格包含文字時可用。文字會被放置在剪貼簿上。 Link: 當列渲染器為所點擊的儲存格提供了連結時可用。 Image: 當渲染器為單元格提供了圖像時可用。放置在剪貼板上的圖像與表格中看到的圖像相同。    TablePlotCopyCellValue 在 web client 無法使用。\n  6. Map Chart Coordinates Context public sealed class MyMapChartCoordinatesTool : CustomTool  當使用者在地圖圖表上按右鍵時，具有 MapChartCoordinatesContext 的自訂工具將自動被呼叫。座標可在上下文物件的屬性中取得。  7. Filter public sealed class MyFilterTool : CustomTool  FilterBase 文本使篩選器面板中的所有篩選器工具可用。還有針對特定篩選器類型應用的篩選器工具的子文本：  CheckboxFilter ItemFilter ListBoxFilter RadioButtonFilter RangeFilte TextFilter HierarchyFilter ColumnFilter: 所有 filter 類型，但不包括層次篩選。 SingleValueColumnFilter: 選擇一個值的 filter 類型，即 ItemFilter 和 RadioButtonFilter.    Grouping Tools、註冊  Tools 可以按它們出現的位置分類：  未指定 menu group，它將出現在「工具」菜單中。 指定 menu group，因此它將出現在「工具」選單中的自訂工具群組中。   為了防止意外或未經管理的從其他專案添加工具，只有在相同的 Spotfire 擴充專案中實現的工具才能在菜單子組中分組。通過將工具收集在一個 AddIn 中，創建該組，然後在註冊它們時將其傳遞給要包含在該組中的工具。使用 AddIn.ToolRegistrar.Register 方法註冊工具：  public sealed class CustomToolAddIn : AddIn {  protected override void RegisterTools(ToolRegistrar registrar)  {  base.RegisterTools(registrar);   CustomMenuGroup menuGroup = new CustomMenuGroup(\"My menu sub group\");   registrar.Register(new MyTool(), menuGroup);  }  ... }  自訂頂層選單   [ApiVersion(\"10.10.0\")] public static MenuCategory CreateCustom(params string[] path); 範例：\nMenuCategory.CreateCustom(\"First\", \"Second\");  First 作為最上層的菜單標題， Second 為子菜單 或在實作 customTool 時指定  public MyTool()  : base(menuText, requiredLicense, MenuCategory.CreateCustom(\"First\", \"Second\")) {}  Custom Tool 建構子  CustomTool 類別的建構式有一個必要的字串參數 menuText，該字串會顯示在選單和工具提示中。可以使用 GetMenuTextCore 覆寫此文字，以獲取適應 Web Client 端本地化設置的文字。建構函式的可選參數包括運行該工具所需的許可證 requiredLicense、選單類別 menuCategory 和要顯示在選單中的自訂圖示 image。  protected CustomTool(string menuText, LicensedFunction requiredLicense, MenuCategory menuCategory, Image image) ExecuteCore  工具邏輯是透過覆寫 ExecuteCore 或 ExecuteAndPromptCore 方法來實現的，當工具需要提示使用者輸入時，後者會被使用。  protected virtual void ExecuteCore(TContext context); protected virtual IEnumerable ExecuteAndPromptCore(TContext context);  文本參數將使工具能夠訪問文件、頁面、視覺或其他對象，具體取決於工具操作的文本。 ExecuteAnPromptCore 方法的簽名需要額外解釋：注意它應該返回可枚舉物件(enumerable objects)。這是通過 yield 構造實現的，以返回用作提示模型的任何對象。使用 AddIn.RegisterViews 為工具使用的任何提示模型註冊相應的提示視圖。 如果該工具使用提示，則需要覆寫 GetSupportsPromptingCore 以返回 true。 Web Client 中的 Tools:  預期 Web Client 端中的工具支援提示，並且必須實現 ExecuteAndPromptCore (ExecuteCore 永遠不會被框架呼叫)。但是，可以使用以下解決方法在 ExecuteAndPromptCore 中實現不提示的 Web 客戶端工具，該方法調用 ExecuteCore 並返回沒有提示模型：  protected override IEnumerableobject ExecuteAndPromptCore(Visualization context) {  this.ExecuteCore(context);  yield break; }   IsEnabledCore   有兩種方法可以覆寫，以指定何時應該顯示工具，以及何時應該啟用工具。\n IsEnabledCore 回傳一個布林值，以指定該工具是否應該在選單中啟用。  protected override bool IsEnabledCore(TContext context)  IsVisibleCore 回傳一個布林值，指定該工具是否應該在選單中顯示。  protected override bool IsVisibleCore(TContext context)   範例1: 將當下的頁籤移至最後。\n  public sealed class PageTool : CustomTool {  public PageTool()  : base(Properties.Resources.PageToolTitle) {}   protected override void ExecuteCore(Page page)  {  Document document = page.Context.GetAncestor();  int index = document.Pages.IndexOf(page);  document.Pages.Move(index, document.Pages.Count - 1);  }   protected override bool IsEnabledCore(Page page)  {  Document document = page.Context.GetAncestor();  int index = document.Pages.IndexOf(page);  return index = 0 \u0026\u0026 index 1;  } }  範例2: 將 visualization 中標記的值寫出來。  public sealed class PlotTool : CustomTool {  public PlotTool()  : base(Properties.Resources.PlotToolTitle) {}   protected override void ExecuteCore(VisualContent context)  {  Visualization plot = (Visualization)context;  DataManager dataManager = context.Context.GetSertvice();   DataTable dataTable = plot.Data.DataTableReference;  DataColumn firstColumn = dataManager.Tables[dataTable.Id].Columns[0];   IndexSet markedRows = dataManager.Markings.DefaultMarkingReference.GetSelection(dataTable).AsIndexSet();  var cursor = DataValueCursor.Create(firstColumn);  foreach (var row in dataTable.GetRows(markedRows, cursor))  {  Trace.WriteLine(cursor.CurrentDataValue.ValidValue);  }  }   protected override bool IsEnabledCore(VisualContent context)  {  Visualization plot = context as Visualization;   DataManager dataManager = context.Context.GetService();  DataMarkingSelection marking = dataManager.Markings.DefaultMarkingReference;   if (plot.Data.DataReference == null)  {  return false;  }  else  {  RowSelection selectedRows = marking.GetSelection(plot.Data.DataTableReference);  return !selectedRows.IsEmpty;  }  }   protected override bool IsVisibleCore(VisualContent context)  {  return context is BarChart || context is ScatterPlot;  } } 範例3: 在 Spotfire 表格中右鍵點擊顯示圖像的儲存格，選擇「複製儲存格  圖像」，將圖像按比例縮放後添加到剪貼簿中。此範例實現了一個工具，可將全尺寸圖像複製到剪貼簿中。它可以從通用的 Spotfire 圖像複製工具相同的位置訪問： public sealed class CopyCellValueTool : CustomTool {  public CopyCellValueTool() : base(\"Image (fullsize)\") {}   protected override void ExecuteCore(CopyCellValueContext context)  {  BinaryLargeObject blob = context.DataValue.Value as BinaryLargeObject;  if (blob != null)  {  try  {  Image img = Image.FromStream(blob.GetByteStream());  Clipboard.Clear();  Clipboard.SetImage(img);  }  catch (ArgumentException)  {  // Unable to convert to image, ignore  }  }  }   protected override bool IsVisibleCore(CopyCellValueContext context)  {  return context.DataType != null \u0026\u0026  context.ContentType != null \u0026\u0026  !context.DataType.IsSimple \u0026\u0026  context.ContentType.StartsWith(\"image/\", true, CultureInfo.InvariantCulture);  }   protected override bool IsEnabledCore(CopyCellValueContext context)  {  return context.DataValue != null \u0026\u0026 context.DataValue.IsValid;  } } 範例4: 將「顯示儲存格資訊」項目添加到儲存格內容選單中。該工具會顯示一個訊息方塊，顯示所選儲存格的欄位名稱和儲存格值。\npublic sealed class TablePlotCellContextExampleTool : CustomTool {  public TablePlotCellContextExampleTool() : base(Properties.Resources.TablePlotCellToolTitle) {}   protected override void ExecuteCore(TablePlotCellContext tablePlotCellContext)  {  string dataValue = tablePlotCellContext.DataValue.Value.ToString();   string info = string.Format(  System.Threading.Thread.CurrentThread.CurrentCulture,  Properties.Resources.TablePlotCellToolInfo,  new object[] { tablePlotCellContext.TableColumn.Name,  dataValue });   System.Windows.Forms.MessageBox.Show(info, Properties.Resources.TablePlotCellToolTitle);  }   protected override bool IsEnabledCore(TablePlotCellContext context)  {  return context.DataValue != null \u0026\u0026 context.DataValue.IsValid;  } } ",
+  "articleBody": "簡介 Custom Tool 是一種通用 Spotfire 擴充類型，用於在特定文本中(spotfire app, docuemnt, visual, …)執行某些動作，且可顯示或隱藏於菜單中。 概要 開發者需新建一個類別，並繼承並實作 CustomTool 類別。然後這個類別會在 AddIn 類別的 RegisterTools 方法中註冊。此時，也可以使用CustomMenuGroup 類別指定將工具放置在自訂菜單組中。 在創建 CustomTool 類別時，工具文本被指定為類型參數，例如對於 Document 需使用使用 CustomTool，對於 Page 需使用CustomTool。 可以將提示添加到工具中。提示對話框可以添加到 Windows 客戶端和 Web 客戶端。 在實作 custom tool 時，需注意到以下的特性： Tools 是靜態的(static)：工具只有一個實例，該實例從調用 Execute() 方法的文本引數中接收其文本的處理。 Tools 是無狀態的(stateless)：一個狀態只能從一個繼承自 DocumentNode 類別並附加到文件模型的實例中保存在文件中。使用 CustomNode 類別和 Document.CustomNodes 屬性。 Tools 只執行一個動作。：通常，該動作需要在一個 undo stack 上產生一個 undo state。因此，所有更改文檔狀態的工具都應該被包裝在其 Transaction 中。 Tools 文本 1. Application public sealed class MyApplicationTool : CustomTool AnalysisApplication tools 可從「Tools」選單中取得，在啟動 Spotfire 後即可啟用。 2. Document public sealed class MyDocumentTool : CustomTool Document tools 可從「工具」選單中取得，在文件開啟時啟用。 3. Page public sealed class MyPageTool : CustomTool Page tools 可從頁面文本選單中使用，但 web client 無法使用。 4. Visual public sealed class MyVisualTool : CustomTool VisualContent 文本為頁面上的所有視覺工具提供了一個工具。還有針對特定可視化類型應用的視覺工具的子文本： Visualization: 所有可視區，不包括繪圖區(plot area)。 BarChart: 僅限長條圖。 BoxPlot: 僅限箱形圖。 CombinationChart: 僅限組合圖表。 CrossTablePlot: 僅限交叉圖表。 GraphicalTable: 僅限圖形表格繪圖。 KPIChart: 僅限KPI圖表。 LineChart: 僅限折線圖。 MapChart: 僅限地圖圖表。 ParallelCoordinatePlot PieChart: 僅限圓餅圖。 ScatterPlot: 僅限散佈圖。 ScatterPlot3D: 僅限3D散佈圖。 SummaryTable: 僅限摘要表格。 TablePlot: 僅限表格繪圖。 TextArea: 僅限文字區域。 WaterfallChart: 僅限瀑布圖表。 通過覆寫 IsVisibleCore 方法，可以將多個子文本結合起來，從而隱藏除了有明確定的子文本以外的工具。例如，擁有一個僅對散點圖和條形圖可用的工具，並在有標記(marking)時啟用。 5. TablePlot TablePlotColumn\npublic sealed class MyTablePlotColumnTool : CustomTool 當右鍵點擊列標題時，可在文本菜單中找到。 TablePlotCell\npublic sealed class MyTablePlotCellTool : CustomTool 在表格中右鍵點擊單元格時顯示的文本菜單選單中可用。 TablePlotCopyCellValue\npublic sealed class MyTablePlotCopyCellValueTool : CustomTool 在表格中右鍵點擊單元格時，可以在文本菜單的「Copy Cell」子菜單中找到。根據右鍵點擊的儲存格內容，且沒有添加任何擴展功能，子菜單標題可能包含以下一個或多個項目：\nValue: 當所點擊的儲存格包含文字時可用。文字會被放置在剪貼簿上。 Link: 當列渲染器為所點擊的儲存格提供了連結時可用。 Image: 當渲染器為單元格提供了圖像時可用。放置在剪貼板上的圖像與表格中看到的圖像相同。 TablePlotCopyCellValue 在 web client 無法使用。\n6. Map Chart Coordinates Context public sealed class MyMapChartCoordinatesTool : CustomTool 當使用者在地圖圖表上按右鍵時，具有 MapChartCoordinatesContext 的自訂工具將自動被呼叫。座標可在上下文物件的屬性中取得。 7. Filter public sealed class MyFilterTool : CustomTool FilterBase 文本使篩選器面板中的所有篩選器工具可用。還有針對特定篩選器類型應用的篩選器工具的子文本： CheckboxFilter ItemFilter ListBoxFilter RadioButtonFilter RangeFilte TextFilter HierarchyFilter ColumnFilter: 所有 filter 類型，但不包括層次篩選。 SingleValueColumnFilter: 選擇一個值的 filter 類型，即 ItemFilter 和 RadioButtonFilter. Grouping Tools、註冊 Tools 可以按它們出現的位置分類： 未指定 menu group，它將出現在「工具」菜單中。 指定 menu group，因此它將出現在「工具」選單中的自訂工具群組中。 為了防止意外或未經管理的從其他專案添加工具，只有在相同的 Spotfire 擴充專案中實現的工具才能在菜單子組中分組。通過將工具收集在一個 AddIn 中，創建該組，然後在註冊它們時將其傳遞給要包含在該組中的工具。使用 AddIn.ToolRegistrar.Register 方法註冊工具： public sealed class CustomToolAddIn : AddIn { protected override void RegisterTools(ToolRegistrar registrar) { base.RegisterTools(registrar); CustomMenuGroup menuGroup = new CustomMenuGroup(\"My menu sub group\"); registrar.Register(new MyTool(), menuGroup); } ... } 自訂頂層選單 [ApiVersion(\"10.10.0\")] public static MenuCategory CreateCustom(params string[] path); 範例：\nMenuCategory.CreateCustom(\"First\", \"Second\"); First 作為最上層的菜單標題， Second 為子菜單 或在實作 customTool 時指定 public MyTool() : base(menuText, requiredLicense, MenuCategory.CreateCustom(\"First\", \"Second\")) {} Custom Tool 建構子 CustomTool 類別的建構式有一個必要的字串參數 menuText，該字串會顯示在選單和工具提示中。可以使用 GetMenuTextCore 覆寫此文字，以獲取適應 Web Client 端本地化設置的文字。建構函式的可選參數包括運行該工具所需的許可證 requiredLicense、選單類別 menuCategory 和要顯示在選單中的自訂圖示 image。 protected CustomTool(string menuText, LicensedFunction requiredLicense, MenuCategory menuCategory, Image image) ExecuteCore 工具邏輯是透過覆寫 ExecuteCore 或 ExecuteAndPromptCore 方法來實現的，當工具需要提示使用者輸入時，後者會被使用。 protected virtual void ExecuteCore(TContext context); protected virtual IEnumerable ExecuteAndPromptCore(TContext context); 文本參數將使工具能夠訪問文件、頁面、視覺或其他對象，具體取決於工具操作的文本。 ExecuteAnPromptCore 方法的簽名需要額外解釋：注意它應該返回可枚舉物件(enumerable objects)。這是通過 yield 構造實現的，以返回用作提示模型的任何對象。使用 AddIn.RegisterViews 為工具使用的任何提示模型註冊相應的提示視圖。 如果該工具使用提示，則需要覆寫 GetSupportsPromptingCore 以返回 true。 Web Client 中的 Tools: 預期 Web Client 端中的工具支援提示，並且必須實現 ExecuteAndPromptCore (ExecuteCore 永遠不會被框架呼叫)。但是，可以使用以下解決方法在 ExecuteAndPromptCore 中實現不提示的 Web 客戶端工具，該方法調用 ExecuteCore 並返回沒有提示模型： protected override IEnumerable\u003cobject\u003e ExecuteAndPromptCore(Visualization context) { this.ExecuteCore(context); yield break; } IsEnabledCore 有兩種方法可以覆寫，以指定何時應該顯示工具，以及何時應該啟用工具。\nIsEnabledCore 回傳一個布林值，以指定該工具是否應該在選單中啟用。 protected override bool IsEnabledCore(TContext context) IsVisibleCore 回傳一個布林值，指定該工具是否應該在選單中顯示。 protected override bool IsVisibleCore(TContext context) 範例1: 將當下的頁籤移至最後。\npublic sealed class PageTool : CustomTool { public PageTool() : base(Properties.Resources.PageToolTitle) {} protected override void ExecuteCore(Page page) { Document document = page.Context.GetAncestor(); int index = document.Pages.IndexOf(page); document.Pages.Move(index, document.Pages.Count - 1); } protected override bool IsEnabledCore(Page page) { Document document = page.Context.GetAncestor(); int index = document.Pages.IndexOf(page); return index \u003e= 0 \u0026\u0026 index \u003c document.Pages.Count - 1; } } 範例2: 將 visualization 中標記的值寫出來。 public sealed class PlotTool : CustomTool { public PlotTool() : base(Properties.Resources.PlotToolTitle) {} protected override void ExecuteCore(VisualContent context) { Visualization plot = (Visualization)context; DataManager dataManager = context.Context.GetSertvice(); DataTable dataTable = plot.Data.DataTableReference; DataColumn firstColumn = dataManager.Tables[dataTable.Id].Columns[0]; IndexSet markedRows = dataManager.Markings.DefaultMarkingReference.GetSelection(dataTable).AsIndexSet(); var cursor = DataValueCursor.Create(firstColumn); foreach (var row in dataTable.GetRows(markedRows, cursor)) { Trace.WriteLine(cursor.CurrentDataValue.ValidValue); } } protected override bool IsEnabledCore(VisualContent context) { Visualization plot = context as Visualization; DataManager dataManager = context.Context.GetService(); DataMarkingSelection marking = dataManager.Markings.DefaultMarkingReference; if (plot.Data.DataReference == null) { return false; } else { RowSelection selectedRows = marking.GetSelection(plot.Data.DataTableReference); return !selectedRows.IsEmpty; } } protected override bool IsVisibleCore(VisualContent context) { return context is BarChart || context is ScatterPlot; } } 範例3: 在 Spotfire 表格中右鍵點擊顯示圖像的儲存格，選擇「複製儲存格 \u003e 圖像」，將圖像按比例縮放後添加到剪貼簿中。此範例實現了一個工具，可將全尺寸圖像複製到剪貼簿中。它可以從通用的 Spotfire 圖像複製工具相同的位置訪問： public sealed class CopyCellValueTool : CustomTool { public CopyCellValueTool() : base(\"Image (fullsize)\") {} protected override void ExecuteCore(CopyCellValueContext context) { BinaryLargeObject blob = context.DataValue.Value as BinaryLargeObject; if (blob != null) { try { Image img = Image.FromStream(blob.GetByteStream()); Clipboard.Clear(); Clipboard.SetImage(img); } catch (ArgumentException) { // Unable to convert to image, ignore } } } protected override bool IsVisibleCore(CopyCellValueContext context) { return context.DataType != null \u0026\u0026 context.ContentType != null \u0026\u0026 !context.DataType.IsSimple \u0026\u0026 context.ContentType.StartsWith(\"image/\", true, CultureInfo.InvariantCulture); } protected override bool IsEnabledCore(CopyCellValueContext context) { return context.DataValue != null \u0026\u0026 context.DataValue.IsValid; } } 範例4: 將「顯示儲存格資訊」項目添加到儲存格內容選單中。該工具會顯示一個訊息方塊，顯示所選儲存格的欄位名稱和儲存格值。\npublic sealed class TablePlotCellContextExampleTool : CustomTool { public TablePlotCellContextExampleTool() : base(Properties.Resources.TablePlotCellToolTitle) {} protected override void ExecuteCore(TablePlotCellContext tablePlotCellContext) { string dataValue = tablePlotCellContext.DataValue.Value.ToString(); string info = string.Format( System.Threading.Thread.CurrentThread.CurrentCulture, Properties.Resources.TablePlotCellToolInfo, new object[] { tablePlotCellContext.TableColumn.Name, dataValue }); System.Windows.Forms.MessageBox.Show(info, Properties.Resources.TablePlotCellToolTitle); } protected override bool IsEnabledCore(TablePlotCellContext context) { return context.DataValue != null \u0026\u0026 context.DataValue.IsValid; } } ",
   "wordCount" : "707",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-06-06T22:38:08+08:00",
   "dateModified": "2023-06-06T22:38:08+08:00",
   "author":{
@@ -130,14 +132,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/dxp/customtool/"
+    "@id": "http://localhost:1313/dxp/customtool/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +161,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +185,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,23 +232,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/dxp/">Dxps</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/dxp/">Dxps</a></div>
+    <h1 class="post-title entry-hint-parent">
       [DXP] 在 spotfire 中創建自定義工具
     </h1>
     <div class="post-description">
       在 spotfire 中創建自定義工具
     </div>
-    <div class="post-meta"><span title='2023-06-06 22:38:08 +0800 CST'>June 6, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//dxp/customTool.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-06-06 22:38:08 +0800 CST'>June 6, 2023</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//dxp/customTool.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -484,8 +487,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
 <li>自訂頂層選單
-<img loading="lazy" src="https://community.tibco.com/servlet/rtaImage?eid=ka54z0000004XLz&amp;feoid=00N4z000003259m&amp;refid=0EM4z000003V2dI" alt="pic2"  />
-</li>
+<img alt="pic2" loading="lazy" src="https://community.tibco.com/servlet/rtaImage?eid=ka54z0000004XLz&feoid=00N4z000003259m&refid=0EM4z000003V2dI"></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#a6e22e">[ApiVersion(&#34;10.10.0&#34;)]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> MenuCategory CreateCustom(<span style="color:#66d9ef">params</span> <span style="color:#66d9ef">string</span>[] path);
@@ -608,8 +610,7 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>範例3: 在 Spotfire 表格中右鍵點擊顯示圖像的儲存格，選擇「複製儲存格 &gt; 圖像」，將圖像按比例縮放後添加到剪貼簿中。此範例實現了一個工具，可將全尺寸圖像複製到剪貼簿中。它可以從通用的 Spotfire 圖像複製工具相同的位置訪問：
-<img loading="lazy" src="https://community.tibco.com/servlet/rtaImage?eid=ka54z0000004Zgk&amp;feoid=00N4z000003259m&amp;refid=0EM4z000003V3di" alt="pic4"  />
-</p>
+<img alt="pic4" loading="lazy" src="https://community.tibco.com/servlet/rtaImage?eid=ka54z0000004Zgk&feoid=00N4z000003259m&refid=0EM4z000003V3di"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">sealed</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CopyCellValueTool</span> : CustomTool&lt;CopyCellValueContext&gt;
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> CopyCellValueTool() : <span style="color:#66d9ef">base</span>(<span style="color:#e6db74">&#34;Image (fullsize)&#34;</span>) {}
@@ -674,8 +675,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/spotfire/">spotfire</a></li>
-      <li><a href="https://intervalrain.github.io/tags/dxp/">dxp</a></li>
+      <li><a href="http://localhost:1313/tags/spotfire/">Spotfire</a></li>
+      <li><a href="http://localhost:1313/tags/dxp/">Dxp</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -690,11 +691,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -763,12 +765,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

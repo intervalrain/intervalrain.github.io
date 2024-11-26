@@ -1,31 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 18. 4Sum | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="18. 4Sum
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Sorting   一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
- 0 &lt;= a, b, c, d &lt; n a, b, c and d are distinct. nums[a] &#43; nums[b] &#43; nums[c] &#43; nums[d] == target You may return the answer in any order.  Example 1:
- Input: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]  Example 2:">
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Two Pointer、Sorting
+
+
+一、題目
+Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+
+0 &lt;= a, b, c, d &lt; n
+a, b, c and d are distinct.
+nums[a] &#43; nums[b] &#43; nums[c] &#43; nums[d] == target
+You may return the answer in any order.
+
+Example 1:
+
+Input: nums = [1,0,-1,0,-2,2], target = 0
+Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+
+Example 2:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/18/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +57,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,23 +90,42 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 18. 4Sum" />
-<meta property="og:description" content="18. 4Sum
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Sorting   一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
- 0 &lt;= a, b, c, d &lt; n a, b, c and d are distinct. nums[a] &#43; nums[b] &#43; nums[c] &#43; nums[d] == target You may return the answer in any order.  Example 1:
- Input: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]  Example 2:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/18/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-10-28T23:58:48&#43;08:00" />
-<meta property="article:modified_time" content="2022-10-28T23:58:48&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 18. 4Sum"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/18/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 18. 4Sum">
+  <meta property="og:description" content="18. 4Sum
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Sorting 一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+0 &lt;= a, b, c, d &lt; n a, b, c and d are distinct. nums[a] &#43; nums[b] &#43; nums[c] &#43; nums[d] == target You may return the answer in any order. Example 1:
+Input: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]] Example 2:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-10-28T23:58:48+08:00">
+    <meta property="article:modified_time" content="2022-10-28T23:58:48+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 18. 4Sum">
 <meta name="twitter:description" content="18. 4Sum
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Sorting   一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
- 0 &lt;= a, b, c, d &lt; n a, b, c and d are distinct. nums[a] &#43; nums[b] &#43; nums[c] &#43; nums[d] == target You may return the answer in any order.  Example 1:
- Input: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]  Example 2:"/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Two Pointer、Sorting
+
+
+一、題目
+Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+
+0 &lt;= a, b, c, d &lt; n
+a, b, c and d are distinct.
+nums[a] &#43; nums[b] &#43; nums[c] &#43; nums[d] == target
+You may return the answer in any order.
+
+Example 1:
+
+Input: nums = [1,0,-1,0,-2,2], target = 0
+Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+
+Example 2:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -103,14 +136,8 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 18. 4Sum",
-      "item": "https://intervalrain.github.io/leetcode/18/"
+      "item": "http://localhost:1313/leetcode/18/"
     }
   ]
 }
@@ -121,13 +148,13 @@
   "@type": "BlogPosting",
   "headline": "[LeetCode] 18. 4Sum",
   "name": "[LeetCode] 18. 4Sum",
-  "description": "18. 4Sum\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointer、Sorting   一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:\n 0 \u0026lt;= a, b, c, d \u0026lt; n a, b, c and d are distinct. nums[a] + nums[b] + nums[c] + nums[d] == target You may return the answer in any order.  Example 1:\n Input: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]  Example 2:",
+  "description": "18. 4Sum\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointer、Sorting 一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:\n0 \u0026lt;= a, b, c, d \u0026lt; n a, b, c and d are distinct. nums[a] + nums[b] + nums[c] + nums[d] == target You may return the answer in any order. Example 1:\nInput: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]] Example 2:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "18. 4Sum\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointer、Sorting   一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:\n 0  a, b, c and d are distinct. nums[a] + nums[b] + nums[c] + nums[d] == target You may return the answer in any order.  Example 1:\n Input: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]  Example 2:\n Input: nums = [2,2,2,2,2], target = 8 Output: [[2,2,2,2]]  Constraints:\n 1  -10^9  -10^9    二、分析  延續之前的 2Sum 跟 3Sum，大於 3 以上的 kSum 問題其實都是依樣畫葫蘆，其時間複雜度為 \\(O(k-1)\\)。 先試改寫 2Sum，先前為了達到最優解，採用的是 HashMap 的策略，但對於 k2 時，因時間複雜度為 \\(O(n^{k-1})\\)，採用 Sorting 的時間複雜度為 \\(O(n\\log n)\\)。故以下會採用 Two Pointer 搭配 sorting 的策略去解題， 首先我們可以假設數組是已排序的，並參考 3Sum 去改寫 2Sum，並回傳滿足條件數字組合(注意與原題目不同)，且數組不重覆且為數列不為遞減： vectorvectorint twoSum(vectorint\u0026 nums, int target, int start) { // nums 為 sorted array  vectorvectorint res;  int left = start; // 注意 left pointer 是從 nums[i] 的下一位開始，即 i+1，我們將之訂為 start  int right = nums.size()-1;  while (left  right) {  int sum = nums[left] + nums[right];  if (sum  target) {  while (left+1  right \u0026\u0026 nums[left] == nums[left+1]) left++; // 優化，跳過重覆的值  left++;  } else if (sum  target) {  while (right-1  left \u0026\u0026 nums[right-1] == nums[right]) right--; // 優化，跳過重覆的值  right--;  } else {  res.push_back({nums[left], nums[right]});  while (left+1  right \u0026\u0026 nums[left] == nums[left+1]) left++; // 避免重覆數組  while (right-1  left \u0026\u0026 nums[right-1] == nums[right]) right--; // 避免重覆數組  left++;  right--;  }  }  return res; }  接下來要求 3Sum 就很簡單了，我們只需要做下列兩件事：  sort 代入 target 與 start，其中 target 便是  for (int i = 0; i  nums.size()-k+1; i++) { // 注意上限為 n-k+1  target = -nums[i]; // 注意為負 }  統整為下，[LeetCode]15. 3Sum：  vectorvectorint threeSum(vectorint\u0026 nums) {  sort(nums.begin(), nums.end()) // 注意需先 sort  vectorvectorin res;  for (int i = 0; i  nums.size()-2; i++) {  int target = -nums[i];  vectorvectorint subsets = twoSum(nums, target, i+1);  for (vectorint\u0026 subset : subsets) {  res.push_back({nums[i]});  res.back().push_back(subset[0]);  res.back().push_back(subset[1]);  }  while (i+1  nums.size()-2 \u0026\u0026 nums[i] == nums[i+1]) i++;  }  return res; }    接下來我們試著用上面 3Sum 改寫成最簡單版的 kSum： // 假設 nums 已為 sorted array，並配合題目限制將 target 改為 long long vectorvectorint kSum(vectorint\u0026 nums, long long target, int start, int k) {  vectorvectorint res;  if (nums.size()  k) return res; // 若數組本身小於 k，則無解  if (k == 2) return twoSum(nums, target, start);  for (int i = start; i  nums.size()-k+1; i++) {  vectorvectorint subsets = kSum(nums, target-nums[i], i+1, k-1);  for (vectorint\u0026 subset : subsets) {  res.push_back({nums[i]}); // 加入 nums[i]  res.back().insert(end(res.back()), begin(subset), end(subset)); // 加入符合以 -nums[i] 為 target 的 (k-1)Sum  }  while (i+1  nums.size()-k+1 \u0026\u0026 nums[i] == nums[i+1]) i++; // 避免重覆數組解  }  return res; }   三、解題 1. KSum  Time complexity: \\(O(n^3)\\) Space complexity: \\(O(1)\\)  vectorvectorint fourSum(vectorint\u0026 nums, int target) {  sort(begin(nums), end(nums)); // 注意需先做排序  return kSum(nums, target, 0, 4); }  vectorvectorint kSum(vectorint\u0026 nums, long long target, int start, int k) {  vectorvectorint res;  if (nums.size()  k) return res; // 若數組的大小小於 k 則無解   // #優化1: 數組已無剩餘數字可用  if (start == nums.size()) return res;  // #優化2: 數組的最小值的 k 倍需大於 target，數組的最大值的 k 倍需小於 target，但用乘法會超出 int 範圍，故用除法  if (target/k  nums[start]|| target/4  nums.back()) return res;   if (k == 2) return twoSum(nums, target, start);   for (int i = start; i  nums.size()-k+1; i++) {  vectorvectorint subsets = kSum(nums, target-nums[i], i+1, k-1);  for (vectorint\u0026 subset : subsets) {  res.push_back({nums[i]}); // 加入 nums[i]  res.back().insert(end(res.back()), begin(subset), end(subset)); // 加入符合以 -nums[i] 為 target 的 (k-1)Sum  }  while (i+1  nums.size()-k+1 \u0026\u0026 nums[i] == nums[i+1]) i++; // 避免重覆數組解  }    return res; }  vectorvectorint twoSum(vectorint\u0026 nums, int target, int start) { // nums 為 sorted array  vectorvectorint res;  int left = start; // 注意 left pointer 是從 nums[i] 的下一位開始，即 i+1，我們將之訂為 start  int right = nums.size()-1;  while (left  right) {  int sum = nums[left] + nums[right];  if (sum  target) {  while (left+1  right \u0026\u0026 nums[left] == nums[left+1]) left++; // 優化，跳過重覆的值  left++;  } else if (sum  target) {  while (right-1  left \u0026\u0026 nums[right-1] == nums[right]) right--; // 優化，跳過重覆的值  right--;  } else {  res.push_back({nums[left], nums[right]});  while (left+1  right \u0026\u0026 nums[left] == nums[left+1]) left++; // 避免重覆數組  while (right-1  left \u0026\u0026 nums[right-1] == nums[right]) right--; // 避免重覆數組  left++;  right--;  }  }  return res; } 回目錄 Catalog\n",
+  "articleBody": "18. 4Sum\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointer、Sorting 一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:\n0 \u003c= a, b, c, d \u003c n a, b, c and d are distinct. nums[a] + nums[b] + nums[c] + nums[d] == target You may return the answer in any order. Example 1:\nInput: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]] Example 2:\nInput: nums = [2,2,2,2,2], target = 8 Output: [[2,2,2,2]] Constraints:\n1 \u003c= nums.length \u003c= 200 -10^9 \u003c= nums[i] \u003c= 10^9 -10^9 \u003c= target \u003c= 10^9 二、分析 延續之前的 2Sum 跟 3Sum，大於 3 以上的 kSum 問題其實都是依樣畫葫蘆，其時間複雜度為 \\(O(k-1)\\)。 先試改寫 2Sum，先前為了達到最優解，採用的是 HashMap 的策略，但對於 k\u003e2 時，因時間複雜度為 \\(O(n^{k-1})\\)，採用 Sorting 的時間複雜度為 \\(O(n\\log n)\\)。故以下會採用 Two Pointer 搭配 sorting 的策略去解題， 首先我們可以假設數組是已排序的，並參考 3Sum 去改寫 2Sum，並回傳滿足條件數字組合(注意與原題目不同)，且數組不重覆且為數列不為遞減： vector\u003cvector\u003cint\u003e\u003e twoSum(vector\u003cint\u003e\u0026 nums, int target, int start) { // nums 為 sorted array vector\u003cvector\u003cint\u003e\u003e res; int left = start; // 注意 left pointer 是從 nums[i] 的下一位開始，即 i+1，我們將之訂為 start int right = nums.size()-1; while (left \u003c right) { int sum = nums[left] + nums[right]; if (sum \u003c target) { while (left+1 \u003c right \u0026\u0026 nums[left] == nums[left+1]) left++; // 優化，跳過重覆的值 left++; } else if (sum \u003e target) { while (right-1 \u003e left \u0026\u0026 nums[right-1] == nums[right]) right--; // 優化，跳過重覆的值 right--; } else { res.push_back({nums[left], nums[right]}); while (left+1 \u003c right \u0026\u0026 nums[left] == nums[left+1]) left++; // 避免重覆數組 while (right-1 \u003e left \u0026\u0026 nums[right-1] == nums[right]) right--; // 避免重覆數組 left++; right--; } } return res; } 接下來要求 3Sum 就很簡單了，我們只需要做下列兩件事： sort 代入 target 與 start，其中 target 便是 for (int i = 0; i \u003c nums.size()-k+1; i++) { // 注意上限為 n-k+1 target = -nums[i]; // 注意為負 } 統整為下，[LeetCode]15. 3Sum： vector\u003cvector\u003cint\u003e\u003e threeSum(vector\u003cint\u003e\u0026 nums) { sort(nums.begin(), nums.end()) // 注意需先 sort vector\u003cvector\u003cin\u003e\u003e res; for (int i = 0; i \u003c nums.size()-2; i++) { int target = -nums[i]; vector\u003cvector\u003cint\u003e\u003e subsets = twoSum(nums, target, i+1); for (vector\u003cint\u003e\u0026 subset : subsets) { res.push_back({nums[i]}); res.back().push_back(subset[0]); res.back().push_back(subset[1]); } while (i+1 \u003c nums.size()-2 \u0026\u0026 nums[i] == nums[i+1]) i++; } return res; } 接下來我們試著用上面 3Sum 改寫成最簡單版的 kSum： // 假設 nums 已為 sorted array，並配合題目限制將 target 改為 long long vector\u003cvector\u003cint\u003e\u003e kSum(vector\u003cint\u003e\u0026 nums, long long target, int start, int k) { vector\u003cvector\u003cint\u003e\u003e res; if (nums.size() \u003c k) return res; // 若數組本身小於 k，則無解 if (k == 2) return twoSum(nums, target, start); for (int i = start; i \u003c nums.size()-k+1; i++) { vector\u003cvector\u003cint\u003e\u003e subsets = kSum(nums, target-nums[i], i+1, k-1); for (vector\u003cint\u003e\u0026 subset : subsets) { res.push_back({nums[i]}); // 加入 nums[i] res.back().insert(end(res.back()), begin(subset), end(subset)); // 加入符合以 -nums[i] 為 target 的 (k-1)Sum } while (i+1 \u003c nums.size()-k+1 \u0026\u0026 nums[i] == nums[i+1]) i++; // 避免重覆數組解 } return res; } 三、解題 1. KSum Time complexity: \\(O(n^3)\\) Space complexity: \\(O(1)\\) vector\u003cvector\u003cint\u003e\u003e fourSum(vector\u003cint\u003e\u0026 nums, int target) { sort(begin(nums), end(nums)); // 注意需先做排序 return kSum(nums, target, 0, 4); } vector\u003cvector\u003cint\u003e\u003e kSum(vector\u003cint\u003e\u0026 nums, long long target, int start, int k) { vector\u003cvector\u003cint\u003e\u003e res; if (nums.size() \u003c k) return res; // 若數組的大小小於 k 則無解 // #優化1: 數組已無剩餘數字可用 if (start == nums.size()) return res; // #優化2: 數組的最小值的 k 倍需大於 target，數組的最大值的 k 倍需小於 target，但用乘法會超出 int 範圍，故用除法 if (target/k \u003c nums[start]|| target/4 \u003e nums.back()) return res; if (k == 2) return twoSum(nums, target, start); for (int i = start; i \u003c nums.size()-k+1; i++) { vector\u003cvector\u003cint\u003e\u003e subsets = kSum(nums, target-nums[i], i+1, k-1); for (vector\u003cint\u003e\u0026 subset : subsets) { res.push_back({nums[i]}); // 加入 nums[i] res.back().insert(end(res.back()), begin(subset), end(subset)); // 加入符合以 -nums[i] 為 target 的 (k-1)Sum } while (i+1 \u003c nums.size()-k+1 \u0026\u0026 nums[i] == nums[i+1]) i++; // 避免重覆數組解 } return res; } vector\u003cvector\u003cint\u003e\u003e twoSum(vector\u003cint\u003e\u0026 nums, int target, int start) { // nums 為 sorted array vector\u003cvector\u003cint\u003e\u003e res; int left = start; // 注意 left pointer 是從 nums[i] 的下一位開始，即 i+1，我們將之訂為 start int right = nums.size()-1; while (left \u003c right) { int sum = nums[left] + nums[right]; if (sum \u003c target) { while (left+1 \u003c right \u0026\u0026 nums[left] == nums[left+1]) left++; // 優化，跳過重覆的值 left++; } else if (sum \u003e target) { while (right-1 \u003e left \u0026\u0026 nums[right-1] == nums[right]) right--; // 優化，跳過重覆的值 right--; } else { res.push_back({nums[left], nums[right]}); while (left+1 \u003c right \u0026\u0026 nums[left] == nums[left+1]) left++; // 避免重覆數組 while (right-1 \u003e left \u0026\u0026 nums[right-1] == nums[right]) right--; // 避免重覆數組 left++; right--; } } return res; } 回目錄 Catalog\n",
   "wordCount" : "678",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-10-28T23:58:48+08:00",
   "dateModified": "2022-10-28T23:58:48+08:00",
   "author":{
@@ -136,14 +163,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/18/"
+    "@id": "http://localhost:1313/leetcode/18/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -165,17 +192,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -189,46 +216,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -236,20 +263,21 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 18. 4Sum
     </h1>
-    <div class="post-meta"><span title='2022-10-28 23:58:48 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/18.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-10-28 23:58:48 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/18.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -500,16 +528,16 @@ You may return the answer in <strong>any order</strong>.</li>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/2136/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/2136/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 2136. Earliest Possible Day of Full Bloom</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/17/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/17/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 17. Letter Combinations of a Phone Number</span>
   </a>
@@ -527,11 +555,12 @@ You may return the answer in <strong>any order</strong>.</li>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -600,12 +629,12 @@ You may return the answer in <strong>any order</strong>.</li>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

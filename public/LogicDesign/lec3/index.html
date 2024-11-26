@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Logic Design] Lec 03 - Minterm 與 Maxterm 展開 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Logic Design" />
+<meta name="keywords" content="Logic Design">
 <meta name="description" content="Minterm and Maxterm expression">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/logicdesign/lec3/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,19 +71,22 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Logic Design] Lec 03 - Minterm 與 Maxterm 展開" />
-<meta property="og:description" content="Minterm and Maxterm expression" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/logicdesign/lec3/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/cover.jpg" /><meta property="article:section" content="LogicDesign" />
-<meta property="article:published_time" content="2021-09-18T03:11:35&#43;08:00" />
-<meta property="article:modified_time" content="2021-09-18T03:11:35&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/cover.jpg" />
-<meta name="twitter:title" content="[Logic Design] Lec 03 - Minterm 與 Maxterm 展開"/>
-<meta name="twitter:description" content="Minterm and Maxterm expression"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/logicdesign/lec3/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Logic Design] Lec 03 - Minterm 與 Maxterm 展開">
+  <meta property="og:description" content="Minterm and Maxterm expression">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="logicdesign">
+    <meta property="article:published_time" content="2021-09-18T03:11:35+08:00">
+    <meta property="article:modified_time" content="2021-09-18T03:11:35+08:00">
+    <meta property="article:tag" content="Logic Design">
+    <meta property="og:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:title" content="[Logic Design] Lec 03 - Minterm 與 Maxterm 展開">
+<meta name="twitter:description" content="Minterm and Maxterm expression">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,13 +98,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "LogicDesigns",
-      "item": "https://intervalrain.github.io/logicdesign/"
+      "item": "http://localhost:1313/logicdesign/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[Logic Design] Lec 03 - Minterm 與 Maxterm 展開",
-      "item": "https://intervalrain.github.io/logicdesign/lec3/"
+      "item": "http://localhost:1313/logicdesign/lec3/"
     }
   ]
 }
@@ -118,10 +119,10 @@
   "keywords": [
     "Logic Design"
   ],
-  "articleBody": "布林表達式的轉換  將文字敘述轉換成布林表達式：   \\( \\def\\arraystrecth{1.5}\\begin{array}{l} \\underbrace{\\text{The alarm will ring}}_ {Z} \\text{ iff } \\underbrace{\\text{the power of alarm is on}} _{A} \\text{ and } \\underbrace{\\text{the door is not closed}} _{B'} \\\\ \\text{ or } \\underbrace{\\text{it is after 6 p.m.}} _{C} \\text{ and } \\underbrace{\\text{the window is not closed}} _{D'} \\end{array} \\)\n  \\(Z=AB'+CD'\\)  由真值表開始建構邏輯電路  Truth Table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{ccc|c|c} A\u0026B\u0026C\u0026f\u0026f'\\\\\\hline 0\u00260\u00260\u00260\u00261\\\\ 0\u00260\u00261\u00260\u00261\\\\ 0\u00261\u00260\u00260\u00261\\\\ 0\u00261\u00261\u00261\u00260\\\\ 1\u00260\u00260\u00261\u00260\\\\ 1\u00260\u00261\u00261\u00260\\\\ 1\u00261\u00260\u00261\u00260\\\\ 1\u00261\u00261\u00261\u00260 \\end{array} } \\) 利用 1’s 的函數\n\\(f=A' BC+AB' C'+AB' C+ABC'+ABC\\)\n\\(=A' BC+AB'+AB\\)\n\\(=A' BC+A\\)\n\\(=A+BC\\) 利用 0’s 的函數\n\\(f=(A+B+C)(A+B+C')(A+B'+C)\\)\n\\(=(A+B)(A+B'+C)\\)\n\\(=A+B(B'+C)\\)\n\\(=A+BC\\)  Minterm 與 maxterm 展開   以 \\(F=A' BC+A\\) 為範例 \\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{c|ccc|c|c|cc} \\text{Row No.}\u0026A\u0026B\u0026C\u0026\\text{Minterns}\u0026\\text{Maxterms}\u0026f\u0026f'\\\\\\hline 0\u00260\u00260\u00260\u0026\\text{A’B’C'}=\\text{m}_0\u0026\\text{A+B+C}=\\text{M}_0\u00260\u00261\\\\ 1\u00260\u00260\u00261\u0026\\text{A’B’C}=\\text{m}_1\u0026\\text{A+B+C'}=\\text{M}_1\u00260\u00261\\\\ 2\u00260\u00261\u00260\u0026\\text{A’BC'}=\\text{m}_2\u0026\\text{A+B'+C}=\\text{M}_2\u00260\u00261\\\\ 3\u00260\u00261\u00261\u0026\\text{A’BC}=\\text{m}_3\u0026\\text{A+B'+C'}=\\text{M}_3\u00261\u00260\\\\ 4\u00261\u00260\u00260\u0026\\text{AB’C'}=\\text{m}_4\u0026\\text{A'+B+C}=\\text{M}_4\u00261\u00260\\\\ 5\u00261\u00260\u00261\u0026\\text{AB’C}=\\text{m}_5\u0026\\text{A'+B+C'}=\\text{M}_5\u00261\u00260\\\\ 6\u00261\u00261\u00260\u0026\\text{ABC'}=\\text{m}_6\u0026\\text{A'+B'+C}=\\text{M}_6\u00261\u00260\\\\ 7\u00261\u00261\u00261\u0026\\text{ABC}=\\text{m}_7\u0026\\text{A'+B'+C'}=\\text{M}_7\u00261\u00260\\\\ \\end{array} } \\)\n  \\(m_i'=M_i\\)\n  \\(\\text{f=A’BC+A=1}\\)\n\\(\\text{=A’BC+AB’C'+AB’C+ABC'+ABC}\\)\n\\(=m_3+m_4+m_5+m_6+m_7\\)\n\\(=\\sum m(3,4,5,6,7)\\)\n  \\(\\text{f=(A+B+C)(A+B+C')(A+B'+C)=0}\\)\n\\(=M_0M_1M_2\\)\n\\(=\\prod M(0,1,2)\\)\n  Maxterm 與 minterm 的轉換\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{rcl} g\u0026=\u0026\\sum m(2,3,4,6,7)\\\\ \u0026=\u0026\\prod M(0,1,5)\\\\ g'\u0026=\u0026\\sum m(0,1,5)\\\\ g\u0026=\u0026[\\sum m(0,1,5)]'\\\\ \u0026=\u0026\\prod m'(0,1,5)\\\\ \u0026=\u0026\\prod M(0,1,5) \\end{array} } \\)\n  性質：\n \\(\\boxed{\\text{m}_i\\text{m}_j=0\\text{ if i}\\neq j}\\)    未完整定義的函式(Don’t Care)  Truth table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{lll|l} A\u0026B\u0026C\u0026F\\\\\\hline 0\u00260\u00260\u00261\\\\ 0\u00260\u00261\u0026X\\leftarrow \\text{Don’t care}\\\\ 0\u00261\u00260\u00260\\\\ 0\u00261\u00261\u00261\\\\ 1\u00260\u00260\u00260\\\\ 1\u00260\u00261\u00260\\\\ 1\u00261\u00260\u0026X\\leftarrow \\text{Don’t care}\\\\ 1\u00261\u00261\u00261\\\\ \\end{array} } \\) 表達式：  \\(F=\\sum m(0,3,7)+\\sum d(1,6)=\\prod M(2,4,5)\\cdot \\prod(1,6)\\)    Binary adders and subtracters Half Adder 半加器  \\(X,Y_{\\text{in}}\\rightarrow{\\boxed{\\text{Half Adder}}\\rightarrow \\text{Sum}}\\) Truth Table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{cc|c} X\u0026Y\u0026Sum\\\\\\hline 0\u00260\u00260\\\\ 0\u00261\u00261\\\\ 1\u00260\u00261\\\\ 1\u00261\u00260\\\\ \\end{array} } \\) 表達式： \\(\\text{Sum}=X' Y+XY'\\)  Full Adder 全加器  \\(X,Y,C_{\\text{in}}\\rightarrow{\\boxed{\\text{Full Adder}}\\rightarrow C_{out}, \\text{Sum}}\\) Truth Table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{ccc|cc} X\u0026Y\u0026C_{\\text{in}}\u0026C_{\\text{out}}\u0026\\text{Sum}\\\\\\hline 0\u00260\u00260\u00260\u00260\\\\ 0\u00260\u00261\u00260\u00261\\\\ 0\u00261\u00260\u00260\u00261\\\\ 0\u00261\u00261\u00261\u00260\\\\ 1\u00260\u00260\u00260\u00261\\\\ 1\u00260\u00261\u00261\u00260\\\\ 1\u00261\u00260\u00261\u00260\\\\ 1\u00261\u00261\u00261\u00261\\\\ \\end{array} } \\) 表達式：  \\(\\text{Sum}=X\\oplus Y\\oplus C_{\\text{in}}\\) \\(C_\\text{out}=YC_{\\text{in}}+XC_{\\text{in}}+XY\\)   邏輯電路   4-Bit Parallel Adder (Ripple Carry Adder 漣波加法器)  四個平行串接的全加器 (Full Adder)   Binary Subtracter using Full Adders  用全加器來實現減法器  Full Subtracter   \\(x_i,y_i,b_i\\rightarrow\\boxed{\\text{Full Subtracter}}\\rightarrow b_{i+1},d_i\\)\n  Truth Table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{ccc|cc} x_i\u0026y_i\u0026b_i\u0026b_{i+1}\u0026d_i\\\\\\hline 0\u00260\u00260\u00260\u00260\\\\ 0\u00260\u00261\u00261\u00261\\\\ 0\u00261\u00260\u00261\u00261\\\\ 0\u00261\u00261\u00261\u00260\\\\ 1\u00260\u00260\u00260\u00261\\\\ 1\u00260\u00261\u00260\u00260\\\\ 1\u00261\u00260\u00260\u00260\\\\ 1\u00261\u00261\u00261\u00261\\\\ \\end{array} } \\)\n  示意\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{c|cc} \u0026\\text{Column i Before Borrow}\u0026\\text{Column i After Borrow}\\\\\\hline x_i\u00260\u002610\u0026\\\\ -b_i\u0026-1\u0026-1\\\\ -y_i\u0026-1\u0026-1\\\\\\hline d_i\u0026\u00260(b_{i+1}=1)\\\\ \\end{array} } \\)\n  Parallel Subtracter Speeding up integer additions Ripple Carry Adder  一般的漣波進位加法器  設計簡單、規律 有較大的 Time Delay  一個 Full Adder 為\\(C_\\text{out}=YC_{\\text{in}}+XC_{\\text{in}}+XY\\) 也就是先 AND 再 OR，兩個 gate delay 故 n-bit adder 的 time delay 是 2n      Carry Lockahead Adder(CLA)  \\(\\text{Sum}=A\\oplus B\\oplus C_{in}\\) \\(C_{out}=AB+(A+B)C_{in}\\) \\(C_{i+1}=A_iB_i+(A_i+B_i)C_i\\) \\(C_{i+1}=g_i+p_iC_i\\)  \\(g_i=A_iB_i\\) generate function \\(p_i=A_i+B_i\\) propagate function   \\(C_2=g_1+p_1C_1\\) \\(C_2=g_1+p_1p_0g_0+p_1p_0C_0\\) \\(C_n=g_{n-1}+p_{n-1}g_{n-2}+p_{n-1}p_{n-2}g_{n-3}+…+p_{n-1}p_{n-2}…p_1g_0+p_{n-1}p_{n-2}…p_0C_0\\) 換句話說，\\(C_n\\)可以藉由 \\(C_0\\)運算出來，以 4-bit 為例，可以從漣波的 8 次降到 5 次的 Gate delay。   Carry Select Adder  將兩個加法作平行處理  預先假設 carry-in 的值，待前一級的 carry-in 算出後再用 selector 選擇正確的 carry-in，減去收到前級 carry-in 再開始運算的時間。     Binary multiplication  用邏輯閘模擬一般十進制進位法的乘法  示意\n\\( \\def\\arraystretch{1}\\begin{array}{rcccc} \\text{Multiplicand}\u0026\u0026\u0026B_1\u0026B_0\\\\ \\text{Multiplier}\u0026\u0026\u0026A_1\u0026A_0\\\\\\hline \\text{Partial products}\u0026\u0026\u0026A_0B_1\u0026A_0B_0\\\\ \\text{shift one bit left}\u0026\u0026A_1B_1\u0026A_1B_0\\\\ \\text{Sum of partial products}\u0026C1\u0026C2\u0026C3\u0026C4\\\\ \\end{array} \\)     ",
+  "articleBody": "布林表達式的轉換 將文字敘述轉換成布林表達式： \\( \\def\\arraystrecth{1.5}\\begin{array}{l} \\underbrace{\\text{The alarm will ring}}_ {Z} \\text{ iff } \\underbrace{\\text{the power of alarm is on}} _{A} \\text{ and } \\underbrace{\\text{the door is not closed}} _{B’} \\\\ \\text{ or } \\underbrace{\\text{it is after 6 p.m.}} _{C} \\text{ and } \\underbrace{\\text{the window is not closed}} _{D’} \\end{array} \\)\n\\(Z=AB’+CD’\\) 由真值表開始建構邏輯電路 Truth Table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{ccc|c|c} A\u0026B\u0026C\u0026f\u0026f’\\\\\\hline 0\u00260\u00260\u00260\u00261\\\\ 0\u00260\u00261\u00260\u00261\\\\ 0\u00261\u00260\u00260\u00261\\\\ 0\u00261\u00261\u00261\u00260\\\\ 1\u00260\u00260\u00261\u00260\\\\ 1\u00260\u00261\u00261\u00260\\\\ 1\u00261\u00260\u00261\u00260\\\\ 1\u00261\u00261\u00261\u00260 \\end{array} } \\) 利用 1’s 的函數\n\\(f=A’ BC+AB’ C’+AB’ C+ABC’+ABC\\)\n\\(=A’ BC+AB’+AB\\)\n\\(=A’ BC+A\\)\n\\(=A+BC\\) 利用 0’s 的函數\n\\(f=(A+B+C)(A+B+C’)(A+B’+C)\\)\n\\(=(A+B)(A+B’+C)\\)\n\\(=A+B(B’+C)\\)\n\\(=A+BC\\) Minterm 與 maxterm 展開 以 \\(F=A’ BC+A\\) 為範例 \\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{c|ccc|c|c|cc} \\text{Row No.}\u0026A\u0026B\u0026C\u0026\\text{Minterns}\u0026\\text{Maxterms}\u0026f\u0026f’\\\\\\hline 0\u00260\u00260\u00260\u0026\\text{A’B’C’}=\\text{m}_0\u0026\\text{A+B+C}=\\text{M}_0\u00260\u00261\\\\ 1\u00260\u00260\u00261\u0026\\text{A’B’C}=\\text{m}_1\u0026\\text{A+B+C’}=\\text{M}_1\u00260\u00261\\\\ 2\u00260\u00261\u00260\u0026\\text{A’BC’}=\\text{m}_2\u0026\\text{A+B’+C}=\\text{M}_2\u00260\u00261\\\\ 3\u00260\u00261\u00261\u0026\\text{A’BC}=\\text{m}_3\u0026\\text{A+B’+C’}=\\text{M}_3\u00261\u00260\\\\ 4\u00261\u00260\u00260\u0026\\text{AB’C’}=\\text{m}_4\u0026\\text{A’+B+C}=\\text{M}_4\u00261\u00260\\\\ 5\u00261\u00260\u00261\u0026\\text{AB’C}=\\text{m}_5\u0026\\text{A’+B+C’}=\\text{M}_5\u00261\u00260\\\\ 6\u00261\u00261\u00260\u0026\\text{ABC’}=\\text{m}_6\u0026\\text{A’+B’+C}=\\text{M}_6\u00261\u00260\\\\ 7\u00261\u00261\u00261\u0026\\text{ABC}=\\text{m}_7\u0026\\text{A’+B’+C’}=\\text{M}_7\u00261\u00260\\\\ \\end{array} } \\)\n\\(m_i’=M_i\\)\n\\(\\text{f=A’BC+A=1}\\)\n\\(\\text{=A’BC+AB’C’+AB’C+ABC’+ABC}\\)\n\\(=m_3+m_4+m_5+m_6+m_7\\)\n\\(=\\sum m(3,4,5,6,7)\\)\n\\(\\text{f=(A+B+C)(A+B+C’)(A+B’+C)=0}\\)\n\\(=M_0M_1M_2\\)\n\\(=\\prod M(0,1,2)\\)\nMaxterm 與 minterm 的轉換\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{rcl} g\u0026=\u0026\\sum m(2,3,4,6,7)\\\\ \u0026=\u0026\\prod M(0,1,5)\\\\ g’\u0026=\u0026\\sum m(0,1,5)\\\\ g\u0026=\u0026[\\sum m(0,1,5)]’\\\\ \u0026=\u0026\\prod m’(0,1,5)\\\\ \u0026=\u0026\\prod M(0,1,5) \\end{array} } \\)\n性質：\n\\(\\boxed{\\text{m}_i\\text{m}_j=0\\text{ if i}\\neq j}\\) 未完整定義的函式(Don’t Care) Truth table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{lll|l} A\u0026B\u0026C\u0026F\\\\\\hline 0\u00260\u00260\u00261\\\\ 0\u00260\u00261\u0026X\\leftarrow \\text{Don’t care}\\\\ 0\u00261\u00260\u00260\\\\ 0\u00261\u00261\u00261\\\\ 1\u00260\u00260\u00260\\\\ 1\u00260\u00261\u00260\\\\ 1\u00261\u00260\u0026X\\leftarrow \\text{Don’t care}\\\\ 1\u00261\u00261\u00261\\\\ \\end{array} } \\) 表達式： \\(F=\\sum m(0,3,7)+\\sum d(1,6)=\\prod M(2,4,5)\\cdot \\prod(1,6)\\) Binary adders and subtracters Half Adder 半加器 \\(X,Y_{\\text{in}}\\rightarrow{\\boxed{\\text{Half Adder}}\\rightarrow \\text{Sum}}\\) Truth Table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{cc|c} X\u0026Y\u0026Sum\\\\\\hline 0\u00260\u00260\\\\ 0\u00261\u00261\\\\ 1\u00260\u00261\\\\ 1\u00261\u00260\\\\ \\end{array} } \\) 表達式： \\(\\text{Sum}=X’ Y+XY’\\) Full Adder 全加器 \\(X,Y,C_{\\text{in}}\\rightarrow{\\boxed{\\text{Full Adder}}\\rightarrow C_{out}, \\text{Sum}}\\) Truth Table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{ccc|cc} X\u0026Y\u0026C_{\\text{in}}\u0026C_{\\text{out}}\u0026\\text{Sum}\\\\\\hline 0\u00260\u00260\u00260\u00260\\\\ 0\u00260\u00261\u00260\u00261\\\\ 0\u00261\u00260\u00260\u00261\\\\ 0\u00261\u00261\u00261\u00260\\\\ 1\u00260\u00260\u00260\u00261\\\\ 1\u00260\u00261\u00261\u00260\\\\ 1\u00261\u00260\u00261\u00260\\\\ 1\u00261\u00261\u00261\u00261\\\\ \\end{array} } \\) 表達式： \\(\\text{Sum}=X\\oplus Y\\oplus C_{\\text{in}}\\) \\(C_\\text{out}=YC_{\\text{in}}+XC_{\\text{in}}+XY\\) 邏輯電路 4-Bit Parallel Adder (Ripple Carry Adder 漣波加法器) 四個平行串接的全加器 (Full Adder) Binary Subtracter using Full Adders 用全加器來實現減法器 Full Subtracter \\(x_i,y_i,b_i\\rightarrow\\boxed{\\text{Full Subtracter}}\\rightarrow b_{i+1},d_i\\)\nTruth Table:\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{ccc|cc} x_i\u0026y_i\u0026b_i\u0026b_{i+1}\u0026d_i\\\\\\hline 0\u00260\u00260\u00260\u00260\\\\ 0\u00260\u00261\u00261\u00261\\\\ 0\u00261\u00260\u00261\u00261\\\\ 0\u00261\u00261\u00261\u00260\\\\ 1\u00260\u00260\u00260\u00261\\\\ 1\u00260\u00261\u00260\u00260\\\\ 1\u00261\u00260\u00260\u00260\\\\ 1\u00261\u00261\u00261\u00261\\\\ \\end{array} } \\)\n示意\n\\( \\boxed{ \\def\\arraystretch{1}\\begin{array}{c|cc} \u0026\\text{Column i Before Borrow}\u0026\\text{Column i After Borrow}\\\\\\hline x_i\u00260\u002610\u0026\\\\ -b_i\u0026-1\u0026-1\\\\ -y_i\u0026-1\u0026-1\\\\\\hline d_i\u0026\u00260(b_{i+1}=1)\\\\ \\end{array} } \\)\nParallel Subtracter Speeding up integer additions Ripple Carry Adder 一般的漣波進位加法器 設計簡單、規律 有較大的 Time Delay 一個 Full Adder 為\\(C_\\text{out}=YC_{\\text{in}}+XC_{\\text{in}}+XY\\) 也就是先 AND 再 OR，兩個 gate delay 故 n-bit adder 的 time delay 是 2n Carry Lockahead Adder(CLA) \\(\\text{Sum}=A\\oplus B\\oplus C_{in}\\) \\(C_{out}=AB+(A+B)C_{in}\\) \\(C_{i+1}=A_iB_i+(A_i+B_i)C_i\\) \\(C_{i+1}=g_i+p_iC_i\\) \\(g_i=A_iB_i\\) generate function \\(p_i=A_i+B_i\\) propagate function \\(C_2=g_1+p_1C_1\\) \\(C_2=g_1+p_1p_0g_0+p_1p_0C_0\\) \\(C_n=g_{n-1}+p_{n-1}g_{n-2}+p_{n-1}p_{n-2}g_{n-3}+…+p_{n-1}p_{n-2}…p_1g_0+p_{n-1}p_{n-2}…p_0C_0\\) 換句話說，\\(C_n\\)可以藉由 \\(C_0\\)運算出來，以 4-bit 為例，可以從漣波的 8 次降到 5 次的 Gate delay。 Carry Select Adder 將兩個加法作平行處理 預先假設 carry-in 的值，待前一級的 carry-in 算出後再用 selector 選擇正確的 carry-in，減去收到前級 carry-in 再開始運算的時間。 Binary multiplication 用邏輯閘模擬一般十進制進位法的乘法 示意\n\\( \\def\\arraystretch{1}\\begin{array}{rcccc} \\text{Multiplicand}\u0026\u0026\u0026B_1\u0026B_0\\\\ \\text{Multiplier}\u0026\u0026\u0026A_1\u0026A_0\\\\\\hline \\text{Partial products}\u0026\u0026\u0026A_0B_1\u0026A_0B_0\\\\ \\text{shift one bit left}\u0026\u0026A_1B_1\u0026A_1B_0\\\\ \\text{Sum of partial products}\u0026C1\u0026C2\u0026C3\u0026C4\\\\ \\end{array} \\) ",
   "wordCount" : "383",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/cover.jpg","datePublished": "2021-09-18T03:11:35+08:00",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/cover.jpg","datePublished": "2021-09-18T03:11:35+08:00",
   "dateModified": "2021-09-18T03:11:35+08:00",
   "author":{
     "@type": "Person",
@@ -129,14 +130,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/logicdesign/lec3/"
+    "@id": "http://localhost:1313/logicdesign/lec3/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -158,17 +159,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -182,46 +183,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -229,26 +230,27 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/logicdesign/">LogicDesigns</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/logicdesign/">LogicDesigns</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Logic Design] Lec 03 - Minterm 與 Maxterm 展開
     </h1>
     <div class="post-description">
       Minterm and Maxterm expression
     </div>
-    <div class="post-meta"><span title='2021-09-18 03:11:35 +0800 CST'>September 18, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//LogicDesign/Lec3.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2021-09-18 03:11:35 +0800 CST'>September 18, 2021</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//LogicDesign/Lec3.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -259,7 +261,7 @@
                     <li>
                         <a href="#minterm-%e8%88%87-maxterm-%e5%b1%95%e9%96%8b" aria-label="Minterm 與 maxterm 展開">Minterm 與 maxterm 展開</a></li>
                     <li>
-                        <a href="#%e6%9c%aa%e5%ae%8c%e6%95%b4%e5%ae%9a%e7%be%a9%e7%9a%84%e5%87%bd%e5%bc%8fdont-care" aria-label="未完整定義的函式(Don&amp;rsquo;t Care)">未完整定義的函式(Don&rsquo;t Care)</a></li>
+                        <a href="#%e6%9c%aa%e5%ae%8c%e6%95%b4%e5%ae%9a%e7%be%a9%e7%9a%84%e5%87%bd%e5%bc%8fdont-care" aria-label="未完整定義的函式(Don&rsquo;t Care)">未完整定義的函式(Don&rsquo;t Care)</a></li>
                     <li>
                         <a href="#binary-adders-and-subtracters" aria-label="Binary adders and subtracters">Binary adders and subtracters</a><ul>
                             
@@ -365,16 +367,16 @@
 \text{ iff }
 \underbrace{\text{the power of alarm is on}} _{A}
 \text{ and }
-\underbrace{\text{the door is not closed}} _{B'} \\
+\underbrace{\text{the door is not closed}} _{B&rsquo;} \\
 \text{ or }
 \underbrace{\text{it is after 6 p.m.}} _{C}
 \text{ and }
-\underbrace{\text{the window is not closed}} _{D'}
+\underbrace{\text{the window is not closed}} _{D&rsquo;}
 \end{array}
 \)</p>
 </blockquote>
 <ul>
-<li>\(Z=AB'+CD'\)</li>
+<li>\(Z=AB&rsquo;+CD&rsquo;\)</li>
 </ul>
 <h1 id="由真值表開始建構邏輯電路">由真值表開始建構邏輯電路<a hidden class="anchor" aria-hidden="true" href="#由真值表開始建構邏輯電路">#</a></h1>
 <ul>
@@ -382,7 +384,7 @@
 \(
 \boxed{
 \def\arraystretch{1}\begin{array}{ccc|c|c}
-A&amp;B&amp;C&amp;f&amp;f'\\\hline
+A&amp;B&amp;C&amp;f&amp;f&rsquo;\\\hline
 0&amp;0&amp;0&amp;0&amp;1\\
 0&amp;0&amp;1&amp;0&amp;1\\
 0&amp;1&amp;0&amp;0&amp;1\\
@@ -395,47 +397,47 @@ A&amp;B&amp;C&amp;f&amp;f'\\\hline
 }
 \)</li>
 <li>利用 1&rsquo;s 的函數<br>
-\(f=A' BC+AB' C'+AB' C+ABC'+ABC\)<br>
-\(=A' BC+AB'+AB\)<br>
-\(=A' BC+A\)<br>
+\(f=A&rsquo; BC+AB&rsquo; C&rsquo;+AB&rsquo; C+ABC&rsquo;+ABC\)<br>
+\(=A&rsquo; BC+AB&rsquo;+AB\)<br>
+\(=A&rsquo; BC+A\)<br>
 \(=A+BC\)</li>
 <li>利用 0&rsquo;s 的函數<br>
-\(f=(A+B+C)(A+B+C')(A+B'+C)\)<br>
-\(=(A+B)(A+B'+C)\)<br>
-\(=A+B(B'+C)\)<br>
+\(f=(A+B+C)(A+B+C&rsquo;)(A+B&rsquo;+C)\)<br>
+\(=(A+B)(A+B&rsquo;+C)\)<br>
+\(=A+B(B&rsquo;+C)\)<br>
 \(=A+BC\)</li>
 </ul>
 <h1 id="minterm-與-maxterm-展開">Minterm 與 maxterm 展開<a hidden class="anchor" aria-hidden="true" href="#minterm-與-maxterm-展開">#</a></h1>
 <ul>
 <li>
-<p>以 \(F=A' BC+A\) 為範例
+<p>以 \(F=A&rsquo; BC+A\) 為範例
 \(
 \boxed{
 \def\arraystretch{1}\begin{array}{c|ccc|c|c|cc}
-\text{Row No.}&amp;A&amp;B&amp;C&amp;\text{Minterns}&amp;\text{Maxterms}&amp;f&amp;f'\\\hline
-0&amp;0&amp;0&amp;0&amp;\text{A&rsquo;B&rsquo;C'}=\text{m}_0&amp;\text{A+B+C}=\text{M}_0&amp;0&amp;1\\
-1&amp;0&amp;0&amp;1&amp;\text{A&rsquo;B&rsquo;C}=\text{m}_1&amp;\text{A+B+C'}=\text{M}_1&amp;0&amp;1\\
-2&amp;0&amp;1&amp;0&amp;\text{A&rsquo;BC'}=\text{m}_2&amp;\text{A+B'+C}=\text{M}_2&amp;0&amp;1\\
-3&amp;0&amp;1&amp;1&amp;\text{A&rsquo;BC}=\text{m}_3&amp;\text{A+B'+C'}=\text{M}_3&amp;1&amp;0\\
-4&amp;1&amp;0&amp;0&amp;\text{AB&rsquo;C'}=\text{m}_4&amp;\text{A'+B+C}=\text{M}_4&amp;1&amp;0\\
-5&amp;1&amp;0&amp;1&amp;\text{AB&rsquo;C}=\text{m}_5&amp;\text{A'+B+C'}=\text{M}_5&amp;1&amp;0\\
-6&amp;1&amp;1&amp;0&amp;\text{ABC'}=\text{m}_6&amp;\text{A'+B'+C}=\text{M}_6&amp;1&amp;0\\
-7&amp;1&amp;1&amp;1&amp;\text{ABC}=\text{m}_7&amp;\text{A'+B'+C'}=\text{M}_7&amp;1&amp;0\\
+\text{Row No.}&amp;A&amp;B&amp;C&amp;\text{Minterns}&amp;\text{Maxterms}&amp;f&amp;f&rsquo;\\\hline
+0&amp;0&amp;0&amp;0&amp;\text{A&rsquo;B&rsquo;C&rsquo;}=\text{m}_0&amp;\text{A+B+C}=\text{M}_0&amp;0&amp;1\\
+1&amp;0&amp;0&amp;1&amp;\text{A&rsquo;B&rsquo;C}=\text{m}_1&amp;\text{A+B+C&rsquo;}=\text{M}_1&amp;0&amp;1\\
+2&amp;0&amp;1&amp;0&amp;\text{A&rsquo;BC&rsquo;}=\text{m}_2&amp;\text{A+B&rsquo;+C}=\text{M}_2&amp;0&amp;1\\
+3&amp;0&amp;1&amp;1&amp;\text{A&rsquo;BC}=\text{m}_3&amp;\text{A+B&rsquo;+C&rsquo;}=\text{M}_3&amp;1&amp;0\\
+4&amp;1&amp;0&amp;0&amp;\text{AB&rsquo;C&rsquo;}=\text{m}_4&amp;\text{A&rsquo;+B+C}=\text{M}_4&amp;1&amp;0\\
+5&amp;1&amp;0&amp;1&amp;\text{AB&rsquo;C}=\text{m}_5&amp;\text{A&rsquo;+B+C&rsquo;}=\text{M}_5&amp;1&amp;0\\
+6&amp;1&amp;1&amp;0&amp;\text{ABC&rsquo;}=\text{m}_6&amp;\text{A&rsquo;+B&rsquo;+C}=\text{M}_6&amp;1&amp;0\\
+7&amp;1&amp;1&amp;1&amp;\text{ABC}=\text{m}_7&amp;\text{A&rsquo;+B&rsquo;+C&rsquo;}=\text{M}_7&amp;1&amp;0\\
 \end{array}
 }
 \)</p>
 </li>
 <li>
-<p>\(m_i'=M_i\)</p>
+<p>\(m_i&rsquo;=M_i\)</p>
 </li>
 <li>
 <p>\(\text{f=A&rsquo;BC+A=1}\)<br>
-\(\text{=A&rsquo;BC+AB&rsquo;C'+AB&rsquo;C+ABC'+ABC}\)<br>
+\(\text{=A&rsquo;BC+AB&rsquo;C&rsquo;+AB&rsquo;C+ABC&rsquo;+ABC}\)<br>
 \(=m_3+m_4+m_5+m_6+m_7\)<br>
 \(=\sum m(3,4,5,6,7)\)</p>
 </li>
 <li>
-<p>\(\text{f=(A+B+C)(A+B+C')(A+B'+C)=0}\)<br>
+<p>\(\text{f=(A+B+C)(A+B+C&rsquo;)(A+B&rsquo;+C)=0}\)<br>
 \(=M_0M_1M_2\)<br>
 \(=\prod M(0,1,2)\)</p>
 </li>
@@ -446,9 +448,9 @@ A&amp;B&amp;C&amp;f&amp;f'\\\hline
 \def\arraystretch{1}\begin{array}{rcl}
 g&amp;=&amp;\sum m(2,3,4,6,7)\\
 &amp;=&amp;\prod M(0,1,5)\\
-g'&amp;=&amp;\sum m(0,1,5)\\
-g&amp;=&amp;[\sum m(0,1,5)]'\\
-&amp;=&amp;\prod m'(0,1,5)\\
+g&rsquo;&amp;=&amp;\sum m(0,1,5)\\
+g&amp;=&amp;[\sum m(0,1,5)]&rsquo;\\
+&amp;=&amp;\prod m&rsquo;(0,1,5)\\
 &amp;=&amp;\prod M(0,1,5)
 \end{array}
 }
@@ -501,7 +503,7 @@ X&amp;Y&amp;Sum\\\hline
 \end{array}
 }
 \)</li>
-<li>表達式： \(\text{Sum}=X' Y+XY'\)</li>
+<li>表達式： \(\text{Sum}=X&rsquo; Y+XY&rsquo;\)</li>
 </ul>
 <h2 id="full-adder-全加器">Full Adder 全加器<a hidden class="anchor" aria-hidden="true" href="#full-adder-全加器">#</a></h2>
 <ul>
@@ -529,21 +531,18 @@ X&amp;Y&amp;C_{\text{in}}&amp;C_{\text{out}}&amp;\text{Sum}\\\hline
 </ul>
 </li>
 <li>邏輯電路
-<img loading="lazy" src="/images/fullAdder.png" alt="fulladder"  />
-</li>
+<img alt="fulladder" loading="lazy" src="/images/fullAdder.png"></li>
 </ul>
 <h2 id="4-bit-parallel-adder-ripple-carry-adder-漣波加法器">4-Bit Parallel Adder (Ripple Carry Adder 漣波加法器)<a hidden class="anchor" aria-hidden="true" href="#4-bit-parallel-adder-ripple-carry-adder-漣波加法器">#</a></h2>
 <ul>
 <li>四個平行串接的全加器 (Full Adder)
-<img loading="lazy" src="/images/4bitadder.png" alt="4bitadder"  />
-</li>
+<img alt="4bitadder" loading="lazy" src="/images/4bitadder.png"></li>
 </ul>
 <h2 id="binary-subtracter-using-full-adders">Binary Subtracter using Full Adders<a hidden class="anchor" aria-hidden="true" href="#binary-subtracter-using-full-adders">#</a></h2>
 <ul>
 <li>用全加器來實現減法器</li>
 </ul>
-<p><img loading="lazy" src="/images/sub.png" alt="subtracter"  />
-</p>
+<p><img alt="subtracter" loading="lazy" src="/images/sub.png"></p>
 <h2 id="full-subtracter">Full Subtracter<a hidden class="anchor" aria-hidden="true" href="#full-subtracter">#</a></h2>
 <ul>
 <li>
@@ -583,8 +582,7 @@ d_i&amp;&amp;0(b_{i+1}=1)\\
 </li>
 </ul>
 <h2 id="parallel-subtracter">Parallel Subtracter<a hidden class="anchor" aria-hidden="true" href="#parallel-subtracter">#</a></h2>
-<p><img loading="lazy" src="/images/sub2.png" alt="subtracter2"  />
-</p>
+<p><img alt="subtracter2" loading="lazy" src="/images/sub2.png"></p>
 <h1 id="speeding-up-integer-additions">Speeding up integer additions<a hidden class="anchor" aria-hidden="true" href="#speeding-up-integer-additions">#</a></h1>
 <h2 id="ripple-carry-adder">Ripple Carry Adder<a hidden class="anchor" aria-hidden="true" href="#ripple-carry-adder">#</a></h2>
 <ul>
@@ -616,16 +614,14 @@ d_i&amp;&amp;0(b_{i+1}=1)\\
 <li>\(C_2=g_1+p_1p_0g_0+p_1p_0C_0\)</li>
 <li>\(C_n=g_{n-1}+p_{n-1}g_{n-2}+p_{n-1}p_{n-2}g_{n-3}+&hellip;+p_{n-1}p_{n-2}&hellip;p_1g_0+p_{n-1}p_{n-2}&hellip;p_0C_0\)</li>
 <li>換句話說，\(C_n\)可以藉由 \(C_0\)運算出來，以 4-bit 為例，可以從漣波的 8 次降到 5 次的 Gate delay。
-<img loading="lazy" src="/images/cla.png" alt="cla"  />
-</li>
+<img alt="cla" loading="lazy" src="/images/cla.png"></li>
 </ul>
 <h2 id="carry-select-adder">Carry Select Adder<a hidden class="anchor" aria-hidden="true" href="#carry-select-adder">#</a></h2>
 <ul>
 <li>將兩個加法作平行處理
 <ul>
 <li>預先假設 carry-in 的值，待前一級的 carry-in 算出後再用 selector 選擇正確的 carry-in，減去收到前級 carry-in 再開始運算的時間。
-<img loading="lazy" src="/images/carryselector.png" alt="carryselector"  />
-</li>
+<img alt="carryselector" loading="lazy" src="/images/carryselector.png"></li>
 </ul>
 </li>
 </ul>
@@ -643,8 +639,7 @@ d_i&amp;&amp;0(b_{i+1}=1)\\
 \text{Sum of partial products}&amp;C1&amp;C2&amp;C3&amp;C4\\
 \end{array}
 \)
-<img loading="lazy" src="/images/multiplication.png" alt="multiplication"  />
-</li>
+<img alt="multiplication" loading="lazy" src="/images/multiplication.png"></li>
 </ul>
 </li>
 </ul>
@@ -654,7 +649,7 @@ d_i&amp;&amp;0(b_{i+1}=1)\\
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/logic-design/">Logic Design</a></li>
+      <li><a href="http://localhost:1313/tags/logic-design/">Logic Design</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -669,11 +664,12 @@ d_i&amp;&amp;0(b_{i+1}=1)\\
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -742,12 +738,12 @@ d_i&amp;&amp;0(b_{i+1}=1)\\
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

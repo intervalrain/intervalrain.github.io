@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Leetcode] 11. Container With Most Water | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="11. Container With Most Water
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Greedy   一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Two Pointer、Greedy
+
+
+一、題目
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
 Find two lines that together with the x-axis form a container, such that the container contains the most water.
-Return the maximum amount of water a container can store.">
+Return the maximum amount of water a container can store.
+Notive that you may not slant the container.">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/11/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +48,7 @@ Return the maximum amount of water a container can store.">
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,23 +81,34 @@ Return the maximum amount of water a container can store.">
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Leetcode] 11. Container With Most Water" />
-<meta property="og:description" content="11. Container With Most Water
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Greedy   一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+</script><meta property="og:url" content="http://localhost:1313/leetcode/11/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Leetcode] 11. Container With Most Water">
+  <meta property="og:description" content="11. Container With Most Water
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Greedy 一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
 Find two lines that together with the x-axis form a container, such that the container contains the most water.
-Return the maximum amount of water a container can store." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/11/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-10-26T19:36:06&#43;08:00" />
-<meta property="article:modified_time" content="2022-10-26T19:36:06&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Leetcode] 11. Container With Most Water"/>
+Return the maximum amount of water a container can store.
+Notive that you may not slant the container.">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-10-26T19:36:06+08:00">
+    <meta property="article:modified_time" content="2022-10-26T19:36:06+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Leetcode] 11. Container With Most Water">
 <meta name="twitter:description" content="11. Container With Most Water
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Greedy   一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Two Pointer、Greedy
+
+
+一、題目
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
 Find two lines that together with the x-axis form a container, such that the container contains the most water.
-Return the maximum amount of water a container can store."/>
-<meta name="twitter:site" content="@intervalrain"/>
+Return the maximum amount of water a container can store.
+Notive that you may not slant the container.">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -103,14 +119,8 @@ Return the maximum amount of water a container can store."/>
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[Leetcode] 11. Container With Most Water",
-      "item": "https://intervalrain.github.io/leetcode/11/"
+      "item": "http://localhost:1313/leetcode/11/"
     }
   ]
 }
@@ -121,13 +131,13 @@ Return the maximum amount of water a container can store."/>
   "@type": "BlogPosting",
   "headline": "[Leetcode] 11. Container With Most Water",
   "name": "[Leetcode] 11. Container With Most Water",
-  "description": "11. Container With Most Water\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointer、Greedy   一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\nReturn the maximum amount of water a container can store.",
+  "description": "11. Container With Most Water\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointer、Greedy 一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\nReturn the maximum amount of water a container can store.\nNotive that you may not slant the container.\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "11. Container With Most Water\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointer、Greedy   一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\nReturn the maximum amount of water a container can store.\nNotive that you may not slant the container.\nExample 1:\n Input: height = [1,8,6,2,5,4,8,3,7] Output: 49 Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.  Example 2:\n Input: height = [1,1] Output: 1  Constraints:\n n == height.length 2  0    二、分析  此題用 Greedy 與 Two Pointer 的方向來思考。  兩個垂直線相距愈遠且線高愈高，則兩線間可裝的水愈多。 兩垂直線間可裝的水，受限於線高較低者。 任兩線間(相距變小)，有任一解大於當下解，只有在有線高高於兩線線高較低者。 故我們每次移動線高較低的那邊。   兩線間可裝的水為： int calArea(vectorint\u0026 height, int left, int right) {  return min(height[left], height[right]) * (right - left); }   三、解題 1. Two Pointer  Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\)  int calArea(vectorint\u0026 height, int left, int right) {  return min(height[left], height[right]) * (right - left); } int maxArea(vectorint\u0026 height) {  int left = 0, right = height.size()-1;  int res = 0;  do {  res = max(res, calArea(height, left, right));  if (height[left]  height[right])  left++;  else  right--;  } while (left  right);  return res;  } 回目錄 Catalog\n",
+  "articleBody": "11. Container With Most Water\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Two Pointer、Greedy 一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\nReturn the maximum amount of water a container can store.\nNotive that you may not slant the container.\nExample 1:\nInput: height = [1,8,6,2,5,4,8,3,7] Output: 49 Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49. Example 2:\nInput: height = [1,1] Output: 1 Constraints:\nn == height.length 2 \u003c= n \u003c= 10^5 0 \u003c= height[i] \u003c= 10^4 二、分析 此題用 Greedy 與 Two Pointer 的方向來思考。 兩個垂直線相距愈遠且線高愈高，則兩線間可裝的水愈多。 兩垂直線間可裝的水，受限於線高較低者。 任兩線間(相距變小)，有任一解大於當下解，只有在有線高高於兩線線高較低者。 故我們每次移動線高較低的那邊。 兩線間可裝的水為： int calArea(vector\u003cint\u003e\u0026 height, int left, int right) { return min(height[left], height[right]) * (right - left); } 三、解題 1. Two Pointer Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\) int calArea(vector\u003cint\u003e\u0026 height, int left, int right) { return min(height[left], height[right]) * (right - left); } int maxArea(vector\u003cint\u003e\u0026 height) { int left = 0, right = height.size()-1; int res = 0; do { res = max(res, calArea(height, left, right)); if (height[left] \u003c height[right]) left++; else right--; } while (left \u003c right); return res; } 回目錄 Catalog\n",
   "wordCount" : "230",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-10-26T19:36:06+08:00",
   "dateModified": "2022-10-26T19:36:06+08:00",
   "author":{
@@ -136,14 +146,14 @@ Return the maximum amount of water a container can store."/>
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/11/"
+    "@id": "http://localhost:1313/leetcode/11/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -165,17 +175,17 @@ Return the maximum amount of water a container can store."/>
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -189,46 +199,46 @@ Return the maximum amount of water a container can store."/>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -236,20 +246,21 @@ Return the maximum amount of water a container can store."/>
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Leetcode] 11. Container With Most Water
     </h1>
-    <div class="post-meta"><span title='2022-10-26 19:36:06 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/11.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-10-26 19:36:06 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/11.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -342,8 +353,7 @@ Find two lines that together with the x-axis form a container, such that the con
 Return <em>the maximum amount of water a container can store</em>.<br>
 <strong>Notive</strong> that you may not slant the container.</p>
 <p><strong>Example 1:</strong><br>
-<img loading="lazy" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg" alt="question_11"  />
-</p>
+<img alt="question_11" loading="lazy" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg"></p>
 <ul>
 <li><strong>Input:</strong> height = [1,8,6,2,5,4,8,3,7]</li>
 <li><strong>Output:</strong> 49</li>
@@ -406,16 +416,16 @@ Return <em>the maximum amount of water a container can store</em>.<br>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/12/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/12/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[Leetcode] 12. Integer to Roman</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/10/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/10/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[Leetcode] 10. Regular Expression Matching</span>
   </a>
@@ -433,11 +443,12 @@ Return <em>the maximum amount of water a container can store</em>.<br>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -506,12 +517,12 @@ Return <em>the maximum amount of water a container can store</em>.<br>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Algo] 2-4. 回溯法 Backtracking | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="C&#43;&#43;, Leetcode, Algorithm, Backtracking, 回溯法" />
+<meta name="keywords" content="C&#43;&#43;, Leetcode, Algorithm, Backtracking, 回溯法">
 <meta name="description" content="演算法設計，介紹什麼是回溯法，並示範運用回溯法的思維解題">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/cs/algo/backtracking/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,19 +74,23 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Algo] 2-4. 回溯法 Backtracking" />
-<meta property="og:description" content="演算法設計，介紹什麼是回溯法，並示範運用回溯法的思維解題" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/cs/algo/backtracking/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/faang.webp" /><meta property="article:section" content="CS" />
-<meta property="article:published_time" content="2023-01-27T10:50:26&#43;08:00" />
-<meta property="article:modified_time" content="2023-01-27T10:50:26&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/faang.webp" />
-<meta name="twitter:title" content="[Algo] 2-4. 回溯法 Backtracking"/>
-<meta name="twitter:description" content="演算法設計，介紹什麼是回溯法，並示範運用回溯法的思維解題"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/cs/algo/backtracking/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Algo] 2-4. 回溯法 Backtracking">
+  <meta property="og:description" content="演算法設計，介紹什麼是回溯法，並示範運用回溯法的思維解題">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="cs">
+    <meta property="article:published_time" content="2023-01-27T10:50:26+08:00">
+    <meta property="article:modified_time" content="2023-01-27T10:50:26+08:00">
+    <meta property="article:tag" content="CS">
+    <meta property="article:tag" content="Algo">
+    <meta property="og:image" content="http://localhost:1313/images/faang.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/faang.webp">
+<meta name="twitter:title" content="[Algo] 2-4. 回溯法 Backtracking">
+<meta name="twitter:description" content="演算法設計，介紹什麼是回溯法，並示範運用回溯法的思維解題">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -99,14 +101,14 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "CS",
-      "item": "https://intervalrain.github.io/cs/"
+      "name": "CSes",
+      "item": "http://localhost:1313/cs/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[Algo] 2-4. 回溯法 Backtracking",
-      "item": "https://intervalrain.github.io/cs/algo/backtracking/"
+      "item": "http://localhost:1313/cs/algo/backtracking/"
     }
   ]
 }
@@ -121,10 +123,10 @@
   "keywords": [
     "C++", "Leetcode", "Algorithm", "Backtracking", "回溯法"
   ],
-  "articleBody": "一、回溯法  回溯法與 dfs 相當類似，本質上都是暴力窮舉的演算法，但細微的差異在於：  dfs 在遍歷節點。 backtracking 在遍歷樹枝。   站在回溯樹上的一個節點，需要考慮的只有三件事情：  路徑 選擇 終止條件   以全排列問題([Leetcode] 46. permutation)來舉例  全排列問題即給定一組數組 nums，需返回這些數字的所有排列組合，舉例來說，給定一個數組 nums = [1,2,3]，那麼它可能的排列會有：  [1,2,3] [1,3,2] [2,1,3] [2,3,1] [3,1,2] [3,2,1]   對應上圖的回溯樹來看，我們在每個樹的節點，都會面臨一次決策，站在樹的根時，相當於我們要選擇排列的第一位，而我們有三個選擇，即 1 或 2 或 3。若我們的第一位選擇了 1，代表我們選擇了 \\(\\text{x}_1=1\\) 的路徑，故接下來我們的選擇只剩下兩個，即 2 或 3。當我們繼續往下做，直到子葉節點時，代表我們已經沒有選擇可選，此時就是我們的終止條件。 回憶我們在二叉樹中練習過前序、中序、後序的思維，前序與後序代表我們在遍歷節點前與後的時間點，而在回溯法，這兩個時間點，各自代表了  將選擇加入路徑 從路徑中撤銷選擇  用二叉樹程式碼來說明即：  void traverse(TreeNode* root){  if (!root) return;  // preorder: do option  traverse(root-left);  traverse(root-right);  // postorder: retrieve option }  N-ary 樹：  class Node{  int val;  vectorNode* children; }; void traverse(Node* root){  if (!root) return;  for (Node* child : root-children) {  // preorder: do option  traverse(child);  // postorder: retrieve option  } }     二、回溯法的框架  藉由上面的思維練習，我們可以拼湊出回溯法的基本框架：  vectorNode* path; vectorvectorNode* res; void backtrack(Node* root) {  if (terminate_condition) { // 當終止條件時  res.push_back(path); // 將路徑加入結果  return; // 治原路徑返回  }  for (auto\u0026 next : root-children) {  path.push_back(next); // 將選擇加入路徑  backtrack(next);  path.pop_back(); // 從路徑中撤銷選擇  } }  試著解題[Leetcode] 46. permutation：  void backtrack(vectorint\u0026 nums, vectorbool\u0026 visited, vectorint\u0026 path) {  if (path.size() == nums.size()) {  res.push_back(path);  return;  }  for (int i = 0; i  nums.size(); i++) {  if (visited[i]) continue;  visited[i] = true;  path.push_back(nums[i]);  backtrack(nums, visited, path);  visited[i] = false;  path.pop_back();  } } 三、例題 1. [Leetcode] 51. N-Queens  經典的 N-Queen 問題，在一個 N x N 的棋盤上，每個橫排、直排與斜線都不能出現 2 個以上的皇后，試求有幾種皇后的排法。  此題就可以用到回溯法，以 4 x 4 的棋盤為例，我們會建構一個深度為 16 的決策樹：  路徑：之前做過的選擇 選擇：選擇要放置皇后，或是不要放置皇后 終止條件：16 個棋格都走完(4列都走完) 注意：因為在第 i 列放了皇后，則同列的其它格子就不能放皇后了，故我們可以直接往第 i+1 列前進。故到了第 n 列，代表達到終止條件。   程式碼：  int sz; vectorvectorstring solveNQueens(int n) {  sz = n;  vectorvectorstring res;  vectorstring board(n, string(n, '.'));  backtrack(board, 0, res);  return res; }  void backtrack(vectorstring\u0026 board, int row, vectorvectorstring\u0026 res){  if (row == sz){ // 終止條件：走完 n 行  res.push_back(board);  return;  }  for (int col = 0; col  sz; col++){  if (!isValid(board, row, col)) continue;  board[row][col] = 'Q'; // 放皇后  backtrack(board, row+1, res);  board[row][col] = '.'; // 撤銷皇后  } }  // 直行、橫列、斜線都不能出線皇后 bool isValid(vectorstring\u0026 board, int\u0026 row, int\u0026 col){  if (row == sz) return true;  for (int i = row - 1; i = 0; i--)  if (board[i][col] == 'Q') return false;  for (int i = row - 1, j = col - 1; i = 0 \u0026\u0026 j = 0; i--, j--){  if (board[i][j] == 'Q') return false;  }  for (int i = row - 1, j = col + 1; i = 0 \u0026\u0026 j  sz; i--, j++){  if (board[i][j] == 'Q') return false;  }  return true; } 2. [Leetcode] 797. All Paths From Source to Target  給定一個 DAG(directed acyclic graph)，各用 0 到 n-1 的數字標示，找出所以可能從 0 走到 n-1 的路徑。其中 graph[i] 代表從 i 可以到達的下一個節點。   vectorvectorint allPathsSourceTarget(vectorvectorint\u0026 graph) {  vectorvectorint res;  vectorint path;  path.push_back(0); // 站在起點 0  backtrack(graph, res, path, 0, -1);  return res; } void backtrack(vectorvectorint\u0026 graph, vectorvectorint\u0026 res, vectorint\u0026 path, int curr, int last) {  if (curr == graph.size()-1) { // 到達終點 n-1  res.push_back(path);  return;  }  for (const auto\u0026 next : graph[curr]) {  // if (last == next) continue; // 若是 directed 或是 cyclic graph，需要避免走回頭路  path.push_back(next); // 做選擇  backtrack(graph, res, path, next, curr);  path.pop_back(); // 做撤銷  } } 3. [Leetcode] 980. Unique Path III  機器人必須走過除了牆外的所有棋格，必且到達指定的位置，試求機器人有幾種走法。其中  1 代表起點。 2 代表終點。 0 代表空白棋格，即機器人必須要經過的棋格。 -1 代表牆，即機器人無須經過且不能經過的棋格。   注意此題的選擇、與撤銷的位置與框架中的前序、後序位置不同，試想會有什麼效果   int res; int uniquePathsIII(vectorvectorint\u0026 grid) {  res = 0;  int m = grid.size(), n = grid[0].size();  // 先記錄機器人的起點與終點  pairint,int start, end;  // 記錄機器人所需走多少步(選擇的次數): 棋格數-障礙-1  int left = m*n;  for (int i = 0; i  m; i++) {  for (int j = 0; j  n; j++) {  if (grid[i][j] == 1) {  start = {i, j};  left--;  } else if (grid[i][j] == -1) {  left--;  }  }  }  backtrack(grid, start.first, start.second, left);  return res; } int dir[4][2] = {{1,0},{0,1},{-1,0},{0,-1}}; void backtrack(vectorvectorint\u0026 grid, int row, int col, int left) {  // 超出棋格、或是已經走過  if (row  0 || row = grid.size() || col  0 || col = grid[0].size() || grid[row][col] == -1) return;  // 終止條件：到達目標且每一個空白棋格都走完(left == 0)  if (grid[row][col] == 2 \u0026\u0026 left == 0) {  res++;  return;  }  int tmp = grid[row][col]; // 做選擇  grid[row][col] = -1; // 做標記，代表已走過  for (const auto\u0026 d : dir) {  backtrack(grid, row+d[0], col+d[1], left-1);  }  grid[row][col] = tmp; // 做撤銷 }   回到目錄：[Algo] 演算法筆記 想要複習：[Algo] 2-3. 分治法 接著閱讀：[Algo] 2-5. 動態規劃  ",
+  "articleBody": "一、回溯法 回溯法與 dfs 相當類似，本質上都是暴力窮舉的演算法，但細微的差異在於： dfs 在遍歷節點。 backtracking 在遍歷樹枝。 站在回溯樹上的一個節點，需要考慮的只有三件事情： 路徑 選擇 終止條件 以全排列問題([Leetcode] 46. permutation)來舉例 全排列問題即給定一組數組 nums，需返回這些數字的所有排列組合，舉例來說，給定一個數組 nums = [1,2,3]，那麼它可能的排列會有： [1,2,3] [1,3,2] [2,1,3] [2,3,1] [3,1,2] [3,2,1] 對應上圖的回溯樹來看，我們在每個樹的節點，都會面臨一次決策，站在樹的根時，相當於我們要選擇排列的第一位，而我們有三個選擇，即 1 或 2 或 3。若我們的第一位選擇了 1，代表我們選擇了 \\(\\text{x}_1=1\\) 的路徑，故接下來我們的選擇只剩下兩個，即 2 或 3。當我們繼續往下做，直到子葉節點時，代表我們已經沒有選擇可選，此時就是我們的終止條件。 回憶我們在二叉樹中練習過前序、中序、後序的思維，前序與後序代表我們在遍歷節點前與後的時間點，而在回溯法，這兩個時間點，各自代表了 將選擇加入路徑 從路徑中撤銷選擇 用二叉樹程式碼來說明即： void traverse(TreeNode* root){ if (!root) return; // preorder: do option traverse(root-\u003eleft); traverse(root-\u003eright); // postorder: retrieve option } N-ary 樹： class Node{ int val; vector\u003cNode*\u003e children; }; void traverse(Node* root){ if (!root) return; for (Node* child : root-\u003echildren) { // preorder: do option traverse(child); // postorder: retrieve option } } 二、回溯法的框架 藉由上面的思維練習，我們可以拼湊出回溯法的基本框架： vector\u003cNode*\u003e path; vector\u003cvector\u003cNode*\u003e\u003e res; void backtrack(Node* root) { if (terminate_condition) { // 當終止條件時 res.push_back(path); // 將路徑加入結果 return; // 治原路徑返回 } for (auto\u0026 next : root-\u003echildren) { path.push_back(next); // 將選擇加入路徑 backtrack(next); path.pop_back(); // 從路徑中撤銷選擇 } } 試著解題[Leetcode] 46. permutation： void backtrack(vector\u003cint\u003e\u0026 nums, vector\u003cbool\u003e\u0026 visited, vector\u003cint\u003e\u0026 path) { if (path.size() == nums.size()) { res.push_back(path); return; } for (int i = 0; i \u003c nums.size(); i++) { if (visited[i]) continue; visited[i] = true; path.push_back(nums[i]); backtrack(nums, visited, path); visited[i] = false; path.pop_back(); } } 三、例題 1. [Leetcode] 51. N-Queens 經典的 N-Queen 問題，在一個 N x N 的棋盤上，每個橫排、直排與斜線都不能出現 2 個以上的皇后，試求有幾種皇后的排法。 此題就可以用到回溯法，以 4 x 4 的棋盤為例，我們會建構一個深度為 16 的決策樹： 路徑：之前做過的選擇 選擇：選擇要放置皇后，或是不要放置皇后 終止條件：16 個棋格都走完(4列都走完) 注意：因為在第 i 列放了皇后，則同列的其它格子就不能放皇后了，故我們可以直接往第 i+1 列前進。故到了第 n 列，代表達到終止條件。 程式碼： int sz; vector\u003cvector\u003cstring\u003e\u003e solveNQueens(int n) { sz = n; vector\u003cvector\u003cstring\u003e\u003e res; vector\u003cstring\u003e board(n, string(n, '.')); backtrack(board, 0, res); return res; } void backtrack(vector\u003cstring\u003e\u0026 board, int row, vector\u003cvector\u003cstring\u003e\u003e\u0026 res){ if (row == sz){ // 終止條件：走完 n 行 res.push_back(board); return; } for (int col = 0; col \u003c sz; col++){ if (!isValid(board, row, col)) continue; board[row][col] = 'Q'; // 放皇后 backtrack(board, row+1, res); board[row][col] = '.'; // 撤銷皇后 } } // 直行、橫列、斜線都不能出線皇后 bool isValid(vector\u003cstring\u003e\u0026 board, int\u0026 row, int\u0026 col){ if (row == sz) return true; for (int i = row - 1; i \u003e= 0; i--) if (board[i][col] == 'Q') return false; for (int i = row - 1, j = col - 1; i \u003e= 0 \u0026\u0026 j \u003e= 0; i--, j--){ if (board[i][j] == 'Q') return false; } for (int i = row - 1, j = col + 1; i \u003e= 0 \u0026\u0026 j \u003c sz; i--, j++){ if (board[i][j] == 'Q') return false; } return true; } 2. [Leetcode] 797. All Paths From Source to Target 給定一個 DAG(directed acyclic graph)，各用 0 到 n-1 的數字標示，找出所以可能從 0 走到 n-1 的路徑。其中 graph[i] 代表從 i 可以到達的下一個節點。 vector\u003cvector\u003cint\u003e\u003e allPathsSourceTarget(vector\u003cvector\u003cint\u003e\u003e\u0026 graph) { vector\u003cvector\u003cint\u003e\u003e res; vector\u003cint\u003e path; path.push_back(0); // 站在起點 0 backtrack(graph, res, path, 0, -1); return res; } void backtrack(vector\u003cvector\u003cint\u003e\u003e\u0026 graph, vector\u003cvector\u003cint\u003e\u003e\u0026 res, vector\u003cint\u003e\u0026 path, int curr, int last) { if (curr == graph.size()-1) { // 到達終點 n-1 res.push_back(path); return; } for (const auto\u0026 next : graph[curr]) { // if (last == next) continue; // 若是 directed 或是 cyclic graph，需要避免走回頭路 path.push_back(next); // 做選擇 backtrack(graph, res, path, next, curr); path.pop_back(); // 做撤銷 } } 3. [Leetcode] 980. Unique Path III 機器人必須走過除了牆外的所有棋格，必且到達指定的位置，試求機器人有幾種走法。其中 1 代表起點。 2 代表終點。 0 代表空白棋格，即機器人必須要經過的棋格。 -1 代表牆，即機器人無須經過且不能經過的棋格。 注意此題的選擇、與撤銷的位置與框架中的前序、後序位置不同，試想會有什麼效果 int res; int uniquePathsIII(vector\u003cvector\u003cint\u003e\u003e\u0026 grid) { res = 0; int m = grid.size(), n = grid[0].size(); // 先記錄機器人的起點與終點 pair\u003cint,int\u003e start, end; // 記錄機器人所需走多少步(選擇的次數): 棋格數-障礙-1 int left = m*n; for (int i = 0; i \u003c m; i++) { for (int j = 0; j \u003c n; j++) { if (grid[i][j] == 1) { start = {i, j}; left--; } else if (grid[i][j] == -1) { left--; } } } backtrack(grid, start.first, start.second, left); return res; } int dir[4][2] = {{1,0},{0,1},{-1,0},{0,-1}}; void backtrack(vector\u003cvector\u003cint\u003e\u003e\u0026 grid, int row, int col, int left) { // 超出棋格、或是已經走過 if (row \u003c 0 || row \u003e= grid.size() || col \u003c 0 || col \u003e= grid[0].size() || grid[row][col] == -1) return; // 終止條件：到達目標且每一個空白棋格都走完(left == 0) if (grid[row][col] == 2 \u0026\u0026 left == 0) { res++; return; } int tmp = grid[row][col]; // 做選擇 grid[row][col] = -1; // 做標記，代表已走過 for (const auto\u0026 d : dir) { backtrack(grid, row+d[0], col+d[1], left-1); } grid[row][col] = tmp; // 做撤銷 } 回到目錄：[Algo] 演算法筆記 想要複習：[Algo] 2-3. 分治法 接著閱讀：[Algo] 2-5. 動態規劃 ",
   "wordCount" : "647",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/faang.webp","datePublished": "2023-01-27T10:50:26+08:00",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/faang.webp","datePublished": "2023-01-27T10:50:26+08:00",
   "dateModified": "2023-01-27T10:50:26+08:00",
   "author":{
     "@type": "Person",
@@ -132,14 +134,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/cs/algo/backtracking/"
+    "@id": "http://localhost:1313/cs/algo/backtracking/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -161,17 +163,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -185,46 +187,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -232,26 +234,27 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/cs/">CS</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/cs/">CSes</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Algo] 2-4. 回溯法 Backtracking
     </h1>
     <div class="post-description">
       演算法設計，介紹什麼是回溯法，並示範運用回溯法的思維解題
     </div>
-    <div class="post-meta"><span title='2023-01-27 10:50:26 +0800 CST'>January 27, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//CS/algo/backtracking.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-01-27 10:50:26 +0800 CST'>January 27, 2023</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//CS/algo/backtracking.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -352,8 +355,7 @@
 </ol>
 </li>
 <li>以<a href="https://leetcode.com/problems/permutations/">全排列問題([Leetcode] 46. permutation)</a>來舉例
-<img loading="lazy" src="https://i.stack.imgur.com/9qEB6.jpg" alt="permutation tree"  />
-
+<img alt="permutation tree" loading="lazy" src="https://i.stack.imgur.com/9qEB6.jpg">
 <ul>
 <li>全排列問題即給定一組數組 <code>nums</code>，需返回這些數字的所有排列組合，舉例來說，給定一個數組 <code>nums = [1,2,3]</code>，那麼它可能的排列會有：
 <ul>
@@ -370,10 +372,8 @@
 <ul>
 <li><strong>將選擇加入路徑</strong></li>
 <li><strong>從路徑中撤銷選擇</strong>
-<img loading="lazy" src="https://labuladong.github.io/algo/images/backtracking/4.jpg" alt="order_traversal"  />
-
-<img loading="lazy" src="https://labuladong.github.io/algo/images/backtracking/5.jpg" alt="backtrack_option"  />
-</li>
+<img alt="order_traversal" loading="lazy" src="https://labuladong.github.io/algo/images/backtracking/4.jpg">
+<img alt="backtrack_option" loading="lazy" src="https://labuladong.github.io/algo/images/backtracking/5.jpg"></li>
 <li>用二叉樹程式碼來說明即：</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">traverse</span>(TreeNode<span style="color:#f92672">*</span> root){
@@ -440,8 +440,7 @@
 <h3 id="1-leetcode-51-n-queenshttpsleetcodecomproblemsn-queens">1. <a href="https://leetcode.com/problems/n-queens/">[Leetcode] 51. N-Queens</a><a hidden class="anchor" aria-hidden="true" href="#1-leetcode-51-n-queenshttpsleetcodecomproblemsn-queens">#</a></h3>
 <ul>
 <li>經典的 N-Queen 問題，在一個 N x N 的棋盤上，每個橫排、直排與斜線都不能出現 2 個以上的皇后，試求有幾種皇后的排法。
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg" alt="nqueen"  />
-</li>
+<img alt="nqueen" loading="lazy" src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg"></li>
 <li>此題就可以用到回溯法，以 4 x 4 的棋盤為例，我們會建構一個深度為 16 的決策樹：
 <ul>
 <li><strong>路徑</strong>：之前做過的選擇</li>
@@ -490,8 +489,7 @@
 </span></span></code></pre></div><h3 id="2-leetcode-797-all-paths-from-source-to-targethttpsleetcodecomproblemsall-paths-from-source-to-target">2. <a href="https://leetcode.com/problems/all-paths-from-source-to-target/">[Leetcode] 797. All Paths From Source to Target</a><a hidden class="anchor" aria-hidden="true" href="#2-leetcode-797-all-paths-from-source-to-targethttpsleetcodecomproblemsall-paths-from-source-to-target">#</a></h3>
 <ul>
 <li>給定一個 DAG(directed acyclic graph)，各用 <code>0</code> 到 <code>n-1</code> 的數字標示，找出所以可能從 <code>0</code> 走到 <code>n-1</code> 的路徑。其中 <code>graph[i]</code> 代表從 <code>i</code> 可以到達的下一個節點。
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg" alt="dag"  />
-</li>
+<img alt="dag" loading="lazy" src="https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg"></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> allPathsSourceTarget(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> graph) {
 </span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> res;
@@ -523,8 +521,7 @@
 </ul>
 </li>
 <li>注意此題的選擇、與撤銷的位置與框架中的前序、後序位置不同，試想會有什麼效果
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2021/08/02/lc-unique1.jpg" alt="unique_path_iii"  />
-</li>
+<img alt="unique_path_iii" loading="lazy" src="https://assets.leetcode.com/uploads/2021/08/02/lc-unique1.jpg"></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> res;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">uniquePathsIII</span>(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid) {
@@ -575,8 +572,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/cs/">CS</a></li>
-      <li><a href="https://intervalrain.github.io/tags/algo/">algo</a></li>
+      <li><a href="http://localhost:1313/tags/cs/">CS</a></li>
+      <li><a href="http://localhost:1313/tags/algo/">Algo</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -591,11 +588,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -664,12 +662,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

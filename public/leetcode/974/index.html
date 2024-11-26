@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 974. Subarray Sums Divisible by K | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="974. Subarray Sums Divisible by K
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Prefix Sum   一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Hash Table、Prefix Sum
+
+
+一、題目
+Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.
 A subarray is a contiguous part of an array.
 Example 1:
- Input: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:">
+
+Input: nums = [4,5,0,-2,-3,1], k = 5
+Output: 7
+Explanation: There are 7 subarrays with a sum divisible by k = 5:
+[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]
+
+Example 2:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/974/">
 <noscript>
     <style>
         #theme-toggle,
@@ -44,7 +54,7 @@ Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -80,25 +90,41 @@ Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 974. Subarray Sums Divisible by K" />
-<meta property="og:description" content="974. Subarray Sums Divisible by K
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Prefix Sum   一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/974/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 974. Subarray Sums Divisible by K">
+  <meta property="og:description" content="974. Subarray Sums Divisible by K
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Prefix Sum 一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.
 A subarray is a contiguous part of an array.
 Example 1:
- Input: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/974/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2023-01-19T13:50:19&#43;08:00" />
-<meta property="article:modified_time" content="2023-01-19T13:50:19&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 974. Subarray Sums Divisible by K"/>
+Input: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:
+[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3] Example 2:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2023-01-19T13:50:19+08:00">
+    <meta property="article:modified_time" content="2023-01-19T13:50:19+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 974. Subarray Sums Divisible by K">
 <meta name="twitter:description" content="974. Subarray Sums Divisible by K
- Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Hash Table、Prefix Sum   一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.
+
+Hardness: \(\color{orange}\textsf{Medium}\)
+Ralated Topics: Array、Hash Table、Prefix Sum
+
+
+一、題目
+Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.
 A subarray is a contiguous part of an array.
 Example 1:
- Input: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:"/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Input: nums = [4,5,0,-2,-3,1], k = 5
+Output: 7
+Explanation: There are 7 subarrays with a sum divisible by k = 5:
+[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]
+
+Example 2:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -109,14 +135,8 @@ Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 974. Subarray Sums Divisible by K",
-      "item": "https://intervalrain.github.io/leetcode/974/"
+      "item": "http://localhost:1313/leetcode/974/"
     }
   ]
 }
@@ -127,13 +147,13 @@ Example 1:
   "@type": "BlogPosting",
   "headline": "[LeetCode] 974. Subarray Sums Divisible by K",
   "name": "[LeetCode] 974. Subarray Sums Divisible by K",
-  "description": "974. Subarray Sums Divisible by K\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Hash Table、Prefix Sum   一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.\nA subarray is a contiguous part of an array.\nExample 1:\n Input: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:",
+  "description": "974. Subarray Sums Divisible by K\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Hash Table、Prefix Sum 一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.\nA subarray is a contiguous part of an array.\nExample 1:\nInput: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:\n[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3] Example 2:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "974. Subarray Sums Divisible by K\n Hardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Hash Table、Prefix Sum   一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.\nA subarray is a contiguous part of an array.\nExample 1:\n Input: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:\n[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]  Example 2:\n Input: nums = [5], k = 9 Output: 0  Constraints:\n 1  -10^4  2    二、分析  觀察此題，要求子序列的和可以被 k 整除，我們可以用 prefix sum 來做這一題，那麼就可以利用 prefix[j] - prefix[j] 來檢查是否被 k 整除，若可以整除代表從 i+1 到 j 的子序列，為符合題意的子序列。 為了方便起見，要檢查 0 到 j 是否滿足，那麼 i 需要為 -1，故我們可以預先將 0 加入 prefix array 中，代表，到 j 為止沒有跳過任一元素。 由於我們要查找兩數相減可以被 k整除，我們可以預先將 prefix sum 處理成範為在 0~k 之間的數，那麼我們需要查找的，便是 prefix[i] == prefix[j]，證明：  \\(0 \\(-k \\(在 -k與 k之間，只有 0 滿足 k 的倍數，也就是a=b\\)   根據上述關係，我們可以利用 Hash Table，更高效的查找我們需要的找的對象，而不必真的存一個 prefix array。  三、解題 1. prefix sum  Time complexity: \\(O(n)\\) Space complexity: \\(O(1)\\)  int subarraysDivByK(vectorint\u0026 nums, int k) {  // vector prefix = {0};  int sum = 0;  int res = 0;  unordered_mapint,int map;  map[0] = 1;  for (const auto\u0026 x : nums) {  sum += x;  int val = sum % k;  if (val  0) val += k;  // prefix.push_back(val);  if (map.count(val)) res += map[val];  map[val]++;  }  return res; } 回目錄 Catalog\n",
+  "articleBody": "974. Subarray Sums Divisible by K\nHardness: \\(\\color{orange}\\textsf{Medium}\\) Ralated Topics: Array、Hash Table、Prefix Sum 一、題目 Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.\nA subarray is a contiguous part of an array.\nExample 1:\nInput: nums = [4,5,0,-2,-3,1], k = 5 Output: 7 Explanation: There are 7 subarrays with a sum divisible by k = 5:\n[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3] Example 2:\nInput: nums = [5], k = 9 Output: 0 Constraints:\n1 \u003c= nums.length \u003c= 3 * 10^4 -10^4 \u003c= nums[i] \u003c= 10^4 2 \u003c= k \u003c= 10^4 二、分析 觀察此題，要求子序列的和可以被 k 整除，我們可以用 prefix sum 來做這一題，那麼就可以利用 prefix[j] - prefix[j] 來檢查是否被 k 整除，若可以整除代表從 i+1 到 j 的子序列，為符合題意的子序列。 為了方便起見，要檢查 0 到 j 是否滿足，那麼 i 需要為 -1，故我們可以預先將 0 加入 prefix array 中，代表，到 j 為止沒有跳過任一元素。 由於我們要查找兩數相減可以被 k整除，我們可以預先將 prefix sum 處理成範為在 0~k 之間的數，那麼我們需要查找的，便是 prefix[i] == prefix[j]，證明： \\(0",
   "wordCount" : "244",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-01-19T13:50:19+08:00",
   "dateModified": "2023-01-19T13:50:19+08:00",
   "author":{
@@ -142,14 +162,14 @@ Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/974/"
+    "@id": "http://localhost:1313/leetcode/974/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -171,17 +191,17 @@ Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -195,46 +215,46 @@ Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -242,20 +262,21 @@ Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 974. Subarray Sums Divisible by K
     </h1>
-    <div class="post-meta"><span title='2023-01-19 13:50:19 +0800 CST'>January 19, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/974.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-01-19 13:50:19 +0800 CST'>January 19, 2023</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/974.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -406,16 +427,16 @@ A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/491/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/491/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 491. Non-decreasing Subsequences</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/53/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/53/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 53. Maximum Subarray</span>
   </a>
@@ -433,11 +454,12 @@ A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -506,12 +528,12 @@ A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

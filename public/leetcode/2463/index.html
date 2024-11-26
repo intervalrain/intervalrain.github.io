@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 2463. Minimum Total Distance Traveled | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="2463. Minimum Total Distance Traveled
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Dynamic Programming、Sorting \(\color{blue}\textsf{Weekly Contest 318}\)   一、題目 There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.">
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、Dynamic Programming、Sorting
+\(\color{blue}\textsf{Weekly Contest 318}\)
+
+
+一、題目
+There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/2463/">
 <noscript>
     <style>
         #theme-toggle,
@@ -41,7 +46,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -74,19 +79,29 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 2463. Minimum Total Distance Traveled" />
-<meta property="og:description" content="2463. Minimum Total Distance Traveled
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Dynamic Programming、Sorting \(\color{blue}\textsf{Weekly Contest 318}\)   一、題目 There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/2463/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-08T23:13:52&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-08T23:13:52&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 2463. Minimum Total Distance Traveled"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/2463/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 2463. Minimum Total Distance Traveled">
+  <meta property="og:description" content="2463. Minimum Total Distance Traveled
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Dynamic Programming、Sorting \(\color{blue}\textsf{Weekly Contest 318}\) 一、題目 There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-08T23:13:52+08:00">
+    <meta property="article:modified_time" content="2022-11-08T23:13:52+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 2463. Minimum Total Distance Traveled">
 <meta name="twitter:description" content="2463. Minimum Total Distance Traveled
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Dynamic Programming、Sorting \(\color{blue}\textsf{Weekly Contest 318}\)   一、題目 There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、Dynamic Programming、Sorting
+\(\color{blue}\textsf{Weekly Contest 318}\)
+
+
+一、題目
+There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,14 +112,8 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 2463. Minimum Total Distance Traveled",
-      "item": "https://intervalrain.github.io/leetcode/2463/"
+      "item": "http://localhost:1313/leetcode/2463/"
     }
   ]
 }
@@ -115,13 +124,13 @@
   "@type": "BlogPosting",
   "headline": "[LeetCode] 2463. Minimum Total Distance Traveled",
   "name": "[LeetCode] 2463. Minimum Total Distance Traveled",
-  "description": "2463. Minimum Total Distance Traveled\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Dynamic Programming、Sorting \\(\\color{blue}\\textsf{Weekly Contest 318}\\)   一、題目 There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.",
+  "description": "2463. Minimum Total Distance Traveled\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Dynamic Programming、Sorting \\(\\color{blue}\\textsf{Weekly Contest 318}\\) 一、題目 There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "2463. Minimum Total Distance Traveled\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Dynamic Programming、Sorting \\(\\color{blue}\\textsf{Weekly Contest 318}\\)   一、題目 There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.\nThe positions of each robot are unique. The positions of each factory are also unique. Note that a robot can be in the same position as a factory initially.\nAll the robots are initially broken; they keep moving in one direction. The direction could be the negative or the positive direction of the X-axis. When a robot reaches a factory that did not reach its limit, the factory repairs the robot, and it stops moving.\nAt any moment, you can set the initial direction of moving for some robot. Your target is to minimize the total distance traveled by all the robots.\nReturn the minimum total distance traveled by all the robots. The test cases are generated such that all the robots can be repaired.\nNote that\n All robots move at the same speed. If two robots move in the same direction, they will never collide. If two robots move in opposite directions and they meet at some point, they do not collide. They cross each other. If a robot passes by a factory that reached its limits, it crosses it as if it does not exist. If the robot moved from a position x to a position y, the distance it moved is |y - x|.  Example 1:\n Input: robot = [0,4,6], factory = [[2,2],[6,2]] Output: 4 Explanation: As shown in the figure:   The first robot at position 0 moves in the positive direction. It will be repaired at the first factory. The second robot at position 4 moves in the negative direction. It will be repaired at the first factory. The third robot at position 6 will be repaired at the second factory. It does not need to move.\nThe limit of the first factory is 2, and it fixed 2 robots.\nThe limit of the second factory is 2, and it fixed 1 robot.\nThe total distance is |2 - 0| + |2 - 4| + |6 - 6| = 4. It can be shown that we cannot achieve a better total distance than 4.  Example 2:\n Input: robot = [1,-1], factory = [[-2,1],[2,1]] Output: 2 Explanation: As shown in the figure:   The first robot at position 1 moves in the positive direction. It will be repaired at the second factory. The second robot at position -1 moves in the negative direction. It will be repaired at the first factory.\nThe limit of the first factory is 1, and it fixed 1 robot.\nThe limit of the second factory is 1, and it fixed 1 robot.\nThe total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we cannot achieve a better total distance than 2.  Constraints:\n 1  factory[j].length == 2 -10^9  0  The input will be generated such that it is always possible to repair every robot.   二、分析  初見此題，最先想到的方法是 Greedy + Binary Search，想法是每個機器人都先找離自己最近的工廠，解法參考如下，但實際上，第一個機器人的選擇會影響接下來的機器人的最近選擇：如 robot = [9,11,99,101], factory = [[7,1],[10,1],[14,1],[96,1][100,1],[103,1]]，若第一個位置在 9 的機器人選擇了位置在 10 的工廠，則會影響位置在 11 的機器人最近的工廠在 14，而這樣的選擇就導致錯過了最近解。所以這種解法還需要一些修正。  long long minimumTotalDistance(vectorint\u0026 robot, vectorvectorint\u0026 factory) {  mapint,int mp;  long long res = 0;  for (auto f : factory) {  if (f[1] == 0) continue;  mp[f[0]] = f[1];  }  for (auto r : robot) {  auto it = mp.lower_bound(r);  if (it == mp.end()) {  it--;  } else if (it != mp.begin()){  auto right = it--;  if (r - it-first  right-first - r) {  it = right;  }  }   res += abs(it-first - r);  if (it-second == 1) {  mp.erase(it);  } else {  it-second--;  }  }  也許可以將透過 sorting 將機器人分為幾個子群對應幾個工廠。 如果用 dfs + memoization 也就是 dynamic programming 的方式應該可解，透過將 factory 扁平化，並經過 sort 的之後，令 dp(i, j) 為總步數，i 為由左數到右第 ith 個機器人，j 為由左數到右第 jth 個工廠的「空位」。  三、解題 1. DP  Time complexity: \\(O(m\\times n\\times k)\\) Space complexity: \\(O(m\\times n\\times k)\\) m = robot.size(), n = factory.size(), k = max(factory[i].size())  vectorvectorlong long dp; long long minimumTotalDistance(vectorint\u0026 robot, vectorvectorint\u0026 factory) {  long long res = 0;  vectorint fac;  for (auto f : factory) { // 將 factory 扁平化成 1d array  int times = f[1];  while (times--) {  fac.push_back(f[0]);  }  }  dp = vectorvectorlong long(robot.size()+1, vectorlong long(fac.size()+1, -1));  sort(robot.begin(), robot.end());  sort(fac.begin(), fac.end());  return dfs(robot, fac, 0, 0); } long long dfs(vectorint\u0026 robot, vectorint\u0026 fac, int i, int j) {  if (i == robot.size()) return 0; // 當機器人都排列完畢，為終止條件  if (j == fac.size()) return (long long) (LONG_MAX/2); // 工廠空缺空用了，傳回一個有效的大數，使之不會是答案  if (dp[i][j] != -1) return dp[i][j];  dp[i][j] = min(  dfs(robot, fac, i+1, j+1) + (long long)abs(robot[i]-fac[j]), // ith 機器人選擇 jth 工廠空位  dfs(robot, fac, i, j+1) // ith 機器人不選擇 jth 工廠空位  );  return dp[i][j]; } 回目錄 Catalog\n",
+  "articleBody": "2463. Minimum Total Distance Traveled\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Dynamic Programming、Sorting \\(\\color{blue}\\textsf{Weekly Contest 318}\\) 一、題目 There are some robots and factories on the X-axis. You are given an integer array robot where robot[i] is the position of the ith robot. You are also given a 2D integer array factory where factory[j] = [positionj, limitj] indicates that positionj is the position of the jth factory and that the jth factory can repair at most limitj robots.\nThe positions of each robot are unique. The positions of each factory are also unique. Note that a robot can be in the same position as a factory initially.\nAll the robots are initially broken; they keep moving in one direction. The direction could be the negative or the positive direction of the X-axis. When a robot reaches a factory that did not reach its limit, the factory repairs the robot, and it stops moving.\nAt any moment, you can set the initial direction of moving for some robot. Your target is to minimize the total distance traveled by all the robots.\nReturn the minimum total distance traveled by all the robots. The test cases are generated such that all the robots can be repaired.\nNote that\nAll robots move at the same speed. If two robots move in the same direction, they will never collide. If two robots move in opposite directions and they meet at some point, they do not collide. They cross each other. If a robot passes by a factory that reached its limits, it crosses it as if it does not exist. If the robot moved from a position x to a position y, the distance it moved is |y - x|. Example 1:\nInput: robot = [0,4,6], factory = [[2,2],[6,2]] Output: 4 Explanation: As shown in the figure: The first robot at position 0 moves in the positive direction. It will be repaired at the first factory. The second robot at position 4 moves in the negative direction. It will be repaired at the first factory. The third robot at position 6 will be repaired at the second factory. It does not need to move.\nThe limit of the first factory is 2, and it fixed 2 robots.\nThe limit of the second factory is 2, and it fixed 1 robot.\nThe total distance is |2 - 0| + |2 - 4| + |6 - 6| = 4. It can be shown that we cannot achieve a better total distance than 4. Example 2:\nInput: robot = [1,-1], factory = [[-2,1],[2,1]] Output: 2 Explanation: As shown in the figure: The first robot at position 1 moves in the positive direction. It will be repaired at the second factory. The second robot at position -1 moves in the negative direction. It will be repaired at the first factory.\nThe limit of the first factory is 1, and it fixed 1 robot.\nThe limit of the second factory is 1, and it fixed 1 robot.\nThe total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we cannot achieve a better total distance than 2. Constraints:\n1 \u003c= robot.length, factory.length \u003c= 100 factory[j].length == 2 -10^9 \u003c= robot[i], positionj \u003c= 10^9 0 \u003c= limitj \u003c= robot.length The input will be generated such that it is always possible to repair every robot. 二、分析 初見此題，最先想到的方法是 Greedy + Binary Search，想法是每個機器人都先找離自己最近的工廠，解法參考如下，但實際上，第一個機器人的選擇會影響接下來的機器人的最近選擇：如 robot = [9,11,99,101], factory = [[7,1],[10,1],[14,1],[96,1][100,1],[103,1]]，若第一個位置在 9 的機器人選擇了位置在 10 的工廠，則會影響位置在 11 的機器人最近的工廠在 14，而這樣的選擇就導致錯過了最近解。所以這種解法還需要一些修正。 long long minimumTotalDistance(vector\u003cint\u003e\u0026 robot, vector\u003cvector\u003cint\u003e\u003e\u0026 factory) { map\u003cint,int\u003e mp; long long res = 0; for (auto f : factory) { if (f[1] == 0) continue; mp[f[0]] = f[1]; } for (auto r : robot) { auto it = mp.lower_bound(r); if (it == mp.end()) { it--; } else if (it != mp.begin()){ auto right = it--; if (r - it-\u003efirst \u003e right-\u003efirst - r) { it = right; } } res += abs(it-\u003efirst - r); if (it-\u003esecond == 1) { mp.erase(it); } else { it-\u003esecond--; } } 也許可以將透過 sorting 將機器人分為幾個子群對應幾個工廠。 如果用 dfs + memoization 也就是 dynamic programming 的方式應該可解，透過將 factory 扁平化，並經過 sort 的之後，令 dp(i, j) 為總步數，i 為由左數到右第 ith 個機器人，j 為由左數到右第 jth 個工廠的「空位」。 三、解題 1. DP Time complexity: \\(O(m\\times n\\times k)\\) Space complexity: \\(O(m\\times n\\times k)\\) m = robot.size(), n = factory.size(), k = max(factory[i].size()) vector\u003cvector\u003clong long\u003e\u003e dp; long long minimumTotalDistance(vector\u003cint\u003e\u0026 robot, vector\u003cvector\u003cint\u003e\u003e\u0026 factory) { long long res = 0; vector\u003cint\u003e fac; for (auto f : factory) { // 將 factory 扁平化成 1d array int times = f[1]; while (times--) { fac.push_back(f[0]); } } dp = vector\u003cvector\u003clong long\u003e\u003e(robot.size()+1, vector\u003clong long\u003e(fac.size()+1, -1)); sort(robot.begin(), robot.end()); sort(fac.begin(), fac.end()); return dfs(robot, fac, 0, 0); } long long dfs(vector\u003cint\u003e\u0026 robot, vector\u003cint\u003e\u0026 fac, int i, int j) { if (i == robot.size()) return 0; // 當機器人都排列完畢，為終止條件 if (j == fac.size()) return (long long) (LONG_MAX/2); // 工廠空缺空用了，傳回一個有效的大數，使之不會是答案 if (dp[i][j] != -1) return dp[i][j]; dp[i][j] = min( dfs(robot, fac, i+1, j+1) + (long long)abs(robot[i]-fac[j]), // ith 機器人選擇 jth 工廠空位 dfs(robot, fac, i, j+1) // ith 機器人不選擇 jth 工廠空位 ); return dp[i][j]; } 回目錄 Catalog\n",
   "wordCount" : "829",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-08T23:13:52+08:00",
   "dateModified": "2022-11-08T23:13:52+08:00",
   "author":{
@@ -130,14 +139,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/2463/"
+    "@id": "http://localhost:1313/leetcode/2463/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +168,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +192,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,20 +239,21 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 2463. Minimum Total Distance Traveled
     </h1>
-    <div class="post-meta"><span title='2022-11-08 23:13:52 +0800 CST'>November 8, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/2463.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-08 23:13:52 +0800 CST'>November 8, 2022</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/2463.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -345,8 +355,7 @@ Return <em>the minimum total distance traveled by all the robots</em>. The test 
 <li>If a robot passes by a factory that reached its limits, it crosses it as if it does not exist.</li>
 <li>If the robot moved from a position <code>x</code> to a position <code>y</code>, the distance it moved is <code>|y - x|</code>.</li>
 </ul>
-<p><img loading="lazy" src="https://assets.leetcode.com/uploads/2022/09/15/example1.jpg" alt="ex1"  />
-
+<p><img alt="ex1" loading="lazy" src="https://assets.leetcode.com/uploads/2022/09/15/example1.jpg">
 <strong>Example 1:</strong></p>
 <ul>
 <li><strong>Input:</strong> robot = [0,4,6], factory = [[2,2],[6,2]]</li>
@@ -361,8 +370,7 @@ The limit of the first factory is 2, and it fixed 2 robots.<br>
 The limit of the second factory is 2, and it fixed 1 robot.<br>
 The total distance is |2 - 0| + |2 - 4| + |6 - 6| = 4. It can be shown that we cannot achieve a better total distance than 4.</li>
 </ul>
-<p><img loading="lazy" src="https://assets.leetcode.com/uploads/2022/09/15/example-2.jpg" alt="ex2"  />
-
+<p><img alt="ex2" loading="lazy" src="https://assets.leetcode.com/uploads/2022/09/15/example-2.jpg">
 <strong>Example 2:</strong></p>
 <ul>
 <li><strong>Input:</strong> robot = [1,-1], factory = [[-2,1],[2,1]]</li>
@@ -457,16 +465,16 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/1544/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/1544/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 1544. Make The String Great</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/2462/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/2462/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 2462. Total Cost to Hire K</span>
   </a>
@@ -484,11 +492,12 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -557,12 +566,12 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

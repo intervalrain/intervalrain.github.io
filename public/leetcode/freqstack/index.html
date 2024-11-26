@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Leetcode] Maximum Frequency Stack 最大頻率堆疊 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="Maximum Frequency Stack algorithm">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/freqstack/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,17 +71,20 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Leetcode] Maximum Frequency Stack 最大頻率堆疊" />
-<meta property="og:description" content="Maximum Frequency Stack algorithm" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/freqstack/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-03-19T16:53:23&#43;08:00" />
-<meta property="article:modified_time" content="2022-03-19T16:53:23&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Leetcode] Maximum Frequency Stack 最大頻率堆疊"/>
-<meta name="twitter:description" content="Maximum Frequency Stack algorithm"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/leetcode/freqstack/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Leetcode] Maximum Frequency Stack 最大頻率堆疊">
+  <meta property="og:description" content="Maximum Frequency Stack algorithm">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-03-19T16:53:23+08:00">
+    <meta property="article:modified_time" content="2022-03-19T16:53:23+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Leetcode] Maximum Frequency Stack 最大頻率堆疊">
+<meta name="twitter:description" content="Maximum Frequency Stack algorithm">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -94,14 +95,8 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[Leetcode] Maximum Frequency Stack 最大頻率堆疊",
-      "item": "https://intervalrain.github.io/leetcode/freqstack/"
+      "item": "http://localhost:1313/leetcode/freqstack/"
     }
   ]
 }
@@ -116,9 +111,9 @@
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "題目 題目描述  設計一個類似 stack 的資料結構，實行 push() 跟 pop() 的功能，其中 pop() 會丟出 stack 中出現最多次的元素。 FreqStack class 必須實現：  FreqStack() 建構子必須初始化一個空的 FreqStack。 void push(int val) 將 val 推至 stack 的頂端。 int pop() 將 stack 中最頻繁出現的元素移除，並返回。  如果 stack 中最頻繁出現的元素出現平手的狀況，則返回平手的元素中最接近 stack 頂端的元素。      題目範例 輸入\n[“FreqStack”, “push”, “push”, “push”, “push”, “push”, “push”, “pop”, “pop”, “pop”, “pop”]\n[[], [5], [7], [5], [7], [4], [5], [], [], [], []]\n輸出\n[null, null, null, null, null, null, null, 5, 7, 5, 4]\n說明\nFreqStack freqStack = new FreqStack(); freqStack.push(5); // The stack is [5] freqStack.push(7); // The stack is [5,7] freqStack.push(5); // The stack is [5,7,5] freqStack.push(7); // The stack is [5,7,5,7] freqStack.push(4); // The stack is [5,7,5,7,4] freqStack.push(5); // The stack is [5,7,5,7,4,5] freqStack.pop(); // return 5, as 5 is the most frequent. The stack becomes [5,7,5,7,4]. freqStack.pop(); // return 7, as 5 and 7 is the most frequent, but 7 is closest to the top. The stack becomes [5,7,5,4]. freqStack.pop(); // return 5, as 5 is the most frequent. The stack becomes [5,7,4]. freqStack.pop(); // return 4, as 4, 5 and 7 is the most frequent, but 4 is closest to the top. The stack becomes [5,7]. 解題 想法  在解題時，我打算在 push 時動手腳，將 push 的元素直接 push 到對的位置後，執行 pop 的動作時，就只要將最頂端的元素取出即可。  FreqStack freqStack = new FreqStack(); freqStack.push(5); // [5] freqStack.push(7); // [5,7] freqStack.push(5); // [5,7,5] freqStack.push(7); // [5,7,5,7] freqStack.push(4); // [5,7,5,7,4] // 此時 4 因為並非最頻繁的元素，所以要將 4 往下推，即變成 [5,7,4,5,7] freqStack.push(5); // [5,7,4,5,7,5] freqStack.pop(); // return 5, [5,7,4,5,7] freqStack.pop(); // return 7, [5,7,4,5] freqStack.pop(); // return 5, [5,7,4] freqStack.pop(); // return 4, [5,7]  為了實現以上的想法，我試想將出現次數相同的元素放在同一個 stack，取出時則從頻率最高的 stack 開始取，即為：  freqStack[0] = [5,7,4] // 檢查元素是否出現在 freqStack[0] 否則則往freqStack[1] 移動 freqStack[1] = [5,7] freqStack[2] = [5] // pop 的時候，從freqStack[2] 開始取，空了則將 freqStack[2] 移除 實作1: List of Stacks public class freqStack{  // Field  ListStackInteger stacks;   // Constructor  public freqStack(){  stacks = new ArrayList();  }   // Methods  public void push(int val){  push(val, 0);  }   private void push(int val, int freq){  // 當 stacks[freq] 是空的時候，則新建一個 stack。  StackInteger stack;  if (freq = stacks.size()){  stack = new Stack();  stacks.add(stack);  } else {  stack = stacks.get(freq);  }  // 當該 stacks[freq] 已經有該元素，則往下一個 stacks 找  if (stack.contains(val)){  push(val, freq + 1);  } else {  stack.push(val);  }  }   public int pop(){  // 直接找到最高的 stack，然後把頂端的元素 pop 出。  StackInteger stack = stacks.get(stacks.size() - 1);  int top = stack.pop();  if (stack.isEmpty()){  stacks.remove(stacks.size() - 1);  }  return top;  } }  然而，此時 push 的 \u0008complexity 與欲 push 的元素的出現次數 n 有關，元素出現 n 次，則需要往下找 n 個 stack，也就是 \\(O(n)\\)。  實作2: Use HashMap to record freqency  為了優化，我們可以加入一個 HashMap 來記錄出現的次數，再下次要 push 此元素時，只需要到 HashMap 中查詢出現的次數即可。  public class freqStack{  // Field  ListStackInteger stacks;  MapInteger, Integer map; // 用來記錄出現次數   // Constructor  public freqStack(){  stacks = new ArrayList();  map = new HashMap();  }   // Methods  public void push(int val){  StackInteger stack;  // 還沒有此出現次數的元素出現，則新增此 stack  if (stacks.size()  map.getOrDefault(val, 0) + 1){  stack = new Stack();  } else {  // 取得此元素出現的次數，若沒出現過則取得 stacks[0]  stack = stacks.get(map.getOrDefault(val, 0));  }  stack.push(val);  map.put(val, map.getOrDefault(val, 0) + 1); // 更新出現次數  }   public int pop(){  // 直接找到最高的 stack，然後把頂端的元素 pop 出。  StackInteger stack = stacks.get(stacks.size() - 1);  int top = stack.pop();  map.put(val, map.get(val) - 1); // 更新出現次數  if (stack.isEmpty()){  stacks.remove(stacks.size() - 1);  }  return top;  } } 程式碼  題解：請點此 測試檔：請點此  Reference: Leetcode: 895. Maximum Frequency Stack\n",
+  "articleBody": "題目 題目描述 設計一個類似 stack 的資料結構，實行 push() 跟 pop() 的功能，其中 pop() 會丟出 stack 中出現最多次的元素。 FreqStack class 必須實現： FreqStack() 建構子必須初始化一個空的 FreqStack。 void push(int val) 將 val 推至 stack 的頂端。 int pop() 將 stack 中最頻繁出現的元素移除，並返回。 如果 stack 中最頻繁出現的元素出現平手的狀況，則返回平手的元素中最接近 stack 頂端的元素。 題目範例 輸入\n[“FreqStack”, “push”, “push”, “push”, “push”, “push”, “push”, “pop”, “pop”, “pop”, “pop”]\n[[], [5], [7], [5], [7], [4], [5], [], [], [], []]\n輸出\n[null, null, null, null, null, null, null, 5, 7, 5, 4]\n說明\nFreqStack freqStack = new FreqStack(); freqStack.push(5); // The stack is [5] freqStack.push(7); // The stack is [5,7] freqStack.push(5); // The stack is [5,7,5] freqStack.push(7); // The stack is [5,7,5,7] freqStack.push(4); // The stack is [5,7,5,7,4] freqStack.push(5); // The stack is [5,7,5,7,4,5] freqStack.pop(); // return 5, as 5 is the most frequent. The stack becomes [5,7,5,7,4]. freqStack.pop(); // return 7, as 5 and 7 is the most frequent, but 7 is closest to the top. The stack becomes [5,7,5,4]. freqStack.pop(); // return 5, as 5 is the most frequent. The stack becomes [5,7,4]. freqStack.pop(); // return 4, as 4, 5 and 7 is the most frequent, but 4 is closest to the top. The stack becomes [5,7]. 解題 想法 在解題時，我打算在 push 時動手腳，將 push 的元素直接 push 到對的位置後，執行 pop 的動作時，就只要將最頂端的元素取出即可。 FreqStack freqStack = new FreqStack(); freqStack.push(5); // [5] freqStack.push(7); // [5,7] freqStack.push(5); // [5,7,5] freqStack.push(7); // [5,7,5,7] freqStack.push(4); // [5,7,5,7,4] // 此時 4 因為並非最頻繁的元素，所以要將 4 往下推，即變成 [5,7,4,5,7] freqStack.push(5); // [5,7,4,5,7,5] freqStack.pop(); // return 5, [5,7,4,5,7] freqStack.pop(); // return 7, [5,7,4,5] freqStack.pop(); // return 5, [5,7,4] freqStack.pop(); // return 4, [5,7] 為了實現以上的想法，我試想將出現次數相同的元素放在同一個 stack，取出時則從頻率最高的 stack 開始取，即為： freqStack[0] = [5,7,4] // 檢查元素是否出現在 freqStack[0] 否則則往freqStack[1] 移動 freqStack[1] = [5,7] freqStack[2] = [5] // pop 的時候，從freqStack[2] 開始取，空了則將 freqStack[2] 移除 實作1: List of Stacks public class freqStack{ // Field List\u003cStack\u003cInteger\u003e\u003e stacks; // Constructor public freqStack(){ stacks = new ArrayList\u003c\u003e(); } // Methods public void push(int val){ push(val, 0); } private void push(int val, int freq){ // 當 stacks[freq] 是空的時候，則新建一個 stack。 Stack\u003cInteger\u003e stack; if (freq \u003e= stacks.size()){ stack = new Stack\u003c\u003e(); stacks.add(stack); } else { stack = stacks.get(freq); } // 當該 stacks[freq] 已經有該元素，則往下一個 stacks 找 if (stack.contains(val)){ push(val, freq + 1); } else { stack.push(val); } } public int pop(){ // 直接找到最高的 stack，然後把頂端的元素 pop 出。 Stack\u003cInteger\u003e stack = stacks.get(stacks.size() - 1); int top = stack.pop(); if (stack.isEmpty()){ stacks.remove(stacks.size() - 1); } return top; } } 然而，此時 push 的 \bcomplexity 與欲 push 的元素的出現次數 n 有關，元素出現 n 次，則需要往下找 n 個 stack，也就是 \\(O(n)\\)。 實作2: Use HashMap to record freqency 為了優化，我們可以加入一個 HashMap 來記錄出現的次數，再下次要 push 此元素時，只需要到 HashMap 中查詢出現的次數即可。 public class freqStack{ // Field List\u003cStack\u003cInteger\u003e\u003e stacks; Map\u003cInteger, Integer\u003e map; // 用來記錄出現次數 // Constructor public freqStack(){ stacks = new ArrayList\u003c\u003e(); map = new HashMap(); } // Methods public void push(int val){ Stack\u003cInteger\u003e stack; // 還沒有此出現次數的元素出現，則新增此 stack if (stacks.size() \u003c map.getOrDefault(val, 0) + 1){ stack = new Stack\u003c\u003e(); } else { // 取得此元素出現的次數，若沒出現過則取得 stacks[0] stack = stacks.get(map.getOrDefault(val, 0)); } stack.push(val); map.put(val, map.getOrDefault(val, 0) + 1); // 更新出現次數 } public int pop(){ // 直接找到最高的 stack，然後把頂端的元素 pop 出。 Stack\u003cInteger\u003e stack = stacks.get(stacks.size() - 1); int top = stack.pop(); map.put(val, map.get(val) - 1); // 更新出現次數 if (stack.isEmpty()){ stacks.remove(stacks.size() - 1); } return top; } } 程式碼 題解：請點此 測試檔：請點此 Reference: Leetcode: 895. Maximum Frequency Stack\n",
   "wordCount" : "517",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-03-19T16:53:23+08:00",
   "dateModified": "2022-03-19T16:53:23+08:00",
   "author":{
@@ -127,14 +122,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/freqstack/"
+    "@id": "http://localhost:1313/leetcode/freqstack/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -156,17 +151,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -180,46 +175,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -227,23 +222,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Leetcode] Maximum Frequency Stack 最大頻率堆疊
     </h1>
     <div class="post-description">
       Maximum Frequency Stack algorithm
     </div>
-    <div class="post-meta"><span title='2022-03-19 16:53:23 +0800 CST'>March 19, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/FreqStack.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-03-19 16:53:23 +0800 CST'>March 19, 2022</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/FreqStack.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -356,82 +352,82 @@
 <strong>輸出</strong><br>
 [null, null, null, null, null, null, null, 5, 7, 5, 4]</p>
 <p><strong>說明</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>FreqStack freqStack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FreqStack<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span> <span style="color:#75715e">// The stack is [5]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>7<span style="color:#f92672">);</span> <span style="color:#75715e">// The stack is [5,7]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span> <span style="color:#75715e">// The stack is [5,7,5]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>7<span style="color:#f92672">);</span> <span style="color:#75715e">// The stack is [5,7,5,7]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>4<span style="color:#f92672">);</span> <span style="color:#75715e">// The stack is [5,7,5,7,4]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span> <span style="color:#75715e">// The stack is [5,7,5,7,4,5]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>   <span style="color:#75715e">// return 5, as 5 is the most frequent. The stack becomes [5,7,5,7,4].
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>   <span style="color:#75715e">// return 7, as 5 and 7 is the most frequent, but 7 is closest to the top. The stack becomes [5,7,5,4].
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>   <span style="color:#75715e">// return 5, as 5 is the most frequent. The stack becomes [5,7,4].
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>   <span style="color:#75715e">// return 4, as 4, 5 and 7 is the most frequent, but 4 is closest to the top. The stack becomes [5,7].
-</span></span></span></code></pre></div><h1 id="解題">解題<a hidden class="anchor" aria-hidden="true" href="#解題">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>FreqStack freqStack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FreqStack();
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(5); <span style="color:#75715e">// The stack is [5]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(7); <span style="color:#75715e">// The stack is [5,7]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(5); <span style="color:#75715e">// The stack is [5,7,5]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(7); <span style="color:#75715e">// The stack is [5,7,5,7]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(4); <span style="color:#75715e">// The stack is [5,7,5,7,4]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(5); <span style="color:#75715e">// The stack is [5,7,5,7,4,5]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">pop</span>();   <span style="color:#75715e">// return 5, as 5 is the most frequent. The stack becomes [5,7,5,7,4].</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">pop</span>();   <span style="color:#75715e">// return 7, as 5 and 7 is the most frequent, but 7 is closest to the top. The stack becomes [5,7,5,4].</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">pop</span>();   <span style="color:#75715e">// return 5, as 5 is the most frequent. The stack becomes [5,7,4].</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">pop</span>();   <span style="color:#75715e">// return 4, as 4, 5 and 7 is the most frequent, but 4 is closest to the top. The stack becomes [5,7].</span>
+</span></span></code></pre></div><h1 id="解題">解題<a hidden class="anchor" aria-hidden="true" href="#解題">#</a></h1>
 <h2 id="想法">想法<a hidden class="anchor" aria-hidden="true" href="#想法">#</a></h2>
 <ul>
 <li>在解題時，我打算在 push 時動手腳，將 push 的元素直接 push 到對的位置後，執行 pop 的動作時，就只要將最頂端的元素取出即可。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>FreqStack freqStack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FreqStack<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span> <span style="color:#75715e">// [5]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>7<span style="color:#f92672">);</span> <span style="color:#75715e">// [5,7]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span> <span style="color:#75715e">// [5,7,5]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>7<span style="color:#f92672">);</span> <span style="color:#75715e">// [5,7,5,7]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>4<span style="color:#f92672">);</span> <span style="color:#75715e">// [5,7,5,7,4]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 此時 4 因為並非最頻繁的元素，所以要將 4 往下推，即變成 [5,7,4,5,7]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span> <span style="color:#75715e">// [5,7,4,5,7,5]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>   <span style="color:#75715e">// return 5, [5,7,4,5,7]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>   <span style="color:#75715e">// return 7, [5,7,4,5]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>   <span style="color:#75715e">// return 5, [5,7,4]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>   <span style="color:#75715e">// return 4, [5,7]
-</span></span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>FreqStack freqStack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FreqStack();
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(5); <span style="color:#75715e">// [5]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(7); <span style="color:#75715e">// [5,7]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(5); <span style="color:#75715e">// [5,7,5]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(7); <span style="color:#75715e">// [5,7,5,7]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(4); <span style="color:#75715e">// [5,7,5,7,4]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 此時 4 因為並非最頻繁的元素，所以要將 4 往下推，即變成 [5,7,4,5,7]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">push</span>(5); <span style="color:#75715e">// [5,7,4,5,7,5]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">pop</span>();   <span style="color:#75715e">// return 5, [5,7,4,5,7]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">pop</span>();   <span style="color:#75715e">// return 7, [5,7,4,5]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">pop</span>();   <span style="color:#75715e">// return 5, [5,7,4]</span>
+</span></span><span style="display:flex;"><span>freqStack.<span style="color:#a6e22e">pop</span>();   <span style="color:#75715e">// return 4, [5,7]</span>
+</span></span></code></pre></div><ul>
 <li>為了實現以上的想法，我試想將出現次數相同的元素放在同一個 stack，取出時則從頻率最高的 stack 開始取，即為：</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>freqStack<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>5<span style="color:#f92672">,</span>7<span style="color:#f92672">,</span>4<span style="color:#f92672">]</span> <span style="color:#75715e">// 檢查元素是否出現在 freqStack[0] 否則則往freqStack[1] 移動
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>freqStack<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>5<span style="color:#f92672">,</span>7<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>freqStack<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>  <span style="color:#75715e">// pop 的時候，從freqStack[2] 開始取，空了則將 freqStack[2] 移除
-</span></span></span></code></pre></div><h2 id="實作1-list-of-stacks">實作1: List of Stacks<a hidden class="anchor" aria-hidden="true" href="#實作1-list-of-stacks">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">freqStack</span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Field
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    List<span style="color:#f92672">&lt;</span>Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> stacks<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>freqStack<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>5,7,4<span style="color:#f92672">]</span> <span style="color:#75715e">// 檢查元素是否出現在 freqStack[0] 否則則往freqStack[1] 移動</span>
+</span></span><span style="display:flex;"><span>freqStack<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>5,7<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>freqStack<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>  <span style="color:#75715e">// pop 的時候，從freqStack[2] 開始取，空了則將 freqStack[2] 移除</span>
+</span></span></code></pre></div><h2 id="實作1-list-of-stacks">實作1: List of Stacks<a hidden class="anchor" aria-hidden="true" href="#實作1-list-of-stacks">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">freqStack</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Field</span>
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> stacks;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">freqStack</span><span style="color:#f92672">(){</span>
-</span></span><span style="display:flex;"><span>        stacks <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">freqStack</span>(){
+</span></span><span style="display:flex;"><span>        stacks <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Methods
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> val<span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>        push<span style="color:#f92672">(</span>val<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Methods</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">int</span> val){
+</span></span><span style="display:flex;"><span>        push(val, 0);
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> val<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> freq<span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 當 stacks[freq] 是空的時候，則新建一個 stack。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stack<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>freq <span style="color:#f92672">&gt;=</span> stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()){</span>
-</span></span><span style="display:flex;"><span>            stack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">&lt;&gt;();</span>
-</span></span><span style="display:flex;"><span>            stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>stack<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            stack <span style="color:#f92672">=</span> stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>freq<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 當該 stacks[freq] 已經有該元素，則往下一個 stacks 找
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>stack<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>val<span style="color:#f92672">)){</span>
-</span></span><span style="display:flex;"><span>            push<span style="color:#f92672">(</span>val<span style="color:#f92672">,</span> freq <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            stack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>val<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">int</span> val, <span style="color:#66d9ef">int</span> freq){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 當 stacks[freq] 是空的時候，則新建一個 stack。</span>
+</span></span><span style="display:flex;"><span>        Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stack;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (freq <span style="color:#f92672">&gt;=</span> stacks.<span style="color:#a6e22e">size</span>()){
+</span></span><span style="display:flex;"><span>            stack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>            stacks.<span style="color:#a6e22e">add</span>(stack);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            stack <span style="color:#f92672">=</span> stacks.<span style="color:#a6e22e">get</span>(freq);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 當該 stacks[freq] 已經有該元素，則往下一個 stacks 找</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (stack.<span style="color:#a6e22e">contains</span>(val)){
+</span></span><span style="display:flex;"><span>            push(val, freq <span style="color:#f92672">+</span> 1);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            stack.<span style="color:#a6e22e">push</span>(val);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">pop</span><span style="color:#f92672">(){</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 直接找到最高的 stack，然後把頂端的元素 pop 出。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stack <span style="color:#f92672">=</span> stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> top <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>stack<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()){</span>
-</span></span><span style="display:flex;"><span>            stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> top<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">pop</span>(){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 直接找到最高的 stack，然後把頂端的元素 pop 出。</span>
+</span></span><span style="display:flex;"><span>        Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stack <span style="color:#f92672">=</span> stacks.<span style="color:#a6e22e">get</span>(stacks.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">-</span> 1);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> top <span style="color:#f92672">=</span> stack.<span style="color:#a6e22e">pop</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (stack.<span style="color:#a6e22e">isEmpty</span>()){
+</span></span><span style="display:flex;"><span>            stacks.<span style="color:#a6e22e">remove</span>(stacks.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">-</span> 1);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> top;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
 <li>然而，此時 push 的 complexity 與欲 push 的元素的出現次數 n 有關，元素出現 n 次，則需要往下找 n 個 stack，也就是 \(O(n)\)。</li>
 </ul>
@@ -439,42 +435,42 @@
 <ul>
 <li>為了優化，我們可以加入一個 HashMap 來記錄出現的次數，再下次要 push 此元素時，只需要到 HashMap 中查詢出現的次數即可。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">freqStack</span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Field
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    List<span style="color:#f92672">&lt;</span>Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> stacks<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    Map<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> map<span style="color:#f92672">;</span> <span style="color:#75715e">// 用來記錄出現次數
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">freqStack</span><span style="color:#f92672">(){</span>
-</span></span><span style="display:flex;"><span>        stacks <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
-</span></span><span style="display:flex;"><span>        map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">freqStack</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Field</span>
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> stacks;
+</span></span><span style="display:flex;"><span>    Map<span style="color:#f92672">&lt;</span>Integer, Integer<span style="color:#f92672">&gt;</span> map; <span style="color:#75715e">// 用來記錄出現次數</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Methods
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> val<span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>        Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stack<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 還沒有此出現次數的元素出現，則新增此 stack
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrDefault</span><span style="color:#f92672">(</span>val<span style="color:#f92672">,</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>            stack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">&lt;&gt;();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 取得此元素出現的次數，若沒出現過則取得 stacks[0]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            stack <span style="color:#f92672">=</span> stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrDefault</span><span style="color:#f92672">(</span>val<span style="color:#f92672">,</span> 0<span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        stack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>val<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>val<span style="color:#f92672">,</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrDefault</span><span style="color:#f92672">(</span>val<span style="color:#f92672">,</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span> <span style="color:#75715e">// 更新出現次數
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Constructor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">freqStack</span>(){
+</span></span><span style="display:flex;"><span>        stacks <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap();
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">pop</span><span style="color:#f92672">(){</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 直接找到最高的 stack，然後把頂端的元素 pop 出。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stack <span style="color:#f92672">=</span> stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> top <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>val<span style="color:#f92672">,</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>val<span style="color:#f92672">)</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span> <span style="color:#75715e">// 更新出現次數
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>stack<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()){</span>
-</span></span><span style="display:flex;"><span>            stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>stacks<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> top<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Methods</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">int</span> val){
+</span></span><span style="display:flex;"><span>        Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stack;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 還沒有此出現次數的元素出現，則新增此 stack</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (stacks.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">&lt;</span> map.<span style="color:#a6e22e">getOrDefault</span>(val, 0) <span style="color:#f92672">+</span> 1){
+</span></span><span style="display:flex;"><span>            stack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 取得此元素出現的次數，若沒出現過則取得 stacks[0]</span>
+</span></span><span style="display:flex;"><span>            stack <span style="color:#f92672">=</span> stacks.<span style="color:#a6e22e">get</span>(map.<span style="color:#a6e22e">getOrDefault</span>(val, 0));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        stack.<span style="color:#a6e22e">push</span>(val);
+</span></span><span style="display:flex;"><span>        map.<span style="color:#a6e22e">put</span>(val, map.<span style="color:#a6e22e">getOrDefault</span>(val, 0) <span style="color:#f92672">+</span> 1); <span style="color:#75715e">// 更新出現次數</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">pop</span>(){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 直接找到最高的 stack，然後把頂端的元素 pop 出。</span>
+</span></span><span style="display:flex;"><span>        Stack<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> stack <span style="color:#f92672">=</span> stacks.<span style="color:#a6e22e">get</span>(stacks.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">-</span> 1);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> top <span style="color:#f92672">=</span> stack.<span style="color:#a6e22e">pop</span>();
+</span></span><span style="display:flex;"><span>        map.<span style="color:#a6e22e">put</span>(val, map.<span style="color:#a6e22e">get</span>(val) <span style="color:#f92672">-</span> 1); <span style="color:#75715e">// 更新出現次數</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (stack.<span style="color:#a6e22e">isEmpty</span>()){
+</span></span><span style="display:flex;"><span>            stacks.<span style="color:#a6e22e">remove</span>(stacks.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">-</span> 1);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> top;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h1 id="程式碼">程式碼<a hidden class="anchor" aria-hidden="true" href="#程式碼">#</a></h1>
 <ul>
 <li>題解：<a href="https://github.com/intervalrain/leetcode/blob/master/src/main/java/com/rainhu/n895_MaximumFrequencyStack.java">請點此</a></li>
@@ -487,11 +483,11 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/347/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/347/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[Leetcode] 347. Top K Frequent Elements</span>
   </a>
@@ -509,11 +505,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -582,12 +579,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

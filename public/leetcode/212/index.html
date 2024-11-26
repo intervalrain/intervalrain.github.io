@@ -1,32 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 212. Word Search II | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="212. Word Search II
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、String、Backtracking、Trie、Matrix   一、題目 Given an m x n board of characters and a list of strings words, return all words on the board.
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、String、Backtracking、Trie、Matrix
+
+
+一、題目
+Given an m x n board of characters and a list of strings words, return all words on the board.
 Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
 Example 1:
- Input: board = [[&ldquo;o&rdquo;,&ldquo;a&rdquo;,&ldquo;a&rdquo;,&ldquo;n&rdquo;],[&ldquo;e&rdquo;,&ldquo;t&rdquo;,&ldquo;a&rdquo;,&ldquo;e&rdquo;],[&ldquo;i&rdquo;,&ldquo;h&rdquo;,&ldquo;k&rdquo;,&ldquo;r&rdquo;],[&ldquo;i&rdquo;,&ldquo;f&rdquo;,&ldquo;l&rdquo;,&ldquo;v&rdquo;]], words = [&ldquo;oath&rdquo;,&ldquo;pea&rdquo;,&ldquo;eat&rdquo;,&ldquo;rain&rdquo;] Output: [&ldquo;eat&rdquo;,&ldquo;oath&rdquo;]  Example 2:">
+
+Input: board = [[&ldquo;o&rdquo;,&ldquo;a&rdquo;,&ldquo;a&rdquo;,&ldquo;n&rdquo;],[&ldquo;e&rdquo;,&ldquo;t&rdquo;,&ldquo;a&rdquo;,&ldquo;e&rdquo;],[&ldquo;i&rdquo;,&ldquo;h&rdquo;,&ldquo;k&rdquo;,&ldquo;r&rdquo;],[&ldquo;i&rdquo;,&ldquo;f&rdquo;,&ldquo;l&rdquo;,&ldquo;v&rdquo;]], words = [&ldquo;oath&rdquo;,&ldquo;pea&rdquo;,&ldquo;eat&rdquo;,&ldquo;rain&rdquo;]
+Output: [&ldquo;eat&rdquo;,&ldquo;oath&rdquo;]
+
+Example 2:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/212/">
 <noscript>
     <style>
         #theme-toggle,
@@ -44,7 +52,7 @@ Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -77,25 +85,38 @@ Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 212. Word Search II" />
-<meta property="og:description" content="212. Word Search II
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、String、Backtracking、Trie、Matrix   一、題目 Given an m x n board of characters and a list of strings words, return all words on the board.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/212/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 212. Word Search II">
+  <meta property="og:description" content="212. Word Search II
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、String、Backtracking、Trie、Matrix 一、題目 Given an m x n board of characters and a list of strings words, return all words on the board.
 Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
 Example 1:
- Input: board = [[&ldquo;o&rdquo;,&ldquo;a&rdquo;,&ldquo;a&rdquo;,&ldquo;n&rdquo;],[&ldquo;e&rdquo;,&ldquo;t&rdquo;,&ldquo;a&rdquo;,&ldquo;e&rdquo;],[&ldquo;i&rdquo;,&ldquo;h&rdquo;,&ldquo;k&rdquo;,&ldquo;r&rdquo;],[&ldquo;i&rdquo;,&ldquo;f&rdquo;,&ldquo;l&rdquo;,&ldquo;v&rdquo;]], words = [&ldquo;oath&rdquo;,&ldquo;pea&rdquo;,&ldquo;eat&rdquo;,&ldquo;rain&rdquo;] Output: [&ldquo;eat&rdquo;,&ldquo;oath&rdquo;]  Example 2:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/212/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-05T20:58:11&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-05T20:58:11&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 212. Word Search II"/>
+Input: board = [[“o”,“a”,“a”,“n”],[“e”,“t”,“a”,“e”],[“i”,“h”,“k”,“r”],[“i”,“f”,“l”,“v”]], words = [“oath”,“pea”,“eat”,“rain”] Output: [“eat”,“oath”] Example 2:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-05T20:58:11+08:00">
+    <meta property="article:modified_time" content="2022-11-05T20:58:11+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 212. Word Search II">
 <meta name="twitter:description" content="212. Word Search II
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、String、Backtracking、Trie、Matrix   一、題目 Given an m x n board of characters and a list of strings words, return all words on the board.
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、String、Backtracking、Trie、Matrix
+
+
+一、題目
+Given an m x n board of characters and a list of strings words, return all words on the board.
 Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
 Example 1:
- Input: board = [[&ldquo;o&rdquo;,&ldquo;a&rdquo;,&ldquo;a&rdquo;,&ldquo;n&rdquo;],[&ldquo;e&rdquo;,&ldquo;t&rdquo;,&ldquo;a&rdquo;,&ldquo;e&rdquo;],[&ldquo;i&rdquo;,&ldquo;h&rdquo;,&ldquo;k&rdquo;,&ldquo;r&rdquo;],[&ldquo;i&rdquo;,&ldquo;f&rdquo;,&ldquo;l&rdquo;,&ldquo;v&rdquo;]], words = [&ldquo;oath&rdquo;,&ldquo;pea&rdquo;,&ldquo;eat&rdquo;,&ldquo;rain&rdquo;] Output: [&ldquo;eat&rdquo;,&ldquo;oath&rdquo;]  Example 2:"/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Input: board = [[&ldquo;o&rdquo;,&ldquo;a&rdquo;,&ldquo;a&rdquo;,&ldquo;n&rdquo;],[&ldquo;e&rdquo;,&ldquo;t&rdquo;,&ldquo;a&rdquo;,&ldquo;e&rdquo;],[&ldquo;i&rdquo;,&ldquo;h&rdquo;,&ldquo;k&rdquo;,&ldquo;r&rdquo;],[&ldquo;i&rdquo;,&ldquo;f&rdquo;,&ldquo;l&rdquo;,&ldquo;v&rdquo;]], words = [&ldquo;oath&rdquo;,&ldquo;pea&rdquo;,&ldquo;eat&rdquo;,&ldquo;rain&rdquo;]
+Output: [&ldquo;eat&rdquo;,&ldquo;oath&rdquo;]
+
+Example 2:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -106,14 +127,8 @@ Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 212. Word Search II",
-      "item": "https://intervalrain.github.io/leetcode/212/"
+      "item": "http://localhost:1313/leetcode/212/"
     }
   ]
 }
@@ -124,13 +139,13 @@ Example 1:
   "@type": "BlogPosting",
   "headline": "[LeetCode] 212. Word Search II",
   "name": "[LeetCode] 212. Word Search II",
-  "description": "212. Word Search II\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、String、Backtracking、Trie、Matrix   一、題目 Given an m x n board of characters and a list of strings words, return all words on the board.\nEach word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.\nExample 1:\n Input: board = [[\u0026ldquo;o\u0026rdquo;,\u0026ldquo;a\u0026rdquo;,\u0026ldquo;a\u0026rdquo;,\u0026ldquo;n\u0026rdquo;],[\u0026ldquo;e\u0026rdquo;,\u0026ldquo;t\u0026rdquo;,\u0026ldquo;a\u0026rdquo;,\u0026ldquo;e\u0026rdquo;],[\u0026ldquo;i\u0026rdquo;,\u0026ldquo;h\u0026rdquo;,\u0026ldquo;k\u0026rdquo;,\u0026ldquo;r\u0026rdquo;],[\u0026ldquo;i\u0026rdquo;,\u0026ldquo;f\u0026rdquo;,\u0026ldquo;l\u0026rdquo;,\u0026ldquo;v\u0026rdquo;]], words = [\u0026ldquo;oath\u0026rdquo;,\u0026ldquo;pea\u0026rdquo;,\u0026ldquo;eat\u0026rdquo;,\u0026ldquo;rain\u0026rdquo;] Output: [\u0026ldquo;eat\u0026rdquo;,\u0026ldquo;oath\u0026rdquo;]  Example 2:",
+  "description": "212. Word Search II\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、String、Backtracking、Trie、Matrix 一、題目 Given an m x n board of characters and a list of strings words, return all words on the board.\nEach word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.\nExample 1:\nInput: board = [[\u0026ldquo;o\u0026rdquo;,\u0026ldquo;a\u0026rdquo;,\u0026ldquo;a\u0026rdquo;,\u0026ldquo;n\u0026rdquo;],[\u0026ldquo;e\u0026rdquo;,\u0026ldquo;t\u0026rdquo;,\u0026ldquo;a\u0026rdquo;,\u0026ldquo;e\u0026rdquo;],[\u0026ldquo;i\u0026rdquo;,\u0026ldquo;h\u0026rdquo;,\u0026ldquo;k\u0026rdquo;,\u0026ldquo;r\u0026rdquo;],[\u0026ldquo;i\u0026rdquo;,\u0026ldquo;f\u0026rdquo;,\u0026ldquo;l\u0026rdquo;,\u0026ldquo;v\u0026rdquo;]], words = [\u0026ldquo;oath\u0026rdquo;,\u0026ldquo;pea\u0026rdquo;,\u0026ldquo;eat\u0026rdquo;,\u0026ldquo;rain\u0026rdquo;] Output: [\u0026ldquo;eat\u0026rdquo;,\u0026ldquo;oath\u0026rdquo;] Example 2:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "212. Word Search II\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、String、Backtracking、Trie、Matrix   一、題目 Given an m x n board of characters and a list of strings words, return all words on the board.\nEach word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.\nExample 1:\n Input: board = [[“o”,“a”,“a”,“n”],[“e”,“t”,“a”,“e”],[“i”,“h”,“k”,“r”],[“i”,“f”,“l”,“v”]], words = [“oath”,“pea”,“eat”,“rain”] Output: [“eat”,“oath”]  Example 2:\n Input: board = [[“a”,“b”],[“c”,“d”]], words = [“abcb”] Output: []  Example 3:\n Input: Output:  Constraints:\n m == board.length n == board[i].length 1  board[i][j] is a lowercase English letter. 1  1  words[i] consists of lowercase English letters. All the strings of words are unique.   二、分析  這題是 [LeetCode] 79. Word Search 的進階題，是 google 愛考的題型，先考你一題基礎題型，再看你能不能進一步微調。如先考最短路徑的「步數」，再考你最短路徑的「路徑」，此種題型容易藏細節，如最短路徑「步數」可以用 bfs，當走到終點立即回傳，但當考題改成路徑時，就不能立即回傳，因為有可能會有多個最短路徑。 這題有許多剪枝技巧：  word 的字長不可能大於 board 的總字數，即 m x n。 word 個別的字數需小於 board 各別的字數。 word 如果是重複的字元組成，則重複的字元擺在尾巴可以有分枝的效果。  即 aaaaaaabc 可以處理成，找 cbaaaaaaa。     注意在 search 中回傳 bool 值前，要記得將 backtrack 走完，以免影響其它組解。  三、解題 1. Backtracking  Time complexity: \\(O(m\\times n\\times l)\\)，\\(m \\) 為 board.size()，\\(n\\) 為 board[0].size()，\\(l\\) 為 word.length() Space complexity: \\(O(m\\times n)\\)  class Board { private:  vectorvectorchar board;  int m, n;  int cnt[26];   // 用於上、下、左、右  int dirc[4][2] = {{1,0},{0,1},{-1,0},{0,-1}};   // 用於剪枝1與剪枝2，在進行算法前，檢查其是否可能為錯，時間複雜度為 O(1)，所以可以大大降低耗時。  bool isWordNumValid(string\u0026 word) {  if (word.length()  m * n) return false; // 剪枝1  int charNum[26] = {0};  for (char c : word) charNum[c-'a']++;  for (int i = 0; i  26; i++) {  if (charNum[i]  cnt[i]) return false; // 剪枝2  }  return true;  }   void reverseIfNeeded(string\u0026 word) {  int left = word.find_first_not_of(word[0]); // 左邊重複  int right = word.length() - word.find_last_not_of(word[word.length()-1]); // 右邊重複  if (left  right) reverse(word.begin(), word.end()); // 左邊重複較長，則翻轉字串  }   bool backtrack(string\u0026 word, int row, int col, int i) {  if (i == word.length()) return true; // 到達終止條件，回傳 true  if (row  0 || col  0 || row = m || col = n || board[row][col] != word[i]) return false; // out of bound 或不符合  char tmp = board[row][col]; // 記錄原本的格子  board[row][col] = '#'; // 用 '#' 代表 visited，省去另外創一個 visited 來記錄是否拜訪過  for (const auto\u0026 d : dirc)  if (backtrack(word, row+d[0], col+d[1], i+1)) {  board[row][col] = tmp; // 記得將 backtrack 更動的部分走完，以免影響其它組解  return true;  }  board[row][col] = tmp; // 還原格子  return false;  }  public:  Board(vectorvectorchar\u0026 board_) {  this-board = board_;  this-m = board_.size();  this-n = board_[0].size();  memset(cnt, 0, sizeof(cnt));  for (const auto\u0026 row : board) {  for (char c : row) {  cnt[c-'a']++;  }  }  }  bool search(string word) {  for (int i = 0; i  m; i++) {  for (int j = 0; j  n; j++) {  if (!isWordNumValid(word)) return false;  reverseIfNeeded(word);  if (backtrack(word, i, j, 0)) return true;  }  }  return false;  } }; class Solution { public:  vectorstring findWords(vectorvectorchar\u0026 board, vectorstring\u0026 words) {  Board b(board);  vectorstring res;  for (const auto\u0026 word : words) {  if (b.search(word)) res.push_back(word);  }  return res;  } }; 回目錄 Catalog\n",
+  "articleBody": "212. Word Search II\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、String、Backtracking、Trie、Matrix 一、題目 Given an m x n board of characters and a list of strings words, return all words on the board.\nEach word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.\nExample 1:\nInput: board = [[“o”,“a”,“a”,“n”],[“e”,“t”,“a”,“e”],[“i”,“h”,“k”,“r”],[“i”,“f”,“l”,“v”]], words = [“oath”,“pea”,“eat”,“rain”] Output: [“eat”,“oath”] Example 2:\nInput: board = [[“a”,“b”],[“c”,“d”]], words = [“abcb”] Output: [] Example 3:\nInput: Output: Constraints:\nm == board.length n == board[i].length 1 \u003c= m, n \u003c= 12 board[i][j] is a lowercase English letter. 1 \u003c= words.length \u003c= 3 * 104 1 \u003c= words[i].length \u003c= 10 words[i] consists of lowercase English letters. All the strings of words are unique. 二、分析 這題是 [LeetCode] 79. Word Search 的進階題，是 google 愛考的題型，先考你一題基礎題型，再看你能不能進一步微調。如先考最短路徑的「步數」，再考你最短路徑的「路徑」，此種題型容易藏細節，如最短路徑「步數」可以用 bfs，當走到終點立即回傳，但當考題改成路徑時，就不能立即回傳，因為有可能會有多個最短路徑。 這題有許多剪枝技巧： word 的字長不可能大於 board 的總字數，即 m x n。 word 個別的字數需小於 board 各別的字數。 word 如果是重複的字元組成，則重複的字元擺在尾巴可以有分枝的效果。 即 aaaaaaabc 可以處理成，找 cbaaaaaaa。 注意在 search 中回傳 bool 值前，要記得將 backtrack 走完，以免影響其它組解。 三、解題 1. Backtracking Time complexity: \\(O(m\\times n\\times l)\\)，\\(m \\) 為 board.size()，\\(n\\) 為 board[0].size()，\\(l\\) 為 word.length() Space complexity: \\(O(m\\times n)\\) class Board { private: vector\u003cvector\u003cchar\u003e\u003e board; int m, n; int cnt[26]; // 用於上、下、左、右 int dirc[4][2] = {{1,0},{0,1},{-1,0},{0,-1}}; // 用於剪枝1與剪枝2，在進行算法前，檢查其是否可能為錯，時間複雜度為 O(1)，所以可以大大降低耗時。 bool isWordNumValid(string\u0026 word) { if (word.length() \u003e m * n) return false; // 剪枝1 int charNum[26] = {0}; for (char c : word) charNum[c-'a']++; for (int i = 0; i \u003c 26; i++) { if (charNum[i] \u003e cnt[i]) return false; // 剪枝2 } return true; } void reverseIfNeeded(string\u0026 word) { int left = word.find_first_not_of(word[0]); // 左邊重複 int right = word.length() - word.find_last_not_of(word[word.length()-1]); // 右邊重複 if (left \u003e right) reverse(word.begin(), word.end()); // 左邊重複較長，則翻轉字串 } bool backtrack(string\u0026 word, int row, int col, int i) { if (i == word.length()) return true; // 到達終止條件，回傳 true if (row \u003c 0 || col \u003c 0 || row \u003e= m || col \u003e= n || board[row][col] != word[i]) return false; // out of bound 或不符合 char tmp = board[row][col]; // 記錄原本的格子 board[row][col] = '#'; // 用 '#' 代表 visited，省去另外創一個 visited 來記錄是否拜訪過 for (const auto\u0026 d : dirc) if (backtrack(word, row+d[0], col+d[1], i+1)) { board[row][col] = tmp; // 記得將 backtrack 更動的部分走完，以免影響其它組解 return true; } board[row][col] = tmp; // 還原格子 return false; } public: Board(vector\u003cvector\u003cchar\u003e\u003e\u0026 board_) { this-\u003eboard = board_; this-\u003em = board_.size(); this-\u003en = board_[0].size(); memset(cnt, 0, sizeof(cnt)); for (const auto\u0026 row : board) { for (char c : row) { cnt[c-'a']++; } } } bool search(string word) { for (int i = 0; i \u003c m; i++) { for (int j = 0; j \u003c n; j++) { if (!isWordNumValid(word)) return false; reverseIfNeeded(word); if (backtrack(word, i, j, 0)) return true; } } return false; } }; class Solution { public: vector\u003cstring\u003e findWords(vector\u003cvector\u003cchar\u003e\u003e\u0026 board, vector\u003cstring\u003e\u0026 words) { Board b(board); vector\u003cstring\u003e res; for (const auto\u0026 word : words) { if (b.search(word)) res.push_back(word); } return res; } }; 回目錄 Catalog\n",
   "wordCount" : "478",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-05T20:58:11+08:00",
   "dateModified": "2022-11-05T20:58:11+08:00",
   "author":{
@@ -139,14 +154,14 @@ Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/212/"
+    "@id": "http://localhost:1313/leetcode/212/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -168,17 +183,17 @@ Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -192,46 +207,46 @@ Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -239,20 +254,21 @@ Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 212. Word Search II
     </h1>
-    <div class="post-meta"><span title='2022-11-05 20:58:11 +0800 CST'>November 5, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/212.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-05 20:58:11 +0800 CST'>November 5, 2022</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/212.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -472,16 +488,16 @@ Each word must be constructed from letters of sequentially adjacent cells, where
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/79/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/79/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 79. Word Search</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/2131/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/2131/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 2131. Longest Palindrome by Concatenating Two Letter Words</span>
   </a>
@@ -499,11 +515,12 @@ Each word must be constructed from letters of sequentially adjacent cells, where
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -572,12 +589,12 @@ Each word must be constructed from letters of sequentially adjacent cells, where
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

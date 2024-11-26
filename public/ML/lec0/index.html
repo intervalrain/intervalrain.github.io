@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[ML] introduction | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Programming, Machine Learning" />
+<meta name="keywords" content="Programming, Machine Learning">
 <meta name="description" content="Introduction to Machine Learning">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/ml/lec0/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,19 +71,23 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[ML] introduction" />
-<meta property="og:description" content="Introduction to Machine Learning" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/ml/lec0/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/cover.jpg" /><meta property="article:section" content="ML" />
-<meta property="article:published_time" content="2022-06-19T18:18:52&#43;08:00" />
-<meta property="article:modified_time" content="2022-06-19T18:18:52&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/cover.jpg" />
-<meta name="twitter:title" content="[ML] introduction"/>
-<meta name="twitter:description" content="Introduction to Machine Learning"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/ml/lec0/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[ML] introduction">
+  <meta property="og:description" content="Introduction to Machine Learning">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ml">
+    <meta property="article:published_time" content="2022-06-19T18:18:52+08:00">
+    <meta property="article:modified_time" content="2022-06-19T18:18:52+08:00">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="og:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:title" content="[ML] introduction">
+<meta name="twitter:description" content="Introduction to Machine Learning">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,13 +99,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "MLs",
-      "item": "https://intervalrain.github.io/ml/"
+      "item": "http://localhost:1313/ml/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[ML] introduction",
-      "item": "https://intervalrain.github.io/ml/lec0/"
+      "item": "http://localhost:1313/ml/lec0/"
     }
   ]
 }
@@ -118,10 +120,10 @@
   "keywords": [
     "Programming", "Machine Learning"
   ],
-  "articleBody": "什麼是 AI \u0026 ML \u0026 DL  人工智慧是我們想要達成的目標，而機器學習是想要達成目標的手段，希望機器通過學習的方式，變得跟人一樣聰明。 而深度學習就是機器學習的其中一種方法。\n  人工智慧(Aritificial Intelligence, AI) → 目標  機器學習(Machine Learning, ML) → 手段  深度學習(Deep Learning, DL) …       在機器學習出現之前  生物的行為取決於兩件事，一個是後天學習的結果，一個是天生的本能。\n  Hand-crafted rules: 人類為機器設定好的天生本能  僵化，無法超越創造者 需要大量人力，不適合小企業     機器學習  寫程式讓機器可以學習 → 尋找關聯資料的函式  舉例：語音辨識、影像辨識、Alpha Go、對話機器人   框架(Framework)  設定一定量的函數 餵入數據 評估函數的好壞 找出最好的函數\n\\(\\begin{array}{rc} \\text{step1}\u0026\\boxed{\\text{Define a set of function}}\\\\ \u0026\\downarrow\\\\ \\text{step2}\u0026\\boxed{\\text{Evaluate goodness of function}}\\\\ \u0026\\downarrow\\\\ \\text{step3}\u0026\\boxed{\\text{Pick the best function}}\\end{array}\\)  告訴機器 input 和正確的 output 這就叫作 supervised learning。      機器學習相關的技術 任務(Task) 迴歸(Regression)  Regression 指的是函數的輸出為 scalar(數值)，如 PM2.5。  分類(Classification)  Classification 指的是函數的輸出為 東西的類別。  當分類為 Yes or No，則為 Binary Classificatino，如垃圾郵件。 當分類是多個選項的，則為 Multi-Classification，如新聞分類。    結構性學習(Structured Learning)  讓機器的輸出具有結構性。  如語音辨識，聲音訊號為輸入，句子為輸出。 如影像辨識，圖片是輸入，人名是輸出。    方法(Method)  選不同的 function set 就是選不同的 model。\n  Model  Linear Model Non-linear model  Deep learning SVM, decision tree, K-NN …      場景(Scenario) 監督式學習  Supervised Learning 需要 inputs 與對應的 outputs(label) 大量的資料需求  半監督式學習  Semi-supervised Learning 同時有 Labelled data 與 Unlabelled data 可減少資料的需求量。   遷移學習  Transfer Leanring 有大量的 Labelled data 與 Unlabelled data 其中包含有關聯的與無關聯的。   無監督學習  Unsuperviesd Learning 只有大量的 inputs 而沒有 outputs 或大量的 outputs 而沒有 inputs   強化學習  沒有告訴機器正確的答案，機器有的只是一個分數，就是它做得好或不好。 Alpha Go 是 Supervised learning + Reinforcement learning (先人工餵棋譜，再讓機器人互相下棋)   利用 reinforcement learning 來訓練聊天機器人，把機器人發到客服電話，讓機器人自己應對客人，若客人的反應勃然大怒，則機器會學到剛才應對的方式是錯的，讓機器自己去檢討哪個步驟做的不好。\n 我們為何要學機器學習?  好的 AI 需要好的 AI 訓練師，AI 訓練師討選合適的 model、loss function，不同 model、loss function 適合解決不同的問題。 有些模型的最佳化比較困難，例如深度學習，此時可能就需要有經驗的 AI 訓練師來處理。\n ",
+  "articleBody": "什麼是 AI \u0026 ML \u0026 DL 人工智慧是我們想要達成的目標，而機器學習是想要達成目標的手段，希望機器通過學習的方式，變得跟人一樣聰明。 而深度學習就是機器學習的其中一種方法。\n人工智慧(Aritificial Intelligence, AI) → 目標 機器學習(Machine Learning, ML) → 手段 深度學習(Deep Learning, DL) … 在機器學習出現之前 生物的行為取決於兩件事，一個是後天學習的結果，一個是天生的本能。\nHand-crafted rules: 人類為機器設定好的天生本能 僵化，無法超越創造者 需要大量人力，不適合小企業 機器學習 寫程式讓機器可以學習 → 尋找關聯資料的函式 舉例：語音辨識、影像辨識、Alpha Go、對話機器人 框架(Framework) 設定一定量的函數 餵入數據 評估函數的好壞 找出最好的函數\n\\(\\begin{array}{rc} \\text{step1}\u0026\\boxed{\\text{Define a set of function}}\\\\ \u0026\\downarrow\\\\ \\text{step2}\u0026\\boxed{\\text{Evaluate goodness of function}}\\\\ \u0026\\downarrow\\\\ \\text{step3}\u0026\\boxed{\\text{Pick the best function}}\\end{array}\\) 告訴機器 input 和正確的 output 這就叫作 supervised learning。 機器學習相關的技術 任務(Task) 迴歸(Regression) Regression 指的是函數的輸出為 scalar(數值)，如 PM2.5。 分類(Classification) Classification 指的是函數的輸出為 東西的類別。 當分類為 Yes or No，則為 Binary Classificatino，如垃圾郵件。 當分類是多個選項的，則為 Multi-Classification，如新聞分類。 結構性學習(Structured Learning) 讓機器的輸出具有結構性。 如語音辨識，聲音訊號為輸入，句子為輸出。 如影像辨識，圖片是輸入，人名是輸出。 方法(Method) 選不同的 function set 就是選不同的 model。\nModel Linear Model Non-linear model Deep learning SVM, decision tree, K-NN … 場景(Scenario) 監督式學習 Supervised Learning 需要 inputs 與對應的 outputs(label) 大量的資料需求 半監督式學習 Semi-supervised Learning 同時有 Labelled data 與 Unlabelled data 可減少資料的需求量。 遷移學習 Transfer Leanring 有大量的 Labelled data 與 Unlabelled data 其中包含有關聯的與無關聯的。 無監督學習 Unsuperviesd Learning 只有大量的 inputs 而沒有 outputs 或大量的 outputs 而沒有 inputs 強化學習 沒有告訴機器正確的答案，機器有的只是一個分數，就是它做得好或不好。 Alpha Go 是 Supervised learning + Reinforcement learning (先人工餵棋譜，再讓機器人互相下棋) 利用 reinforcement learning 來訓練聊天機器人，把機器人發到客服電話，讓機器人自己應對客人，若客人的反應勃然大怒，則機器會學到剛才應對的方式是錯的，讓機器自己去檢討哪個步驟做的不好。\n我們為何要學機器學習? 好的 AI 需要好的 AI 訓練師，AI 訓練師討選合適的 model、loss function，不同 model、loss function 適合解決不同的問題。 有些模型的最佳化比較困難，例如深度學習，此時可能就需要有經驗的 AI 訓練師來處理。\n",
   "wordCount" : "175",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/cover.jpg","datePublished": "2022-06-19T18:18:52+08:00",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/cover.jpg","datePublished": "2022-06-19T18:18:52+08:00",
   "dateModified": "2022-06-19T18:18:52+08:00",
   "author":{
     "@type": "Person",
@@ -129,14 +131,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/ml/lec0/"
+    "@id": "http://localhost:1313/ml/lec0/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -158,17 +160,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -182,46 +184,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -229,31 +231,32 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/ml/">MLs</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/ml/">MLs</a></div>
+    <h1 class="post-title entry-hint-parent">
       [ML] introduction
     </h1>
     <div class="post-description">
       Introduction to Machine Learning
     </div>
-    <div class="post-meta"><span title='2022-06-19 18:18:52 +0800 CST'>June 19, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/lec0.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-06-19 18:18:52 +0800 CST'>June 19, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/lec0.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
                     <li>
-                        <a href="#%e4%bb%80%e9%ba%bc%e6%98%af-ai--ml--dl" aria-label="什麼是 AI &amp;amp; ML &amp;amp; DL">什麼是 AI &amp; ML &amp; DL</a><ul>
+                        <a href="#%e4%bb%80%e9%ba%bc%e6%98%af-ai--ml--dl" aria-label="什麼是 AI &amp; ML &amp; DL">什麼是 AI &amp; ML &amp; DL</a><ul>
                             
                     <li>
                         <a href="#%e5%9c%a8%e6%a9%9f%e5%99%a8%e5%ad%b8%e7%bf%92%e5%87%ba%e7%8f%be%e4%b9%8b%e5%89%8d" aria-label="在機器學習出現之前">在機器學習出現之前</a></li></ul>
@@ -370,8 +373,7 @@
 <ul>
 <li>深度學習(Deep Learning, DL)</li>
 <li>…
-<img loading="lazy" src="/ML/L0/history.png" alt="history"  />
-</li>
+<img alt="history" loading="lazy" src="/ML/L0/history.png"></li>
 </ul>
 </li>
 </ul>
@@ -386,8 +388,7 @@
 <ul>
 <li>僵化，無法超越創造者</li>
 <li>需要大量人力，不適合小企業
-<img loading="lazy" src="/ML/L0/AIinside.jpeg" alt="AIinsde"  />
-</li>
+<img alt="AIinsde" loading="lazy" src="/ML/L0/AIinside.jpeg"></li>
 </ul>
 </li>
 </ul>
@@ -410,8 +411,7 @@
 \text{step2}&amp;\boxed{\text{Evaluate goodness of function}}\\
 &amp;\downarrow\\
 \text{step3}&amp;\boxed{\text{Pick the best function}}\end{array}\)
-<img loading="lazy" src="/ML/L0/framework.png" alt="frameword"  />
-
+<img alt="frameword" loading="lazy" src="/ML/L0/framework.png">
 <ul>
 <li>告訴機器 input 和正確的 output 這就叫作 <strong>supervised learning</strong>。</li>
 </ul>
@@ -420,8 +420,7 @@
 </li>
 </ul>
 <h1 id="機器學習相關的技術">機器學習相關的技術<a hidden class="anchor" aria-hidden="true" href="#機器學習相關的技術">#</a></h1>
-<p><img loading="lazy" src="/ML/L0/terminology.png" alt="terminology"  />
-</p>
+<p><img alt="terminology" loading="lazy" src="/ML/L0/terminology.png"></p>
 <h2 id="任務task">任務(Task)<a hidden class="anchor" aria-hidden="true" href="#任務task">#</a></h2>
 <h3 id="迴歸regression">迴歸(Regression)<a hidden class="anchor" aria-hidden="true" href="#迴歸regression">#</a></h3>
 <ul>
@@ -474,24 +473,21 @@
 <li>Semi-supervised Learning</li>
 <li>同時有 Labelled data 與 Unlabelled data</li>
 <li>可減少資料的需求量。
-<img loading="lazy" src="/ML/L0/semi-supervised.png" alt="semi-supervised"  />
-</li>
+<img alt="semi-supervised" loading="lazy" src="/ML/L0/semi-supervised.png"></li>
 </ul>
 <h3 id="遷移學習">遷移學習<a hidden class="anchor" aria-hidden="true" href="#遷移學習">#</a></h3>
 <ul>
 <li>Transfer Leanring</li>
 <li>有大量的 Labelled data 與 Unlabelled data</li>
 <li>其中包含有關聯的與無關聯的。
-<img loading="lazy" src="/ML/L0/transferlearning.png" alt="transferlearning"  />
-</li>
+<img alt="transferlearning" loading="lazy" src="/ML/L0/transferlearning.png"></li>
 </ul>
 <h3 id="無監督學習">無監督學習<a hidden class="anchor" aria-hidden="true" href="#無監督學習">#</a></h3>
 <ul>
 <li>Unsuperviesd Learning</li>
 <li>只有大量的 inputs 而沒有 outputs</li>
 <li>或大量的 outputs 而沒有 inputs
-<img loading="lazy" src="/ML/L0/unsupervised.png" alt="unsupervised"  />
-</li>
+<img alt="unsupervised" loading="lazy" src="/ML/L0/unsupervised.png"></li>
 </ul>
 <h3 id="強化學習">強化學習<a hidden class="anchor" aria-hidden="true" href="#強化學習">#</a></h3>
 <ul>
@@ -512,8 +508,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/programming/">Programming</a></li>
-      <li><a href="https://intervalrain.github.io/tags/machine-learning/">Machine Learning</a></li>
+      <li><a href="http://localhost:1313/tags/programming/">Programming</a></li>
+      <li><a href="http://localhost:1313/tags/machine-learning/">Machine Learning</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -528,11 +524,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -601,12 +598,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

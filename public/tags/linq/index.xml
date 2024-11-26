@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>LINQ on Rain Hu&#39;s Workspace</title>
-    <link>https://intervalrain.github.io/tags/linq/</link>
+    <link>http://localhost:1313/tags/linq/</link>
     <description>Recent content in LINQ on Rain Hu&#39;s Workspace</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 21 Sep 2023 11:34:15 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/linq/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 21 Sep 2023 11:34:15 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/linq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[IT] LINQ: IQueryable Provider</title>
-      <link>https://intervalrain.github.io/it/iq1/</link>
+      <link>http://localhost:1313/it/iq1/</link>
       <pubDate>Thu, 21 Sep 2023 11:34:15 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/it/iq1/</guid>
+      <guid>http://localhost:1313/it/iq1/</guid>
       <description>一系列關於如何建立 LINQ IQueryable Provider 的文章，每篇都是建立在前一篇的基礎上。</description>
     </item>
-    
   </channel>
 </rss>

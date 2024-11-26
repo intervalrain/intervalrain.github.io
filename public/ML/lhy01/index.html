@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[ML] 01. 機器學習基本概念簡介 | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="ML, Linear Model, Piecewise Linear Curve, sigmoid, ReLU, Batch, Epoch" />
+<meta name="keywords" content="ML, Linear Model, Piecewise Linear Curve, sigmoid, ReLU, Batch, Epoch">
 <meta name="description" content="什麼是機器學習，機器學習任務，監督式學習的運作流程">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/ml/lhy01/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +74,20 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[ML] 01. 機器學習基本概念簡介" />
-<meta property="og:description" content="什麼是機器學習，機器學習任務，監督式學習的運作流程" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/ml/lhy01/" /><meta property="article:section" content="ML" />
-<meta property="article:published_time" content="2023-08-02T23:56:25&#43;08:00" />
-<meta property="article:modified_time" content="2023-08-02T23:56:25&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[ML] 01. 機器學習基本概念簡介"/>
-<meta name="twitter:description" content="什麼是機器學習，機器學習任務，監督式學習的運作流程"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/ml/lhy01/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[ML] 01. 機器學習基本概念簡介">
+  <meta property="og:description" content="什麼是機器學習，機器學習任務，監督式學習的運作流程">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ml">
+    <meta property="article:published_time" content="2023-08-02T23:56:25+08:00">
+    <meta property="article:modified_time" content="2023-08-02T23:56:25+08:00">
+    <meta property="article:tag" content="ML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[ML] 01. 機器學習基本概念簡介">
+<meta name="twitter:description" content="什麼是機器學習，機器學習任務，監督式學習的運作流程">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +99,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "MLs",
-      "item": "https://intervalrain.github.io/ml/"
+      "item": "http://localhost:1313/ml/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[ML] 01. 機器學習基本概念簡介",
-      "item": "https://intervalrain.github.io/ml/lhy01/"
+      "item": "http://localhost:1313/ml/lhy01/"
     }
   ]
 }
@@ -119,9 +120,9 @@
   "keywords": [
     "ML", "Linear Model", "Piecewise Linear Curve", "sigmoid", "ReLU", "Batch", "Epoch"
   ],
-  "articleBody": "前言 --  什麼是機器學習  機器學習(Machine Learning)，就是利用機器的力量幫忙找出函式。  Input 可以是  vector matrix sequence   Output 可以是  Regression Classification Structed Learning(令機器產生有結構的東西 eg. text, image)  示意圖    什麼是深度學習      深度學習(Deep Learning)，就是利用神經網路(neural network)的方式來產生函數。    機器如何學習 1. 基本原理(訓練三步驟)  Step 1: 使用合適的 Model  \\(y=f(\\text{\\red{data}})\\)  Function with unknown parameters Model: \\(\\boxed{y=b+wx_1}\\)  \\(w: \\text{weight}\\) \\(b: \\text{bias}\\) \\(x: \\text{feature}\\)         Step 2: 定義 Loss function  Define loss from training data  以 Model 的參數 \\(w,b\\) 來計算 Loss 物理意義：Loss 愈大代表參數愈不好，Loss 愈小代表參數愈好。   計算方法：求估計的值與實際的值(label)之間的差距  Loss function: \\(\\boxed{L=\\frac{1}{N}\\sum_ne_n}\\) MAE (mean absolute error): \\(e=|y-\\hat{y}|\\) MSE (mean square error): \\(e=(y-\\hat{y})^2\\) Cross-entropy: 計算機率分布之間的差距   Error Surface: 根據不同的參數，計算出 loss 所畫出來的等高線圖。   Step 3: Optimization  找到 loss 最小的參數組合 \\((w,b)\\) 方法：Gradient Descent  \\(\\boxed{w' = w - \\red{\\eta}\\frac{\\partial L}{\\partial w}|_{w=w^0,b=b^0}}\\) \\(\\boxed{b' = b - \\red{\\eta}\\frac{\\partial L}{\\partial b}|_{w=w^0,b=b^0}}\\) \\(\\red{\\eta}\\): 學習率 learning rate, 決定 gradient descent 的一步有多大步      2. Linear Model  \\(\\boxed{f\\leftarrow y=b+\\sum_{j=1}^{n}{w_jx_j}}\\)  不只考慮前一天的觀看人數 \\(x_1\\)，也考慮前二~七天 \\(x_2, x_3, … , x_7\\)。 當參數變多時，命中率可望有效提升。    3. Piecewise Linear Curves(Sigmoid)  \\(\\text{Sigmoid Function:} \\boxed{y=\\red{c}\\frac{1}{1+e^{-(\\green{b}+\\blue{w}x_1)}}}=\\boxed{\\red{c}\\text{ sigmoid}(\\green{b}+\\blue{w}x_1)}\\) 將 \\(w_ix_i\\) 替換成 \\(c_i\\text{ sigmoid}(b_i+w_ix_i)\\)  特徵為1時，\\(\\boxed{y=b+\\sum_i{c_i\\text{ sigmoid}(b_i+ w_ix_1)}}\\) 特徵1時，\\(\\boxed{y=b+\\sum_i{c_i\\text{ sigmoid}(b_i+\\sum_j w_{ij}x_j)}}\\)   意義：一條曲線可以由多個鋸齒狀的線段(hard sigmoid)的總合，我們可以用 sigmoid 函數來逼近 hard sigmoid。事實上，sigmoid 的個數就是神經網路中一層 neuron 的 node 數，至於使用幾個 sigmoid 是 hyper parameter。  可將公式轉成矩陣計算+激勵函數的形式：   以線性代數方式表示：\\(\\boxed{y=b+c^T\\sigma(b_i+Wx)}\\)  將 \\(b\\)、\\(b_i\\)、\\(W\\)、\\(c^T\\) 等所有參數統稱為 \\(\\theta\\) 故 Loss 可表示成 \\(L(\\theta)\\) 重覆 gradient descent 的方法，更新(update) 參數。 梯度 gradient，\\(g=\\) \\(\\begin{bmatrix}\\frac{\\partial L}{\\partial \\theta_1}|_{\\theta=\\theta^0}\\\\\\frac{\\partial L}{\\partial \\theta_2}| _{\\theta=\\theta^0}\\\\\\vdots\\end{bmatrix}=\\nabla L(\\theta^0)\\) 更新(update)計算：\\(\\begin{bmatrix}\\theta_1^1\\\\\\theta_2^1\\\\\\vdots\\end{bmatrix}\\leftarrow\\begin{bmatrix}\\theta_1^0\\\\\\theta_2^0\\\\\\vdots\\end{bmatrix}-\\begin{bmatrix}\\eta \\frac{\\partial L}{\\partial \\theta_1}|_{\\theta=\\theta^0}\\\\\\eta\\frac{\\partial L}{\\partial\\theta_2}| _{\\theta=\\theta^0}\\\\\\vdots\\end{bmatrix}\\) 或寫成 \\(\\theta^1\\leftarrow \\theta^0-\\eta g\\)  batch training   將樣本依批次(batch)進行更新，當所有的 batches 都跑過一遍，稱為一個 epoch    4. ReLU  用 hard sigmoid 的方式來表示。  其每一個 hard sigmoid 由兩個 Rectified Linear Unit(ReLU) 組成， 每一個 ReLU 寫成：\\(\\boxed{\\red{c}\\text{ max}(0,\\green{b}+\\blue{w}x_1)}\\) 故 Model 可以寫成：\\(\\boxed{y=b+\\sum_{\\red{2}i}\\text{max}(0,b_i+\\sum_j{w_{ij}x_j})}\\) 其中我們選用來逼近的函式，稱為 Activation function。    深度學習  Neural Network  \\(\\boxed{y=b+c^T\\sigma(b_i+Wx)}\\) Multiple hidden layers - Deep learning     ",
-  "wordCount" : "236",
-  "inLanguage": "en",
+  "articleBody": "前言 什麼是機器學習 機器學習(Machine Learning)，就是利用機器的力量幫忙找出函式。 Input 可以是 vector matrix sequence Output 可以是 Regression Classification Structed Learning(令機器產生有結構的東西 eg. text, image) 示意圖 什麼是深度學習 深度學習(Deep Learning)，就是利用神經網路(neural network)的方式來產生函數。 機器如何學習 1. 基本原理(訓練三步驟) Step 1: 使用合適的 Model \\(y=f(\\text{\\red{data}})\\) Function with unknown parameters Model: \\(\\boxed{y=b+wx_1}\\) \\(w: \\text{weight}\\) \\(b: \\text{bias}\\) \\(x: \\text{feature}\\) Step 2: 定義 Loss function Define loss from training data 以 Model 的參數 \\(w,b\\) 來計算 Loss 物理意義：Loss 愈大代表參數愈不好，Loss 愈小代表參數愈好。 計算方法：求估計的值與實際的值(label)之間的差距 Loss function: \\(\\boxed{L=\\frac{1}{N}\\sum_ne_n}\\) MAE (mean absolute error): \\(e=|y-\\hat{y}|\\) MSE (mean square error): \\(e=(y-\\hat{y})^2\\) Cross-entropy: 計算機率分布之間的差距 Error Surface: 根據不同的參數，計算出 loss 所畫出來的等高線圖。 Step 3: Optimization 找到 loss 最小的參數組合 \\((w,b)\\) 方法：Gradient Descent \\(\\boxed{w’ = w - \\red{\\eta}\\frac{\\partial L}{\\partial w}|_{w=w^0,b=b^0}}\\) \\(\\boxed{b’ = b - \\red{\\eta}\\frac{\\partial L}{\\partial b}|_{w=w^0,b=b^0}}\\) \\(\\red{\\eta}\\): 學習率 learning rate, 決定 gradient descent 的一步有多大步 2. Linear Model \\(\\boxed{f\\leftarrow y=b+\\sum_{j=1}^{n}{w_jx_j}}\\) 不只考慮前一天的觀看人數 \\(x_1\\)，也考慮前二~七天 \\(x_2, x_3, … , x_7\\)。 當參數變多時，命中率可望有效提升。 3. Piecewise Linear Curves(Sigmoid) \\(\\text{Sigmoid Function:} \\boxed{y=\\red{c}\\frac{1}{1+e^{-(\\green{b}+\\blue{w}x_1)}}}=\\boxed{\\red{c}\\text{ sigmoid}(\\green{b}+\\blue{w}x_1)}\\) 將 \\(w_ix_i\\) 替換成 \\(c_i\\text{ sigmoid}(b_i+w_ix_i)\\) 特徵為1時，\\(\\boxed{y=b+\\sum_i{c_i\\text{ sigmoid}(b_i+ w_ix_1)}}\\) 特徵\u003e1時，\\(\\boxed{y=b+\\sum_i{c_i\\text{ sigmoid}(b_i+\\sum_j w_{ij}x_j)}}\\) 意義：一條曲線可以由多個鋸齒狀的線段(hard sigmoid)的總合，我們可以用 sigmoid 函數來逼近 hard sigmoid。事實上，sigmoid 的個數就是神經網路中一層 neuron 的 node 數，至於使用幾個 sigmoid 是 hyper parameter。 可將公式轉成矩陣計算+激勵函數的形式： 以線性代數方式表示：\\(\\boxed{y=b+c^T\\sigma(b_i+Wx)}\\) 將 \\(b\\)、\\(b_i\\)、\\(W\\)、\\(c^T\\) 等所有參數統稱為 \\(\\theta\\) 故 Loss 可表示成 \\(L(\\theta)\\) 重覆 gradient descent 的方法，更新(update) 參數。 梯度 gradient，\\(g=\\) \\(\\begin{bmatrix}\\frac{\\partial L}{\\partial \\theta_1}|_{\\theta=\\theta^0}\\\\\\frac{\\partial L}{\\partial \\theta_2}| _{\\theta=\\theta^0}\\\\\\vdots\\end{bmatrix}=\\nabla L(\\theta^0)\\) 更新(update)計算：\\(\\begin{bmatrix}\\theta_1^1\\\\\\theta_2^1\\\\\\vdots\\end{bmatrix}\\leftarrow\\begin{bmatrix}\\theta_1^0\\\\\\theta_2^0\\\\\\vdots\\end{bmatrix}-\\begin{bmatrix}\\eta \\frac{\\partial L}{\\partial \\theta_1}|_{\\theta=\\theta^0}\\\\\\eta\\frac{\\partial L}{\\partial\\theta_2}| _{\\theta=\\theta^0}\\\\\\vdots\\end{bmatrix}\\) 或寫成 \\(\\theta^1\\leftarrow \\theta^0-\\eta g\\) batch training 將樣本依批次(batch)進行更新，當所有的 batches 都跑過一遍，稱為一個 epoch 4. ReLU 用 hard sigmoid 的方式來表示。 其每一個 hard sigmoid 由兩個 Rectified Linear Unit(ReLU) 組成， 每一個 ReLU 寫成：\\(\\boxed{\\red{c}\\text{ max}(0,\\green{b}+\\blue{w}x_1)}\\) 故 Model 可以寫成：\\(\\boxed{y=b+\\sum_{\\red{2}i}\\text{max}(0,b_i+\\sum_j{w_{ij}x_j})}\\) 其中我們選用來逼近的函式，稱為 Activation function。 深度學習 Neural Network \\(\\boxed{y=b+c^T\\sigma(b_i+Wx)}\\) Multiple hidden layers -\u003e Deep learning ",
+  "wordCount" : "235",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-08-02T23:56:25+08:00",
   "dateModified": "2023-08-02T23:56:25+08:00",
   "author":{
@@ -130,14 +131,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/ml/lhy01/"
+    "@id": "http://localhost:1313/ml/lhy01/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +160,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +184,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,23 +231,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/ml/">MLs</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/ml/">MLs</a></div>
+    <h1 class="post-title entry-hint-parent">
       [ML] 01. 機器學習基本概念簡介
     </h1>
     <div class="post-description">
       什麼是機器學習，機器學習任務，監督式學習的運作流程
     </div>
-    <div class="post-meta"><span title='2023-08-02 23:56:25 +0800 CST'>August 2, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/lhy01.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-08-02 23:56:25 +0800 CST'>August 2, 2023</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/lhy01.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -356,8 +358,7 @@
 <details>
     <summary>示意圖</summary>
 
-<img loading="lazy" src="/ML/lhy/1_1.png" alt="1_1"  />
-
+<img alt="1_1" loading="lazy" src="/ML/lhy/1_1.png">
 </details>
 
 </details>
@@ -375,8 +376,7 @@
 </ul>
 <h1 id="機器如何學習">機器如何學習<a hidden class="anchor" aria-hidden="true" href="#機器如何學習">#</a></h1>
 <h2 id="1-基本原理訓練三步驟">1. 基本原理(訓練三步驟)<a hidden class="anchor" aria-hidden="true" href="#1-基本原理訓練三步驟">#</a></h2>
-<p><img loading="lazy" src="/ML/lhy/1_2.png" alt="1_2"  />
-</p>
+<p><img alt="1_2" loading="lazy" src="/ML/lhy/1_2.png"></p>
 <details>
     <summary>Step 1: 使用合適的 Model</summary>
 
@@ -415,8 +415,7 @@
 </ul>
 </li>
 <li><em><strong>Error Surface</strong></em>: 根據不同的參數，計算出 loss 所畫出來的等高線圖。
-<img loading="lazy" src="/ML/lhy/1_3.png" alt="1_3"  />
-
+<img alt="1_3" loading="lazy" src="/ML/lhy/1_3.png">
 </details>
 
 <details>
@@ -425,11 +424,10 @@
 <li>找到 loss 最小的參數組合 \((w,b)\)</li>
 <li>方法：<strong>Gradient Descent</strong>
 <ul>
-<li>\(\boxed{w' = w - \red{\eta}\frac{\partial L}{\partial w}|_{w=w^0,b=b^0}}\)</li>
-<li>\(\boxed{b' = b - \red{\eta}\frac{\partial L}{\partial b}|_{w=w^0,b=b^0}}\)</li>
+<li>\(\boxed{w&rsquo; = w - \red{\eta}\frac{\partial L}{\partial w}|_{w=w^0,b=b^0}}\)</li>
+<li>\(\boxed{b&rsquo; = b - \red{\eta}\frac{\partial L}{\partial b}|_{w=w^0,b=b^0}}\)</li>
 <li>\(\red{\eta}\): <strong>學習率 learning rate</strong>, 決定 gradient descent 的一步有多大步
-<img loading="lazy" src="/ML/lhy/1_4.png" alt="1_4"  />
-
+<img alt="1_4" loading="lazy" src="/ML/lhy/1_4.png">
 </details>
 </li>
 </ul>
@@ -454,17 +452,13 @@
 </ul>
 </li>
 <li>意義：一條曲線可以由多個鋸齒狀的線段(hard sigmoid)的總合，我們可以用 sigmoid 函數來逼近 hard sigmoid。事實上，sigmoid 的個數就是神經網路中一層 neuron 的 node 數，至於使用幾個 sigmoid 是 hyper parameter。
-<img loading="lazy" src="/ML/lhy/1_5.png" alt="1_5"  />
-
+<img alt="1_5" loading="lazy" src="/ML/lhy/1_5.png">
 <details>
     <summary>可將公式轉成矩陣計算&#43;激勵函數的形式：</summary>
 
-<img loading="lazy" src="/ML/lhy/1_6.png" alt="1_6"  />
-
-<img loading="lazy" src="/ML/lhy/1_7.png" alt="1_7"  />
-
-<img loading="lazy" src="/ML/lhy/1_8.png" alt="1_8"  />
-
+<img alt="1_6" loading="lazy" src="/ML/lhy/1_6.png">
+<img alt="1_7" loading="lazy" src="/ML/lhy/1_7.png">
+<img alt="1_8" loading="lazy" src="/ML/lhy/1_8.png">
 </details>
 </li>
 <li>以線性代數方式表示：\(\boxed{y=b+c^T\sigma(b_i+Wx)}\)
@@ -477,10 +471,9 @@
 <li>更新(update)計算：\(\begin{bmatrix}\theta_1^1\\\theta_2^1\\\vdots\end{bmatrix}\leftarrow\begin{bmatrix}\theta_1^0\\\theta_2^0\\\vdots\end{bmatrix}-\begin{bmatrix}\eta \frac{\partial L}{\partial \theta_1}|_{\theta=\theta^0}\\\eta\frac{\partial L}{\partial\theta_2}| _{\theta=\theta^0}\\\vdots\end{bmatrix}\)</li>
 <li>或寫成 \(\theta^1\leftarrow \theta^0-\eta g\)
 <details>
-    <summary>batch training</summary>
+        <summary>batch training</summary>
 
-<img loading="lazy" src="/ML/lhy/1_9.png" alt="1_9"  />
-
+<img alt="1_9" loading="lazy" src="/ML/lhy/1_9.png">
 </details>
 </li>
 <li>將樣本依批次(batch)進行更新，當所有的 batches 都跑過一遍，稱為一個 <strong>epoch</strong></li>
@@ -504,8 +497,7 @@
 <ul>
 <li>\(\boxed{y=b+c^T\sigma(b_i+Wx)}\)</li>
 <li>Multiple hidden layers -&gt; Deep learning
-<img loading="lazy" src="/ML/lhy/1_10.png" alt="1_10"  />
-</li>
+<img alt="1_10" loading="lazy" src="/ML/lhy/1_10.png"></li>
 </ul>
 </li>
 </ul>
@@ -515,7 +507,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/ml/">ML</a></li>
+      <li><a href="http://localhost:1313/tags/ml/">ML</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -530,11 +522,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -603,12 +596,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

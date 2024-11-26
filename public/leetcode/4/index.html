@@ -1,32 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 4. Median of Two Sorted Arrays | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="4. Median of Two Sorted Arrays
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Binary Search、Divide and Conquer   一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、Binary Search、Divide and Conquer
+
+
+一、題目
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.
 The overall run time complexity should be O(log (m&#43;n)).
 Example 1:
- Input: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2.  Example 2:">
+
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+Explanation: merged array = [1,2,3] and median is 2.
+
+Example 2:
+
+Input: nums1 = [1,2], nums2 = [3,4]
+Output: 2.50000
+Explanation: merged array = [1,2,3,4] and median is (2 &#43; 3) / 2 = 2.5.
+
+Constraints:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/4/">
 <noscript>
     <style>
         #theme-toggle,
@@ -44,7 +59,7 @@ Example 1:
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -77,25 +92,46 @@ Example 1:
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 4. Median of Two Sorted Arrays" />
-<meta property="og:description" content="4. Median of Two Sorted Arrays
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Binary Search、Divide and Conquer   一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/4/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 4. Median of Two Sorted Arrays">
+  <meta property="og:description" content="4. Median of Two Sorted Arrays
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Binary Search、Divide and Conquer 一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.
 The overall run time complexity should be O(log (m&#43;n)).
 Example 1:
- Input: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2.  Example 2:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/4/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-10-25T14:52:18&#43;08:00" />
-<meta property="article:modified_time" content="2022-10-25T14:52:18&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 4. Median of Two Sorted Arrays"/>
+Input: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2. Example 2:
+Input: nums1 = [1,2], nums2 = [3,4] Output: 2.50000 Explanation: merged array = [1,2,3,4] and median is (2 &#43; 3) / 2 = 2.5. Constraints:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-10-25T14:52:18+08:00">
+    <meta property="article:modified_time" content="2022-10-25T14:52:18+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 4. Median of Two Sorted Arrays">
 <meta name="twitter:description" content="4. Median of Two Sorted Arrays
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Binary Search、Divide and Conquer   一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、Binary Search、Divide and Conquer
+
+
+一、題目
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.
 The overall run time complexity should be O(log (m&#43;n)).
 Example 1:
- Input: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2.  Example 2:"/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+Explanation: merged array = [1,2,3] and median is 2.
+
+Example 2:
+
+Input: nums1 = [1,2], nums2 = [3,4]
+Output: 2.50000
+Explanation: merged array = [1,2,3,4] and median is (2 &#43; 3) / 2 = 2.5.
+
+Constraints:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -106,14 +142,8 @@ Example 1:
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 4. Median of Two Sorted Arrays",
-      "item": "https://intervalrain.github.io/leetcode/4/"
+      "item": "http://localhost:1313/leetcode/4/"
     }
   ]
 }
@@ -124,13 +154,13 @@ Example 1:
   "@type": "BlogPosting",
   "headline": "[LeetCode] 4. Median of Two Sorted Arrays",
   "name": "[LeetCode] 4. Median of Two Sorted Arrays",
-  "description": "4. Median of Two Sorted Arrays\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Binary Search、Divide and Conquer   一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.\nThe overall run time complexity should be O(log (m+n)).\nExample 1:\n Input: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2.  Example 2:",
+  "description": "4. Median of Two Sorted Arrays\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Binary Search、Divide and Conquer 一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.\nThe overall run time complexity should be O(log (m+n)).\nExample 1:\nInput: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2. Example 2:\nInput: nums1 = [1,2], nums2 = [3,4] Output: 2.50000 Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5. Constraints:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "4. Median of Two Sorted Arrays\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Binary Search、Divide and Conquer   一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.\nThe overall run time complexity should be O(log (m+n)).\nExample 1:\n Input: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2.  Example 2:\n Input: nums1 = [1,2], nums2 = [3,4] Output: 2.50000 Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.  Constraints:\n nums1.length == m nums2.length == n 0  0  -10^6    二、分析  這題用暴力解，先兩個數組合併後再求值，其時間複雜度為 \\(O(m+n)\\)。不符合題目要求。 因為兩個數組為已排序的數組，故我們可以利用其性質：  nums1 中第 k 個元素表示有 k-1 個數比它還小。   故我們可以用分治法去處理這個問題，  求第 kth 個元素。 若 nums1 中前 3 個數確定小於 median 值，則我們可以視為求第 k-3 個數 \\(\\texttt{[1,2,3,3,4]}\\) 求 9 個數中的第 5 小的數\n\\(\\text{}\\uparrow\\)\n\\(\\texttt{[2,4,6,8]}\\)\n\\(\\text{}\\uparrow\\) \\(\\texttt{[1,2,3,3,4]}\\) 求剩下 6 個數中的第 2 小的數\n\\(\\text{　}\\uparrow\\)\n\\(\\texttt{[2,4,6,8]}\\)\n\\(\\text{}\\uparrow\\) 如此一來，我們每次可以逼進 Median 的個數為 log(m)或 log(n)，也就是說時間複雜度降為 \\(O(\\log(m+n))\\)   或是我們也可以將 num1 與 nums2 各別分為兩個子數組，並以長度較小的數組來切(可以降低時間複雜度)。  \\(\\texttt{[1,2|3,4]}\\) \\(\\texttt{[2,4|6,8,9]}\\) 其切割線左右的四個值 l1、l2、r1、r2 符合以下性質時可求得 median  l1  l2  奇數時為 max(l1, l2) 偶數時為 max(l1, l2) + min(r1,r2) 的平均      三、解題 1. Brute Method  Time complexity: \\(O(m+n)\\) Space complexity: \\(O(m+n)\\)  double findMedianSortedArray(vectorint\u0026 nums1, vectorint\u0026 nums2) {  int m = nums1.size(), n = num2.size();  vectorint nums; // 先將兩個數組 merge 後再求 median  int i = 0, j = 0;  while (i  m \u0026\u0026 j  n) {  if (nums1[i]  nums2[j])  nums.push_back(nums1[i++]);  else  nums.push_back(nums2[j++]);  }  while (i  m) nums.push_back(nums1[i++]);  while (j  n) nums.push_back(nums2[j++]);   int len = nums.size();  // 若數組長度為奇數則回傳中間的值，若為偶數則為中間兩數的平均。  return (len \u0026 1) ? (nums[len/2]/1.0) : (nums[len/2-1] + nums[len/2])/2.0; } 2. Kth Element  Time complexity: \\(O(\\log(m+n))\\) Space complexity: \\(O(1)\\)  vectorint nums1, nums2 int m, n;  // nums1 確定有 i 個元素小於 median，nums2 中確定有 j 個元素小於 median，求第 k 個元素 double kth(int i, int j, int k) {  if (i == m) return nums2[j+k-1]; // nums1 用完了，直接對 nums2 取第 j+k 個元素  if (j == n) return nums1[i+k-1]; // nums2 用完了，直接對 nums1 取第 i+k 個元素  if (k == 1) return min(nums1[i], nums2[j]); //當前比較小的即為第 k 個元素   int mid1 = (i+k/2-1) = m ? INT_MAX : nums1[i+k/2-1];  int mid2= (i+k/2-1) = n ? INT_MAX : unms2[j+k/2-1];   // 兩個數組都往前推 k/2 個，其當前值較小的，其數組前 k/2 個數必定小於 median  if (mid1  mid2)  return kth(i+k/2, j, k-k/2);  else  return kth(i, j+k/2, k-k/2); }  double findMedianSortedArrays(vectorint\u0026 nums1, vectorint\u0026 nums2) {  this-nums1 = nums1;  this-nums2 = nums2;  this-m = nums1.size();  this-n = nums2.size();  int len = m + n;  // 若數組長度為奇數則回傳中間的值，若為偶數則為中間兩數的平均。  if (len \u0026 1) return kth(0, 0, len/2+1)/1.0;  return (kth(0, 0, len/2) + kth(0, 0, len/2+1))/2.0; } 3. Binary Search  Time complexity: \\(O(\\log(\\text{min}(m+n)))\\) Space complexity: \\(O(1)\\)  double findMedianSortedArrays(vectorint\u0026 nums1, vectorint\u0026 nums2) {  int m = nums1.size(), n = nums2.size();  int len = m + n;  // 確保 nums1 的長度比較短，以減少時間複雜度  if (m  n) return findMedianSortedArrays(nums2, nums1);  int l = 0, r = m;  int l1, l2, r1, r2;  // binary search  while (l  r) {  int cut1 = (l+r)/2;  int cut2 = (len+1)/2 - cut1; // 注意 len+1  l1 = cut1 == 0 ? INT_MIN : nums1[cut1-1];  l2 = cut2 == 0 ? INT_MIN : nums2[cut2-1];  r1 = cut1 == m ? INT_MAX : nums1[cut1];  r2 = cut2 == n ? INT_MAX : nums2[cut2];  if (l1  r2 \u0026\u0026 l2  r1) { // median 必定為 l1 或 l2  break;  } else if (l1  r2) {  r = cut1-1;  } else {  l = cut1+1;  }  }  if (len \u0026 1) return max(l1, l2)/1.0;  return (max(l1, l2) + min(r1, r2))/2.0; } 回目錄 Catalog\n",
+  "articleBody": "4. Median of Two Sorted Arrays\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Binary Search、Divide and Conquer 一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.\nThe overall run time complexity should be O(log (m+n)).\nExample 1:\nInput: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2. Example 2:\nInput: nums1 = [1,2], nums2 = [3,4] Output: 2.50000 Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5. Constraints:\nnums1.length == m nums2.length == n 0 \u003c= m \u003c= 1000 0 \u003c= n \u003c= 1000 -10^6 \u003c= nums1[i], nums2[i] \u003c= 10^6 二、分析 這題用暴力解，先兩個數組合併後再求值，其時間複雜度為 \\(O(m+n)\\)。不符合題目要求。 因為兩個數組為已排序的數組，故我們可以利用其性質： nums1 中第 k 個元素表示有 k-1 個數比它還小。 故我們可以用分治法去處理這個問題， 求第 kth 個元素。 若 nums1 中前 3 個數確定小於 median 值，則我們可以視為求第 k-3 個數 \\(\\texttt{[1,2,3,3,4]}\\) 求 9 個數中的第 5 小的數\n\\(\\text{}\\uparrow\\)\n\\(\\texttt{[2,4,6,8]}\\)\n\\(\\text{}\\uparrow\\) \\(\\texttt{[1,2,3,3,4]}\\) 求剩下 6 個數中的第 2 小的數\n\\(\\text{　}\\uparrow\\)\n\\(\\texttt{[2,4,6,8]}\\)\n\\(\\text{}\\uparrow\\) 如此一來，我們每次可以逼進 Median 的個數為 log(m)或 log(n)，也就是說時間複雜度降為 \\(O(\\log(m+n))\\) 或是我們也可以將 num1 與 nums2 各別分為兩個子數組，並以長度較小的數組來切(可以降低時間複雜度)。 \\(\\texttt{[1,2|3,4]}\\) \\(\\texttt{[2,4|6,8,9]}\\) 其切割線左右的四個值 l1、l2、r1、r2 符合以下性質時可求得 median l1 \u003c= r2 l2 \u003c= r1 奇數時為 max(l1, l2) 偶數時為 max(l1, l2) + min(r1,r2) 的平均 三、解題 1. Brute Method Time complexity: \\(O(m+n)\\) Space complexity: \\(O(m+n)\\) double findMedianSortedArray(vector\u003cint\u003e\u0026 nums1, vector\u003cint\u003e\u0026 nums2) { int m = nums1.size(), n = num2.size(); vector\u003cint\u003e nums; // 先將兩個數組 merge 後再求 median int i = 0, j = 0; while (i \u003c m \u0026\u0026 j \u003c n) { if (nums1[i] \u003c nums2[j]) nums.push_back(nums1[i++]); else nums.push_back(nums2[j++]); } while (i \u003c m) nums.push_back(nums1[i++]); while (j \u003c n) nums.push_back(nums2[j++]); int len = nums.size(); // 若數組長度為奇數則回傳中間的值，若為偶數則為中間兩數的平均。 return (len \u0026 1) ? (nums[len/2]/1.0) : (nums[len/2-1] + nums[len/2])/2.0; } 2. Kth Element Time complexity: \\(O(\\log(m+n))\\) Space complexity: \\(O(1)\\) vector\u003cint\u003e nums1, nums2 int m, n; // nums1 確定有 i 個元素小於 median，nums2 中確定有 j 個元素小於 median，求第 k 個元素 double kth(int i, int j, int k) { if (i == m) return nums2[j+k-1]; // nums1 用完了，直接對 nums2 取第 j+k 個元素 if (j == n) return nums1[i+k-1]; // nums2 用完了，直接對 nums1 取第 i+k 個元素 if (k == 1) return min(nums1[i], nums2[j]); //當前比較小的即為第 k 個元素 int mid1 = (i+k/2-1) \u003e= m ? INT_MAX : nums1[i+k/2-1]; int mid2= (i+k/2-1) \u003e= n ? INT_MAX : unms2[j+k/2-1]; // 兩個數組都往前推 k/2 個，其當前值較小的，其數組前 k/2 個數必定小於 median if (mid1 \u003c mid2) return kth(i+k/2, j, k-k/2); else return kth(i, j+k/2, k-k/2); } double findMedianSortedArrays(vector\u003cint\u003e\u0026 nums1, vector\u003cint\u003e\u0026 nums2) { this-\u003enums1 = nums1; this-\u003enums2 = nums2; this-\u003em = nums1.size(); this-\u003en = nums2.size(); int len = m + n; // 若數組長度為奇數則回傳中間的值，若為偶數則為中間兩數的平均。 if (len \u0026 1) return kth(0, 0, len/2+1)/1.0; return (kth(0, 0, len/2) + kth(0, 0, len/2+1))/2.0; } 3. Binary Search Time complexity: \\(O(\\log(\\text{min}(m+n)))\\) Space complexity: \\(O(1)\\) double findMedianSortedArrays(vector\u003cint\u003e\u0026 nums1, vector\u003cint\u003e\u0026 nums2) { int m = nums1.size(), n = nums2.size(); int len = m + n; // 確保 nums1 的長度比較短，以減少時間複雜度 if (m \u003e n) return findMedianSortedArrays(nums2, nums1); int l = 0, r = m; int l1, l2, r1, r2; // binary search while (l \u003c= r) { int cut1 = (l+r)/2; int cut2 = (len+1)/2 - cut1; // 注意 len+1 l1 = cut1 == 0 ? INT_MIN : nums1[cut1-1]; l2 = cut2 == 0 ? INT_MIN : nums2[cut2-1]; r1 = cut1 == m ? INT_MAX : nums1[cut1]; r2 = cut2 == n ? INT_MAX : nums2[cut2]; if (l1 \u003c= r2 \u0026\u0026 l2 \u003c= r1) { // median 必定為 l1 或 l2 break; } else if (l1 \u003e r2) { r = cut1-1; } else { l = cut1+1; } } if (len \u0026 1) return max(l1, l2)/1.0; return (max(l1, l2) + min(r1, r2))/2.0; } 回目錄 Catalog\n",
   "wordCount" : "580",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-10-25T14:52:18+08:00",
   "dateModified": "2022-10-25T14:52:18+08:00",
   "author":{
@@ -139,14 +169,14 @@ Example 1:
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/4/"
+    "@id": "http://localhost:1313/leetcode/4/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -168,17 +198,17 @@ Example 1:
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -192,46 +222,46 @@ Example 1:
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -239,20 +269,21 @@ Example 1:
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 4. Median of Two Sorted Arrays
     </h1>
-    <div class="post-meta"><span title='2022-10-25 14:52:18 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/4.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-10-25 14:52:18 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/4.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -500,16 +531,16 @@ The overall run time complexity should be <code>O(log (m+n))</code>.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/5/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/5/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 5. Longest Palindromic Substring</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/3/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/3/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 3. Longest Substring Without Repeating Characters</span>
   </a>
@@ -527,11 +558,12 @@ The overall run time complexity should be <code>O(log (m+n))</code>.</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -600,12 +632,12 @@ The overall run time complexity should be <code>O(log (m+n))</code>.</p>
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

@@ -1,28 +1,140 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[IT] React &#43; .Net | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="IT, C#, react, typescript" />
-<meta name="description" content="React &#43; .Net 一、環境設置 Setup 1. 行前準備 Prerequisites  安裝 Node.js 和 npm  node -v npm -v  安裝 .NET SDK  dotnet --version  用 vs code 下載 ES7&#43; React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce  import React from &#39;react&#39;  const index = () =&gt; {  return (  &lt;div&gt;index&lt;/div&gt;  ) }  export default index 2. 創建 React  安裝 react  npm install create-react-app  創建新的 react app (typescript)  --template typescript 可指定使用 typescript    npx create-react-app {project} --template typescript cd {project}  必要時可能要初始化一個新的 react 項目，確保版本是匹配的。  yarnpkg add --exact react-dom react-scripts 3.">
+<meta name="keywords" content="IT, C#, react, typescript">
+<meta name="description" content="React &#43; .Net
+一、環境設置 Setup
+1. 行前準備 Prerequisites
+
+安裝 Node.js 和 npm
+
+node -v
+npm -v
+
+安裝 .NET SDK
+
+dotnet --version
+
+用 vs code 下載 ES7&#43; React/Redux/React-Native snippets
+因為 rafce 很好用, 相當於, typescript 則是 tsrafce
+
+import React from &#39;react&#39;
+
+const index = () =&gt; {
+  return (
+    &lt;div&gt;index&lt;/div&gt;
+  )
+}
+
+export default index
+2. 創建 React
+
+安裝 react
+
+npm install create-react-app
+
+創建新的 react app (typescript)
+
+--template typescript 可指定使用 typescript
+
+
+
+npx create-react-app {project} --template typescript
+cd {project}
+
+必要時可能要初始化一個新的 react 項目，確保版本是匹配的。
+
+yarnpkg add --exact react-dom react-scripts
+3. 基本結構
+
+函數式元件(Functional Component):
+
+const Card: React.FC&lt;Props&gt; = ({
+    companyName,
+    ticker,
+    price
+}: Props): JSX.Element =&gt; { ... }
+
+Card 是一個函數式元件，使用 TypeScript 和 React。
+React.FC&lt;Props&gt; 指定這個元件是接受 Props 作為參數的 React 函數式元件
+({ companyName, ticker, price }) 是從 Props 解構的屬性，這些屬性將會被傳入元件
+
+
+JSX 標籤:
+
+return (
+    &lt;div className=&#39;card&#39;&gt;...&lt;/div&gt;
+)
+
+這是元件返回的 JSX，它描述了元件應該如何渲染。
+
+4. State
+import React, { useState } from &#39;react&#39;
+
+type Props = {}
+
+const Button: React.FC&lt;Props&gt; = (props: Props): JSX.Element =&gt; {
+    const [count, setCount] = useState&lt;number&gt;(0);
+
+    const onClick = (e: any) =&gt; {
+        setCount(count &#43; 1);
+        console.log(e);
+    }
+    return (
+        &lt;div&gt;
+            &lt;button onClick={(e) =&gt; onClick(e)}&gt;Click me&lt;/button&gt;
+            &lt;p&gt;You clicked {count} times&lt;/p&gt;
+        &lt;/div&gt;
+    )
+}
+
+export default Button
+
+引入 React 和 useState Hook:
+
+import React, { useState } from &#39;react&#39;
+
+從 React 包中引入 useState Hook，用於函數式元件中添加狀態。
+
+
+使用 useState Hook 定義狀態
+
+const [count, setCount] = useState&lt;number&gt;(0);
+
+定義一個名為 count 的狀態變量，初始值為 0。
+setCount 是用來更新 count 的函數。
+useState&lt;number&gt;(0) 指定 count 的類型為 number。
+
+
+定義 onClick 事件處理函數:
+
+const onClick = (e: any) =&gt; {
+    setCount(count &#43; 1);
+    console.log(e);
+}
+
+onClick 是一個事件處理函數，接受一個事件參數 e。
+每當按鈕被點擊時， count 會加 1，並且會在控制台輸出事件 e。
+any 也可被寫成 MounthEvent 或 SyntheticEvent。
+">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/it/csharp-react/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +152,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +188,136 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[IT] React &#43; .Net" />
-<meta property="og:description" content="React &#43; .Net 一、環境設置 Setup 1. 行前準備 Prerequisites  安裝 Node.js 和 npm  node -v npm -v  安裝 .NET SDK  dotnet --version  用 vs code 下載 ES7&#43; React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce  import React from &#39;react&#39;  const index = () =&gt; {  return (  &lt;div&gt;index&lt;/div&gt;  ) }  export default index 2. 創建 React  安裝 react  npm install create-react-app  創建新的 react app (typescript)  --template typescript 可指定使用 typescript    npx create-react-app {project} --template typescript cd {project}  必要時可能要初始化一個新的 react 項目，確保版本是匹配的。  yarnpkg add --exact react-dom react-scripts 3." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/it/csharp-react/" /><meta property="article:section" content="IT" />
-<meta property="article:published_time" content="2024-06-11T22:00:23&#43;08:00" />
-<meta property="article:modified_time" content="2024-06-11T22:00:23&#43;08:00" />
+</script><meta property="og:url" content="http://localhost:1313/it/csharp-react/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[IT] React &#43; .Net">
+  <meta property="og:description" content="React &#43; .Net 一、環境設置 Setup 1. 行前準備 Prerequisites 安裝 Node.js 和 npm node -v npm -v 安裝 .NET SDK dotnet --version 用 vs code 下載 ES7&#43; React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce import React from &#39;react&#39; const index = () =&gt; { return ( &lt;div&gt;index&lt;/div&gt; ) } export default index 2. 創建 React 安裝 react npm install create-react-app 創建新的 react app (typescript) --template typescript 可指定使用 typescript npx create-react-app {project} --template typescript cd {project} 必要時可能要初始化一個新的 react 項目，確保版本是匹配的。 yarnpkg add --exact react-dom react-scripts 3. 基本結構 函數式元件(Functional Component): const Card: React.FC&lt;Props&gt; = ({ companyName, ticker, price }: Props): JSX.Element =&gt; { ... } Card 是一個函數式元件，使用 TypeScript 和 React。 React.FC&lt;Props&gt; 指定這個元件是接受 Props 作為參數的 React 函數式元件 ({ companyName, ticker, price }) 是從 Props 解構的屬性，這些屬性將會被傳入元件 JSX 標籤: return ( &lt;div className=&#39;card&#39;&gt;...&lt;/div&gt; ) 這是元件返回的 JSX，它描述了元件應該如何渲染。 4. State import React, { useState } from &#39;react&#39; type Props = {} const Button: React.FC&lt;Props&gt; = (props: Props): JSX.Element =&gt; { const [count, setCount] = useState&lt;number&gt;(0); const onClick = (e: any) =&gt; { setCount(count &#43; 1); console.log(e); } return ( &lt;div&gt; &lt;button onClick={(e) =&gt; onClick(e)}&gt;Click me&lt;/button&gt; &lt;p&gt;You clicked {count} times&lt;/p&gt; &lt;/div&gt; ) } export default Button 引入 React 和 useState Hook: import React, { useState } from &#39;react&#39; 從 React 包中引入 useState Hook，用於函數式元件中添加狀態。 使用 useState Hook 定義狀態 const [count, setCount] = useState&lt;number&gt;(0); 定義一個名為 count 的狀態變量，初始值為 0。 setCount 是用來更新 count 的函數。 useState&lt;number&gt;(0) 指定 count 的類型為 number。 定義 onClick 事件處理函數: const onClick = (e: any) =&gt; { setCount(count &#43; 1); console.log(e); } onClick 是一個事件處理函數，接受一個事件參數 e。 每當按鈕被點擊時， count 會加 1，並且會在控制台輸出事件 e。 any 也可被寫成 MounthEvent 或 SyntheticEvent。 ">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="it">
+    <meta property="article:published_time" content="2024-06-11T22:00:23+08:00">
+    <meta property="article:modified_time" content="2024-06-11T22:00:23+08:00">
+    <meta property="article:tag" content="IT">
+    <meta property="article:tag" content="C#">
+    <meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[IT] React &#43; .Net">
+<meta name="twitter:description" content="React &#43; .Net
+一、環境設置 Setup
+1. 行前準備 Prerequisites
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[IT] React &#43; .Net"/>
-<meta name="twitter:description" content="React &#43; .Net 一、環境設置 Setup 1. 行前準備 Prerequisites  安裝 Node.js 和 npm  node -v npm -v  安裝 .NET SDK  dotnet --version  用 vs code 下載 ES7&#43; React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce  import React from &#39;react&#39;  const index = () =&gt; {  return (  &lt;div&gt;index&lt;/div&gt;  ) }  export default index 2. 創建 React  安裝 react  npm install create-react-app  創建新的 react app (typescript)  --template typescript 可指定使用 typescript    npx create-react-app {project} --template typescript cd {project}  必要時可能要初始化一個新的 react 項目，確保版本是匹配的。  yarnpkg add --exact react-dom react-scripts 3."/>
-<meta name="twitter:site" content="@intervalrain"/>
+安裝 Node.js 和 npm
+
+node -v
+npm -v
+
+安裝 .NET SDK
+
+dotnet --version
+
+用 vs code 下載 ES7&#43; React/Redux/React-Native snippets
+因為 rafce 很好用, 相當於, typescript 則是 tsrafce
+
+import React from &#39;react&#39;
+
+const index = () =&gt; {
+  return (
+    &lt;div&gt;index&lt;/div&gt;
+  )
+}
+
+export default index
+2. 創建 React
+
+安裝 react
+
+npm install create-react-app
+
+創建新的 react app (typescript)
+
+--template typescript 可指定使用 typescript
+
+
+
+npx create-react-app {project} --template typescript
+cd {project}
+
+必要時可能要初始化一個新的 react 項目，確保版本是匹配的。
+
+yarnpkg add --exact react-dom react-scripts
+3. 基本結構
+
+函數式元件(Functional Component):
+
+const Card: React.FC&lt;Props&gt; = ({
+    companyName,
+    ticker,
+    price
+}: Props): JSX.Element =&gt; { ... }
+
+Card 是一個函數式元件，使用 TypeScript 和 React。
+React.FC&lt;Props&gt; 指定這個元件是接受 Props 作為參數的 React 函數式元件
+({ companyName, ticker, price }) 是從 Props 解構的屬性，這些屬性將會被傳入元件
+
+
+JSX 標籤:
+
+return (
+    &lt;div className=&#39;card&#39;&gt;...&lt;/div&gt;
+)
+
+這是元件返回的 JSX，它描述了元件應該如何渲染。
+
+4. State
+import React, { useState } from &#39;react&#39;
+
+type Props = {}
+
+const Button: React.FC&lt;Props&gt; = (props: Props): JSX.Element =&gt; {
+    const [count, setCount] = useState&lt;number&gt;(0);
+
+    const onClick = (e: any) =&gt; {
+        setCount(count &#43; 1);
+        console.log(e);
+    }
+    return (
+        &lt;div&gt;
+            &lt;button onClick={(e) =&gt; onClick(e)}&gt;Click me&lt;/button&gt;
+            &lt;p&gt;You clicked {count} times&lt;/p&gt;
+        &lt;/div&gt;
+    )
+}
+
+export default Button
+
+引入 React 和 useState Hook:
+
+import React, { useState } from &#39;react&#39;
+
+從 React 包中引入 useState Hook，用於函數式元件中添加狀態。
+
+
+使用 useState Hook 定義狀態
+
+const [count, setCount] = useState&lt;number&gt;(0);
+
+定義一個名為 count 的狀態變量，初始值為 0。
+setCount 是用來更新 count 的函數。
+useState&lt;number&gt;(0) 指定 count 的類型為 number。
+
+
+定義 onClick 事件處理函數:
+
+const onClick = (e: any) =&gt; {
+    setCount(count &#43; 1);
+    console.log(e);
+}
+
+onClick 是一個事件處理函數，接受一個事件參數 e。
+每當按鈕被點擊時， count 會加 1，並且會在控制台輸出事件 e。
+any 也可被寫成 MounthEvent 或 SyntheticEvent。
+">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -98,13 +329,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "ITs",
-      "item": "https://intervalrain.github.io/it/"
+      "item": "http://localhost:1313/it/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[IT] React + .Net",
-      "item": "https://intervalrain.github.io/it/csharp-react/"
+      "item": "http://localhost:1313/it/csharp-react/"
     }
   ]
 }
@@ -115,13 +346,13 @@
   "@type": "BlogPosting",
   "headline": "[IT] React + .Net",
   "name": "[IT] React \u002b .Net",
-  "description": "React + .Net 一、環境設置 Setup 1. 行前準備 Prerequisites  安裝 Node.js 和 npm  node -v npm -v  安裝 .NET SDK  dotnet --version  用 vs code 下載 ES7+ React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce  import React from \u0026#39;react\u0026#39;  const index = () =\u0026gt; {  return (  \u0026lt;div\u0026gt;index\u0026lt;/div\u0026gt;  ) }  export default index 2. 創建 React  安裝 react  npm install create-react-app  創建新的 react app (typescript)  --template typescript 可指定使用 typescript    npx create-react-app {project} --template typescript cd {project}  必要時可能要初始化一個新的 react 項目，確保版本是匹配的。  yarnpkg add --exact react-dom react-scripts 3.",
+  "description": "React + .Net 一、環境設置 Setup 1. 行前準備 Prerequisites 安裝 Node.js 和 npm node -v npm -v 安裝 .NET SDK dotnet --version 用 vs code 下載 ES7+ React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce import React from \u0026#39;react\u0026#39; const index = () =\u0026gt; { return ( \u0026lt;div\u0026gt;index\u0026lt;/div\u0026gt; ) } export default index 2. 創建 React 安裝 react npm install create-react-app 創建新的 react app (typescript) --template typescript 可指定使用 typescript npx create-react-app {project} --template typescript cd {project} 必要時可能要初始化一個新的 react 項目，確保版本是匹配的。 yarnpkg add --exact react-dom react-scripts 3. 基本結構 函數式元件(Functional Component): const Card: React.FC\u0026lt;Props\u0026gt; = ({ companyName, ticker, price }: Props): JSX.Element =\u0026gt; { ... } Card 是一個函數式元件，使用 TypeScript 和 React。 React.FC\u0026lt;Props\u0026gt; 指定這個元件是接受 Props 作為參數的 React 函數式元件 ({ companyName, ticker, price }) 是從 Props 解構的屬性，這些屬性將會被傳入元件 JSX 標籤: return ( \u0026lt;div className=\u0026#39;card\u0026#39;\u0026gt;...\u0026lt;/div\u0026gt; ) 這是元件返回的 JSX，它描述了元件應該如何渲染。 4. State import React, { useState } from \u0026#39;react\u0026#39; type Props = {} const Button: React.FC\u0026lt;Props\u0026gt; = (props: Props): JSX.Element =\u0026gt; { const [count, setCount] = useState\u0026lt;number\u0026gt;(0); const onClick = (e: any) =\u0026gt; { setCount(count + 1); console.log(e); } return ( \u0026lt;div\u0026gt; \u0026lt;button onClick={(e) =\u0026gt; onClick(e)}\u0026gt;Click me\u0026lt;/button\u0026gt; \u0026lt;p\u0026gt;You clicked {count} times\u0026lt;/p\u0026gt; \u0026lt;/div\u0026gt; ) } export default Button 引入 React 和 useState Hook: import React, { useState } from \u0026#39;react\u0026#39; 從 React 包中引入 useState Hook，用於函數式元件中添加狀態。 使用 useState Hook 定義狀態 const [count, setCount] = useState\u0026lt;number\u0026gt;(0); 定義一個名為 count 的狀態變量，初始值為 0。 setCount 是用來更新 count 的函數。 useState\u0026lt;number\u0026gt;(0) 指定 count 的類型為 number。 定義 onClick 事件處理函數: const onClick = (e: any) =\u0026gt; { setCount(count + 1); console.log(e); } onClick 是一個事件處理函數，接受一個事件參數 e。 每當按鈕被點擊時， count 會加 1，並且會在控制台輸出事件 e。 any 也可被寫成 MounthEvent 或 SyntheticEvent。 ",
   "keywords": [
     "IT", "C#", "react", "typescript"
   ],
-  "articleBody": "React + .Net 一、環境設置 Setup 1. 行前準備 Prerequisites  安裝 Node.js 和 npm  node -v npm -v  安裝 .NET SDK  dotnet --version  用 vs code 下載 ES7+ React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce  import React from 'react'  const index = () = {  return (  divindex/div  ) }  export default index 2. 創建 React  安裝 react  npm install create-react-app  創建新的 react app (typescript)  --template typescript 可指定使用 typescript    npx create-react-app {project} --template typescript cd {project}  必要時可能要初始化一個新的 react 項目，確保版本是匹配的。  yarnpkg add --exact react-dom react-scripts 3. 基本結構  函數式元件(Functional Component):  const Card: React.FCProps = ({  companyName,  ticker,  price }: Props): JSX.Element = { ... }  Card 是一個函數式元件，使用 TypeScript 和 React。 React.FC 指定這個元件是接受 Props 作為參數的 React 函數式元件 ({ companyName, ticker, price }) 是從 Props 解構的屬性，這些屬性將會被傳入元件  JSX 標籤:  return (  div className='card'...div )  這是元件返回的 JSX，它描述了元件應該如何渲染。  4. State import React, { useState } from 'react'  type Props = {}  const Button: React.FCProps = (props: Props): JSX.Element = {  const [count, setCount] = useStatenumber(0);   const onClick = (e: any) = {  setCount(count + 1);  console.log(e);  }  return (  div  button onClick={(e) = onClick(e)}Click mebutton  pYou clicked {count} timesp  div  ) }  export default Button  引入 React 和 useState Hook:  import React, { useState } from 'react'  從 React 包中引入 useState Hook，用於函數式元件中添加狀態。  使用 useState Hook 定義狀態  const [count, setCount] = useStatenumber(0);  定義一個名為 count 的狀態變量，初始值為 0。 setCount 是用來更新 count 的函數。 useState(0) 指定 count 的類型為 number。  定義 onClick 事件處理函數:  const onClick = (e: any) = {  setCount(count + 1);  console.log(e); }  onClick 是一個事件處理函數，接受一個事件參數 e。 每當按鈕被點擊時， count 會加 1，並且會在控制台輸出事件 e。 any 也可被寫成 MounthEvent 或 SyntheticEvent。  ",
+  "articleBody": "React + .Net 一、環境設置 Setup 1. 行前準備 Prerequisites 安裝 Node.js 和 npm node -v npm -v 安裝 .NET SDK dotnet --version 用 vs code 下載 ES7+ React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce import React from 'react' const index = () =\u003e { return ( \u003cdiv\u003eindex\u003c/div\u003e ) } export default index 2. 創建 React 安裝 react npm install create-react-app 創建新的 react app (typescript) --template typescript 可指定使用 typescript npx create-react-app {project} --template typescript cd {project} 必要時可能要初始化一個新的 react 項目，確保版本是匹配的。 yarnpkg add --exact react-dom react-scripts 3. 基本結構 函數式元件(Functional Component): const Card: React.FC\u003cProps\u003e = ({ companyName, ticker, price }: Props): JSX.Element =\u003e { ... } Card 是一個函數式元件，使用 TypeScript 和 React。 React.FC 指定這個元件是接受 Props 作為參數的 React 函數式元件 ({ companyName, ticker, price }) 是從 Props 解構的屬性，這些屬性將會被傳入元件 JSX 標籤: return ( \u003cdiv className='card'\u003e...\u003c/div\u003e ) 這是元件返回的 JSX，它描述了元件應該如何渲染。 4. State import React, { useState } from 'react' type Props = {} const Button: React.FC\u003cProps\u003e = (props: Props): JSX.Element =\u003e { const [count, setCount] = useState\u003cnumber\u003e(0); const onClick = (e: any) =\u003e { setCount(count + 1); console.log(e); } return ( \u003cdiv\u003e \u003cbutton onClick={(e) =\u003e onClick(e)}\u003eClick me\u003c/button\u003e \u003cp\u003eYou clicked {count} times\u003c/p\u003e \u003c/div\u003e ) } export default Button 引入 React 和 useState Hook: import React, { useState } from 'react' 從 React 包中引入 useState Hook，用於函數式元件中添加狀態。 使用 useState Hook 定義狀態 const [count, setCount] = useState\u003cnumber\u003e(0); 定義一個名為 count 的狀態變量，初始值為 0。 setCount 是用來更新 count 的函數。 useState(0) 指定 count 的類型為 number。 定義 onClick 事件處理函數: const onClick = (e: any) =\u003e { setCount(count + 1); console.log(e); } onClick 是一個事件處理函數，接受一個事件參數 e。 每當按鈕被點擊時， count 會加 1，並且會在控制台輸出事件 e。 any 也可被寫成 MounthEvent 或 SyntheticEvent。 ",
   "wordCount" : "255",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2024-06-11T22:00:23+08:00",
   "dateModified": "2024-06-11T22:00:23+08:00",
   "author":{
@@ -130,14 +361,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/it/csharp-react/"
+    "@id": "http://localhost:1313/it/csharp-react/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +390,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +414,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,20 +461,21 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/it/">ITs</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/it/">ITs</a></div>
+    <h1 class="post-title entry-hint-parent">
       [IT] React &#43; .Net
     </h1>
-    <div class="post-meta"><span title='2024-06-11 22:00:23 +0800 CST'>June 11, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/csharp-react.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-06-11 22:00:23 +0800 CST'>June 11, 2024</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/csharp-react.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -452,9 +684,9 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/it/">IT</a></li>
-      <li><a href="https://intervalrain.github.io/tags/c#/">C#</a></li>
-      <li><a href="https://intervalrain.github.io/tags/react/">react</a></li>
+      <li><a href="http://localhost:1313/tags/it/">IT</a></li>
+      <li><a href="http://localhost:1313/tags/c%23/">C#</a></li>
+      <li><a href="http://localhost:1313/tags/react/">React</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -469,11 +701,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -542,12 +775,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

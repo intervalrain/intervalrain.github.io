@@ -2,63 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HDLbits on Rain Hu&#39;s Workspace</title>
-    <link>https://intervalrain.github.io/tags/hdlbits/</link>
+    <link>http://localhost:1313/tags/hdlbits/</link>
     <description>Recent content in HDLbits on Rain Hu&#39;s Workspace</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 May 2022 00:10:20 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/hdlbits/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 28 May 2022 00:10:20 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hdlbits/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[VHDL] HDLbits 1 - Getting Started</title>
-      <link>https://intervalrain.github.io/verilog/hdlbits1/</link>
+      <link>http://localhost:1313/verilog/hdlbits1/</link>
       <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/verilog/hdlbits1/</guid>
+      <guid>http://localhost:1313/verilog/hdlbits1/</guid>
       <description>Verilog tutorial</description>
     </item>
-    
     <item>
       <title>[VHDL] HDLbits 2 - Verilog Language</title>
-      <link>https://intervalrain.github.io/verilog/hdlbits2/</link>
+      <link>http://localhost:1313/verilog/hdlbits2/</link>
       <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/verilog/hdlbits2/</guid>
+      <guid>http://localhost:1313/verilog/hdlbits2/</guid>
       <description>Verilog tutorial</description>
     </item>
-    
     <item>
       <title>[VHDL] HDLbits 3 - Circuits</title>
-      <link>https://intervalrain.github.io/verilog/hdlbits3/</link>
+      <link>http://localhost:1313/verilog/hdlbits3/</link>
       <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/verilog/hdlbits3/</guid>
+      <guid>http://localhost:1313/verilog/hdlbits3/</guid>
       <description>Verilog tutorial</description>
     </item>
-    
     <item>
       <title>[VHDL] HDLbits 4 - Verification: Reading Simulations</title>
-      <link>https://intervalrain.github.io/verilog/hdlbits4/</link>
+      <link>http://localhost:1313/verilog/hdlbits4/</link>
       <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/verilog/hdlbits4/</guid>
+      <guid>http://localhost:1313/verilog/hdlbits4/</guid>
       <description>Verilog tutorial</description>
     </item>
-    
     <item>
       <title>[VHDL] HDLbits 5 - Verification: Writing Testbenches</title>
-      <link>https://intervalrain.github.io/verilog/hdlbits5/</link>
+      <link>http://localhost:1313/verilog/hdlbits5/</link>
       <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/verilog/hdlbits5/</guid>
+      <guid>http://localhost:1313/verilog/hdlbits5/</guid>
       <description>Verilog tutorial</description>
     </item>
-    
     <item>
       <title>[VHDL] HDLbits 6 - CS450</title>
-      <link>https://intervalrain.github.io/verilog/hdlbits6/</link>
+      <link>http://localhost:1313/verilog/hdlbits6/</link>
       <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/verilog/hdlbits6/</guid>
+      <guid>http://localhost:1313/verilog/hdlbits6/</guid>
       <description>Verilog tutorial</description>
     </item>
-    
   </channel>
 </rss>

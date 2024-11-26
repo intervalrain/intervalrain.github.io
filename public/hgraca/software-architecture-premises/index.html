@@ -1,37 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[IT] 軟體架構前提 The Software Architecture Premises | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Software Architecture" />
+<meta name="keywords" content="Software Architecture">
 <meta name="description" content="在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。
-沒有萬靈丹 無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。
+沒有萬靈丹
+無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。
 然後，在接受新的挑戰時，首先要理解業務和終端用戶的需求。只有在清楚理解這些需求之後，您才能理智地思考應該使用哪種架構風格和模式來更好地解決手頭的問題。
 最後，做出你自己的選擇，也許實施其中一種已知的解決方案，或者創建你自己的設計來適應你特定的問題。
- Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000
+
+Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000
 有些架構風格常被描繪為所有軟體問題的「萬靈丹」解決方案。然而，一個優秀的設計師應該選擇一種與特定問題需求相匹配的風格。 - 羅伊·菲爾丁，2000
- Terminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。
-Functional 功能性的 這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：
- Layers Factories Repositories Value Objects Views ViewModels  Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：
- User Product Stock Management Product Variants Checkout Upsells  這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。">
+
+Terminology 術語
+在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。
+Functional 功能性的
+這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：
+
+Layers
+Factories
+Repositories
+Value Objects
+Views
+ViewModels
+
+Conceptual 概念性的
+這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：
+
+User
+Product
+Stock Management
+Product Variants
+Checkout
+Upsells
+
+這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。">
 <meta name="author" content="hgraca">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/hgraca/software-architecture-premises/">
 <noscript>
     <style>
         #theme-toggle,
@@ -49,7 +69,7 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -85,35 +105,60 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[IT] 軟體架構前提 The Software Architecture Premises" />
-<meta property="og:description" content="在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。
+</script><meta property="og:url" content="http://localhost:1313/hgraca/software-architecture-premises/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[IT] 軟體架構前提 The Software Architecture Premises">
+  <meta property="og:description" content="在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。
 沒有萬靈丹 無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。
 然後，在接受新的挑戰時，首先要理解業務和終端用戶的需求。只有在清楚理解這些需求之後，您才能理智地思考應該使用哪種架構風格和模式來更好地解決手頭的問題。
 最後，做出你自己的選擇，也許實施其中一種已知的解決方案，或者創建你自己的設計來適應你特定的問題。
- Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000
+Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000
 有些架構風格常被描繪為所有軟體問題的「萬靈丹」解決方案。然而，一個優秀的設計師應該選擇一種與特定問題需求相匹配的風格。 - 羅伊·菲爾丁，2000
- Terminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。
+Terminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。
 Functional 功能性的 這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：
- Layers Factories Repositories Value Objects Views ViewModels  Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：
- User Product Stock Management Product Variants Checkout Upsells  這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/hgraca/software-architecture-premises/" /><meta property="article:section" content="hgraca" />
-<meta property="article:published_time" content="2023-10-14T01:14:17&#43;08:00" />
-<meta property="article:modified_time" content="2023-10-14T01:14:17&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[IT] 軟體架構前提 The Software Architecture Premises"/>
+Layers Factories Repositories Value Objects Views ViewModels Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：
+User Product Stock Management Product Variants Checkout Upsells 這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="hgraca">
+    <meta property="article:published_time" content="2023-10-14T01:14:17+08:00">
+    <meta property="article:modified_time" content="2023-10-14T01:14:17+08:00">
+    <meta property="article:tag" content="Software Architectrue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[IT] 軟體架構前提 The Software Architecture Premises">
 <meta name="twitter:description" content="在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。
-沒有萬靈丹 無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。
+沒有萬靈丹
+無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。
 然後，在接受新的挑戰時，首先要理解業務和終端用戶的需求。只有在清楚理解這些需求之後，您才能理智地思考應該使用哪種架構風格和模式來更好地解決手頭的問題。
 最後，做出你自己的選擇，也許實施其中一種已知的解決方案，或者創建你自己的設計來適應你特定的問題。
- Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000
+
+Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000
 有些架構風格常被描繪為所有軟體問題的「萬靈丹」解決方案。然而，一個優秀的設計師應該選擇一種與特定問題需求相匹配的風格。 - 羅伊·菲爾丁，2000
- Terminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。
-Functional 功能性的 這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：
- Layers Factories Repositories Value Objects Views ViewModels  Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：
- User Product Stock Management Product Variants Checkout Upsells  這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。"/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Terminology 術語
+在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。
+Functional 功能性的
+這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：
+
+Layers
+Factories
+Repositories
+Value Objects
+Views
+ViewModels
+
+Conceptual 概念性的
+這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：
+
+User
+Product
+Stock Management
+Product Variants
+Checkout
+Upsells
+
+這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -125,13 +170,13 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
       "@type": "ListItem",
       "position":  1 ,
       "name": "Hgracas",
-      "item": "https://intervalrain.github.io/hgraca/"
+      "item": "http://localhost:1313/hgraca/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[IT] 軟體架構前提 The Software Architecture Premises",
-      "item": "https://intervalrain.github.io/hgraca/software-architecture-premises/"
+      "item": "http://localhost:1313/hgraca/software-architecture-premises/"
     }
   ]
 }
@@ -142,13 +187,13 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
   "@type": "BlogPosting",
   "headline": "[IT] 軟體架構前提 The Software Architecture Premises",
   "name": "[IT] 軟體架構前提 The Software Architecture Premises",
-  "description": "在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。\n沒有萬靈丹 無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。\n然後，在接受新的挑戰時，首先要理解業務和終端用戶的需求。只有在清楚理解這些需求之後，您才能理智地思考應該使用哪種架構風格和模式來更好地解決手頭的問題。\n最後，做出你自己的選擇，也許實施其中一種已知的解決方案，或者創建你自己的設計來適應你特定的問題。\n Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000\n有些架構風格常被描繪為所有軟體問題的「萬靈丹」解決方案。然而，一個優秀的設計師應該選擇一種與特定問題需求相匹配的風格。 - 羅伊·菲爾丁，2000\n Terminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。\nFunctional 功能性的 這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：\n Layers Factories Repositories Value Objects Views ViewModels  Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：\n User Product Stock Management Product Variants Checkout Upsells  這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。",
+  "description": "在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。\n沒有萬靈丹 無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。\n然後，在接受新的挑戰時，首先要理解業務和終端用戶的需求。只有在清楚理解這些需求之後，您才能理智地思考應該使用哪種架構風格和模式來更好地解決手頭的問題。\n最後，做出你自己的選擇，也許實施其中一種已知的解決方案，或者創建你自己的設計來適應你特定的問題。\nSome architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000\n有些架構風格常被描繪為所有軟體問題的「萬靈丹」解決方案。然而，一個優秀的設計師應該選擇一種與特定問題需求相匹配的風格。 - 羅伊·菲爾丁，2000\nTerminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。\nFunctional 功能性的 這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：\nLayers Factories Repositories Value Objects Views ViewModels Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：\nUser Product Stock Management Product Variants Checkout Upsells 這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。\n",
   "keywords": [
     "Software Architecture"
   ],
-  "articleBody": "在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。\n沒有萬靈丹 無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。\n然後，在接受新的挑戰時，首先要理解業務和終端用戶的需求。只有在清楚理解這些需求之後，您才能理智地思考應該使用哪種架構風格和模式來更好地解決手頭的問題。\n最後，做出你自己的選擇，也許實施其中一種已知的解決方案，或者創建你自己的設計來適應你特定的問題。\n Some architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000\n有些架構風格常被描繪為所有軟體問題的「萬靈丹」解決方案。然而，一個優秀的設計師應該選擇一種與特定問題需求相匹配的風格。 - 羅伊·菲爾丁，2000\n Terminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。\nFunctional 功能性的 這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：\n Layers Factories Repositories Value Objects Views ViewModels  Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：\n User Product Stock Management Product Variants Checkout Upsells  這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。\nPackage 套件 任何一組按照某些規則理想地組合在一起的類別\nModule 模組 我使用的定義來自於《實踐中的軟體架構（Software Architecture）》一書，該書指出，一個模組是一個功能性的套件，它反映了應用程式中的技術能力。它是解耦的，可以被其他實現替換。對我來說，模組存在於一個較低的粒度級別，例如，「安全模組」或「ORM」，但也存在於像應用程式的客戶端和伺服器這樣的更高粒度級別。模組提供了功能性的內聚。\nComponent 組件 我也採用了《實踐中的軟體架構（Software Architecture）》一書中給出的定義，其中作者將組件定義為反映業務能力的概念性套件。理想情況下，它也應與其他組件和模塊解耦。例如可以是 User、Product 或 Checkout。\n然而，最重要的是要記住，理想情況下，它反映了 Bounded Context。組件提供了概念性的內聚。\nApplication 應用程式 我將應用程式視為面向使用者的程式碼，也就是使用者介面（UI），它是建立在元件之上的。例如，我們可以有一組元件，我們在其上建立一個網路商店。然而，這個網路商店有一個由消費者用來瀏覽和購買產品的使用者介面（商店前台），並且它有另一個獨立的使用者介面，由商店管理員用來管理產品、庫存、付款提供商等（後台）。這些都是建立在相同業務元件之上的兩個獨立應用程式。\nSystem 系統 我將系統視為一組應用程式，這些程式以某種方式共同工作，以滿足各種企業需求，形成一個企業範圍的系統，即企業應用程式。這些應用程式可能建立在相同的組件之上，也可能不是。在前面的網路商店例子中，系統是整個網路商店，包括建立在相同業務組件之上的兩個應用程式（商店前台和管理員），但也包括其他第三方應用程式，如付款提供商或運輸提供商。\nArchitecture 架構 有許多簡單的軟體架構定義，我認為擁有這些定義是好的，但我認為更容易理解的是，甚至更重要的是，定義架構的成果，它應該為項目提供什麼。\n Software Architecture […] is the set of structures needed to reason about the system, which comprises software elements, relations among them, and properties of both. - Clements et al, 2010\n軟體架構[…]是用於推理系統所需的結構集合，其中包括軟體元素、它們之間的關係，以及兩者的屬性。 - Clement 等人，2010\n 這是我對架構的理解：\n 所有與功能開發相關的技術決策，即框架(frameworks)、編碼標準(coding standards)、文檔(documentation)、流程(processes)等。 這些技術決策很難在專案開發後期去做更動。 是對系統的全局觀，對組件們的結構與關係的描述。 它為變動提供緩衝，通常是為了延緩變更。 提供良好的組件與模組的重用(reuse)機制。 它為結果的一致性和流程的輕量化設立標準，如編碼標準、開發階段、持續交付和部署。 這並非僅是一個人的責任，而是屬於該項目中不同功能團隊的一群經驗豐富的開發者的責任。  Architect 架構師 他們是建築學的守護者和推廣者，可以是個人、也可以是團隊。他們是團隊/部門中最有經驗的開發者之一，且有分析高層次問題和解決方案的責任。在做出決策時，總是會被認為是有「質量」的。\n值得注意的是，所有的開發者在某種程度上都會成為架構師，因為他們都需要理解架構，都會以某種方式貢獻於架構，最終，他們都有維護現有架構的責任。\nIvory Tower Architect 象牙塔架構師 全能的象牙塔架構師是架構師的反模式，他承擔起決定所有與架構相關的問題。他剝奪了其他 stakeholder 對架構的貢獻，因為他既不開放，也不容易接受這些貢獻。\n壞味道 Rigidity 剛性 軟體的剛性就是指該軟體難以變更，因為一個變動將引發更多的變動需求。這就像是一個兔子洞：當我們認為快要完成時，卻發現還有更多的程式碼需要被修改，將我們拖入一個看不見盡頭的循環中。\nFragility 脆弱性 當軟體被更改時，它將在預料之外、無關聯且無法預測的地方破裂。\nImmobility 不動性 當一個設計包含了可能在其他系統中有用的部分，但從原始系統中分離它們的努力和風險過大時，該設計就是不動的。\nViscosity 黏度 在一個黏性系統中，做錯事要比做對事容易得多。這意味著，透過短路行為來實施變革，比正確地開發它要來得容易得多。\n如果執行單元測試和/或編譯需要大量時間，導致開發人員可能會繞過程序並在未執行所有自動化測試的情況下實施一個破解，那麼就會發生系統範圍的黏度。\nNeedless repetition 不必要的重複 當必要的抽象化未能完成時，就會發生這種情況，原因可能是時間不足或經驗不足。程式碼可能並未直接被複製貼上，但相同的業務規則在多個地方被定義。\nOpacity 不透明度 這段程式碼的撰寫方式晦澀難懂，我們需要深入研究方法的實現才能理解其功能。\nNeedless complexity 不必要的複雜性 在熱衷於避免其他六種問題的嘗試中，開發者引入了各種抽象和為可能的未來變化做的準備。優秀的軟體設計應該是輕量級的，靈活的，易於閱讀和理解，最重要的是易於變更，這樣你就不必試圖預測未來所有可能的變化。\n",
+  "articleBody": "在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。\n沒有萬靈丹 無論你如何理解我在《軟體架構編年史》中所談論的內容，最重要的是要明白，並不存在萬能的解決方案。儘可能多學習不同的方法，理解每種方法的優點和缺點，以及它們解決的具體技術問題。\n然後，在接受新的挑戰時，首先要理解業務和終端用戶的需求。只有在清楚理解這些需求之後，您才能理智地思考應該使用哪種架構風格和模式來更好地解決手頭的問題。\n最後，做出你自己的選擇，也許實施其中一種已知的解決方案，或者創建你自己的設計來適應你特定的問題。\nSome architectural styles are often portrayed as ‘silver bullet’ solutions for all forms of software. However, a good designer should select a style that matches the needs of the particular problem being solved. - Roy Fielding, 2000\n有些架構風格常被描繪為所有軟體問題的「萬靈丹」解決方案。然而，一個優秀的設計師應該選擇一種與特定問題需求相匹配的風格。 - 羅伊·菲爾丁，2000\nTerminology 術語 在軟體開發的世界裡，使用的術語充滿了模糊性，因此，在繼續之前，澄清我所使用的一些術語的意義是非常重要的。\nFunctional 功能性的 這是任何一段程式碼、方法、類別、類別群組，它在應用程式中擔任純粹的技術角色。它與領域無關，僅代表應用程式中的技術能力。例如：\nLayers Factories Repositories Value Objects Views ViewModels Conceptual 概念性的 這是任何一段代碼、方法、類別、一組類別，都反映了應用程式中的領域概念。它與領域直接相關，代表了應用程式中的業務能力。例如：\nUser Product Stock Management Product Variants Checkout Upsells 這種分離並不意味著一個程式碼單元不能以兩種方式（功能性和概念性）被引用。例如，一個 Money 類別可以代表一個 domain concept，也可以是一個 value object。\nPackage 套件 任何一組按照某些規則理想地組合在一起的類別\nModule 模組 我使用的定義來自於《實踐中的軟體架構（Software Architecture）》一書，該書指出，一個模組是一個功能性的套件，它反映了應用程式中的技術能力。它是解耦的，可以被其他實現替換。對我來說，模組存在於一個較低的粒度級別，例如，「安全模組」或「ORM」，但也存在於像應用程式的客戶端和伺服器這樣的更高粒度級別。模組提供了功能性的內聚。\nComponent 組件 我也採用了《實踐中的軟體架構（Software Architecture）》一書中給出的定義，其中作者將組件定義為反映業務能力的概念性套件。理想情況下，它也應與其他組件和模塊解耦。例如可以是 User、Product 或 Checkout。\n然而，最重要的是要記住，理想情況下，它反映了 Bounded Context。組件提供了概念性的內聚。\nApplication 應用程式 我將應用程式視為面向使用者的程式碼，也就是使用者介面（UI），它是建立在元件之上的。例如，我們可以有一組元件，我們在其上建立一個網路商店。然而，這個網路商店有一個由消費者用來瀏覽和購買產品的使用者介面（商店前台），並且它有另一個獨立的使用者介面，由商店管理員用來管理產品、庫存、付款提供商等（後台）。這些都是建立在相同業務元件之上的兩個獨立應用程式。\nSystem 系統 我將系統視為一組應用程式，這些程式以某種方式共同工作，以滿足各種企業需求，形成一個企業範圍的系統，即企業應用程式。這些應用程式可能建立在相同的組件之上，也可能不是。在前面的網路商店例子中，系統是整個網路商店，包括建立在相同業務組件之上的兩個應用程式（商店前台和管理員），但也包括其他第三方應用程式，如付款提供商或運輸提供商。\nArchitecture 架構 有許多簡單的軟體架構定義，我認為擁有這些定義是好的，但我認為更容易理解的是，甚至更重要的是，定義架構的成果，它應該為項目提供什麼。\nSoftware Architecture […] is the set of structures needed to reason about the system, which comprises software elements, relations among them, and properties of both. - Clements et al, 2010\n軟體架構[…]是用於推理系統所需的結構集合，其中包括軟體元素、它們之間的關係，以及兩者的屬性。 - Clement 等人，2010\n這是我對架構的理解：\n所有與功能開發相關的技術決策，即框架(frameworks)、編碼標準(coding standards)、文檔(documentation)、流程(processes)等。 這些技術決策很難在專案開發後期去做更動。 是對系統的全局觀，對組件們的結構與關係的描述。 它為變動提供緩衝，通常是為了延緩變更。 提供良好的組件與模組的重用(reuse)機制。 它為結果的一致性和流程的輕量化設立標準，如編碼標準、開發階段、持續交付和部署。 這並非僅是一個人的責任，而是屬於該項目中不同功能團隊的一群經驗豐富的開發者的責任。 Architect 架構師 他們是建築學的守護者和推廣者，可以是個人、也可以是團隊。他們是團隊/部門中最有經驗的開發者之一，且有分析高層次問題和解決方案的責任。在做出決策時，總是會被認為是有「質量」的。\n值得注意的是，所有的開發者在某種程度上都會成為架構師，因為他們都需要理解架構，都會以某種方式貢獻於架構，最終，他們都有維護現有架構的責任。\nIvory Tower Architect 象牙塔架構師 全能的象牙塔架構師是架構師的反模式，他承擔起決定所有與架構相關的問題。他剝奪了其他 stakeholder 對架構的貢獻，因為他既不開放，也不容易接受這些貢獻。\n壞味道 Rigidity 剛性 軟體的剛性就是指該軟體難以變更，因為一個變動將引發更多的變動需求。這就像是一個兔子洞：當我們認為快要完成時，卻發現還有更多的程式碼需要被修改，將我們拖入一個看不見盡頭的循環中。\nFragility 脆弱性 當軟體被更改時，它將在預料之外、無關聯且無法預測的地方破裂。\nImmobility 不動性 當一個設計包含了可能在其他系統中有用的部分，但從原始系統中分離它們的努力和風險過大時，該設計就是不動的。\nViscosity 黏度 在一個黏性系統中，做錯事要比做對事容易得多。這意味著，透過短路行為來實施變革，比正確地開發它要來得容易得多。\n如果執行單元測試和/或編譯需要大量時間，導致開發人員可能會繞過程序並在未執行所有自動化測試的情況下實施一個破解，那麼就會發生系統範圍的黏度。\nNeedless repetition 不必要的重複 當必要的抽象化未能完成時，就會發生這種情況，原因可能是時間不足或經驗不足。程式碼可能並未直接被複製貼上，但相同的業務規則在多個地方被定義。\nOpacity 不透明度 這段程式碼的撰寫方式晦澀難懂，我們需要深入研究方法的實現才能理解其功能。\nNeedless complexity 不必要的複雜性 在熱衷於避免其他六種問題的嘗試中，開發者引入了各種抽象和為可能的未來變化做的準備。優秀的軟體設計應該是輕量級的，靈活的，易於閱讀和理解，最重要的是易於變更，這樣你就不必試圖預測未來所有可能的變化。\n",
   "wordCount" : "181",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-10-14T01:14:17+08:00",
   "dateModified": "2023-10-14T01:14:17+08:00",
   "author":{
@@ -157,14 +202,14 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/hgraca/software-architecture-premises/"
+    "@id": "http://localhost:1313/hgraca/software-architecture-premises/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -186,17 +231,17 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -210,46 +255,46 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -257,20 +302,21 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/hgraca/">Hgracas</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/hgraca/">Hgracas</a></div>
+    <h1 class="post-title entry-hint-parent">
       [IT] 軟體架構前提 The Software Architecture Premises
     </h1>
-    <div class="post-meta"><span title='2023-10-14 01:14:17 +0800 CST'>October 14, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;hgraca&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//hgraca/software-architecture-premises.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-10-14 01:14:17 +0800 CST'>October 14, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;hgraca&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//hgraca/software-architecture-premises.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -471,7 +517,7 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/software-architectrue/">Software Architectrue</a></li>
+      <li><a href="http://localhost:1313/tags/software-architectrue/">Software Architectrue</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -486,11 +532,12 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -559,12 +606,12 @@ Functional 功能性的 這是任何一段程式碼、方法、類別、類別�
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

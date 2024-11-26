@@ -1,31 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[LeetCode] 2488. Count Subarrays With Median K | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Leetcode" />
+<meta name="keywords" content="Leetcode">
 <meta name="description" content="2488. Count Subarrays With Median K
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Prefix Sum \(\color{blue}\textsf{Weekly Contest 321}\)   一、題目 You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.
-Return the number of non-empty subarrays in nums that have a median equal to k. Note:
- The median of an array is the middle element after sorting the array in ascending order.">
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、Hash Table、Prefix Sum
+\(\color{blue}\textsf{Weekly Contest 321}\)
+
+
+一、題目
+You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.
+Return the number of non-empty subarrays in nums that have a median equal to k.
+Note:
+
+The median of an array is the middle element after sorting the array in ascending order. If the array is of even length, the median is the left middle element.
+
+For example, the median of [2,3,1,4] is 2, and the median of [8,4,3,5,1] is 4.
+
+
+A subarray is a contiguous part of an array.
+
+Example 1:">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode/2488/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +57,7 @@ Return the number of non-empty subarrays in nums that have a median equal to k. 
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,23 +90,42 @@ Return the number of non-empty subarrays in nums that have a median equal to k. 
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[LeetCode] 2488. Count Subarrays With Median K" />
-<meta property="og:description" content="2488. Count Subarrays With Median K
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Prefix Sum \(\color{blue}\textsf{Weekly Contest 321}\)   一、題目 You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.
+</script><meta property="og:url" content="http://localhost:1313/leetcode/2488/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 2488. Count Subarrays With Median K">
+  <meta property="og:description" content="2488. Count Subarrays With Median K
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Prefix Sum \(\color{blue}\textsf{Weekly Contest 321}\) 一、題目 You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.
 Return the number of non-empty subarrays in nums that have a median equal to k. Note:
- The median of an array is the middle element after sorting the array in ascending order." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/leetcode/2488/" /><meta property="article:section" content="leetcode" />
-<meta property="article:published_time" content="2022-11-27T21:04:55&#43;08:00" />
-<meta property="article:modified_time" content="2022-11-27T21:04:55&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[LeetCode] 2488. Count Subarrays With Median K"/>
+The median of an array is the middle element after sorting the array in ascending order. If the array is of even length, the median is the left middle element. For example, the median of [2,3,1,4] is 2, and the median of [8,4,3,5,1] is 4. A subarray is a contiguous part of an array. Example 1:">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode">
+    <meta property="article:published_time" content="2022-11-27T21:04:55+08:00">
+    <meta property="article:modified_time" content="2022-11-27T21:04:55+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 2488. Count Subarrays With Median K">
 <meta name="twitter:description" content="2488. Count Subarrays With Median K
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Hash Table、Prefix Sum \(\color{blue}\textsf{Weekly Contest 321}\)   一、題目 You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.
-Return the number of non-empty subarrays in nums that have a median equal to k. Note:
- The median of an array is the middle element after sorting the array in ascending order."/>
-<meta name="twitter:site" content="@intervalrain"/>
+
+Hardness: \(\color{red}\textsf{Hard}\)
+Ralated Topics: Array、Hash Table、Prefix Sum
+\(\color{blue}\textsf{Weekly Contest 321}\)
+
+
+一、題目
+You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.
+Return the number of non-empty subarrays in nums that have a median equal to k.
+Note:
+
+The median of an array is the middle element after sorting the array in ascending order. If the array is of even length, the median is the left middle element.
+
+For example, the median of [2,3,1,4] is 2, and the median of [8,4,3,5,1] is 4.
+
+
+A subarray is a contiguous part of an array.
+
+Example 1:">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -103,14 +136,8 @@ Return the number of non-empty subarrays in nums that have a median equal to k. 
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Leetcodes",
-      "item": "https://intervalrain.github.io/leetcode/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
       "name": "[LeetCode] 2488. Count Subarrays With Median K",
-      "item": "https://intervalrain.github.io/leetcode/2488/"
+      "item": "http://localhost:1313/leetcode/2488/"
     }
   ]
 }
@@ -121,13 +148,13 @@ Return the number of non-empty subarrays in nums that have a median equal to k. 
   "@type": "BlogPosting",
   "headline": "[LeetCode] 2488. Count Subarrays With Median K",
   "name": "[LeetCode] 2488. Count Subarrays With Median K",
-  "description": "2488. Count Subarrays With Median K\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Hash Table、Prefix Sum \\(\\color{blue}\\textsf{Weekly Contest 321}\\)   一、題目 You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.\nReturn the number of non-empty subarrays in nums that have a median equal to k. Note:\n The median of an array is the middle element after sorting the array in ascending order.",
+  "description": "2488. Count Subarrays With Median K\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Hash Table、Prefix Sum \\(\\color{blue}\\textsf{Weekly Contest 321}\\) 一、題目 You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.\nReturn the number of non-empty subarrays in nums that have a median equal to k. Note:\nThe median of an array is the middle element after sorting the array in ascending order. If the array is of even length, the median is the left middle element. For example, the median of [2,3,1,4] is 2, and the median of [8,4,3,5,1] is 4. A subarray is a contiguous part of an array. Example 1:\n",
   "keywords": [
     "Leetcode"
   ],
-  "articleBody": "2488. Count Subarrays With Median K\n Hardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Hash Table、Prefix Sum \\(\\color{blue}\\textsf{Weekly Contest 321}\\)   一、題目 You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.\nReturn the number of non-empty subarrays in nums that have a median equal to k. Note:\n The median of an array is the middle element after sorting the array in ascending order. If the array is of even length, the median is the left middle element.  For example, the median of [2,3,1,4] is 2, and the median of [8,4,3,5,1] is 4.   A subarray is a contiguous part of an array.  Example 1:\n Input: nums = [3,2,1,4,5], k = 4 Output: 3 Explanation: The subarrays that have a median equal to 4 are: [4], [4,5] and [1,4,5].  Example 2:\n Input: nums = [2,3,1], k = 3 Output: 1 Explanation: [3] is the only subarray that has a median equal to 3.  Constraints:\n n == nums.length 1  1  The integers in nums are distinct.   二、分析  注意這一題的 median 不是統計上的 median。 median 必定是含有 k 的子序列。 我的作法是，找到 k 的位置定為 pivot，其餘的若小於 k，定為 -1，大於 k，定為 +1，並將其用 presum 的方式記錄下來。 根據題目的定義，median == k 只會發生在當 presum[i:j] == 0 或 1 時。又子序列一定要包含 k，所以我們會增加一個條件就是，i = pivot，j 。其中我們可以事先將 presum[0:pivot] 放入 Hash Map 以供後續使用。  三、解題 1. Hash Map  Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\)  int countSubarrays(vectorint\u0026 nums, int k) {  vectorint presum = {0};  int pivot;  for (int i = 0; i  nums.size(); i++) {  int back = presum.back();  if (nums[i]  k) {  back += 1;  } else if (nums[i]  k){  back -= 1;  } else {  pivot = i+1;  }  presum.push_back(back);  }  int res = 0;   unordered_mapint,int map;  for (int i = 0; i  pivot; i++) map[presum[i]]++;   for (int i = pivot; i  presum.size(); i++) {  res += (map[presum[i]] + map[presum[i]-1]);  }  return res; } 回目錄 Catalog\n",
+  "articleBody": "2488. Count Subarrays With Median K\nHardness: \\(\\color{red}\\textsf{Hard}\\) Ralated Topics: Array、Hash Table、Prefix Sum \\(\\color{blue}\\textsf{Weekly Contest 321}\\) 一、題目 You are given an array nums of size n consisting of distinct integers from 1 to n and a positive integer k.\nReturn the number of non-empty subarrays in nums that have a median equal to k. Note:\nThe median of an array is the middle element after sorting the array in ascending order. If the array is of even length, the median is the left middle element. For example, the median of [2,3,1,4] is 2, and the median of [8,4,3,5,1] is 4. A subarray is a contiguous part of an array. Example 1:\nInput: nums = [3,2,1,4,5], k = 4 Output: 3 Explanation: The subarrays that have a median equal to 4 are: [4], [4,5] and [1,4,5]. Example 2:\nInput: nums = [2,3,1], k = 3 Output: 1 Explanation: [3] is the only subarray that has a median equal to 3. Constraints:\nn == nums.length 1 \u003c= n \u003c= 10^5 1 \u003c= nums[i], k \u003c= n The integers in nums are distinct. 二、分析 注意這一題的 median 不是統計上的 median。 median 必定是含有 k 的子序列。 我的作法是，找到 k 的位置定為 pivot，其餘的若小於 k，定為 -1，大於 k，定為 +1，並將其用 presum 的方式記錄下來。 根據題目的定義，median == k 只會發生在當 presum[i:j] == 0 或 1 時。又子序列一定要包含 k，所以我們會增加一個條件就是，i \u003e= pivot，j \u003c pivot。其中我們可以事先將 presum[0:pivot] 放入 Hash Map 以供後續使用。 三、解題 1. Hash Map Time complexity: \\(O(n)\\) Space complexity: \\(O(n)\\) int countSubarrays(vector\u003cint\u003e\u0026 nums, int k) { vector\u003cint\u003e presum = {0}; int pivot; for (int i = 0; i \u003c nums.size(); i++) { int back = presum.back(); if (nums[i] \u003e k) { back += 1; } else if (nums[i] \u003c k){ back -= 1; } else { pivot = i+1; } presum.push_back(back); } int res = 0; unordered_map\u003cint,int\u003e map; for (int i = 0; i \u003c pivot; i++) map[presum[i]]++; for (int i = pivot; i \u003c presum.size(); i++) { res += (map[presum[i]] + map[presum[i]-1]); } return res; } 回目錄 Catalog\n",
   "wordCount" : "318",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-11-27T21:04:55+08:00",
   "dateModified": "2022-11-27T21:04:55+08:00",
   "author":{
@@ -136,14 +163,14 @@ Return the number of non-empty subarrays in nums that have a median equal to k. 
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/leetcode/2488/"
+    "@id": "http://localhost:1313/leetcode/2488/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -165,17 +192,17 @@ Return the number of non-empty subarrays in nums that have a median equal to k. 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -189,46 +216,46 @@ Return the number of non-empty subarrays in nums that have a median equal to k. 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -236,20 +263,21 @@ Return the number of non-empty subarrays in nums that have a median equal to k. 
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/leetcode/">Leetcodes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
       [LeetCode] 2488. Count Subarrays With Median K
     </h1>
-    <div class="post-meta"><span title='2022-11-27 21:04:55 +0800 CST'>November 27, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/2488.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-11-27 21:04:55 +0800 CST'>November 27, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode/2488.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -413,16 +441,16 @@ Return <em>the number of non-empty subarrays in <code>nums</code> that have a <e
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/leetcode/">Leetcode</a></li>
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://intervalrain.github.io/leetcode/446/">
-    <span class="title">« Prev Page</span>
+  <a class="prev" href="http://localhost:1313/leetcode/446/">
+    <span class="title">« 上一頁</span>
     <br>
     <span>[LeetCode] 446. Arithmetic Slices II - Subsequence</span>
   </a>
-  <a class="next" href="https://intervalrain.github.io/leetcode/2487/">
-    <span class="title">Next Page »</span>
+  <a class="next" href="http://localhost:1313/leetcode/2487/">
+    <span class="title">下一頁 »</span>
     <br>
     <span>[LeetCode] 2487. Remove Nodes From Linked List</span>
   </a>
@@ -440,11 +468,12 @@ Return <em>the number of non-empty subarrays in <code>nums</code> that have a <e
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -513,12 +542,12 @@ Return <em>the number of non-empty subarrays in <code>nums</code> that have a <e
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

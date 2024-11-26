@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[IT] MySQL Functions | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="SQL, IT" />
+<meta name="keywords" content="SQL, IT">
 <meta name="description" content="Built-in function in MySQL">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b1c88c40153536920661ce82732db8841c2d140e1e179d3d1d9d723e6db8c980.css" integrity="sha256-sciMQBU1NpIGYc6Ccy24hBwtFA4eF509HZ1yPm24yYA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/it/mysql/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,17 +71,21 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[IT] MySQL Functions" />
-<meta property="og:description" content="Built-in function in MySQL" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/it/mysql/" /><meta property="article:section" content="IT" />
-<meta property="article:published_time" content="2022-09-01T13:28:14&#43;08:00" />
-<meta property="article:modified_time" content="2022-09-01T13:28:14&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[IT] MySQL Functions"/>
-<meta name="twitter:description" content="Built-in function in MySQL"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/it/mysql/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[IT] MySQL Functions">
+  <meta property="og:description" content="Built-in function in MySQL">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="it">
+    <meta property="article:published_time" content="2022-09-01T13:28:14+08:00">
+    <meta property="article:modified_time" content="2022-09-01T13:28:14+08:00">
+    <meta property="article:tag" content="SQL">
+    <meta property="article:tag" content="IT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[IT] MySQL Functions">
+<meta name="twitter:description" content="Built-in function in MySQL">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -95,13 +97,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "ITs",
-      "item": "https://intervalrain.github.io/it/"
+      "item": "http://localhost:1313/it/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[IT] MySQL Functions",
-      "item": "https://intervalrain.github.io/it/mysql/"
+      "item": "http://localhost:1313/it/mysql/"
     }
   ]
 }
@@ -116,9 +118,9 @@
   "keywords": [
     "SQL", "IT"
   ],
-  "articleBody": "String Functions   ASCII  Return the ASCII value for the specific character    CHAR_LENGTH or CHARACTER_LENGTH  Return the length of string (in characters)    CONCAT  Adds two or more expressions together    CONCAT_WS  Adds two or more expressions together with a separator    FIELD  Returns the index position of a value in a list of values    FIND_IN_SET  Returns the position of a string within a list of strings    FORMAT  Return sFormats a number to a format like “#,###,###.##”, rounded to a specified number of decimal places    INSERT  Inserts a string within a string at the specified position and for a certain number of characters    INSTR  Returns the position of the first occurrence of a string in another string    LCASE  Converts a string to lower-case    LEFT  Extracts a number of characters from a string (starting from left)    LENGTH  Returns the length of a string (in bytes)    LOCATE  Returns the position of the first occurrence of a substring in a string    LOWER  Converts a string to lower-case    LPAD  Left-pads a string with another string, to a certain length    LTRIM  Removes leading spaces from a string    MID  Extracts a substring from a string (starting at any position)    POSITION  Returns the position of the first occurrence of a substring in a string    REPEAT  Repeats a string as many times as specified    REPLACE  Replaces all occurrences of a substring within a string, with a new substring    REVERSE  Reverses a string and returns the result    RIGHT  Extracts a number of characters from a string (starting from right)    RPAD  Right-pads a string with another string, to a certain length    RTRIM  Removes trailing spaces from a string    SPACE  Returns a string of the specified number of space characters    STRCMP  Compares two strings    SUBSTR  Extracts a substring from a string (starting at any position)    SUBSTRING  Extracts a substring from a string (starting at any position)    SUBSTRING_INDEX  Returns a substring of a string before a specified number of delimiter occurs    TRIM  Removes leading and trailing spaces from a string    UCASE  Converts a string to upper-case    UPPER  Converts a string to upper-case    Numeric Functions   ABS  Returns the absolute value of a number    ACOS  Returns the arc cosine of a number    ASIN  Returns the arc sine of a number    ATAN  Returns the arc tangent of one or two numbers    ATAN2  Returns the arc tangent of two numbers    AVG  Returns the average value of an expression    CEIL  Returns the smallest integer value that is = to a number    CEILING  Returns the smallest integer value that is = to a number    COS  Returns the cosine of a number    COT  Returns the cotangent of a number    COUNT  Returns the number of records returned by a select query    DEGREES  Converts a value in radians to degrees    DIV  Used for integer division    EXP  Returns e raised to the power of a specified number    FLOOR  Returns the largest integer value that is    GREATEST  Returns the greatest value of the list of arguments    LEAST  Returns the smallest value of the list of arguments    LN  Returns the natural logarithm of a number    LOG  Returns the natural logarithm of a number, or the logarithm of a number to a specified base    LOG10  Returns the natural logarithm of a number to base 10    LOG2  Returns the natural logarithm of a number to base 2    MAX  Returns the maximum value in a set of values    MIN  Returns the minimum value in a set of values    MOD  Returns the remainder of a number divided by another number    PI  Returns the value of PI    POW  Returns the value of a number raised to the power of another number    POWER  Returns the value of a number raised to the power of another number    RADIANS  Converts a degree value into radians    RAND  Returns a random number    ROUND  Rounds a number to a specified number of decimal places    SIGN  Returns the sign of a number    SIN  Returns the sine of a number    SQRT  Returns the square root of a number    SUM  Calculates the sum of a set of values    TAN  Returns the tangent of a number    TRUNCATE  Truncates a number to the specified number of decimal places    Date Functions   ADDDATE  Adds a time/date interval to a date and then returns the date    ADDTIME  Adds a time interval to a time/datetime and then returns the time/datetime    CURDATE  Returns the current date    CURRENT_DATE  Returns the current date    CURRENT_TIME  Returns the current time    CURRENT_TIMESTAMP  Returns the current date and time    CURTIME  Returns the current time    DATE  Extracts the date part from a datetime expression    DATEDIFF  Returns the number of days between two date values    DATE_ADD  Adds a time/date interval to a date and then returns the date    DATE_FORMAT  Formats a date    DATE_SUB  Subtracts a time/date interval from a date and then returns the date    DAY  Returns the day of the month for a given date    DAYNAME  Returns the weekday name for a given date    DAYOFMONTH  Returns the day of the month for a given date    DAYOFWEEK  Returns the weekday index for a given date    DAYOFYEAR  Returns the day of the year for a given date    EXTRACT  Extracts a part from a given date    FROM_DAYS  Returns a date from a numeric datevalue    HOUR  Returns the hour part for a given date    LAST_DAY  Extracts the last day of the month for a given date    LOCALTIME  Returns the current date and time    LOCALTIMESTAMP  Returns the current date and time    MAKEDATE  Creates and returns a date based on a year and a number of days value    MAKETIME  Creates and returns a time based on an hour, minute, and second value    MICROSECOND  Returns the microsecond part of a time/datetime    MINUTE  Returns the minute part of a time/datetime    MONTH  Returns the month part for a given date    MONTHNAME  Returns the name of the month for a given date    NOW  Returns the current date and time    PERIOD_ADD  Adds a specified number of months to a period    PERIOD_DIFF  Returns the difference between two periods    QUARTER  Returns the quarter of the year for a given date value    SECOND  Returns the seconds part of a time/datetime    SEC_TO_TIME  Returns a time value based on the specified seconds    STR_TO_DATE  Returns a date based on a string and a format    SUBDATE  Subtracts a time/date interval from a date and then returns the date    SUBTIME  Subtracts a time interval from a datetime and then returns the time/datetime    SYSDATE  Returns the current date and time    TIME  Extracts the time part from a given time/datetime    TIME_FORMAT  Formats a time by a specified format    TIME_TO_SEC  Converts a time value into seconds    TIMEDIFF  Returns the difference between two time/datetime expressions    TIMESTAMP  Returns a datetime value based on a date or datetime value    TO_DAYS  Returns the number of days between a date and date “0000-00-00”    WEEK  Returns the week number for a given date    WEEKDAY  Returns the weekday number for a given date    WEEKOFYEAR  Returns the week number for a given date    YEAR  Returns the year part for a given date    YEARWEEK  Returns the year and week number for a given date    Advanced Functions   BIN  Returns a binary representation of a number    BINARY  Converts a value to a binary string    CASE  Goes through conditions and return a value when the first condition is met    CAST  Converts a value (of any type) into a specified datatype    COALESCE  Returns the first non-null value in a list    CONNECTION_ID  Returns the unique connection ID for the current connection    CONV  Converts a number from one numeric base system to another    CONVERT  Converts a value into the specified datatype or character set    CURRENT_USER  Returns the user name and host name for the MySQL account that the server used to authenticate the current client    DATABASE  Returns the name of the current database    IF  Returns a value if a condition is TRUE, or another value if a condition is FALSE    IFNULL  Return a specified value if the expression is NULL, otherwise return the expression    ISNULL  Returns 1 or 0 depending on whether an expression is NULL    LAST_INSERT_ID  Returns the AUTO_INCREMENT id of the last row that has been inserted or updated in a table    NULLIF  Compares two expressions and returns NULL if they are equal. Otherwise, the first expression is returned    SESSION_USER  Returns the current MySQL user name and host name    SYSTEM_USER  Returns the current MySQL user name and host name    USER  Returns the current MySQL user name and host name    VERSION  Returns the current version of the MySQL database    ",
+  "articleBody": "String Functions ASCII Return the ASCII value for the specific character CHAR_LENGTH or CHARACTER_LENGTH Return the length of string (in characters) CONCAT Adds two or more expressions together CONCAT_WS Adds two or more expressions together with a separator FIELD Returns the index position of a value in a list of values FIND_IN_SET Returns the position of a string within a list of strings FORMAT Return sFormats a number to a format like “#,###,###.##”, rounded to a specified number of decimal places INSERT Inserts a string within a string at the specified position and for a certain number of characters INSTR Returns the position of the first occurrence of a string in another string LCASE Converts a string to lower-case LEFT Extracts a number of characters from a string (starting from left) LENGTH Returns the length of a string (in bytes) LOCATE Returns the position of the first occurrence of a substring in a string LOWER Converts a string to lower-case LPAD Left-pads a string with another string, to a certain length LTRIM Removes leading spaces from a string MID Extracts a substring from a string (starting at any position) POSITION Returns the position of the first occurrence of a substring in a string REPEAT Repeats a string as many times as specified REPLACE Replaces all occurrences of a substring within a string, with a new substring REVERSE Reverses a string and returns the result RIGHT Extracts a number of characters from a string (starting from right) RPAD Right-pads a string with another string, to a certain length RTRIM Removes trailing spaces from a string SPACE Returns a string of the specified number of space characters STRCMP Compares two strings SUBSTR Extracts a substring from a string (starting at any position) SUBSTRING Extracts a substring from a string (starting at any position) SUBSTRING_INDEX Returns a substring of a string before a specified number of delimiter occurs TRIM Removes leading and trailing spaces from a string UCASE Converts a string to upper-case UPPER Converts a string to upper-case Numeric Functions ABS Returns the absolute value of a number ACOS Returns the arc cosine of a number ASIN Returns the arc sine of a number ATAN Returns the arc tangent of one or two numbers ATAN2 Returns the arc tangent of two numbers AVG Returns the average value of an expression CEIL Returns the smallest integer value that is \u003e= to a number CEILING Returns the smallest integer value that is \u003e= to a number COS Returns the cosine of a number COT Returns the cotangent of a number COUNT Returns the number of records returned by a select query DEGREES Converts a value in radians to degrees DIV Used for integer division EXP Returns e raised to the power of a specified number FLOOR Returns the largest integer value that is \u003c= to a number GREATEST Returns the greatest value of the list of arguments LEAST Returns the smallest value of the list of arguments LN Returns the natural logarithm of a number LOG Returns the natural logarithm of a number, or the logarithm of a number to a specified base LOG10 Returns the natural logarithm of a number to base 10 LOG2 Returns the natural logarithm of a number to base 2 MAX Returns the maximum value in a set of values MIN Returns the minimum value in a set of values MOD Returns the remainder of a number divided by another number PI Returns the value of PI POW Returns the value of a number raised to the power of another number POWER Returns the value of a number raised to the power of another number RADIANS Converts a degree value into radians RAND Returns a random number ROUND Rounds a number to a specified number of decimal places SIGN Returns the sign of a number SIN Returns the sine of a number SQRT Returns the square root of a number SUM Calculates the sum of a set of values TAN Returns the tangent of a number TRUNCATE Truncates a number to the specified number of decimal places Date Functions ADDDATE Adds a time/date interval to a date and then returns the date ADDTIME Adds a time interval to a time/datetime and then returns the time/datetime CURDATE Returns the current date CURRENT_DATE Returns the current date CURRENT_TIME Returns the current time CURRENT_TIMESTAMP Returns the current date and time CURTIME Returns the current time DATE Extracts the date part from a datetime expression DATEDIFF Returns the number of days between two date values DATE_ADD Adds a time/date interval to a date and then returns the date DATE_FORMAT Formats a date DATE_SUB Subtracts a time/date interval from a date and then returns the date DAY Returns the day of the month for a given date DAYNAME Returns the weekday name for a given date DAYOFMONTH Returns the day of the month for a given date DAYOFWEEK Returns the weekday index for a given date DAYOFYEAR Returns the day of the year for a given date EXTRACT Extracts a part from a given date FROM_DAYS Returns a date from a numeric datevalue HOUR Returns the hour part for a given date LAST_DAY Extracts the last day of the month for a given date LOCALTIME Returns the current date and time LOCALTIMESTAMP Returns the current date and time MAKEDATE Creates and returns a date based on a year and a number of days value MAKETIME Creates and returns a time based on an hour, minute, and second value MICROSECOND Returns the microsecond part of a time/datetime MINUTE Returns the minute part of a time/datetime MONTH Returns the month part for a given date MONTHNAME Returns the name of the month for a given date NOW Returns the current date and time PERIOD_ADD Adds a specified number of months to a period PERIOD_DIFF Returns the difference between two periods QUARTER Returns the quarter of the year for a given date value SECOND Returns the seconds part of a time/datetime SEC_TO_TIME Returns a time value based on the specified seconds STR_TO_DATE Returns a date based on a string and a format SUBDATE Subtracts a time/date interval from a date and then returns the date SUBTIME Subtracts a time interval from a datetime and then returns the time/datetime SYSDATE Returns the current date and time TIME Extracts the time part from a given time/datetime TIME_FORMAT Formats a time by a specified format TIME_TO_SEC Converts a time value into seconds TIMEDIFF Returns the difference between two time/datetime expressions TIMESTAMP Returns a datetime value based on a date or datetime value TO_DAYS Returns the number of days between a date and date “0000-00-00” WEEK Returns the week number for a given date WEEKDAY Returns the weekday number for a given date WEEKOFYEAR Returns the week number for a given date YEAR Returns the year part for a given date YEARWEEK Returns the year and week number for a given date Advanced Functions BIN Returns a binary representation of a number BINARY Converts a value to a binary string CASE Goes through conditions and return a value when the first condition is met CAST Converts a value (of any type) into a specified datatype COALESCE Returns the first non-null value in a list CONNECTION_ID Returns the unique connection ID for the current connection CONV Converts a number from one numeric base system to another CONVERT Converts a value into the specified datatype or character set CURRENT_USER Returns the user name and host name for the MySQL account that the server used to authenticate the current client DATABASE Returns the name of the current database IF Returns a value if a condition is TRUE, or another value if a condition is FALSE IFNULL Return a specified value if the expression is NULL, otherwise return the expression ISNULL Returns 1 or 0 depending on whether an expression is NULL LAST_INSERT_ID Returns the AUTO_INCREMENT id of the last row that has been inserted or updated in a table NULLIF Compares two expressions and returns NULL if they are equal. Otherwise, the first expression is returned SESSION_USER Returns the current MySQL user name and host name SYSTEM_USER Returns the current MySQL user name and host name USER Returns the current MySQL user name and host name VERSION Returns the current version of the MySQL database ",
   "wordCount" : "1381",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2022-09-01T13:28:14+08:00",
   "dateModified": "2022-09-01T13:28:14+08:00",
   "author":{
@@ -127,14 +129,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/it/mysql/"
+    "@id": "http://localhost:1313/it/mysql/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -156,17 +158,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -180,46 +182,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -227,23 +229,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/it/">ITs</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/it/">ITs</a></div>
+    <h1 class="post-title entry-hint-parent">
       [IT] MySQL Functions
     </h1>
     <div class="post-description">
       Built-in function in MySQL
     </div>
-    <div class="post-meta"><span title='2022-09-01 13:28:14 +0800 CST'>September 1, 2022</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/MySQL.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2022-09-01 13:28:14 +0800 CST'>September 1, 2022</span>&nbsp;·&nbsp;7 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/MySQL.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -1452,8 +1455,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/sql/">SQL</a></li>
-      <li><a href="https://intervalrain.github.io/tags/it/">IT</a></li>
+      <li><a href="http://localhost:1313/tags/sql/">SQL</a></li>
+      <li><a href="http://localhost:1313/tags/it/">IT</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -1468,11 +1471,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -1541,12 +1545,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

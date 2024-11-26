@@ -2,42 +2,86 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Algorithm on Rain Hu&#39;s Workspace</title>
-    <link>https://intervalrain.github.io/tags/algorithm/</link>
+    <link>http://localhost:1313/tags/algorithm/</link>
     <description>Recent content in Algorithm on Rain Hu&#39;s Workspace</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Jan 2024 01:26:30 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.139.2</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 19 Jan 2024 01:26:30 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Hugo] 使用 Hugo-notice</title>
-      <link>https://intervalrain.github.io/hugo/notice/</link>
+      <link>http://localhost:1313/hugo/notice/</link>
       <pubDate>Fri, 19 Jan 2024 01:26:30 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/hugo/notice/</guid>
+      <guid>http://localhost:1313/hugo/notice/</guid>
       <description>Desc Text.</description>
     </item>
-    
     <item>
       <title>[Leetcode] Arrangement</title>
-      <link>https://intervalrain.github.io/leetcode/summary/</link>
+      <link>http://localhost:1313/leetcode/summary/</link>
       <pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/leetcode/summary/</guid>
-      <description>   題號 題目 類別 題解     1 Two Sum Hash Table Hash Table   2 Add Two numbers Linked List Recursion   201 Bitwise AND of Numbers Range Bitwise Operation Lowbit = x&amp;amp;(~x+1)   204 Count Primes Math Thetory The Sieve of Eratosthenes   408 Valid Word Abbreviation Two Pointers 字串轉數字    </description>
+      <guid>http://localhost:1313/leetcode/summary/</guid>
+      <description>&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;題號&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;題目&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;類別&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;題解&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a href=&#34;../../leetcode/1&#34;&gt;Two Sum&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Hash Table&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Hash Table&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a href=&#34;../../leetcode/2&#34;&gt;Add Two numbers&lt;/a&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Linked List&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Recursion&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;201&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Bitwise AND of Numbers Range&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Bitwise Operation&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Lowbit = x&amp;amp;(~x+1)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;204&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Count Primes&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Math Thetory&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;The Sieve of Eratosthenes&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;408&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Valid Word Abbreviation&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Two Pointers&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;字串轉數字&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
     </item>
-    
     <item>
       <title>[Problem] Version Query</title>
-      <link>https://intervalrain.github.io/leetcode/versionquery/</link>
+      <link>http://localhost:1313/leetcode/versionquery/</link>
       <pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate>
-      
-      <guid>https://intervalrain.github.io/leetcode/versionquery/</guid>
-      <description>Version Query
- Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Binary Search、Segment Tree、Heap (Priority Queue、Hash Table   一、題目 Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.
-The given apk_info structure is given as below.
-struct apk_info {
-int apk_version;
-int min_version = 1;
-int max_version = INT_MAX;</description>
+      <guid>http://localhost:1313/leetcode/versionquery/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Version Query&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hardness: \(\color{red}\textsf{Hard}\)&lt;/li&gt;
+&lt;li&gt;Ralated Topics: &lt;code&gt;Binary Search&lt;/code&gt;、&lt;code&gt;Segment Tree&lt;/code&gt;、&lt;code&gt;Heap (Priority Queue&lt;/code&gt;、&lt;code&gt;Hash Table&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;一題目&#34;&gt;一、題目&lt;/h3&gt;
+&lt;p&gt;Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.&lt;br&gt;
+The given apk_info structure is given as below.&lt;br&gt;
+&lt;strong&gt;struct apk_info {&lt;/strong&gt;&lt;br&gt;
+　　&lt;strong&gt;int apk_version;&lt;/strong&gt;&lt;br&gt;
+　　&lt;strong&gt;int min_version = 1;&lt;/strong&gt;&lt;br&gt;
+　　&lt;strong&gt;int max_version = INT_MAX;&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

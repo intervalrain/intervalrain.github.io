@@ -160,7 +160,7 @@ cover:
 + 缺乏檔案與作業系統的保護
   + 木馬、病毒
 ## 平行系統(Parallel Systems)：多處理器(multiprocessor/tightly couplde system)
-![systembus](/images/systembus.png)
+![systembus](/images/systembus.png)
 + 多核、或多 CPU。
 + 通常共享記憶體
 + 優點：
