@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ITs on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/it/</link>
+    <description>Recent content in ITs on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Aug 2024 01:44:44 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IT] 拯救 react</title>
+      <link>https://intervalrain.github.io/it/save_react/</link>
+      <pubDate>Fri, 16 Aug 2024 01:44:44 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/save_react/</guid>
+      <description> 安裝個離線版  npm i - g create-react-app-offline 改用 crao 初始化  crao -n my-app 如果 node_modules 沒有安裝正常  rm -rf node_modules 重裝 node_modules  npm install 重啟 react  npm start </description>
+    </item>
+    
+    <item>
+      <title>[IT] React &#43; .Net</title>
+      <link>https://intervalrain.github.io/it/csharp-react/</link>
+      <pubDate>Tue, 11 Jun 2024 22:00:23 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/csharp-react/</guid>
+      <description>React + .Net 一、環境設置 Setup 1. 行前準備 Prerequisites  安裝 Node.js 和 npm  node -v npm -v  安裝 .NET SDK  dotnet --version  用 vs code 下載 ES7+ React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce  import React from &amp;#39;react&amp;#39;  const index = () =&amp;gt; {  return (  &amp;lt;div&amp;gt;index&amp;lt;/div&amp;gt;  ) }  export default index 2. 創建 React  安裝 react  npm install create-react-app  創建新的 react app (typescript)  --template typescript 可指定使用 typescript    npx create-react-app {project} --template typescript cd {project}  必要時可能要初始化一個新的 react 項目，確保版本是匹配的。  yarnpkg add --exact react-dom react-scripts 3.</description>
+    </item>
+    
+    <item>
+      <title>[IT] ApiController Atrribute</title>
+      <link>https://intervalrain.github.io/it/apicontroller/</link>
+      <pubDate>Sun, 09 Jun 2024 20:27:03 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/apicontroller/</guid>
+      <description>ApiController Atrribute  當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？
+ [ApiController] public class TestController : ControllerBase { } 1. 自動 HTTP 400 回應  它會自動產生一個行為過濾器(action filter)，當 ModelState.IsValid 為 false 時，自動回傳 400 Response。  2. 綁定來源參數推斷  可以更改模型綁定的約定，例如，[FromBody] 是針對複雜類型參數推斷的。  3. Multi/form-data 請求推理  對於標示 [FromForm] 的參數，推斷 Content-Type 為 multipart/form-data。  4. 屬性路由要求  強制要求所有操作都必須通過屬性路由。  .notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.</description>
+    </item>
+    
+    <item>
+      <title>[IT] HTML &#43; CSS</title>
+      <link>https://intervalrain.github.io/it/html/</link>
+      <pubDate>Sun, 09 Jun 2024 02:10:53 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/html/</guid>
+      <description>可搭配程式碼服用：  https://github.com/intervalrain/htmls/tree/main/tutorial   使用者文檔：  W3C 官網 MDN W3School    一、HTML  全名：超文本標記語言(HyperText Markup Language, HTML) 現最常使用的是 HTML5，由 W3C &amp;amp; WHATWG 所制定。 將檔案設置為 .html 即可建立一個 html 檔案。  二、HTML 標籤  標籤又稱元素，是 HTML 的基本組成單位。 標籤分為: 雙標籤和單標籤(絕大多數都是雙標籤)。 標籤不區分大小寫，但推薦小寫，因為小寫更規範 雙標籤，&amp;lt;標籤名&amp;gt;標籤體&amp;lt;/標籤名&amp;gt;  &amp;lt;marquee&amp;gt;Hello World&amp;lt;/marquee&amp;gt; 單標籤，&amp;lt;標籤名/&amp;gt;，/可省略  &amp;lt;input/&amp;gt; 標籤之間的關係：並列關係、嵌套關係，可以使用 tab 鍵進行縮進。  &amp;lt;marquee&amp;gt;  Hello World  &amp;lt;input&amp;gt; &amp;lt;/marquee&amp;gt; 三、HTML 標籤屬性  用於給標籤提供附加訊息。 可以寫在: 起始標籤或單標籤中，&amp;lt;標籤名 屬性名=&amp;quot;屬性值&amp;quot; 屬性名=&amp;quot;屬性值&amp;quot;&amp;gt;  &amp;lt;marquee loop=&amp;#34;1&amp;#34; bgcolor=&amp;#34;orange&amp;#34;&amp;gt;Hello World&amp;lt;/marquee&amp;gt; &amp;lt;input type=&amp;#34;password&amp;#34;&amp;gt; 有些特殊的屬性，沒有屬性名，只有屬性值：  &amp;lt;input disabled&amp;gt;   .</description>
+    </item>
+    
+    <item>
+      <title>[IT] EntityFramework Commands</title>
+      <link>https://intervalrain.github.io/it/entityframework_command/</link>
+      <pubDate>Sun, 31 Mar 2024 14:37:44 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/entityframework_command/</guid>
+      <description>Some commands to trigger migration operations</description>
+    </item>
+    
+    <item>
+      <title>[IT] 用 C# 建置 Clean Architecture 專案</title>
+      <link>https://intervalrain.github.io/it/ca_config/</link>
+      <pubDate>Sat, 09 Mar 2024 13:59:22 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/ca_config/</guid>
+      <description>Configure C# Solution step by step  開啟 Terminal 新增解決方案 dontet new sln -o MySln 移至方案目錄 cd MySln 根據解決方案 hierarchy 建構專案  dotnet new webapi -o MySln.Api dotnet new classlib -o MySln.Application dotnet new classlib -o MySln.Domain dotnet new classlib -o MySln.Infrastructure dotnet new classlib -o MySln.Contracts   將所有專案加進解決方案 for proj in $(ls -r **/*.csproj)  dotnet sln add $proj  建立專案之間的 dependency  dotnet add MySln.Api reference MySln.Application MySln.</description>
+    </item>
+    
+    <item>
+      <title>[IT] 使用 Clean Architecture &#43; DDD 建置 Restful API</title>
+      <link>https://intervalrain.github.io/it/clean_arch_configuration/</link>
+      <pubDate>Mon, 26 Feb 2024 15:03:15 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/clean_arch_configuration/</guid>
+      <description>程式碼 https://github.com/intervalrain/webapi_ca/
+正文 建置 Solution   首先先參考 Clean Architecture 最經典的同心圓，來確定我們需要將我們的解決方案做哪些分層：
+ 我將使用 Restful API 做為我們 I/O (Presentation Layer) 並且我需要配備身份驗證的機制 (Presentation Layer) 我使用 PostgresDB 作為我的 (Infrastructure Layer) 我的核心商業邏輯 (Application / Domain Layer)     創建專案
+  dotnet new sln -o Mysln 進入專案所在的資料夾  cd Mysln 根據預先的分層建立專案資料夾，並且使用 dotnet 指令建立相對應的專案類型。  Api &amp;ndash;&amp;gt; WebAPI Infrastructure &amp;ndash;&amp;gt; classlib Contracts &amp;ndash;&amp;gt; classlib Application &amp;ndash;&amp;gt; classlib Domain &amp;ndash;&amp;gt; classlib    dotnet new webapi -o Mysln.</description>
+    </item>
+    
+    <item>
+      <title>[IT] .NET Maui</title>
+      <link>https://intervalrain.github.io/it/maui/</link>
+      <pubDate>Sun, 28 Jan 2024 13:30:34 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/maui/</guid>
+      <description>.NET Maui  .NET Maui 是一個跨平台的桌面與手機應用開發框架，它支援 iOS、Android、macOS、Windows。 不同於 Xamarin，.NET Maui 只需要一個專案便可以導向不同的平台。    架構  一個 .NET Maui 專案底下，預設會有幾個資料夾與檔案，其關係如下圖：  /Platforms 底下的各個資料夾為不同平台的入口，不同的平台各有一個 Program.cs。 各個 Program.cs 內又會透過注入該 namespace 底下的 AppDelegate ，將入口指向 MauiProgram 的 CreateMauiApp()，就此將不同平台路由到 MauiProgram.cs 這個統一的入口。    public class Program {  static void Main(string[] args)  {  UIApplication.Main(args, null, typeof(AppDelegate));  } } [Register(&amp;#34;AppDelegate&amp;#34;)] public class AppDelegate : MauiUIApplicationDelegate {  protected override MauiApp CreateMauiApp() =&amp;gt; MauiProgram.</description>
+    </item>
+    
+    <item>
+      <title>[IT] CORS 跨原始來源要求</title>
+      <link>https://intervalrain.github.io/it/cors/</link>
+      <pubDate>Fri, 19 Jan 2024 00:41:51 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/cors/</guid>
+      <description>TL;DR  CORS (Cross-Origin Resource Sharing)
+是一個支援安全跨源請求和資料傳輸的機制，用於在瀏覽器和伺服器之間進行跨源請求。
+  這是一個 W3C 標準，可讓伺服器放寬相同原始來源原則。 不是安全性功能，CORS 會放寬安全性。 允許 CORS 並不會增強 API 的安全性。CORS 的運作方式 允許伺服器明確允許某些跨原始來源要求，同時拒絕其他要求。 比舊版技術 (例如：JSONP) 更安全且更有彈性。  何謂相同原始來源  如果兩個 URL 具有相同的配置、主機和連接埠，則其原始來源相同 (RFC 6454)。  這兩個 URL 具有相同的原始來源：  https://example.com/foo.html https://example.com/bar.html   這些 URL 的原始來源與前兩個 URL 不同：  https://example.net：不同的網域 https://www.example.com/foo.html：不同的子網域 http://example.com/foo.html：不同的配置 https://example.com:9000/foo.html：不同的連接埠      如何啟動 CORS 有三種方式可以啟用 CORS：
+ 在中介軟體中，使用具名原則或預設原則。 使用端點路由。 使用 [EnableCors] 屬性。 搭配具名原則使用 [EnableCors] 屬性能夠以最精細的程度來控制對於支援 CORS 之端點的限制。  .</description>
+    </item>
+    
+    <item>
+      <title>[IT] 事件總線 EventBus</title>
+      <link>https://intervalrain.github.io/it/eventbus/</link>
+      <pubDate>Mon, 25 Sep 2023 23:50:02 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/eventbus/</guid>
+      <description>EventBus  EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。  Interfaces IEventData public interface IEventData {  DateTime EventTime { get; set; }  object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler&amp;lt;TEventData&amp;gt; : IEventHandler where TEventData : IEventData {  void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData {  public DateTime EventTIme { get; set; }  object EventSource { get; set; }   public EventData()  {  EventTime = DateTime.</description>
+    </item>
+    
+    <item>
+      <title>[IT] Clean Architecture - 重點整理</title>
+      <link>https://intervalrain.github.io/it/ca/</link>
+      <pubDate>Sat, 23 Sep 2023 20:03:55 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/ca/</guid>
+      <description>乾淨架構(Clean Architecture) 筆記 分層  乾淨架構中從外而內依序為  Framework Layer Interface Adapter Layer Application Layer Domain Layer    Models  一般來說會有四個 Models  View Model(給前端) App Model(App Layer 隔離 Domain Layer 所用，aka DTO) Domain Model Data Model(for DBMS)    Usecase  App Layer 中的 Usecase 做四件事：  查 改 存 推    單向依賴原則  依賴的方向必為單向且為
+\(\boxed{\text{Interface Adapter}} \rightarrow \boxed{\text{Application Layer}} \rightarrow \boxed{\text{Domain Layer}}\)  Repository  Application Layer 為了遵守單向依賴，與 ORM 解耦會做一次依賴反轉，翠取 Repository 介面。  套用乾淨架構的效益衡量  Model Mapping 的成本 vs.</description>
+    </item>
+    
+    <item>
+      <title>[IT] LINQ: IQueryable Provider</title>
+      <link>https://intervalrain.github.io/it/iq1/</link>
+      <pubDate>Thu, 21 Sep 2023 11:34:15 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/iq1/</guid>
+      <description>一系列關於如何建立 LINQ IQueryable Provider 的文章，每篇都是建立在前一篇的基礎上。</description>
+    </item>
+    
+    <item>
+      <title>[IT] 關聯模式的五大鍵 Super key、Candidate Key、Primary Key、Alternate Key、Foreign Key</title>
+      <link>https://intervalrain.github.io/it/keysinrelation/</link>
+      <pubDate>Thu, 11 May 2023 21:50:43 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/keysinrelation/</guid>
+      <description>關聯模式的五大鍵介紹</description>
+    </item>
+    
+    <item>
+      <title>[IT] Design Patterns</title>
+      <link>https://intervalrain.github.io/it/design_pattern/</link>
+      <pubDate>Mon, 01 May 2023 00:22:49 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/design_pattern/</guid>
+      <description>簡介設計模式</description>
+    </item>
+    
+    <item>
+      <title>[IT] C# Depth Ch.2 C# 2</title>
+      <link>https://intervalrain.github.io/it/csharp_depth_ch2/</link>
+      <pubDate>Fri, 20 Jan 2023 10:10:46 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/csharp_depth_ch2/</guid>
+      <description>C# 2 一、泛型  使用泛型(generic type)可以在編寫在編譯時類型安全的通用程式碼，無須事先知道要使用的具體類型。 示例1: array類型: 大小需預先設定，若要添加需要重新分配  public static void Main(string[] args) {  PrintNames(GenerateNames()); } public static void PrintNames(string[] names) {  foreach (string name in names)  {  Console.WriteLine(name);  } } public static string[] GenerateNames() {  string[] names = new string[4];  names[0] = &amp;#34;Mike&amp;#34;;  names[1] = &amp;#34;Rain&amp;#34;;  names[2] = &amp;#34;Jessica&amp;#34;;  names[3] = &amp;#34;Billy&amp;#34;;   return names; } 示例2: ArrayList類型: ArrayList.</description>
+    </item>
+    
+    <item>
+      <title>[IT] C# Depth Ch.1 與時俱進的語言</title>
+      <link>https://intervalrain.github.io/it/csharp_depth_ch1/</link>
+      <pubDate>Tue, 17 Jan 2023 22:27:58 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/csharp_depth_ch1/</guid>
+      <description>與時俱進的語言 一、System Class 1. 泛型(genric)  可更清楚的描述序列中每個元素的類型。  C#1 示例
+public class Bookshelf {  public IEnumerable Books { get { ... } } } C#2 示例：泛型
+public class Bookshelf { 	public IEnumerable&amp;lt;Book&amp;gt; Books { get { ... } } }  2. 可空值類型(nullable value type)  可有效的表示未定的變量值，以擺脫魔數(用-1當集合索引，用 MinValue 或 MaxValue 做為初始值)。  示例
+string? a = null; Console.WriteLine(a ?? &amp;#34;null&amp;#34;);	// null a = &amp;#34;abc&amp;#34;; Console.WriteLine(a ?? &amp;#34;null&amp;#34;);	// abc  3.</description>
+    </item>
+    
+    <item>
+      <title>[IT] Shell 筆記</title>
+      <link>https://intervalrain.github.io/it/shell/</link>
+      <pubDate>Thu, 12 Jan 2023 23:34:41 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/shell/</guid>
+      <description>Reference
+https://blog.csdn.net/w918589859/article/details/108752592
+https://www.w3cschool.cn/linux/linux-Shell.html
+ 一、Shell 簡介  什麼是 Shell?
+Shell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。
+Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?
+Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)
+是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。  二、 Shell 入門 1. Shell 環境  Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有：  Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) &amp;hellip;&amp;hellip;     2.</description>
+    </item>
+    
+    <item>
+      <title>[IT] 動態鏈結庫(DDL)</title>
+      <link>https://intervalrain.github.io/it/ddl/</link>
+      <pubDate>Sun, 18 Sep 2022 22:45:56 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/ddl/</guid>
+      <description>Command to construct DDL</description>
+    </item>
+    
+    <item>
+      <title>[IT] MySQL Functions</title>
+      <link>https://intervalrain.github.io/it/mysql/</link>
+      <pubDate>Thu, 01 Sep 2022 13:28:14 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/mysql/</guid>
+      <description>Built-in function in MySQL</description>
+    </item>
+    
+    <item>
+      <title>[IT] SQL</title>
+      <link>https://intervalrain.github.io/it/sql/</link>
+      <pubDate>Thu, 01 Sep 2022 13:28:14 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/sql/</guid>
+      <description>Base command of SQL</description>
+    </item>
+    
+    <item>
+      <title>[IT] Introduction to Microservices, Docker and Kubernetes</title>
+      <link>https://intervalrain.github.io/it/microservices_docker_kubernetes/</link>
+      <pubDate>Fri, 29 Apr 2022 11:40:10 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/microservices_docker_kubernetes/</guid>
+      <description>Desc Text.</description>
+    </item>
+    
+    <item>
+      <title>[IT] 在 GitHub Pages 中渲染 KaTex 公式</title>
+      <link>https://intervalrain.github.io/it/latexrendering/</link>
+      <pubDate>Tue, 22 Feb 2022 01:38:30 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/latexrendering/</guid>
+      <description>如何讓 GitHub Pages 中支援 Latex 語法</description>
+    </item>
+    
+  </channel>
+</rss>

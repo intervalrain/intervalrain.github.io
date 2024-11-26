@@ -1,294 +1,27 @@
 <!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>[IT] Shell 筆記 | Rain Hu's Workspace</title>
-<meta name=keywords content="IT,Linux,Shell"><meta name=description content="
-Reference
+<meta name=keywords content="IT,Linux,Shell"><meta name=description content="Reference
 https://blog.csdn.net/w918589859/article/details/108752592
 https://www.w3cschool.cn/linux/linux-Shell.html
-
-一、Shell 簡介
-
-什麼是 Shell?
+一、Shell 簡介 什麼是 Shell?
 Shell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。
-Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。
-為什麼要學習和使用 Shell?
-Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。
-Shell 腳本(Shell script)
-是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。
-
-二、 Shell 入門
-1. Shell 環境
-
-Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。
-在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。
-Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash
-Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有：
-
-Bourne Shell (/usr/bin/sh 或 /bin/sh)
-Bourne Again Shell (/bin/bash)
-C Shell (/usr/bin/csh)
-K Shell (/usr/bin/ksh)
-Shell for Root(sbin/sh)
-&mldr;&mldr;
-
-
-
-
-2. Bash 常用快捷鏈
-
-  
-      
-          快捷鏈
-          功能
-      
-  
-  
-      
-          Ctrl+A
-          把游標移動到命令行開頭。
-      
-      
-          Ctrl+E
-          把游標移動到命令行結尾。
-      
-      
-          Ctrl+C
-          強制終止當前的命令。
-      
-      
-          Ctrl+L
-          清除螢幕，等於 clear 指令。
-      
-      
-          Ctrl+U
-          清除並剪下當前命令。
-      
-      
-          Ctrl+K
-          刪除並剪下游標以後的命令。
-      
-      
-          Ctrl+Y
-          貼上。
-      
-      
-          Ctrl+R
-          在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。
-      
-      
-          Ctrl+D
-          退出當前終端機。
-      
-      
-          Ctrl+Z
-          暫停，並放入後台。
-      
-      
-          Ctrl+S
-          暫停螢幕輸出。
-      
-      
-          Ctrl+Q
-          恢復螢幕輸出。
-      
-  
-
-
-3. 輸入與輸出 I/O
-
-
-linux 的標準輸入與輸出"><meta name=author content="Rain Hu"><link rel=canonical href=https://intervalrain.github.io/><meta name=google-site-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.min.62544d021d74c1d1215183b216a7ce71465bcb05e8768851d5c6d332d9672210.css integrity="sha256-YlRNAh10wdEhUYOyFqfOcUZbywXodohR1cbTMtlnIhA=" rel="preload stylesheet" as=style><link rel=preload href=/images/rain.png as=image><script defer crossorigin=anonymous src=/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY=" onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=16x16 href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=32x32 href=https://intervalrain.github.io/images/rain.png><link rel=apple-touch-icon href=https://intervalrain.github.io/images/rain.png><link rel=mask-icon href=https://intervalrain.github.io/images/rain.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://intervalrain.github.io/it/shell/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css integrity=sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js integrity=sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous onload=renderMathInElement(document.body)></script><script async src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script src=https://utteranc.es/client.js repo=intervalrain.github.io issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script><meta property="og:title" content="[IT] Shell 筆記"><meta property="og:description" content="
-Reference
+Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?
+Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)
+是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。 二、 Shell 入門 1. Shell 環境 Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有： Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) &mldr;&mldr; 2."><meta name=author content="Rain Hu"><link rel=canonical href=https://intervalrain.github.io/><meta name=google-site-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.min.62544d021d74c1d1215183b216a7ce71465bcb05e8768851d5c6d332d9672210.css integrity="sha256-YlRNAh10wdEhUYOyFqfOcUZbywXodohR1cbTMtlnIhA=" rel="preload stylesheet" as=style><link rel=preload href=/images/rain.png as=image><script defer crossorigin=anonymous src=/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY=" onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=16x16 href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=32x32 href=https://intervalrain.github.io/images/rain.png><link rel=apple-touch-icon href=https://intervalrain.github.io/images/rain.png><link rel=mask-icon href=https://intervalrain.github.io/images/rain.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://intervalrain.github.io/it/shell/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css integrity=sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js integrity=sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous onload=renderMathInElement(document.body)></script><script async src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script src=https://utteranc.es/client.js repo=intervalrain.github.io issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script><meta property="og:title" content="[IT] Shell 筆記"><meta property="og:description" content="Reference
 https://blog.csdn.net/w918589859/article/details/108752592
 https://www.w3cschool.cn/linux/linux-Shell.html
-
-一、Shell 簡介
-
-什麼是 Shell?
+一、Shell 簡介 什麼是 Shell?
 Shell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。
-Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。
-為什麼要學習和使用 Shell?
-Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。
-Shell 腳本(Shell script)
-是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。
-
-二、 Shell 入門
-1. Shell 環境
-
-Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。
-在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。
-Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash
-Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有：
-
-Bourne Shell (/usr/bin/sh 或 /bin/sh)
-Bourne Again Shell (/bin/bash)
-C Shell (/usr/bin/csh)
-K Shell (/usr/bin/ksh)
-Shell for Root(sbin/sh)
-&mldr;&mldr;
-
-
-
-
-2. Bash 常用快捷鏈
-
-  
-      
-          快捷鏈
-          功能
-      
-  
-  
-      
-          Ctrl+A
-          把游標移動到命令行開頭。
-      
-      
-          Ctrl+E
-          把游標移動到命令行結尾。
-      
-      
-          Ctrl+C
-          強制終止當前的命令。
-      
-      
-          Ctrl+L
-          清除螢幕，等於 clear 指令。
-      
-      
-          Ctrl+U
-          清除並剪下當前命令。
-      
-      
-          Ctrl+K
-          刪除並剪下游標以後的命令。
-      
-      
-          Ctrl+Y
-          貼上。
-      
-      
-          Ctrl+R
-          在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。
-      
-      
-          Ctrl+D
-          退出當前終端機。
-      
-      
-          Ctrl+Z
-          暫停，並放入後台。
-      
-      
-          Ctrl+S
-          暫停螢幕輸出。
-      
-      
-          Ctrl+Q
-          恢復螢幕輸出。
-      
-  
-
-
-3. 輸入與輸出 I/O
-
-
-linux 的標準輸入與輸出"><meta property="og:type" content="article"><meta property="og:url" content="https://intervalrain.github.io/it/shell/"><meta property="article:section" content="it"><meta property="article:published_time" content="2023-01-12T23:34:41+08:00"><meta property="article:modified_time" content="2023-01-12T23:34:41+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="[IT] Shell 筆記"><meta name=twitter:description content="
-Reference
+Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?
+Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)
+是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。 二、 Shell 入門 1. Shell 環境 Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有： Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) &mldr;&mldr; 2."><meta property="og:type" content="article"><meta property="og:url" content="https://intervalrain.github.io/it/shell/"><meta property="article:section" content="it"><meta property="article:published_time" content="2023-01-12T23:34:41+08:00"><meta property="article:modified_time" content="2023-01-12T23:34:41+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="[IT] Shell 筆記"><meta name=twitter:description content="Reference
 https://blog.csdn.net/w918589859/article/details/108752592
 https://www.w3cschool.cn/linux/linux-Shell.html
-
-一、Shell 簡介
-
-什麼是 Shell?
+一、Shell 簡介 什麼是 Shell?
 Shell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。
-Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。
-為什麼要學習和使用 Shell?
-Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。
-Shell 腳本(Shell script)
-是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。
-
-二、 Shell 入門
-1. Shell 環境
-
-Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。
-在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。
-Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash
-Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有：
-
-Bourne Shell (/usr/bin/sh 或 /bin/sh)
-Bourne Again Shell (/bin/bash)
-C Shell (/usr/bin/csh)
-K Shell (/usr/bin/ksh)
-Shell for Root(sbin/sh)
-&mldr;&mldr;
-
-
-
-
-2. Bash 常用快捷鏈
-
-  
-      
-          快捷鏈
-          功能
-      
-  
-  
-      
-          Ctrl+A
-          把游標移動到命令行開頭。
-      
-      
-          Ctrl+E
-          把游標移動到命令行結尾。
-      
-      
-          Ctrl+C
-          強制終止當前的命令。
-      
-      
-          Ctrl+L
-          清除螢幕，等於 clear 指令。
-      
-      
-          Ctrl+U
-          清除並剪下當前命令。
-      
-      
-          Ctrl+K
-          刪除並剪下游標以後的命令。
-      
-      
-          Ctrl+Y
-          貼上。
-      
-      
-          Ctrl+R
-          在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。
-      
-      
-          Ctrl+D
-          退出當前終端機。
-      
-      
-          Ctrl+Z
-          暫停，並放入後台。
-      
-      
-          Ctrl+S
-          暫停螢幕輸出。
-      
-      
-          Ctrl+Q
-          恢復螢幕輸出。
-      
-  
-
-
-3. 輸入與輸出 I/O
-
-
-linux 的標準輸入與輸出"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ITs","item":"https://intervalrain.github.io/it/"},{"@type":"ListItem","position":2,"name":"[IT] Shell 筆記","item":"https://intervalrain.github.io/it/shell/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[IT] Shell 筆記","name":"[IT] Shell 筆記","description":" Reference\nhttps://blog.csdn.net/w918589859/article/details/108752592\nhttps://www.w3cschool.cn/linux/linux-Shell.html\n一、Shell 簡介 什麼是 Shell?\nShell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。\nShell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?\nShell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)\n是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。 二、 Shell 入門 1. Shell 環境 Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有： Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) \u0026hellip;\u0026hellip; 2. Bash 常用快捷鏈 快捷鏈 功能 Ctrl+A 把游標移動到命令行開頭。 Ctrl+E 把游標移動到命令行結尾。 Ctrl+C 強制終止當前的命令。 Ctrl+L 清除螢幕，等於 clear 指令。 Ctrl+U 清除並剪下當前命令。 Ctrl+K 刪除並剪下游標以後的命令。 Ctrl+Y 貼上。 Ctrl+R 在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。 Ctrl+D 退出當前終端機。 Ctrl+Z 暫停，並放入後台。 Ctrl+S 暫停螢幕輸出。 Ctrl+Q 恢復螢幕輸出。 3. 輸入與輸出 I/O linux 的標準輸入與輸出\n","keywords":["IT","Linux","Shell"],"articleBody":" Reference\nhttps://blog.csdn.net/w918589859/article/details/108752592\nhttps://www.w3cschool.cn/linux/linux-Shell.html\n一、Shell 簡介 什麼是 Shell?\nShell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。\nShell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?\nShell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)\n是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。 二、 Shell 入門 1. Shell 環境 Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有： Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) …… 2. Bash 常用快捷鏈 快捷鏈 功能 Ctrl+A 把游標移動到命令行開頭。 Ctrl+E 把游標移動到命令行結尾。 Ctrl+C 強制終止當前的命令。 Ctrl+L 清除螢幕，等於 clear 指令。 Ctrl+U 清除並剪下當前命令。 Ctrl+K 刪除並剪下游標以後的命令。 Ctrl+Y 貼上。 Ctrl+R 在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。 Ctrl+D 退出當前終端機。 Ctrl+Z 暫停，並放入後台。 Ctrl+S 暫停螢幕輸出。 Ctrl+Q 恢復螢幕輸出。 3. 輸入與輸出 I/O linux 的標準輸入與輸出\n設備 設備名 文件描述符 類型 鍵盤 /dev/stdin 0 標準輸入 顯示器 /dev/stdout 1 標準輸出 顯示器 /dev/stderr 2 標準錯誤輸出 輸入重定向\n輸入重定向：是指不使用系統提供的標準輸入界面，而進行重新的指定。換言之，輸入重定向就是不使用標準輸入界面輸入文件，而是使用指定的文件作為標準輸入設備。\n(簡言之就是用 \u003c 來修改標準輸入設備)\n類型 語法 功能 標準輸入 command \u003c file 命令把文件中的內容作為標準輸入設備。 標識限定輸入 command \u003c\u003c tag 命令讀取標準輸入中的內容，直到遇到標識符號為止。 輸入輸出重定向(同時使用) command \u003c file1 \u003e file2 命令把文件1中的內容作為標準輸入，把文件2作為標準輸出。 輸出重定向\n輸出重定向：將輸出的文件訊息寫入到指定文件。\n\u0026表示全部文件，文件不管對錯，1表示標準輸出文件、2表示標準錯誤輸出。\n類型 語法 功能 標註輸出重定向 command \u003e file 以覆蓋方式，把命令的正確輸出內容輸出到指定的文件或設備中 標註輸出重定向 command \u003e\u003e file 以追加方式，把命令的正確輸出內容輸出到指定的文件或設備中 標準錯誤輸出重重定向 err_command 2\u003e file 以覆蓋方式，把命令的錯誤輸出輸出到指定的文件或設備當中 標準錯誤輸出重重定向 err_command 2\u003e\u003e file 以追加方式，把令命的錯誤輸出輸出到指定的文件或設備中 正確輸出和錯誤輸出同時保存 command \u003e file \u003e 2\u003e\u00261 以覆蓋的方式，把正確輸出和錯誤輸出都保存到同一個文件 正確輸出和錯誤輸出同時保存 command \u003e\u003e file 2\u003e\u00261 以追加方式，把正確輸出和錯誤輸出都保存到同一個文件 正確輸出和錯誤輸出同時保存 command \u0026\u003e file 以覆蓋的方式，把正確輸出和錯誤輸出都保存到同一個文件 正確輸出和錯誤輸出同時保存 command \u0026\u003e\u003e file 以追加方式，把正確輸出和錯誤輸出都保存到同一個文件 正確輸出和錯誤輸出同時保存 command \u003e\u003e file1 2\u003e\u003e file2 把正確的輸出追加到文件1，把錯誤的輸出追加到文件2中。 /dev/null\n若希望執行某個命令，但又不希望在螢幕上顯示輸出結果，那麼可以將輸出重定向到 /dev/null 中。\n[root@localhost ~]$ command \u003e dev/null 4. 多命令順序執行 多命令執行符 作用 格式 ; 命令1;命令2 多個命令順序執行，命令之間沒有任何邏輯關係。 \u0026\u0026 命令1\u0026\u0026命令2 當命令1正確執行，命令2才會執行；當命令1執行不正確，則命令2不會執行。 || 命令1||命令2 當命令1正確執行，命令2不執行；當命令1執行不正確，則命令2才會執行。 5. Shell 腳本(Shell script) 撰寫腳本\n[root@localhost ~]$ vim test.sh #!/bin/bash echo \"hello world\" #! 是一個約定的標記，它告訴系統這個腳本需要什麼解釋器來執行，即使用哪一種 Shell。 echo 命令用於向 Console 輸出文本。 file.sh .sh是linux下 bash Shell 的預設副檔名 執行方法\n增加執行權限 [root@localhost ~]$ chmod u+x test.sh // 對所有user增加對當前目錄下的test.sh文件的執行權限 [root@localhost ~]$ ./test.sh chmod: change the permissions mode of a file u: user +x: 增加執行權限 通過 bash 調用執行腳本 [root@localhost ~]$ bash test.sh 三、 Shell 變數 1. 變數的命名規則 首個字元必須為英文字母 (a-z，A-Z) 中間不能有空格，可以用底線(_)取代。 不能使用標點符號。 不能使用關鍵字(可用 help 查看保留關鍵字)。 環境變數習慣大寫，便於區分。 調用變數示例\n[root@localhost ~]$ test=123 [root@localhost ~]$ test=\"$test\"456 [root@localhost ~]$ echo $test 123456 [root@localhost ~]$ test=${test}789 [root@localhost ~]$ echo $test 123456789 Shell 中的特殊符號\n符號 作用 '' 在單引號中所有字元都是普通字元，照原樣輸出。 \"\" 在雙引號中只有 $ 與 ` 和 \\ 是有特殊含義，分別是調用變數、引用命令和轉義。 `` 在反引號中的內容是系統命令，在 Bash 中會先執行，與 () 作用一樣，但不推薦使用。 $() 和反引號作用相同，用來引用系統命令。 () 用於一串命令執行時，() 中的命令會在子 Shell 中運行。 {} 用於一串命令執行時，{} 中的命令會在當前 Shell 中執行。也可以用於變數變形與替換。 [] 用於變數的測試。 # 用於注釋。 $ 用於調用變數的值。 \\ 用於轉義。 單引號與雙引號示例\n[root@localhost ~]$ name=rain [root@localhost ~]$ echo '$name' $name [root@localhost ~]$ echo \"$name\" rain [root@localhost ~]$ echo `date` 2023年 1月17日 週二 21時23分45秒 CST [root@localhost ~]$ echo '`date`' `date` [root@localhost ~]$ echo \"`date`\" 2023年 1月17日 週二 21時24分00秒 CST 反引號示例\n[root@localhost ~]$ echo ls ls [root@localhost ~]$ echo `ls` words.txt [root@localhost ~]$ echo $(date) 2023年 1月17日 週二 21時28分42秒 CST 2. 變數的分類 變數分類 名稱 作用 內容 自定義變數 自定義 自定義 自定義 使用自定義環境變數 自定義 自定義 自定義 系統環境變數 預定 預定 自定義 位置參數變數 預定 自定義 自定義 預定義變數 預定 自定義 自定義 2.1. 自定義變數： 最常見的變數，由使用者自由定義變數名稱與值。 使用 $ 調用變數。 使用 set [選項] 設定 -u：調用未宣告變數時會報錯(預設未無提示) -x：在命令執行之前，會把命令先輸出一次 +\u003c參數\u003e：取消某個曾啟動過的參數 set：查詢系統中所有的變量，包含自定義變數與環境變數 unset 變數名稱：刪除變數 2.2. 環境變數： 主要保存和系統操作環境相關的數據，比如當前登錄的使用者名稱，使用者的根目錄、命令的提示符等。一般對系統起作用的環境變數名稱是系統預定好的。 使用 export 宣告的變數即是環境變數 使用 env 查看環境變數 2.3. 位置參數變數： 用來向腳本當中傳遞參數或數據的，變數名稱不能自定義，變數作用是固定的。 $n：n 為數字，$0表示當前 Shell 腳本程式的名稱，10以上需加大括號。 $*：代表命令行中所有參數，$把所有參數看成一個整體。 $@：代表命令行中所有參數，不過$把每個參數區分對待。 $#：代表命令行中所有參數的個數 腳本示例1\n#!/bin/sh echo \"shell's name: $0\" echo \"shell's first argument: $1\" echo \"shell's second argument: $2\" [root@localhost ~]$ bash test.sh 1 2 shell's name: test.sh shell's first argument: 1 shell's second arguemnt: 2 腳本示例2\n#!/bin/sh for i in \"$*\" do echo \"The parameter is: $i\" done x=1 for y in \"$@\" do echo \"The parameter$x is: $y\" x=$(( $x +1 )) done [root@localhost ~]$ bash par.sh 1 2 3 4 5 6 The parameter is: 1 2 3 4 5 6 The parameter1 is: 1 The parameter2 is: 2 The parameter3 is: 3 The parameter4 is: 4 The parameter5 is: 5 The parameter6 is: 6 2.4. 預定義變數： 是Bash中已經定義好的變數，變數名稱不能自定義，變數作用也是固定的。 預定義變數 作用 $? 最後一次執行的命令的返回狀態。如果這個變數的值為 0，表示上一個命令正確執行；如果這個變數的值非 0(具體為哪個數，由命令自己決定)，則表示上一個命令執行不正確。 $$ 當前程式的程式號(PID) $! 後台運行的最後一個程式的程式號(PID) 腳本示例1\n[root@localhost ~]$ ls count.sh hello.sh parameter.sh [root@localhost ~]$ echo $? 0 [root@localhost ~]$ ls install.log ls: install.log: No such file or directory [root@localhost ~]$ echo $? 1 ","wordCount":"635","inLanguage":"en","datePublished":"2023-01-12T23:34:41+08:00","dateModified":"2023-01-12T23:34:41+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://intervalrain.github.io/it/shell/"},"publisher":{"@type":"Organization","name":"Rain Hu's Workspace","logo":{"@type":"ImageObject","url":"https://intervalrain.github.io/images/rain.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://intervalrain.github.io/ accesskey=h title="Rain Hu's Workspace (Alt + H)"><img src=https://intervalrain.github.io/images/rain.png alt=logo aria-label=logo height=35>Rain Hu's Workspace</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li></ul></span></div><ul id=menu><li><a href=https://intervalrain.github.io/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://intervalrain.github.io/aboutme title="About me"><span>About me</span></a></li><li><a href=https://intervalrain.github.io/archives title=Archives><span>Archives</span></a></li><li><a href=https://intervalrain.github.io/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://intervalrain.github.io/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://intervalrain.github.io/csharp/csharp title=C#><span>C#</span></a></li><li><a href=https://intervalrain.github.io/csindex title=CS><span>CS</span></a></li><li><a href=https://intervalrain.github.io/leetcode title=LeetCode><span>LeetCode</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://intervalrain.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://intervalrain.github.io/it/>ITs</a></div><h1 class=post-title>[IT] Shell 筆記</h1><div class=post-meta>&lt;span title='2023-01-12 23:34:41 +0800 +0800'>January 12, 2023&lt;/span>&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;Rain Hu&nbsp;|&nbsp;<a href=https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/shell.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e4%b8%80shell-%e7%b0%a1%e4%bb%8b aria-label="一、Shell 簡介">一、Shell 簡介</a></li><li><a href=#%e4%ba%8c-shell-%e5%85%a5%e9%96%80 aria-label="二、 Shell 入門">二、 Shell 入門</a><ul><li><a href=#1-shell-%e7%92%b0%e5%a2%83 aria-label="1. Shell 環境">1. Shell 環境</a></li><li><a href=#2-bash-%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e9%8f%88 aria-label="2. Bash 常用快捷鏈">2. Bash 常用快捷鏈</a></li><li><a href=#3-%e8%bc%b8%e5%85%a5%e8%88%87%e8%bc%b8%e5%87%ba-io aria-label="3. 輸入與輸出 I/O">3. 輸入與輸出 I/O</a></li><li><a href=#4-%e5%a4%9a%e5%91%bd%e4%bb%a4%e9%a0%86%e5%ba%8f%e5%9f%b7%e8%a1%8c aria-label="4. 多命令順序執行">4. 多命令順序執行</a></li><li><a href=#5-shell-%e8%85%b3%e6%9c%acshell-script aria-label="5. Shell 腳本(Shell script)">5. Shell 腳本(Shell script)</a></li></ul></li><li><a href=#%e4%b8%89-shell-%e8%ae%8a%e6%95%b8 aria-label="三、 Shell 變數">三、 Shell 變數</a><ul><li><a href=#1-%e8%ae%8a%e6%95%b8%e7%9a%84%e5%91%bd%e5%90%8d%e8%a6%8f%e5%89%87 aria-label="1. 變數的命名規則">1. 變數的命名規則</a></li><li><a href=#2-%e8%ae%8a%e6%95%b8%e7%9a%84%e5%88%86%e9%a1%9e aria-label="2. 變數的分類">2. 變數的分類</a><ul><li><a href=#21-%e8%87%aa%e5%ae%9a%e7%be%a9%e8%ae%8a%e6%95%b8 aria-label="2.1. 自定義變數：">2.1. 自定義變數：</a></li><li><a href=#22-%e7%92%b0%e5%a2%83%e8%ae%8a%e6%95%b8 aria-label="2.2. 環境變數：">2.2. 環境變數：</a></li><li><a href=#23-%e4%bd%8d%e7%bd%ae%e5%8f%83%e6%95%b8%e8%ae%8a%e6%95%b8 aria-label="2.3. 位置參數變數：">2.3. 位置參數變數：</a></li><li><a href=#24-%e9%a0%90%e5%ae%9a%e7%be%a9%e8%ae%8a%e6%95%b8 aria-label="2.4. 預定義變數：">2.4. 預定義變數：</a></li></ul></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><blockquote><p><strong>Reference</strong><br><a href=https://blog.csdn.net/w918589859/article/details/108752592>https://blog.csdn.net/w918589859/article/details/108752592</a><br><a href=https://www.w3cschool.cn/linux/linux-Shell.html>https://www.w3cschool.cn/linux/linux-Shell.html</a></p></blockquote><h2 id=一shell-簡介>一、Shell 簡介<a hidden class=anchor aria-hidden=true href=#一shell-簡介>#</a></h2><ul><li>什麼是 Shell?<br>Shell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。<br>Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。</li><li>為什麼要學習和使用 Shell?<br>Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。</li><li>Shell 腳本(Shell script)<br>是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。</li></ul><h2 id=二-shell-入門>二、 Shell 入門<a hidden class=anchor aria-hidden=true href=#二-shell-入門>#</a></h2><h3 id=1-shell-環境>1. Shell 環境<a hidden class=anchor aria-hidden=true href=#1-shell-環境>#</a></h3><ul><li>Shell 編程需要能編寫程式碼的<strong>文本編輯器</strong>和一個能解釋執行的<strong>腳本解釋器</strong>。</li><li>在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。</li><li>Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 <code>#!/bin/sh</code> 也可以被替換成 <code>#!/bin/bash</code></li><li>Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有：<ul><li>Bourne Shell (<code>/usr/bin/sh</code> 或 <code>/bin/sh</code>)</li><li>Bourne Again Shell (<code>/bin/bash</code>)</li><li>C Shell (<code>/usr/bin/csh</code>)</li><li>K Shell (<code>/usr/bin/ksh</code>)</li><li>Shell for Root(<code>sbin/sh</code>)</li><li>&mldr;&mldr;</li></ul></li></ul><hr><h3 id=2-bash-常用快捷鏈>2. Bash 常用快捷鏈<a hidden class=anchor aria-hidden=true href=#2-bash-常用快捷鏈>#</a></h3><table><thead><tr><th style=text-align:center>快捷鏈</th><th style=text-align:left>功能</th></tr></thead><tbody><tr><td style=text-align:center>Ctrl+A</td><td style=text-align:left>把游標移動到命令行開頭。</td></tr><tr><td style=text-align:center>Ctrl+E</td><td style=text-align:left>把游標移動到命令行結尾。</td></tr><tr><td style=text-align:center>Ctrl+C</td><td style=text-align:left>強制終止當前的命令。</td></tr><tr><td style=text-align:center>Ctrl+L</td><td style=text-align:left>清除螢幕，等於 <code>clear</code> 指令。</td></tr><tr><td style=text-align:center>Ctrl+U</td><td style=text-align:left>清除並剪下當前命令。</td></tr><tr><td style=text-align:center>Ctrl+K</td><td style=text-align:left>刪除並剪下游標以後的命令。</td></tr><tr><td style=text-align:center>Ctrl+Y</td><td style=text-align:left>貼上。</td></tr><tr><td style=text-align:center>Ctrl+R</td><td style=text-align:left>在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。</td></tr><tr><td style=text-align:center>Ctrl+D</td><td style=text-align:left>退出當前終端機。</td></tr><tr><td style=text-align:center>Ctrl+Z</td><td style=text-align:left>暫停，並放入後台。</td></tr><tr><td style=text-align:center>Ctrl+S</td><td style=text-align:left>暫停螢幕輸出。</td></tr><tr><td style=text-align:center>Ctrl+Q</td><td style=text-align:left>恢復螢幕輸出。</td></tr></tbody></table><hr><h3 id=3-輸入與輸出-io>3. 輸入與輸出 I/O<a hidden class=anchor aria-hidden=true href=#3-輸入與輸出-io>#</a></h3><ul><li><p><strong>linux 的標準輸入與輸出</strong></p><table><thead><tr><th style=text-align:center>設備</th><th style=text-align:left>設備名</th><th style=text-align:center>文件描述符</th><th style=text-align:left>類型</th></tr></thead><tbody><tr><td style=text-align:center>鍵盤</td><td style=text-align:left>/dev/stdin</td><td style=text-align:center>0</td><td style=text-align:left>標準輸入</td></tr><tr><td style=text-align:center>顯示器</td><td style=text-align:left>/dev/stdout</td><td style=text-align:center>1</td><td style=text-align:left>標準輸出</td></tr><tr><td style=text-align:center>顯示器</td><td style=text-align:left>/dev/stderr</td><td style=text-align:center>2</td><td style=text-align:left>標準錯誤輸出</td></tr></tbody></table></li><li><p><strong>輸入重定向</strong><br>輸入重定向：是指不使用系統提供的標準輸入界面，而進行重新的指定。換言之，輸入重定向就是不使用標準輸入界面輸入文件，而是使用指定的文件作為標準輸入設備。<br>(簡言之就是用 <code>&lt;</code> 來修改標準輸入設備)</p><table><thead><tr><th style=text-align:left>類型</th><th style=text-align:left>語法</th><th style=text-align:left>功能</th></tr></thead><tbody><tr><td style=text-align:left>標準輸入</td><td style=text-align:left><code>command &lt; file</code></td><td style=text-align:left>命令把文件中的內容作為標準輸入設備。</td></tr><tr><td style=text-align:left>標識限定輸入</td><td style=text-align:left><code>command &lt;&lt; tag</code></td><td style=text-align:left>命令讀取標準輸入中的內容，直到遇到<strong>標識符號</strong>為止。</td></tr><tr><td style=text-align:left>輸入輸出重定向(同時使用)</td><td style=text-align:left><code>command &lt; file1 > file2</code></td><td style=text-align:left>命令把文件1中的內容作為標準輸入，把文件2作為標準輸出。</td></tr></tbody></table></li><li><p><strong>輸出重定向</strong><br>輸出重定向：將輸出的文件訊息寫入到指定文件。<br><code>&</code>表示全部文件，文件不管對錯，<code>1</code>表示標準輸出文件、<code>2</code>表示標準錯誤輸出。</p><table><thead><tr><th style=text-align:left>類型</th><th style=text-align:left>語法</th><th style=text-align:left>功能</th></tr></thead><tbody><tr><td style=text-align:left>標註輸出重定向</td><td style=text-align:left><code>command > file</code></td><td style=text-align:left>以覆蓋方式，把命令的正確輸出內容輸出到指定的文件或設備中</td></tr><tr><td style=text-align:left>標註輸出重定向</td><td style=text-align:left><code>command >> file</code></td><td style=text-align:left>以追加方式，把命令的正確輸出內容輸出到指定的文件或設備中</td></tr><tr><td style=text-align:left>標準錯誤輸出重重定向</td><td style=text-align:left><code>err_command 2> file</code></td><td style=text-align:left>以覆蓋方式，把命令的錯誤輸出輸出到指定的文件或設備當中</td></tr><tr><td style=text-align:left>標準錯誤輸出重重定向</td><td style=text-align:left><code>err_command 2>> file</code></td><td style=text-align:left>以追加方式，把令命的錯誤輸出輸出到指定的文件或設備中</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command > file > 2>&amp;1</code></td><td style=text-align:left>以覆蓋的方式，把正確輸出和錯誤輸出都保存到同一個文件</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command >> file 2>&amp;1</code></td><td style=text-align:left>以追加方式，把正確輸出和錯誤輸出都保存到同一個文件</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command &> file</code></td><td style=text-align:left>以覆蓋的方式，把正確輸出和錯誤輸出都保存到同一個文件</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command &>> file</code></td><td style=text-align:left>以追加方式，把正確輸出和錯誤輸出都保存到同一個文件</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command >> file1 2>> file2</code></td><td style=text-align:left>把正確的輸出追加到文件1，把錯誤的輸出追加到文件2中。</td></tr></tbody></table></li><li><p><strong>/dev/null</strong><br>若希望執行某個命令，但又不希望在螢幕上顯示輸出結果，那麼可以將輸出重定向到 <strong>/dev/null</strong> 中。</p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ command &gt; dev/null
+Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?
+Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)
+是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。 二、 Shell 入門 1. Shell 環境 Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有： Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) &mldr;&mldr; 2."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ITs","item":"https://intervalrain.github.io/it/"},{"@type":"ListItem","position":2,"name":"[IT] Shell 筆記","item":"https://intervalrain.github.io/it/shell/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[IT] Shell 筆記","name":"[IT] Shell 筆記","description":"Reference\nhttps://blog.csdn.net/w918589859/article/details/108752592\nhttps://www.w3cschool.cn/linux/linux-Shell.html\n一、Shell 簡介 什麼是 Shell?\nShell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。\nShell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?\nShell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)\n是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。 二、 Shell 入門 1. Shell 環境 Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有： Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) \u0026hellip;\u0026hellip; 2.","keywords":["IT","Linux","Shell"],"articleBody":" Reference\nhttps://blog.csdn.net/w918589859/article/details/108752592\nhttps://www.w3cschool.cn/linux/linux-Shell.html\n一、Shell 簡介 什麼是 Shell?\nShell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。\nShell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。 為什麼要學習和使用 Shell?\nShell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。 Shell 腳本(Shell script)\n是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。 二、 Shell 入門 1. Shell 環境 Shell 編程需要能編寫程式碼的文本編輯器和一個能解釋執行的腳本解釋器。 在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。 Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 #!/bin/sh 也可以被替換成 #!/bin/bash Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有： Bourne Shell (/usr/bin/sh 或 /bin/sh) Bourne Again Shell (/bin/bash) C Shell (/usr/bin/csh) K Shell (/usr/bin/ksh) Shell for Root(sbin/sh) …… 2. Bash 常用快捷鏈 快捷鏈 功能 Ctrl+A 把游標移動到命令行開頭。 Ctrl+E 把游標移動到命令行結尾。 Ctrl+C 強制終止當前的命令。 Ctrl+L 清除螢幕，等於 clear 指令。 Ctrl+U 清除並剪下當前命令。 Ctrl+K 刪除並剪下游標以後的命令。 Ctrl+Y 貼上。 Ctrl+R 在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。 Ctrl+D 退出當前終端機。 Ctrl+Z 暫停，並放入後台。 Ctrl+S 暫停螢幕輸出。 Ctrl+Q 恢復螢幕輸出。 3. 輸入與輸出 I/O linux 的標準輸入與輸出\n設備 設備名 文件描述符 類型 鍵盤 /dev/stdin 0 標準輸入 顯示器 /dev/stdout 1 標準輸出 顯示器 /dev/stderr 2 標準錯誤輸出 輸入重定向\n輸入重定向：是指不使用系統提供的標準輸入界面，而進行重新的指定。換言之，輸入重定向就是不使用標準輸入界面輸入文件，而是使用指定的文件作為標準輸入設備。\n(簡言之就是用 \u003c 來修改標準輸入設備)\n類型 語法 功能 標準輸入 command \u003c file 命令把文件中的內容作為標準輸入設備。 標識限定輸入 command \u003c\u003c tag 命令讀取標準輸入中的內容，直到遇到標識符號為止。 輸入輸出重定向(同時使用) command \u003c file1 \u003e file2 命令把文件1中的內容作為標準輸入，把文件2作為標準輸出。 輸出重定向\n輸出重定向：將輸出的文件訊息寫入到指定文件。\n\u0026表示全部文件，文件不管對錯，1表示標準輸出文件、2表示標準錯誤輸出。\n類型 語法 功能 標註輸出重定向 command \u003e file 以覆蓋方式，把命令的正確輸出內容輸出到指定的文件或設備中 標註輸出重定向 command \u003e\u003e file 以追加方式，把命令的正確輸出內容輸出到指定的文件或設備中 標準錯誤輸出重重定向 err_command 2\u003e file 以覆蓋方式，把命令的錯誤輸出輸出到指定的文件或設備當中 標準錯誤輸出重重定向 err_command 2\u003e\u003e file 以追加方式，把令命的錯誤輸出輸出到指定的文件或設備中 正確輸出和錯誤輸出同時保存 command \u003e file \u003e 2\u003e\u00261 以覆蓋的方式，把正確輸出和錯誤輸出都保存到同一個文件 正確輸出和錯誤輸出同時保存 command \u003e\u003e file 2\u003e\u00261 以追加方式，把正確輸出和錯誤輸出都保存到同一個文件 正確輸出和錯誤輸出同時保存 command \u0026\u003e file 以覆蓋的方式，把正確輸出和錯誤輸出都保存到同一個文件 正確輸出和錯誤輸出同時保存 command \u0026\u003e\u003e file 以追加方式，把正確輸出和錯誤輸出都保存到同一個文件 正確輸出和錯誤輸出同時保存 command \u003e\u003e file1 2\u003e\u003e file2 把正確的輸出追加到文件1，把錯誤的輸出追加到文件2中。 /dev/null\n若希望執行某個命令，但又不希望在螢幕上顯示輸出結果，那麼可以將輸出重定向到 /dev/null 中。\n[root@localhost ~]$ command \u003e dev/null 4. 多命令順序執行 多命令執行符 作用 格式 ; 命令1;命令2 多個命令順序執行，命令之間沒有任何邏輯關係。 \u0026\u0026 命令1\u0026\u0026命令2 當命令1正確執行，命令2才會執行；當命令1執行不正確，則命令2不會執行。 || 命令1||命令2 當命令1正確執行，命令2不執行；當命令1執行不正確，則命令2才會執行。 5. Shell 腳本(Shell script) 撰寫腳本\n[root@localhost ~]$ vim test.sh #!/bin/bash echo \"hello world\" #! 是一個約定的標記，它告訴系統這個腳本需要什麼解釋器來執行，即使用哪一種 Shell。 echo 命令用於向 Console 輸出文本。 file.sh .sh是linux下 bash Shell 的預設副檔名 執行方法\n增加執行權限 [root@localhost ~]$ chmod u+x test.sh // 對所有user增加對當前目錄下的test.sh文件的執行權限 [root@localhost ~]$ ./test.sh chmod: change the permissions mode of a file u: user +x: 增加執行權限 通過 bash 調用執行腳本 [root@localhost ~]$ bash test.sh 三、 Shell 變數 1. 變數的命名規則 首個字元必須為英文字母 (a-z，A-Z) 中間不能有空格，可以用底線(_)取代。 不能使用標點符號。 不能使用關鍵字(可用 help 查看保留關鍵字)。 環境變數習慣大寫，便於區分。 調用變數示例\n[root@localhost ~]$ test=123 [root@localhost ~]$ test=\"$test\"456 [root@localhost ~]$ echo $test 123456 [root@localhost ~]$ test=${test}789 [root@localhost ~]$ echo $test 123456789 Shell 中的特殊符號\n符號 作用 '' 在單引號中所有字元都是普通字元，照原樣輸出。 \"\" 在雙引號中只有 $ 與 ` 和 \\ 是有特殊含義，分別是調用變數、引用命令和轉義。 `` 在反引號中的內容是系統命令，在 Bash 中會先執行，與 () 作用一樣，但不推薦使用。 $() 和反引號作用相同，用來引用系統命令。 () 用於一串命令執行時，() 中的命令會在子 Shell 中運行。 {} 用於一串命令執行時，{} 中的命令會在當前 Shell 中執行。也可以用於變數變形與替換。 [] 用於變數的測試。 # 用於注釋。 $ 用於調用變數的值。 \\ 用於轉義。 單引號與雙引號示例\n[root@localhost ~]$ name=rain [root@localhost ~]$ echo '$name' $name [root@localhost ~]$ echo \"$name\" rain [root@localhost ~]$ echo `date` 2023年 1月17日 週二 21時23分45秒 CST [root@localhost ~]$ echo '`date`' `date` [root@localhost ~]$ echo \"`date`\" 2023年 1月17日 週二 21時24分00秒 CST 反引號示例\n[root@localhost ~]$ echo ls ls [root@localhost ~]$ echo `ls` words.txt [root@localhost ~]$ echo $(date) 2023年 1月17日 週二 21時28分42秒 CST 2. 變數的分類 變數分類 名稱 作用 內容 自定義變數 自定義 自定義 自定義 使用自定義環境變數 自定義 自定義 自定義 系統環境變數 預定 預定 自定義 位置參數變數 預定 自定義 自定義 預定義變數 預定 自定義 自定義 2.1. 自定義變數： 最常見的變數，由使用者自由定義變數名稱與值。 使用 $ 調用變數。 使用 set [選項] 設定 -u：調用未宣告變數時會報錯(預設未無提示) -x：在命令執行之前，會把命令先輸出一次 +\u003c參數\u003e：取消某個曾啟動過的參數 set：查詢系統中所有的變量，包含自定義變數與環境變數 unset 變數名稱：刪除變數 2.2. 環境變數： 主要保存和系統操作環境相關的數據，比如當前登錄的使用者名稱，使用者的根目錄、命令的提示符等。一般對系統起作用的環境變數名稱是系統預定好的。 使用 export 宣告的變數即是環境變數 使用 env 查看環境變數 2.3. 位置參數變數： 用來向腳本當中傳遞參數或數據的，變數名稱不能自定義，變數作用是固定的。 $n：n 為數字，$0表示當前 Shell 腳本程式的名稱，10以上需加大括號。 $*：代表命令行中所有參數，$把所有參數看成一個整體。 $@：代表命令行中所有參數，不過$把每個參數區分對待。 $#：代表命令行中所有參數的個數 腳本示例1\n#!/bin/sh echo \"shell's name: $0\" echo \"shell's first argument: $1\" echo \"shell's second argument: $2\" [root@localhost ~]$ bash test.sh 1 2 shell's name: test.sh shell's first argument: 1 shell's second arguemnt: 2 腳本示例2\n#!/bin/sh for i in \"$*\" do echo \"The parameter is: $i\" done x=1 for y in \"$@\" do echo \"The parameter$x is: $y\" x=$(( $x +1 )) done [root@localhost ~]$ bash par.sh 1 2 3 4 5 6 The parameter is: 1 2 3 4 5 6 The parameter1 is: 1 The parameter2 is: 2 The parameter3 is: 3 The parameter4 is: 4 The parameter5 is: 5 The parameter6 is: 6 2.4. 預定義變數： 是Bash中已經定義好的變數，變數名稱不能自定義，變數作用也是固定的。 預定義變數 作用 $? 最後一次執行的命令的返回狀態。如果這個變數的值為 0，表示上一個命令正確執行；如果這個變數的值非 0(具體為哪個數，由命令自己決定)，則表示上一個命令執行不正確。 $$ 當前程式的程式號(PID) $! 後台運行的最後一個程式的程式號(PID) 腳本示例1\n[root@localhost ~]$ ls count.sh hello.sh parameter.sh [root@localhost ~]$ echo $? 0 [root@localhost ~]$ ls install.log ls: install.log: No such file or directory [root@localhost ~]$ echo $? 1 ","wordCount":"635","inLanguage":"en","datePublished":"2023-01-12T23:34:41+08:00","dateModified":"2023-01-12T23:34:41+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://intervalrain.github.io/it/shell/"},"publisher":{"@type":"Organization","name":"Rain Hu's Workspace","logo":{"@type":"ImageObject","url":"https://intervalrain.github.io/images/rain.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://intervalrain.github.io/ accesskey=h title="Rain Hu's Workspace (Alt + H)"><img src=https://intervalrain.github.io/images/rain.png alt=logo aria-label=logo height=35>Rain Hu's Workspace</a>
+<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li></ul></span></div><ul id=menu><li><a href=https://intervalrain.github.io/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://intervalrain.github.io/aboutme title="About me"><span>About me</span></a></li><li><a href=https://intervalrain.github.io/archives title=Archives><span>Archives</span></a></li><li><a href=https://intervalrain.github.io/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://intervalrain.github.io/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://intervalrain.github.io/csharp/csharp title=C#><span>C#</span></a></li><li><a href=https://intervalrain.github.io/csindex title=CS><span>CS</span></a></li><li><a href=https://intervalrain.github.io/leetcode title=LeetCode><span>LeetCode</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://intervalrain.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://intervalrain.github.io/it/>ITs</a></div><h1 class=post-title>[IT] Shell 筆記</h1><div class=post-meta>&lt;span title='2023-01-12 23:34:41 +0800 +0800'>January 12, 2023&lt;/span>&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;Rain Hu&nbsp;|&nbsp;<a href=https://github.com/intervalrain/intervalrain.github.io/tree/main/content//IT/shell.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e4%b8%80shell-%e7%b0%a1%e4%bb%8b aria-label="一、Shell 簡介">一、Shell 簡介</a></li><li><a href=#%e4%ba%8c-shell-%e5%85%a5%e9%96%80 aria-label="二、 Shell 入門">二、 Shell 入門</a><ul><li><a href=#1-shell-%e7%92%b0%e5%a2%83 aria-label="1. Shell 環境">1. Shell 環境</a></li><li><a href=#2-bash-%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e9%8f%88 aria-label="2. Bash 常用快捷鏈">2. Bash 常用快捷鏈</a></li><li><a href=#3-%e8%bc%b8%e5%85%a5%e8%88%87%e8%bc%b8%e5%87%ba-io aria-label="3. 輸入與輸出 I/O">3. 輸入與輸出 I/O</a></li><li><a href=#4-%e5%a4%9a%e5%91%bd%e4%bb%a4%e9%a0%86%e5%ba%8f%e5%9f%b7%e8%a1%8c aria-label="4. 多命令順序執行">4. 多命令順序執行</a></li><li><a href=#5-shell-%e8%85%b3%e6%9c%acshell-script aria-label="5. Shell 腳本(Shell script)">5. Shell 腳本(Shell script)</a></li></ul></li><li><a href=#%e4%b8%89-shell-%e8%ae%8a%e6%95%b8 aria-label="三、 Shell 變數">三、 Shell 變數</a><ul><li><a href=#1-%e8%ae%8a%e6%95%b8%e7%9a%84%e5%91%bd%e5%90%8d%e8%a6%8f%e5%89%87 aria-label="1. 變數的命名規則">1. 變數的命名規則</a></li><li><a href=#2-%e8%ae%8a%e6%95%b8%e7%9a%84%e5%88%86%e9%a1%9e aria-label="2. 變數的分類">2. 變數的分類</a><ul><li><a href=#21-%e8%87%aa%e5%ae%9a%e7%be%a9%e8%ae%8a%e6%95%b8 aria-label="2.1. 自定義變數：">2.1. 自定義變數：</a></li><li><a href=#22-%e7%92%b0%e5%a2%83%e8%ae%8a%e6%95%b8 aria-label="2.2. 環境變數：">2.2. 環境變數：</a></li><li><a href=#23-%e4%bd%8d%e7%bd%ae%e5%8f%83%e6%95%b8%e8%ae%8a%e6%95%b8 aria-label="2.3. 位置參數變數：">2.3. 位置參數變數：</a></li><li><a href=#24-%e9%a0%90%e5%ae%9a%e7%be%a9%e8%ae%8a%e6%95%b8 aria-label="2.4. 預定義變數：">2.4. 預定義變數：</a></li></ul></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><blockquote><p><strong>Reference</strong><br><a href=https://blog.csdn.net/w918589859/article/details/108752592>https://blog.csdn.net/w918589859/article/details/108752592</a><br><a href=https://www.w3cschool.cn/linux/linux-Shell.html>https://www.w3cschool.cn/linux/linux-Shell.html</a></p></blockquote><h2 id=一shell-簡介>一、Shell 簡介<a hidden class=anchor aria-hidden=true href=#一shell-簡介>#</a></h2><ul><li>什麼是 Shell?<br>Shell 是一個用 C 語言編寫的程式，它是使用者使用 Linux 的橋樑。Shell 既是一種命令語言，又是一種程式設計語言。<br>Shell 是指一種應用程式，這個應用程式提供了一個界面，使用者通過這個界面訪問作業系統核心(kernel)的服務。</li><li>為什麼要學習和使用 Shell?<br>Shell 屬於內建的腳本，程序開發的效率非常高，依賴於功能強大的命令可以迅速的完成開發任務(批次處理)。</li><li>Shell 腳本(Shell script)<br>是一種為 Shell 編寫的腳本程式。業界所說的 Shell 通常都是指 Shell 腳本。</li></ul><h2 id=二-shell-入門>二、 Shell 入門<a hidden class=anchor aria-hidden=true href=#二-shell-入門>#</a></h2><h3 id=1-shell-環境>1. Shell 環境<a hidden class=anchor aria-hidden=true href=#1-shell-環境>#</a></h3><ul><li>Shell 編程需要能編寫程式碼的<strong>文本編輯器</strong>和一個能解釋執行的<strong>腳本解釋器</strong>。</li><li>在 linux 中有很多類型的 Shell，不同的 Shell 具備不同的功能，Shell 還決定了腳本中函數的語法。</li><li>Bash 是 Linux 中默認的 Shell。一般情況下，人們不區分 Bourne Shell 和 Bourne Again Shell，所以 <code>#!/bin/sh</code> 也可以被替換成 <code>#!/bin/bash</code></li><li>Linux 的 Shell 種類眾多，不同的 Shell 都有自己的特點以及用途，常見的有：<ul><li>Bourne Shell (<code>/usr/bin/sh</code> 或 <code>/bin/sh</code>)</li><li>Bourne Again Shell (<code>/bin/bash</code>)</li><li>C Shell (<code>/usr/bin/csh</code>)</li><li>K Shell (<code>/usr/bin/ksh</code>)</li><li>Shell for Root(<code>sbin/sh</code>)</li><li>&mldr;&mldr;</li></ul></li></ul><hr><h3 id=2-bash-常用快捷鏈>2. Bash 常用快捷鏈<a hidden class=anchor aria-hidden=true href=#2-bash-常用快捷鏈>#</a></h3><table><thead><tr><th style=text-align:center>快捷鏈</th><th style=text-align:left>功能</th></tr></thead><tbody><tr><td style=text-align:center>Ctrl+A</td><td style=text-align:left>把游標移動到命令行開頭。</td></tr><tr><td style=text-align:center>Ctrl+E</td><td style=text-align:left>把游標移動到命令行結尾。</td></tr><tr><td style=text-align:center>Ctrl+C</td><td style=text-align:left>強制終止當前的命令。</td></tr><tr><td style=text-align:center>Ctrl+L</td><td style=text-align:left>清除螢幕，等於 <code>clear</code> 指令。</td></tr><tr><td style=text-align:center>Ctrl+U</td><td style=text-align:left>清除並剪下當前命令。</td></tr><tr><td style=text-align:center>Ctrl+K</td><td style=text-align:left>刪除並剪下游標以後的命令。</td></tr><tr><td style=text-align:center>Ctrl+Y</td><td style=text-align:left>貼上。</td></tr><tr><td style=text-align:center>Ctrl+R</td><td style=text-align:left>在歷史命令中搜索，按下 Ctrl+R 之後，就會出現搜索界面，只要輸入搜索內容，就會從歷史命令中搜索。</td></tr><tr><td style=text-align:center>Ctrl+D</td><td style=text-align:left>退出當前終端機。</td></tr><tr><td style=text-align:center>Ctrl+Z</td><td style=text-align:left>暫停，並放入後台。</td></tr><tr><td style=text-align:center>Ctrl+S</td><td style=text-align:left>暫停螢幕輸出。</td></tr><tr><td style=text-align:center>Ctrl+Q</td><td style=text-align:left>恢復螢幕輸出。</td></tr></tbody></table><hr><h3 id=3-輸入與輸出-io>3. 輸入與輸出 I/O<a hidden class=anchor aria-hidden=true href=#3-輸入與輸出-io>#</a></h3><ul><li><p><strong>linux 的標準輸入與輸出</strong></p><table><thead><tr><th style=text-align:center>設備</th><th style=text-align:left>設備名</th><th style=text-align:center>文件描述符</th><th>類型</th></tr></thead><tbody><tr><td style=text-align:center>鍵盤</td><td style=text-align:left>/dev/stdin</td><td style=text-align:center>0</td><td>標準輸入</td></tr><tr><td style=text-align:center>顯示器</td><td style=text-align:left>/dev/stdout</td><td style=text-align:center>1</td><td>標準輸出</td></tr><tr><td style=text-align:center>顯示器</td><td style=text-align:left>/dev/stderr</td><td style=text-align:center>2</td><td>標準錯誤輸出</td></tr></tbody></table></li><li><p><strong>輸入重定向</strong><br>輸入重定向：是指不使用系統提供的標準輸入界面，而進行重新的指定。換言之，輸入重定向就是不使用標準輸入界面輸入文件，而是使用指定的文件作為標準輸入設備。<br>(簡言之就是用 <code>&lt;</code> 來修改標準輸入設備)</p><table><thead><tr><th style=text-align:left>類型</th><th style=text-align:left>語法</th><th style=text-align:left>功能</th></tr></thead><tbody><tr><td style=text-align:left>標準輸入</td><td style=text-align:left><code>command &lt; file</code></td><td style=text-align:left>命令把文件中的內容作為標準輸入設備。</td></tr><tr><td style=text-align:left>標識限定輸入</td><td style=text-align:left><code>command &lt;&lt; tag</code></td><td style=text-align:left>命令讀取標準輸入中的內容，直到遇到<strong>標識符號</strong>為止。</td></tr><tr><td style=text-align:left>輸入輸出重定向(同時使用)</td><td style=text-align:left><code>command &lt; file1 > file2</code></td><td style=text-align:left>命令把文件1中的內容作為標準輸入，把文件2作為標準輸出。</td></tr></tbody></table></li><li><p><strong>輸出重定向</strong><br>輸出重定向：將輸出的文件訊息寫入到指定文件。<br><code>&</code>表示全部文件，文件不管對錯，<code>1</code>表示標準輸出文件、<code>2</code>表示標準錯誤輸出。</p><table><thead><tr><th style=text-align:left>類型</th><th style=text-align:left>語法</th><th style=text-align:left>功能</th></tr></thead><tbody><tr><td style=text-align:left>標註輸出重定向</td><td style=text-align:left><code>command > file</code></td><td style=text-align:left>以覆蓋方式，把命令的正確輸出內容輸出到指定的文件或設備中</td></tr><tr><td style=text-align:left>標註輸出重定向</td><td style=text-align:left><code>command >> file</code></td><td style=text-align:left>以追加方式，把命令的正確輸出內容輸出到指定的文件或設備中</td></tr><tr><td style=text-align:left>標準錯誤輸出重重定向</td><td style=text-align:left><code>err_command 2> file</code></td><td style=text-align:left>以覆蓋方式，把命令的錯誤輸出輸出到指定的文件或設備當中</td></tr><tr><td style=text-align:left>標準錯誤輸出重重定向</td><td style=text-align:left><code>err_command 2>> file</code></td><td style=text-align:left>以追加方式，把令命的錯誤輸出輸出到指定的文件或設備中</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command > file > 2>&amp;1</code></td><td style=text-align:left>以覆蓋的方式，把正確輸出和錯誤輸出都保存到同一個文件</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command >> file 2>&amp;1</code></td><td style=text-align:left>以追加方式，把正確輸出和錯誤輸出都保存到同一個文件</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command &> file</code></td><td style=text-align:left>以覆蓋的方式，把正確輸出和錯誤輸出都保存到同一個文件</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command &>> file</code></td><td style=text-align:left>以追加方式，把正確輸出和錯誤輸出都保存到同一個文件</td></tr><tr><td style=text-align:left>正確輸出和錯誤輸出同時保存</td><td style=text-align:left><code>command >> file1 2>> file2</code></td><td style=text-align:left>把正確的輸出追加到文件1，把錯誤的輸出追加到文件2中。</td></tr></tbody></table></li><li><p><strong>/dev/null</strong><br>若希望執行某個命令，但又不希望在螢幕上顯示輸出結果，那麼可以將輸出重定向到 <strong>/dev/null</strong> 中。</p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ command &gt; dev/null
 </span></span></code></pre></div><hr><h3 id=4-多命令順序執行>4. 多命令順序執行<a hidden class=anchor aria-hidden=true href=#4-多命令順序執行>#</a></h3><table><thead><tr><th style=text-align:center>多命令執行符</th><th style=text-align:center>作用</th><th style=text-align:left>格式</th></tr></thead><tbody><tr><td style=text-align:center>;</td><td style=text-align:center>命令1;命令2</td><td style=text-align:left>多個命令順序執行，命令之間沒有任何邏輯關係。</td></tr><tr><td style=text-align:center>&&</td><td style=text-align:center>命令1&&命令2</td><td style=text-align:left>當命令1正確執行，命令2才會執行；當命令1執行不正確，則命令2不會執行。</td></tr><tr><td style=text-align:center>||</td><td style=text-align:center>命令1||命令2</td><td style=text-align:left>當命令1正確執行，命令2不執行；當命令1執行不正確，則命令2才會執行。</td></tr></tbody></table><hr><h3 id=5-shell-腳本shell-script>5. Shell 腳本(Shell script)<a hidden class=anchor aria-hidden=true href=#5-shell-腳本shell-script>#</a></h3><p><strong>撰寫腳本</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ vim test.sh
 </span></span><span style=display:flex><span><span style=color:#75715e>#!/bin/bash</span>
 </span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;hello world&#34;</span>
@@ -302,7 +35,7 @@ linux 的標準輸入與輸出"><script type=application/ld+json>{"@context":"ht
 </span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ test<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>test<span style=color:#e6db74>}</span><span style=color:#ae81ff>789</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ echo $test
 </span></span><span style=display:flex><span><span style=color:#ae81ff>123456789</span>
-</span></span></code></pre></div><p><strong>Shell 中的特殊符號</strong></p><table><thead><tr><th style=text-align:left>符號</th><th style=text-align:left>作用</th></tr></thead><tbody><tr><td style=text-align:left>''</td><td style=text-align:left>在單引號中所有字元都是普通字元，照原樣輸出。</td></tr><tr><td style=text-align:left>""</td><td style=text-align:left>在雙引號中只有 $ 與 ` 和 \ 是有特殊含義，分別是<strong>調用變數</strong>、<strong>引用命令</strong>和<strong>轉義</strong>。</td></tr><tr><td style=text-align:left>``</td><td style=text-align:left>在反引號中的內容是系統命令，在 Bash 中會先執行，與 () 作用一樣，但不推薦使用。</td></tr><tr><td style=text-align:left>$()</td><td style=text-align:left>和反引號作用相同，用來引用系統命令。</td></tr><tr><td style=text-align:left>()</td><td style=text-align:left>用於一串命令執行時，() 中的命令會在子 Shell 中運行。</td></tr><tr><td style=text-align:left>{}</td><td style=text-align:left>用於一串命令執行時，{} 中的命令會在當前 Shell 中執行。也可以用於變數變形與替換。</td></tr><tr><td style=text-align:left>[]</td><td style=text-align:left>用於變數的測試。</td></tr><tr><td style=text-align:left>#</td><td style=text-align:left>用於注釋。</td></tr><tr><td style=text-align:left>$</td><td style=text-align:left>用於調用變數的值。</td></tr><tr><td style=text-align:left>\</td><td style=text-align:left>用於轉義。</td></tr></tbody></table><p><em>單引號與雙引號示例</em></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ name<span style=color:#f92672>=</span>rain
+</span></span></code></pre></div><p><strong>Shell 中的特殊符號</strong></p><table><thead><tr><th>符號</th><th>作用</th></tr></thead><tbody><tr><td>''</td><td>在單引號中所有字元都是普通字元，照原樣輸出。</td></tr><tr><td>""</td><td>在雙引號中只有 $ 與 ` 和 \ 是有特殊含義，分別是<strong>調用變數</strong>、<strong>引用命令</strong>和<strong>轉義</strong>。</td></tr><tr><td>``</td><td>在反引號中的內容是系統命令，在 Bash 中會先執行，與 () 作用一樣，但不推薦使用。</td></tr><tr><td>$()</td><td>和反引號作用相同，用來引用系統命令。</td></tr><tr><td>()</td><td>用於一串命令執行時，() 中的命令會在子 Shell 中運行。</td></tr><tr><td>{}</td><td>用於一串命令執行時，{} 中的命令會在當前 Shell 中執行。也可以用於變數變形與替換。</td></tr><tr><td>[]</td><td>用於變數的測試。</td></tr><tr><td>#</td><td>用於注釋。</td></tr><tr><td>$</td><td>用於調用變數的值。</td></tr><tr><td>\</td><td>用於轉義。</td></tr></tbody></table><p><em>單引號與雙引號示例</em></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ name<span style=color:#f92672>=</span>rain
 </span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ echo <span style=color:#e6db74>&#39;$name&#39;</span>
 </span></span><span style=display:flex><span>$name
 </span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@localhost ~<span style=color:#f92672>]</span>$ echo <span style=color:#e6db74>&#34;</span>$name<span style=color:#e6db74>&#34;</span>
@@ -357,5 +90,5 @@ linux 的標準輸入與輸出"><script type=application/ld+json>{"@context":"ht
 </span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://intervalrain.github.io/tags/it/>IT</a></li><li><a href=https://intervalrain.github.io/tags/linux/>Linux</a></li><li><a href=https://intervalrain.github.io/tags/shell/>Shell</a></li></ul></footer><script src=https://utteranc.es/client.js repo=Reid00/hugo-blog-talks issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2024 <a href=https://intervalrain.github.io/>Rain Hu's Workspace</a></span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerText="copy";function s(){t.innerText="copied!",setTimeout(()=>{t.innerText="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
