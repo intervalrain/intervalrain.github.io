@@ -75,6 +75,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Verilogs"/>
 <meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"/>
+<meta name="twitter:site" content="@intervalrain"/>
 
 
 <script type="application/ld+json">
@@ -200,7 +201,7 @@
 6. CS450
 1 Getting Started \(\text{assign one}\)  Build a circuit with no inputs and one output. The output should always drive 1 (or logic high).  module top_module( output one);   assign one = 1&#39;b1;  endmodule  \(\text{assign zero}\)  Build a circuit with no inputs and one output that outputs a constant 0....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [VHDL] HDLbits 1 - Getting Started" href="https://intervalrain.github.io/verilog/hdlbits1/"></a>
 </article>
 
@@ -220,7 +221,7 @@
 6. CS450
 2 Verilog Language 2.1 Basics wire  Create a module with one input and ont output that behaves like a wire   module top_module( input in, output out);   assign out = in;  endmodule  multi-in-out  Create a module with 3 inputs and 4 outputs that behaves like wires that makes these connections:   module top_module(  input a,b,c,  output w,x,y,z );   assign w = a;  assign x = b;  assign y = b;  assign z = c;  endmodule  not gate  Create a module that implements a NOT gate....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;27 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;27 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [VHDL] HDLbits 2 - Verilog Language" href="https://intervalrain.github.io/verilog/hdlbits2/"></a>
 </article>
 
@@ -240,7 +241,7 @@
 6. CS450
 3 Circuits 3.1 Combinational Logic 3.1.1 Basic Gates Wire module top_module (  input in,  output out);   assign out = in;  endmodule  GND module top_module (  output out);   assign out = 1&#39;b0;  endmodule  NOR module top_module (  input in1,  input in2,  output out);   assign out = ~(in1|in2);  endmodule  Another Gate module top_module (  input in1,  input in2,  output out);   assign out = in1 &amp; (~in2);  endmodule  Two gates module top_module (  input in1,  input in2,  input in3,  output out);   wire w1;   assign w1 = ~(in1^in2);  assign out = w1^in3;  endmodule  More logic gates module top_module(  input a, b,  output out_and,  output out_or,  output out_xor,  output out_nand,  output out_nor,  output out_xnor,  output out_anotb );   assign out_and = a &amp; b;  assign out_or = a | b;  assign out_xor = a ^ b;  assign out_nand = ~(a &amp; b);  assign out_nor = ~(a | b);  assign out_xnor = ~(a ^ b);  assign out_anotb = a &amp; (~b);  // and(out_and, a, b); // or(out_or, a, b); // xor(out_xor, a, b); // nand(out_nand, a, b); // nor(out_nor, a, b); // xnor(out_xnor, a, b); // and(out_anotb, a , ~b);  endmodule  7420 chip module top_module (  input p1a, p1b, p1c, p1d,  output p1y,  input p2a, p2b, p2c, p2d,  output p2y );   assign p1y = ~(p1a &amp; p1b &amp; p1c &amp; p1d);  assign p2y = ~(p2a &amp; p2b &amp; p2c &amp; p2d);  endmodule\  Truth tables \(\begin{array}{|c|ccc|c|}\hline \text{Row}&amp;&amp;\text{Inputs}&amp;&amp;\text{Outputs}\\\hline \text{number}&amp;\text{x3}&amp;\text{x2}&amp;\text{x1}&amp;\text{f}\\\hline 0&amp;0&amp;0&amp;0&amp;0\\\hline 1&amp;0&amp;0&amp;1&amp;0\\\hline 2&amp;0&amp;1&amp;0&amp;1\\\hline 3&amp;0&amp;1&amp;1&amp;1\\\hline 4&amp;1&amp;0&amp;0&amp;0\\\hline 5&amp;1&amp;0&amp;1&amp;1\\\hline 6&amp;1&amp;1&amp;0&amp;0\\\hline 7&amp;1&amp;1&amp;1&amp;1\\\hline \end{array module top_module(  input x3,  input x2,  input x1,  output f );   assign f = ((~x3)&amp;x2)|(x3&amp;x1);  endmodule   Two-bit equality  Create a circuit that has two 2-bit inputs A[1:0] and B[1:0], and produces an output z....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;18 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;18 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [VHDL] HDLbits 3 - Circuits" href="https://intervalrain.github.io/verilog/hdlbits3/"></a>
 </article>
 
@@ -259,7 +260,7 @@
 5. Verification: Writing Testbenches
 6. CS450</p>
   </section>
-  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [VHDL] HDLbits 4 - Verification: Reading Simulations" href="https://intervalrain.github.io/verilog/hdlbits4/"></a>
 </article>
 
@@ -278,7 +279,7 @@
 5. Verification: Writing Testbenches
 6. CS450</p>
   </section>
-  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [VHDL] HDLbits 5 - Verification: Writing Testbenches" href="https://intervalrain.github.io/verilog/hdlbits5/"></a>
 </article>
 
@@ -297,7 +298,7 @@
 5. Verification: Writing Testbenches
 6. CS450</p>
   </section>
-  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [VHDL] HDLbits 6 - CS450" href="https://intervalrain.github.io/verilog/hdlbits6/"></a>
 </article>
 
@@ -311,7 +312,7 @@
   <section class="entry-content">
     <p>1 Verilog HDL 1.1 Verilog 簡介  一套硬體描述語言  輔助設計數位系統 描述電路的行為 電子自動化工具   類似C語言的硬體描述語言  易學、容易接受 高階行為描述 切勿使用軟體思維(循序)撰寫(硬體描述語言多是並行的)   支援多種硬體層級的描述方式  從低階到高階模式 依照不同的方法設計   支援階層式的設計方法  樹狀式的設計結構 由繁化簡    1.2 Verilog 的模型 1.2.1 電晶體層級  Transistor Level 或低階交換層次模型(Switch Level Model) Verilog 最低階的層次模型 電路是由開關與電晶體所組成 一般不會採取低階的層級來進行設計  1.2.2 邏輯閘層級  Gate Level 使用基本的邏輯閘元件 AND、OR、NOT 邏輯電路圖  1.2.3 資料流層級  Data Flow Level 描述電路中資料的處理方式 資料如何在電路中運算及傳送 輸入持續驅動輸出 運算式  如：out = a &#43; b &#43; c    1....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-05-01 17:37:22 +0800 CST'>May 1, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-05-01 17:37:22 +0800 CST'>May 1, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [VHDL] Verilog Hardware Description Language" href="https://intervalrain.github.io/verilog/intro/"></a>
 </article>
     </main>

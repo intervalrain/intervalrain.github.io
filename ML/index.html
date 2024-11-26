@@ -75,6 +75,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MLs"/>
 <meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"/>
+<meta name="twitter:site" content="@intervalrain"/>
 
 
 <script type="application/ld+json">
@@ -191,7 +192,7 @@
   <section class="entry-content">
     <p>建構模型  Dense(units, activation) units 為 output_size，keras 已經處理好自動計算 input_size 的部分。 activation function  relu: Rectified Linear Unit, ReLU softmax: 對陣列中所有元素做自然對數取值後，在做 normalize，目的是放大最大權重的元素，並且將所有值換成 0~1 的值，意義類似機率。    model.keras.Sequential([ Dense(32, activation=&#34;relu&#34;), Dense(64, activation=&#34;relu&#34;), Dense(32, activation=&#34;relu&#34;), Dense(10, activation=&#34;softmax&#34;), ]) 編譯  損失函數(目標函數) loss function  CategoricalCrossentropy SparseCategoricalCrossentropy BinaryCrossentropy MeanSquareError KLDivergence CosineSimilarity …   優化器 optimizer  SGD (可搭配 momemtum) RMSprop Adam Adagrad …   評量指標 metrics  CategoricalAccuracy SparseCategoricalAccuracy BinaryAccuracy AUC Precision Recall …    以下範例兩種型式都可以。其中物件的用法可以使用客製化的條件。...</p>
   </section>
-  <footer class="entry-footer"><span title='2024-02-14 15:39:25 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2024-02-14 15:39:25 +0800 CST'>February 14, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [ML] 選擇 loss function/ optimizer/ metrics" href="https://intervalrain.github.io/ml/optimizer/"></a>
 </article>
 
@@ -203,7 +204,7 @@
   <section class="entry-content">
     <p> Loss on training data  large:  model bias -&gt; add features optimization -&gt; change optimization methods   small:  loss on testing data  large:  overfitting:  (1) more training data, data augmentation (2) make model simpler     small:  mismatch          </p>
   </section>
-  <footer class="entry-footer"><span title='2024-01-14 14:31:56 +0800 CST'>January 14, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2024-01-14 14:31:56 +0800 CST'>January 14, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [ML] General guide on ML" href="https://intervalrain.github.io/ml/general_guide/"></a>
 </article>
 
@@ -216,7 +217,7 @@
     <p>MNIST NIST(National Insitute of Standards and Technology) 是美國國家標準與技術研究院，MNIST 是由 NIST 所提供的一組經典的機器學習測資，可以想成是深度學習中的「Hello World!」，它由 60000張 訓練圖片與 10000 張測試圖片所組成，為手寫數字的灰階圖片，大小為 28 * 28 像素，分類 0 到 9 共 10 個數字。
  可透過 keras 模組直接取得資料  &gt;&gt;&gt; from tensorflow.keras.datasets import mnist  輸入 mnist.load_data() 可取得 mnist 資料集，回傳值為 2*2 的 tuple of ndarray。  &gt;&gt;&gt; (train_images, train_labels), (test_images, test_labels) = mnist.load_data()  tuple 裡面裝載的是 NumPy 的 ndarray 物件，我們可以利用  o.shape 來取得 ndarray 的屬性 len(o) 來取得陣列的個數    &gt;&gt;&gt; train_images....</p>
   </section>
-  <footer class="entry-footer"><span title='2023-10-28 14:11:35 +0800 CST'>October 28, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2023-10-28 14:11:35 +0800 CST'>October 28, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [ML] sample1 - 手寫數字辨識" href="https://intervalrain.github.io/ml/ex1/"></a>
 </article>
 
@@ -228,7 +229,7 @@
   <section class="entry-content">
     <p>環境建置  安裝 Anaconda 創建虛擬環境  conda create -n tensorflow 進入虛擬環境 (macOS/Linux)  source activate tensorflow 在環境內安裝 tensorflow  pip install tensorflow 在環境內安裝 jupyter notebook  pip install jupyter notebook 在環境內安裝 pandas  pip install pandas 開啟 jupyter notebook  jupyter notebook For terminal user  開始 Anaconda.Navigator  在 Environments 中安裝指定模組 ex.tensorflow, keras 在 terminal 中輸入 conda activate {環境名稱}  conda activate tensorflow 開啟 python  python 若成功便會顯示 python 安裝資訊...</p>
   </section>
-  <footer class="entry-footer"><span title='2023-10-11 20:48:34 +0800 CST'>October 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2023-10-11 20:48:34 +0800 CST'>October 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [ML] Start Tensorflow Environment with Conda" href="https://intervalrain.github.io/ml/environment/"></a>
 </article>
 
@@ -240,7 +241,7 @@
   <section class="entry-content">
     <p>前言 --  什麼是機器學習  機器學習(Machine Learning)，就是利用機器的力量幫忙找出函式。  Input 可以是  vector matrix sequence   Output 可以是  Regression Classification Structed Learning(令機器產生有結構的東西 eg. text, image)  示意圖    什麼是深度學習      深度學習(Deep Learning)，就是利用神經網路(neural network)的方式來產生函數。    機器如何學習 1. 基本原理(訓練三步驟)  Step 1: 使用合適的 Model  \(y=f(\text{\red{data}})\)  Function with unknown parameters Model: \(\boxed{y=b&#43;wx_1}\)  \(w: \text{weight}\) \(b: \text{bias}\) \(x: \text{feature}\)         Step 2: 定義 Loss function  Define loss from training data  以 Model 的參數 \(w,b\) 來計算 Loss 物理意義：Loss 愈大代表參數愈不好，Loss 愈小代表參數愈好。   計算方法：求估計的值與實際的值(label)之間的差距  Loss function: \(\boxed{L=\frac{1}{N}\sum_ne_n}\) MAE (mean absolute error): \(e=|y-\hat{y}|\) MSE (mean square error): \(e=(y-\hat{y})^2\) Cross-entropy: 計算機率分布之間的差距   Error Surface: 根據不同的參數，計算出 loss 所畫出來的等高線圖。   Step 3: Optimization  找到 loss 最小的參數組合 \((w,b)\) 方法：Gradient Descent  \(\boxed{w&#39; = w - \red{\eta}\frac{\partial L}{\partial w}|_{w=w^0,b=b^0}}\) \(\boxed{b&#39; = b - \red{\eta}\frac{\partial L}{\partial b}|_{w=w^0,b=b^0}}\) \(\red{\eta}\): 學習率 learning rate, 決定 gradient descent 的一步有多大步      2....</p>
   </section>
-  <footer class="entry-footer"><span title='2023-08-02 23:56:25 +0800 CST'>August 2, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2023-08-02 23:56:25 +0800 CST'>August 2, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [ML] 01. 機器學習基本概念簡介" href="https://intervalrain.github.io/ml/lhy01/"></a>
 </article>
 
@@ -252,7 +253,7 @@
   <section class="entry-content">
     <p>線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp  url = &#34;sample.csv&#34; data = pd.read_csv(url)  x = data[&#34;x-axis&#34;] y = data[&#34;y-axis&#34;] 畫圖 def plot(x, y, w, b):  line = w * x &#43; b  plt.plot(x, line, color=&#34;red&#34;, label=&#34;prediction&#34;)  plt.scatter(x, y, color=&#34;blue&#34;, label=&#34;data&#34;, marker=&#34;x&#34;)  plt.title(&#34;Title&#34;)  plt.xlabel(&#34;x Axis&#34;)  plt.ylabel(&#34;y Axis&#34;)  plt.xlim([0,12])  plt.ylim([20,140])  plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b):  y2 = w * x &#43; b  cost = (y - y2) ** 2  return cost....</p>
   </section>
-  <footer class="entry-footer"><span title='2023-04-30 00:35:59 +0800 CST'>April 30, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2023-04-30 00:35:59 +0800 CST'>April 30, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [ML] 簡單實作測試" href="https://intervalrain.github.io/ml/work/"></a>
 </article>
 
@@ -270,7 +271,7 @@
  統計學是在資料分析的基礎上，研究如何測定、收集、整理、歸納和分析反映資料，以便給出正確訊息的科學。    機器學習
  機器學習演算法是一類從資料中自動分析獲得規律，並利用規律對未知資料進行預測的演算法。 \(\begin{array}{lll} \text{Item} &amp; \text{Statistics} &amp; \text{Machine Learning}\\\hline \text{特性} &amp; \text{伴隨事前假設，依賴明確規則，以模型定義資料關聯性，重視模型解釋性} &amp; \text{幾乎無視前假設，不依賴明確規則，相信經驗}\\ &amp; \text{事前假設(人)}\rightarrow\text{模型估計(機器)} &amp; \text{特徵萃取(機器)}\rightarrow\text{網路建構(機器)} \\\hline \text{優點} &amp; \text{模型可解釋} &amp; \text{不須事先假設或了解資料關聯性}\\ &amp; \text{推論有強烈理論根據} &amp; \text{可抓取資料的所有(幾乎)複雜特徵}\\ &amp; \text{符合事前假設前提下，可做更多的推論}\\ &amp; \text{符合事前假設前提下，不需大量資料} \\\hline \text{缺點} &amp; \text{所有推論接基於事前假設，常難以驗證假設的正確性} &amp; \text{模型難以解釋(黑盒子)}\\ &amp; \text{難以抓取資料中過於複雜的特徵} &amp; \text{推論無強烈理論根據} \\\hline \text{專家} &amp; \text{統計背景} &amp; \text{資訊背景及統計背景} \\\hline \end{array}\)    結論  統計模型的重點是有合理的事前假設  在有合理假設之情況下，統計模型能發揮效力(即使資料量少)   機器學習的重點是大量有代表性的資料  在有大量有效資料之情況下，機器學習能發揮效力(即使人類對資料間的關聯之了解並不多)   何時使用統計方法?...</p>
   </section>
-  <footer class="entry-footer"><span title='2022-11-07 18:18:52 +0800 CST'>November 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-11-07 18:18:52 +0800 CST'>November 7, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [ML] 機器學習與統計學" href="https://intervalrain.github.io/ml/lec1/"></a>
 </article>
 
@@ -287,7 +288,7 @@
   Hand-crafted rules: 人類為機器設定好的天生本能  僵化，無法超越創造者 需要大量人力，不適合小企業     機器學習  寫程式讓機器可以學習 → 尋找關聯資料的函式  舉例：語音辨識、影像辨識、Alpha Go、對話機器人   框架(Framework)  設定一定量的函數 餵入數據 評估函數的好壞 找出最好的函數
 \(\begin{array}{rc} \text{step1}&amp;\boxed{\text{Define a set of function}}\\ &amp;\downarrow\\ \text{step2}&amp;\boxed{\text{Evaluate goodness of function}}\\ &amp;\downarrow\\ \text{step3}&amp;\boxed{\text{Pick the best function}}\end{array}\)  告訴機器 input 和正確的 output 這就叫作 supervised learning。      機器學習相關的技術 任務(Task) 迴歸(Regression)  Regression 指的是函數的輸出為 scalar(數值)，如 PM2....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-06-19 18:18:52 +0800 CST'>June 19, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;</footer>
+  <footer class="entry-footer"><span title='2022-06-19 18:18:52 +0800 CST'>June 19, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [ML] introduction" href="https://intervalrain.github.io/ml/lec0/"></a>
 </article>
     </main>
