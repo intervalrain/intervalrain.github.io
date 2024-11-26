@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>algorithm on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/categories/algorithm/</link>
+    <description>Recent content in algorithm on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 10 Nov 2023 03:10:09 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[algo] timeline algorithm</title>
+      <link>https://intervalrain.github.io/algo/timeline/</link>
+      <pubDate>Fri, 10 Nov 2023 03:10:09 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/algo/timeline/</guid>
+      <description>#include &amp;lt;iostream&amp;gt;#include &amp;lt;string&amp;gt;#include &amp;lt;vector&amp;gt; using namespace std;  class Solution { public:  string shortestCommonSupersequence(string a, string b) {  int m = a.size();  int n = b.size();  vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; dp(m+1, vector&amp;lt;int&amp;gt;(n+1, 0));  for (int i = 0; i &amp;lt;= m; i++) {  for (int j = 0; j &amp;lt;= n; j++) {  if (i == 0 || j == 0) continue;  if (a[i-1] == b[j-1]) {  dp[i][j] = dp[i-1][j-1] + 1;  } else {  dp[i][j] = max(dp[i-1][j], dp[i][j-1]);  }  }  }   int i = m;  int j = n;  string res;   while (i &amp;gt; 0 &amp;amp;&amp;amp; j &amp;gt; 0) {  if (a[i-1] == b[j-1]) {  res += a[i-1];  --i;  --j;  } else {  if (dp[i-1][j] &amp;lt; dp[i][j-1]) {  res += b[--j];  } else {  res += a[--i];  }  }  }  while (i &amp;gt; 0) res += a[--i];  while (j &amp;gt; 0) res += b[--j];   reverse(res.</description>
+    </item>
+    
+    <item>
+      <title>[Problem] Version Query</title>
+      <link>https://intervalrain.github.io/leetcode/versionquery/</link>
+      <pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/leetcode/versionquery/</guid>
+      <description>Version Query
+ Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Binary Search、Segment Tree、Heap (Priority Queue、Hash Table   一、題目 Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.
+The given apk_info structure is given as below.
+struct apk_info {
+int apk_version;
+int min_version = 1;
+int max_version = INT_MAX;</description>
+    </item>
+    
+  </channel>
+</rss>

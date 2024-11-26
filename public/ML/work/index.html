@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[ML] 簡單實作測試 | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="Machine Learning, python" />
+<meta name="description" content="線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp  url = &#34;sample.csv&#34; data = pd.read_csv(url)  x = data[&#34;x-axis&#34;] y = data[&#34;y-axis&#34;] 畫圖 def plot(x, y, w, b):  line = w * x &#43; b  plt.plot(x, line, color=&#34;red&#34;, label=&#34;prediction&#34;)  plt.scatter(x, y, color=&#34;blue&#34;, label=&#34;data&#34;, marker=&#34;x&#34;)  plt.title(&#34;Title&#34;)  plt.xlabel(&#34;x Axis&#34;)  plt.ylabel(&#34;y Axis&#34;)  plt.xlim([0,12])  plt.ylim([20,140])  plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b):  y2 = w * x &#43; b  cost = (y - y2) ** 2  return cost.">
+<meta name="author" content="Rain Hu">
+<link rel="canonical" href="https://intervalrain.github.io/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/images/rain.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
+<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script><meta property="og:title" content="[ML] 簡單實作測試" />
+<meta property="og:description" content="線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp  url = &#34;sample.csv&#34; data = pd.read_csv(url)  x = data[&#34;x-axis&#34;] y = data[&#34;y-axis&#34;] 畫圖 def plot(x, y, w, b):  line = w * x &#43; b  plt.plot(x, line, color=&#34;red&#34;, label=&#34;prediction&#34;)  plt.scatter(x, y, color=&#34;blue&#34;, label=&#34;data&#34;, marker=&#34;x&#34;)  plt.title(&#34;Title&#34;)  plt.xlabel(&#34;x Axis&#34;)  plt.ylabel(&#34;y Axis&#34;)  plt.xlim([0,12])  plt.ylim([20,140])  plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b):  y2 = w * x &#43; b  cost = (y - y2) ** 2  return cost." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://intervalrain.github.io/ml/work/" /><meta property="article:section" content="ML" />
+<meta property="article:published_time" content="2023-04-30T00:35:59&#43;08:00" />
+<meta property="article:modified_time" content="2023-04-30T00:35:59&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[ML] 簡單實作測試"/>
+<meta name="twitter:description" content="線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp  url = &#34;sample.csv&#34; data = pd.read_csv(url)  x = data[&#34;x-axis&#34;] y = data[&#34;y-axis&#34;] 畫圖 def plot(x, y, w, b):  line = w * x &#43; b  plt.plot(x, line, color=&#34;red&#34;, label=&#34;prediction&#34;)  plt.scatter(x, y, color=&#34;blue&#34;, label=&#34;data&#34;, marker=&#34;x&#34;)  plt.title(&#34;Title&#34;)  plt.xlabel(&#34;x Axis&#34;)  plt.ylabel(&#34;y Axis&#34;)  plt.xlim([0,12])  plt.ylim([20,140])  plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b):  y2 = w * x &#43; b  cost = (y - y2) ** 2  return cost."/>
+<meta name="twitter:site" content="@intervalrain"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "MLs",
+      "item": "https://intervalrain.github.io/ml/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[ML] 簡單實作測試",
+      "item": "https://intervalrain.github.io/ml/work/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[ML] 簡單實作測試",
+  "name": "[ML] 簡單實作測試",
+  "description": "線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp  url = \u0026#34;sample.csv\u0026#34; data = pd.read_csv(url)  x = data[\u0026#34;x-axis\u0026#34;] y = data[\u0026#34;y-axis\u0026#34;] 畫圖 def plot(x, y, w, b):  line = w * x + b  plt.plot(x, line, color=\u0026#34;red\u0026#34;, label=\u0026#34;prediction\u0026#34;)  plt.scatter(x, y, color=\u0026#34;blue\u0026#34;, label=\u0026#34;data\u0026#34;, marker=\u0026#34;x\u0026#34;)  plt.title(\u0026#34;Title\u0026#34;)  plt.xlabel(\u0026#34;x Axis\u0026#34;)  plt.ylabel(\u0026#34;y Axis\u0026#34;)  plt.xlim([0,12])  plt.ylim([20,140])  plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b):  y2 = w * x + b  cost = (y - y2) ** 2  return cost.",
+  "keywords": [
+    "Machine Learning", "python"
+  ],
+  "articleBody": "線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp  url = \"sample.csv\" data = pd.read_csv(url)  x = data[\"x-axis\"] y = data[\"y-axis\"] 畫圖 def plot(x, y, w, b):  line = w * x + b  plt.plot(x, line, color=\"red\", label=\"prediction\")  plt.scatter(x, y, color=\"blue\", label=\"data\", marker=\"x\")  plt.title(\"Title\")  plt.xlabel(\"x Axis\")  plt.ylabel(\"y Axis\")  plt.xlim([0,12])  plt.ylim([20,140])  plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b):  y2 = w * x + b  cost = (y - y2) ** 2  return cost.mean() cost_function(x, y, 10, 20)  假設在 b = 20 的情形下，找 w 的最小值  w_arr = [] costs = [] for w in range(-100, 101):  w2 = 10 + w/100  cost = cost_function(x, y, w2, 20)  w_arr.append(w2)  costs.append(cost) import matplotlib.pyplot as plt plt.title(\"cost function - when b = 20) plt.xlabel(\"w\") plt.ylabel(\"cost function\") plt.plot(w_arr, costs) plt.show() 利用 numpy 計算矩陣 import numpy as np ws = np.arange(-100, 101) bs = np.arange(-100, 101) costs = np.zeros((201, 201)) i = 0 for w in ws:  j = 0  for b in bs:  cost = cost_function(x, y, w, b)  costs[i,j] = cost  j = j+1  i = i+1 print(costs) 畫 3d 圖 ax = plt.axes(projection=\"3d\") ax.xaxis.set_pane_color((1,1,1)) ax.yaxis.set_pane_color((1,1,1)) ax.zaxis.set_pane_color((1,1,1))  plt.figure(figsize=(7,7)) ax.view_init(30, -110) b_grid, w_grid = np.meshgrid(bs, ws) ax.plot_surface(w_grid, b_grid, costs, cmap=\"Spectral_r\", alpha=0.7) ax.plot_wireframe(w_grid, b_grid, costs, alpha=0.1) ax.set_title(\"loss function\") ax.set_xlabel(\"w\") ax.set_ylabel(\"b\") ax.set_zlabel(\"loss\")  w_index, b_index = np.where(costs == np.min(costs)) ax.scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color=\"red\", s=40) plt.show() 計算梯度  \\(\\text{cost} = (\\text{y}_\\text{pred}-\\text{y})^2\\\\ \\text{cost} = (\\text{y}-(\\text{w}\\times\\text{x}+\\text{b}))^2\\\\ \\text{m} _\\text{w} = -2\\times\\text{x}(\\text{y-wx-b})\\\\ \\text{m} _\\text{b} = -2\\times(\\text{y-wx-b})\\\\ \\)  def compute_gradient(x, y, w, b):  w_gradient = 2*x*(w*x+b-y).mean()  b_gradient = 2*(w*x+b-y).mean()  return w_gradient, b_gradient 利用梯度下降計算 cost 最小值  \\(\\text{w}_2=\\text{w}-\\text{m} _\\text{w} \\times \\text{learning\\_rate}\\) \\(\\text{b}_2=\\text{b}-\\text{m} _\\text{b} \\times \\text{learning\\_rate}\\)  learning_rate = 0.001 for i in range(10):  w_gradient, b_gradient = compute_gradient(x, y, w, b)  w = w - w_gradient * learning_rate  b = b - b_gradient * learning_rate  cost = cost_function(x, y, w, b)  print(f\"Iteration {i}: Cost {cost}, w: {w}, b: {b}\") gradient_descent 函式 def gradient_descent(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration):  c_hist = []  w_hist = []  b_hist = []  w = w_init  b = b_init  for i in range(run_iteration):  w_gradient, b_gradient = gradient_function(x, y, w, b)  w = w - w_gradient * learning_rate  b = b - b_gradient * learning_rate  cost = cost_function(x, y, w, b)  w_hist.append(w)  b_hist.append(b)  c_hist.append(cost)  return w, b, w_hist, b_hist, c_hist 多特徵的預測 from sklearn.model_selection import train_test_split  scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test)  x_real = np.array([[5.3, 2, 1, 0], [7,2, 0, 0, 1]]) x_real = scaler.transfrom(x_real) y_real = (w_final*x_real).sum(axis=1) + b_final y_real 「特徵縮放」加速 gradient descent  w1x1+w2x2+w3x3+w4x4+b 因分布範圍不同，調整參數，最好令每一個乘積都相當 相當於是標準化：\\(\\frac{\\text{x-平均值}}{標準差}\\)  from sklearn.preprocessing import StandardScaler  scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) 邏輯迴歸 Logistic Regression Sigmoid Function  當模性呈現 0-1 關係(邏輯迴歸)時可用 \\(\\text{Sigmoid Function}=\\frac{1}{1+e^{-z}}\\)  def sigmoid(z):  return 1/(1+np.exp(-z)) w = np.array([1,2,3,4]) b = 1 z = (w*x_train).sum(axis=1) + b sigmoid(z) ",
+  "wordCount" : "458",
+  "inLanguage": "en",
+  "datePublished": "2023-04-30T00:35:59+08:00",
+  "dateModified": "2023-04-30T00:35:59+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Rain Hu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://intervalrain.github.io/ml/work/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rain Hu's Workspace",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://intervalrain.github.io/images/rain.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/ml/">MLs</a></div>
+    <h1 class="post-title">
+      [ML] 簡單實作測試
+    </h1>
+    <div class="post-meta"><span title='2023-04-30 00:35:59 +0800 CST'>April 30, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/work.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%b7%9a%e6%80%a7%e8%bf%b4%e6%ad%b8%e5%bb%ba%e6%a8%a1" aria-label="線性迴歸建模">線性迴歸建模</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%bc%89%e5%85%a5%e8%b3%87%e6%96%99" aria-label="載入資料">載入資料</a></li>
+                    <li>
+                        <a href="#%e7%95%ab%e5%9c%96" aria-label="畫圖">畫圖</a></li>
+                    <li>
+                        <a href="#%e5%ae%9a%e7%be%a9-cost-function" aria-label="定義 cost function">定義 cost function</a></li>
+                    <li>
+                        <a href="#%e5%88%a9%e7%94%a8-numpy-%e8%a8%88%e7%ae%97%e7%9f%a9%e9%99%a3" aria-label="利用 numpy 計算矩陣">利用 numpy 計算矩陣</a></li>
+                    <li>
+                        <a href="#%e7%95%ab-3d-%e5%9c%96" aria-label="畫 3d 圖">畫 3d 圖</a></li>
+                    <li>
+                        <a href="#%e8%a8%88%e7%ae%97%e6%a2%af%e5%ba%a6" aria-label="計算梯度">計算梯度</a></li>
+                    <li>
+                        <a href="#%e5%88%a9%e7%94%a8%e6%a2%af%e5%ba%a6%e4%b8%8b%e9%99%8d%e8%a8%88%e7%ae%97-cost-%e6%9c%80%e5%b0%8f%e5%80%bc" aria-label="利用梯度下降計算 cost 最小值">利用梯度下降計算 cost 最小值</a></li>
+                    <li>
+                        <a href="#gradient_descent-%e5%87%bd%e5%bc%8f" aria-label="gradient_descent 函式">gradient_descent 函式</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%a4%9a%e7%89%b9%e5%be%b5%e7%9a%84%e9%a0%90%e6%b8%ac" aria-label="多特徵的預測">多特徵的預測</a><ul>
+                            
+                    <li>
+                        <a href="#%e7%89%b9%e5%be%b5%e7%b8%ae%e6%94%be%e5%8a%a0%e9%80%9f-gradient-descent" aria-label="「特徵縮放」加速 gradient descent">「特徵縮放」加速 gradient descent</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e9%82%8f%e8%bc%af%e8%bf%b4%e6%ad%b8-logistic-regression" aria-label="邏輯迴歸 Logistic Regression">邏輯迴歸 Logistic Regression</a><ul>
+                            
+                    <li>
+                        <a href="#sigmoid-function" aria-label="Sigmoid Function">Sigmoid Function</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h2 id="線性迴歸建模">線性迴歸建模<a hidden class="anchor" aria-hidden="true" href="#線性迴歸建模">#</a></h2>
+<h3 id="載入資料">載入資料<a hidden class="anchor" aria-hidden="true" href="#載入資料">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib <span style="color:#66d9ef">as</span> mlp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sample.csv&#34;</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(url)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#34;x-axis&#34;</span>]
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#34;y-axis&#34;</span>]
+</span></span></code></pre></div><h3 id="畫圖">畫圖<a hidden class="anchor" aria-hidden="true" href="#畫圖">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">plot</span>(x, y, w, b):
+</span></span><span style="display:flex;"><span>    line <span style="color:#f92672">=</span> w <span style="color:#f92672">*</span> x <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x, line, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prediction&#34;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>scatter(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blue&#34;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;data&#34;</span>, marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;x&#34;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Title&#34;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;x Axis&#34;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;y Axis&#34;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>xlim([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">12</span>])
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>ylim([<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">140</span>])
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>plot(x, y, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>)
+</span></span></code></pre></div><h3 id="定義-cost-function">定義 cost function<a hidden class="anchor" aria-hidden="true" href="#定義-cost-function">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cost_function</span>(x, y, w, b):
+</span></span><span style="display:flex;"><span>    y2 <span style="color:#f92672">=</span> w <span style="color:#f92672">*</span> x <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>    cost <span style="color:#f92672">=</span> (y <span style="color:#f92672">-</span> y2) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cost<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>cost_function(x, y, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>)
+</span></span></code></pre></div><ul>
+<li>假設在 b = 20 的情形下，找 w 的最小值</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>w_arr <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>costs <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> range(<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">101</span>):
+</span></span><span style="display:flex;"><span>    w2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> w<span style="color:#f92672">/</span><span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>    cost <span style="color:#f92672">=</span> cost_function(x, y, w2, <span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>    w_arr<span style="color:#f92672">.</span>append(w2)
+</span></span><span style="display:flex;"><span>    costs<span style="color:#f92672">.</span>append(cost)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;cost function - when b = 20)</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;cost function&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(w_arr, costs)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><h3 id="利用-numpy-計算矩陣">利用 numpy 計算矩陣<a hidden class="anchor" aria-hidden="true" href="#利用-numpy-計算矩陣">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>ws <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">101</span>)
+</span></span><span style="display:flex;"><span>bs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">101</span>)
+</span></span><span style="display:flex;"><span>costs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((<span style="color:#ae81ff">201</span>, <span style="color:#ae81ff">201</span>))
+</span></span><span style="display:flex;"><span>i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> ws:
+</span></span><span style="display:flex;"><span>    j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> b <span style="color:#f92672">in</span> bs:
+</span></span><span style="display:flex;"><span>        cost <span style="color:#f92672">=</span> cost_function(x, y, w, b)
+</span></span><span style="display:flex;"><span>        costs[i,j] <span style="color:#f92672">=</span> cost
+</span></span><span style="display:flex;"><span>        j <span style="color:#f92672">=</span> j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>print(costs)
+</span></span></code></pre></div><h3 id="畫-3d-圖">畫 3d 圖<a hidden class="anchor" aria-hidden="true" href="#畫-3d-圖">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>axes(projection<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3d&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>xaxis<span style="color:#f92672">.</span>set_pane_color((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>yaxis<span style="color:#f92672">.</span>set_pane_color((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>zaxis<span style="color:#f92672">.</span>set_pane_color((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">7</span>))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>view_init(<span style="color:#ae81ff">30</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">110</span>)
+</span></span><span style="display:flex;"><span>b_grid, w_grid <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(bs, ws)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot_surface(w_grid, b_grid, costs, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Spectral_r&#34;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.7</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot_wireframe(w_grid, b_grid, costs, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;loss function&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;b&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_zlabel(<span style="color:#e6db74">&#34;loss&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>w_index, b_index <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(costs <span style="color:#f92672">==</span> np<span style="color:#f92672">.</span>min(costs))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">40</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><h3 id="計算梯度">計算梯度<a hidden class="anchor" aria-hidden="true" href="#計算梯度">#</a></h3>
+<ul>
+<li>\(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\
+\text{cost} = (\text{y}-(\text{w}\times\text{x}+\text{b}))^2\\
+\text{m} _\text{w} = -2\times\text{x}(\text{y-wx-b})\\
+\text{m} _\text{b} = -2\times(\text{y-wx-b})\\
+\)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_gradient</span>(x, y, w, b):
+</span></span><span style="display:flex;"><span>    w_gradient <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x<span style="color:#f92672">*</span>(w<span style="color:#f92672">*</span>x<span style="color:#f92672">+</span>b<span style="color:#f92672">-</span>y)<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    b_gradient <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(w<span style="color:#f92672">*</span>x<span style="color:#f92672">+</span>b<span style="color:#f92672">-</span>y)<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> w_gradient, b_gradient
+</span></span></code></pre></div><h3 id="利用梯度下降計算-cost-最小值">利用梯度下降計算 cost 最小值<a hidden class="anchor" aria-hidden="true" href="#利用梯度下降計算-cost-最小值">#</a></h3>
+<ul>
+<li>\(\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\_rate}\)</li>
+<li>\(\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\_rate}\)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>learning_rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.001</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>    w_gradient, b_gradient <span style="color:#f92672">=</span> compute_gradient(x, y, w, b)
+</span></span><span style="display:flex;"><span>    w <span style="color:#f92672">=</span> w <span style="color:#f92672">-</span> w_gradient <span style="color:#f92672">*</span> learning_rate
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> b_gradient <span style="color:#f92672">*</span> learning_rate
+</span></span><span style="display:flex;"><span>    cost <span style="color:#f92672">=</span> cost_function(x, y, w, b)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Iteration </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74"> : Cost </span><span style="color:#e6db74">{</span>cost<span style="color:#e6db74">}</span><span style="color:#e6db74">, w: </span><span style="color:#e6db74">{</span>w<span style="color:#e6db74">}</span><span style="color:#e6db74">, b: </span><span style="color:#e6db74">{</span>b<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><h3 id="gradient_descent-函式">gradient_descent 函式<a hidden class="anchor" aria-hidden="true" href="#gradient_descent-函式">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gradient_descent</span>(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration):
+</span></span><span style="display:flex;"><span>    c_hist <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    w_hist <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    b_hist <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    w <span style="color:#f92672">=</span> w_init
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> b_init
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(run_iteration):
+</span></span><span style="display:flex;"><span>        w_gradient, b_gradient <span style="color:#f92672">=</span> gradient_function(x, y, w, b)
+</span></span><span style="display:flex;"><span>        w <span style="color:#f92672">=</span> w <span style="color:#f92672">-</span> w_gradient <span style="color:#f92672">*</span> learning_rate
+</span></span><span style="display:flex;"><span>        b <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> b_gradient <span style="color:#f92672">*</span> learning_rate
+</span></span><span style="display:flex;"><span>        cost <span style="color:#f92672">=</span> cost_function(x, y, w, b)
+</span></span><span style="display:flex;"><span>        w_hist<span style="color:#f92672">.</span>append(w)
+</span></span><span style="display:flex;"><span>        b_hist<span style="color:#f92672">.</span>append(b)
+</span></span><span style="display:flex;"><span>        c_hist<span style="color:#f92672">.</span>append(cost)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> w, b, w_hist, b_hist, c_hist
+</span></span></code></pre></div><h2 id="多特徵的預測">多特徵的預測<a hidden class="anchor" aria-hidden="true" href="#多特徵的預測">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scaler <span style="color:#f92672">=</span> StandardScaler()
+</span></span><span style="display:flex;"><span>scaler<span style="color:#f92672">.</span>fit(x_train)
+</span></span><span style="display:flex;"><span>x_train <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>transform(x_train)
+</span></span><span style="display:flex;"><span>x_test <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>transform(x_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_real <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">5.3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>], [<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]])
+</span></span><span style="display:flex;"><span>x_real <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>transfrom(x_real)
+</span></span><span style="display:flex;"><span>y_real <span style="color:#f92672">=</span> (w_final<span style="color:#f92672">*</span>x_real)<span style="color:#f92672">.</span>sum(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> b_final
+</span></span><span style="display:flex;"><span>y_real
+</span></span></code></pre></div><h3 id="特徵縮放加速-gradient-descent">「特徵縮放」加速 gradient descent<a hidden class="anchor" aria-hidden="true" href="#特徵縮放加速-gradient-descent">#</a></h3>
+<ul>
+<li>w1<em>x1+w2</em>x2+w3<em>x3+w4</em>x4+b</li>
+<li>因分布範圍不同，調整參數，最好令每一個乘積都相當</li>
+<li>相當於是標準化：\(\frac{\text{x-平均值}}{標準差}\)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> StandardScaler
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scaler <span style="color:#f92672">=</span> StandardScaler()
+</span></span><span style="display:flex;"><span>scaler<span style="color:#f92672">.</span>fit(x_train)
+</span></span><span style="display:flex;"><span>x_train <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>transform(x_train)
+</span></span><span style="display:flex;"><span>x_test <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>transform(x_test)
+</span></span></code></pre></div><h2 id="邏輯迴歸-logistic-regression">邏輯迴歸 Logistic Regression<a hidden class="anchor" aria-hidden="true" href="#邏輯迴歸-logistic-regression">#</a></h2>
+<h3 id="sigmoid-function">Sigmoid Function<a hidden class="anchor" aria-hidden="true" href="#sigmoid-function">#</a></h3>
+<ul>
+<li>當模性呈現 0-1 關係(邏輯迴歸)時可用</li>
+<li>\(\text{Sigmoid Function}=\frac{1}{1+e^{-z}}\)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sigmoid</span>(z):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>np<span style="color:#f92672">.</span>exp(<span style="color:#f92672">-</span>z))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>w <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>])
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>z <span style="color:#f92672">=</span> (w<span style="color:#f92672">*</span>x_train)<span style="color:#f92672">.</span>sum(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>sigmoid(z)
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://intervalrain.github.io/tags/ml/">ML</a></li>
+    </ul>
+
+  </footer><script src="https://utteranc.es/client.js"
+    repo="Reid00/hugo-blog-talks"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

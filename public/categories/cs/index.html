@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>CS | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+<meta name="author" content="Rain Hu, intervarrain, 陣雨">
+<link rel="canonical" href="https://intervalrain.github.io/categories/cs/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/images/rain.png" as="image">
+<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
+<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://intervalrain.github.io/categories/cs/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script><meta property="og:title" content="CS" />
+<meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://intervalrain.github.io/categories/cs/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS"/>
+<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"/>
+<meta name="twitter:site" content="@intervalrain"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/categories/">Categories</a></div>
+  <h1>CS</h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Algo] 3-2. Binary Search
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Binary Search 二元搜索法  通常一般的二分搜是在解決以下這種問題：如果有一個遞增的函數 \(f\) 定義在區間 \([a, a &#43; n)\) 上，請求出滿足 \(f(s)\ge c\)的最小整數\(s\)。 若用一般的 linear search 從 a 開始搜直到找到滿足條件的 s，那麼複雜度是 \(O(n)\)，而用二元搜索法可以優化時間複雜度變成 \(O(\log n)\)。
+想法是對於某個在 \((a, a &#43; n)\) 中的整數 \(k\)，如果 \(f(k − 1) \ge c\)，那麼 \(s &lt; k\)，也就是答案會落在區間 \([a, k)\) 中。
+反之，如果 \(f(k − 1) &lt; c\)，那麼 \(s \ge k\)，也就是說你要求的答案會落在 \([k, a &#43; n)\)。
+為了讓兩種情況的可能性都盡量低， k 取愈接近 a &#43; n/2 愈好。如此一來，每次候選區間的長度都會縮小一半，因此複雜度為 \(O(\log n)\)。 實務上，這種函數 \(f\) 常常不能直接得出某一點的值 \(f(a)\)（甚至只能確認它和 \(c\) 的大小關係），而需要 \(O(M)\) 的時間來計算。顯然地，這時複雜度是 \(O(M \log n)\)。  1....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-05-07 18:46:56 +0800 CST'>May 7, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 3-2. Binary Search" href="https://intervalrain.github.io/cs/algo/binary_search/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Algo] 3-10. Binary Indexed Tree(Fenwick Tree, BIT)
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>前言：
+若要對一數組做範圍取值，那麼最快的方法是前綴數組(prefix sum)，可以做到\(O(1)\)的查詢，但若要做單點更新需要\(O(n)\)的時間來維護。
+而數組則是做單點更新只需要\(O(1)\)的時間，而要範圍取值則需要\(O(n)\)的查詢時間。
+故若是查詢遠大於更新的情境，則適用前綴數組；若更新遠大於查詢的情境，則適用一般數組。
+那假如查詢與更新的次數一樣多呢(動態更新與查詢的情境)，這種情況就可以用到此章節要介紹的資料結構，Binary Indexed Tree 了。
+此結構可以做到 \(O(n)\) 的初始化，\(\log(n)\) 的更新與 \(\log(n)\) 的查詢。
+ \( \begin{array}{|c|c|c|}\hline &amp;\textsf{範圍查詢}&amp;\textsf{單點更新}\\\hline \textsf{數組}&amp;O(n)&amp;O(1)\\\hline \textsf{前綴數組}&amp;O(1)&amp;O(n)\\\hline \textsf{BIT}&amp;O(\log n)&amp;O(\log n)\\\hline \end{array} \)
+簡介  與線狀樹(Segment Tree)類似，但線狀樹可以看成是 BIT 的擴充版。 BIT 的好處是只需要 n 的數組空間便可以實作，且其指標移動是透過位元運算，計算相當快速，缺點是無法套用到取極大值、極小值的情境。  參考上圖，BIT 利用「部分presum」的特性，來達到平均 \(O\log n\)的查詢與更新的時間，而其實其結構就是 partition 的其中半顆樹。  \(\text{BIT[1]=arr[1]}\) \(\text{BIT[2]=arr[1]&#43;arr[2]}\) \(\text{BIT[3]=arr[3]}\) \(\text{BIT[4]=arr[1]&#43;arr[2]&#43;arr[3]&#43;arr[4]}\) … \(\text{BIT[8]=arr[1]&#43;arr[2]&#43;…&#43;arr[8]}= \text{BIT[4]&#43;BIT[6]&#43;BIT[7]&#43;arr[8]}\)   觀察以上結構，  查詢時，求 [0:n] 的值為把上圖的片段湊起來變成 n 的長度。  如 \(\text{SUM[0:7]=BIT[7]&#43;BIT[6]&#43;BIT[4]}\)  位元表示：\(\text{SUM[0:7]=BIT[1b&#39;111]&#43;BIT[1b&#39;110]&#43;BIT[1b&#39;100]}\)   如 \(\text{SUM[0:11]=BIT[11]&#43;BIT[10]&#43;BIT[8]}\)  位元表示：\(\text{SUM[0:11]=BIT[1b&#39;1011]&#43;BIT[1b&#39;1010]&#43;BIT[1b&#39;1000]}\)   可以發現位元的規律是每次把當前的 LSB(least significant bit) 扣掉。   更新時，需要把包含 n 的片段都更新。(設n=18)  如 \(\text{update(arr[7])=update(BIT[7])&#43;update(BIT[8])&#43;update(BIT[16])}\)  位元表示：\(\text{update(arr[7])=update(BIT[1b&#39;111])&#43;update(BIT[1b&#39;1000])&#43;update(BIT[1b&#39;10000])}\)   如 \(\text{update(arr[11])=update(BIT[11])&#43;update(BIT[12])&#43;update(BIT[16])}\)  位元表示：\(\text{update(arr[7])=update(BIT[1b&#39;1011])&#43;update(BIT[1b&#39;1100])&#43;update(BIT[1b&#39;10000])}\)   可以發現位元的規律是每次把當前的 LSB 加進來。   統整以上規律我們可以寫成以下的模版 將 BIT[0] 設為 dummy，可方便計算。    模板 class BIT { private:  vector&lt;int&gt; bit;  int lowbit(int a) {  return a &amp; (-a);  } public:  BIT (int n) {  bit....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-04-08 17:46:12 +0800 CST'>April 8, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 3-10. Binary Indexed Tree(Fenwick Tree, BIT)" href="https://intervalrain.github.io/cs/algo/bit/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Algo] 3-1. Two Pointer/Sliding Window
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>前言：
+先前我們在鏈表的單元已經介紹過求鏈表中點的「前後指針」與求有環鏈表的「快慢指針」，這都是雙指針的應用。
+在接下來的這個章節，主要會介紹的雙指針應用，與更進階的滑動窗口(sliding window)的應用。
+ 一、Two Pointer in LinkedList  在本文中會學到 LinkedList 的七種技巧：  合併兩個有序鏈表 分解鏈表 合併多個有序鏈表 尋找鏈表的倒數第 k 個節點 尋找鏈表的中點 判斷鏈表是否包含環 判斷兩個鏈表是否相交    1. Merge Two Sorted Lists  Leetcode 21. Merge Two Sorted Lists  這一題的小技巧是創建一個 dummy node 依序將兩條鏈表中較小的值接在後面，最後回傳 dummy-&gt;next，過程很像 merge sort。  ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {  ListNode* dummy = new ListNode();  ListNode* curr = dummy;  while (list1 &amp;&amp; list2) {  if (list1-&gt;val &lt;= list2-&gt;val) {  curr-&gt;next = list1;  list1 = list1-&gt;next;  } else {  curr-&gt;next = list2;  list2 = list2-&gt;next;  }  curr = curr-&gt;next;  }  if (list1) curr-&gt;next = list1;  if (list2) curr-&gt;next = list2;  return dummy-&gt;next; } 二、Two Pointer in Array 三、Sliding Window   回到目錄：[Algo] 演算法筆記 想要複習：[Algo] 3-0....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-03-19 22:56:03 +0800 CST'>March 19, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 3-1. Two Pointer/Sliding Window" href="https://intervalrain.github.io/cs/algo/two_pointer/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[Algo] 3-0. Sorting
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>前言：
+ 在開始練習各種演算法題型時，最先需要養成的是，如何選用「適當」的演算法，題目往往不會只有一種解，但合適的演算法可以如同走捷徑一般，快速且優雅的達到目標。 在實作程式前，更重要的是，寫下一段 pseudo code，試著說明其複雜度，並觀察是否有冗餘的空間可以優化。 在腦海中模擬一遍程式碼之後，最後才是快速的將程式碼實作出來。  在這一章節，我們將練習如何將「想法」轉換成「實作」。並且我們必須熟悉如何計算其時間複雜度。
+ 一、Cheat Table   首先我們需要先瞭解每一種資料結構的各種操作的時間複雜度，以便我們選擇適合的資料結構與演算法。
+ 下面這種表的 Array, Stack, Queue, Linked List, Hash Table, Binary Search Tree 基本上是要背起來的，其餘的遇到再去認識就好。     接下來就輪到練習實作了，排序演算法是個很好的練習，試著把下表中的排序演算法完成，並且計算其時間複雜度吧。
+ 參考題目 Leetcode 912. Sort an Array     二、Sorting Algorithm 0. 測資  這個 file 是我寫的測資，可以拿來測試自己的實作，用法是 #include &#34;agtr.h&#34;，之後用 judge() 函式測試你寫好的 function。  #include &lt;iostream&gt;#include &lt;random&gt;#include &lt;vector&gt; using namespace std;  class agtr{ public:  static vector&lt;int&gt; exec(int n, int minv, int maxv) {  if (minv &gt; maxv) return {};  else if (minv == maxv) return vector&lt;int&gt;(n, minv);  vector&lt;int&gt; res;  random_device rd;  mt19937 mt(rd());  uniform_real_distribution&lt;double&gt; dist(minv, maxv);  while (n--) {  res....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-03-16 19:50:21 +0800 CST'>March 16, 2023</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 3-0. Sorting" href="https://intervalrain.github.io/cs/algo/sorting/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[C#] C# 筆記
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>C#2 Generic 泛型 Nullable 可空值類型 Delegate 委派 Iterator 迭代器 Partial 局部類型 Yield Static Class 靜態類別 Property getter/setter access separate 訪問權限分離 Namespace Alias 空間命名別名 C#3 Linq 及其相關特性 </p>
+  </section>
+  <footer class="entry-footer"><span title='2023-02-28 18:49:39 +0800 CST'>February 28, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [C#] C# 筆記" href="https://intervalrain.github.io/csharp/csharp/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[Algo] 2-4. 回溯法 Backtracking
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>一、回溯法  回溯法與 dfs 相當類似，本質上都是暴力窮舉的演算法，但細微的差異在於：  dfs 在遍歷節點。 backtracking 在遍歷樹枝。   站在回溯樹上的一個節點，需要考慮的只有三件事情：  路徑 選擇 終止條件   以全排列問題([Leetcode] 46. permutation)來舉例  全排列問題即給定一組數組 nums，需返回這些數字的所有排列組合，舉例來說，給定一個數組 nums = [1,2,3]，那麼它可能的排列會有：  [1,2,3] [1,3,2] [2,1,3] [2,3,1] [3,1,2] [3,2,1]   對應上圖的回溯樹來看，我們在每個樹的節點，都會面臨一次決策，站在樹的根時，相當於我們要選擇排列的第一位，而我們有三個選擇，即 1 或 2 或 3。若我們的第一位選擇了 1，代表我們選擇了 \(\text{x}_1=1\) 的路徑，故接下來我們的選擇只剩下兩個，即 2 或 3。當我們繼續往下做，直到子葉節點時，代表我們已經沒有選擇可選，此時就是我們的終止條件。 回憶我們在二叉樹中練習過前序、中序、後序的思維，前序與後序代表我們在遍歷節點前與後的時間點，而在回溯法，這兩個時間點，各自代表了  將選擇加入路徑 從路徑中撤銷選擇  用二叉樹程式碼來說明即：  void traverse(TreeNode* root){  if (!root) return;  // preorder: do option  traverse(root-&gt;left);  traverse(root-&gt;right);  // postorder: retrieve option }  N-ary 樹：  class Node{  int val;  vector&lt;Node*&gt; children; }; void traverse(Node* root){  if (!...</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-01-27 10:50:26 +0800 CST'>January 27, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 2-4. 回溯法 Backtracking" href="https://intervalrain.github.io/cs/algo/backtracking/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[Algo] 2-2. 貪心演算法 Greedy
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>一、貪心演算法  是一種在每一步都採前當下看起來最好的選擇的一種策略。 由於是當下看起來最好的選擇，故也有可能選到錯的路線，導致最終的答案不是最佳解。 先舉個生活中常見的例子：  今天小明的撲滿裡存滿了大大小小的1塊、5塊跟10塊，今天小明打算要要幫撲滿瘦身，令它的重量降低，那麼小明可以到銀行換鈔，將幣值小、重量重的硬幣集結起來換成幣值大、重量輕的紙鈔。 用貪心演算法的思維，我們一定是從幣值大的 1000 開始換起，再來 500、100、50、10，以此類推，有多少換多少。  // vector&lt;int&gt;&amp; nums = {1000, 500, 100, 50, 10, 5, 1}; vector&lt;int&gt; coinChange(vector&lt;int&gt;&amp; nums, int money) {  vector&lt;int&gt; res(nums.size(), 0);  for (int i = 0; i &lt; nums.size(); i&#43;&#43;) {  res[i] &#43;= (money / nums[i]);  money %= nums[i];  }  return res; }  但若我們新增了一個幣值是 23，那麼上面這個思路就有可能會導致錯誤。   貪心演算法的特點  直覺且快速 通常不是最佳的 需要會被要求證明  always stays ahead：跑者每個時間點都在第一名，最後結果會是第一名  用歸納法證明。   exchange argument  用反證法，找到原解的 inversions，並作交換，證明交換後並不影響最佳解。        二、貪心演算法的應用 0....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-01-24 18:31:15 +0800 CST'>January 24, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 2-2. 貪心演算法 Greedy" href="https://intervalrain.github.io/cs/algo/greedy/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[Algo] 2-1. 暴力演算法 Brute Force
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>一、暴力演算法   暴力演算法就是枚舉法，試想今天有一個行李箱的密碼鎖為四個一組，但你又忘記密碼，那要怎麼辦？你會試著從 0000 轉到 9999 共 10000 種組合都試過，必定會找出密碼，把所有可能都枚舉過一遍，遍是暴力演算法。
+  暴力演算法可以應用於很多問題，包含數論、樹、圖論等等，而暴力演算法的重點在於枚舉所有可能，以樹來說就是樹的遍歷。
+  舉例來說：
+ Leetcode 1. Two Sum
+給定一個數列，找數列中任兩個數的和為 target，回傳兩個數的索引值。  在還沒有認識任何資料結構之前，我們能想到最簡單的方法就是遍歷整個數列，用兩個指標 i 與 j，各指向一個數，將所有可能檢查過一遍，直到找到目標。  vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {  for (int i = 0; i &lt; nums.size() - 1; i&#43;&#43;)  for (int j = i &#43; 1; j &lt; nums.size(); j&#43;&#43;)  if (nums[i] &#43; nums[j] == target)  return {i, j};  return {-1, -1}; }  以上例來說，用暴力破解法求解時，求兩數和的時候，我們需進行兩個維度的 for-loop 迴圈來求解。若進一步到三數和、四數和、五數和時，我們會發現，維度會隨著多少個數字和增加。也就是三數和為 3 個迴圈，四數和為 4 個迴圈，以此類推。 以 複雜度分析 Algorithmic complexity / Big-O / Asymptotic analysis來分析，也就相當於 k 數和的時間複雜度為 \(O(n^k)\)，這個增長是相當恐怖的。    暴力演算法的特點...</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-01-24 15:57:40 +0800 CST'>January 24, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 2-1. 暴力演算法 Brute Force" href="https://intervalrain.github.io/cs/algo/brute_force/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[Algo] 1-9. Algorithm
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>algorithm &lt;algorithm&gt; 定義了專為元素集合設計的函式。
+元素集合包含可以被迭代器或指標存取的一系列元素，例如陣列或 STL container。但且注意，演算法只會透過迭代器去操作容器中的值，並不會更改其結構或是大小。
+一、函式 1. 無修改值的操作 all_of bool all_of(Iterator first, Iterator last, UnaryPredicate pred)
+ 檢查是否全部的元素都符合判斷式。  #include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;using namespace std;  int main(){  vector&lt;int&gt; arr1 = {1,2,3,4,5};  vector&lt;int&gt; arr2 = {1,3,5,7,9};  vector&lt;int&gt; arr3 = {2,4,6,8,10};  auto isodd = [](int x)-&gt;bool{ return x%2; };  cout &lt;&lt; all_of(arr1.begin(), arr1.end(), isodd) &lt;&lt; endl; // 0  cout &lt;&lt; all_of(arr2.begin(), arr2.end(), isodd) &lt;&lt; endl; // 1  cout &lt;&lt; all_of(arr3....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-01-03 21:49:42 +0800 CST'>January 3, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 1-9. Algorithm" href="https://intervalrain.github.io/cs/algo/algorithm/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[Algo] 2-5. 動態規劃 Dynamic Programming
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>一、動態規劃的思考藝術  動態規劃其實就是一種暴力枚舉的優化，在暴力枚舉的過程中有著大量的重複，藉由「備忘錄(memoization)」的方式做到剪枝(pruning)來達到優化的一種演算法。 舉例來說：  Leetcode 62. Unique Paths
+機器人由左上走到右下角星星有幾種走法，其中機器人只能選擇往右走或往下走。  試想機器人從 (1,1) 走到 (m,n) 的不同路徑中，可見有大量的重複，比如過程中有一點 (i,j)，其 (1,1) 走到 (i,j) 有 k 條不同路徑，麼那對於任何一條固定 (i,j) 到 (m,n) 的路徑，都需走 k 遍來模擬。 但其實我們不必關心具體的走法，我們只關心狀態，也就是走法的數目。 同理，我們若知道 (i,j) 到 (m,n) 共有 t 條不同的路徑，那麼 (1,1) -&gt; (i,j) -&gt; (m,n) 的不同路徑總數就是 k*s。 我們知道最左邊那欄與最上面那列都只有可能有一種路徑可以走，又每一格的路徑來自於上方與左方的和： sum of (i,j) = sum of (i-1,j) &#43; sum of (i,j-1) \(\begin{array}{|c|c|c|c|c|c|c|}\hline \text{1}&amp;\text{1}&amp;\text{1}&amp;\text{1}&amp;\text{1}&amp;\text{1}&amp;\text{1}\\\hline \text{1}&amp;\text{2}&amp;\text{3}&amp;\text{4}&amp;\text{5}&amp;\text{6}&amp;\text{7}\\\hline \text{1}&amp;\text{3}&amp;\text{6}&amp;\text{10}&amp;\text{15}&amp;\text{21}&amp;\text{28}\\\hline \end{array}\) 寫成程式碼就是  int uniquePaths(int m, int n) {  vector&lt;vector&lt;int&gt;&gt; dp(m&#43;1, vector&lt;int&gt;(n&#43;1,0));  for (int i = 1; i &lt;= m; i&#43;&#43;) // 將第一列填成 1  dp[i][1] = 1;  for (int j = 1; j &lt;= n; j&#43;&#43;) // 將第一欄填成 1  dp[1][j] = 1;  for (int i = 2; i &lt;= m; i&#43;&#43;) { // 將剩下的格子填完  for (int j = 2; j &lt;= n; j&#43;&#43;) {  dp[i][j] = dp[i-1][j] &#43; dp[i][j-1];  }  }  return dp[m][n]; }  注意填格子的順序是有一定的限制的，必須要確保相關聯的子問題已經處理過。   動態規劃  由上例我們可以發現，原本的問題可以拆解成更小的問題(從 (1,1)-&gt;(m,n) 變成從 (1,1)-&gt;(i,j) 和從 (i,j)-&gt;(m,n))。 我們令 f(i,j) 表示從 (1,1)-&gt;(i,j) 的不同路徑數，則我們可以得到轉移方程式 f(i,j)=f(i-1,j)&#43;f(i,j-1)。 我們發現，想求出 f(i,j) 只需要知道幾個更小的 f(i&#39;,j&#39;)。我們將 f(i&#39;,j&#39;) 稱為子問題。 我們捨棄冗餘的訊息(具體的走法)，只記錄對解決問題有幫助的結果。     動態規劃的兩大特點(適用前提)  無後效性  一旦 f(i,j) 確定，就不用關心我們如何計算出 f(i,j) 想要確定 f(i,j)，只需要知道 f(i-1,j) 和 f(i,j-1) 的值，而至於它們是如何算出來的，對當前或之後的任何子問題都沒有影響。 過去不依賴未來，未來不影響過去。   最優子結構  f(i,j) 的定義就已經蘊含了最優。 大問題的最優解可以由若干個小問題的最優解推出。(max, min, sum…)   DP 能適用於：能將大問題拆成若干小問題，滿足無後效性、最優子結構性質。 以下介紹幾種刷題會遇到的動態規劃套路：     二、動態規劃框架 1....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-11-15 16:10:53 +0800 CST'>November 15, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Algo] 2-5. 動態規劃 Dynamic Programming" href="https://intervalrain.github.io/cs/algo/dp/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://intervalrain.github.io/categories/cs/page/2/">Next Page »</a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

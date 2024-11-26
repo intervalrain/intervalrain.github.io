@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - Algorithm | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="C&#43;&#43;, algorithm, STL" />
+<meta name="description" content="C&#43;&#43; 中 STL 中的 algorithm lib 的函式與範例">
+<meta name="author" content="Rain Hu">
+<link rel="canonical" href="https://intervalrain.github.io/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/images/rain.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
+<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script><meta property="og:title" content="[C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - Algorithm" />
+<meta property="og:description" content="C&#43;&#43; 中 STL 中的 algorithm lib 的函式與範例" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://intervalrain.github.io/c&#43;&#43;/stl_algo/" />
+<meta property="og:image" content="https://intervalrain.github.io/images/cover.jpg" /><meta property="article:section" content="C&#43;&#43;" />
+<meta property="article:published_time" content="2022-04-06T16:04:36&#43;08:00" />
+<meta property="article:modified_time" content="2022-04-06T16:04:36&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://intervalrain.github.io/images/cover.jpg" />
+<meta name="twitter:title" content="[C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - Algorithm"/>
+<meta name="twitter:description" content="C&#43;&#43; 中 STL 中的 algorithm lib 的函式與範例"/>
+<meta name="twitter:site" content="@intervalrain"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "C++s",
+      "item": "https://intervalrain.github.io/c++/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[C++] The C++ Standard Template Library(STL) - Algorithm",
+      "item": "https://intervalrain.github.io/c++/stl_algo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[C++] The C++ Standard Template Library(STL) - Algorithm",
+  "name": "[C\u002b\u002b] The C\u002b\u002b Standard Template Library(STL) - Algorithm",
+  "description": "C++ 中 STL 中的 algorithm lib 的函式與範例",
+  "keywords": [
+    "C++", "algorithm", "STL"
+  ],
+  "articleBody": "演算法(Algorithms) Non-Manupulating Algorithms 1. sort()  sort(first_iterator, last_iterator) 對 vector 作排序  2. reverse()  reverse(first_iterator, last_iterator) 反轉 vector 的排序  3. *max_element()  *max_element(first_iterator, last_iterator) 找出 vector 的最大值  4. *min_element()  *min_element(first_iterator, last_iterator)` 找出 vector 的最小值  5. accumulate  accumulate(first_iterator, last_iterator, initial value of sum) 計算 vector 的總和  #include #include #include #include  using namespace std;  void print(vectorint\u0026 vec){  for (vectorint::iterator it = vec.begin(); it != vec.end(); it++){  cout  *it  \" \";  }  cout  endl; }  int main(){  int arr[] = {10, 20, 5, 23, 42, 15};  int n = sizeof(arr)/sizeof(arr[0]);  vectorint vec(arr, arr + n);   // print initial vector  print(vec); // [10, 20, 5, 23, 42, 15]   // sort  sort(vec.begin(), vec.end()); // [5, 10, 15, 20, 23, 42]  print(vec);   // reverse  reverse(vec.begin(), vec.end()); // [42, 23, 20, 15, 10, 5]  print(vec);   // max \u0026 min  cout  *max_element(vec.begin(), vec.end())  endl; // 42  cout  *min_element(vec.begin(), vec.end())  endl; // 5   // accumulate  cout  accumulate(vec.begin(), vec.end(), 0)  endl; // 115   return 0; }  6. count()  count(first_iterator, last_iterator, x) 計算 vector 中 x 的數量  7. find()  find(fist_iterator, last_iterator, x) 回傳 vector 中第一個符合的 iterator，若無則傳回 v.end()。  #include #include #include  using namespace std;  int main() { \tint arr[] = {10, 20, 5, 23 ,42, 20, 15}; \tint n = sizeof(arr)/sizeof(arr[0]); \tvectorint vec(arr, arr + n); \tcout  count(vec.begin(), vec.end(), 20); // 2  \tfind(vec.begin(), vec.end(),5) != vec.end() ? // Element found \tcout  \"\\nElement found\": \tcout  \"\\nElement not found\";  \treturn 0; } 8. binary_search()  binary_search(first_iterator, last_iterator, x) 測試 x 是否存在已排序的 vector 中  9. lower_bound()  lower_bound(first_iterator, last_iterator, x) 傳回指向不大於 x 的元素的 iterator  10. upper_bound()  upper_bound(first_iterator, last_iterator, x) 傳回指向大於 x 的元素的 iterator  #include #include #include  using namespace std;  int main(){  int arr[] = {5, 10, 15, 20, 20, 23, 42, 45};  int n = sizeof(arr)/sizeof(arr[0]);  vectorint vec(arr, arr + n);  sort(vec.begin(), vec.end());   cout  binary_search(vec.begin(), vec.end(), 20)  endl; // 1  cout  (lower_bound(vec.begin(), vec.end(), 20) - vec.begin())  endl; // 3  cout  (upper_bound(vec.begin(), vec.end(), 20) - vec.begin())  endl; // 5   return 0; } Manipulating Algorithms 1. vec.erase()  arr.erase(position_to_be_deleted) 移除指定位置的元素  2. vec.erase(unique())  arr.erase(unique(arr.begin(), arr.end()), arr.end()) 移除已排序的 vector 中重複的元素  #include #include #include  using namespace std;  int main(){  int arr[] = {5, 10, 15, 20, 20, 23, 42, 45, 20, 20, 20, 20, 20};  int n = sizeof(arr)/sizeof(arr[0]);  vectorint vec(arr, arr + n); // [5, 10, 15, 20, 20, 23, 42, 45, 20, 20, 20, 20, 20]   vec.erase(vec.begin() + 1); // [5, 15, 20, 20, 23, 42, 45, 20, 20, 20, 20, 20]  sort(vec.begin(), vec.end()); // [5, 15, 20, 20, 20, 20, 20, 20, 20, 23, 42, 45]  vec.erase(unique(vec.begin(), vec.end()), vec.end()); // [5, 15, 20, 23, 42, 45]   return 0; } 3. next_permutation()  next_permutation(first_iterator, last_iterator) 對 vector 作動成下一個字典排序  4. prev_permutation()  prev_permutation(first_iterator, last_iterator) 對 vector 作動成上一個字典排序  #include #include #include  using namespace std;  int main(){  int arr[] = {1,2,3,4,5,6,7};  int n = sizeof(arr)/sizeof(arr[0]);  vectorint vec(arr, arr + n); // [1,2,3,4,5,6,7]   next_permutation(vec.begin(), vec.end()); // [1,2,3,4,5,7,6]  next_permutation(vec.begin(), vec.end()); // [1,2,3,4,6,5,7]  next_permutation(vec.begin(), vec.end()); // [1,2,3,4,6,7,5]  next_permutation(vec.begin(), vec.end()); // [1,2,3,4,7,5,6]  prev_permutation(vec.begin(), vec.end()); // [1,2,3,4,6,7,5]   return 0; } 5. distance()  distance(first_iterator, last_iterator)  #include #include #include #include \"print.cc\" using namespace std;  int main(){  int arr[] = {5\u0008,10,15,20,20,23,42,45};  int n = sizeof(arr)/sizeof(arr[0]);  vectorint vec(arr, arr + n);   cout  distance(vec.begin(), max_element(vec.begin(), vec.end()))  endl; // 7  // == max_element(vec.begin(), vec.end()) - vec.begin();   return 0; } Array algorithms 1. any_of()  any_of(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false; vector 中是否有任何元素滿足條件  2. all_of()  all(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false; vector 中是否有全部元素滿足條件  3 none_of()  none_of(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false; vector 中是否沒有元素滿足條件  #include #include #include  using namespace std;  int main(){  vectorint vec1 {1,3,7,9,11,17,23};  all_of(vec1.begin(), vec1.end(), [](int x) { return (x \u0026 1) == 1;}) ? cout  \"All odds\\n\" : cout  \"Not all odds\\n\";   vectorint vec2 {1,3,6,8,9,11,13};  any_of(vec2.begin(), vec2.end(), [](int x) { return (x \u0026 1) == 0;}) ? cout  \"There are at least one even\\n\" : cout  \"There are no any even\\n\";   none_of(vec1.begin(), vec1.end(), [](int x) { return (x \u0026 1) == 0;}) ? cout  \"There are no any even\\n\" : cout  \"There are at least one even\\n\";   return 0; } 4. copy_n()  copy_n(source_array, array_size, target_array) 複製陣列  #include #include  using namespace std;  int main(){  int arr[] = {1,2,3,4,5,6};  int arr2[6];   copy_n(arr, 6, arr2);   for (int i : arr2){  cout  i  \" \";  }   return 0; } 5. iota()  iota(array_name, array_size, starting_number) 逐一增加並寫入指定大小的陣列  // C++ code to demonstrate working of iota() #include#include // for iota()using namespace std; int main(){ \t// Initializing array with 0 values \tint ar[6] = {0};  \t// Using iota() to assign values \tiota(ar, ar+6, 20);  \t// Displaying the new array \tcout  \"The new array after assigning values is : \"; \tfor (int i=0; i6 ; i++) \tcout  ar[i]  \" \";  \treturn 0;  }  Partition operations  C++ 在標準模板資料庫(STL)中有一個 class 可以來做 partition 的演算法。 Partition 就是用來將容器裡面的元素依指定的條件做分隔。  1. partition()  partition(begin, end, conditon) 依照指定條件做分隔。  2. is_partition()  is_partitioned(begin, end, condition 判斷元素是否依照條件分開。  #include #include #include  using namespace std;  int main(){  vectorint vec = {2,1,5,6,8,7};   is_partitioned(vec.begin(), vec.end(), [](int x){  return x % 2 == 0;  }) ?  cout  \"Vector is partitioned\":  cout  \"Vector is not partitioned\";  cout  endl;   partition(vec.begin(), vec.end(), [](int x){  return x % 2 == 0;  }) ?   cout  \"The partitioned vector is : \";  for (int \u0026x : vec) cout  x  \" \";   return 0; } 3. stable_partition()  stable_partition(begin, end, condition) 依指定條件作分隔，同時保留元素的相對位置。  4. partition_point()  partition_point(begin, end, condition) 返回指向分隔位置的迭代器，也就是在 [begin, end] 範圍內的第一個元素。 This function returns an iterator pointing to the partition point of container i.e. the first element in the partitioned range [beg,end) for which condition is not true. The container should already be partitioned for this function to work.  // C++ code to demonstrate the working of // stable_partition() and partition_point() #include#include // for partition algorithm#include // for vectorusing namespace std; int main() { \t// Initializing vector \tvectorint vect = { 2, 1, 5, 6, 8, 7 }; \t\t// partitioning vector using stable_partition() \t// in sorted order \tstable_partition(vect.begin(), vect.end(), [](int x) \t{ \treturn x%2 == 0;\t\t}); \t\t// Displaying partitioned Vector \tcout  \"The partitioned vector is : \"; \tfor (int \u0026x : vect) cout  x  \" \"; \tcout  endl; \t\t// Declaring iterator \tvectorint::iterator it1; \t\t// using partition_point() to get ending position of partition \tauto it = partition_point(vect.begin(), vect.end(), [](int x) \t{ \treturn x%2==0; \t}); \t\t// Displaying partitioned Vector \tcout  \"The vector elements returning true for condition are : \"; \tfor ( it1= vect.begin(); it1!=it; it1++) \tcout  *it1  \" \"; \tcout  endl; \t\treturn 0; \t}  5. partition_copy()  partition_copy(begin, end, begin1, begin2, condition) This function copies the partitioned elements in the different containers mentioned in its arguments. It takes 5 arguments. Beginning and ending position of container, beginning position of new container where elements have to be copied (elements returning true for condition), beginning position of new container where other elements have to be copied (elements returning false for condition) and the condition. Resizing new containers is necessary for this function.  // C++ code to demonstrate the working of // partition_copy() #include#include // for partition algorithm#include // for vectorusing namespace std; int main() { \t// Initializing vector \tvectorint vect = { 2, 1, 5, 6, 8, 7 }; \t\t// Declaring vector1 \tvectorint vect1; \t\t// Declaring vector1 \tvectorint vect2; \t\t// Resizing vectors to suitable size using count_if() and resize() \tint n = count_if (vect.begin(), vect.end(), [](int x) \t{ \treturn x%2==0; \t\t} ); \tvect1.resize(n); \tvect2.resize(vect.size()-n); \t\t// Using partition_copy() to copy partitions \tpartition_copy(vect.begin(), vect.end(), vect1.begin(), \tvect2.begin(), [](int x) \t{ \treturn x%2==0; \t}); \t\t\t// Displaying partitioned Vector \tcout  \"The elements that return true for condition are : \"; \tfor (int \u0026x : vect1) \tcout  x  \" \"; \tcout  endl; \t\t// Displaying partitioned Vector \tcout  \"The elements that return false for condition are : \"; \tfor (int \u0026x : vect2) \tcout  x  \" \"; \tcout  endl; \t\treturn 0; }  Numeric algorithms 1. apply()  apply([](int x){return operation;}) 對陣列所有元素做運算  2. arr.sum()  arr.sum() 計算陣列所有元素的總合  // C++ code to demonstrate the working of // apply() and sum() #include#include // for valarray functionsusing namespace std; int main() { \t// Initializing valarray \tvalarrayint varr = { 10, 2, 20, 1, 30 }; \t\t// Declaring new valarray \tvalarrayint varr1 ; \t\t// Using apply() to increment all elements by 5 \tvarr1 = varr.apply([](int x){return x=x+5;}); \t\t// Displaying new elements value \tcout  \"The new valarray with manipulated values is : \"; \tfor (int \u0026x: varr1) cout  x  \" \"; \tcout  endl; \t\t// Displaying sum of both old and new valarray \tcout  \"The sum of old valarray is : \"; \tcout  varr.sum()  endl; \tcout  \"The sum of new valarray is : \"; \tcout  varr1.sum()  endl;  \treturn 0; \t} 3. arr.min()  arr.min() 傳回陣列中最小的元素  4. arr.max()  arr.max() 傳回陣列中最大的元素  // C++ code to demonstrate the working of // max() and min() #include#include // for valarray functionsusing namespace std; int main() { \t// Initializing valarray \tvalarrayint varr = { 10, 2, 20, 1, 30 }; \t\t// Displaying largest element of valarray \tcout  \"The largest element of valarray is : \"; \tcout  varr.max()  endl; \t\t// Displaying smallest element of valarray \tcout  \"The smallest element of valarray is : \"; \tcout  varr.min()  endl;  \treturn 0; \t}  5. arr.shift()  \u0008arr.shift(int n) 對陣列做 n 個位的移動，正為向右移，負為向左移，缺位補零。  6. cshift()  arr.cshift(int n) 對陣列做 n 個位的移動，正為向右移，負為向左移，缺位使用循環補位。  // C++ code to demonstrate the working of // shift() and cshift() #include#include // for valarray functionsusing namespace std; int main() { \t// Initializing valarray \tvalarrayint varr = { 10, 2, 20, 1, 30 }; \t\t// Declaring new valarray \tvalarrayint varr1; \t\t// using shift() to shift elements to left \t// shifts valarray by 2 position \tvarr1 = varr.shift(2); \t\t// Displaying elements of valarray after shifting \tcout  \"The new valarray after shifting is : \"; \tfor ( int\u0026x : varr1) cout  x  \" \"; \tcout  endl; \t\t// using cshift() to circulary shift elements to right \t// rotates valarray by 3 position \tvarr1 = varr.cshift(-3); \t\t// Displaying elements of valarray after circular shifting \tcout  \"The new valarray after circular shifting is : \"; \tfor ( int\u0026x : varr1) cout  x  \" \"; \tcout  endl;  \treturn 0; \t}  7. arr1.swap(arr2)  arr1.swap(arr2) 陣列做交換  // C++ code to demonstrate the working of // swap() #include#include // for valarray functionsusing namespace std; int main(){ // Initializing 1st valarray \tvalarrayint varr1 = {1, 2, 3, 4}; \t\t// Initializing 2nd valarray \tvalarrayint varr2 = {2, 4, 6, 8}; \t\t// Displaying valarrays before swapping \tcout  \"The contents of 1st valarray \" \t\"before swapping are : \"; \tfor (int \u0026x : varr1) \tcout  x  \" \"; \tcout  endl; \tcout  \"The contents of 2nd valarray \" \t\"before swapping are : \"; \tfor (int \u0026x : varr2) \tcout  x  \" \"; \tcout  endl; \t\t// Use of swap() to swap the valarrays \tvarr1.swap(varr2); \t\t// Displaying valarrays after swapping \tcout  \"The contents of 1st valarray \" \t\"after swapping are : \"; \tfor (int \u0026x : varr1) \tcout  x  \" \"; \tcout  endl; \t\tcout  \"The contents of 2nd valarray \" \t\"after swapping are : \"; \tfor (int \u0026x : varr2) \tcout  x  \" \"; \tcout  endl;  \treturn 0;\t}  你可能會想繼續閱讀…  容器(Containers) 函式(Functions) 迭代器(Iterators) Utility Library    ",
+  "wordCount" : "1879",
+  "inLanguage": "en",
+  "image":"https://intervalrain.github.io/images/cover.jpg","datePublished": "2022-04-06T16:04:36+08:00",
+  "dateModified": "2022-04-06T16:04:36+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Rain Hu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://intervalrain.github.io/c++/stl_algo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rain Hu's Workspace",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://intervalrain.github.io/images/rain.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/c&#43;&#43;/">C&#43;&#43;s</a></div>
+    <h1 class="post-title">
+      [C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - Algorithm
+    </h1>
+    <div class="post-description">
+      C&#43;&#43; 中 STL 中的 algorithm lib 的函式與範例
+    </div>
+    <div class="post-meta"><span title='2022-04-06 16:04:36 +0800 CST'>April 6, 2022</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//C&#43;&#43;/STL_algo.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+        
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e6%bc%94%e7%ae%97%e6%b3%95algorithms" aria-label="演算法(Algorithms)">演算法(Algorithms)</a><ul>
+                            
+                    <li>
+                        <a href="#non-manupulating-algorithms" aria-label="Non-Manupulating Algorithms">Non-Manupulating Algorithms</a><ul>
+                            
+                    <li>
+                        <a href="#1-sort" aria-label="1. sort()">1. sort()</a></li>
+                    <li>
+                        <a href="#2-reverse" aria-label="2. reverse()">2. reverse()</a></li>
+                    <li>
+                        <a href="#3-max_element" aria-label="3. *max_element()">3. *max_element()</a></li>
+                    <li>
+                        <a href="#4-min_element" aria-label="4. *min_element()">4. *min_element()</a></li>
+                    <li>
+                        <a href="#5-accumulate" aria-label="5. accumulate">5. accumulate</a></li>
+                    <li>
+                        <a href="#6-count" aria-label="6. count()">6. count()</a></li>
+                    <li>
+                        <a href="#7-find" aria-label="7. find()">7. find()</a></li>
+                    <li>
+                        <a href="#8-binary_search" aria-label="8. binary_search()">8. binary_search()</a></li>
+                    <li>
+                        <a href="#9-lower_bound" aria-label="9. lower_bound()">9. lower_bound()</a></li>
+                    <li>
+                        <a href="#10-upper_bound" aria-label="10. upper_bound()">10. upper_bound()</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#manipulating-algorithms" aria-label="Manipulating Algorithms">Manipulating Algorithms</a><ul>
+                            
+                    <li>
+                        <a href="#1-vecerase" aria-label="1. vec.erase()">1. vec.erase()</a></li>
+                    <li>
+                        <a href="#2-veceraseunique" aria-label="2. vec.erase(unique())">2. vec.erase(unique())</a></li>
+                    <li>
+                        <a href="#3-next_permutation" aria-label="3. next_permutation()">3. next_permutation()</a></li>
+                    <li>
+                        <a href="#4-prev_permutation" aria-label="4. prev_permutation()">4. prev_permutation()</a></li>
+                    <li>
+                        <a href="#5-distance" aria-label="5. distance()">5. distance()</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#array-algorithms" aria-label="Array algorithms">Array algorithms</a><ul>
+                            
+                    <li>
+                        <a href="#1-any_of" aria-label="1. any_of()">1. any_of()</a></li>
+                    <li>
+                        <a href="#2-all_of" aria-label="2. all_of()">2. all_of()</a></li>
+                    <li>
+                        <a href="#3-none_of" aria-label="3 none_of()">3 none_of()</a></li>
+                    <li>
+                        <a href="#4-copy_n" aria-label="4. copy_n()">4. copy_n()</a></li>
+                    <li>
+                        <a href="#5-iota" aria-label="5. iota()">5. iota()</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#partition-operations" aria-label="Partition operations">Partition operations</a><ul>
+                            
+                    <li>
+                        <a href="#1-partition" aria-label="1. partition()">1. partition()</a></li>
+                    <li>
+                        <a href="#2-is_partition" aria-label="2. is_partition()">2. is_partition()</a></li>
+                    <li>
+                        <a href="#3-stable_partition" aria-label="3. stable_partition()">3. stable_partition()</a></li>
+                    <li>
+                        <a href="#4-partition_point" aria-label="4. partition_point()">4. partition_point()</a></li>
+                    <li>
+                        <a href="#5-partition_copy" aria-label="5. partition_copy()">5. partition_copy()</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#numeric-algorithms" aria-label="Numeric algorithms">Numeric algorithms</a><ul>
+                            
+                    <li>
+                        <a href="#1-apply" aria-label="1. apply()">1. apply()</a></li>
+                    <li>
+                        <a href="#2-arrsum" aria-label="2. arr.sum()">2. arr.sum()</a></li>
+                    <li>
+                        <a href="#3-arrmin" aria-label="3. arr.min()">3. arr.min()</a></li>
+                    <li>
+                        <a href="#4-arrmax" aria-label="4. arr.max()">4. arr.max()</a></li>
+                    <li>
+                        <a href="#5-arrshift" aria-label="5. arr.shift()">5. arr.shift()</a></li>
+                    <li>
+                        <a href="#6-cshift" aria-label="6. cshift()">6. cshift()</a></li>
+                    <li>
+                        <a href="#7-arr1swaparr2" aria-label="7. arr1.swap(arr2)">7. arr1.swap(arr2)</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="演算法algorithms">演算法(Algorithms)<a hidden class="anchor" aria-hidden="true" href="#演算法algorithms">#</a></h1>
+<h2 id="non-manupulating-algorithms">Non-Manupulating Algorithms<a hidden class="anchor" aria-hidden="true" href="#non-manupulating-algorithms">#</a></h2>
+<h3 id="1-sort">1. sort()<a hidden class="anchor" aria-hidden="true" href="#1-sort">#</a></h3>
+<ul>
+<li>sort(first_iterator, last_iterator)</li>
+<li>對 vector 作排序</li>
+</ul>
+<h3 id="2-reverse">2. reverse()<a hidden class="anchor" aria-hidden="true" href="#2-reverse">#</a></h3>
+<ul>
+<li><code>reverse(first_iterator, last_iterator)</code></li>
+<li>反轉 vector 的排序</li>
+</ul>
+<h3 id="3-max_element">3. *max_element()<a hidden class="anchor" aria-hidden="true" href="#3-max_element">#</a></h3>
+<ul>
+<li><code>*max_element(first_iterator, last_iterator)</code></li>
+<li>找出 vector 的最大值</li>
+</ul>
+<h3 id="4-min_element">4. *min_element()<a hidden class="anchor" aria-hidden="true" href="#4-min_element">#</a></h3>
+<ul>
+<li>*min_element(first_iterator, last_iterator)`</li>
+<li>找出 vector 的最小值</li>
+</ul>
+<h3 id="5-accumulate">5. accumulate<a hidden class="anchor" aria-hidden="true" href="#5-accumulate">#</a></h3>
+<ul>
+<li><code>accumulate(first_iterator, last_iterator, initial value of sum)</code></li>
+<li>計算 vector 的總和</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;numeric&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print</span>(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> vec){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it <span style="color:#f92672">=</span> vec.begin(); it <span style="color:#f92672">!=</span> vec.end(); it<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>it <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> arr[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">23</span>, <span style="color:#ae81ff">42</span>, <span style="color:#ae81ff">15</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(arr)<span style="color:#f92672">/</span><span style="color:#66d9ef">sizeof</span>(arr[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(arr, arr <span style="color:#f92672">+</span> n);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// print initial vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    print(vec);                         <span style="color:#75715e">// [10, 20, 5, 23, 42, 15]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// sort
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    sort(vec.begin(), vec.end());       <span style="color:#75715e">// [5, 10, 15, 20, 23, 42]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    print(vec);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// reverse
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    reverse(vec.begin(), vec.end());    <span style="color:#75715e">// [42, 23, 20, 15, 10, 5]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    print(vec);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// max &amp; min
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>max_element(vec.begin(), vec.end()) <span style="color:#f92672">&lt;&lt;</span> endl;   <span style="color:#75715e">// 42
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>min_element(vec.begin(), vec.end()) <span style="color:#f92672">&lt;&lt;</span> endl;   <span style="color:#75715e">// 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// accumulate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> accumulate(vec.begin(), vec.end(), <span style="color:#ae81ff">0</span>) <span style="color:#f92672">&lt;&lt;</span> endl;  <span style="color:#75715e">// 115
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></div><h3 id="6-count">6. count()<a hidden class="anchor" aria-hidden="true" href="#6-count">#</a></h3>
+<ul>
+<li><code>count(first_iterator, last_iterator, x)</code></li>
+<li>計算 vector 中 x 的數量</li>
+</ul>
+<h3 id="7-find">7. find()<a hidden class="anchor" aria-hidden="true" href="#7-find">#</a></h3>
+<ul>
+<li><code>find(fist_iterator, last_iterator, x)</code></li>
+<li>回傳 vector 中第一個符合的 iterator，若無則傳回 v.end()。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> arr[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">23</span> ,<span style="color:#ae81ff">42</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">15</span>};
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(arr)<span style="color:#f92672">/</span><span style="color:#66d9ef">sizeof</span>(arr[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>	vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(arr, arr <span style="color:#f92672">+</span> n);
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> count(vec.begin(), vec.end(), <span style="color:#ae81ff">20</span>);      <span style="color:#75715e">// 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	find(vec.begin(), vec.end(),<span style="color:#ae81ff">5</span>) <span style="color:#f92672">!=</span> vec.end() <span style="color:#f92672">?</span>   <span style="color:#75715e">// Element found 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>					   cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Element found&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>				   cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Element not found&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="8-binary_search">8. binary_search()<a hidden class="anchor" aria-hidden="true" href="#8-binary_search">#</a></h3>
+<ul>
+<li><code>binary_search(first_iterator, last_iterator, x)</code></li>
+<li>測試 x 是否存在已排序的 vector 中</li>
+</ul>
+<h3 id="9-lower_bound">9. lower_bound()<a hidden class="anchor" aria-hidden="true" href="#9-lower_bound">#</a></h3>
+<ul>
+<li><code>lower_bound(first_iterator, last_iterator, x)</code></li>
+<li>傳回指向不大於 x 的元素的 iterator</li>
+</ul>
+<h3 id="10-upper_bound">10. upper_bound()<a hidden class="anchor" aria-hidden="true" href="#10-upper_bound">#</a></h3>
+<ul>
+<li><code>upper_bound(first_iterator, last_iterator, x)</code></li>
+<li>傳回指向大於 x 的元素的 iterator</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> arr[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">23</span>, <span style="color:#ae81ff">42</span>, <span style="color:#ae81ff">45</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(arr)<span style="color:#f92672">/</span><span style="color:#66d9ef">sizeof</span>(arr[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(arr, arr <span style="color:#f92672">+</span> n);
+</span></span><span style="display:flex;"><span>    sort(vec.begin(), vec.end());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> binary_search(vec.begin(), vec.end(), <span style="color:#ae81ff">20</span>) <span style="color:#f92672">&lt;&lt;</span> endl;                  <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> (lower_bound(vec.begin(), vec.end(), <span style="color:#ae81ff">20</span>) <span style="color:#f92672">-</span> vec.begin()) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> (upper_bound(vec.begin(), vec.end(), <span style="color:#ae81ff">20</span>) <span style="color:#f92672">-</span> vec.begin()) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="manipulating-algorithms">Manipulating Algorithms<a hidden class="anchor" aria-hidden="true" href="#manipulating-algorithms">#</a></h2>
+<h3 id="1-vecerase">1. vec.erase()<a hidden class="anchor" aria-hidden="true" href="#1-vecerase">#</a></h3>
+<ul>
+<li><code>arr.erase(position_to_be_deleted)</code></li>
+<li>移除指定位置的元素</li>
+</ul>
+<h3 id="2-veceraseunique">2. vec.erase(unique())<a hidden class="anchor" aria-hidden="true" href="#2-veceraseunique">#</a></h3>
+<ul>
+<li><code>arr.erase(unique(arr.begin(), arr.end()), arr.end())</code></li>
+<li>移除已排序的 vector 中重複的元素</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> arr[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">23</span>, <span style="color:#ae81ff">42</span>, <span style="color:#ae81ff">45</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(arr)<span style="color:#f92672">/</span><span style="color:#66d9ef">sizeof</span>(arr[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(arr, arr <span style="color:#f92672">+</span> n);                          <span style="color:#75715e">// [5, 10, 15, 20, 20, 23, 42, 45, 20, 20, 20, 20, 20]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    vec.erase(vec.begin() <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);                             <span style="color:#75715e">// [5, 15, 20, 20, 23, 42, 45, 20, 20, 20, 20, 20]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    sort(vec.begin(), vec.end());                           <span style="color:#75715e">// [5, 15, 20, 20, 20, 20, 20, 20, 20, 23, 42, 45]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    vec.erase(unique(vec.begin(), vec.end()), vec.end());   <span style="color:#75715e">// [5, 15, 20, 23, 42, 45]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="3-next_permutation">3. next_permutation()<a hidden class="anchor" aria-hidden="true" href="#3-next_permutation">#</a></h3>
+<ul>
+<li><code>next_permutation(first_iterator, last_iterator)</code></li>
+<li>對 vector 作動成下一個字典排序</li>
+</ul>
+<h3 id="4-prev_permutation">4. prev_permutation()<a hidden class="anchor" aria-hidden="true" href="#4-prev_permutation">#</a></h3>
+<ul>
+<li><code>prev_permutation(first_iterator, last_iterator)</code></li>
+<li>對 vector 作動成上一個字典排序</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> arr[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(arr)<span style="color:#f92672">/</span><span style="color:#66d9ef">sizeof</span>(arr[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(arr, arr <span style="color:#f92672">+</span> n);              <span style="color:#75715e">// [1,2,3,4,5,6,7]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    next_permutation(vec.begin(), vec.end());   <span style="color:#75715e">// [1,2,3,4,5,7,6]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    next_permutation(vec.begin(), vec.end());   <span style="color:#75715e">// [1,2,3,4,6,5,7]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    next_permutation(vec.begin(), vec.end());   <span style="color:#75715e">// [1,2,3,4,6,7,5]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    next_permutation(vec.begin(), vec.end());   <span style="color:#75715e">// [1,2,3,4,7,5,6]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    prev_permutation(vec.begin(), vec.end());   <span style="color:#75715e">// [1,2,3,4,6,7,5]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="5-distance">5. distance()<a hidden class="anchor" aria-hidden="true" href="#5-distance">#</a></h3>
+<ul>
+<li><code>distance(first_iterator, last_iterator)</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;print.cc&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> arr[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010"></span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">23</span>,<span style="color:#ae81ff">42</span>,<span style="color:#ae81ff">45</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(arr)<span style="color:#f92672">/</span><span style="color:#66d9ef">sizeof</span>(arr[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec(arr, arr <span style="color:#f92672">+</span> n);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(vec.begin(), max_element(vec.begin(), vec.end())) <span style="color:#f92672">&lt;&lt;</span> endl;     <span style="color:#75715e">// 7
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// == max_element(vec.begin(), vec.end()) - vec.begin();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="array-algorithms">Array algorithms<a hidden class="anchor" aria-hidden="true" href="#array-algorithms">#</a></h2>
+<h3 id="1-any_of">1. any_of()<a hidden class="anchor" aria-hidden="true" href="#1-any_of">#</a></h3>
+<ul>
+<li><code>any_of(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false;</code></li>
+<li>vector 中是否有<strong>任何</strong>元素滿足條件</li>
+</ul>
+<h3 id="2-all_of">2. all_of()<a hidden class="anchor" aria-hidden="true" href="#2-all_of">#</a></h3>
+<ul>
+<li><code>all(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false;</code></li>
+<li>vector 中是否有<strong>全部</strong>元素滿足條件</li>
+</ul>
+<h3 id="3-none_of">3 none_of()<a hidden class="anchor" aria-hidden="true" href="#3-none_of">#</a></h3>
+<ul>
+<li><code>none_of(first_iterator, last_iterator, [](passing_value { return statement; })) ? if_true : if_false;</code></li>
+<li>vector 中是否<strong>沒有</strong>元素滿足條件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec1 {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">11</span>,<span style="color:#ae81ff">17</span>,<span style="color:#ae81ff">23</span>};
+</span></span><span style="display:flex;"><span>    all_of(vec1.begin(), vec1.end(), [](<span style="color:#66d9ef">int</span> x) { <span style="color:#66d9ef">return</span> (x <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>;}) <span style="color:#f92672">?</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;All odds</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">:</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Not all odds</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec2 {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">11</span>,<span style="color:#ae81ff">13</span>};
+</span></span><span style="display:flex;"><span>    any_of(vec2.begin(), vec2.end(), [](<span style="color:#66d9ef">int</span> x) { <span style="color:#66d9ef">return</span> (x <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>;}) <span style="color:#f92672">?</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;There are at least one even</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">:</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;There are no any even</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    none_of(vec1.begin(), vec1.end(), [](<span style="color:#66d9ef">int</span> x) { <span style="color:#66d9ef">return</span> (x <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>;}) <span style="color:#f92672">?</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;There are no any even</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">:</span> cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;There are at least one even</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="4-copy_n">4. copy_n()<a hidden class="anchor" aria-hidden="true" href="#4-copy_n">#</a></h3>
+<ul>
+<li><code>copy_n(source_array, array_size, target_array)</code></li>
+<li>複製陣列</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> arr[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> arr2[<span style="color:#ae81ff">6</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    copy_n(arr, <span style="color:#ae81ff">6</span>, arr2);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i : arr2){
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="5-iota">5. iota()<a hidden class="anchor" aria-hidden="true" href="#5-iota">#</a></h3>
+<ul>
+<li><code>iota(array_name, array_size, starting_number)</code></li>
+<li>逐一增加並寫入指定大小的陣列</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">// C++ code to demonstrate working of iota()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;numeric&gt; // for iota()</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initializing array with 0 values
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> ar[<span style="color:#ae81ff">6</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Using iota() to assign values
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	iota(ar, ar<span style="color:#f92672">+</span><span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying the new array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The new array after assigning values is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">6</span> ; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> ar[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></div><h2 id="partition-operations">Partition operations<a hidden class="anchor" aria-hidden="true" href="#partition-operations">#</a></h2>
+<ul>
+<li>C++ 在標準模板資料庫(STL)中有一個 class 可以來做 partition 的演算法。</li>
+<li>Partition 就是用來將容器裡面的元素依指定的條件做分隔。</li>
+</ul>
+<h3 id="1-partition">1. partition()<a hidden class="anchor" aria-hidden="true" href="#1-partition">#</a></h3>
+<ul>
+<li><code>partition(begin, end, conditon)</code></li>
+<li>依照指定條件做分隔。</li>
+</ul>
+<h3 id="2-is_partition">2. is_partition()<a hidden class="anchor" aria-hidden="true" href="#2-is_partition">#</a></h3>
+<ul>
+<li><code>is_partitioned(begin, end, condition</code></li>
+<li>判斷元素是否依照條件分開。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec <span style="color:#f92672">=</span> {<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">7</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    is_partitioned(vec.begin(), vec.end(), [](<span style="color:#66d9ef">int</span> x){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }) <span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Vector is partitioned&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Vector is not partitioned&#34;</span>;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    partition(vec.begin(), vec.end(), [](<span style="color:#66d9ef">int</span> x){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }) <span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The partitioned vector is : &#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x : vec) cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="3-stable_partition">3. stable_partition()<a hidden class="anchor" aria-hidden="true" href="#3-stable_partition">#</a></h3>
+<ul>
+<li><code>stable_partition(begin, end, condition)</code></li>
+<li>依指定條件作分隔，同時保留元素的相對位置。</li>
+</ul>
+<h3 id="4-partition_point">4. partition_point()<a hidden class="anchor" aria-hidden="true" href="#4-partition_point">#</a></h3>
+<ul>
+<li><code>partition_point(begin, end, condition)</code></li>
+<li>返回指向分隔位置的迭代器，也就是在 [begin, end] 範圍內的第一個元素。</li>
+<li>This function returns an iterator pointing to the partition point of container i.e. the first element in the partitioned range [beg,end) for which condition is not true. The container should already be partitioned for this function to work.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">// C++ code to demonstrate the working of
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// stable_partition() and partition_point()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;algorithm&gt; // for partition algorithm</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;vector&gt; // for vector</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initializing vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vect <span style="color:#f92672">=</span> { <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">7</span> };
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// partitioning vector using stable_partition()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// in sorted order
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	stable_partition(vect.begin(), vect.end(), [](<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> x<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>;	
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying partitioned Vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The partitioned vector is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x : vect) cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Declaring iterator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it1;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// using partition_point() to get ending position of partition
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> partition_point(vect.begin(), vect.end(), [](<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> x<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying partitioned Vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The vector elements returning true for condition are : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> ( it1<span style="color:#f92672">=</span> vect.begin(); it1<span style="color:#f92672">!=</span>it; it1<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>it1 <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></div><h3 id="5-partition_copy">5. partition_copy()<a hidden class="anchor" aria-hidden="true" href="#5-partition_copy">#</a></h3>
+<ul>
+<li><code>partition_copy(begin, end, begin1, begin2, condition)</code></li>
+<li>This function copies the partitioned elements in the different containers mentioned in its arguments. It takes 5 arguments. Beginning and ending position of container, beginning position of new container where elements have to be copied (elements returning true for condition), beginning position of new container where other elements have to be copied (elements returning false for condition) and the condition. Resizing new containers is necessary for this function.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">// C++ code to demonstrate the working of
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// partition_copy()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;algorithm&gt; // for partition algorithm</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;vector&gt; // for vector</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initializing vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vect <span style="color:#f92672">=</span> { <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">7</span> };
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Declaring vector1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vect1;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Declaring vector1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vect2;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Resizing vectors to suitable size using count_if() and resize()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> count_if (vect.begin(), vect.end(), [](<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> x<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>	} );
+</span></span><span style="display:flex;"><span>	vect1.resize(n);
+</span></span><span style="display:flex;"><span>	vect2.resize(vect.size()<span style="color:#f92672">-</span>n);
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Using partition_copy() to copy partitions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	partition_copy(vect.begin(), vect.end(), vect1.begin(),
+</span></span><span style="display:flex;"><span>									vect2.begin(), [](<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> x<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span><span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying partitioned Vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The elements that return true for condition are : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x : vect1)
+</span></span><span style="display:flex;"><span>			cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying partitioned Vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The elements that return false for condition are : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x : vect2)
+</span></span><span style="display:flex;"><span>			cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></div><h2 id="numeric-algorithms">Numeric algorithms<a hidden class="anchor" aria-hidden="true" href="#numeric-algorithms">#</a></h2>
+<h3 id="1-apply">1. apply()<a hidden class="anchor" aria-hidden="true" href="#1-apply">#</a></h3>
+<ul>
+<li><code>apply([](int x){return operation;})</code></li>
+<li>對陣列所有元素做運算</li>
+</ul>
+<h3 id="2-arrsum">2. arr.sum()<a hidden class="anchor" aria-hidden="true" href="#2-arrsum">#</a></h3>
+<ul>
+<li><code>arr.sum()</code></li>
+<li>計算陣列所有元素的總合</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">// C++ code to demonstrate the working of
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// apply() and sum()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;valarray&gt; // for valarray functions</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initializing valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	valarray<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> varr <span style="color:#f92672">=</span> { <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">30</span> };
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Declaring new valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	valarray<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> varr1 ;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Using apply() to increment all elements by 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	varr1 <span style="color:#f92672">=</span> varr.apply([](<span style="color:#66d9ef">int</span> x){<span style="color:#66d9ef">return</span> x<span style="color:#f92672">=</span>x<span style="color:#f92672">+</span><span style="color:#ae81ff">5</span>;});
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying new elements value
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The new valarray with manipulated values is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x: varr1) cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying sum of both old and new valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The sum of old valarray is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> varr.sum() <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The sum of new valarray is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> varr1.sum() <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="3-arrmin">3. arr.min()<a hidden class="anchor" aria-hidden="true" href="#3-arrmin">#</a></h3>
+<ul>
+<li><code>arr.min()</code></li>
+<li>傳回陣列中最小的元素</li>
+</ul>
+<h3 id="4-arrmax">4. arr.max()<a hidden class="anchor" aria-hidden="true" href="#4-arrmax">#</a></h3>
+<ul>
+<li><code>arr.max()</code></li>
+<li>傳回陣列中最大的元素</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">// C++ code to demonstrate the working of
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// max() and min()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;valarray&gt; // for valarray functions</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initializing valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	valarray<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> varr <span style="color:#f92672">=</span> { <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">30</span> };
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying largest element of valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The largest element of valarray is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> varr.max() <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying smallest element of valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The smallest element of valarray is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> varr.min() <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></div><h3 id="5-arrshift">5. arr.shift()<a hidden class="anchor" aria-hidden="true" href="#5-arrshift">#</a></h3>
+<ul>
+<li><code>arr.shift(int n)</code></li>
+<li>對陣列做 n 個位的移動，正為向右移，負為向左移，缺位補零。</li>
+</ul>
+<h3 id="6-cshift">6. cshift()<a hidden class="anchor" aria-hidden="true" href="#6-cshift">#</a></h3>
+<ul>
+<li><code>arr.cshift(int n)</code></li>
+<li>對陣列做 n 個位的移動，正為向右移，負為向左移，缺位使用循環補位。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">// C++ code to demonstrate the working of
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// shift() and cshift()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;valarray&gt; // for valarray functions</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initializing valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	valarray<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> varr <span style="color:#f92672">=</span> { <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">30</span> };
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Declaring new valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	valarray<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> varr1;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// using shift() to shift elements to left
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// shifts valarray by 2 position
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	varr1 <span style="color:#f92672">=</span> varr.shift(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying elements of valarray after shifting
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The new valarray after shifting is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span>x : varr1) cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// using cshift() to circulary shift elements to right
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// rotates valarray by 3 position
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	varr1 <span style="color:#f92672">=</span> varr.cshift(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying elements of valarray after circular shifting
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The new valarray after circular shifting is : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> ( <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span>x : varr1) cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></div><h3 id="7-arr1swaparr2">7. arr1.swap(arr2)<a hidden class="anchor" aria-hidden="true" href="#7-arr1swaparr2">#</a></h3>
+<ul>
+<li>arr1.swap(arr2)</li>
+<li>陣列做交換</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#75715e">// C++ code to demonstrate the working of
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// swap()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;valarray&gt; // for valarray functions</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Initializing 1st valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	valarray<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> varr1 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>};
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initializing 2nd valarray
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	valarray<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> varr2 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>};
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying valarrays before swapping
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The contents of 1st valarray &#34;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#e6db74">&#34;before swapping are : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x : varr1)
+</span></span><span style="display:flex;"><span>		cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The contents of 2nd valarray &#34;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#e6db74">&#34;before swapping are : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x : varr2)
+</span></span><span style="display:flex;"><span>		cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Use of swap() to swap the valarrays
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	varr1.swap(varr2);
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Displaying valarrays after swapping
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The contents of 1st valarray &#34;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#e6db74">&#34;after swapping are : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x : varr1)
+</span></span><span style="display:flex;"><span>		cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The contents of 2nd valarray &#34;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#e6db74">&#34;after swapping are : &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x : varr2)
+</span></span><span style="display:flex;"><span>		cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;	
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>你可能會想繼續閱讀…
+<ul>
+<li><a href="/c++/stl_container">容器(Containers)</a></li>
+<li><a href="/c++/stl_function">函式(Functions)</a></li>
+<li><a href="/c++/stl_iterator">迭代器(Iterators)</a></li>
+<li><a href="/c++/stl_util">Utility Library</a></li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://intervalrain.github.io/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
+      <li><a href="https://intervalrain.github.io/tags/programming/">Programming</a></li>
+    </ul>
+
+  </footer><script src="https://utteranc.es/client.js"
+    repo="Reid00/hugo-blog-talks"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

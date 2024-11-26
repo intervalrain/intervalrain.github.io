@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C# on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/tags/c#/</link>
+    <description>Recent content in C# on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 11 Jun 2024 22:00:23 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IT] React &#43; .Net</title>
+      <link>https://intervalrain.github.io/it/csharp-react/</link>
+      <pubDate>Tue, 11 Jun 2024 22:00:23 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/csharp-react/</guid>
+      <description>React + .Net 一、環境設置 Setup 1. 行前準備 Prerequisites  安裝 Node.js 和 npm  node -v npm -v  安裝 .NET SDK  dotnet --version  用 vs code 下載 ES7+ React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce  import React from &amp;#39;react&amp;#39;  const index = () =&amp;gt; {  return (  &amp;lt;div&amp;gt;index&amp;lt;/div&amp;gt;  ) }  export default index 2. 創建 React  安裝 react  npm install create-react-app  創建新的 react app (typescript)  --template typescript 可指定使用 typescript    npx create-react-app {project} --template typescript cd {project}  必要時可能要初始化一個新的 react 項目，確保版本是匹配的。  yarnpkg add --exact react-dom react-scripts 3.</description>
+    </item>
+    
+    <item>
+      <title>[IT] ApiController Atrribute</title>
+      <link>https://intervalrain.github.io/it/apicontroller/</link>
+      <pubDate>Sun, 09 Jun 2024 20:27:03 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/apicontroller/</guid>
+      <description>ApiController Atrribute  當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？
+ [ApiController] public class TestController : ControllerBase { } 1. 自動 HTTP 400 回應  它會自動產生一個行為過濾器(action filter)，當 ModelState.IsValid 為 false 時，自動回傳 400 Response。  2. 綁定來源參數推斷  可以更改模型綁定的約定，例如，[FromBody] 是針對複雜類型參數推斷的。  3. Multi/form-data 請求推理  對於標示 [FromForm] 的參數，推斷 Content-Type 為 multipart/form-data。  4. 屬性路由要求  強制要求所有操作都必須通過屬性路由。  .notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.</description>
+    </item>
+    
+    <item>
+      <title>[IT] EntityFramework Commands</title>
+      <link>https://intervalrain.github.io/it/entityframework_command/</link>
+      <pubDate>Sun, 31 Mar 2024 14:37:44 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/entityframework_command/</guid>
+      <description>Some commands to trigger migration operations</description>
+    </item>
+    
+    <item>
+      <title>[IT] 用 C# 建置 Clean Architecture 專案</title>
+      <link>https://intervalrain.github.io/it/ca_config/</link>
+      <pubDate>Sat, 09 Mar 2024 13:59:22 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/ca_config/</guid>
+      <description>Configure C# Solution step by step  開啟 Terminal 新增解決方案 dontet new sln -o MySln 移至方案目錄 cd MySln 根據解決方案 hierarchy 建構專案  dotnet new webapi -o MySln.Api dotnet new classlib -o MySln.Application dotnet new classlib -o MySln.Domain dotnet new classlib -o MySln.Infrastructure dotnet new classlib -o MySln.Contracts   將所有專案加進解決方案 for proj in $(ls -r **/*.csproj)  dotnet sln add $proj  建立專案之間的 dependency  dotnet add MySln.Api reference MySln.Application MySln.</description>
+    </item>
+    
+    <item>
+      <title>[IT] 使用 Clean Architecture &#43; DDD 建置 Restful API</title>
+      <link>https://intervalrain.github.io/it/clean_arch_configuration/</link>
+      <pubDate>Mon, 26 Feb 2024 15:03:15 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/clean_arch_configuration/</guid>
+      <description>程式碼 https://github.com/intervalrain/webapi_ca/
+正文 建置 Solution   首先先參考 Clean Architecture 最經典的同心圓，來確定我們需要將我們的解決方案做哪些分層：
+ 我將使用 Restful API 做為我們 I/O (Presentation Layer) 並且我需要配備身份驗證的機制 (Presentation Layer) 我使用 PostgresDB 作為我的 (Infrastructure Layer) 我的核心商業邏輯 (Application / Domain Layer)     創建專案
+  dotnet new sln -o Mysln 進入專案所在的資料夾  cd Mysln 根據預先的分層建立專案資料夾，並且使用 dotnet 指令建立相對應的專案類型。  Api &amp;ndash;&amp;gt; WebAPI Infrastructure &amp;ndash;&amp;gt; classlib Contracts &amp;ndash;&amp;gt; classlib Application &amp;ndash;&amp;gt; classlib Domain &amp;ndash;&amp;gt; classlib    dotnet new webapi -o Mysln.</description>
+    </item>
+    
+    <item>
+      <title>[IT] .NET Maui</title>
+      <link>https://intervalrain.github.io/it/maui/</link>
+      <pubDate>Sun, 28 Jan 2024 13:30:34 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/maui/</guid>
+      <description>.NET Maui  .NET Maui 是一個跨平台的桌面與手機應用開發框架，它支援 iOS、Android、macOS、Windows。 不同於 Xamarin，.NET Maui 只需要一個專案便可以導向不同的平台。    架構  一個 .NET Maui 專案底下，預設會有幾個資料夾與檔案，其關係如下圖：  /Platforms 底下的各個資料夾為不同平台的入口，不同的平台各有一個 Program.cs。 各個 Program.cs 內又會透過注入該 namespace 底下的 AppDelegate ，將入口指向 MauiProgram 的 CreateMauiApp()，就此將不同平台路由到 MauiProgram.cs 這個統一的入口。    public class Program {  static void Main(string[] args)  {  UIApplication.Main(args, null, typeof(AppDelegate));  } } [Register(&amp;#34;AppDelegate&amp;#34;)] public class AppDelegate : MauiUIApplicationDelegate {  protected override MauiApp CreateMauiApp() =&amp;gt; MauiProgram.</description>
+    </item>
+    
+    <item>
+      <title>[IT] CORS 跨原始來源要求</title>
+      <link>https://intervalrain.github.io/it/cors/</link>
+      <pubDate>Fri, 19 Jan 2024 00:41:51 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/cors/</guid>
+      <description>TL;DR  CORS (Cross-Origin Resource Sharing)
+是一個支援安全跨源請求和資料傳輸的機制，用於在瀏覽器和伺服器之間進行跨源請求。
+  這是一個 W3C 標準，可讓伺服器放寬相同原始來源原則。 不是安全性功能，CORS 會放寬安全性。 允許 CORS 並不會增強 API 的安全性。CORS 的運作方式 允許伺服器明確允許某些跨原始來源要求，同時拒絕其他要求。 比舊版技術 (例如：JSONP) 更安全且更有彈性。  何謂相同原始來源  如果兩個 URL 具有相同的配置、主機和連接埠，則其原始來源相同 (RFC 6454)。  這兩個 URL 具有相同的原始來源：  https://example.com/foo.html https://example.com/bar.html   這些 URL 的原始來源與前兩個 URL 不同：  https://example.net：不同的網域 https://www.example.com/foo.html：不同的子網域 http://example.com/foo.html：不同的配置 https://example.com:9000/foo.html：不同的連接埠      如何啟動 CORS 有三種方式可以啟用 CORS：
+ 在中介軟體中，使用具名原則或預設原則。 使用端點路由。 使用 [EnableCors] 屬性。 搭配具名原則使用 [EnableCors] 屬性能夠以最精細的程度來控制對於支援 CORS 之端點的限制。  .</description>
+    </item>
+    
+    <item>
+      <title>[IT] LINQ: IQueryable Provider</title>
+      <link>https://intervalrain.github.io/it/iq1/</link>
+      <pubDate>Thu, 21 Sep 2023 11:34:15 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/iq1/</guid>
+      <description>一系列關於如何建立 LINQ IQueryable Provider 的文章，每篇都是建立在前一篇的基礎上。</description>
+    </item>
+    
+    <item>
+      <title>[C#] Large Object Heap</title>
+      <link>https://intervalrain.github.io/csharp/loh/</link>
+      <pubDate>Sat, 22 Jul 2023 20:59:57 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/loh/</guid>
+      <description>Introduction to Large Object Heap</description>
+    </item>
+    
+    <item>
+      <title>[CS] Sample cost for performance test</title>
+      <link>https://intervalrain.github.io/csharp/performancetest/</link>
+      <pubDate>Tue, 16 May 2023 21:26:24 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/performancetest/</guid>
+      <description>Sample code for stop watch using System; using System.Collections.Generic; using System.Data; using System.Linq; using System.Runtime.CompilerServices; using System.Data.Common; using System.Diagnostics; using System.Drawing; using System.Text; using System.Threading.Tasks;  namespace Rainspace.PlayGround {  public class Program  {  public static void Main(string[] args)  {  Stopwatch sw = new Stopwatch();  sw.Start();  System.Console.WriteLine(&amp;#34;==============Accumulate1==============&amp;#34;);  System.Console.WriteLine(&amp;#34;Result: &amp;#34; + Accumulate(0, 100, 0));  sw.Stop();  System.Console.WriteLine(&amp;#34;Time cost: &amp;#34; + (sw.ElapsedTicks/1.0e6).ToString() + &amp;#34;ms&amp;#34;);  sw.</description>
+    </item>
+    
+    <item>
+      <title>[C#] C#3、LINQ 及相關特性</title>
+      <link>https://intervalrain.github.io/csharp/linq_props/</link>
+      <pubDate>Mon, 01 May 2023 14:10:48 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/linq_props/</guid>
+      <description>Introduction to LINQ in C#</description>
+    </item>
+    
+    <item>
+      <title>[C#] Namespace Alias 命名空間別名</title>
+      <link>https://intervalrain.github.io/csharp/namespace_alias/</link>
+      <pubDate>Tue, 28 Feb 2023 22:51:08 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/namespace_alias/</guid>
+      <description>Namespace alias in C#</description>
+    </item>
+    
+    <item>
+      <title>[C#] Property getter/setter access separate 訪問權限分離</title>
+      <link>https://intervalrain.github.io/csharp/getter_setter_access_separate/</link>
+      <pubDate>Tue, 28 Feb 2023 22:18:25 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/getter_setter_access_separate/</guid>
+      <description>Separate getter/setter property access in C#</description>
+    </item>
+    
+    <item>
+      <title>[C#] static class 靜態類別</title>
+      <link>https://intervalrain.github.io/csharp/static/</link>
+      <pubDate>Tue, 28 Feb 2023 21:08:01 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/static/</guid>
+      <description>Introduction to static class in C#</description>
+    </item>
+    
+    <item>
+      <title>[C#] C# 筆記</title>
+      <link>https://intervalrain.github.io/csharp/csharp/</link>
+      <pubDate>Tue, 28 Feb 2023 18:49:39 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/csharp/</guid>
+      <description>Notes for C#</description>
+    </item>
+    
+    <item>
+      <title>[C#] Partial Type 局部類型</title>
+      <link>https://intervalrain.github.io/csharp/partial/</link>
+      <pubDate>Tue, 28 Feb 2023 15:11:11 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/partial/</guid>
+      <description>Introduction to partial class ans partial method in C#</description>
+    </item>
+    
+    <item>
+      <title>[C#] IEnumerable &amp; IEnumerator 迭代器</title>
+      <link>https://intervalrain.github.io/csharp/iterator/</link>
+      <pubDate>Mon, 27 Feb 2023 11:50:20 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/iterator/</guid>
+      <description>Introduction to Iterator in C#, including IEnumerator and IEnumerable</description>
+    </item>
+    
+    <item>
+      <title>[C#] Delegate 委派</title>
+      <link>https://intervalrain.github.io/csharp/delegate/</link>
+      <pubDate>Sun, 26 Feb 2023 19:24:56 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/delegate/</guid>
+      <description>Introduction to Delegate in C#</description>
+    </item>
+    
+    <item>
+      <title>[C#] Nullable 可空值類型</title>
+      <link>https://intervalrain.github.io/csharp/nullable/</link>
+      <pubDate>Thu, 23 Feb 2023 21:40:03 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/nullable/</guid>
+      <description>Introduction to Nullable in C#</description>
+    </item>
+    
+    <item>
+      <title>[C#] Generic 泛型</title>
+      <link>https://intervalrain.github.io/csharp/generic/</link>
+      <pubDate>Wed, 22 Feb 2023 21:39:56 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/generic/</guid>
+      <description>Introduction to Generic in C#</description>
+    </item>
+    
+    <item>
+      <title>[IT] C# Depth Ch.2 C# 2</title>
+      <link>https://intervalrain.github.io/it/csharp_depth_ch2/</link>
+      <pubDate>Fri, 20 Jan 2023 10:10:46 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/csharp_depth_ch2/</guid>
+      <description>C# 2 一、泛型  使用泛型(generic type)可以在編寫在編譯時類型安全的通用程式碼，無須事先知道要使用的具體類型。 示例1: array類型: 大小需預先設定，若要添加需要重新分配  public static void Main(string[] args) {  PrintNames(GenerateNames()); } public static void PrintNames(string[] names) {  foreach (string name in names)  {  Console.WriteLine(name);  } } public static string[] GenerateNames() {  string[] names = new string[4];  names[0] = &amp;#34;Mike&amp;#34;;  names[1] = &amp;#34;Rain&amp;#34;;  names[2] = &amp;#34;Jessica&amp;#34;;  names[3] = &amp;#34;Billy&amp;#34;;   return names; } 示例2: ArrayList類型: ArrayList.</description>
+    </item>
+    
+    <item>
+      <title>[IT] C# Depth Ch.1 與時俱進的語言</title>
+      <link>https://intervalrain.github.io/it/csharp_depth_ch1/</link>
+      <pubDate>Tue, 17 Jan 2023 22:27:58 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/csharp_depth_ch1/</guid>
+      <description>與時俱進的語言 一、System Class 1. 泛型(genric)  可更清楚的描述序列中每個元素的類型。  C#1 示例
+public class Bookshelf {  public IEnumerable Books { get { ... } } } C#2 示例：泛型
+public class Bookshelf { 	public IEnumerable&amp;lt;Book&amp;gt; Books { get { ... } } }  2. 可空值類型(nullable value type)  可有效的表示未定的變量值，以擺脫魔數(用-1當集合索引，用 MinValue 或 MaxValue 做為初始值)。  示例
+string? a = null; Console.WriteLine(a ?? &amp;#34;null&amp;#34;);	// null a = &amp;#34;abc&amp;#34;; Console.WriteLine(a ?? &amp;#34;null&amp;#34;);	// abc  3.</description>
+    </item>
+    
+    <item>
+      <title>[C#] Yield Return</title>
+      <link>https://intervalrain.github.io/csharp/yield/</link>
+      <pubDate>Sun, 01 Jan 2023 21:40:25 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/csharp/yield/</guid>
+      <description>Introduction to yield return in C#, and the background of IEnumerable and IEnumerator </description>
+    </item>
+    
+  </channel>
+</rss>

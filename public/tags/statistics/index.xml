@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Statistics on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/tags/statistics/</link>
+    <description>Recent content in Statistics on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 12 Dec 2023 22:16:04 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Statistics] a群體與b群體各別標準差求整體標準差</title>
+      <link>https://intervalrain.github.io/statistics/sigma/</link>
+      <pubDate>Tue, 12 Dec 2023 22:16:04 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/statistics/sigma/</guid>
+      <description>Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\) 1. 簡化 \(\sigma\)  將 \(\sigma\) 乘開  \(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\) \(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}+n\bar x^2}}{n}}\)   平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故  \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}+\frac{n\bar x^2}{n}}\) \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2+\bar x^2}\) 得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\)    2. 求個別平方和  由\((1)\)式可推得各別的標準差為  \(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\)   且  \(\boxed{n = n_a+n_b}-(3)\) \(\boxed{\sum x_i^2=\sum x_{ai}^2+\sum x_{bi}^2}-(4)\)   欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開  \(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\) \(\sigma_a^2+\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\) 得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2+\bar x_a^2)}-(5)\)    3.</description>
+    </item>
+    
+    <item>
+      <title>[統計] 統計學概要</title>
+      <link>https://intervalrain.github.io/device/statistics/</link>
+      <pubDate>Sat, 09 Jul 2022 20:02:28 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/device/statistics/</guid>
+      <description>用自身工經驗簡述實務上應用的統計學</description>
+    </item>
+    
+  </channel>
+</rss>

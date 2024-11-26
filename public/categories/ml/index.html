@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>ML | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+<meta name="author" content="Rain Hu, intervarrain, 陣雨">
+<link rel="canonical" href="https://intervalrain.github.io/categories/ml/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/images/rain.png" as="image">
+<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
+<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://intervalrain.github.io/categories/ml/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script><meta property="og:title" content="ML" />
+<meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://intervalrain.github.io/categories/ml/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ML"/>
+<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"/>
+<meta name="twitter:site" content="@intervalrain"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/categories/">Categories</a></div>
+  <h1>ML</h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[ML] Start Tensorflow Environment with Conda
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>環境建置  安裝 Anaconda 創建虛擬環境  conda create -n tensorflow 進入虛擬環境 (macOS/Linux)  source activate tensorflow 在環境內安裝 tensorflow  pip install tensorflow 在環境內安裝 jupyter notebook  pip install jupyter notebook 在環境內安裝 pandas  pip install pandas 開啟 jupyter notebook  jupyter notebook For terminal user  開始 Anaconda.Navigator  在 Environments 中安裝指定模組 ex.tensorflow, keras 在 terminal 中輸入 conda activate {環境名稱}  conda activate tensorflow 開啟 python  python 若成功便會顯示 python 安裝資訊...</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-10-11 20:48:34 +0800 CST'>October 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [ML] Start Tensorflow Environment with Conda" href="https://intervalrain.github.io/ml/environment/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[ML] 01. 機器學習基本概念簡介
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>前言 --  什麼是機器學習  機器學習(Machine Learning)，就是利用機器的力量幫忙找出函式。  Input 可以是  vector matrix sequence   Output 可以是  Regression Classification Structed Learning(令機器產生有結構的東西 eg. text, image)  示意圖    什麼是深度學習      深度學習(Deep Learning)，就是利用神經網路(neural network)的方式來產生函數。    機器如何學習 1. 基本原理(訓練三步驟)  Step 1: 使用合適的 Model  \(y=f(\text{\red{data}})\)  Function with unknown parameters Model: \(\boxed{y=b&#43;wx_1}\)  \(w: \text{weight}\) \(b: \text{bias}\) \(x: \text{feature}\)         Step 2: 定義 Loss function  Define loss from training data  以 Model 的參數 \(w,b\) 來計算 Loss 物理意義：Loss 愈大代表參數愈不好，Loss 愈小代表參數愈好。   計算方法：求估計的值與實際的值(label)之間的差距  Loss function: \(\boxed{L=\frac{1}{N}\sum_ne_n}\) MAE (mean absolute error): \(e=|y-\hat{y}|\) MSE (mean square error): \(e=(y-\hat{y})^2\) Cross-entropy: 計算機率分布之間的差距   Error Surface: 根據不同的參數，計算出 loss 所畫出來的等高線圖。   Step 3: Optimization  找到 loss 最小的參數組合 \((w,b)\) 方法：Gradient Descent  \(\boxed{w&#39; = w - \red{\eta}\frac{\partial L}{\partial w}|_{w=w^0,b=b^0}}\) \(\boxed{b&#39; = b - \red{\eta}\frac{\partial L}{\partial b}|_{w=w^0,b=b^0}}\) \(\red{\eta}\): 學習率 learning rate, 決定 gradient descent 的一步有多大步      2....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-08-02 23:56:25 +0800 CST'>August 2, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [ML] 01. 機器學習基本概念簡介" href="https://intervalrain.github.io/ml/lhy01/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[ML] 簡單實作測試
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp  url = &#34;sample.csv&#34; data = pd.read_csv(url)  x = data[&#34;x-axis&#34;] y = data[&#34;y-axis&#34;] 畫圖 def plot(x, y, w, b):  line = w * x &#43; b  plt.plot(x, line, color=&#34;red&#34;, label=&#34;prediction&#34;)  plt.scatter(x, y, color=&#34;blue&#34;, label=&#34;data&#34;, marker=&#34;x&#34;)  plt.title(&#34;Title&#34;)  plt.xlabel(&#34;x Axis&#34;)  plt.ylabel(&#34;y Axis&#34;)  plt.xlim([0,12])  plt.ylim([20,140])  plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b):  y2 = w * x &#43; b  cost = (y - y2) ** 2  return cost....</p>
+  </section>
+  <footer class="entry-footer"><span title='2023-04-30 00:35:59 +0800 CST'>April 30, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [ML] 簡單實作測試" href="https://intervalrain.github.io/ml/work/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

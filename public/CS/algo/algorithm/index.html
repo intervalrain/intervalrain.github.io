@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[Algo] 1-9. Algorithm | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="C&#43;&#43;, Algorithm, STL" />
+<meta name="description" content="C&#43;&#43; 的內建演算法庫使用與範例">
+<meta name="author" content="Rain Hu">
+<link rel="canonical" href="https://intervalrain.github.io/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/images/rain.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
+<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script><meta property="og:title" content="[Algo] 1-9. Algorithm" />
+<meta property="og:description" content="C&#43;&#43; 的內建演算法庫使用與範例" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://intervalrain.github.io/cs/algo/algorithm/" />
+<meta property="og:image" content="https://intervalrain.github.io/images/faang.webp" /><meta property="article:section" content="CS" />
+<meta property="article:published_time" content="2023-01-03T21:49:42&#43;08:00" />
+<meta property="article:modified_time" content="2023-01-03T21:49:42&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://intervalrain.github.io/images/faang.webp" />
+<meta name="twitter:title" content="[Algo] 1-9. Algorithm"/>
+<meta name="twitter:description" content="C&#43;&#43; 的內建演算法庫使用與範例"/>
+<meta name="twitter:site" content="@intervalrain"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "CS",
+      "item": "https://intervalrain.github.io/cs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[Algo] 1-9. Algorithm",
+      "item": "https://intervalrain.github.io/cs/algo/algorithm/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[Algo] 1-9. Algorithm",
+  "name": "[Algo] 1-9. Algorithm",
+  "description": "C++ 的內建演算法庫使用與範例",
+  "keywords": [
+    "C++", "Algorithm", "STL"
+  ],
+  "articleBody": "algorithm  定義了專為元素集合設計的函式。\n元素集合包含可以被迭代器或指標存取的一系列元素，例如陣列或 STL container。但且注意，演算法只會透過迭代器去操作容器中的值，並不會更改其結構或是大小。\n一、函式 1. 無修改值的操作 all_of bool all_of(Iterator first, Iterator last, UnaryPredicate pred)\n 檢查是否全部的元素都符合判斷式。  #include #include #include using namespace std;  int main(){  vectorint arr1 = {1,2,3,4,5};  vectorint arr2 = {1,3,5,7,9};  vectorint arr3 = {2,4,6,8,10};  auto isodd = [](int x)-bool{ return x%2; };  cout  all_of(arr1.begin(), arr1.end(), isodd)  endl; // 0  cout  all_of(arr2.begin(), arr2.end(), isodd)  endl; // 1  cout  all_of(arr3.begin(), arr3.end(), isodd)  endl; // 0   return 0; }  any_of bool any_of(Iterator first, Iterator last, Predicate pred)\n 檢查是否有任一元素符合判斷式。  #include #include #include using namespace std;  int main(){  vectorint arr1 = {1,2,3,4,5};  vectorint arr2 = {1,3,5,7,9};  vectorint arr3 = {2,4,6,8,10};  auto isodd = [](int x)-bool{ return x%2; };  cout  any_of(arr1.begin(), arr1.end(), isodd)  endl; // 1  cout  any_of(arr2.begin(), arr2.end(), isodd)  endl; // 1  cout  any_of(arr3.begin(), arr3.end(), isodd)  endl; // 0   return 0; }  none_of bool none_of(Iterator first, Iterator last, Predicate pred)\n 檢查是否沒有任何元素符合判斷式  #include #include #include using namespace std;  int main(){  vectorint arr1 = {1,2,3,4,5};  vectorint arr2 = {1,3,5,7,9};  vectorint arr3 = {2,4,6,8,10};  auto isodd = [](int x)-bool{ return x%2; };  cout  none_of(arr1.begin(), arr1.end(), isodd)  endl; // 0  cout  none_of(arr2.begin(), arr2.end(), isodd)  endl; // 0  cout  none_of(arr3.begin(), arr3.end(), isodd)  endl; // 1   return 0; }  for_each void for_each(Iterator first, Iterator last, Function fn)\n 用 function fn 遍歷範圍 [first,last) 中的元素。  #include #include #include  using namespace std;  int main(){  vectorint arr = {1,2,3,5,8,13,21};  for_each(arr.begin(), arr.end(), [](int x){ cout  x  \" \"; });  // 1 2 3 5 8 13 21   return 0; } find Iterator find(Iterator first, Iterator last, const T\u0026 val)\n 在範圍中找與指定元素相等的元素，若沒有與之相符的元素則回傳 last。  #include #include #include  using namespace std;  int main(){  vectorint arr = {1,3,7,4,9,12,5};  vectorint::iterator it1 = find(arr.begin(), arr.end(), 12);  auto it2 = find(arr.begin(), arr.end(), 8);   cout  distance(arr.begin(), it1)  endl; // 5  cout  distance(arr.begin(), it2)  endl; // 7    return 0; }  find_if Iterator find_if(Iterator first, Iterator last, UnaryPredicate pred)\n 在範圍中找第一個符合條件的元素，若沒有與之相符的元素則回傳 last。  #include #include #include  using namespace std;  int main(){  auto isOdd = [](int x)-bool{ return x%2; };  vectorint arr = {2,3,7,4,9,12,5};  auto it = find_if(arr.begin(), arr.end(), isOdd);   cout  distance(arr.begin(), it)  endl; // 1    return 0; }  find_if_not Iterator find_if_not(Iterator first, Iterator last, UnaryPredicate pred)\n 在範圍中找第一個不符合條件的元素，若沒有與之不符的元素則回傳 last。  #include #include #include  using namespace std;  int main(){  vectorint arr = {1,3,7,4,9,12,5};  auto it1 = find_if_not(arr.begin(), arr.end(), [](int x)-bool{ return x  8; }); // 4  auto it2 = find_if_not(arr.begin(), arr.end(), [](int x)-bool{ return x  13; }); // 7  auto it3 = find_if_not(arr.begin(), arr.end(), [](int x)-bool{ return x == 1; }); // 1   cout  distance(arr.begin(), it1)  endl;  cout  distance(arr.begin(), it2)  endl;  cout  distance(arr.begin(), it3)  endl;   return 0; }  find_end Iterator find_end(Iterator first1, Iterator last1, Iterator first2, Iterator last2) Iterator find_end(Iterator first1, Iterator last1, Iterator first2, Iterator last2, BinaryPredicate pred)\n 在範圍中找出最後一次符合條件的子序列中的第一個元素。  #include #include #include #define all(x) x.begin(),x.end()  using namespace std;  int main(){  vectorint arr1 = {1,2,3,4,5,1,2,3,4,5};  vectorint arr2 = {1,2,3};  vectorint arr3 = {2,3,4};  vectorint arr4 = {4,5,6,4,5,6};  vectorint arr5 = {1,3,5};   auto pred = [](int x, int y)-bool{ return x == y; };  auto pred2 = [](int x, int y)-bool{ return x == y+3; };   auto it1 = find_end(all(arr1), all(arr2));  auto it2 = find_end(all(arr1), all(arr2), pred);  auto it3 = find_end(all(arr1), all(arr3));  auto it4 = find_end(all(arr1), all(arr4));  auto it5 = find_end(all(arr4), all(arr2), pred2);  auto it6 = find_end(all(arr1), all(arr5));   cout  distance(arr1.begin(), it1)  endl; // 5  cout  distance(arr1.begin(), it2)  endl; // 5  cout  distance(arr1.begin(), it3)  endl; // 6  cout  distance(arr1.begin(), it4)  endl; // 10  cout  distance(arr4.begin(), it5)  endl; // 3  cout  distance(arr1.begin(), it6)  endl; // 10   return 0; }  find_first_of  Find element from set in range   adjacent_find  Find equal adjacent elements in range   count  Count appearances of value in range   count_if  Return number of elements in range satisfying conditon   mismatch  Return first position where two ranges differ   equal  Test whether the elements in two ranges are equal   is_permutation  Test whether range is permutation of another   search  Search range for subsequence   search_n  Search range for elements   2. 有修改值的操作 3. 分割(partition) 4. 排序(sort) 5. 二分法(binary search) 6. 合併(merge) 7. 堆(heap) 8. 極值(min/max) 9. 其它   回到目錄：[Algo] 演算法筆記  ",
+  "wordCount" : "693",
+  "inLanguage": "en",
+  "image":"https://intervalrain.github.io/images/faang.webp","datePublished": "2023-01-03T21:49:42+08:00",
+  "dateModified": "2023-01-03T21:49:42+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Rain Hu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://intervalrain.github.io/cs/algo/algorithm/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rain Hu's Workspace",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://intervalrain.github.io/images/rain.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/cs/">CS</a></div>
+    <h1 class="post-title">
+      [Algo] 1-9. Algorithm
+    </h1>
+    <div class="post-description">
+      C&#43;&#43; 的內建演算法庫使用與範例
+    </div>
+    <div class="post-meta"><span title='2023-01-03 21:49:42 +0800 CST'>January 3, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//CS/algo/algorithm.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+        
+</figure><aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#algorithm" aria-label="algorithm">algorithm</a><ul>
+                            
+                    <li>
+                        <a href="#%e4%b8%80%e5%87%bd%e5%bc%8f" aria-label="一、函式">一、函式</a><ul>
+                            
+                    <li>
+                        <a href="#1-%e7%84%a1%e4%bf%ae%e6%94%b9%e5%80%bc%e7%9a%84%e6%93%8d%e4%bd%9c" aria-label="1. 無修改值的操作">1. 無修改值的操作</a><ul>
+                            
+                    <li>
+                        <a href="#all_of" aria-label="all_of">all_of</a></li>
+                    <li>
+                        <a href="#any_of" aria-label="any_of">any_of</a></li>
+                    <li>
+                        <a href="#none_of" aria-label="none_of">none_of</a></li>
+                    <li>
+                        <a href="#for_each" aria-label="for_each">for_each</a></li>
+                    <li>
+                        <a href="#find" aria-label="find">find</a></li>
+                    <li>
+                        <a href="#find_if" aria-label="find_if">find_if</a></li>
+                    <li>
+                        <a href="#find_if_not" aria-label="find_if_not">find_if_not</a></li>
+                    <li>
+                        <a href="#find_end" aria-label="find_end">find_end</a></li>
+                    <li>
+                        <a href="#find_first_of" aria-label="find_first_of">find_first_of</a></li>
+                    <li>
+                        <a href="#adjacent_find" aria-label="adjacent_find">adjacent_find</a></li>
+                    <li>
+                        <a href="#count" aria-label="count">count</a></li>
+                    <li>
+                        <a href="#count_if" aria-label="count_if">count_if</a></li>
+                    <li>
+                        <a href="#mismatch" aria-label="mismatch">mismatch</a></li>
+                    <li>
+                        <a href="#equal" aria-label="equal">equal</a></li>
+                    <li>
+                        <a href="#is_permutation" aria-label="is_permutation">is_permutation</a></li>
+                    <li>
+                        <a href="#search" aria-label="search">search</a></li>
+                    <li>
+                        <a href="#search_n" aria-label="search_n">search_n</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#2-%e6%9c%89%e4%bf%ae%e6%94%b9%e5%80%bc%e7%9a%84%e6%93%8d%e4%bd%9c" aria-label="2. 有修改值的操作">2. 有修改值的操作</a></li>
+                    <li>
+                        <a href="#3-%e5%88%86%e5%89%b2partition" aria-label="3. 分割(partition)">3. 分割(partition)</a></li>
+                    <li>
+                        <a href="#4-%e6%8e%92%e5%ba%8fsort" aria-label="4. 排序(sort)">4. 排序(sort)</a></li>
+                    <li>
+                        <a href="#5-%e4%ba%8c%e5%88%86%e6%b3%95binary-search" aria-label="5. 二分法(binary search)">5. 二分法(binary search)</a></li>
+                    <li>
+                        <a href="#6-%e5%90%88%e4%bd%b5merge" aria-label="6. 合併(merge)">6. 合併(merge)</a></li>
+                    <li>
+                        <a href="#7-%e5%a0%86heap" aria-label="7. 堆(heap)">7. 堆(heap)</a></li>
+                    <li>
+                        <a href="#8-%e6%a5%b5%e5%80%bcminmax" aria-label="8. 極值(min/max)">8. 極值(min/max)</a></li>
+                    <li>
+                        <a href="#9-%e5%85%b6%e5%ae%83" aria-label="9. 其它">9. 其它</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><h1 id="algorithm">algorithm<a hidden class="anchor" aria-hidden="true" href="#algorithm">#</a></h1>
+<p><code>&lt;algorithm&gt;</code> 定義了專為元素集合設計的函式。<br>
+元素集合包含可以被迭代器或指標存取的一系列元素，例如陣列或 STL container。但且注意，演算法只會透過迭代器去操作容器中的值，並不會更改其結構或是大小。</p>
+<h2 id="一函式">一、函式<a hidden class="anchor" aria-hidden="true" href="#一函式">#</a></h2>
+<h3 id="1-無修改值的操作">1. 無修改值的操作<a hidden class="anchor" aria-hidden="true" href="#1-無修改值的操作">#</a></h3>
+<h4 id="all_of">all_of<a hidden class="anchor" aria-hidden="true" href="#all_of">#</a></h4>
+<p><code>bool all_of(Iterator first, Iterator last, UnaryPredicate pred)</code></p>
+<ul>
+<li>檢查是否<strong>全部</strong>的元素都符合判斷式。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr1 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr2 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr3 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">10</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> isodd <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">int</span> x)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span>; };
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> all_of(arr1.begin(), arr1.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> all_of(arr2.begin(), arr2.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> all_of(arr3.begin(), arr3.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h4 id="any_of">any_of<a hidden class="anchor" aria-hidden="true" href="#any_of">#</a></h4>
+<p><code>bool any_of(Iterator first, Iterator last, Predicate pred)</code></p>
+<ul>
+<li>檢查是否有<strong>任一</strong>元素符合判斷式。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr1 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr2 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr3 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">10</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> isodd <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">int</span> x)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span>; };
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> any_of(arr1.begin(), arr1.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> any_of(arr2.begin(), arr2.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> any_of(arr3.begin(), arr3.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h4 id="none_of">none_of<a hidden class="anchor" aria-hidden="true" href="#none_of">#</a></h4>
+<p><code>bool none_of(Iterator first, Iterator last, Predicate pred)</code></p>
+<ul>
+<li>檢查是否<strong>沒有任何</strong>元素符合判斷式</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr1 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr2 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr3 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">10</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> isodd <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">int</span> x)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span>; };
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> none_of(arr1.begin(), arr1.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> none_of(arr2.begin(), arr2.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> none_of(arr3.begin(), arr3.end(), isodd) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h4 id="for_each">for_each<a hidden class="anchor" aria-hidden="true" href="#for_each">#</a></h4>
+<p><code>void for_each(Iterator first, Iterator last, Function fn)</code></p>
+<ul>
+<li>用 function <em>fn</em> 遍歷範圍 [first,last) 中的元素。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">13</span>,<span style="color:#ae81ff">21</span>};
+</span></span><span style="display:flex;"><span>    for_each(arr.begin(), arr.end(), [](<span style="color:#66d9ef">int</span> x){ cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>; });
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 1 2 3 5 8 13 21
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="find">find<a hidden class="anchor" aria-hidden="true" href="#find">#</a></h4>
+<p><code>Iterator find(Iterator first, Iterator last, const T&amp; val)</code></p>
+<ul>
+<li>在範圍中找與指定元素相等的元素，若沒有與之相符的元素則回傳 <code>last</code>。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it1 <span style="color:#f92672">=</span> find(arr.begin(), arr.end(), <span style="color:#ae81ff">12</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it2 <span style="color:#f92672">=</span> find(arr.begin(), arr.end(), <span style="color:#ae81ff">8</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr.begin(), it1) <span style="color:#f92672">&lt;&lt;</span> endl;     <span style="color:#75715e">// 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr.begin(), it2) <span style="color:#f92672">&lt;&lt;</span> endl;     <span style="color:#75715e">// 7
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h4 id="find_if">find_if<a hidden class="anchor" aria-hidden="true" href="#find_if">#</a></h4>
+<p><code>Iterator find_if(Iterator first, Iterator last, UnaryPredicate pred)</code></p>
+<ul>
+<li>在範圍中找第一個符合條件的元素，若沒有與之相符的元素則回傳 <code>last</code>。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> isOdd <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">int</span> x)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x<span style="color:#f92672">%</span><span style="color:#ae81ff">2</span>; };
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr <span style="color:#f92672">=</span> {<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> find_if(arr.begin(), arr.end(), isOdd);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr.begin(), it) <span style="color:#f92672">&lt;&lt;</span> endl;      <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h4 id="find_if_not">find_if_not<a hidden class="anchor" aria-hidden="true" href="#find_if_not">#</a></h4>
+<p><code>Iterator find_if_not(Iterator first, Iterator last, UnaryPredicate pred)</code></p>
+<ul>
+<li>在範圍中找第一個不符合條件的元素，若沒有與之不符的元素則回傳 <code>last</code>。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it1 <span style="color:#f92672">=</span> find_if_not(arr.begin(), arr.end(), [](<span style="color:#66d9ef">int</span> x)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">8</span>; });   <span style="color:#75715e">// 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> it2 <span style="color:#f92672">=</span> find_if_not(arr.begin(), arr.end(), [](<span style="color:#66d9ef">int</span> x)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">13</span>; });  <span style="color:#75715e">// 7
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> it3 <span style="color:#f92672">=</span> find_if_not(arr.begin(), arr.end(), [](<span style="color:#66d9ef">int</span> x)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>; });  <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr.begin(), it1) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr.begin(), it2) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr.begin(), it3) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h4 id="find_end">find_end<a hidden class="anchor" aria-hidden="true" href="#find_end">#</a></h4>
+<p><code>Iterator find_end(Iterator first1, Iterator last1, Iterator first2, Iterator last2)</code>
+<code>Iterator find_end(Iterator first1, Iterator last1, Iterator first2, Iterator last2, BinaryPredicate pred)</code></p>
+<ul>
+<li>在範圍中找出最後一次符合條件的子序列中的第一個元素。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define all(x) x.begin(),x.end()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr1 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr2 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr3 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr4 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>};
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> arr5 <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> pred <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x <span style="color:#f92672">==</span> y; };
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> pred2 <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y)<span style="color:#f92672">-&gt;</span><span style="color:#66d9ef">bool</span>{ <span style="color:#66d9ef">return</span> x <span style="color:#f92672">==</span> y<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>; };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it1 <span style="color:#f92672">=</span> find_end(all(arr1), all(arr2));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it2 <span style="color:#f92672">=</span> find_end(all(arr1), all(arr2), pred);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it3 <span style="color:#f92672">=</span> find_end(all(arr1), all(arr3));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it4 <span style="color:#f92672">=</span> find_end(all(arr1), all(arr4));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it5 <span style="color:#f92672">=</span> find_end(all(arr4), all(arr2), pred2);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> it6 <span style="color:#f92672">=</span> find_end(all(arr1), all(arr5));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr1.begin(), it1) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr1.begin(), it2) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr1.begin(), it3) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 6
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr1.begin(), it4) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr4.begin(), it5) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> distance(arr1.begin(), it6) <span style="color:#f92672">&lt;&lt;</span> endl;    <span style="color:#75715e">// 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h4 id="find_first_of">find_first_of<a hidden class="anchor" aria-hidden="true" href="#find_first_of">#</a></h4>
+<ul>
+<li>Find element from set in range</li>
+</ul>
+<hr>
+<h4 id="adjacent_find">adjacent_find<a hidden class="anchor" aria-hidden="true" href="#adjacent_find">#</a></h4>
+<ul>
+<li>Find equal adjacent elements in range</li>
+</ul>
+<hr>
+<h4 id="count">count<a hidden class="anchor" aria-hidden="true" href="#count">#</a></h4>
+<ul>
+<li>Count appearances of value in range</li>
+</ul>
+<hr>
+<h4 id="count_if">count_if<a hidden class="anchor" aria-hidden="true" href="#count_if">#</a></h4>
+<ul>
+<li>Return number of elements in range satisfying conditon</li>
+</ul>
+<hr>
+<h4 id="mismatch">mismatch<a hidden class="anchor" aria-hidden="true" href="#mismatch">#</a></h4>
+<ul>
+<li>Return first position where two ranges differ</li>
+</ul>
+<hr>
+<h4 id="equal">equal<a hidden class="anchor" aria-hidden="true" href="#equal">#</a></h4>
+<ul>
+<li>Test whether the elements in two ranges are equal</li>
+</ul>
+<hr>
+<h4 id="is_permutation">is_permutation<a hidden class="anchor" aria-hidden="true" href="#is_permutation">#</a></h4>
+<ul>
+<li>Test whether range is permutation of another</li>
+</ul>
+<hr>
+<h4 id="search">search<a hidden class="anchor" aria-hidden="true" href="#search">#</a></h4>
+<ul>
+<li>Search range for subsequence</li>
+</ul>
+<hr>
+<h4 id="search_n">search_n<a hidden class="anchor" aria-hidden="true" href="#search_n">#</a></h4>
+<ul>
+<li>Search range for elements</li>
+</ul>
+<hr>
+<h3 id="2-有修改值的操作">2. 有修改值的操作<a hidden class="anchor" aria-hidden="true" href="#2-有修改值的操作">#</a></h3>
+<h3 id="3-分割partition">3. 分割(partition)<a hidden class="anchor" aria-hidden="true" href="#3-分割partition">#</a></h3>
+<h3 id="4-排序sort">4. 排序(sort)<a hidden class="anchor" aria-hidden="true" href="#4-排序sort">#</a></h3>
+<h3 id="5-二分法binary-search">5. 二分法(binary search)<a hidden class="anchor" aria-hidden="true" href="#5-二分法binary-search">#</a></h3>
+<h3 id="6-合併merge">6. 合併(merge)<a hidden class="anchor" aria-hidden="true" href="#6-合併merge">#</a></h3>
+<h3 id="7-堆heap">7. 堆(heap)<a hidden class="anchor" aria-hidden="true" href="#7-堆heap">#</a></h3>
+<h3 id="8-極值minmax">8. 極值(min/max)<a hidden class="anchor" aria-hidden="true" href="#8-極值minmax">#</a></h3>
+<h3 id="9-其它">9. 其它<a hidden class="anchor" aria-hidden="true" href="#9-其它">#</a></h3>
+<hr>
+<ul>
+<li>回到目錄：<a href="/cs/algo">[Algo] 演算法筆記</a></li>
+</ul>
+<!-- + 想要複習：[[Algo] 1-8. priority_queue](/cs/algo/priority_queue) -->
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://intervalrain.github.io/tags/cs/">CS</a></li>
+      <li><a href="https://intervalrain.github.io/tags/algo/">algo</a></li>
+    </ul>
+
+  </footer><script src="https://utteranc.es/client.js"
+    repo="Reid00/hugo-blog-talks"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

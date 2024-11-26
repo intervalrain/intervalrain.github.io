@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>mvc on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/tags/mvc/</link>
+    <description>Recent content in mvc on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 09 Jun 2024 20:27:03 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/mvc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IT] ApiController Atrribute</title>
+      <link>https://intervalrain.github.io/it/apicontroller/</link>
+      <pubDate>Sun, 09 Jun 2024 20:27:03 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/apicontroller/</guid>
+      <description>ApiController Atrribute  當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？
+ [ApiController] public class TestController : ControllerBase { } 1. 自動 HTTP 400 回應  它會自動產生一個行為過濾器(action filter)，當 ModelState.IsValid 為 false 時，自動回傳 400 Response。  2. 綁定來源參數推斷  可以更改模型綁定的約定，例如，[FromBody] 是針對複雜類型參數推斷的。  3. Multi/form-data 請求推理  對於標示 [FromForm] 的參數，推斷 Content-Type 為 multipart/form-data。  4. 屬性路由要求  強制要求所有操作都必須通過屬性路由。  .notice{--root-color:#444;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#c33;--warning-content:#fee;--info-title:#fb7;--info-content:#fec;--note-title:#6be;--note-content:#e7f2fa;--tip-title:#5a5;--tip-content:#efe}@media (prefers-color-scheme:dark){.notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}}body.dark .notice{--root-color:#ddd;--root-background:#eff;--title-color:#fff;--title-background:#7bd;--warning-title:#800;--warning-content:#400;--info-title:#a50;--info-content:#420;--note-title:#069;--note-content:#023;--tip-title:#363;--tip-content:#121}.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:var(--root-color);background:var(--root-background)}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:var(--title-color);background:var(--title-background)}.notice.warning .notice-title{background:var(--warning-title)}.notice.warning{background:var(--warning-content)}.notice.info .notice-title{background:var(--info-title)}.notice.info{background:var(--info-content)}.notice.note .notice-title{background:var(--note-title)}.notice.note{background:var(--note-content)}.notice.tip .notice-title{background:var(--tip-title)}.notice.tip{background:var(--tip-content)}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.</description>
+    </item>
+    
+  </channel>
+</rss>

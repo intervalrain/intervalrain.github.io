@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[IT] Clean Architecture - 第4章 - 結構化程式設計 | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="Clean Architecture, SOLID, DDD, Design Pattern, structured programming" />
+<meta name="description" content="structured programming">
+<meta name="author" content="Rain Hu">
+<link rel="canonical" href="https://intervalrain.github.io/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/images/rain.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
+<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script><meta property="og:title" content="[IT] Clean Architecture - 第4章 - 結構化程式設計" />
+<meta property="og:description" content="structured programming" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://intervalrain.github.io/clean_arch/ch4/" /><meta property="article:section" content="clean_arch" />
+<meta property="article:published_time" content="2023-10-03T22:28:44&#43;08:00" />
+<meta property="article:modified_time" content="2023-10-03T22:28:44&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[IT] Clean Architecture - 第4章 - 結構化程式設計"/>
+<meta name="twitter:description" content="structured programming"/>
+<meta name="twitter:site" content="@intervalrain"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Clean_arches",
+      "item": "https://intervalrain.github.io/clean_arch/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[IT] Clean Architecture - 第4章 - 結構化程式設計",
+      "item": "https://intervalrain.github.io/clean_arch/ch4/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[IT] Clean Architecture - 第4章 - 結構化程式設計",
+  "name": "[IT] Clean Architecture - 第4章 - 結構化程式設計",
+  "description": "structured programming",
+  "keywords": [
+    "Clean Architecture", "SOLID", "DDD", "Design Pattern", "structured programming"
+  ],
+  "articleBody": "ch4. 結構化程式設計 　Edsger Wybe Dijkstra 於 1930 年出生在鹿特丹。他在第二次世界大戰期間倖存於鹿特丹的轟炸，以及德國對荷蘭的占領，並於1948年以數學、物理、化學、生物最高分從高中畢業。1952年3月，21歲的 Dijkstra 在阿姆斯特丹的數學中心找到工作，成為荷蘭第一位程式設計師。\n1955年，已經當了三年的程式設計師，且同時身為學生的 Dijkstra 得出一個結論：程式設計的智力挑戰比起理論物理學還大。因此，他選擇了程式設計作為他的長期職業。\n1957年，Dijkstra 與 Maria Debets 結婚。當時，在荷蘭結婚必須登記職業，荷蘭的公家機關並不接受 programmer 這個職業，他們從未聽過這樣的職業，為了滿足他們，Dijkstra 在職業欄中將自己定位為「理論物理學家」。\nDijkstra 與他的老闆 Adriaan van Wijngaarden 討論著以程式設計當作他的生涯志向，他認為沒有人會將程式設計視為一門學科或是科學，因此他認為自己可能不會被認真以待，然而他的老闆回答說，Dijkstra 將有可能成為那位發現新學科，以致於將軟體變成一門科學的人。\nDijkstra 在真空管時代開始了他的職業生涯，當時的計算機很巨大、脆弱、緩慢、不可靠、且極其有限。在早期，程式是二進制或是非常粗糙的組合語言編寫的，並以紙帶或打孔卡片作為輸入的這種物理形式存在，編輯/編譯/測試的循環就需要數小時甚至數天的時間。\n正是在這個原始的環境造就了 Dijkstra 做出了他偉的的發現。\n 證明 　Dijkstra 很早就發現，程式設計是一件難事，且程式設計師也不容易將它做好。任何複雜的程式都包含了太多人類大腦在沒有幫助下可以管理的細節。忽視一個極小的細節程式看似可以運作正常，但卻可以以出人意料的方式失敗。\nDijkstra 的解決方案是應用數學的證明法。他的願景是建立一個如同歐基里得的公理、定理、推論和引理的層次結構。Dijkstra 認為程式設計師可以像數學家一樣使用這樣的證明方法，換句話說，程式設計師應該要運用這些經過驗證的結構，並將它們與自己證明正確的程式碼相結合。\n當然，為了使這一切開始進行，Dijkstra 意識到他必須要撰寫一些範例以展示如何用基本的證明方法來證明簡單的演算法，而他發現這是一件極具挑戰性的事。\n在調查的過程中，Dijkstra 發現某些使用 goto 語句的情況會阻止模塊被遞迴地分解成更小的單元，從而阻礙了使用分而治之的方法進行證明的可能性。\n然而，goto 的其他用途卻沒有這個問題。Dijkstra 意識到，「好的」goto 使用方法對應到簡單的選擇和迭代控制結構，例如 if/then/else 和 do/while。只使用這些控制結構的模塊才可以被遞迴的切割成可以被證明的單元。\nDijkstra 認識到，當這些控制結構與順序執行相結合是特殊的。在當時的兩年前，已經由 Böhm 和 Jacopini 證明了，所有程式都可以由三個結構建構而成：順序(sequence)、選擇(selection)、迭代(iteration)。\n這個發現非常了不起：使一個模塊可證明的控制結構，正是構成所有程式的最小控制結構集合。因此，結構化程式設計應運而生。\nDijkstra 證明了順序語句可以通過簡單的列舉來證明其正確性。這種技術利用數學方法系統性地追蹤語句的輸入與輸出，與一般的數學證明無異。\nDijkstra 通過重新應用列舉法來解決選擇問題，對於選擇中的每條路徑都進行了列舉，如果所有的路徑都產生了適當的數學結果，那麼就表示證明是可靠的。\n迭代則有些不同，為了證明迭代的正確性，Dijkstra 必須使用歸納法。他通過列舉證明了 1 得情況，然後他再次通過列舉證明了如果假設 N 是正確的，則 N+1 也是正確的，他也證明了迭代的起始條件與結束條件的正確性。\n這樣的證明是費時且複雜的，但它們具備了證明的意義。隨著它們的發展，建立一個歐基里得式階層式的定理看似變得可行。\n一個有害的聲明 　1968年，Dijkstra 給 CACM 的編輯寫了一封信，該信在三月份的期刊上發表。這封信的標題是「Go To Statement Considered Harmful」。該文章概述了他對三種控制結構的立場。\n而程設界也因此掀起了一場熱潮。當時我們還沒有網路，所以人們無法在網上對 Dijkstra 進行網路攻擊，但他們可以向許多發行的期刊投信。\n這些信件不一定都很客氣，有些甚至十分負面，而有些則表達了對他的支持，於是兩方的戰爭開始，並持續了約十年。\n最終爭論逐漸消失了。原因很簡單：Dijkstra 獲得了勝利。隨著電腦語言的演進，goto 語句逐漸被淘汰，幾乎消失殆盡。大多數現代語言都不再使用 goto 語句，在 LISP 這個程式語言中，甚至從來就沒有使用過。\n現在我們都是結構化程式設計師，雖然不一定是出於選擇。只是因為我們的語言不給我們使用無紀律的直接控制轉移的選擇。\n有些人可能會指出 Java 中的命名中斷或異常作為 goto 的類比。事實上，這些結構並不像 Fortran 或 COBOL 等舊語言一樣完全無限制地轉移控制。實際上，即使是還支持 goto 關鍵字的語言，也常常將目標限制在當前函數的範圍內。\n函式分解 　結構化程式設計允許將模塊遞歸地分解為可證明的單元，這意味著模塊可以被功能性地分解。也就是說，您可以將一個大規模的問題陳述分解為高層次的函數。然後，每個函數可以進一步分解為低層次的函數，無窮無盡。此外，每個分解的函數都可以使用受限的控制結構來表示。\n在此基礎上，結構化分析和結構化設計等學科在 1970 年代末至 1980 年代間變得流行起來。像是 Ed Yourdon, Larry Constantine, Tom DeMarco 和 Meilir Page-Jones 這樣的人在那個時期推廣和普及了這些技術。通過遵循這些學科，程序員可以將大型的預計系統分解為模塊和組件，進一步將其細分為可證明的小型功能。\n不再使用正式證明 　我們沒有等到一個系統且完整的證明出現，歐幾里得式的層狀結構理論從未被建立，廣大的程式設計師從未看到耗費大量力氣證明每個小函式正確性所帶來的好處。最終，Dijkstra 的夢想逐漸消失。人們很少有人相信透過嚴謹的證明才能產生高質量的軟體。\n當然，正式的、歐幾里得風格的數學證明並不是證明某事正確的唯一策略。另一種極為成功的策略是科學方法。\n科學拯救大業 　科學與數學在根本上有所不同，那就是科學理論和定律無法被證明為正確。我無法向你證明牛頓的第二運動定律，\\(F = ma\\)，或是萬有引力定律，\\(F = Gm_1m_2/r^2\\)是正確的。我可以向你展示這些定律，並且我可以進行測量來證明它們在許多小數點後都是正確的，但我無法以數學證明的方式來證明它們。無論我進行多少實驗或收集多少實證，總是有可能某個實驗會顯示那些運動和引力的定律是不正確的。\n這就是科學理論和定律的本質：它們是可證伪的，但不可證明的。\n然而，我們每天都憑藉這些法律來賭上我們的生命。每次你上車的時候，你肯定相信 \\(F = ma\\) 是對世界運作方式的可靠描述。每當你踏出一步，你就賭上你的健康和安全，相信 \\(F = Gm_1m_2/r^2\\) 是正確的。\n科學的運作方式並非通過證明陳述為真，而是通過證明陳述為假。那些我們無法證明為假的陳述，在經過大量努力後，我們認為它們對我們的目的來說足夠真實。\n當然，並非所有陳述都是可證明的。陳述「這是謊言」既不是真的也不是假的。這是一個最簡單的不可證明陳述的例子之一。\n最終，我們可以說數學是證明可證明的陳述為真的學科。相反，科學是證明可證明的陳述為假的學科。\n測試 　Dijkstra 曾說過：「測試只能顯示會誤的存在，而不能證明其不存在。」換句話說，一個程式可以通過測試被證明是錯誤的，但無法被證明是正確的。在充分的測試過後，測試只能讓我們認為一個程式對我們的目的來說是否足夠正確。\n這個事實的含義令人驚嘆。軟體開發並不是一個數學的努力，儘管它似乎在操作數學結構。相反，軟體就像一門科學。我們通過無法證明錯誤來展示正確性，儘管我們盡了最大的努力。\n這樣的錯誤證明只適用於可證明的程式。一個無法證明的程式，例如由於無節制地使用goto，無論進行多少次測試，都無法被視為正確。\n結構化程式設計迫使我們將程式遞歸地分解為一組小的可證明函數。然後，我們可以使用測試來嘗試證明這些小的可證明函數的不正確性。如果這些測試無法證明不正確性，那麼我們認為這些函數對於我們的目的來說足夠正確。\n結論 　正是這種能力創造了可驗證的程式設計單元，使得結構化程式設計在今天仍然具有價值。這也是現代語言通常不支援無限制的goto語句的原因。此外，在架構層面上，這也是為什麼我們仍然認為函式分解是我們的最佳實踐之一。 從最小的功能到最大的組件，軟體在各個層面上都像是一門科學，因此受到可證伪性的驅動。軟體架構師致力於定義易於證伪（可測試）的模塊、組件和服務。為此，他們運用類似結　構化程式設計的嚴格紀律，只是在更高的層次上。\n在接下來的章節中，我們將詳細研究這些限制性的學科。\n",
+  "wordCount" : "155",
+  "inLanguage": "en",
+  "datePublished": "2023-10-03T22:28:44+08:00",
+  "dateModified": "2023-10-03T22:28:44+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Rain Hu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://intervalrain.github.io/clean_arch/ch4/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rain Hu's Workspace",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://intervalrain.github.io/images/rain.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/clean_arch/">Clean_arches</a></div>
+    <h1 class="post-title">
+      [IT] Clean Architecture - 第4章 - 結構化程式設計
+    </h1>
+    <div class="post-description">
+      structured programming
+    </div>
+    <div class="post-meta"><span title='2023-10-03 22:28:44 +0800 CST'>October 3, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//clean_arch/ch4.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#ch4-%e7%b5%90%e6%a7%8b%e5%8c%96%e7%a8%8b%e5%bc%8f%e8%a8%ad%e8%a8%88" aria-label="ch4. 結構化程式設計">ch4. 結構化程式設計</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%ad%89%e6%98%8e" aria-label="證明">證明</a></li>
+                    <li>
+                        <a href="#%e4%b8%80%e5%80%8b%e6%9c%89%e5%ae%b3%e7%9a%84%e8%81%b2%e6%98%8e" aria-label="一個有害的聲明">一個有害的聲明</a></li>
+                    <li>
+                        <a href="#%e5%87%bd%e5%bc%8f%e5%88%86%e8%a7%a3" aria-label="函式分解">函式分解</a></li>
+                    <li>
+                        <a href="#%e4%b8%8d%e5%86%8d%e4%bd%bf%e7%94%a8%e6%ad%a3%e5%bc%8f%e8%ad%89%e6%98%8e" aria-label="不再使用正式證明">不再使用正式證明</a></li>
+                    <li>
+                        <a href="#%e7%a7%91%e5%ad%b8%e6%8b%af%e6%95%91%e5%a4%a7%e6%a5%ad" aria-label="科學拯救大業">科學拯救大業</a></li>
+                    <li>
+                        <a href="#%e6%b8%ac%e8%a9%a6" aria-label="測試">測試</a></li>
+                    <li>
+                        <a href="#%e7%b5%90%e8%ab%96" aria-label="結論">結論</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p><img loading="lazy" src="/clean_arch/images/ch4.png" alt="ch4"  />
+</p>
+<h1 id="ch4-結構化程式設計">ch4. 結構化程式設計<a hidden class="anchor" aria-hidden="true" href="#ch4-結構化程式設計">#</a></h1>
+<p>　　Edsger Wybe Dijkstra 於 1930 年出生在鹿特丹。他在第二次世界大戰期間倖存於鹿特丹的轟炸，以及德國對荷蘭的占領，並於1948年以數學、物理、化學、生物最高分從高中畢業。1952年3月，21歲的 Dijkstra 在阿姆斯特丹的數學中心找到工作，成為荷蘭第一位程式設計師。<br>
+　　1955年，已經當了三年的程式設計師，且同時身為學生的 Dijkstra 得出一個結論：程式設計的智力挑戰比起理論物理學還大。因此，他選擇了程式設計作為他的長期職業。<br>
+　　1957年，Dijkstra 與 Maria Debets 結婚。當時，在荷蘭結婚必須登記職業，荷蘭的公家機關並不接受 <strong>programmer</strong> 這個職業，他們從未聽過這樣的職業，為了滿足他們，Dijkstra 在職業欄中將自己定位為「理論物理學家」。<br>
+　　Dijkstra 與他的老闆 Adriaan van Wijngaarden 討論著以程式設計當作他的生涯志向，他認為沒有人會將程式設計視為一門學科或是科學，因此他認為自己可能不會被認真以待，然而他的老闆回答說，Dijkstra 將有可能成為那位發現新學科，以致於將軟體變成一門科學的人。<br>
+　　Dijkstra 在真空管時代開始了他的職業生涯，當時的計算機很巨大、脆弱、緩慢、不可靠、且極其有限。在早期，程式是二進制或是非常粗糙的組合語言編寫的，並以紙帶或打孔卡片作為輸入的這種物理形式存在，編輯/編譯/測試的循環就需要數小時甚至數天的時間。<br>
+　　正是在這個原始的環境造就了 Dijkstra 做出了他偉的的發現。</p>
+<hr>
+<h2 id="證明">證明<a hidden class="anchor" aria-hidden="true" href="#證明">#</a></h2>
+<p>　　Dijkstra 很早就發現，程式設計是一件難事，且程式設計師也不容易將它做好。任何複雜的程式都包含了太多人類大腦在沒有幫助下可以管理的細節。忽視一個極小的細節程式看似可以運作正常，但卻可以以出人意料的方式失敗。<br>
+　　Dijkstra 的解決方案是應用數學的證明法。他的願景是建立一個如同歐基里得的公理、定理、推論和引理的層次結構。Dijkstra 認為程式設計師可以像數學家一樣使用這樣的證明方法，換句話說，程式設計師應該要運用這些經過驗證的結構，並將它們與自己證明正確的程式碼相結合。<br>
+　　當然，為了使這一切開始進行，Dijkstra 意識到他必須要撰寫一些範例以展示如何用基本的證明方法來證明簡單的演算法，而他發現這是一件極具挑戰性的事。<br>
+　　在調查的過程中，Dijkstra 發現某些使用 <code>goto</code> 語句的情況會阻止模塊被遞迴地分解成更小的單元，從而阻礙了使用分而治之的方法進行證明的可能性。<br>
+　　然而，<code>goto</code> 的其他用途卻沒有這個問題。Dijkstra 意識到，「好的」<code>goto</code> 使用方法對應到簡單的選擇和迭代控制結構，例如 <code>if</code>/<code>then</code>/<code>else</code> 和 <code>do</code>/<code>while</code>。只使用這些控制結構的模塊才可以被遞迴的切割成可以被證明的單元。<br>
+　　Dijkstra 認識到，當這些控制結構與順序執行相結合是特殊的。在當時的兩年前，已經由 Böhm 和 Jacopini 證明了，所有程式都可以由三個結構建構而成：順序(sequence)、選擇(selection)、迭代(iteration)。<br>
+　　這個發現非常了不起：使一個模塊可證明的控制結構，正是構成所有程式的最小控制結構集合。因此，結構化程式設計應運而生。<br>
+　　Dijkstra 證明了順序語句可以通過簡單的列舉來證明其正確性。這種技術利用數學方法系統性地追蹤語句的輸入與輸出，與一般的數學證明無異。<br>
+　　Dijkstra 通過重新應用列舉法來解決選擇問題，對於選擇中的每條路徑都進行了列舉，如果所有的路徑都產生了適當的數學結果，那麼就表示證明是可靠的。<br>
+　　迭代則有些不同，為了證明迭代的正確性，Dijkstra 必須使用歸納法。他通過列舉證明了 1 得情況，然後他再次通過列舉證明了如果假設 N 是正確的，則 N+1 也是正確的，他也證明了迭代的起始條件與結束條件的正確性。<br>
+　　這樣的證明是費時且複雜的，但它們具備了證明的意義。隨著它們的發展，建立一個歐基里得式階層式的定理看似變得可行。</p>
+<h2 id="一個有害的聲明">一個有害的聲明<a hidden class="anchor" aria-hidden="true" href="#一個有害的聲明">#</a></h2>
+<p>　　1968年，Dijkstra 給 CACM 的編輯寫了一封信，該信在三月份的期刊上發表。這封信的標題是「Go To Statement Considered Harmful」。該文章概述了他對三種控制結構的立場。<br>
+　　而程設界也因此掀起了一場熱潮。當時我們還沒有網路，所以人們無法在網上對 Dijkstra 進行網路攻擊，但他們可以向許多發行的期刊投信。<br>
+　　這些信件不一定都很客氣，有些甚至十分負面，而有些則表達了對他的支持，於是兩方的戰爭開始，並持續了約十年。<br>
+　　最終爭論逐漸消失了。原因很簡單：Dijkstra 獲得了勝利。隨著電腦語言的演進，<code>goto</code> 語句逐漸被淘汰，幾乎消失殆盡。大多數現代語言都不再使用 <code>goto</code> 語句，在 LISP 這個程式語言中，甚至從來就沒有使用過。<br>
+　　現在我們都是結構化程式設計師，雖然不一定是出於選擇。只是因為我們的語言不給我們使用無紀律的直接控制轉移的選擇。<br>
+　　有些人可能會指出 Java 中的命名中斷或異常作為 goto 的類比。事實上，這些結構並不像 Fortran 或 COBOL 等舊語言一樣完全無限制地轉移控制。實際上，即使是還支持 goto 關鍵字的語言，也常常將目標限制在當前函數的範圍內。</p>
+<h2 id="函式分解">函式分解<a hidden class="anchor" aria-hidden="true" href="#函式分解">#</a></h2>
+<p>　　結構化程式設計允許將模塊遞歸地分解為可證明的單元，這意味著模塊可以被功能性地分解。也就是說，您可以將一個大規模的問題陳述分解為高層次的函數。然後，每個函數可以進一步分解為低層次的函數，無窮無盡。此外，每個分解的函數都可以使用受限的控制結構來表示。<br>
+　　在此基礎上，結構化分析和結構化設計等學科在 1970 年代末至 1980 年代間變得流行起來。像是 Ed Yourdon, Larry Constantine, Tom DeMarco 和 Meilir Page-Jones 這樣的人在那個時期推廣和普及了這些技術。通過遵循這些學科，程序員可以將大型的預計系統分解為模塊和組件，進一步將其細分為可證明的小型功能。</p>
+<h2 id="不再使用正式證明">不再使用正式證明<a hidden class="anchor" aria-hidden="true" href="#不再使用正式證明">#</a></h2>
+<p>　　我們沒有等到一個系統且完整的證明出現，歐幾里得式的層狀結構理論從未被建立，廣大的程式設計師從未看到耗費大量力氣證明每個小函式正確性所帶來的好處。最終，Dijkstra 的夢想逐漸消失。人們很少有人相信透過嚴謹的證明才能產生高質量的軟體。<br>
+　　當然，正式的、歐幾里得風格的數學證明並不是證明某事正確的唯一策略。另一種極為成功的策略是科學方法。</p>
+<h2 id="科學拯救大業">科學拯救大業<a hidden class="anchor" aria-hidden="true" href="#科學拯救大業">#</a></h2>
+<p>　　科學與數學在根本上有所不同，那就是科學理論和定律無法被證明為正確。我無法向你證明牛頓的第二運動定律，\(F = ma\)，或是萬有引力定律，\(F = Gm_1m_2/r^2\)是正確的。我可以向你展示這些定律，並且我可以進行測量來證明它們在許多小數點後都是正確的，但我無法以數學證明的方式來證明它們。無論我進行多少實驗或收集多少實證，總是有可能某個實驗會顯示那些運動和引力的定律是不正確的。<br>
+　　這就是科學理論和定律的本質：它們是可證伪的，但不可證明的。<br>
+　　然而，我們每天都憑藉這些法律來賭上我們的生命。每次你上車的時候，你肯定相信 \(F = ma\) 是對世界運作方式的可靠描述。每當你踏出一步，你就賭上你的健康和安全，相信 \(F = Gm_1m_2/r^2\) 是正確的。<br>
+　　科學的運作方式並非通過證明陳述為真，而是通過證明陳述為假。那些我們無法證明為假的陳述，在經過大量努力後，我們認為它們對我們的目的來說足夠真實。<br>
+　　當然，並非所有陳述都是可證明的。陳述「這是謊言」既不是真的也不是假的。這是一個最簡單的不可證明陳述的例子之一。<br>
+　　最終，我們可以說數學是證明可證明的陳述為真的學科。相反，科學是證明可證明的陳述為假的學科。</p>
+<h2 id="測試">測試<a hidden class="anchor" aria-hidden="true" href="#測試">#</a></h2>
+<p>　　Dijkstra 曾說過：「測試只能顯示會誤的存在，而不能證明其不存在。」換句話說，一個程式可以通過測試被證明是錯誤的，但無法被證明是正確的。在充分的測試過後，測試只能讓我們認為一個程式對我們的目的來說是否足夠正確。<br>
+　　這個事實的含義令人驚嘆。軟體開發並不是一個數學的努力，儘管它似乎在操作數學結構。相反，軟體就像一門科學。我們通過無法證明錯誤來展示正確性，儘管我們盡了最大的努力。<br>
+　　這樣的錯誤證明只適用於可證明的程式。一個無法證明的程式，例如由於無節制地使用goto，無論進行多少次測試，都無法被視為正確。<br>
+　　結構化程式設計迫使我們將程式遞歸地分解為一組小的可證明函數。然後，我們可以使用測試來嘗試證明這些小的可證明函數的不正確性。如果這些測試無法證明不正確性，那麼我們認為這些函數對於我們的目的來說足夠正確。</p>
+<h2 id="結論">結論<a hidden class="anchor" aria-hidden="true" href="#結論">#</a></h2>
+<p>　　正是這種能力創造了可驗證的程式設計單元，使得結構化程式設計在今天仍然具有價值。這也是現代語言通常不支援無限制的goto語句的原因。此外，在架構層面上，這也是為什麼我們仍然認為函式分解是我們的最佳實踐之一。
+從最小的功能到最大的組件，軟體在各個層面上都像是一門科學，因此受到可證伪性的驅動。軟體架構師致力於定義易於證伪（可測試）的模塊、組件和服務。為此，他們運用類似結　　構化程式設計的嚴格紀律，只是在更高的層次上。<br>
+　　在接下來的章節中，我們將詳細研究這些限制性的學科。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://intervalrain.github.io/tags/clean-architectrue/">Clean Architectrue</a></li>
+    </ul>
+
+  </footer><script src="https://utteranc.es/client.js"
+    repo="Reid00/hugo-blog-talks"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

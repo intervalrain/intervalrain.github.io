@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Programming | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+<meta name="author" content="Rain Hu, intervarrain, 陣雨">
+<link rel="canonical" href="https://intervalrain.github.io/categories/programming/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/images/rain.png" as="image">
+<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
+<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://intervalrain.github.io/categories/programming/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script><meta property="og:title" content="Programming" />
+<meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://intervalrain.github.io/categories/programming/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Programming"/>
+<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"/>
+<meta name="twitter:site" content="@intervalrain"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/categories/">Categories</a></div>
+  <h1>Programming</h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - pair
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>pair 函式庫  #include &lt;utility&gt;  宣告  pair&lt;data_type1, data_type2&gt; Pair_name;  初始化 pair&lt;int, int&gt; p1; // 宣告但不初始化 pair&lt;int, char&gt; p2(1, &#39;a&#39;); // 不同資料型態的初始化 pair&lt;int, int&gt; p3(1, 10); // 同資料型態的初始化 pair&lt;int, int&gt; p4(p3); // 利用其它 pair 來初始化 pair&lt;int, int&gt; p5 = {1, 2} // 用 assign 的方式初始化  p2 = make_pair(1, &#39;a&#39;); // 利用 make_pair 函式 成員  .first .second  函式 1. make_pair(v1, v2); 2. pair1.swap(pair2); 3. tie(a,b) 示例 #include &lt;iostream&gt;#include &lt;utility&gt;using namespace std;  int main(){  // initialize  pair&lt;int,int&gt; p1;  pair&lt;int,int&gt; p2(2,4);  pair&lt;int,char&gt; p3(3,&#39;c&#39;);  pair&lt;int,int&gt; p4(p2);  pair&lt;int,int&gt; p5 = {5,10};   // member  cout &lt;&lt; p2....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-06-02 01:23:15 +0800 CST'>June 2, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - pair" href="https://intervalrain.github.io/c&#43;&#43;/stl_pair/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[VHDL] HDLbits 1 - Getting Started
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>HDLBits  HDLBits 是一系列小型電路設計的練習，用於使用 Verilog 硬體描述語言(HDL)進行數位硬體設計。 由教學的題型由淺入深，逐步建立起電路設計的技能。 每個問題都會要求讀者使用 Verilog 設計一個小電路。HDLBits 會對提交的程式碼作判讀。透過一組測試碼來進行向量模擬，並與解答比較，檢查正確性。
+ Catalog 1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450
+1 Getting Started \(\text{assign one}\)  Build a circuit with no inputs and one output. The output should always drive 1 (or logic high).  module top_module( output one);   assign one = 1&#39;b1;  endmodule  \(\text{assign zero}\)  Build a circuit with no inputs and one output that outputs a constant 0....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 1 - Getting Started" href="https://intervalrain.github.io/verilog/hdlbits1/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[VHDL] HDLbits 2 - Verilog Language
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450
+2 Verilog Language 2.1 Basics wire  Create a module with one input and ont output that behaves like a wire   module top_module( input in, output out);   assign out = in;  endmodule  multi-in-out  Create a module with 3 inputs and 4 outputs that behaves like wires that makes these connections:   module top_module(  input a,b,c,  output w,x,y,z );   assign w = a;  assign x = b;  assign y = b;  assign z = c;  endmodule  not gate  Create a module that implements a NOT gate....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;27 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 2 - Verilog Language" href="https://intervalrain.github.io/verilog/hdlbits2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[VHDL] HDLbits 3 - Circuits
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450
+3 Circuits 3.1 Combinational Logic 3.1.1 Basic Gates Wire module top_module (  input in,  output out);   assign out = in;  endmodule  GND module top_module (  output out);   assign out = 1&#39;b0;  endmodule  NOR module top_module (  input in1,  input in2,  output out);   assign out = ~(in1|in2);  endmodule  Another Gate module top_module (  input in1,  input in2,  output out);   assign out = in1 &amp; (~in2);  endmodule  Two gates module top_module (  input in1,  input in2,  input in3,  output out);   wire w1;   assign w1 = ~(in1^in2);  assign out = w1^in3;  endmodule  More logic gates module top_module(  input a, b,  output out_and,  output out_or,  output out_xor,  output out_nand,  output out_nor,  output out_xnor,  output out_anotb );   assign out_and = a &amp; b;  assign out_or = a | b;  assign out_xor = a ^ b;  assign out_nand = ~(a &amp; b);  assign out_nor = ~(a | b);  assign out_xnor = ~(a ^ b);  assign out_anotb = a &amp; (~b);  // and(out_and, a, b); // or(out_or, a, b); // xor(out_xor, a, b); // nand(out_nand, a, b); // nor(out_nor, a, b); // xnor(out_xnor, a, b); // and(out_anotb, a , ~b);  endmodule  7420 chip module top_module (  input p1a, p1b, p1c, p1d,  output p1y,  input p2a, p2b, p2c, p2d,  output p2y );   assign p1y = ~(p1a &amp; p1b &amp; p1c &amp; p1d);  assign p2y = ~(p2a &amp; p2b &amp; p2c &amp; p2d);  endmodule\  Truth tables \(\begin{array}{|c|ccc|c|}\hline \text{Row}&amp;&amp;\text{Inputs}&amp;&amp;\text{Outputs}\\\hline \text{number}&amp;\text{x3}&amp;\text{x2}&amp;\text{x1}&amp;\text{f}\\\hline 0&amp;0&amp;0&amp;0&amp;0\\\hline 1&amp;0&amp;0&amp;1&amp;0\\\hline 2&amp;0&amp;1&amp;0&amp;1\\\hline 3&amp;0&amp;1&amp;1&amp;1\\\hline 4&amp;1&amp;0&amp;0&amp;0\\\hline 5&amp;1&amp;0&amp;1&amp;1\\\hline 6&amp;1&amp;1&amp;0&amp;0\\\hline 7&amp;1&amp;1&amp;1&amp;1\\\hline \end{array module top_module(  input x3,  input x2,  input x1,  output f );   assign f = ((~x3)&amp;x2)|(x3&amp;x1);  endmodule   Two-bit equality  Create a circuit that has two 2-bit inputs A[1:0] and B[1:0], and produces an output z....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;18 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 3 - Circuits" href="https://intervalrain.github.io/verilog/hdlbits3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[VHDL] HDLbits 4 - Verification: Reading Simulations
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>4 Verification - Reading Simulations 4.1 Finding bugs in code 4.2 Build a circuit from a simulation waveform 1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 4 - Verification: Reading Simulations" href="https://intervalrain.github.io/verilog/hdlbits4/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[VHDL] HDLbits 5 - Verification: Writing Testbenches
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>5 Verification - Writing Testbenches 1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 5 - Verification: Writing Testbenches" href="https://intervalrain.github.io/verilog/hdlbits5/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[VHDL] HDLbits 6 - CS450
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>6 CS450 1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 6 - CS450" href="https://intervalrain.github.io/verilog/hdlbits6/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[VHDL] Verilog Hardware Description Language
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>1 Verilog HDL 1.1 Verilog 簡介  一套硬體描述語言  輔助設計數位系統 描述電路的行為 電子自動化工具   類似C語言的硬體描述語言  易學、容易接受 高階行為描述 切勿使用軟體思維(循序)撰寫(硬體描述語言多是並行的)   支援多種硬體層級的描述方式  從低階到高階模式 依照不同的方法設計   支援階層式的設計方法  樹狀式的設計結構 由繁化簡    1.2 Verilog 的模型 1.2.1 電晶體層級  Transistor Level 或低階交換層次模型(Switch Level Model) Verilog 最低階的層次模型 電路是由開關與電晶體所組成 一般不會採取低階的層級來進行設計  1.2.2 邏輯閘層級  Gate Level 使用基本的邏輯閘元件 AND、OR、NOT 邏輯電路圖  1.2.3 資料流層級  Data Flow Level 描述電路中資料的處理方式 資料如何在電路中運算及傳送 輸入持續驅動輸出 運算式  如：out = a &#43; b &#43; c    1....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-05-01 17:37:22 +0800 CST'>May 1, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] Verilog Hardware Description Language" href="https://intervalrain.github.io/verilog/intro/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[Java] 淺談 Java MVC
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>前言 MVC  MVC 是一種軟體架構模式。  模型 (Model) 視圖 (View) 控制器 (Controller)   目的是實現一種動態且有彈性的程式設計，使後續對程式設計的維護與擴充都變得更容易，另一方面也能使程式的某一部分被重複使用而提升設計效率。  SSH  SSH 是 MVC 的一種，是常用的系統框架，由下面三種集合而成：  Struts Spring Hibernate    SSM  SSH 是 MVC 的一種，是常用的系統框架，由下面三種集合而成：  Spring-MVC Spring MyBatis    SSH v.s. SSM Spring-MVC v.s. Struts  Struts 和 Spring-MVC 都負責取轉發，但兩者針對 request 的請求上區別很大，  Struts 是針對一個 Action class 來進行 request，即一個 Action 對應一個 request，屬於類攔截，請求的數據類共享。 Spring-MVC 則是針對 method 級別的 request，即一個 method 對應一個 request，屬於方法攔截，請求的數據方法不共享。   Spring-MVC 的配置文件相對較少，容易上手，方便開發。 Spring-MVC 的入口是 Servlet 級別的而 Struts 的級別是 Filter 級別的。  Hibernate v....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-04-29 15:38:18 +0800 CST'>April 29, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Java] 淺談 Java MVC" href="https://intervalrain.github.io/java/java_mvc/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2>[C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - map
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>map 宣告 map &lt;int, int&gt; mp; // key和value都是整數 方法 mp[key] = value;  加入新的key-value pair  mp.count(key);  檢查 key 是否存在 map 中  mp.erase(key);  刪除 key  mp.clear();  清空 map 中的所有元素：  value = mp[key]  利用 key 取值  mp.empty()  判斷是否為空的map  map 的遍歷  遍歷整個map時，利用iterator操作： 取key：it-&gt;first 或 *(it).first 取value：it-&gt;second 或 *(it).second  for (auto it = mp.begin(); it != mp.end(); &#43;&#43;it){  cout &lt;&lt; it-&gt;first &lt;&lt; &#34; =&gt; &#34; &lt;&lt; it-&gt;second &lt;&lt; &#39;\n&#39;; }  for (auto it = mp....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-04-23 22:24:21 +0800 CST'>April 23, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - map" href="https://intervalrain.github.io/c&#43;&#43;/stl_map/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://intervalrain.github.io/categories/programming/">« Prev Page</a>
+    <a class="next" href="https://intervalrain.github.io/categories/programming/page/3/">Next Page »</a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

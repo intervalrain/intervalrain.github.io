@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Leetcode | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+<meta name="author" content="Rain Hu, intervarrain, 陣雨">
+<link rel="canonical" href="https://intervalrain.github.io/categories/leetcode/" />
+<meta name="google-site-verification" content="XYZabc" />
+<meta name="msvalidate.01" content="XYZabc" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/images/rain.png" as="image">
+<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
+<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://intervalrain.github.io/categories/leetcode/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script><meta property="og:title" content="Leetcode" />
+<meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://intervalrain.github.io/categories/leetcode/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode"/>
+<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊"/>
+<meta name="twitter:site" content="@intervalrain"/>
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/categories/">Categories</a></div>
+  <h1>Leetcode</h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 14. Longest Common Prefix
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>14. Longest Common Prefix
+ Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: String   一、題目 Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string &#34;&#34;.
+Example 1:
+ Input: strs = [“flower”, “flow”, “flight”] Output: “fl”  Example 2:
+ Input: strs = [“dog”, “racecar”, “car”] Output: &#34;&#34; Explanation: There is no common prefix among the input strings....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-28 00:00:08 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 14. Longest Common Prefix" href="https://intervalrain.github.io/leetcode/14/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 13. Roman to Integer
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>13. Roman to Integer
+ Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Hash Table、Math、String   一、題目 Roman numerals are represented by seven different symbols: I, V, X, L, C, D, and M.
+\(\boxed{\begin{array}{ll} \textbf{Symbol}&amp;\textbf{Value}\\ \texttt{I}&amp;1\\ \texttt{V}&amp;5\\ \texttt{X}&amp;10\\ \texttt{L}&amp;50\\ \texttt{C}&amp;100\\ \texttt{D}&amp;500\\ \texttt{M}&amp;1000\\ \end{array}}\)
+For example, 2 is written as II in Roman numeral, just two one’s added together. 12 is written as XII, which is simply X &#43; II. The number 27 is written as XXVII, which is XX &#43; V &#43; II....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-27 21:58:08 +0800 CST'>October 27, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 13. Roman to Integer" href="https://intervalrain.github.io/leetcode/13/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 835. Image Overlap
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>835. Image Overlap
+ Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Matrix   一、題目 You are given two images, img1 and img2, represented as binary, square matrices of size n x n. A binary matrix has only 0s and 1s as values.
+We translate one image however we choose by sliding all the 1 bits left, right, up, and/or down any number of units. We then place it on top of the other image....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-27 17:35:25 +0800 CST'>October 27, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 835. Image Overlap" href="https://intervalrain.github.io/leetcode/835/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 12. Integer to Roman
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>12. Integer to Roman
+ Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table、Math、String   一、題目 Roman numerals are represented by seven different symbols: I, V, X, L, C, D, and M.
+\(\boxed{\begin{array}{ll} \textbf{Symbol}&amp;\textbf{Value}\\ \texttt{I}&amp;1\\ \texttt{V}&amp;5\\ \texttt{X}&amp;10\\ \texttt{L}&amp;50\\ \texttt{C}&amp;100\\ \texttt{D}&amp;500\\ \texttt{M}&amp;1000\\ \end{array}}\)
+For example, 2 is written as II in Roman numeral, just two one’s added together. 12 is written as XII, which is simply X &#43; II. The number 27 is written as XXVII, which is XX &#43; V &#43; II....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-26 20:36:08 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 12. Integer to Roman" href="https://intervalrain.github.io/leetcode/12/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 11. Container With Most Water
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>11. Container With Most Water
+ Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Greedy   一、題目 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+Return the maximum amount of water a container can store....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-26 19:36:06 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 11. Container With Most Water" href="https://intervalrain.github.io/leetcode/11/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 10. Regular Expression Matching
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>10. Regular Expression Matching
+ Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: String、Dynamic Programming、Recursion   一、題目 Given an input string s and a pattern p, implement regular expression matching with support for &#39;.&#39; and &#39;*&#39; where:
+ &#39;.&#39; Matches any single character. &#39;*&#39; Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial).  Example 1:
+ Input: s = “aa”, p = “a” Output: false Explanation: “a” does not match the entire string “aa”....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-26 18:36:01 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 10. Regular Expression Matching" href="https://intervalrain.github.io/leetcode/10/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 9. Palindrome Number
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>9. Palindrome Number
+ Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Math   一、題目 Given an integer x, return true if x is palindrome number.
+An integer is a palindrome when it reads the same backward as forward.
+ For example, 121 is a palindrome while 123 is not.  Example 1:
+ Input: x = 121 Output: true Explanation: 121 reads as 121 from left to right and from right to left....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-26 10:20:08 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 9. Palindrome Number" href="https://intervalrain.github.io/leetcode/9/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 8. String to Integer (atoi)
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>8. String to Integer (atoi)
+ Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String   一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C&#43;&#43;’s atoi function).
+The algorithm for myAtoi(string s) is as follows:
+ Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is &#39;-&#39; or &#39;&#43;&#39;. Read this character in if it is either....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-26 00:21:56 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 8. String to Integer (atoi)" href="https://intervalrain.github.io/leetcode/8/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 7. Reverse Integer
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>7. Reverse Integer
+ Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Math   一、題目 Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31-1], then return 0.
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+Example 1:
+ Input: x = 123 Output: 321  Example 2:
+ Input: x = -123 Output: -321  Example 3:...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-25 23:47:53 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 7. Reverse Integer" href="https://intervalrain.github.io/leetcode/7/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>[Leetcode] 6. Zigzag Conversion
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>6. Zigzag Conversion
+ Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String   一、題目 The string &#34;PAYPALISHIRING&#34; is written in a zigzag pattern on a given number of rows like this: (you may want to dispaly this pattern in a fixed font for better legibility)
+\( \quad\texttt{P A H N}\\ \quad\texttt{APLSIIG}\\ \quad\texttt{Y I R}\\ \)
+And then read line by line: &#34;PAHNAPLSIIGYIR&#34;
+Write the code that will take a string and make this conversion given a number of rows: string convert(string s, int numRows...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-10-25 21:40:24 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 6. Zigzag Conversion" href="https://intervalrain.github.io/leetcode/6/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://intervalrain.github.io/categories/leetcode/page/9/">« Prev Page</a>
+    <a class="next" href="https://intervalrain.github.io/categories/leetcode/page/11/">Next Page »</a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

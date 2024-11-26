@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>html on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/tags/html/</link>
+    <description>Recent content in html on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 09 Jun 2024 02:10:53 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IT] HTML &#43; CSS</title>
+      <link>https://intervalrain.github.io/it/html/</link>
+      <pubDate>Sun, 09 Jun 2024 02:10:53 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/html/</guid>
+      <description>可搭配程式碼服用：  https://github.com/intervalrain/htmls/tree/main/tutorial   使用者文檔：  W3C 官網 MDN W3School    一、HTML  全名：超文本標記語言(HyperText Markup Language, HTML) 現最常使用的是 HTML5，由 W3C &amp;amp; WHATWG 所制定。 將檔案設置為 .html 即可建立一個 html 檔案。  二、HTML 標籤  標籤又稱元素，是 HTML 的基本組成單位。 標籤分為: 雙標籤和單標籤(絕大多數都是雙標籤)。 標籤不區分大小寫，但推薦小寫，因為小寫更規範 雙標籤，&amp;lt;標籤名&amp;gt;標籤體&amp;lt;/標籤名&amp;gt;  &amp;lt;marquee&amp;gt;Hello World&amp;lt;/marquee&amp;gt; 單標籤，&amp;lt;標籤名/&amp;gt;，/可省略  &amp;lt;input/&amp;gt; 標籤之間的關係：並列關係、嵌套關係，可以使用 tab 鍵進行縮進。  &amp;lt;marquee&amp;gt;  Hello World  &amp;lt;input&amp;gt; &amp;lt;/marquee&amp;gt; 三、HTML 標籤屬性  用於給標籤提供附加訊息。 可以寫在: 起始標籤或單標籤中，&amp;lt;標籤名 屬性名=&amp;quot;屬性值&amp;quot; 屬性名=&amp;quot;屬性值&amp;quot;&amp;gt;  &amp;lt;marquee loop=&amp;#34;1&amp;#34; bgcolor=&amp;#34;orange&amp;#34;&amp;gt;Hello World&amp;lt;/marquee&amp;gt; &amp;lt;input type=&amp;#34;password&amp;#34;&amp;gt; 有些特殊的屬性，沒有屬性名，只有屬性值：  &amp;lt;input disabled&amp;gt;   .</description>
+    </item>
+    
+  </channel>
+</rss>

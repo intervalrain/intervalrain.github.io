@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Clean Architecture on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/tags/clean-architecture/</link>
+    <description>Recent content in Clean Architecture on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 09 Mar 2024 13:59:22 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/clean-architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IT] 用 C# 建置 Clean Architecture 專案</title>
+      <link>https://intervalrain.github.io/it/ca_config/</link>
+      <pubDate>Sat, 09 Mar 2024 13:59:22 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/ca_config/</guid>
+      <description>Configure C# Solution step by step  開啟 Terminal 新增解決方案 dontet new sln -o MySln 移至方案目錄 cd MySln 根據解決方案 hierarchy 建構專案  dotnet new webapi -o MySln.Api dotnet new classlib -o MySln.Application dotnet new classlib -o MySln.Domain dotnet new classlib -o MySln.Infrastructure dotnet new classlib -o MySln.Contracts   將所有專案加進解決方案 for proj in $(ls -r **/*.csproj)  dotnet sln add $proj  建立專案之間的 dependency  dotnet add MySln.Api reference MySln.Application MySln.</description>
+    </item>
+    
+    <item>
+      <title>[IT] 使用 Clean Architecture &#43; DDD 建置 Restful API</title>
+      <link>https://intervalrain.github.io/it/clean_arch_configuration/</link>
+      <pubDate>Mon, 26 Feb 2024 15:03:15 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/clean_arch_configuration/</guid>
+      <description>程式碼 https://github.com/intervalrain/webapi_ca/
+正文 建置 Solution   首先先參考 Clean Architecture 最經典的同心圓，來確定我們需要將我們的解決方案做哪些分層：
+ 我將使用 Restful API 做為我們 I/O (Presentation Layer) 並且我需要配備身份驗證的機制 (Presentation Layer) 我使用 PostgresDB 作為我的 (Infrastructure Layer) 我的核心商業邏輯 (Application / Domain Layer)     創建專案
+  dotnet new sln -o Mysln 進入專案所在的資料夾  cd Mysln 根據預先的分層建立專案資料夾，並且使用 dotnet 指令建立相對應的專案類型。  Api &amp;ndash;&amp;gt; WebAPI Infrastructure &amp;ndash;&amp;gt; classlib Contracts &amp;ndash;&amp;gt; classlib Application &amp;ndash;&amp;gt; classlib Domain &amp;ndash;&amp;gt; classlib    dotnet new webapi -o Mysln.</description>
+    </item>
+    
+  </channel>
+</rss>

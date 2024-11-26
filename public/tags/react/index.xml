@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>react on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/tags/react/</link>
+    <description>Recent content in react on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Aug 2024 01:44:44 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IT] 拯救 react</title>
+      <link>https://intervalrain.github.io/it/save_react/</link>
+      <pubDate>Fri, 16 Aug 2024 01:44:44 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/save_react/</guid>
+      <description> 安裝個離線版  npm i - g create-react-app-offline 改用 crao 初始化  crao -n my-app 如果 node_modules 沒有安裝正常  rm -rf node_modules 重裝 node_modules  npm install 重啟 react  npm start </description>
+    </item>
+    
+    <item>
+      <title>[IT] React &#43; .Net</title>
+      <link>https://intervalrain.github.io/it/csharp-react/</link>
+      <pubDate>Tue, 11 Jun 2024 22:00:23 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/it/csharp-react/</guid>
+      <description>React + .Net 一、環境設置 Setup 1. 行前準備 Prerequisites  安裝 Node.js 和 npm  node -v npm -v  安裝 .NET SDK  dotnet --version  用 vs code 下載 ES7+ React/Redux/React-Native snippets 因為 rafce 很好用, 相當於, typescript 則是 tsrafce  import React from &amp;#39;react&amp;#39;  const index = () =&amp;gt; {  return (  &amp;lt;div&amp;gt;index&amp;lt;/div&amp;gt;  ) }  export default index 2. 創建 React  安裝 react  npm install create-react-app  創建新的 react app (typescript)  --template typescript 可指定使用 typescript    npx create-react-app {project} --template typescript cd {project}  必要時可能要初始化一個新的 react 項目，確保版本是匹配的。  yarnpkg add --exact react-dom react-scripts 3.</description>
+    </item>
+    
+  </channel>
+</rss>

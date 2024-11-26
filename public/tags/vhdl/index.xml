@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>VHDL on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/tags/vhdl/</link>
+    <description>Recent content in VHDL on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 28 May 2022 00:10:20 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/vhdl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VHDL] HDLbits 1 - Getting Started</title>
+      <link>https://intervalrain.github.io/verilog/hdlbits1/</link>
+      <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/verilog/hdlbits1/</guid>
+      <description>Verilog tutorial</description>
+    </item>
+    
+    <item>
+      <title>[VHDL] HDLbits 2 - Verilog Language</title>
+      <link>https://intervalrain.github.io/verilog/hdlbits2/</link>
+      <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/verilog/hdlbits2/</guid>
+      <description>Verilog tutorial</description>
+    </item>
+    
+    <item>
+      <title>[VHDL] HDLbits 3 - Circuits</title>
+      <link>https://intervalrain.github.io/verilog/hdlbits3/</link>
+      <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/verilog/hdlbits3/</guid>
+      <description>Verilog tutorial</description>
+    </item>
+    
+    <item>
+      <title>[VHDL] HDLbits 4 - Verification: Reading Simulations</title>
+      <link>https://intervalrain.github.io/verilog/hdlbits4/</link>
+      <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/verilog/hdlbits4/</guid>
+      <description>Verilog tutorial</description>
+    </item>
+    
+    <item>
+      <title>[VHDL] HDLbits 5 - Verification: Writing Testbenches</title>
+      <link>https://intervalrain.github.io/verilog/hdlbits5/</link>
+      <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/verilog/hdlbits5/</guid>
+      <description>Verilog tutorial</description>
+    </item>
+    
+    <item>
+      <title>[VHDL] HDLbits 6 - CS450</title>
+      <link>https://intervalrain.github.io/verilog/hdlbits6/</link>
+      <pubDate>Sat, 28 May 2022 00:10:20 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/verilog/hdlbits6/</guid>
+      <description>Verilog tutorial</description>
+    </item>
+    
+    <item>
+      <title>[VHDL] Verilog Hardware Description Language</title>
+      <link>https://intervalrain.github.io/verilog/intro/</link>
+      <pubDate>Sun, 01 May 2022 17:37:22 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/verilog/intro/</guid>
+      <description>1 Verilog HDL 1.1 Verilog 簡介  一套硬體描述語言  輔助設計數位系統 描述電路的行為 電子自動化工具   類似C語言的硬體描述語言  易學、容易接受 高階行為描述 切勿使用軟體思維(循序)撰寫(硬體描述語言多是並行的)   支援多種硬體層級的描述方式  從低階到高階模式 依照不同的方法設計   支援階層式的設計方法  樹狀式的設計結構 由繁化簡    1.2 Verilog 的模型 1.2.1 電晶體層級  Transistor Level 或低階交換層次模型(Switch Level Model) Verilog 最低階的層次模型 電路是由開關與電晶體所組成 一般不會採取低階的層級來進行設計  1.2.2 邏輯閘層級  Gate Level 使用基本的邏輯閘元件 AND、OR、NOT 邏輯電路圖  1.2.3 資料流層級  Data Flow Level 描述電路中資料的處理方式 資料如何在電路中運算及傳送 輸入持續驅動輸出 運算式  如：out = a + b + c    1.</description>
+    </item>
+    
+  </channel>
+</rss>

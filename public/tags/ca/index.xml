@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CA on Rain Hu&#39;s Workspace</title>
+    <link>https://intervalrain.github.io/tags/ca/</link>
+    <description>Recent content in CA on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 03 Jul 2022 01:54:06 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/ca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[CA] 記憶體</title>
+      <link>https://intervalrain.github.io/cs/ca/memory/</link>
+      <pubDate>Sun, 03 Jul 2022 01:54:06 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/cs/ca/memory/</guid>
+      <description>準備中 </description>
+    </item>
+    
+    <item>
+      <title>[CA] Pipeline</title>
+      <link>https://intervalrain.github.io/cs/ca/pipeline/</link>
+      <pubDate>Sun, 03 Jul 2022 01:54:02 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/cs/ca/pipeline/</guid>
+      <description>準備中 </description>
+    </item>
+    
+    <item>
+      <title>[CA] 處理器</title>
+      <link>https://intervalrain.github.io/cs/ca/processor/</link>
+      <pubDate>Sun, 03 Jul 2022 01:54:02 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/cs/ca/processor/</guid>
+      <description>準備中 </description>
+    </item>
+    
+    <item>
+      <title>[CA] 計算機算術</title>
+      <link>https://intervalrain.github.io/cs/ca/arithmetic/</link>
+      <pubDate>Sun, 03 Jul 2022 01:53:50 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/cs/ca/arithmetic/</guid>
+      <description>準備中 </description>
+    </item>
+    
+    <item>
+      <title>[CA] 指令集架構</title>
+      <link>https://intervalrain.github.io/cs/ca/isa/</link>
+      <pubDate>Sun, 03 Jul 2022 01:53:45 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/cs/ca/isa/</guid>
+      <description>準備中 </description>
+    </item>
+    
+    <item>
+      <title>[作業系統] 計算機組織與結構</title>
+      <link>https://intervalrain.github.io/cs/ca/</link>
+      <pubDate>Sun, 03 Jul 2022 01:39:35 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/cs/ca/</guid>
+      <description>計算機組織與結構  計算機抽象化與科技 指令集架構 計算機算術 處理器 Pipeline 記憶體  參考資料  黃婷婷 清大開放式課程 計算機結構 Mr. opengate  </description>
+    </item>
+    
+    <item>
+      <title>[CA] 計算機的抽象化與科技</title>
+      <link>https://intervalrain.github.io/cs/ca/abstraction/</link>
+      <pubDate>Thu, 24 Mar 2022 01:12:11 +0800</pubDate>
+      
+      <guid>https://intervalrain.github.io/cs/ca/abstraction/</guid>
+      <description>計算機的抽象化與科技 1.1 簡介  有賴於科技高速的成長，計算機工業出現了嶄新的型態，計算機導致了文明的第三次革命-資訊革命，與農業革命和工業革命並駕齊驅。如科幻電影般的生活應用，也如雨後出筍般的出現。  汽車 手機 人類基因組計劃(Human genome project) 全球網路(World Wide Web) 搜尋引擎    計算機的應用分類與其特性  個人電腦(Personal Computer, PCs) 伺服器(Servers)  通過網路連接其它的工作站或電腦，通常面向單一且複雜大型的科學或工程應用，也可能是多而小的工作。 成本和功能的差異性也最廣，可以是沒有螢幕沒有鍵盤的桌電，也可以是如超級計算機(supercomputers)這樣的極端。   嵌入式計算機(Embedded Computers)  最大的計算機類別，也涵蓋最廣泛的應用和性能。 通常具有獨特的應用要求，這些要求將最低效能發揮的淋漓盡致，使成本與功耗成為很重要的指標。    後PC時代  個人行動裝置(Poersonal Mobile Device, PMD) 如智慧型手機與平板的出現，取代的 PC 的地位。 雲端計算(Cloud Computing) 取代了傳統伺服器，這些雲端計算建構在「倉庫規模計算機」(Warehouse Scale Computer, WSC)。  企業如Google、Amazon，提供了 WSC 的租借服務，這類通過雲端佈署的「軟體即服務」(Software as a Service, SaaS)，正在改變軟體業。    學習目標  過去在硬體的限制下，程式設計師需要嚴格的考慮程式的效能：減少記憶體空間以使程式更快。 在計算機設計與記憶體科技的進步下，取而代之程式設計師要考量的事情變成：處理器的並行性和記憶體的分層，或諸如在 PMD 或雲端上運行的程式的能源效率問題。 以下是我們將要學習的目標：  用高級語言編寫的程式如何翻譯成硬體語言，以及硬體如何執行生成的程式？藉此可以理解硬體與軟體的關係，也與程式的性能有關聯。 軟體和硬體間的介面是什麼，軟體如何指示硬體執行所需的工作？這些概念對於理解如何編寫多種軟體至關重要。 什麼決定了一個程式的性能，程式設計師如何提高性能？這關係了源始碼編譯成電腦的語言時，硬體執行程式的效率。 硬體設計人員可以使用哪些技術來提高性能(Performance)？ 硬體設計人員可以使用哪些技術來提升能源效率(Energy Efficiency)？程式設計師又如何協助改善？ 什麼理由導致了循序處理(Sequential processing)轉變成了平行處理(Parallel processing)？ 自第一台商用計算機問世以來，計算機架構師提出了哪些想法來奠定現代計算的基礎？    1.</description>
+    </item>
+    
+  </channel>
+</rss>
