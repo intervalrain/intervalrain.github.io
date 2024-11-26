@@ -86,7 +86,6 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[ML] 簡單實作測試"/>
 <meta name="twitter:description" content="線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp  url = &#34;sample.csv&#34; data = pd.read_csv(url)  x = data[&#34;x-axis&#34;] y = data[&#34;y-axis&#34;] 畫圖 def plot(x, y, w, b):  line = w * x &#43; b  plt.plot(x, line, color=&#34;red&#34;, label=&#34;prediction&#34;)  plt.scatter(x, y, color=&#34;blue&#34;, label=&#34;data&#34;, marker=&#34;x&#34;)  plt.title(&#34;Title&#34;)  plt.xlabel(&#34;x Axis&#34;)  plt.ylabel(&#34;y Axis&#34;)  plt.xlim([0,12])  plt.ylim([20,140])  plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b):  y2 = w * x &#43; b  cost = (y - y2) ** 2  return cost."/>
-<meta name="twitter:site" content="@intervalrain"/>
 
 
 <script type="application/ld+json">
@@ -236,7 +235,7 @@
     <h1 class="post-title">
       [ML] 簡單實作測試
     </h1>
-    <div class="post-meta"><span title='2023-04-30 00:35:59 +0800 CST'>April 30, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/work.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-04-30 00:35:59 +0800 CST'>April 30, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/work.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
