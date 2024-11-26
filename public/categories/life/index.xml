@@ -44,13 +44,6 @@
       <description>Suggestion from Nikita Kothari at LinkedIn</description>
     </item>
     <item>
-      <title>About me</title>
-      <link>http://localhost:1313/aboutme/</link>
-      <pubDate>Thu, 17 Feb 2022 17:54:48 +0800</pubDate>
-      <guid>http://localhost:1313/aboutme/</guid>
-      <description>Who am I?</description>
-    </item>
-    <item>
       <title>[Washam] Way to SWE</title>
       <link>http://localhost:1313/washam/</link>
       <pubDate>Sat, 25 May 2019 22:35:48 +0800</pubDate>

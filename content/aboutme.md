@@ -1,6 +1,6 @@
 ---
 title: "About me"
-date: 2022-02-17T17:54:48+08:00
+date: 2024-11-24T17:54:48+08:00
 tags: ["Life"]
 Categories: Life
 description: "Who am I?"                     
@@ -32,7 +32,7 @@ cover:
 
 --- 
 **Rain Hu** /  
-是我的英文名，象徵著我在生命的道路上，不斷的學習新知且努力向上的我。是 leetcode 相關文章與技術文件的作者。
+是我的英文名，象徵著我在科技領域不斷探索創新的專業開發者。專注於全端開發、AI整合，是本站中技術文章的作者。
 
 ---
 **intervalrain** /  
@@ -40,79 +40,69 @@ cover:
 
 ---
 **陣雨** /  
-是我的筆名，象徵倘佯在音樂世界的我，寫的是我的音樂作品，詞或曲，[或是一首歌](https://streetvoice.com/intervalrain/songs/646909/)。踟躕不如笑一個，然後繼續。
+是我的筆名，象徵倘佯在音樂世界的我，在繁忙的生活中，透過詞或曲，[或是一首歌](https://streetvoice.com/intervalrain/songs/646909/)，寫下我的牢騷。
 
 # About me
 ![me](/images/me.jpeg "me")
 
 + 本名：胡鎮宇
++ 專長：
+    + 全端開發 (C#.NET, C++, React TypeScript, Python)
+    + 系統架構設計 (Clean Architecture, CQRS, DDD)
+    + AI 整合與開發 (LangChain, RAG)
+    + 半導體製程與元件物理
++ 語言能力：
+    + 中文（母語）
+    + 英文（TOEIC 775/900）
+    + 韓文（TOPIK I 180/200）
++ 嗜好：
+    + 音樂創作
+    + 寫 Leetcode
 + 生日：1991/12/3
 + 血型：O型
 + 星座：射手座
 + 生肖：羊
-+ 專長：半導體物理、材料科學(金屬、電子)、資料結構與演算法
-+ 嗜好：彈吉他、喝咖啡、看劇、刷Leetcode(?)
-+ 學歷：國立清華大學 材料工程學系
++ 學歷：國立清華大學 材料工程學系碩士
 ---
 - [Resume](../resume202411.pdf)
-+ 簡歷：
-    + 2018 Aug. - 2022 Aug. 半導體元件開發工程師 Semiconductor Devcie Engineer (UMC)
-        + 在特殊技術開發部門中針對 eHV(embedded High Voltage) 製程進行開發  
-        參與 eHV 40nm、28nm、22nm 開發、經歷過 Poly Gate、HKMG 製程。  
-        工作內容包含元件特性分析、WAT 程式設置、testkey layout design、DRC coding 等。
-        + 專案：
-            + (1) NWR Project (Achieve yield rate enhancement from 88% to 94% @28eHV Mass Production)
-            + (2) 22eHV Compact Platform Project (Reduce cost of 22eHV Process closed to 28eHV Process)
-                + LV Share Implant Project 
-                + IO Mask Reduction Project
-            + (3) Co-cut methodology (Reduce 30% and more cost on shuttle for aging/qual)
-        + 自行開發工具：
-            + (1) [IDAS+](https://github.com/intervalrain/IDAS)
-            + (2) [U2C](https://github.com/intervalrain/U2C)
-            + (3) [IV_Cur](https://github.com/intervalrain/IV_Cur)
-            + (4) [KPlug](https://github.com/intervalrain/KPlug)
-    + 2022 Sep. - Present. 深度開發工程師 Deep Learning Engineer (UMC)
-        + 在 SMG (Department of Smart Manufacturing) 擔任 DL Engineer，幫助產線乃至研發單位開始工具、有效率的解決方案。
-        + 專案：
-            + (1) UEDA 5.0
+## 職業生涯
+### 現職：資深軟體工程師 @ UMC (2022.08 - 2024.11)
++ 主導開發 UEDA 5.0 跨區域資料分析解決方案
++ 開發 DSM Bot AI 助手，革新半導體製造資訊查詢
++ 設計 BTV 系統，實現 WAT 量測後端良率
++ 開發 ChatGPT 插件，提升產線可視性
 
-+ 使用語言：
-    + 跟人的部分：中文、英文、韓文
-    + 跟電腦的部分：C++、Java、VBA、C#、Oracle SQL、Verilog 等等
+### 前職：半導體元件研發工程師 @ UMC (2018.08 - 2022.08)
++ 創新 NWR Project，提升 28eHV 與 22eHV 良率
++ 開發 Co-cut Project，優化實驗成本
++ 設計 U2C 工具，提升 CAD 開發效率
 
+## 教育背景
++ 國立清華大學 材料科學工程研究所 (2014-2018)
++ 國立清華大學 材料科學工程學系 (2010-2014)
 
-> 八年級，青年期的最後一個梯次，三十歲的男子。
+## 關於我
+> 一個熱愛技術創新的開發者，在半導體產業中找到結合創意與實用的完美平衡點。
 > 
-> 當過吉他老師，組過樂團，當過鼓手，曾在西餐廳駐唱表演。
+> 相信技術能改變世界，但也不忘透過音樂豐富生活。
 > 
-> 喜歡寫程式處理繁瑣重覆的事，然後拿空出來的時間作白日夢。
->
-> 喜歡唱歌、彈吉他、聽歌、看書，寫憤世嫉俗的歌，解Leetcode，吃東西。
+> 喜歡優雅的程式碼，也愛一杯香醇的咖啡。
 > 
-> 喜歡的食物有台南的牛肉湯、壽司、拉麵、鹹蛋苦瓜、菜脯蛋、魚香茄子、香菇雞湯。
->
-> 最喜歡的甜點有肉桂捲、可麗露、檸檬塔、藍莓塔。
->
-> 喜歡所有切好的水果。不能吃楊桃。
+> Coffeholic，偏好淺中焙，特別鍾情於耶加雪菲與西達摩，最近的新愛是豔夏花荔。
 > 
-> Coffeholic，淺中焙，耶加雪菲、西達摩。
->
-> 不喜毛、不喜草、不喜昆蟲、討厭KMT。
->
-> 如果明天就要死亡，我想去看看地中海。
+> 永遠保持著好奇心，不斷學習新知識。
 
 ## More about me
-- Music
+- Technical Blog
+    - [intervalrain.github.io](https://intervalrain.github.io)
+- Music:
     - [Streetvoice](https://streetvoice.com/intervalrain/)
     - [Youtube](https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA)
-- Coding
-
-    - [Leetcode](https://github.com/intervalrain/leetcode)
-    - [Algorithm](https://github.com/intervalrain/algo)
+- Development:
+    - [GitHub](https://github.com/intervalrain)
+    - [Portfolio](https://intervalrain.github.io)
 
 ## Contact
-- [Email](https://intervalrain@gmail.com)
-- [Facebook](https://www.facebook.com/intervalrain)
-- [Instagram](https://www.instagram.com/intervalrain)
-- [Twitter](https://twitter.com/Intervalrain)
-- [LinkedIn](https://www.linkedin.com/in/intervalrain)
+- [Email](mailto:intervalrain@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/intervalrain/)
+- [GitHub](https://github.com/intervalrain)
