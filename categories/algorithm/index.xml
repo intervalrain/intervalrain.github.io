@@ -1,8 +1,120 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithm on Rain Hu's Workspace</title><link>https://intervalrain.github.io/categories/algorithm/</link><description>Recent content in Algorithm on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 10 Nov 2023 03:10:09 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>[algo] timeline algorithm</title><link>https://intervalrain.github.io/algo/timeline/</link><pubDate>Fri, 10 Nov 2023 03:10:09 +0800</pubDate><guid>https://intervalrain.github.io/algo/timeline/</guid><description>#include &amp;lt;iostream&amp;gt; #include &amp;lt;string&amp;gt; #include &amp;lt;vector&amp;gt; using namespace std; class Solution { public: string shortestCommonSupersequence(string a, string b) { int m = a.size(); int n = b.size(); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; dp(m+1, vector&amp;lt;int&amp;gt;(n+1, 0)); for (int i = 0; i &amp;lt;= m; i++) { for (int j = 0; j &amp;lt;= n; j++) { if (i == 0 || j == 0) continue; if (a[i-1] == b[j-1]) { dp[i][j] = dp[i-1][j-1] + 1; } else { dp[i][j] = max(dp[i-1][j], dp[i][j-1]); } } } int i = m; int j = n; string res; while (i &amp;gt; 0 &amp;amp;&amp;amp; j &amp;gt; 0) { if (a[i-1] == b[j-1]) { res += a[i-1]; --i; --j; } else { if (dp[i-1][j] &amp;lt; dp[i][j-1]) { res += b[--j]; } else { res += a[--i]; } } } while (i &amp;gt; 0) res += a[--i]; while (j &amp;gt; 0) res += b[--j]; reverse(res.</description></item><item><title>[Problem] Version Query</title><link>https://intervalrain.github.io/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/versionquery/</guid><description>Version Query
-Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Binary Search、Segment Tree、Heap (Priority Queue、Hash Table 一、題目 Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.
-The given apk_info structure is given as below.
-struct apk_info {
-int apk_version;
-int min_version = 1;
-int max_version = INT_MAX;
-}</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithm on Rain Hu's Workspace</title><link>https://intervalrain.github.io/categories/algorithm/</link><description>Recent content in Algorithm on Rain Hu's Workspace</description><generator>Hugo -- 0.139.2</generator><language>zh-tw</language><lastBuildDate>Fri, 10 Nov 2023 03:10:09 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>[algo] timeline algorithm</title><link>https://intervalrain.github.io/algo/timeline/</link><pubDate>Fri, 10 Nov 2023 03:10:09 +0800</pubDate><guid>https://intervalrain.github.io/algo/timeline/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Cpp" data-lang="Cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;string&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;vector&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string shortestCommonSupersequence(string a, string b) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m &lt;span style="color:#f92672">=&lt;/span> a.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> b.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> dp(m&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>(n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;=&lt;/span> m; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; j &lt;span style="color:#f92672">&amp;lt;=&lt;/span> n; j&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (i &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">||&lt;/span> j &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#66d9ef">continue&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (a[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> b[j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[i][j] &lt;span style="color:#f92672">=&lt;/span> dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[i][j] &lt;span style="color:#f92672">=&lt;/span> max(dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j], dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> m;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> j &lt;span style="color:#f92672">=&lt;/span> n;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (i &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> j &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (a[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> b[j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> a[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">--&lt;/span>i;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">--&lt;/span>j;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j] &lt;span style="color:#f92672">&amp;lt;&lt;/span> dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> b[&lt;span style="color:#f92672">--&lt;/span>j];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> a[&lt;span style="color:#f92672">--&lt;/span>i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (i &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) res &lt;span style="color:#f92672">+=&lt;/span> a[&lt;span style="color:#f92672">--&lt;/span>i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (j &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) res &lt;span style="color:#f92672">+=&lt;/span> b[&lt;span style="color:#f92672">--&lt;/span>j];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> reverse(res.begin(), res.end());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string &lt;span style="color:#a6e22e">shortestCommonSupersequencePlus&lt;/span>(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> strs) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string res &lt;span style="color:#f92672">=&lt;/span> strs[&lt;span style="color:#ae81ff">0&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> strs.size(); i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> shortestCommonSupersequence(res, strs[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string &lt;span style="color:#a6e22e">trans&lt;/span>(string&lt;span style="color:#f92672">&amp;amp;&lt;/span> a, string&lt;span style="color:#f92672">&amp;amp;&lt;/span> pattern) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m &lt;span style="color:#f92672">=&lt;/span> a.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> pattern.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (i &lt;span style="color:#f92672">&amp;lt;&lt;/span> m &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> j &lt;span style="color:#f92672">&amp;lt;&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (a[i] &lt;span style="color:#f92672">!=&lt;/span> pattern[j]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res.push_back(&lt;span style="color:#e6db74">&amp;#39; &amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res.push_back(a[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> strs &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;ABCDEH&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;ACDEFBH&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;ADEHG&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Solution&lt;span style="color:#f92672">*&lt;/span> sol &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Solution();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string res &lt;span style="color:#f92672">=&lt;/span> sol&lt;span style="color:#f92672">-&amp;gt;&lt;/span>shortestCommonSupersequencePlus(strs);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> res &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> sol&lt;span style="color:#f92672">-&amp;gt;&lt;/span>trans(strs[&lt;span style="color:#ae81ff">0&lt;/span>], res) &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> sol&lt;span style="color:#f92672">-&amp;gt;&lt;/span>trans(strs[&lt;span style="color:#ae81ff">1&lt;/span>], res) &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> sol&lt;span style="color:#f92672">-&amp;gt;&lt;/span>trans(strs[&lt;span style="color:#ae81ff">2&lt;/span>], res) &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>結果&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-Cpp" data-lang="Cpp">&lt;span style="display:flex;">&lt;span>input:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ABCDEH
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ACDEFBH
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ADEHG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">=========&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>output:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ABCDEFBHG
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ABCDE H
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>A CDEFBH
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>A DE HG
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[Problem] Version Query</title><link>https://intervalrain.github.io/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/versionquery/</guid><description>&lt;p>&lt;strong>Version Query&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Hardness: \(\color{red}\textsf{Hard}\)&lt;/li>
+&lt;li>Ralated Topics: &lt;code>Binary Search&lt;/code>、&lt;code>Segment Tree&lt;/code>、&lt;code>Heap (Priority Queue&lt;/code>、&lt;code>Hash Table&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="一題目">一、題目&lt;/h3>
+&lt;p>Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.&lt;br>
+The given apk_info structure is given as below.&lt;br>
+&lt;strong>struct apk_info {&lt;/strong>&lt;br>
+　　&lt;strong>int apk_version;&lt;/strong>&lt;br>
+　　&lt;strong>int min_version = 1;&lt;/strong>&lt;br>
+　　&lt;strong>int max_version = INT_MAX;&lt;/strong>&lt;br>
+&lt;strong>}&lt;/strong>&lt;/p></description></item></channel></rss>

@@ -1,1 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Data Structure on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/data-structure/</link><description>Recent content in Data Structure on Rain Hu's Workspace</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 06 Oct 2023 16:30:47 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] Arrangement</title><link>https://intervalrain.github.io/leetcode/summary/</link><pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/summary/</guid><description> 題號 題目 類別 題解 1 Two Sum Hash Table Hash Table 2 Add Two numbers Linked List Recursion 201 Bitwise AND of Numbers Range Bitwise Operation Lowbit = x&amp;amp;(~x+1) 204 Count Primes Math Thetory The Sieve of Eratosthenes 408 Valid Word Abbreviation Two Pointers 字串轉數字</description></item><item><title>[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀</title><link>https://intervalrain.github.io/java/hashmap/hashmap/</link><pubDate>Wed, 23 Feb 2022 01:36:40 +0800</pubDate><guid>https://intervalrain.github.io/java/hashmap/hashmap/</guid><description>認識泛型 generic type、類別 class</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Data Structure on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/data-structure/</link><description>Recent content in Data Structure on Rain Hu's Workspace</description><generator>Hugo -- 0.139.2</generator><language>zh-tw</language><lastBuildDate>Fri, 06 Oct 2023 16:30:47 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] Arrangement</title><link>https://intervalrain.github.io/leetcode/summary/</link><pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/summary/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">題號&lt;/th>
+&lt;th style="text-align: left">題目&lt;/th>
+&lt;th style="text-align: left">類別&lt;/th>
+&lt;th style="text-align: left">題解&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">1&lt;/td>
+&lt;td style="text-align: left">&lt;a href="../../leetcode/1">Two Sum&lt;/a>&lt;/td>
+&lt;td style="text-align: left">Hash Table&lt;/td>
+&lt;td style="text-align: left">Hash Table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">2&lt;/td>
+&lt;td style="text-align: left">&lt;a href="../../leetcode/2">Add Two numbers&lt;/a>&lt;/td>
+&lt;td style="text-align: left">Linked List&lt;/td>
+&lt;td style="text-align: left">Recursion&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">201&lt;/td>
+&lt;td style="text-align: left">Bitwise AND of Numbers Range&lt;/td>
+&lt;td style="text-align: left">Bitwise Operation&lt;/td>
+&lt;td style="text-align: left">Lowbit = x&amp;amp;(~x+1)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">204&lt;/td>
+&lt;td style="text-align: left">Count Primes&lt;/td>
+&lt;td style="text-align: left">Math Thetory&lt;/td>
+&lt;td style="text-align: left">The Sieve of Eratosthenes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">408&lt;/td>
+&lt;td style="text-align: left">Valid Word Abbreviation&lt;/td>
+&lt;td style="text-align: left">Two Pointers&lt;/td>
+&lt;td style="text-align: left">字串轉數字&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>[Java] Java 的中 HashMap.comparableClassFor(Object x) 的函式解讀</title><link>https://intervalrain.github.io/java/hashmap/hashmap/</link><pubDate>Wed, 23 Feb 2022 01:36:40 +0800</pubDate><guid>https://intervalrain.github.io/java/hashmap/hashmap/</guid><description>認識泛型 generic type、類別 class</description></item></channel></rss>

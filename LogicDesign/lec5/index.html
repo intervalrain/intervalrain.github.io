@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Logic Design] Lec 05 - Quine-McClusky Method | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="Logic Design" />
+<meta name="keywords" content="Logic Design">
 <meta name="description" content="Quine-McClusky method - systematic method to simplify boolean algebra for computer.">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.662816b9df27c772d2b97c5f5f6bf4f2c5531051a330015f0ad4135736d0e56a.css" integrity="sha256-ZigWud8nx3LSuXxfX2v08sVTEFGjMAFfCtQTVzbQ5Wo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/logicdesign/lec5/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,19 +71,22 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Logic Design] Lec 05 - Quine-McClusky Method" />
-<meta property="og:description" content="Quine-McClusky method - systematic method to simplify boolean algebra for computer." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/logicdesign/lec5/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/cover.jpg" /><meta property="article:section" content="LogicDesign" />
-<meta property="article:published_time" content="2021-09-18T03:11:35&#43;08:00" />
-<meta property="article:modified_time" content="2021-09-18T03:11:35&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/cover.jpg" />
-<meta name="twitter:title" content="[Logic Design] Lec 05 - Quine-McClusky Method"/>
-<meta name="twitter:description" content="Quine-McClusky method - systematic method to simplify boolean algebra for computer."/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/logicdesign/lec5/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Logic Design] Lec 05 - Quine-McClusky Method">
+  <meta property="og:description" content="Quine-McClusky method - systematic method to simplify boolean algebra for computer.">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="logicdesign">
+    <meta property="article:published_time" content="2021-09-18T03:11:35+08:00">
+    <meta property="article:modified_time" content="2021-09-18T03:11:35+08:00">
+    <meta property="article:tag" content="Logic Design">
+    <meta property="og:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/cover.jpg">
+<meta name="twitter:title" content="[Logic Design] Lec 05 - Quine-McClusky Method">
+<meta name="twitter:description" content="Quine-McClusky method - systematic method to simplify boolean algebra for computer.">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,13 +98,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "LogicDesigns",
-      "item": "https://intervalrain.github.io/logicdesign/"
+      "item": "http://localhost:1313/logicdesign/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[Logic Design] Lec 05 - Quine-McClusky Method",
-      "item": "https://intervalrain.github.io/logicdesign/lec5/"
+      "item": "http://localhost:1313/logicdesign/lec5/"
     }
   ]
 }
@@ -118,10 +119,10 @@
   "keywords": [
     "Logic Design"
   ],
-  "articleBody": "概要  當變數愈來愈多時，很難依靠人眼判斷，所以必須計設系統化的簡化過程讓電腦運行。 系統化的簡化過程  輸入：minterm expansion 輸出：minimum SOP 步驟：  找出所有質函項，並試著將和項消除到不能再消，利用\\(XY+XY'=X\\) \u0008利用質函項圖找出最小解        範例：\\(F(a,b,c)=a' b' c' + ab' c'+ab' c+ abc\\)  \\( \\boxed{ \\def\\arraystretch{1.4}\\begin{array}{c|c|c|c|c} \u0026a' b'\u0026a' b\u0026ab\u0026ab'\\\\\\hline c'\u00261\u0026\u0026\u00261\\\\\\hline c\u0026\u0026\u00261\u00261 \\end{array} } \\) 所有蘊函項：\\(a' b' c', ab' c', ab' c, abc, ab', b' c', ac\\) 質函項：\\(ab', b' c', ac\\) 基本質函項：\\(b' c', ac\\) Min SOP：\\(F(a,b,c)=b' c'+ac\\)    決定質函項(prime implicants)  找出所有質函項  將每個 minterm 以二進制表示。 統計每個項的1的數量作為 index 並分群。 將分完群的 minterm 以 index 排列。 從 index 最小開始，往 index + 1 的群，尋找可以用\\(XY+XY'=X\\)簡化的組合 檢查所有的項都合併成組合，留下來的項即為質函項。 重複步驟 4 到 步驟 5 直到沒有函項可以合併。\n被打勾表示不是質函項(prime implicants)   範例：\\(f(a,b,c,d)=\\sum m(0,1,2,5,6,7,8,9,10,14)\\)  \\(f(a,b,c,d)=P1+P2+P3+P4+P5+P6\\) \\(f(a,b,c,d)=a' c' d+a' bd+a' bc+cd'+b' d'+b' c'\\) \\(\\boxed{ \\def\\arraystretch{1.4}\\begin{array}{c|cc} \u0026\\text{Column I}\\\\\\hline m_0\u00260000\u0026\\checkmark\\\\\\hline m_1\u00260001\u0026\\checkmark\\\\ m_2\u00260010\u0026\\checkmark\\\\ m_8\u00261000\u0026\\checkmark\\\\\\hline m_5\u00260101\u0026\\checkmark\\\\ m_6\u00260110\u0026\\checkmark\\\\ m_9\u00261001\u0026\\checkmark\\\\ m_{10}\u00261010\u0026\\checkmark\\\\\\hline m_7\u00260111\u0026\\checkmark\\\\ m_{14}\u00261110\u0026\\checkmark \\end{array} }\\) \\(\\boxed{ \\def\\arraystretch{1.4}\\begin{array}{c|cc} \u0026\\text{Column II}\\\\\\hline m_0,m_1\u0026000.\u0026\\checkmark\\\\ m_0,m_2\u002600.0\u0026\\checkmark\\\\ m_0,m_8\u0026.000\u0026\\checkmark\\\\\\hline m_1,m_5\u00260.01\u0026\\text{P1}\\\\ m_1,m_9\u0026.001\u0026\\checkmark\\\\ m_2,m_6\u00260.10\u0026\\checkmark\\\\ m_2,m_{10}\u0026.010\u0026\\checkmark\\\\ m_8,m_9\u0026100.\u0026\\checkmark\\\\ m_8,m_{10}\u002610.0\u0026\\checkmark\\\\\\hline m_5,m_7\u002601.1\u0026\\text{P2}\\\\ m_6,m_7\u0026011.\u0026\\text{P3}\\\\ m_6,m_{14}\u0026.110\u0026\\checkmark\\\\ m_{10},m_{14}\u00261.10\u0026\\checkmark \\end{array} }\\) \\(\\boxed{ \\def\\arraystretch{1.4}\\begin{array}{c|cc} \u0026\\text{Column III}\\\\\\hline m_0,m_1,m_8,m_9\u0026.00.\u0026\\text{P4}\\\\ m_0,m_2,m_8,m_{10}\u0026.0.0\u0026\\text{P5}\\\\ \\sout{m_0,m_8,m_1,m_9}\u0026\\sout{.00.}\\\\ \\sout{m_0,m_8,m_2,m_{10}}\u0026\\sout{.0.0}\\\\\\hline m_2,m_6,m_{10},m_{14}\u0026..10\u0026\\text{P6}\\\\ \\sout{m_2,m_{10},m_6,m_{14}}\u0026\\sout{..10}\\\\ \\end{array} } \\)    質函項圖(表)  範例  \\( \\boxed{ \\def\\arraystretch{1.4}\\begin{array}{r|l|c|cccccccccc} \u0026 \u0026 \u00260\u00261\u00262\u00265\u00266\u00267\u00268\u00269\u002610\u002614\\\\\\hline 0, 1, 8, 9\u0026b' c' \u0026P6\u0026\\checkmark\u0026\\checkmark\u0026\u0026\u0026\u0026\u0026\\checkmark\u0026\\oplus\\\\ 0, 2, 8,10\u0026b' d' \u0026P5\u0026\\checkmark\u0026\u0026\\checkmark\u0026\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ 2, 6,10,14\u0026c d' \u0026P4\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\u0026\u0026\u0026\u0026\\checkmark\u0026\\oplus\\\\ 1, 5\u0026a' c' d\u0026P1\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ 5, 7\u0026a' bd \u0026P2\u0026\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ 6, 7\u0026a' bc \u0026P3\u0026\u0026\u0026\u0026\u0026\\checkmark\u0026\\checkmark\\\\ \\end{array} } \\) \\( \\boxed{ \\def\\arraystretch{1.4}\\begin{array}{r|l|c|cccccccccc} \u0026\u0026\u00265\u00267\\\\\\hline 1,5\u0026a' c’d\u0026P1\u0026\\checkmark\\\\ 5,7\u0026a' bd \u0026P2\u0026\\checkmark\u0026\\checkmark\\\\ 6,7\u0026a' bc \u0026P3\u0026\u0026\\checkmark\\\\ \\end{array} } \\) 優先選 \\(\\oplus\\)的質函項(只出現過一次，代表是基本質函項)，如範例\\(P6與P4\\)。 刪除選出的質函項後化簡成更簡化的質函項圖。 選可以同時照顧到最多函項的質函項。 \\(\\rightarrow f(a,b,c)=P2+P4+P6=a' bd+cd'+b' c'\\) (若沒有基本質函項時，有可以有多個最佳解)    Petrick’s method  用來解出質函項圖的所有 min SOP 解。 在使用 Petrick 法前，需將所有基本質函項與其函蓋的 minterms 從表上劃掉。 範例：\\(F=\\sum m(0,1,2,5,6,7)\\)\n\\( \\boxed{ \\def\\arraystretch{1.4}\\begin{array}{r|l|c|cccccc} P1\u00260,1\u0026a' b'\u0026\\checkmark\u0026\\checkmark\\\\ P2\u00260,2\u0026a' c'\u0026\\checkmark\u0026\u0026\\checkmark\\\\ P3\u00261,5\u0026b' c \u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ P4\u00262,6\u0026b c'\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ P5\u00265,7\u0026a c \u0026\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ P6\u00266,7\u0026a b \u0026\u0026\u0026\u0026\u0026\\checkmark\u0026\\checkmark\\\\ \\end{array} } \\)  \\(\\def\\arraystretch{1.4}\\begin{array}{l} 0\\rightarrow P1+P2\\\\ 1\\rightarrow P1+P3\\\\ 2\\rightarrow P2+P4\\\\ 5\\rightarrow P3+P5\\\\ 6\\rightarrow P4+P6\\\\ 7\\rightarrow P5+P6\\\\ \\end{array}\\) \\(P=(P1+P2)(P1+P3)(P2+P4)(P3+P5)(P4+P6)(P5+P6)=1\\) \\(P=(P1+P2P3)(P4+P2P6)(P5+P3P6)\\) \\(P=P1P4P5+P1P2P5P6+P2P3P4P5+P2P3P5P6+P1P3P4P6+P1P2P3P6+P2P3P4P6+P2P3P6\\) 刪掉含有\\(P2P3P6\\)的和項 \\(P=P1P4P5+P1P2P5P6+P2P3P4P5+P1P3P4P6+P2P3P6\\) \\(\\text{min Sol:}\\)  \\(F=P1+P4+P5=a' b'+bc'+ac\\) \\(F=P2+P3+P6=a' c'+b' c+ab\\)      考慮 Don’t Care 的情形  稍微修改一下 Quine-McClusky 方法  找出所有質函項：將DC視為minterms 建構出質函項表：DC不必列在表頭   範例：\\(F(A,B,C,D)=\\sum m(2,3,7,9,11,13)+\\sum d(1,10,15)\\)  \\(\\boxed{\\def\\arraystretch{1.4}\\begin{array}{rrl} 1\u00260001\u0026\\checkmark\\\\ 2\u00260010\u0026\\checkmark\\\\\\hline 3\u00260011\u0026\\checkmark\\\\ 9\u00261001\u0026\\checkmark\\\\ 10\u00261010\u0026\\checkmark\\\\\\hline 7\u00260111\u0026\\checkmark\\\\ 11\u00261011\u0026\\checkmark\\\\ 13\u00261101\u0026\\checkmark\\\\\\hline 15\u00261111\u0026\\checkmark \\end{array}}\\) \\(\\boxed{\\def\\arraystretch{1.4}\\begin{array}{rrl} 1,3\u002600.1\u0026\\checkmark\\\\ 1,9\u0026.001\u0026\\checkmark\\\\ 2,3\u0026001.\u0026\\checkmark\\\\ 2,10\u0026.01.\u0026\\checkmark\\\\\\hline 3,7\u00260.11\u0026\\checkmark\\\\ 3,11\u0026.011\u0026\\checkmark\\\\ 9,11\u002610.1\u0026\\checkmark\\\\ 9,13\u00261.01\u0026\\checkmark\\\\ 10,11\u0026101.\u0026\\checkmark\\\\\\hline 7,15\u0026.111\u0026\\checkmark\\\\ 11,15\u00261.11\u0026\\checkmark\\\\ 13,15\u002611.1\u0026\\checkmark\\\\ \\end{array}}\\) \\(\\boxed{\\def\\arraystretch{1.4}\\begin{array}{rrl} 1,3,9,11\u0026.0.1\\\\ 2,3,10,11,\u0026.01.\\\\ 3,7,11,15\u0026..11\\\\ 9,11,13,15\u00261..1\\\\ \\end{array}}\\) \\(\\boxed{\\def\\arraystretch{1.4}\\begin{array}{r|cccccc} \u00262\u00263\u00267\u00269\u002611\u002613\\\\\\hline 1,3,9,11\u0026\u0026\\checkmark\u0026\u0026\\checkmark\u0026\\checkmark\\\\ *2,3,10,11\u0026\\oplus\u0026\\checkmark\u0026\u0026\u0026\\checkmark\\\\ *3,7,11,15\u0026\u0026\\checkmark\u0026\\oplus\u0026\u0026\\checkmark\\\\ *9,11,13,15\u0026\u0026\u0026\u0026\\checkmark\u0026\\checkmark\u0026\\oplus\\\\ \\end{array}}\\) \\(F=B' C+CD+AD\\) 其中 1 被當作 0，10、15當作1。    ",
+  "articleBody": "概要 當變數愈來愈多時，很難依靠人眼判斷，所以必須計設系統化的簡化過程讓電腦運行。 系統化的簡化過程 輸入：minterm expansion 輸出：minimum SOP 步驟： 找出所有質函項，並試著將和項消除到不能再消，利用\\(XY+XY’=X\\) \b利用質函項圖找出最小解 範例：\\(F(a,b,c)=a’ b’ c’ + ab’ c’+ab’ c+ abc\\) \\( \\boxed{ \\def\\arraystretch{1.4}\\begin{array}{c|c|c|c|c} \u0026a’ b’\u0026a’ b\u0026ab\u0026ab’\\\\\\hline c’\u00261\u0026\u0026\u00261\\\\\\hline c\u0026\u0026\u00261\u00261 \\end{array} } \\) 所有蘊函項：\\(a’ b’ c’, ab’ c’, ab’ c, abc, ab’, b’ c’, ac\\) 質函項：\\(ab’, b’ c’, ac\\) 基本質函項：\\(b’ c’, ac\\) Min SOP：\\(F(a,b,c)=b’ c’+ac\\) 決定質函項(prime implicants) 找出所有質函項 將每個 minterm 以二進制表示。 統計每個項的1的數量作為 index 並分群。 將分完群的 minterm 以 index 排列。 從 index 最小開始，往 index + 1 的群，尋找可以用\\(XY+XY’=X\\)簡化的組合 檢查所有的項都合併成組合，留下來的項即為質函項。 重複步驟 4 到 步驟 5 直到沒有函項可以合併。\n被打勾表示不是質函項(prime implicants) 範例：\\(f(a,b,c,d)=\\sum m(0,1,2,5,6,7,8,9,10,14)\\) \\(f(a,b,c,d)=P1+P2+P3+P4+P5+P6\\) \\(f(a,b,c,d)=a’ c’ d+a’ bd+a’ bc+cd’+b’ d’+b’ c’\\) \\(\\boxed{ \\def\\arraystretch{1.4}\\begin{array}{c|cc} \u0026\\text{Column I}\\\\\\hline m_0\u00260000\u0026\\checkmark\\\\\\hline m_1\u00260001\u0026\\checkmark\\\\ m_2\u00260010\u0026\\checkmark\\\\ m_8\u00261000\u0026\\checkmark\\\\\\hline m_5\u00260101\u0026\\checkmark\\\\ m_6\u00260110\u0026\\checkmark\\\\ m_9\u00261001\u0026\\checkmark\\\\ m_{10}\u00261010\u0026\\checkmark\\\\\\hline m_7\u00260111\u0026\\checkmark\\\\ m_{14}\u00261110\u0026\\checkmark \\end{array} }\\) \\(\\boxed{ \\def\\arraystretch{1.4}\\begin{array}{c|cc} \u0026\\text{Column II}\\\\\\hline m_0,m_1\u0026000.\u0026\\checkmark\\\\ m_0,m_2\u002600.0\u0026\\checkmark\\\\ m_0,m_8\u0026.000\u0026\\checkmark\\\\\\hline m_1,m_5\u00260.01\u0026\\text{P1}\\\\ m_1,m_9\u0026.001\u0026\\checkmark\\\\ m_2,m_6\u00260.10\u0026\\checkmark\\\\ m_2,m_{10}\u0026.010\u0026\\checkmark\\\\ m_8,m_9\u0026100.\u0026\\checkmark\\\\ m_8,m_{10}\u002610.0\u0026\\checkmark\\\\\\hline m_5,m_7\u002601.1\u0026\\text{P2}\\\\ m_6,m_7\u0026011.\u0026\\text{P3}\\\\ m_6,m_{14}\u0026.110\u0026\\checkmark\\\\ m_{10},m_{14}\u00261.10\u0026\\checkmark \\end{array} }\\) \\(\\boxed{ \\def\\arraystretch{1.4}\\begin{array}{c|cc} \u0026\\text{Column III}\\\\\\hline m_0,m_1,m_8,m_9\u0026.00.\u0026\\text{P4}\\\\ m_0,m_2,m_8,m_{10}\u0026.0.0\u0026\\text{P5}\\\\ \\sout{m_0,m_8,m_1,m_9}\u0026\\sout{.00.}\\\\ \\sout{m_0,m_8,m_2,m_{10}}\u0026\\sout{.0.0}\\\\\\hline m_2,m_6,m_{10},m_{14}\u0026..10\u0026\\text{P6}\\\\ \\sout{m_2,m_{10},m_6,m_{14}}\u0026\\sout{..10}\\\\ \\end{array} } \\) 質函項圖(表) 範例 \\( \\boxed{ \\def\\arraystretch{1.4}\\begin{array}{r|l|c|cccccccccc} \u0026 \u0026 \u00260\u00261\u00262\u00265\u00266\u00267\u00268\u00269\u002610\u002614\\\\\\hline 0, 1, 8, 9\u0026b’ c’ \u0026P6\u0026\\checkmark\u0026\\checkmark\u0026\u0026\u0026\u0026\u0026\\checkmark\u0026\\oplus\\\\ 0, 2, 8,10\u0026b’ d’ \u0026P5\u0026\\checkmark\u0026\u0026\\checkmark\u0026\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ 2, 6,10,14\u0026c d’ \u0026P4\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\u0026\u0026\u0026\u0026\\checkmark\u0026\\oplus\\\\ 1, 5\u0026a’ c’ d\u0026P1\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ 5, 7\u0026a’ bd \u0026P2\u0026\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ 6, 7\u0026a’ bc \u0026P3\u0026\u0026\u0026\u0026\u0026\\checkmark\u0026\\checkmark\\\\ \\end{array} } \\) \\( \\boxed{ \\def\\arraystretch{1.4}\\begin{array}{r|l|c|cccccccccc} \u0026\u0026\u00265\u00267\\\\\\hline 1,5\u0026a’ c’d\u0026P1\u0026\\checkmark\\\\ 5,7\u0026a’ bd \u0026P2\u0026\\checkmark\u0026\\checkmark\\\\ 6,7\u0026a’ bc \u0026P3\u0026\u0026\\checkmark\\\\ \\end{array} } \\) 優先選 \\(\\oplus\\)的質函項(只出現過一次，代表是基本質函項)，如範例\\(P6與P4\\)。 刪除選出的質函項後化簡成更簡化的質函項圖。 選可以同時照顧到最多函項的質函項。 \\(\\rightarrow f(a,b,c)=P2+P4+P6=a’ bd+cd’+b’ c’\\) (若沒有基本質函項時，有可以有多個最佳解) Petrick’s method 用來解出質函項圖的所有 min SOP 解。 在使用 Petrick 法前，需將所有基本質函項與其函蓋的 minterms 從表上劃掉。 範例：\\(F=\\sum m(0,1,2,5,6,7)\\)\n\\( \\boxed{ \\def\\arraystretch{1.4}\\begin{array}{r|l|c|cccccc} P1\u00260,1\u0026a’ b’\u0026\\checkmark\u0026\\checkmark\\\\ P2\u00260,2\u0026a’ c’\u0026\\checkmark\u0026\u0026\\checkmark\\\\ P3\u00261,5\u0026b’ c \u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ P4\u00262,6\u0026b c’\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ P5\u00265,7\u0026a c \u0026\u0026\u0026\u0026\\checkmark\u0026\u0026\\checkmark\\\\ P6\u00266,7\u0026a b \u0026\u0026\u0026\u0026\u0026\\checkmark\u0026\\checkmark\\\\ \\end{array} } \\) \\(\\def\\arraystretch{1.4}\\begin{array}{l} 0\\rightarrow P1+P2\\\\ 1\\rightarrow P1+P3\\\\ 2\\rightarrow P2+P4\\\\ 5\\rightarrow P3+P5\\\\ 6\\rightarrow P4+P6\\\\ 7\\rightarrow P5+P6\\\\ \\end{array}\\) \\(P=(P1+P2)(P1+P3)(P2+P4)(P3+P5)(P4+P6)(P5+P6)=1\\) \\(P=(P1+P2P3)(P4+P2P6)(P5+P3P6)\\) \\(P=P1P4P5+P1P2P5P6+P2P3P4P5+P2P3P5P6+P1P3P4P6+P1P2P3P6+P2P3P4P6+P2P3P6\\) 刪掉含有\\(P2P3P6\\)的和項 \\(P=P1P4P5+P1P2P5P6+P2P3P4P5+P1P3P4P6+P2P3P6\\) \\(\\text{min Sol:}\\) \\(F=P1+P4+P5=a’ b’+bc’+ac\\) \\(F=P2+P3+P6=a’ c’+b’ c+ab\\) 考慮 Don’t Care 的情形 稍微修改一下 Quine-McClusky 方法 找出所有質函項：將DC視為minterms 建構出質函項表：DC不必列在表頭 範例：\\(F(A,B,C,D)=\\sum m(2,3,7,9,11,13)+\\sum d(1,10,15)\\) \\(\\boxed{\\def\\arraystretch{1.4}\\begin{array}{rrl} 1\u00260001\u0026\\checkmark\\\\ 2\u00260010\u0026\\checkmark\\\\\\hline 3\u00260011\u0026\\checkmark\\\\ 9\u00261001\u0026\\checkmark\\\\ 10\u00261010\u0026\\checkmark\\\\\\hline 7\u00260111\u0026\\checkmark\\\\ 11\u00261011\u0026\\checkmark\\\\ 13\u00261101\u0026\\checkmark\\\\\\hline 15\u00261111\u0026\\checkmark \\end{array}}\\) \\(\\boxed{\\def\\arraystretch{1.4}\\begin{array}{rrl} 1,3\u002600.1\u0026\\checkmark\\\\ 1,9\u0026.001\u0026\\checkmark\\\\ 2,3\u0026001.\u0026\\checkmark\\\\ 2,10\u0026.01.\u0026\\checkmark\\\\\\hline 3,7\u00260.11\u0026\\checkmark\\\\ 3,11\u0026.011\u0026\\checkmark\\\\ 9,11\u002610.1\u0026\\checkmark\\\\ 9,13\u00261.01\u0026\\checkmark\\\\ 10,11\u0026101.\u0026\\checkmark\\\\\\hline 7,15\u0026.111\u0026\\checkmark\\\\ 11,15\u00261.11\u0026\\checkmark\\\\ 13,15\u002611.1\u0026\\checkmark\\\\ \\end{array}}\\) \\(\\boxed{\\def\\arraystretch{1.4}\\begin{array}{rrl} 1,3,9,11\u0026.0.1\\\\ 2,3,10,11,\u0026.01.\\\\ 3,7,11,15\u0026..11\\\\ 9,11,13,15\u00261..1\\\\ \\end{array}}\\) \\(\\boxed{\\def\\arraystretch{1.4}\\begin{array}{r|cccccc} \u00262\u00263\u00267\u00269\u002611\u002613\\\\\\hline 1,3,9,11\u0026\u0026\\checkmark\u0026\u0026\\checkmark\u0026\\checkmark\\\\ *2,3,10,11\u0026\\oplus\u0026\\checkmark\u0026\u0026\u0026\\checkmark\\\\ *3,7,11,15\u0026\u0026\\checkmark\u0026\\oplus\u0026\u0026\\checkmark\\\\ *9,11,13,15\u0026\u0026\u0026\u0026\\checkmark\u0026\\checkmark\u0026\\oplus\\\\ \\end{array}}\\) \\(F=B’ C+CD+AD\\) 其中 1 被當作 0，10、15當作1。 ",
   "wordCount" : "317",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/cover.jpg","datePublished": "2021-09-18T03:11:35+08:00",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/cover.jpg","datePublished": "2021-09-18T03:11:35+08:00",
   "dateModified": "2021-09-18T03:11:35+08:00",
   "author":{
     "@type": "Person",
@@ -129,14 +130,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/logicdesign/lec5/"
+    "@id": "http://localhost:1313/logicdesign/lec5/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -158,17 +159,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -182,46 +183,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -229,26 +230,27 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/logicdesign/">LogicDesigns</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/logicdesign/">LogicDesigns</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Logic Design] Lec 05 - Quine-McClusky Method
     </h1>
     <div class="post-description">
       Quine-McClusky method - systematic method to simplify boolean algebra for computer.
     </div>
-    <div class="post-meta"><span title='2021-09-18 03:11:35 +0800 CST'>September 18, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//LogicDesign/Lec5.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2021-09-18 03:11:35 +0800 CST'>September 18, 2021</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//LogicDesign/Lec5.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -259,9 +261,9 @@
                     <li>
                         <a href="#%e8%b3%aa%e5%87%bd%e9%a0%85%e5%9c%96%e8%a1%a8" aria-label="質函項圖(表)">質函項圖(表)</a></li>
                     <li>
-                        <a href="#petricks-method" aria-label="Petrick&amp;rsquo;s method">Petrick&rsquo;s method</a></li>
+                        <a href="#petricks-method" aria-label="Petrick&rsquo;s method">Petrick&rsquo;s method</a></li>
                     <li>
-                        <a href="#%e8%80%83%e6%85%ae-dont-care-%e7%9a%84%e6%83%85%e5%bd%a2" aria-label="考慮 Don&amp;rsquo;t Care 的情形">考慮 Don&rsquo;t Care 的情形</a>
+                        <a href="#%e8%80%83%e6%85%ae-dont-care-%e7%9a%84%e6%83%85%e5%bd%a2" aria-label="考慮 Don&rsquo;t Care 的情形">考慮 Don&rsquo;t Care 的情形</a>
                     </li>
                 </ul>
             </div>
@@ -337,7 +339,7 @@
 <li>輸出：minimum SOP</li>
 <li>步驟：
 <ol>
-<li>找出所有質函項，並試著將和項消除到不能再消，利用\(XY+XY'=X\)</li>
+<li>找出所有質函項，並試著將和項消除到不能再消，利用\(XY+XY&rsquo;=X\)</li>
 <li>利用質函項圖找出最小解</li>
 </ol>
 </li>
@@ -346,21 +348,21 @@
 </ul>
 <hr>
 <ul>
-<li>範例：\(F(a,b,c)=a' b' c' + ab' c'+ab' c+ abc\)
+<li>範例：\(F(a,b,c)=a&rsquo; b&rsquo; c&rsquo; + ab&rsquo; c&rsquo;+ab&rsquo; c+ abc\)
 <ul>
 <li>\(
 \boxed{
 \def\arraystretch{1.4}\begin{array}{c|c|c|c|c}
-&amp;a' b'&amp;a' b&amp;ab&amp;ab'\\\hline
-c'&amp;1&amp;&amp;&amp;1\\\hline
+&amp;a&rsquo; b&rsquo;&amp;a&rsquo; b&amp;ab&amp;ab&rsquo;\\\hline
+c&rsquo;&amp;1&amp;&amp;&amp;1\\\hline
 c&amp;&amp;&amp;1&amp;1
 \end{array}
 }
 \)</li>
-<li>所有蘊函項：\(a' b' c', ab' c', ab' c, abc, ab', b' c', ac\)</li>
-<li>質函項：\(ab', b' c', ac\)</li>
-<li>基本質函項：\(b' c', ac\)</li>
-<li>Min SOP：\(F(a,b,c)=b' c'+ac\)</li>
+<li>所有蘊函項：\(a&rsquo; b&rsquo; c&rsquo;, ab&rsquo; c&rsquo;, ab&rsquo; c, abc, ab&rsquo;, b&rsquo; c&rsquo;, ac\)</li>
+<li>質函項：\(ab&rsquo;, b&rsquo; c&rsquo;, ac\)</li>
+<li>基本質函項：\(b&rsquo; c&rsquo;, ac\)</li>
+<li>Min SOP：\(F(a,b,c)=b&rsquo; c&rsquo;+ac\)</li>
 </ul>
 </li>
 </ul>
@@ -371,7 +373,7 @@ c&amp;&amp;&amp;1&amp;1
 <li>將每個 minterm 以二進制表示。</li>
 <li>統計每個項的<code>1</code>的數量作為 index 並分群。</li>
 <li>將分完群的 minterm 以 index 排列。</li>
-<li>從 index 最小開始，往 index + 1 的群，尋找可以用\(XY+XY'=X\)簡化的組合</li>
+<li>從 index 最小開始，往 index + 1 的群，尋找可以用\(XY+XY&rsquo;=X\)簡化的組合</li>
 <li>檢查所有的項都合併成組合，留下來的項即為質函項。</li>
 <li>重複步驟 4 到 步驟 5 直到沒有函項可以合併。<br>
 <em><strong>被打勾表示不是質函項(prime implicants)</strong></em></li>
@@ -380,7 +382,7 @@ c&amp;&amp;&amp;1&amp;1
 <li>範例：\(f(a,b,c,d)=\sum m(0,1,2,5,6,7,8,9,10,14)\)
 <ul>
 <li>\(f(a,b,c,d)=P1+P2+P3+P4+P5+P6\)</li>
-<li>\(f(a,b,c,d)=a' c' d+a' bd+a' bc+cd'+b' d'+b' c'\)</li>
+<li>\(f(a,b,c,d)=a&rsquo; c&rsquo; d+a&rsquo; bd+a&rsquo; bc+cd&rsquo;+b&rsquo; d&rsquo;+b&rsquo; c&rsquo;\)</li>
 <li>\(\boxed{
 \def\arraystretch{1.4}\begin{array}{c|cc}
 &amp;\text{Column I}\\\hline
@@ -437,12 +439,12 @@ m_2,m_6,m_{10},m_{14}&amp;..10&amp;\text{P6}\\
 \boxed{
 \def\arraystretch{1.4}\begin{array}{r|l|c|cccccccccc}
 &amp;       &amp;  &amp;0&amp;1&amp;2&amp;5&amp;6&amp;7&amp;8&amp;9&amp;10&amp;14\\\hline
-0, 1, 8, 9&amp;b' c'  &amp;P6&amp;\checkmark&amp;\checkmark&amp;&amp;&amp;&amp;&amp;\checkmark&amp;\oplus\\
-0, 2, 8,10&amp;b' d'  &amp;P5&amp;\checkmark&amp;&amp;\checkmark&amp;&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark\\
-2, 6,10,14&amp;c d'   &amp;P4&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark&amp;&amp;&amp;&amp;\checkmark&amp;\oplus\\
-1, 5&amp;a' c' d&amp;P1&amp;&amp;\checkmark&amp;&amp;\checkmark\\
-5, 7&amp;a' bd  &amp;P2&amp;&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark\\
-6, 7&amp;a' bc  &amp;P3&amp;&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark\\
+0, 1, 8, 9&amp;b&rsquo; c&rsquo;  &amp;P6&amp;\checkmark&amp;\checkmark&amp;&amp;&amp;&amp;&amp;\checkmark&amp;\oplus\\
+0, 2, 8,10&amp;b&rsquo; d&rsquo;  &amp;P5&amp;\checkmark&amp;&amp;\checkmark&amp;&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark\\
+2, 6,10,14&amp;c d&rsquo;   &amp;P4&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark&amp;&amp;&amp;&amp;\checkmark&amp;\oplus\\
+1, 5&amp;a&rsquo; c&rsquo; d&amp;P1&amp;&amp;\checkmark&amp;&amp;\checkmark\\
+5, 7&amp;a&rsquo; bd  &amp;P2&amp;&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark\\
+6, 7&amp;a&rsquo; bc  &amp;P3&amp;&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark\\
 \end{array}
 }
 \)</li>
@@ -450,16 +452,16 @@ m_2,m_6,m_{10},m_{14}&amp;..10&amp;\text{P6}\\
 \boxed{
 \def\arraystretch{1.4}\begin{array}{r|l|c|cccccccccc}
 &amp;&amp;&amp;5&amp;7\\\hline
-1,5&amp;a' c&rsquo;d&amp;P1&amp;\checkmark\\
-5,7&amp;a' bd &amp;P2&amp;\checkmark&amp;\checkmark\\
-6,7&amp;a' bc &amp;P3&amp;&amp;\checkmark\\
+1,5&amp;a&rsquo; c&rsquo;d&amp;P1&amp;\checkmark\\
+5,7&amp;a&rsquo; bd &amp;P2&amp;\checkmark&amp;\checkmark\\
+6,7&amp;a&rsquo; bc &amp;P3&amp;&amp;\checkmark\\
 \end{array}
 }
 \)</li>
 <li>優先選 \(\oplus\)的質函項(只出現過一次，代表是基本質函項)，如範例\(P6與P4\)。</li>
 <li>刪除選出的質函項後化簡成更簡化的質函項圖。</li>
 <li>選可以同時照顧到最多函項的質函項。</li>
-<li>\(\rightarrow f(a,b,c)=P2+P4+P6=a' bd+cd'+b' c'\)</li>
+<li>\(\rightarrow f(a,b,c)=P2+P4+P6=a&rsquo; bd+cd&rsquo;+b&rsquo; c&rsquo;\)</li>
 <li>(若沒有基本質函項時，有可以有多個最佳解)</li>
 </ul>
 </li>
@@ -472,10 +474,10 @@ m_2,m_6,m_{10},m_{14}&amp;..10&amp;\text{P6}\\
 \(
 \boxed{
 \def\arraystretch{1.4}\begin{array}{r|l|c|cccccc}
-P1&amp;0,1&amp;a' b'&amp;\checkmark&amp;\checkmark\\
-P2&amp;0,2&amp;a' c'&amp;\checkmark&amp;&amp;\checkmark\\
-P3&amp;1,5&amp;b' c &amp;&amp;\checkmark&amp;&amp;\checkmark\\
-P4&amp;2,6&amp;b  c'&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark\\
+P1&amp;0,1&amp;a&rsquo; b&rsquo;&amp;\checkmark&amp;\checkmark\\
+P2&amp;0,2&amp;a&rsquo; c&rsquo;&amp;\checkmark&amp;&amp;\checkmark\\
+P3&amp;1,5&amp;b&rsquo; c &amp;&amp;\checkmark&amp;&amp;\checkmark\\
+P4&amp;2,6&amp;b  c&rsquo;&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark\\
 P5&amp;5,7&amp;a  c &amp;&amp;&amp;&amp;\checkmark&amp;&amp;\checkmark\\
 P6&amp;6,7&amp;a  b &amp;&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark\\
 \end{array}
@@ -497,8 +499,8 @@ P6&amp;6,7&amp;a  b &amp;&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark\\
 <li>\(P=P1P4P5+P1P2P5P6+P2P3P4P5+P1P3P4P6+P2P3P6\)</li>
 <li>\(\text{min Sol:}\)
 <ul>
-<li>\(F=P1+P4+P5=a' b'+bc'+ac\)</li>
-<li>\(F=P2+P3+P6=a' c'+b' c+ab\)</li>
+<li>\(F=P1+P4+P5=a&rsquo; b&rsquo;+bc&rsquo;+ac\)</li>
+<li>\(F=P2+P3+P6=a&rsquo; c&rsquo;+b&rsquo; c+ab\)</li>
 </ul>
 </li>
 </ul>
@@ -552,7 +554,7 @@ P6&amp;6,7&amp;a  b &amp;&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark\\
 *3,7,11,15&amp;&amp;\checkmark&amp;\oplus&amp;&amp;\checkmark\\
 *9,11,13,15&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark&amp;\oplus\\
 \end{array}}\)</li>
-<li>\(F=B' C+CD+AD\)</li>
+<li>\(F=B&rsquo; C+CD+AD\)</li>
 <li>其中 1 被當作 0，10、15當作1。</li>
 </ul>
 </li>
@@ -563,7 +565,7 @@ P6&amp;6,7&amp;a  b &amp;&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark\\
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/logic-design/">Logic Design</a></li>
+      <li><a href="http://localhost:1313/tags/logic-design/">Logic Design</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -578,11 +580,12 @@ P6&amp;6,7&amp;a  b &amp;&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark\\
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -651,12 +654,12 @@ P6&amp;6,7&amp;a  b &amp;&amp;&amp;&amp;&amp;\checkmark&amp;\checkmark\\
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

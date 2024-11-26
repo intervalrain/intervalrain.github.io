@@ -1,6 +1,313 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>[ML] 簡單實作測試 | Rain Hu's Workspace</title>
-<meta name=keywords content="Machine Learning,python"><meta name=description content='線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = "sample.csv" data = pd.read_csv(url) x = data["x-axis"] y = data["y-axis"] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color="red", label="prediction") plt.scatter(x, y, color="blue", label="data", marker="x") plt.title("Title") plt.xlabel("x Axis") plt.ylabel("y Axis") plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.'><meta name=author content="Rain Hu"><link rel=canonical href=https://intervalrain.github.io/><meta name=google-site-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.min.62544d021d74c1d1215183b216a7ce71465bcb05e8768851d5c6d332d9672210.css integrity="sha256-YlRNAh10wdEhUYOyFqfOcUZbywXodohR1cbTMtlnIhA=" rel="preload stylesheet" as=style><link rel=preload href=/images/rain.png as=image><script defer crossorigin=anonymous src=/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY=" onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=16x16 href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=32x32 href=https://intervalrain.github.io/images/rain.png><link rel=apple-touch-icon href=https://intervalrain.github.io/images/rain.png><link rel=mask-icon href=https://intervalrain.github.io/images/rain.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://intervalrain.github.io/ml/work/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css integrity=sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js integrity=sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous onload=renderMathInElement(document.body)></script><script async src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script src=https://utteranc.es/client.js repo=intervalrain.github.io issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script><meta property="og:title" content="[ML] 簡單實作測試"><meta property="og:description" content='線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = "sample.csv" data = pd.read_csv(url) x = data["x-axis"] y = data["y-axis"] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color="red", label="prediction") plt.scatter(x, y, color="blue", label="data", marker="x") plt.title("Title") plt.xlabel("x Axis") plt.ylabel("y Axis") plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.'><meta property="og:type" content="article"><meta property="og:url" content="https://intervalrain.github.io/ml/work/"><meta property="article:section" content="ml"><meta property="article:published_time" content="2023-04-30T00:35:59+08:00"><meta property="article:modified_time" content="2023-04-30T00:35:59+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="[ML] 簡單實作測試"><meta name=twitter:description content='線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = "sample.csv" data = pd.read_csv(url) x = data["x-axis"] y = data["y-axis"] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color="red", label="prediction") plt.scatter(x, y, color="blue", label="data", marker="x") plt.title("Title") plt.xlabel("x Axis") plt.ylabel("y Axis") plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MLs","item":"https://intervalrain.github.io/ml/"},{"@type":"ListItem","position":2,"name":"[ML] 簡單實作測試","item":"https://intervalrain.github.io/ml/work/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[ML] 簡單實作測試","name":"[ML] 簡單實作測試","description":"線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = \u0026#34;sample.csv\u0026#34; data = pd.read_csv(url) x = data[\u0026#34;x-axis\u0026#34;] y = data[\u0026#34;y-axis\u0026#34;] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color=\u0026#34;red\u0026#34;, label=\u0026#34;prediction\u0026#34;) plt.scatter(x, y, color=\u0026#34;blue\u0026#34;, label=\u0026#34;data\u0026#34;, marker=\u0026#34;x\u0026#34;) plt.title(\u0026#34;Title\u0026#34;) plt.xlabel(\u0026#34;x Axis\u0026#34;) plt.ylabel(\u0026#34;y Axis\u0026#34;) plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.","keywords":["Machine Learning","python"],"articleBody":"線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = \"sample.csv\" data = pd.read_csv(url) x = data[\"x-axis\"] y = data[\"y-axis\"] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color=\"red\", label=\"prediction\") plt.scatter(x, y, color=\"blue\", label=\"data\", marker=\"x\") plt.title(\"Title\") plt.xlabel(\"x Axis\") plt.ylabel(\"y Axis\") plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.mean() cost_function(x, y, 10, 20) 假設在 b = 20 的情形下，找 w 的最小值 w_arr = [] costs = [] for w in range(-100, 101): w2 = 10 + w/100 cost = cost_function(x, y, w2, 20) w_arr.append(w2) costs.append(cost) import matplotlib.pyplot as plt plt.title(\"cost function - when b = 20) plt.xlabel(\"w\") plt.ylabel(\"cost function\") plt.plot(w_arr, costs) plt.show() 利用 numpy 計算矩陣 import numpy as np ws = np.arange(-100, 101) bs = np.arange(-100, 101) costs = np.zeros((201, 201)) i = 0 for w in ws: j = 0 for b in bs: cost = cost_function(x, y, w, b) costs[i,j] = cost j = j+1 i = i+1 print(costs) 畫 3d 圖 ax = plt.axes(projection=\"3d\") ax.xaxis.set_pane_color((1,1,1)) ax.yaxis.set_pane_color((1,1,1)) ax.zaxis.set_pane_color((1,1,1)) plt.figure(figsize=(7,7)) ax.view_init(30, -110) b_grid, w_grid = np.meshgrid(bs, ws) ax.plot_surface(w_grid, b_grid, costs, cmap=\"Spectral_r\", alpha=0.7) ax.plot_wireframe(w_grid, b_grid, costs, alpha=0.1) ax.set_title(\"loss function\") ax.set_xlabel(\"w\") ax.set_ylabel(\"b\") ax.set_zlabel(\"loss\") w_index, b_index = np.where(costs == np.min(costs)) ax.scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color=\"red\", s=40) plt.show() 計算梯度 \\(\\text{cost} = (\\text{y}_\\text{pred}-\\text{y})^2\\\\ \\text{cost} = (\\text{y}-(\\text{w}\\times\\text{x}+\\text{b}))^2\\\\ \\text{m} _\\text{w} = -2\\times\\text{x}(\\text{y-wx-b})\\\\ \\text{m} _\\text{b} = -2\\times(\\text{y-wx-b})\\\\ \\) def compute_gradient(x, y, w, b): w_gradient = 2*x*(w*x+b-y).mean() b_gradient = 2*(w*x+b-y).mean() return w_gradient, b_gradient 利用梯度下降計算 cost 最小值 \\(\\text{w}_2=\\text{w}-\\text{m} _\\text{w} \\times \\text{learning\\_rate}\\) \\(\\text{b}_2=\\text{b}-\\text{m} _\\text{b} \\times \\text{learning\\_rate}\\) learning_rate = 0.001 for i in range(10): w_gradient, b_gradient = compute_gradient(x, y, w, b) w = w - w_gradient * learning_rate b = b - b_gradient * learning_rate cost = cost_function(x, y, w, b) print(f\"Iteration {i} : Cost {cost}, w: {w}, b: {b}\") gradient_descent 函式 def gradient_descent(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration): c_hist = [] w_hist = [] b_hist = [] w = w_init b = b_init for i in range(run_iteration): w_gradient, b_gradient = gradient_function(x, y, w, b) w = w - w_gradient * learning_rate b = b - b_gradient * learning_rate cost = cost_function(x, y, w, b) w_hist.append(w) b_hist.append(b) c_hist.append(cost) return w, b, w_hist, b_hist, c_hist 多特徵的預測 from sklearn.model_selection import train_test_split scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) x_real = np.array([[5.3, 2, 1, 0], [7,2, 0, 0, 1]]) x_real = scaler.transfrom(x_real) y_real = (w_final*x_real).sum(axis=1) + b_final y_real 「特徵縮放」加速 gradient descent w1x1+w2x2+w3x3+w4x4+b 因分布範圍不同，調整參數，最好令每一個乘積都相當 相當於是標準化：\\(\\frac{\\text{x-平均值}}{標準差}\\) from sklearn.preprocessing import StandardScaler scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) 邏輯迴歸 Logistic Regression Sigmoid Function 當模性呈現 0-1 關係(邏輯迴歸)時可用 \\(\\text{Sigmoid Function}=\\frac{1}{1+e^{-z}}\\) def sigmoid(z): return 1/(1+np.exp(-z)) w = np.array([1,2,3,4]) b = 1 z = (w*x_train).sum(axis=1) + b sigmoid(z) ","wordCount":"459","inLanguage":"en","datePublished":"2023-04-30T00:35:59+08:00","dateModified":"2023-04-30T00:35:59+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://intervalrain.github.io/ml/work/"},"publisher":{"@type":"Organization","name":"Rain Hu's Workspace","logo":{"@type":"ImageObject","url":"https://intervalrain.github.io/images/rain.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://intervalrain.github.io/ accesskey=h title="Rain Hu's Workspace (Alt + H)"><img src=https://intervalrain.github.io/images/rain.png alt=logo aria-label=logo height=35>Rain Hu's Workspace</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li></ul></span></div><ul id=menu><li><a href=https://intervalrain.github.io/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://intervalrain.github.io/aboutme title="About me"><span>About me</span></a></li><li><a href=https://intervalrain.github.io/archives title=Archives><span>Archives</span></a></li><li><a href=https://intervalrain.github.io/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://intervalrain.github.io/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://intervalrain.github.io/csharp/csharp title=C#><span>C#</span></a></li><li><a href=https://intervalrain.github.io/csindex title=CS><span>CS</span></a></li><li><a href=https://intervalrain.github.io/leetcode title=LeetCode><span>LeetCode</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://intervalrain.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://intervalrain.github.io/ml/>MLs</a></div><h1 class=post-title>[ML] 簡單實作測試</h1><div class=post-meta>&lt;span title='2023-04-30 00:35:59 +0800 +0800'>April 30, 2023&lt;/span>&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;Rain Hu&nbsp;|&nbsp;<a href=https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/work.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e7%b7%9a%e6%80%a7%e8%bf%b4%e6%ad%b8%e5%bb%ba%e6%a8%a1 aria-label=線性迴歸建模>線性迴歸建模</a><ul><li><a href=#%e8%bc%89%e5%85%a5%e8%b3%87%e6%96%99 aria-label=載入資料>載入資料</a></li><li><a href=#%e7%95%ab%e5%9c%96 aria-label=畫圖>畫圖</a></li><li><a href=#%e5%ae%9a%e7%be%a9-cost-function aria-label="定義 cost function">定義 cost function</a></li><li><a href=#%e5%88%a9%e7%94%a8-numpy-%e8%a8%88%e7%ae%97%e7%9f%a9%e9%99%a3 aria-label="利用 numpy 計算矩陣">利用 numpy 計算矩陣</a></li><li><a href=#%e7%95%ab-3d-%e5%9c%96 aria-label="畫 3d 圖">畫 3d 圖</a></li><li><a href=#%e8%a8%88%e7%ae%97%e6%a2%af%e5%ba%a6 aria-label=計算梯度>計算梯度</a></li><li><a href=#%e5%88%a9%e7%94%a8%e6%a2%af%e5%ba%a6%e4%b8%8b%e9%99%8d%e8%a8%88%e7%ae%97-cost-%e6%9c%80%e5%b0%8f%e5%80%bc aria-label="利用梯度下降計算 cost 最小值">利用梯度下降計算 cost 最小值</a></li><li><a href=#gradient_descent-%e5%87%bd%e5%bc%8f aria-label="gradient_descent 函式">gradient_descent 函式</a></li></ul></li><li><a href=#%e5%a4%9a%e7%89%b9%e5%be%b5%e7%9a%84%e9%a0%90%e6%b8%ac aria-label=多特徵的預測>多特徵的預測</a><ul><li><a href=#%e7%89%b9%e5%be%b5%e7%b8%ae%e6%94%be%e5%8a%a0%e9%80%9f-gradient-descent aria-label="「特徵縮放」加速 gradient descent">「特徵縮放」加速 gradient descent</a></li></ul></li><li><a href=#%e9%82%8f%e8%bc%af%e8%bf%b4%e6%ad%b8-logistic-regression aria-label="邏輯迴歸 Logistic Regression">邏輯迴歸 Logistic Regression</a><ul><li><a href=#sigmoid-function aria-label="Sigmoid Function">Sigmoid Function</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><h2 id=線性迴歸建模>線性迴歸建模<a hidden class=anchor aria-hidden=true href=#線性迴歸建模>#</a></h2><h3 id=載入資料>載入資料<a hidden class=anchor aria-hidden=true href=#載入資料>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
+<!doctype html><html lang=zh-tw dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>[ML] 簡單實作測試 | Rain Hu's Workspace</title>
+<meta name=keywords content="Machine Learning,python"><meta name=description content='線性迴歸建模
+載入資料
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib as mlp
+
+url = "sample.csv"
+data = pd.read_csv(url)
+
+x = data["x-axis"]
+y = data["y-axis"]
+畫圖
+def plot(x, y, w, b):
+    line = w * x + b
+    plt.plot(x, line, color="red", label="prediction")
+    plt.scatter(x, y, color="blue", label="data", marker="x")
+    plt.title("Title")
+    plt.xlabel("x Axis")
+    plt.ylabel("y Axis")
+    plt.xlim([0,12])
+    plt.ylim([20,140])
+    plt.show()
+plot(x, y, 10, 20)
+定義 cost function
+def cost_function(x, y, w, b):
+    y2 = w * x + b
+    cost = (y - y2) ** 2
+    return cost.mean()
+cost_function(x, y, 10, 20)
+
+假設在 b = 20 的情形下，找 w 的最小值
+
+w_arr = []
+costs = []
+for w in range(-100, 101):
+    w2 = 10 + w/100
+    cost = cost_function(x, y, w2, 20)
+    w_arr.append(w2)
+    costs.append(cost)
+import matplotlib.pyplot as plt
+plt.title("cost function - when b = 20)
+plt.xlabel("w")
+plt.ylabel("cost function")
+plt.plot(w_arr, costs)
+plt.show()
+利用 numpy 計算矩陣
+import numpy as np
+ws = np.arange(-100, 101)
+bs = np.arange(-100, 101)
+costs = np.zeros((201, 201))
+i = 0
+for w in ws:
+    j = 0
+    for b in bs:
+        cost = cost_function(x, y, w, b)
+        costs[i,j] = cost
+        j = j+1
+    i = i+1
+print(costs)
+畫 3d 圖
+ax = plt.axes(projection="3d")
+ax.xaxis.set_pane_color((1,1,1))
+ax.yaxis.set_pane_color((1,1,1))
+ax.zaxis.set_pane_color((1,1,1))
+
+plt.figure(figsize=(7,7))
+ax.view_init(30, -110)
+b_grid, w_grid = np.meshgrid(bs, ws)
+ax.plot_surface(w_grid, b_grid, costs, cmap="Spectral_r", alpha=0.7)
+ax.plot_wireframe(w_grid, b_grid, costs, alpha=0.1)
+ax.set_title("loss function")
+ax.set_xlabel("w")
+ax.set_ylabel("b")
+ax.set_zlabel("loss")
+
+w_index, b_index = np.where(costs == np.min(costs))
+ax.scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color="red", s=40)
+plt.show()
+計算梯度
+
+\(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\
+\text{cost} = (\text{y}-(\text{w}\times\text{x}+\text{b}))^2\\
+\text{m} _\text{w} = -2\times\text{x}(\text{y-wx-b})\\
+\text{m} _\text{b} = -2\times(\text{y-wx-b})\\
+\)
+
+def compute_gradient(x, y, w, b):
+    w_gradient = 2*x*(w*x+b-y).mean()
+    b_gradient = 2*(w*x+b-y).mean()
+    return w_gradient, b_gradient
+利用梯度下降計算 cost 最小值
+
+\(\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\_rate}\)
+\(\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\_rate}\)
+
+learning_rate = 0.001
+for i in range(10):
+    w_gradient, b_gradient = compute_gradient(x, y, w, b)
+    w = w - w_gradient * learning_rate
+    b = b - b_gradient * learning_rate
+    cost = cost_function(x, y, w, b)
+    print(f"Iteration {i} : Cost {cost}, w: {w}, b: {b}")
+gradient_descent 函式
+def gradient_descent(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration):
+    c_hist = []
+    w_hist = []
+    b_hist = []
+    w = w_init
+    b = b_init
+    for i in range(run_iteration):
+        w_gradient, b_gradient = gradient_function(x, y, w, b)
+        w = w - w_gradient * learning_rate
+        b = b - b_gradient * learning_rate
+        cost = cost_function(x, y, w, b)
+        w_hist.append(w)
+        b_hist.append(b)
+        c_hist.append(cost)
+    return w, b, w_hist, b_hist, c_hist
+多特徵的預測
+from sklearn.model_selection import train_test_split
+
+scaler = StandardScaler()
+scaler.fit(x_train)
+x_train = scaler.transform(x_train)
+x_test = scaler.transform(x_test)
+
+x_real = np.array([[5.3, 2, 1, 0], [7,2, 0, 0, 1]])
+x_real = scaler.transfrom(x_real)
+y_real = (w_final*x_real).sum(axis=1) + b_final
+y_real
+「特徵縮放」加速 gradient descent
+
+w1x1+w2x2+w3x3+w4x4+b
+因分布範圍不同，調整參數，最好令每一個乘積都相當
+相當於是標準化：\(\frac{\text{x-平均值}}{標準差}\)
+
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+scaler.fit(x_train)
+x_train = scaler.transform(x_train)
+x_test = scaler.transform(x_test)
+邏輯迴歸 Logistic Regression
+Sigmoid Function
+
+當模性呈現 0-1 關係(邏輯迴歸)時可用
+\(\text{Sigmoid Function}=\frac{1}{1+e^{-z}}\)
+
+def sigmoid(z):
+    return 1/(1+np.exp(-z))
+w = np.array([1,2,3,4])
+b = 1
+z = (w*x_train).sum(axis=1) + b
+sigmoid(z)
+'><meta name=author content="Rain Hu"><link rel=canonical href=https://intervalrain.github.io/><meta name=google-site-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.662816b9df27c772d2b97c5f5f6bf4f2c5531051a330015f0ad4135736d0e56a.css integrity="sha256-ZigWud8nx3LSuXxfX2v08sVTEFGjMAFfCtQTVzbQ5Wo=" rel="preload stylesheet" as=style><link rel=icon href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=16x16 href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=32x32 href=https://intervalrain.github.io/images/rain.png><link rel=apple-touch-icon href=https://intervalrain.github.io/images/rain.png><link rel=mask-icon href=https://intervalrain.github.io/images/rain.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-tw href=https://intervalrain.github.io/ml/work/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css integrity=sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js integrity=sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous onload=renderMathInElement(document.body)></script><script async src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script src=https://utteranc.es/client.js repo=intervalrain.github.io issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script><meta property="og:url" content="https://intervalrain.github.io/ml/work/"><meta property="og:site_name" content="Rain Hu's Workspace"><meta property="og:title" content="[ML] 簡單實作測試"><meta property="og:description" content='線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = "sample.csv" data = pd.read_csv(url) x = data["x-axis"] y = data["y-axis"] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color="red", label="prediction") plt.scatter(x, y, color="blue", label="data", marker="x") plt.title("Title") plt.xlabel("x Axis") plt.ylabel("y Axis") plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.mean() cost_function(x, y, 10, 20) 假設在 b = 20 的情形下，找 w 的最小值 w_arr = [] costs = [] for w in range(-100, 101): w2 = 10 + w/100 cost = cost_function(x, y, w2, 20) w_arr.append(w2) costs.append(cost) import matplotlib.pyplot as plt plt.title("cost function - when b = 20) plt.xlabel("w") plt.ylabel("cost function") plt.plot(w_arr, costs) plt.show() 利用 numpy 計算矩陣 import numpy as np ws = np.arange(-100, 101) bs = np.arange(-100, 101) costs = np.zeros((201, 201)) i = 0 for w in ws: j = 0 for b in bs: cost = cost_function(x, y, w, b) costs[i,j] = cost j = j+1 i = i+1 print(costs) 畫 3d 圖 ax = plt.axes(projection="3d") ax.xaxis.set_pane_color((1,1,1)) ax.yaxis.set_pane_color((1,1,1)) ax.zaxis.set_pane_color((1,1,1)) plt.figure(figsize=(7,7)) ax.view_init(30, -110) b_grid, w_grid = np.meshgrid(bs, ws) ax.plot_surface(w_grid, b_grid, costs, cmap="Spectral_r", alpha=0.7) ax.plot_wireframe(w_grid, b_grid, costs, alpha=0.1) ax.set_title("loss function") ax.set_xlabel("w") ax.set_ylabel("b") ax.set_zlabel("loss") w_index, b_index = np.where(costs == np.min(costs)) ax.scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color="red", s=40) plt.show() 計算梯度 \(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\ \text{cost} = (\text{y}-(\text{w}\times\text{x}+\text{b}))^2\\ \text{m} _\text{w} = -2\times\text{x}(\text{y-wx-b})\\ \text{m} _\text{b} = -2\times(\text{y-wx-b})\\ \) def compute_gradient(x, y, w, b): w_gradient = 2*x*(w*x+b-y).mean() b_gradient = 2*(w*x+b-y).mean() return w_gradient, b_gradient 利用梯度下降計算 cost 最小值 \(\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\_rate}\) \(\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\_rate}\) learning_rate = 0.001 for i in range(10): w_gradient, b_gradient = compute_gradient(x, y, w, b) w = w - w_gradient * learning_rate b = b - b_gradient * learning_rate cost = cost_function(x, y, w, b) print(f"Iteration {i} : Cost {cost}, w: {w}, b: {b}") gradient_descent 函式 def gradient_descent(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration): c_hist = [] w_hist = [] b_hist = [] w = w_init b = b_init for i in range(run_iteration): w_gradient, b_gradient = gradient_function(x, y, w, b) w = w - w_gradient * learning_rate b = b - b_gradient * learning_rate cost = cost_function(x, y, w, b) w_hist.append(w) b_hist.append(b) c_hist.append(cost) return w, b, w_hist, b_hist, c_hist 多特徵的預測 from sklearn.model_selection import train_test_split scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) x_real = np.array([[5.3, 2, 1, 0], [7,2, 0, 0, 1]]) x_real = scaler.transfrom(x_real) y_real = (w_final*x_real).sum(axis=1) + b_final y_real 「特徵縮放」加速 gradient descent w1x1+w2x2+w3x3+w4x4+b 因分布範圍不同，調整參數，最好令每一個乘積都相當 相當於是標準化：\(\frac{\text{x-平均值}}{標準差}\) from sklearn.preprocessing import StandardScaler scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) 邏輯迴歸 Logistic Regression Sigmoid Function 當模性呈現 0-1 關係(邏輯迴歸)時可用 \(\text{Sigmoid Function}=\frac{1}{1+e^{-z}}\) def sigmoid(z): return 1/(1+np.exp(-z)) w = np.array([1,2,3,4]) b = 1 z = (w*x_train).sum(axis=1) + b sigmoid(z) '><meta property="og:locale" content="zh-tw"><meta property="og:type" content="article"><meta property="article:section" content="ml"><meta property="article:published_time" content="2023-04-30T00:35:59+08:00"><meta property="article:modified_time" content="2023-04-30T00:35:59+08:00"><meta property="article:tag" content="ML"><meta name=twitter:card content="summary"><meta name=twitter:title content="[ML] 簡單實作測試"><meta name=twitter:description content='線性迴歸建模
+載入資料
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib as mlp
+
+url = "sample.csv"
+data = pd.read_csv(url)
+
+x = data["x-axis"]
+y = data["y-axis"]
+畫圖
+def plot(x, y, w, b):
+    line = w * x + b
+    plt.plot(x, line, color="red", label="prediction")
+    plt.scatter(x, y, color="blue", label="data", marker="x")
+    plt.title("Title")
+    plt.xlabel("x Axis")
+    plt.ylabel("y Axis")
+    plt.xlim([0,12])
+    plt.ylim([20,140])
+    plt.show()
+plot(x, y, 10, 20)
+定義 cost function
+def cost_function(x, y, w, b):
+    y2 = w * x + b
+    cost = (y - y2) ** 2
+    return cost.mean()
+cost_function(x, y, 10, 20)
+
+假設在 b = 20 的情形下，找 w 的最小值
+
+w_arr = []
+costs = []
+for w in range(-100, 101):
+    w2 = 10 + w/100
+    cost = cost_function(x, y, w2, 20)
+    w_arr.append(w2)
+    costs.append(cost)
+import matplotlib.pyplot as plt
+plt.title("cost function - when b = 20)
+plt.xlabel("w")
+plt.ylabel("cost function")
+plt.plot(w_arr, costs)
+plt.show()
+利用 numpy 計算矩陣
+import numpy as np
+ws = np.arange(-100, 101)
+bs = np.arange(-100, 101)
+costs = np.zeros((201, 201))
+i = 0
+for w in ws:
+    j = 0
+    for b in bs:
+        cost = cost_function(x, y, w, b)
+        costs[i,j] = cost
+        j = j+1
+    i = i+1
+print(costs)
+畫 3d 圖
+ax = plt.axes(projection="3d")
+ax.xaxis.set_pane_color((1,1,1))
+ax.yaxis.set_pane_color((1,1,1))
+ax.zaxis.set_pane_color((1,1,1))
+
+plt.figure(figsize=(7,7))
+ax.view_init(30, -110)
+b_grid, w_grid = np.meshgrid(bs, ws)
+ax.plot_surface(w_grid, b_grid, costs, cmap="Spectral_r", alpha=0.7)
+ax.plot_wireframe(w_grid, b_grid, costs, alpha=0.1)
+ax.set_title("loss function")
+ax.set_xlabel("w")
+ax.set_ylabel("b")
+ax.set_zlabel("loss")
+
+w_index, b_index = np.where(costs == np.min(costs))
+ax.scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color="red", s=40)
+plt.show()
+計算梯度
+
+\(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\
+\text{cost} = (\text{y}-(\text{w}\times\text{x}+\text{b}))^2\\
+\text{m} _\text{w} = -2\times\text{x}(\text{y-wx-b})\\
+\text{m} _\text{b} = -2\times(\text{y-wx-b})\\
+\)
+
+def compute_gradient(x, y, w, b):
+    w_gradient = 2*x*(w*x+b-y).mean()
+    b_gradient = 2*(w*x+b-y).mean()
+    return w_gradient, b_gradient
+利用梯度下降計算 cost 最小值
+
+\(\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\_rate}\)
+\(\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\_rate}\)
+
+learning_rate = 0.001
+for i in range(10):
+    w_gradient, b_gradient = compute_gradient(x, y, w, b)
+    w = w - w_gradient * learning_rate
+    b = b - b_gradient * learning_rate
+    cost = cost_function(x, y, w, b)
+    print(f"Iteration {i} : Cost {cost}, w: {w}, b: {b}")
+gradient_descent 函式
+def gradient_descent(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration):
+    c_hist = []
+    w_hist = []
+    b_hist = []
+    w = w_init
+    b = b_init
+    for i in range(run_iteration):
+        w_gradient, b_gradient = gradient_function(x, y, w, b)
+        w = w - w_gradient * learning_rate
+        b = b - b_gradient * learning_rate
+        cost = cost_function(x, y, w, b)
+        w_hist.append(w)
+        b_hist.append(b)
+        c_hist.append(cost)
+    return w, b, w_hist, b_hist, c_hist
+多特徵的預測
+from sklearn.model_selection import train_test_split
+
+scaler = StandardScaler()
+scaler.fit(x_train)
+x_train = scaler.transform(x_train)
+x_test = scaler.transform(x_test)
+
+x_real = np.array([[5.3, 2, 1, 0], [7,2, 0, 0, 1]])
+x_real = scaler.transfrom(x_real)
+y_real = (w_final*x_real).sum(axis=1) + b_final
+y_real
+「特徵縮放」加速 gradient descent
+
+w1x1+w2x2+w3x3+w4x4+b
+因分布範圍不同，調整參數，最好令每一個乘積都相當
+相當於是標準化：\(\frac{\text{x-平均值}}{標準差}\)
+
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+scaler.fit(x_train)
+x_train = scaler.transform(x_train)
+x_test = scaler.transform(x_test)
+邏輯迴歸 Logistic Regression
+Sigmoid Function
+
+當模性呈現 0-1 關係(邏輯迴歸)時可用
+\(\text{Sigmoid Function}=\frac{1}{1+e^{-z}}\)
+
+def sigmoid(z):
+    return 1/(1+np.exp(-z))
+w = np.array([1,2,3,4])
+b = 1
+z = (w*x_train).sum(axis=1) + b
+sigmoid(z)
+'><meta name=twitter:site content="@intervalrain"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MLs","item":"https://intervalrain.github.io/ml/"},{"@type":"ListItem","position":2,"name":"[ML] 簡單實作測試","item":"https://intervalrain.github.io/ml/work/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[ML] 簡單實作測試","name":"[ML] 簡單實作測試","description":"線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = \u0026#34;sample.csv\u0026#34; data = pd.read_csv(url) x = data[\u0026#34;x-axis\u0026#34;] y = data[\u0026#34;y-axis\u0026#34;] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color=\u0026#34;red\u0026#34;, label=\u0026#34;prediction\u0026#34;) plt.scatter(x, y, color=\u0026#34;blue\u0026#34;, label=\u0026#34;data\u0026#34;, marker=\u0026#34;x\u0026#34;) plt.title(\u0026#34;Title\u0026#34;) plt.xlabel(\u0026#34;x Axis\u0026#34;) plt.ylabel(\u0026#34;y Axis\u0026#34;) plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.mean() cost_function(x, y, 10, 20) 假設在 b = 20 的情形下，找 w 的最小值 w_arr = [] costs = [] for w in range(-100, 101): w2 = 10 + w/100 cost = cost_function(x, y, w2, 20) w_arr.append(w2) costs.append(cost) import matplotlib.pyplot as plt plt.title(\u0026#34;cost function - when b = 20) plt.xlabel(\u0026#34;w\u0026#34;) plt.ylabel(\u0026#34;cost function\u0026#34;) plt.plot(w_arr, costs) plt.show() 利用 numpy 計算矩陣 import numpy as np ws = np.arange(-100, 101) bs = np.arange(-100, 101) costs = np.zeros((201, 201)) i = 0 for w in ws: j = 0 for b in bs: cost = cost_function(x, y, w, b) costs[i,j] = cost j = j+1 i = i+1 print(costs) 畫 3d 圖 ax = plt.axes(projection=\u0026#34;3d\u0026#34;) ax.xaxis.set_pane_color((1,1,1)) ax.yaxis.set_pane_color((1,1,1)) ax.zaxis.set_pane_color((1,1,1)) plt.figure(figsize=(7,7)) ax.view_init(30, -110) b_grid, w_grid = np.meshgrid(bs, ws) ax.plot_surface(w_grid, b_grid, costs, cmap=\u0026#34;Spectral_r\u0026#34;, alpha=0.7) ax.plot_wireframe(w_grid, b_grid, costs, alpha=0.1) ax.set_title(\u0026#34;loss function\u0026#34;) ax.set_xlabel(\u0026#34;w\u0026#34;) ax.set_ylabel(\u0026#34;b\u0026#34;) ax.set_zlabel(\u0026#34;loss\u0026#34;) w_index, b_index = np.where(costs == np.min(costs)) ax.scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color=\u0026#34;red\u0026#34;, s=40) plt.show() 計算梯度 \\(\\text{cost} = (\\text{y}_\\text{pred}-\\text{y})^2\\\\ \\text{cost} = (\\text{y}-(\\text{w}\\times\\text{x}+\\text{b}))^2\\\\ \\text{m} _\\text{w} = -2\\times\\text{x}(\\text{y-wx-b})\\\\ \\text{m} _\\text{b} = -2\\times(\\text{y-wx-b})\\\\ \\) def compute_gradient(x, y, w, b): w_gradient = 2*x*(w*x+b-y).mean() b_gradient = 2*(w*x+b-y).mean() return w_gradient, b_gradient 利用梯度下降計算 cost 最小值 \\(\\text{w}_2=\\text{w}-\\text{m} _\\text{w} \\times \\text{learning\\_rate}\\) \\(\\text{b}_2=\\text{b}-\\text{m} _\\text{b} \\times \\text{learning\\_rate}\\) learning_rate = 0.001 for i in range(10): w_gradient, b_gradient = compute_gradient(x, y, w, b) w = w - w_gradient * learning_rate b = b - b_gradient * learning_rate cost = cost_function(x, y, w, b) print(f\u0026#34;Iteration {i} : Cost {cost}, w: {w}, b: {b}\u0026#34;) gradient_descent 函式 def gradient_descent(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration): c_hist = [] w_hist = [] b_hist = [] w = w_init b = b_init for i in range(run_iteration): w_gradient, b_gradient = gradient_function(x, y, w, b) w = w - w_gradient * learning_rate b = b - b_gradient * learning_rate cost = cost_function(x, y, w, b) w_hist.append(w) b_hist.append(b) c_hist.append(cost) return w, b, w_hist, b_hist, c_hist 多特徵的預測 from sklearn.model_selection import train_test_split scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) x_real = np.array([[5.3, 2, 1, 0], [7,2, 0, 0, 1]]) x_real = scaler.transfrom(x_real) y_real = (w_final*x_real).sum(axis=1) + b_final y_real 「特徵縮放」加速 gradient descent w1x1+w2x2+w3x3+w4x4+b 因分布範圍不同，調整參數，最好令每一個乘積都相當 相當於是標準化：\\(\\frac{\\text{x-平均值}}{標準差}\\) from sklearn.preprocessing import StandardScaler scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) 邏輯迴歸 Logistic Regression Sigmoid Function 當模性呈現 0-1 關係(邏輯迴歸)時可用 \\(\\text{Sigmoid Function}=\\frac{1}{1+e^{-z}}\\) def sigmoid(z): return 1/(1+np.exp(-z)) w = np.array([1,2,3,4]) b = 1 z = (w*x_train).sum(axis=1) + b sigmoid(z) ","keywords":["Machine Learning","python"],"articleBody":"線性迴歸建模 載入資料 import pandas as pd import matplotlib.pyplot as plt import matplotlib as mlp url = \"sample.csv\" data = pd.read_csv(url) x = data[\"x-axis\"] y = data[\"y-axis\"] 畫圖 def plot(x, y, w, b): line = w * x + b plt.plot(x, line, color=\"red\", label=\"prediction\") plt.scatter(x, y, color=\"blue\", label=\"data\", marker=\"x\") plt.title(\"Title\") plt.xlabel(\"x Axis\") plt.ylabel(\"y Axis\") plt.xlim([0,12]) plt.ylim([20,140]) plt.show() plot(x, y, 10, 20) 定義 cost function def cost_function(x, y, w, b): y2 = w * x + b cost = (y - y2) ** 2 return cost.mean() cost_function(x, y, 10, 20) 假設在 b = 20 的情形下，找 w 的最小值 w_arr = [] costs = [] for w in range(-100, 101): w2 = 10 + w/100 cost = cost_function(x, y, w2, 20) w_arr.append(w2) costs.append(cost) import matplotlib.pyplot as plt plt.title(\"cost function - when b = 20) plt.xlabel(\"w\") plt.ylabel(\"cost function\") plt.plot(w_arr, costs) plt.show() 利用 numpy 計算矩陣 import numpy as np ws = np.arange(-100, 101) bs = np.arange(-100, 101) costs = np.zeros((201, 201)) i = 0 for w in ws: j = 0 for b in bs: cost = cost_function(x, y, w, b) costs[i,j] = cost j = j+1 i = i+1 print(costs) 畫 3d 圖 ax = plt.axes(projection=\"3d\") ax.xaxis.set_pane_color((1,1,1)) ax.yaxis.set_pane_color((1,1,1)) ax.zaxis.set_pane_color((1,1,1)) plt.figure(figsize=(7,7)) ax.view_init(30, -110) b_grid, w_grid = np.meshgrid(bs, ws) ax.plot_surface(w_grid, b_grid, costs, cmap=\"Spectral_r\", alpha=0.7) ax.plot_wireframe(w_grid, b_grid, costs, alpha=0.1) ax.set_title(\"loss function\") ax.set_xlabel(\"w\") ax.set_ylabel(\"b\") ax.set_zlabel(\"loss\") w_index, b_index = np.where(costs == np.min(costs)) ax.scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color=\"red\", s=40) plt.show() 計算梯度 \\(\\text{cost} = (\\text{y}_\\text{pred}-\\text{y})^2\\\\ \\text{cost} = (\\text{y}-(\\text{w}\\times\\text{x}+\\text{b}))^2\\\\ \\text{m} _\\text{w} = -2\\times\\text{x}(\\text{y-wx-b})\\\\ \\text{m} _\\text{b} = -2\\times(\\text{y-wx-b})\\\\ \\) def compute_gradient(x, y, w, b): w_gradient = 2*x*(w*x+b-y).mean() b_gradient = 2*(w*x+b-y).mean() return w_gradient, b_gradient 利用梯度下降計算 cost 最小值 \\(\\text{w}_2=\\text{w}-\\text{m} _\\text{w} \\times \\text{learning\\_rate}\\) \\(\\text{b}_2=\\text{b}-\\text{m} _\\text{b} \\times \\text{learning\\_rate}\\) learning_rate = 0.001 for i in range(10): w_gradient, b_gradient = compute_gradient(x, y, w, b) w = w - w_gradient * learning_rate b = b - b_gradient * learning_rate cost = cost_function(x, y, w, b) print(f\"Iteration {i} : Cost {cost}, w: {w}, b: {b}\") gradient_descent 函式 def gradient_descent(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration): c_hist = [] w_hist = [] b_hist = [] w = w_init b = b_init for i in range(run_iteration): w_gradient, b_gradient = gradient_function(x, y, w, b) w = w - w_gradient * learning_rate b = b - b_gradient * learning_rate cost = cost_function(x, y, w, b) w_hist.append(w) b_hist.append(b) c_hist.append(cost) return w, b, w_hist, b_hist, c_hist 多特徵的預測 from sklearn.model_selection import train_test_split scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) x_real = np.array([[5.3, 2, 1, 0], [7,2, 0, 0, 1]]) x_real = scaler.transfrom(x_real) y_real = (w_final*x_real).sum(axis=1) + b_final y_real 「特徵縮放」加速 gradient descent w1x1+w2x2+w3x3+w4x4+b 因分布範圍不同，調整參數，最好令每一個乘積都相當 相當於是標準化：\\(\\frac{\\text{x-平均值}}{標準差}\\) from sklearn.preprocessing import StandardScaler scaler = StandardScaler() scaler.fit(x_train) x_train = scaler.transform(x_train) x_test = scaler.transform(x_test) 邏輯迴歸 Logistic Regression Sigmoid Function 當模性呈現 0-1 關係(邏輯迴歸)時可用 \\(\\text{Sigmoid Function}=\\frac{1}{1+e^{-z}}\\) def sigmoid(z): return 1/(1+np.exp(-z)) w = np.array([1,2,3,4]) b = 1 z = (w*x_train).sum(axis=1) + b sigmoid(z) ","wordCount":"459","inLanguage":"zh-tw","datePublished":"2023-04-30T00:35:59+08:00","dateModified":"2023-04-30T00:35:59+08:00","author":{"@type":"Person","name":"Rain Hu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://intervalrain.github.io/ml/work/"},"publisher":{"@type":"Organization","name":"Rain Hu's Workspace","logo":{"@type":"ImageObject","url":"https://intervalrain.github.io/images/rain.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://intervalrain.github.io/ accesskey=h title="Rain Hu's Workspace (Alt + H)"><img src=https://intervalrain.github.io/images/rain.png alt aria-label=logo height=35>Rain Hu's Workspace</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://intervalrain.github.io/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://intervalrain.github.io/aboutme title="About me"><span>About me</span></a></li><li><a href=https://intervalrain.github.io/archives title=Archives><span>Archives</span></a></li><li><a href=https://intervalrain.github.io/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://intervalrain.github.io/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://intervalrain.github.io/csharp/csharp title=C#><span>C#</span></a></li><li><a href=https://intervalrain.github.io/csindex title=CS><span>CS</span></a></li><li><a href=https://intervalrain.github.io/leetcode title=LeetCode><span>LeetCode</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://intervalrain.github.io/>首頁</a>&nbsp;»&nbsp;<a href=https://intervalrain.github.io/ml/>MLs</a></div><h1 class="post-title entry-hint-parent">[ML] 簡單實作測試</h1><div class=post-meta><span title='2023-04-30 00:35:59 +0800 +0800'>April 30, 2023</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href=https://github.com/intervalrain/intervalrain.github.io/tree/main/content//ML/work.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目錄</span></summary><div class=inner><ul><li><a href=#%e7%b7%9a%e6%80%a7%e8%bf%b4%e6%ad%b8%e5%bb%ba%e6%a8%a1 aria-label=線性迴歸建模>線性迴歸建模</a><ul><li><a href=#%e8%bc%89%e5%85%a5%e8%b3%87%e6%96%99 aria-label=載入資料>載入資料</a></li><li><a href=#%e7%95%ab%e5%9c%96 aria-label=畫圖>畫圖</a></li><li><a href=#%e5%ae%9a%e7%be%a9-cost-function aria-label="定義 cost function">定義 cost function</a></li><li><a href=#%e5%88%a9%e7%94%a8-numpy-%e8%a8%88%e7%ae%97%e7%9f%a9%e9%99%a3 aria-label="利用 numpy 計算矩陣">利用 numpy 計算矩陣</a></li><li><a href=#%e7%95%ab-3d-%e5%9c%96 aria-label="畫 3d 圖">畫 3d 圖</a></li><li><a href=#%e8%a8%88%e7%ae%97%e6%a2%af%e5%ba%a6 aria-label=計算梯度>計算梯度</a></li><li><a href=#%e5%88%a9%e7%94%a8%e6%a2%af%e5%ba%a6%e4%b8%8b%e9%99%8d%e8%a8%88%e7%ae%97-cost-%e6%9c%80%e5%b0%8f%e5%80%bc aria-label="利用梯度下降計算 cost 最小值">利用梯度下降計算 cost 最小值</a></li><li><a href=#gradient_descent-%e5%87%bd%e5%bc%8f aria-label="gradient_descent 函式">gradient_descent 函式</a></li></ul></li><li><a href=#%e5%a4%9a%e7%89%b9%e5%be%b5%e7%9a%84%e9%a0%90%e6%b8%ac aria-label=多特徵的預測>多特徵的預測</a><ul><li><a href=#%e7%89%b9%e5%be%b5%e7%b8%ae%e6%94%be%e5%8a%a0%e9%80%9f-gradient-descent aria-label="「特徵縮放」加速 gradient descent">「特徵縮放」加速 gradient descent</a></li></ul></li><li><a href=#%e9%82%8f%e8%bc%af%e8%bf%b4%e6%ad%b8-logistic-regression aria-label="邏輯迴歸 Logistic Regression">邏輯迴歸 Logistic Regression</a><ul><li><a href=#sigmoid-function aria-label="Sigmoid Function">Sigmoid Function</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><h2 id=線性迴歸建模>線性迴歸建模<a hidden class=anchor aria-hidden=true href=#線性迴歸建模>#</a></h2><h3 id=載入資料>載入資料<a hidden class=anchor aria-hidden=true href=#載入資料>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pandas <span style=color:#66d9ef>as</span> pd
 </span></span><span style=display:flex><span><span style=color:#f92672>import</span> matplotlib.pyplot <span style=color:#66d9ef>as</span> plt
 </span></span><span style=display:flex><span><span style=color:#f92672>import</span> matplotlib <span style=color:#66d9ef>as</span> mlp
 </span></span><span style=display:flex><span>
@@ -122,8 +429,8 @@
 </span></span><span style=display:flex><span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
 </span></span><span style=display:flex><span>z <span style=color:#f92672>=</span> (w<span style=color:#f92672>*</span>x_train)<span style=color:#f92672>.</span>sum(axis<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>) <span style=color:#f92672>+</span> b
 </span></span><span style=display:flex><span>sigmoid(z)
-</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://intervalrain.github.io/tags/ml/>ML</a></li></ul></footer><script src=https://utteranc.es/client.js repo=Reid00/hugo-blog-talks issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2024 <a href=https://intervalrain.github.io/>Rain Hu's Workspace</a></span>
+</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://intervalrain.github.io/tags/ml/>ML</a></li></ul></footer><script src=https://utteranc.es/client.js repo=Reid00/hugo-blog-talks issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2024 <a href=https://intervalrain.github.io/>Rain Hu's Workspace</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
-</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerText="copy";function s(){t.innerText="copied!",setTimeout(()=>{t.innerText="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="複製";function s(){t.innerHTML="已複製！",setTimeout(()=>{t.innerHTML="複製"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

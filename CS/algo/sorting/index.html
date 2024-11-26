@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Algo] 3-0. Sorting | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="C&#43;&#43;, Leetcode, Algorithm, sorting" />
+<meta name="keywords" content="C&#43;&#43;, Leetcode, Algorithm, sorting">
 <meta name="description" content="從排序開始，練習將想法實踐，All start from sorting">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.662816b9df27c772d2b97c5f5f6bf4f2c5531051a330015f0ad4135736d0e56a.css" integrity="sha256-ZigWud8nx3LSuXxfX2v08sVTEFGjMAFfCtQTVzbQ5Wo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/cs/algo/sorting/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -73,19 +71,24 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Algo] 3-0. Sorting" />
-<meta property="og:description" content="從排序開始，練習將想法實踐，All start from sorting" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/cs/algo/sorting/" />
-<meta property="og:image" content="https://intervalrain.github.io/images/faang.webp" /><meta property="article:section" content="CS" />
-<meta property="article:published_time" content="2023-03-16T19:50:21&#43;08:00" />
-<meta property="article:modified_time" content="2023-03-16T19:50:21&#43;08:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://intervalrain.github.io/images/faang.webp" />
-<meta name="twitter:title" content="[Algo] 3-0. Sorting"/>
-<meta name="twitter:description" content="從排序開始，練習將想法實踐，All start from sorting"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/cs/algo/sorting/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Algo] 3-0. Sorting">
+  <meta property="og:description" content="從排序開始，練習將想法實踐，All start from sorting">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="cs">
+    <meta property="article:published_time" content="2023-03-16T19:50:21+08:00">
+    <meta property="article:modified_time" content="2023-03-16T19:50:21+08:00">
+    <meta property="article:tag" content="CS">
+    <meta property="article:tag" content="Algo">
+    <meta property="article:tag" content="Sorting">
+    <meta property="og:image" content="http://localhost:1313/images/faang.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/images/faang.webp">
+<meta name="twitter:title" content="[Algo] 3-0. Sorting">
+<meta name="twitter:description" content="從排序開始，練習將想法實踐，All start from sorting">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -96,14 +99,14 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "CS",
-      "item": "https://intervalrain.github.io/cs/"
+      "name": "CSes",
+      "item": "http://localhost:1313/cs/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[Algo] 3-0. Sorting",
-      "item": "https://intervalrain.github.io/cs/algo/sorting/"
+      "item": "http://localhost:1313/cs/algo/sorting/"
     }
   ]
 }
@@ -118,10 +121,10 @@
   "keywords": [
     "C++", "Leetcode", "Algorithm", "sorting"
   ],
-  "articleBody": " 前言：\n 在開始練習各種演算法題型時，最先需要養成的是，如何選用「適當」的演算法，題目往往不會只有一種解，但合適的演算法可以如同走捷徑一般，快速且優雅的達到目標。 在實作程式前，更重要的是，寫下一段 pseudo code，試著說明其複雜度，並觀察是否有冗餘的空間可以優化。 在腦海中模擬一遍程式碼之後，最後才是快速的將程式碼實作出來。  在這一章節，我們將練習如何將「想法」轉換成「實作」。並且我們必須熟悉如何計算其時間複雜度。\n 一、Cheat Table   首先我們需要先瞭解每一種資料結構的各種操作的時間複雜度，以便我們選擇適合的資料結構與演算法。\n 下面這種表的 Array, Stack, Queue, Linked List, Hash Table, Binary Search Tree 基本上是要背起來的，其餘的遇到再去認識就好。     接下來就輪到練習實作了，排序演算法是個很好的練習，試著把下表中的排序演算法完成，並且計算其時間複雜度吧。\n 參考題目 Leetcode 912. Sort an Array     二、Sorting Algorithm 0. 測資  這個 file 是我寫的測資，可以拿來測試自己的實作，用法是 #include \"agtr.h\"，之後用 judge() 函式測試你寫好的 function。  #include #include #include  using namespace std;  class agtr{ public:  static vectorint exec(int n, int minv, int maxv) {  if (minv  maxv) return {};  else if (minv == maxv) return vectorint(n, minv);  vectorint res;  random_device rd;  mt19937 mt(rd());  uniform_real_distributiondouble dist(minv, maxv);  while (n--) {  res.push_back(dist(mt));  }  return res;  }  static vectorint exec(int n) {  return exec(n, 0, 10);  }   static vectorint exec() {  return exec(10);  }  static void print(vectorint\u0026 nums) {  cout  \"[\";  for_each(nums.begin(), nums.end()-1, [](int x) { cout  x  \",\"; });  cout  *(nums.end()-1)  \"]\";  }  static bool check(vectorint\u0026 nums, vectorint copy) {  sort(copy.begin(), copy.end());  for (int i = 0; i  nums.size(); i++) {  if (nums[i] != copy[i]) return false;  }  return true;  }  static void judge(void (*func)(vectorint\u0026)) {  int n = 10;  bool test = true;  int cnt = 0;  while (n--) {  auto nums = exec();  auto copy = vectorint(nums.begin(), nums.end());  print(nums);  (*func)(nums);  cout  \"-\";  print(nums);  int result = check(nums, copy);  cout  \"(\"  (result ? \"Pass\" : \"Fail\")  \")\"  endl;  if (result) cnt++;  test \u0026= result;  }  if (test) {  cout  \"Pass! (10/10)\"  endl;  } else {  cout  \"Fail! (\"  cnt  \"/10)\"  endl;  }  } };  以下為測試的方式  # include \"agtr.h\" void sort(vectorint\u0026 nums) {...} // 你的實作  int main() {  agtr::judge(sort); // 用這個函式測試你的實作  return 0; } 1. Bubble Sort void sort(vectorint\u0026 nums) {  int n = nums.size();  for (int i = n-1; i  0; i--) {  for (int j = 0; j  i; j++) {  if (nums[j]  nums[j+1]) swap(nums[j], nums[j+1]);  }  } } 2. Selection SOrt void sort(vectorint\u0026 nums) {  int n = nums.size();  for (int i = 0; i  n-1; i++) {  int p = i;  for (int j = i+1; j  n; j++) {  if (nums[j]  nums[p]) p = j;  }  swap(nums[p], nums[i]);  } } 3. Insertion Sort void sort(vectorint\u0026 nums){  int n = nums.size();  for (int i = 1; i  n; i++) {  int j = i-1;  int curr = nums[i];  for (; j = 0; j--) {  if (nums[j]  curr) {  break;  }  nums[j+1] = nums[j];  }  nums[j+1] = curr;  } } 4. Heap Sort void heapify(vectorint\u0026 nums, int i) {  int left = 2*i+1;  int right = 2*i+2;  int p = i;  int n = nums.size();  if (left  n \u0026\u0026 nums[left]  nums[p]) p = left;  if (right  n \u0026\u0026 nums[right]  nums[p]) p = right;  if (p != i) {  swap(nums[i], nums[p]);  heapify(nums, p);  } } void sort(vectorint\u0026 nums) {  vectorint vec(nums.begin(), nums.end());  int n = vec.size();  int parent = (n-1)/2;  for (int i = parent; i = 0; i--) {  heapify(vec, i);  }   for (int i = 0; i  n; i++) {  nums[i] = vec[0];  vec[0] = vec.back();  vec.pop_back();  heapify(vec, 0);  } } 5. Tree Sort class TreeNode { private:  TreeNode* left, *right;  int val;  TreeNode* insert(TreeNode* root, int val) {  if (!root) {  root = new TreeNode(val);  return root;  }  if (val  root-val) {  root-left = insert(root-left, val);  } else {  root-right = insert(root-right, val);  }  return root;  }  void dfs(TreeNode* root, vectorint\u0026 nums) {  if (!root) return;  dfs(root-left, nums);  nums.push_back(root-val);  dfs(root-right, nums);  } public:  TreeNode() {}  TreeNode(int val)  : val(val) {}  TreeNode(int val, TreeNode* left, TreeNode* right)  : val(val), left(left), right(right) {}   void insert(int val) {  insert(this, val);  }  vectorint getArray() {  vectorint nums;  dfs(this, nums);  return nums;  }  };  void sort(vectorint\u0026 nums) {  TreeNode* root = new TreeNode(nums[0]);  for (int i = 1; i  nums.size(); i++) {  root-insert(nums[i]);  }  nums = root-getArray(); } 6. Merge Sort void merge(vectorint\u0026 nums, int left, int mid, int right) {  int i = left, j = mid + 1;  vectorint tmp;  while (i  mid \u0026\u0026 j  right) {  if (nums[i]  nums[j])  tmp.push_back(nums[i++]);  else  tmp.push_back(nums[j++]);  }  while (i  mid) tmp.push_back(nums[i++]);  while (j  right) tmp.push_back(nums[j++]);  for (i = left; i  right; i++) {  nums[i] = tmp[i-left];  } }  void sort(vectorint\u0026 nums, int left, int right) {  if (right  left) return;  int mid = left + (right-left)/2;  sort(nums, left, mid);  sort(nums, mid+1, right);  merge(nums, left, mid, right); }  void sort(vectorint\u0026 nums) {  sort(nums, 0, nums.size()-1); } 7. Quick Sort nt partition(vectorint\u0026 nums, int left, int right) {  int pivot = left;  int i = left;  int j = right+1;  while (true) {  while (i  right \u0026\u0026 nums[++i]  nums[pivot]);  while (j  left \u0026\u0026 nums[--j]  nums[pivot]);  if (i = j) break;  swap(nums[i], nums[j]);  }  swap(nums[pivot], nums[j]);  return j; }  void sort(vectorint\u0026 nums, int left, int right) {  if (left = right) return;  int pivot = partition(nums, left, right);  sort(nums, left, pivot-1);  sort(nums, pivot+1, right); }  void sort(vectorint\u0026 nums) {  sort(nums, 0, nums.size()-1); } 8. Tim Sort #define MIN_MERGE 32  int minRunLength(int n) {  int r = 0;  while (n = MIN_MERGE) {  r |= (n \u0026 1);  n = 1;  }  return n + r; }  void insertionSort(vectorint\u0026 nums, int left, int right) {  int n = nums.size();  for (int i = left+1; i  right; i++) {  int j = i-1;  int curr = nums[i];  for (; j = left; j--) {  if (nums[j]  curr) {  break;  }  nums[j+1] = nums[j];  }  nums[j+1] = curr;  } }  void merge(vectorint\u0026 nums, int left, int mid, int right) {  int i = left;  int j = mid + 1;  vectorint tmp;  while (i  mid \u0026\u0026 j  right) {  if (nums[i]  nums[j])  tmp.push_back(nums[i++]);  else  tmp.push_back(nums[j++]);  }  while (i  mid)  tmp.push_back(nums[i++]);  while (j  right)  tmp.push_back(nums[j++]);  for (i = left; i  right; i++) {  nums[i] = tmp[i-left];  } }  void sort(vectorint\u0026 nums) {  int minRun = minRunLength(MIN_MERGE);  int n = nums.size();  for (int i = 0; i  n; i += minRun) {  int hi = min((i + MIN_MERGE - 1), n-1);  insertionSort(nums, i, hi);  }  for (int size = minRun; size  n; size  1) {  for (int left = 0; left  n; left += (size  1)) {  int mid = left + size - 1;  int right = min((left + (size  1) - 1), n-1);  if (mid  right) {  merge(nums, left, mid, right);  }  }  } } 9. Shell Sort void sort(vectorint\u0026 nums) {  int n = nums.size();  for (int gap = n1; gap  0; gap=1) {  for (int i = gap; i  n; i++) {  int tmp = nums[i];  int j;  for (j = i; j = gap \u0026\u0026 nums[j-gap]  tmp; j -= gap) {  nums[j] = nums[j-gap];  }  nums[j] = tmp;  }  } } 10. Counting Sort void sort(vectorint\u0026 nums) {  vectorint dp(10, 0);  for (const auto\u0026 x : nums) {  dp[x]++;  }  int j = 0;  for (int i = 0; i  10; i++) {  while (dp[i]--  0) {  nums[j++] = i;  }  } }   回到目錄：[Algo] 演算法筆記   接著閱讀：[Algo] 3-1. Two Pointer/Sliding Window  ",
-  "wordCount" : "1185",
-  "inLanguage": "en",
-  "image":"https://intervalrain.github.io/images/faang.webp","datePublished": "2023-03-16T19:50:21+08:00",
+  "articleBody": " 前言：\n在開始練習各種演算法題型時，最先需要養成的是，如何選用「適當」的演算法，題目往往不會只有一種解，但合適的演算法可以如同走捷徑一般，快速且優雅的達到目標。 在實作程式前，更重要的是，寫下一段 pseudo code，試著說明其複雜度，並觀察是否有冗餘的空間可以優化。 在腦海中模擬一遍程式碼之後，最後才是快速的將程式碼實作出來。 在這一章節，我們將練習如何將「想法」轉換成「實作」。並且我們必須熟悉如何計算其時間複雜度。\n一、Cheat Table 首先我們需要先瞭解每一種資料結構的各種操作的時間複雜度，以便我們選擇適合的資料結構與演算法。\n下面這種表的 Array, Stack, Queue, Linked List, Hash Table, Binary Search Tree 基本上是要背起來的，其餘的遇到再去認識就好。 接下來就輪到練習實作了，排序演算法是個很好的練習，試著把下表中的排序演算法完成，並且計算其時間複雜度吧。\n參考題目 Leetcode 912. Sort an Array 二、Sorting Algorithm 0. 測資 這個 file 是我寫的測資，可以拿來測試自己的實作，用法是 #include \"agtr.h\"，之後用 judge() 函式測試你寫好的 function。 #include #include #include using namespace std; class agtr{ public: static vector\u003cint\u003e exec(int n, int minv, int maxv) { if (minv \u003e maxv) return {}; else if (minv == maxv) return vector\u003cint\u003e(n, minv); vector\u003cint\u003e res; random_device rd; mt19937 mt(rd()); uniform_real_distribution\u003cdouble\u003e dist(minv, maxv); while (n--) { res.push_back(dist(mt)); } return res; } static vector\u003cint\u003e exec(int n) { return exec(n, 0, 10); } static vector\u003cint\u003e exec() { return exec(10); } static void print(vector\u003cint\u003e\u0026 nums) { cout \u003c\u003c \"[\"; for_each(nums.begin(), nums.end()-1, [](int x) { cout \u003c\u003c x \u003c\u003c \",\"; }); cout \u003c\u003c *(nums.end()-1) \u003c\u003c \"]\"; } static bool check(vector\u003cint\u003e\u0026 nums, vector\u003cint\u003e copy) { sort(copy.begin(), copy.end()); for (int i = 0; i \u003c nums.size(); i++) { if (nums[i] != copy[i]) return false; } return true; } static void judge(void (*func)(vector\u003cint\u003e\u0026)) { int n = 10; bool test = true; int cnt = 0; while (n--) { auto nums = exec(); auto copy = vector\u003cint\u003e(nums.begin(), nums.end()); print(nums); (*func)(nums); cout \u003c\u003c \"-\u003e\"; print(nums); int result = check(nums, copy); cout \u003c\u003c \"(\" \u003c\u003c (result ? \"Pass\" : \"Fail\") \u003c\u003c \")\" \u003c\u003c endl; if (result) cnt++; test \u0026= result; } if (test) { cout \u003c\u003c \"Pass! (10/10)\" \u003c\u003c endl; } else { cout \u003c\u003c \"Fail! (\" \u003c\u003c cnt \u003c\u003c \"/10)\" \u003c\u003c endl; } } }; 以下為測試的方式 # include \"agtr.h\" void sort(vector\u003cint\u003e\u0026 nums) {...} // 你的實作 int main() { agtr::judge(sort); // 用這個函式測試你的實作 return 0; } 1. Bubble Sort void sort(vector\u003cint\u003e\u0026 nums) { int n = nums.size(); for (int i = n-1; i \u003e 0; i--) { for (int j = 0; j \u003c i; j++) { if (nums[j] \u003e nums[j+1]) swap(nums[j], nums[j+1]); } } } 2. Selection SOrt void sort(vector\u003cint\u003e\u0026 nums) { int n = nums.size(); for (int i = 0; i \u003c n-1; i++) { int p = i; for (int j = i+1; j \u003c n; j++) { if (nums[j] \u003c nums[p]) p = j; } swap(nums[p], nums[i]); } } 3. Insertion Sort void sort(vector\u003cint\u003e\u0026 nums){ int n = nums.size(); for (int i = 1; i \u003c n; i++) { int j = i-1; int curr = nums[i]; for (; j \u003e= 0; j--) { if (nums[j] \u003c= curr) { break; } nums[j+1] = nums[j]; } nums[j+1] = curr; } } 4. Heap Sort void heapify(vector\u003cint\u003e\u0026 nums, int i) { int left = 2*i+1; int right = 2*i+2; int p = i; int n = nums.size(); if (left \u003c n \u0026\u0026 nums[left] \u003c nums[p]) p = left; if (right \u003c n \u0026\u0026 nums[right] \u003c nums[p]) p = right; if (p != i) { swap(nums[i], nums[p]); heapify(nums, p); } } void sort(vector\u003cint\u003e\u0026 nums) { vector\u003cint\u003e vec(nums.begin(), nums.end()); int n = vec.size(); int parent = (n-1)/2; for (int i = parent; i \u003e= 0; i--) { heapify(vec, i); } for (int i = 0; i \u003c n; i++) { nums[i] = vec[0]; vec[0] = vec.back(); vec.pop_back(); heapify(vec, 0); } } 5. Tree Sort class TreeNode { private: TreeNode* left, *right; int val; TreeNode* insert(TreeNode* root, int val) { if (!root) { root = new TreeNode(val); return root; } if (val \u003c root-\u003eval) { root-\u003eleft = insert(root-\u003eleft, val); } else { root-\u003eright = insert(root-\u003eright, val); } return root; } void dfs(TreeNode* root, vector\u003cint\u003e\u0026 nums) { if (!root) return; dfs(root-\u003eleft, nums); nums.push_back(root-\u003eval); dfs(root-\u003eright, nums); } public: TreeNode() {} TreeNode(int val) : val(val) {} TreeNode(int val, TreeNode* left, TreeNode* right) : val(val), left(left), right(right) {} void insert(int val) { insert(this, val); } vector\u003cint\u003e getArray() { vector\u003cint\u003e nums; dfs(this, nums); return nums; } }; void sort(vector\u003cint\u003e\u0026 nums) { TreeNode* root = new TreeNode(nums[0]); for (int i = 1; i \u003c nums.size(); i++) { root-\u003einsert(nums[i]); } nums = root-\u003egetArray(); } 6. Merge Sort void merge(vector\u003cint\u003e\u0026 nums, int left, int mid, int right) { int i = left, j = mid + 1; vector\u003cint\u003e tmp; while (i \u003c= mid \u0026\u0026 j \u003c= right) { if (nums[i] \u003c nums[j]) tmp.push_back(nums[i++]); else tmp.push_back(nums[j++]); } while (i \u003c= mid) tmp.push_back(nums[i++]); while (j \u003c= right) tmp.push_back(nums[j++]); for (i = left; i \u003c= right; i++) { nums[i] = tmp[i-left]; } } void sort(vector\u003cint\u003e\u0026 nums, int left, int right) { if (right \u003c= left) return; int mid = left + (right-left)/2; sort(nums, left, mid); sort(nums, mid+1, right); merge(nums, left, mid, right); } void sort(vector\u003cint\u003e\u0026 nums) { sort(nums, 0, nums.size()-1); } 7. Quick Sort nt partition(vector\u003cint\u003e\u0026 nums, int left, int right) { int pivot = left; int i = left; int j = right+1; while (true) { while (i \u003c right \u0026\u0026 nums[++i] \u003c nums[pivot]); while (j \u003e left \u0026\u0026 nums[--j] \u003e nums[pivot]); if (i \u003e= j) break; swap(nums[i], nums[j]); } swap(nums[pivot], nums[j]); return j; } void sort(vector\u003cint\u003e\u0026 nums, int left, int right) { if (left \u003e= right) return; int pivot = partition(nums, left, right); sort(nums, left, pivot-1); sort(nums, pivot+1, right); } void sort(vector\u003cint\u003e\u0026 nums) { sort(nums, 0, nums.size()-1); } 8. Tim Sort #define MIN_MERGE 32 int minRunLength(int n) { int r = 0; while (n \u003e= MIN_MERGE) { r |= (n \u0026 1); n \u003e\u003e= 1; } return n + r; } void insertionSort(vector\u003cint\u003e\u0026 nums, int left, int right) { int n = nums.size(); for (int i = left+1; i \u003c= right; i++) { int j = i-1; int curr = nums[i]; for (; j \u003e= left; j--) { if (nums[j] \u003c= curr) { break; } nums[j+1] = nums[j]; } nums[j+1] = curr; } } void merge(vector\u003cint\u003e\u0026 nums, int left, int mid, int right) { int i = left; int j = mid + 1; vector\u003cint\u003e tmp; while (i \u003c= mid \u0026\u0026 j \u003c= right) { if (nums[i] \u003c nums[j]) tmp.push_back(nums[i++]); else tmp.push_back(nums[j++]); } while (i \u003c= mid) tmp.push_back(nums[i++]); while (j \u003c= right) tmp.push_back(nums[j++]); for (i = left; i \u003c= right; i++) { nums[i] = tmp[i-left]; } } void sort(vector\u003cint\u003e\u0026 nums) { int minRun = minRunLength(MIN_MERGE); int n = nums.size(); for (int i = 0; i \u003c n; i += minRun) { int hi = min((i + MIN_MERGE - 1), n-1); insertionSort(nums, i, hi); } for (int size = minRun; size \u003c n; size \u003c\u003c= 1) { for (int left = 0; left \u003c n; left += (size \u003c\u003c 1)) { int mid = left + size - 1; int right = min((left + (size \u003c\u003c 1) - 1), n-1); if (mid \u003c right) { merge(nums, left, mid, right); } } } } 9. Shell Sort void sort(vector\u003cint\u003e\u0026 nums) { int n = nums.size(); for (int gap = n\u003e\u003e1; gap \u003e 0; gap\u003e\u003e=1) { for (int i = gap; i \u003c n; i++) { int tmp = nums[i]; int j; for (j = i; j \u003e= gap \u0026\u0026 nums[j-gap] \u003e tmp; j -= gap) { nums[j] = nums[j-gap]; } nums[j] = tmp; } } } 10. Counting Sort void sort(vector\u003cint\u003e\u0026 nums) { vector\u003cint\u003e dp(10, 0); for (const auto\u0026 x : nums) { dp[x]++; } int j = 0; for (int i = 0; i \u003c 10; i++) { while (dp[i]-- \u003e 0) { nums[j++] = i; } } } 回到目錄：[Algo] 演算法筆記 接著閱讀：[Algo] 3-1. Two Pointer/Sliding Window ",
+  "wordCount" : "1187",
+  "inLanguage": "zh-tw",
+  "image":"http://localhost:1313/images/faang.webp","datePublished": "2023-03-16T19:50:21+08:00",
   "dateModified": "2023-03-16T19:50:21+08:00",
   "author":{
     "@type": "Person",
@@ -129,14 +132,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/cs/algo/sorting/"
+    "@id": "http://localhost:1313/cs/algo/sorting/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -158,17 +161,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -182,46 +185,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -229,26 +232,27 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/cs/">CS</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/cs/">CSes</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Algo] 3-0. Sorting
     </h1>
     <div class="post-description">
       從排序開始，練習將想法實踐，All start from sorting
     </div>
-    <div class="post-meta"><span title='2023-03-16 19:50:21 +0800 CST'>March 16, 2023</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//CS/algo/sorting.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-03-16 19:50:21 +0800 CST'>March 16, 2023</span>&nbsp;·&nbsp;6 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//CS/algo/sorting.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> 
-<figure class="entry-cover"><img loading="lazy" src="https://intervalrain.github.io/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/faang.webp" alt="Oh! You closed up the window, so you cannot see raining">
         
 </figure><aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -362,16 +366,14 @@
 <p>首先我們需要先瞭解每一種資料結構的各種操作的時間複雜度，以便我們選擇適合的資料結構與演算法。</p>
 <ul>
 <li>下面這種表的 <code>Array</code>, <code>Stack</code>, <code>Queue</code>, <code>Linked List</code>, <code>Hash Table</code>, <code>Binary Search Tree</code> 基本上是要背起來的，其餘的遇到再去認識就好。
-<img loading="lazy" src="/CS/algo/images/bigO.png" alt="bigO"  />
-</li>
+<img alt="bigO" loading="lazy" src="/CS/algo/images/bigO.png"></li>
 </ul>
 </li>
 <li>
 <p>接下來就輪到練習實作了，排序演算法是個很好的練習，試著把下表中的排序演算法完成，並且計算其時間複雜度吧。</p>
 <ul>
 <li>參考題目 <a href="https://leetcode.com/problems/sort-an-array/">Leetcode 912. Sort an Array</a>
-<img loading="lazy" src="/CS/algo/images/cheatTable.png" alt="chartTable"  />
-</li>
+<img alt="chartTable" loading="lazy" src="/CS/algo/images/cheatTable.png"></li>
 </ul>
 </li>
 </ul>
@@ -720,9 +722,9 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/cs/">CS</a></li>
-      <li><a href="https://intervalrain.github.io/tags/algo/">algo</a></li>
-      <li><a href="https://intervalrain.github.io/tags/sorting/">sorting</a></li>
+      <li><a href="http://localhost:1313/tags/cs/">CS</a></li>
+      <li><a href="http://localhost:1313/tags/algo/">Algo</a></li>
+      <li><a href="http://localhost:1313/tags/sorting/">Sorting</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -737,11 +739,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -810,12 +813,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 

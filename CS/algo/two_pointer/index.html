@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh-tw" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>[Algo] 3-1. Two Pointer/Sliding Window | Rain Hu&#39;s Workspace</title>
-<meta name="keywords" content="C&#43;&#43;, Leetcode, Algorithm, two pointer, sliding window" />
+<meta name="keywords" content="C&#43;&#43;, Leetcode, Algorithm, two pointer, sliding window">
 <meta name="description" content="使用雙指標或是更進階的滑動窗口的技巧，對資料集合(可能是array，可能是list)做搜尋。">
 <meta name="author" content="Rain Hu">
-<link rel="canonical" href="https://intervalrain.github.io/" />
-<meta name="google-site-verification" content="XYZabc" />
-<meta name="msvalidate.01" content="XYZabc" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.a17c641b9e6ec5ee7bc49a565650096f69ae478de79da3309cb62f6993aaa8d0.css" integrity="sha256-oXxkG55uxe57xJpWVlAJb2muR43nnaMwnLYvaZOqqNA=" rel="preload stylesheet" as="style">
-<link rel="preload" href="/images/rain.png" as="image">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.de346736737f0523b4cf6dc9299eea363002bb43afcd8cc880593c94533d665c.js" integrity="sha256-3jRnNnN/BSO0z23JKZ7qNjACu0OvzYzIgFk8lFM9Zlw="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://intervalrain.github.io/images/rain.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://intervalrain.github.io/images/rain.png">
-<link rel="apple-touch-icon" href="https://intervalrain.github.io/images/rain.png">
-<link rel="mask-icon" href="https://intervalrain.github.io/images/rain.png">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.662816b9df27c772d2b97c5f5f6bf4f2c5531051a330015f0ad4135736d0e56a.css" integrity="sha256-ZigWud8nx3LSuXxfX2v08sVTEFGjMAFfCtQTVzbQ5Wo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/cs/algo/two_pointer/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +38,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -76,17 +74,21 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
-</script><meta property="og:title" content="[Algo] 3-1. Two Pointer/Sliding Window" />
-<meta property="og:description" content="使用雙指標或是更進階的滑動窗口的技巧，對資料集合(可能是array，可能是list)做搜尋。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://intervalrain.github.io/cs/algo/two_pointer/" /><meta property="article:section" content="CS" />
-<meta property="article:published_time" content="2023-03-19T22:56:03&#43;08:00" />
-<meta property="article:modified_time" content="2023-03-19T22:56:03&#43;08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Algo] 3-1. Two Pointer/Sliding Window"/>
-<meta name="twitter:description" content="使用雙指標或是更進階的滑動窗口的技巧，對資料集合(可能是array，可能是list)做搜尋。"/>
-<meta name="twitter:site" content="@intervalrain"/>
+</script><meta property="og:url" content="http://localhost:1313/cs/algo/two_pointer/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[Algo] 3-1. Two Pointer/Sliding Window">
+  <meta property="og:description" content="使用雙指標或是更進階的滑動窗口的技巧，對資料集合(可能是array，可能是list)做搜尋。">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="cs">
+    <meta property="article:published_time" content="2023-03-19T22:56:03+08:00">
+    <meta property="article:modified_time" content="2023-03-19T22:56:03+08:00">
+    <meta property="article:tag" content="CS">
+    <meta property="article:tag" content="Algo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Algo] 3-1. Two Pointer/Sliding Window">
+<meta name="twitter:description" content="使用雙指標或是更進階的滑動窗口的技巧，對資料集合(可能是array，可能是list)做搜尋。">
+      <meta name="twitter:site" content="@intervalrain">
 
 
 <script type="application/ld+json">
@@ -97,14 +99,14 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "CS",
-      "item": "https://intervalrain.github.io/cs/"
+      "name": "CSes",
+      "item": "http://localhost:1313/cs/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "[Algo] 3-1. Two Pointer/Sliding Window",
-      "item": "https://intervalrain.github.io/cs/algo/two_pointer/"
+      "item": "http://localhost:1313/cs/algo/two_pointer/"
     }
   ]
 }
@@ -119,9 +121,9 @@
   "keywords": [
     "C++", "Leetcode", "Algorithm", "two pointer", "sliding window"
   ],
-  "articleBody": " 前言：\n先前我們在鏈表的單元已經介紹過求鏈表中點的「前後指針」與求有環鏈表的「快慢指針」，這都是雙指針的應用。\n在接下來的這個章節，主要會介紹的雙指針應用，與更進階的滑動窗口(sliding window)的應用。\n 一、Two Pointer in LinkedList  在本文中會學到 LinkedList 的七種技巧：  合併兩個有序鏈表 分解鏈表 合併多個有序鏈表 尋找鏈表的倒數第 k 個節點 尋找鏈表的中點 判斷鏈表是否包含環 判斷兩個鏈表是否相交    1. Merge Two Sorted Lists  Leetcode 21. Merge Two Sorted Lists  這一題的小技巧是創建一個 dummy node 依序將兩條鏈表中較小的值接在後面，最後回傳 dummy-next，過程很像 merge sort。  ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {  ListNode* dummy = new ListNode();  ListNode* curr = dummy;  while (list1 \u0026\u0026 list2) {  if (list1-val  list2-val) {  curr-next = list1;  list1 = list1-next;  } else {  curr-next = list2;  list2 = list2-next;  }  curr = curr-next;  }  if (list1) curr-next = list1;  if (list2) curr-next = list2;  return dummy-next; } 二、Two Pointer in Array 三、Sliding Window   回到目錄：[Algo] 演算法筆記 想要複習：[Algo] 3-0. Sorting 接著閱讀：[Algo] 3-2. Binary Search  ",
+  "articleBody": " 前言：\n先前我們在鏈表的單元已經介紹過求鏈表中點的「前後指針」與求有環鏈表的「快慢指針」，這都是雙指針的應用。\n在接下來的這個章節，主要會介紹的雙指針應用，與更進階的滑動窗口(sliding window)的應用。\n一、Two Pointer in LinkedList 在本文中會學到 LinkedList 的七種技巧： 合併兩個有序鏈表 分解鏈表 合併多個有序鏈表 尋找鏈表的倒數第 k 個節點 尋找鏈表的中點 判斷鏈表是否包含環 判斷兩個鏈表是否相交 1. Merge Two Sorted Lists Leetcode 21. Merge Two Sorted Lists 這一題的小技巧是創建一個 dummy node 依序將兩條鏈表中較小的值接在後面，最後回傳 dummy-\u003enext，過程很像 merge sort。 ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) { ListNode* dummy = new ListNode(); ListNode* curr = dummy; while (list1 \u0026\u0026 list2) { if (list1-\u003eval \u003c= list2-\u003eval) { curr-\u003enext = list1; list1 = list1-\u003enext; } else { curr-\u003enext = list2; list2 = list2-\u003enext; } curr = curr-\u003enext; } if (list1) curr-\u003enext = list1; if (list2) curr-\u003enext = list2; return dummy-\u003enext; } 二、Two Pointer in Array 三、Sliding Window 回到目錄：[Algo] 演算法筆記 想要複習：[Algo] 3-0. Sorting 接著閱讀：[Algo] 3-2. Binary Search ",
   "wordCount" : "111",
-  "inLanguage": "en",
+  "inLanguage": "zh-tw",
   "datePublished": "2023-03-19T22:56:03+08:00",
   "dateModified": "2023-03-19T22:56:03+08:00",
   "author":{
@@ -130,14 +132,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://intervalrain.github.io/cs/algo/two_pointer/"
+    "@id": "http://localhost:1313/cs/algo/two_pointer/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Rain Hu's Workspace",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://intervalrain.github.io/images/rain.png"
+      "url": "http://localhost:1313/images/rain.png"
     }
   }
 }
@@ -159,17 +161,17 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://intervalrain.github.io/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
-                <img src="https://intervalrain.github.io/images/rain.png" alt="logo" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
                     height="35">Rain Hu&#39;s Workspace</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,46 +185,46 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </span>
+            </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://intervalrain.github.io/search" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/aboutme" title="About me">
+                <a href="http://localhost:1313/aboutme" title="About me">
                     <span>About me</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/archives" title="Archives">
+                <a href="http://localhost:1313/archives" title="Archives">
                     <span>Archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csharp/csharp" title="C#">
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
                     <span>C#</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/csindex" title="CS">
+                <a href="http://localhost:1313/csindex" title="CS">
                     <span>CS</span>
                 </a>
             </li>
             <li>
-                <a href="https://intervalrain.github.io/leetcode" title="LeetCode">
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
                     <span>LeetCode</span>
                 </a>
             </li>
@@ -230,23 +232,24 @@
     </nav>
 </header>
 <main class="main">
+
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://intervalrain.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://intervalrain.github.io/cs/">CS</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/cs/">CSes</a></div>
+    <h1 class="post-title entry-hint-parent">
       [Algo] 3-1. Two Pointer/Sliding Window
     </h1>
     <div class="post-description">
       使用雙指標或是更進階的滑動窗口的技巧，對資料集合(可能是array，可能是list)做搜尋。
     </div>
-    <div class="post-meta"><span title='2023-03-19 22:56:03 +0800 CST'>March 19, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//CS/algo/two_pointer.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2023-03-19 22:56:03 +0800 CST'>March 19, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//CS/algo/two_pointer.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <aside id="toc-container" class="toc-container wide">
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目錄</span>
             </summary>
 
             <div class="inner"><ul>
@@ -348,8 +351,7 @@
 <h3 id="1-merge-two-sorted-lists">1. Merge Two Sorted Lists<a hidden class="anchor" aria-hidden="true" href="#1-merge-two-sorted-lists">#</a></h3>
 <ul>
 <li><a href="https://leetcode.com/problems/merge-two-sorted-lists/">Leetcode 21. Merge Two Sorted Lists</a>
-<img loading="lazy" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg" alt="ex1-1"  />
-</li>
+<img alt="ex1-1" loading="lazy" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg"></li>
 <li>這一題的小技巧是創建一個 <code>dummy node</code> 依序將兩條鏈表中較小的值接在後面，最後回傳 <code>dummy-&gt;next</code>，過程很像 <code>merge sort</code>。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>ListNode<span style="color:#f92672">*</span> <span style="color:#a6e22e">mergeTwoLists</span>(ListNode<span style="color:#f92672">*</span> list1, ListNode<span style="color:#f92672">*</span> list2) {
@@ -383,8 +385,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://intervalrain.github.io/tags/cs/">CS</a></li>
-      <li><a href="https://intervalrain.github.io/tags/algo/">algo</a></li>
+      <li><a href="http://localhost:1313/tags/cs/">CS</a></li>
+      <li><a href="http://localhost:1313/tags/algo/">Algo</a></li>
     </ul>
 
   </footer><script src="https://utteranc.es/client.js"
@@ -399,11 +401,12 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://intervalrain.github.io/">Rain Hu&#39;s Workspace</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -472,12 +475,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerHTML = '複製';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerHTML = '已複製！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerHTML = '複製';
             }, 2000);
         }
 
