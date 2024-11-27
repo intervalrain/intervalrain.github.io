@@ -23,6 +23,13 @@
       <description>The first day of being the freelancer</description>
     </item>
     <item>
+      <title>About me</title>
+      <link>http://localhost:1313/aboutme/</link>
+      <pubDate>Sun, 24 Nov 2024 17:54:48 +0800</pubDate>
+      <guid>http://localhost:1313/aboutme/</guid>
+      <description>Who am I?</description>
+    </item>
+    <item>
       <title>[Life] 原子習慣</title>
       <link>http://localhost:1313/life/20230218/</link>
       <pubDate>Sat, 18 Feb 2023 14:28:24 +0800</pubDate>

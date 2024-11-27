@@ -49,15 +49,6 @@ params:
   ShowBreadCrumbs: true
   comments: true
   GHissueID: 2
-  locale: 'zh-tw'
-
-  social:
-    facebook: intervalrain
-    instagram: intervalrain
-    linkedin: intervalrain
-    github: intervalrain
-    twitter: intervalrain
-    youtube: UCE0Y75__1fPNJGmwbMG0MSA
 
   assets:
     favicon: "/images/rain.png"
@@ -93,19 +84,19 @@ params:
       - name: "C#"
         url: "csharp/csharp"
  
-#  socialIcons:
-#    - name: facebook
-#      url: "https://facebook.com/intervalrain"
-#    - name: instagram
-#      url: "https://instagram.com/intervalrain"
-#    - name: linkedin
-#      url: "https://linkedin.com/in/intervalrain"
-#    - name: github
-#      url: "https://github.com/intervalrain"
-#    - name: twitter
-#      url: "https://twitter.com/intervalrain"
-#    - name: youtube
-#      url: "https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA"
+  socialIcons:
+    - name: facebook
+      url: "https://facebook.com/intervalrain"
+    - name: instagram
+      url: "https://instagram.com/intervalrain"
+    - name: linkedin
+      url: "https://linkedin.com/in/intervalrain"
+    - name: github
+      url: "https://github.com/intervalrain"
+    - name: twitter
+      url: "https://twitter.com/intervalrain"
+    - name: youtube
+      url: "https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA"
 
   analytics:
     google:

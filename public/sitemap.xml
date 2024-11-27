@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-11-27T17:54:48+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/diary/20241126/</loc>
     <lastmod>2024-11-26T22:45:35+08:00</lastmod>
   </url><url>
@@ -20,11 +17,17 @@
     <loc>http://localhost:1313/categories/life/</loc>
     <lastmod>2024-11-26T22:45:35+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-11-26T22:45:35+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-11-26T22:45:35+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/diary/20241125/</loc>
     <lastmod>2024-11-25T16:22:30+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/aboutme/</loc>
+    <lastmod>2024-11-24T17:54:48+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/it/save_react/</loc>
     <lastmod>2024-08-16T01:44:44+08:00</lastmod>

@@ -23,6 +23,13 @@
       <description>The first day of being the freelancer</description>
     </item>
     <item>
+      <title>About me</title>
+      <link>http://localhost:1313/aboutme/</link>
+      <pubDate>Sun, 24 Nov 2024 17:54:48 +0800</pubDate>
+      <guid>http://localhost:1313/aboutme/</guid>
+      <description>Who am I?</description>
+    </item>
+    <item>
       <title>[Hugo] 使用 Hugo-notice</title>
       <link>http://localhost:1313/hugo/notice/</link>
       <pubDate>Fri, 19 Jan 2024 01:26:30 +0800</pubDate>
