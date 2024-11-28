@@ -173,6 +173,18 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[IT] 事件總線 EventBus
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>EventBus EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。 Interfaces IEventData public interface IEventData { DateTime EventTime { get; set; } object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler&lt;TEventData&gt; : IEventHandler where TEventData : IEventData { void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData { public DateTime EventTIme { get; set; } object EventSource { get; set; } public EventData() { EventTime = DateTime.Now; } } Domain FishType public enum FishType { None, 鯽魚, 鯉魚, 黑魚, 青魚, 草魚, 鱸魚 } FishingEventData : EventData public class FishingEventData : EventData { public FishType FishType { get; set; } public FishingMan FishingMan { get; set; } } FishingEventHandler : IEventHandler public class FishingEventHandler : IEventHandler&lt;FishingEventData&gt; { public void HandleEvent(FishingEventData eventData) { var type = eventData.FishType; var fishMan = eventData.FishingMan; var Name = fishMan.Name; if (type == FishType.None) { fishMan.Message = string.Format(&#34;{0}: 沒有釣到魚, 累計釣了{1}條魚&#34;, Name, fishMan.FishCount); } else { fishMan.FishCount&#43;&#43;; fishMan.Message = string.Format(&#34;{0}: 釣到一條[{2}], 累計釣了{1}條魚&#34;, Name, fishMan.FishCount, type); } } } FishingMan public class FishingMan { public string Name { get; set; } public int FishCount { get; set; } public FishingRod FishingRod { get; set; } public string Message { get; set; } public FishingMan(string name) { Name = name; FishCount = 0; } public void Fishing() { FishingRod.ThrowHook(this); } } FishingRod 用反射註冊事件 public class FishingRod { public string Message { get; private set; } public FishingRod() { } public void ThrowHook(FishingMan man) { if (new Random().Next() % 2 == 0) { var type = (FishType)(new Random().Next(0, 5) &#43; 1); Message = (&#34;魚兒上鉤了!&#34;); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData); } } else { var type = FishType.None; Message = (&#34;可惜了!&#34;); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData); } } } } EventBus 實作 用一個靜態單例來統一管理事件 public class EventBus { public static EventBus Default =&gt; new EventBus(); private readonly ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt; _eventAndHandlerMapping; private EventBus() { _eventAndHandlerMapping = new ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt;(); MapEventToHandler(); } private void MapEventToHandler() { Assembly assembly = Assembly.GetEntryAssembly(); foreach (var type in assembly.GetTypes()) { if (typeof(IEventHandler).IsAssignableFrom(type)) { Type handlerInterface = type.GetInterface(&#34;IEventHandler`1&#34;); if (handlerInterface == null) continue; Type eventDataType = handlerInterface.GetGenericArguments()[0]; if (_eventAndHandlerMapping.ContainsKey(eventDataType)) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[eventDataType]; handlerTypes.Add(type); _eventAndHandlerMapping[eventDataType] = handlerTypes; } else { var handlerTypes = new List&lt;Type&gt; { type }; _eventAndHandlerMapping[eventDataType] = handlerTypes; } } } } public void Register&lt;TEventData&gt;(Type eventHandler) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; if (!handlerTypes.Contains(eventHandler)) { handlerTypes.Add(eventHandler); _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; } } public void Unsubscribe&lt;TEventData&gt;(Type eventHandler) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; if (!handlerTypes.Contains(eventHandler)) { handlerTypes.Remove(eventHandler); _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; } } public void Trigger&lt;TEventData&gt;(TEventData eventData) where TEventData : IEventData { List&lt;Type&gt; handlers = _eventAndHandlerMapping[eventData.GetType()]; if (handlers != null &amp;&amp; handlers.Count &gt; 0) { foreach (var handler in handlers) { MethodInfo methodInfo = handler.GetMethod(&#34;HandleEvent&#34;); if (methodInfo != null) { object obj = Activator.CreateInstance(handler); methodInfo.Invoke(obj, new object[] { eventData }); } } } } } demo MacOs Cocoa Project public partial class ViewController : NSViewController { public ViewController (IntPtr handle) : base (handle) { } public override void ViewDidLoad () { base.ViewDidLoad (); jeff = new FishingMan(&#34;Jeff&#34;); rod = new FishingRod(); jeff.FishingRod = rod; EventBus eventBus = EventBus.Default; eventBus.Register&lt;FishingEventData&gt;(typeof(FishingEventHandler)); } FishingMan jeff; FishingRod rod; public override NSObject RepresentedObject { get { return base.RepresentedObject; } set { base.RepresentedObject = value; } } partial void Button_Click(NSButton sender) { jeff.Fishing(); TextLabel.StringValue = rod.Message; TextLabel2.StringValue = jeff.Message ?? &#34;&#34;; } } </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-25 23:50:02 +0800 CST'>September 25, 2023</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [IT] 事件總線 EventBus" href="http://localhost:1313/it/eventbus/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[IT] 關聯模式的五大鍵 Super key、Candidate Key、Primary Key、Alternate Key、Foreign Key
     </h2>
   </header>
@@ -310,26 +322,12 @@ To sort the records in descending order, used DESC keyword. SELECT column1, colu
   <footer class="entry-footer"><span title='2022-04-29 11:40:10 +0800 CST'>April 29, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [IT] Introduction to Microservices, Docker and Kubernetes" href="http://localhost:1313/it/microservices_docker_kubernetes/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[IT] 在 GitHub Pages 中渲染 KaTex 公式
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>0. 前言 以往寫筆記通常是使用 Notion，簡單的 Markdown 語法搭配支援 LaTex，使得在撰寫學習筆記時，可以達到快速且美觀的呈現。 雖說 GitHub Pages 支援了 Markdown 的語法，但卻不支援 LaTex，這使得想將筆記從 Notion 移轉到 GitHub Pages，成為一個小缺點。 而此處介紹的是在網頁上顯示較為輕便的 KaTex。 1. 解決方法 利用 KaTex，在靜態頁面掛載 JavaScript 程式碼。 其在官網的描述是： Beautilful math in all browsers A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works.
-Step 1. 創建一個可常駐的靜態頁面 在 \layouts\partials\ 下創建一個叫作 math.html 的頁面。 注意是 global 的 layouts 文件夾中不是 hugo themes 中的文件夾 開啟頁面之後，在 &lt;head&gt; 與 &lt;/head&gt; 之間加入下一步驟內的 JavaScript 程式碼。 Step 2. 將 JavaScript 程式碼貼入 math.html &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css&#34; integrity=&#34;sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET&#34; crossorigin=&#34;anonymous&#34;&gt; &lt;script defer src=&#34;https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js&#34; integrity=&#34;sha384-GxNFqL3r9uRJQhR&#43;47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt; &lt;script defer src=&#34;https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js&#34; integrity=&#34;sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl&#34; crossorigin=&#34;anonymous&#34; onload=&#34;renderMathInElement(document.body);&#34;&gt;&lt;/script&gt; 上面的程式碼是將 KaTex 的渲染程式碼寫到 math.html 中。 Step 3. 將 Hugo theme 中的 header.html 複製出來 同樣將 header.html 複製到 global 下的 \layout\partials，並貼入 {{- /* Head custom content area start */ -}} {{- /* Insert any custom code (web-analytics, resources, etc.) - it will appear in the &lt;head&gt;&lt;/head&gt; section of every page. */ -}} {{- /* Can be overwritten by partial with the same name in the global layouts. */ -}} {{ if or .Params.math .Site.Params.math }} {{ partial &#34;math.html&#34; . }} {{ end }} {{- /* Head custom content area end */ -}} 上面的程式碼的功能將 math.html 嵌進 header.html 中，並以 config.yml 中的 .param.math 指令來控制。 Step 4. 開始撰寫 KaTex 一開始先將標頭的定義區將 math: true，即可開啟該頁面的 KaTex 渲染功能。 在 \\( 符號與 \\) 符號間進行 inline equation 插入。 或在 $ $ 符號與 $ $ 間進行 block equation 的插入。 LaTex 的語法可以參考https://www.cs.pu.edu.tw/~wckuo/doc/latex123/node11.html 參考來源：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-02-22 01:38:30 +0800 CST'>February 22, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [IT] 在 GitHub Pages 中渲染 KaTex 公式" href="http://localhost:1313/it/latexrendering/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://localhost:1313/tags/it/">
       «&nbsp;上一頁&nbsp;
+    </a>
+    <a class="next" href="http://localhost:1313/tags/it/page/3/">下一頁&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

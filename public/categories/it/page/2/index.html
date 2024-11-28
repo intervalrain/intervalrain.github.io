@@ -173,6 +173,18 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[Statistics] a群體與b群體各別標準差求整體標準差
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\) 1. 簡化 \(\sigma\) 將 \(\sigma\) 乘開 \(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\) \(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}&#43;n\bar x^2}}{n}}\) 平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故 \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}&#43;\frac{n\bar x^2}{n}}\) \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2&#43;\bar x^2}\) 得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\) 2. 求個別平方和 由\((1)\)式可推得各別的標準差為 \(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\) 且 \(\boxed{n = n_a&#43;n_b}-(3)\) \(\boxed{\sum x_i^2=\sum x_{ai}^2&#43;\sum x_{bi}^2}-(4)\) 欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開 \(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\) \(\sigma_a^2&#43;\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\) 得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2&#43;\bar x_a^2)}-(5)\) 3. 求總體標準差 由\((1)\)式展開 得 \(\boxed{\sigma = \sqrt{\frac{(\sum x_{ai}^2&#43;\sum x_{bi}^2)}{n}-\bar x^2}}-(6)\) 將\((5)\)代入\((6)\) \(\boxed{\sigma=\sqrt{\frac{n_a(\sigma_a^2&#43;\bar x_a^2)&#43;n_b(\sigma_b^2&#43;\bar x_n^2)}{n}-\bar x^2}}-(7)\) 其中 \(\boxed{\bar x=\frac{n_a\bar x_a &#43; n_b\bar x_b}{n}}-(8)\) 故我們可以從上式輾轉得通式： \(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))}{n}-\bar x^2}}-(9)\) 或寫成 \(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{n}}}-(9)\) summary 個數 \(\boxed{n=n_a&#43;n_b=\sum n_i}\) 平均數 \(\boxed{\bar x=\frac{n_a\bar x_a&#43;n_b\bar x_b}{n_a&#43;n_b}=\frac{\sum{n_i\bar x_i}}{\sum{n_i}}}\) 標準差 \(\boxed{\sigma=\sqrt{\frac{n_{ai}(\sigma_{ai}^2&#43;\bar x_{ai}^2)&#43;n_{bi}(\sigma_{bi}^2&#43;\bar x_{bi}^2)-(n_a\bar x_a&#43;n_b\bar x_b)}{n_a&#43;n_b}}=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{\sum n_i}}}\) 4. sql 現有一 table 存有 avg_value std_value site_count with stats as ( select ... sum(site_count*avg_value)/sum(site_count) as avg_value, sqrt((sum(site_count*(square(std_value)&#43;square(avg_value)))-sum(site_count*avg_value))/sum(site_count)) as std_value, sum(site_count) as site_count from data where ... group by ... ) select * from stats </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-12-12 22:16:04 +0800 CST'>December 12, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Statistics] a群體與b群體各別標準差求整體標準差" href="http://localhost:1313/statistics/sigma/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[IT] DDD, Hexagonal, Onion, Clean, CQRS 大整合
     </h2>
   </header>
@@ -354,31 +366,6 @@ Two subsystems commonly serve very different user communities - Eric Evans 2014,
   </div>
   <footer class="entry-footer"><span title='2023-10-26 23:11:53 +0800 CST'>October 26, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;hgraca</footer>
   <a class="entry-link" aria-label="post link to [IT] 領域驅動設計 Domain-Driven Design" href="http://localhost:1313/hgraca/domain-driven-design/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[IT] 套件與命名空間 packaging &amp; namespacing
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>系統的架構是該系統的高層視圖、大局觀，以粗略的筆觸描繪的系統設計。架構決策是系統中的結構性決策，影響整個程式庫的決策，也是定義其他所有元素將在其上建立的決策。
-架構決定系統的許多元素，包含：
-組件 Components 組件之間的關係 Relationships between components 指導組件與組件間關係如何設計與如何演化 Principles guiding the design and evolution of components and relationships 換句話說，這些是隨著系統演進更難改變的設計決策，它們是支撐功能開發的基礎。
-義大利麵架構 Spaghetti Architecture 有些專案，結構隨機，既不反映架構，也不反映領域。如果我問「我應該把這個 value object 放在哪裡？」結果得到「把它放在 src 資料夾的某個地方」這樣的回答；如果我問「執行這個邏輯的 service 在哪裡？」卻得到「用你的 IDE 進行搜索」這樣的回答。這意味著專案沒有經過組織，這樣鬆散的結構就稱為義大利麵架構(Spaghetti Architecture)。
-這是一個大問題，因為這意味著沒有套件模組化，高階的程式碼關係和流程並沒有可以遵循的邏輯結構，導致模組之間高度耦合且低內聚，實際上可能代表根本沒有模組，應該屬於模組的程式碼散佈在整個程式碼庫中。
-可維護的程式碼庫 擁有一個可維護的程式庫意味著我們可以變更最少的程式碼來實現最大的概念變更。換句話說，當我們需要對一個程式碼單元進行變更時，我們應該盡可能少地對其他程式碼單元進行變更。
-這樣帶來的優點有：
-程式碼的修改變得簡單，因為它們對較少的程式碼產生影響。 程式碼的修改會更快，因為需要修改的程式碼較少。 因為修改的程式碼變少，出現錯誤的可能性也更低。 封裝(encapsulation)、**低耦合(low coupling)和高內聚(high cohesion)**是使程式碼隔離的核心原則，使得我們能夠擁有可維護的程式碼基礎。
-封裝 Encapsulation 這是隱藏類別的內部訊息與實作的過程。
-也就是說，它對外隱藏了實作的方式，使得一個類別的內部結構可以自由變更，而不會影響使用這個特定類別的其他類別。
-低耦合 Low coupling 耦合是指一個程式碼單元與另一個程式碼單元的關係。如果對一個模組的更改將導致對另一個模組的更改，則該模組被認為與另一個模組高度耦合。而如果一個模組獨立於任何其他模組，則該模組被認為是低耦合的。這可以通過擁有一個穩定的介面來實現，有效地隱藏了對其他模組的實現。
-低耦合的好處 可維護性(maintainability) - 變更僅限於單一模組 可測試性(testability) - 可以將單元測試涉及的模塊限制到最小 可讀性(readability) - 需要分析的類別被保持在最小範圍內 高內聚 High Cohesion 內聚性是指一個模塊的功能之間的緊密相關程度的衡量。低內聚是指模組間具有許多不相關的職責；高內聚是指模組間有類似的概念。
-高內聚的好處 可讀性(readability) - 相關的功能都包含在單一模塊中 可維護性(maintainability) - bug 通常會被限制在單一模組中 重用性(reusability) - 專注於類別的功能，不被無用的功能污染 結構上的影響 前述的原則通常與類別相關，然而，它們對於類別群組也同樣適用。類別群組在一般情況下被稱為套件(package)，但如果它們具有純粹的功能性目標(例如 ORM)，我們可以更具體地稱呼它們為模組(module)；如果它們具有領域目標(例如 AccountManagement)，我們可以稱呼它們為組件(components)。這與 Bass, Clements 和 Kazman 在他們的書《實踐軟體架構(Software Architecture in Practice)》中解釋的定義是一致的。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-10-23 23:14:14 +0800 CST'>October 23, 2023</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;hgraca</footer>
-  <a class="entry-link" aria-label="post link to [IT] 套件與命名空間 packaging & namespacing" href="http://localhost:1313/hgraca/packaging-code/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -6,20 +6,20 @@
     <description>Recent content in Categories on Rain Hu&#39;s Workspace</description>
     <generator>Hugo -- 0.139.2</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 26 Nov 2024 22:45:35 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2024 16:33:39 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IT</title>
+      <link>http://localhost:1313/categories/it/</link>
+      <pubDate>Thu, 28 Nov 2024 16:33:39 +0800</pubDate>
+      <guid>http://localhost:1313/categories/it/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Life</title>
       <link>http://localhost:1313/categories/life/</link>
       <pubDate>Tue, 26 Nov 2024 22:45:35 +0800</pubDate>
       <guid>http://localhost:1313/categories/life/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>IT</title>
-      <link>http://localhost:1313/categories/it/</link>
-      <pubDate>Fri, 16 Aug 2024 01:44:44 +0800</pubDate>
-      <guid>http://localhost:1313/categories/it/</guid>
       <description></description>
     </item>
     <item>

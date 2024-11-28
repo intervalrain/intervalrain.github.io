@@ -173,6 +173,27 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>npx create-react-app [project-name] --template typescript cd [project-name] 安裝 TailwindCSS 及其相依套件：
+bashCopynpm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p
+設定 tailwind.config.js：
+javascriptCopy/** @type {import(’tailwindcss’).Config} / module.exports = { content: [ “./src/**/.{js,jsx,ts,tsx}”, ], theme: { extend: {}, }, plugins: [], }
+在 src/index.css 中加入 Tailwind directives：
+cssCopy@tailwind base; @tailwind components; @tailwind utilities;
+建立 Context 的 TypeScript 版本（src/context/AppContext.tsx）：
+typescriptCopyimport { createContext, useContext, ReactNode, useState } from ‘react’;
+// 定義狀態的介面 interface AppState { // 在這裡定義你的狀態類型 count: number; // 其他狀態… }
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-11-28 16:33:39 +0800 CST'>November 28, 2024</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [IT] 初始 react project (TailwindCSS & TypeScript & Context)" href="http://localhost:1313/it/init_react_project/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[IT] 拯救 react
     </h2>
   </header>

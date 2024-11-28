@@ -2,10 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/diary/20241126/</loc>
-    <lastmod>2024-11-26T22:45:35+08:00</lastmod>
+    <loc>http://localhost:1313/it/init_react_project/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/it/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/it/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/it/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/react/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/tailwindcss/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/typescript/</loc>
+    <lastmod>2024-11-28T16:33:39+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/diary/20241126/</loc>
     <lastmod>2024-11-26T22:45:35+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/diary/</loc>
@@ -17,12 +44,6 @@
     <loc>http://localhost:1313/categories/life/</loc>
     <lastmod>2024-11-26T22:45:35+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-11-26T22:45:35+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-11-26T22:45:35+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/diary/20241125/</loc>
     <lastmod>2024-11-25T16:22:30+08:00</lastmod>
   </url><url>
@@ -30,18 +51,6 @@
     <lastmod>2024-11-24T17:54:48+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/it/save_react/</loc>
-    <lastmod>2024-08-16T01:44:44+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/it/</loc>
-    <lastmod>2024-08-16T01:44:44+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/it/</loc>
-    <lastmod>2024-08-16T01:44:44+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/it/</loc>
-    <lastmod>2024-08-16T01:44:44+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/react/</loc>
     <lastmod>2024-08-16T01:44:44+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/ai/</loc>

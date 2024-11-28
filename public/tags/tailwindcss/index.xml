@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>TailwindCSS on Rain Hu&#39;s Workspace</title>
+    <link>http://localhost:1313/tags/tailwindcss/</link>
+    <description>Recent content in TailwindCSS on Rain Hu&#39;s Workspace</description>
+    <generator>Hugo -- 0.139.2</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 28 Nov 2024 16:33:39 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tailwindcss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)</title>
+      <link>http://localhost:1313/it/init_react_project/</link>
+      <pubDate>Thu, 28 Nov 2024 16:33:39 +0800</pubDate>
+      <guid>http://localhost:1313/it/init_react_project/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx create-react-app &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;project-name&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; --template typescript
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;project-name&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安裝 TailwindCSS 及其相依套件：&lt;/p&gt;
+&lt;p&gt;bashCopynpm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p&lt;/p&gt;
+&lt;p&gt;設定 tailwind.config.js：&lt;/p&gt;
+&lt;p&gt;javascriptCopy/** @type {import(&amp;rsquo;tailwindcss&amp;rsquo;).Config} &lt;em&gt;/
+module.exports = {
+content: [
+&amp;ldquo;./src/**/&lt;/em&gt;.{js,jsx,ts,tsx}&amp;rdquo;,
+],
+theme: {
+extend: {},
+},
+plugins: [],
+}&lt;/p&gt;
+&lt;p&gt;在 src/index.css 中加入 Tailwind directives：&lt;/p&gt;
+&lt;p&gt;cssCopy@tailwind base;
+@tailwind components;
+@tailwind utilities;&lt;/p&gt;
+&lt;p&gt;建立 Context 的 TypeScript 版本（src/context/AppContext.tsx）：&lt;/p&gt;
+&lt;p&gt;typescriptCopyimport { createContext, useContext, ReactNode, useState } from &amp;lsquo;react&amp;rsquo;;&lt;/p&gt;
+&lt;p&gt;// 定義狀態的介面
+interface AppState {
+// 在這裡定義你的狀態類型
+count: number;
+// 其他狀態&amp;hellip;
+}&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

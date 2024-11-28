@@ -173,6 +173,27 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>npx create-react-app [project-name] --template typescript cd [project-name] 安裝 TailwindCSS 及其相依套件：
+bashCopynpm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p
+設定 tailwind.config.js：
+javascriptCopy/** @type {import(’tailwindcss’).Config} / module.exports = { content: [ “./src/**/.{js,jsx,ts,tsx}”, ], theme: { extend: {}, }, plugins: [], }
+在 src/index.css 中加入 Tailwind directives：
+cssCopy@tailwind base; @tailwind components; @tailwind utilities;
+建立 Context 的 TypeScript 版本（src/context/AppContext.tsx）：
+typescriptCopyimport { createContext, useContext, ReactNode, useState } from ‘react’;
+// 定義狀態的介面 interface AppState { // 在這裡定義你的狀態類型 count: number; // 其他狀態… }
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-11-28 16:33:39 +0800 CST'>November 28, 2024</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [IT] 初始 react project (TailwindCSS & TypeScript & Context)" href="http://localhost:1313/it/init_react_project/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[IT] 拯救 react
     </h2>
   </header>
@@ -286,18 +307,6 @@ dotnet new sln -o Mysln 進入專案所在的資料夾 cd Mysln 根據預先的�
   </div>
   <footer class="entry-footer"><span title='2024-01-19 00:41:51 +0800 CST'>January 19, 2024</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [IT] CORS 跨原始來源要求" href="http://localhost:1313/it/cors/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[Statistics] a群體與b群體各別標準差求整體標準差
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Given \(\sigma_a\) and \(\sigma_b\), Ask for \(\sigma\) 1. 簡化 \(\sigma\) 將 \(\sigma\) 乘開 \(\sigma = \sqrt{\frac{\sum{(x_i-\bar x)^2}}{n}}\) \(\sigma = \sqrt{\frac{\sum{x_i^2-2\bar x\sum{x_i}&#43;n\bar x^2}}{n}}\) 平均等於總和除以個數 \(\frac{\sum x_i}{n}=\bar x\)，故 \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-\frac{2\bar x\sum x_i}{n}&#43;\frac{n\bar x^2}{n}}\) \(\sigma = \sqrt{\frac{\sum x_i^2}{n}-2\bar x^2&#43;\bar x^2}\) 得 \(\boxed{\sigma = \sqrt{\frac{\sum x_i^2}{n}-\bar x^2}}-(1)\) 2. 求個別平方和 由\((1)\)式可推得各別的標準差為 \(\boxed{\sigma_a = \sqrt{\frac{\sum x_{ai}^2}{n_a}-\bar x_a^2}}-(2)\) 且 \(\boxed{n = n_a&#43;n_b}-(3)\) \(\boxed{\sum x_i^2=\sum x_{ai}^2&#43;\sum x_{bi}^2}-(4)\) 欲求 \(\sum x_{ai}^2\)，我們將\((2)\)式展開 \(\sigma_a^2 = \frac{\sum x_{ai}^2}{n_a}-\bar x_a^2\) \(\sigma_a^2&#43;\bar x_a^2= \frac{\sum x_{ai}^2}{n_a}\) 得\(\boxed{\sum x_{ai}^2=n_a(\sigma_a^2&#43;\bar x_a^2)}-(5)\) 3. 求總體標準差 由\((1)\)式展開 得 \(\boxed{\sigma = \sqrt{\frac{(\sum x_{ai}^2&#43;\sum x_{bi}^2)}{n}-\bar x^2}}-(6)\) 將\((5)\)代入\((6)\) \(\boxed{\sigma=\sqrt{\frac{n_a(\sigma_a^2&#43;\bar x_a^2)&#43;n_b(\sigma_b^2&#43;\bar x_n^2)}{n}-\bar x^2}}-(7)\) 其中 \(\boxed{\bar x=\frac{n_a\bar x_a &#43; n_b\bar x_b}{n}}-(8)\) 故我們可以從上式輾轉得通式： \(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))}{n}-\bar x^2}}-(9)\) 或寫成 \(\boxed{\sigma=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{n}}}-(9)\) summary 個數 \(\boxed{n=n_a&#43;n_b=\sum n_i}\) 平均數 \(\boxed{\bar x=\frac{n_a\bar x_a&#43;n_b\bar x_b}{n_a&#43;n_b}=\frac{\sum{n_i\bar x_i}}{\sum{n_i}}}\) 標準差 \(\boxed{\sigma=\sqrt{\frac{n_{ai}(\sigma_{ai}^2&#43;\bar x_{ai}^2)&#43;n_{bi}(\sigma_{bi}^2&#43;\bar x_{bi}^2)-(n_a\bar x_a&#43;n_b\bar x_b)}{n_a&#43;n_b}}=\sqrt{\frac{\sum(n_i(\sigma_i^2&#43;\bar x_i^2))-\sum n_i\bar x_i}{\sum n_i}}}\) 4. sql 現有一 table 存有 avg_value std_value site_count with stats as ( select ... sum(site_count*avg_value)/sum(site_count) as avg_value, sqrt((sum(site_count*(square(std_value)&#43;square(avg_value)))-sum(site_count*avg_value))/sum(site_count)) as std_value, sum(site_count) as site_count from data where ... group by ... ) select * from stats </p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-12 22:16:04 +0800 CST'>December 12, 2023</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [Statistics] a群體與b群體各別標準差求整體標準差" href="http://localhost:1313/statistics/sigma/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
