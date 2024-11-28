@@ -188,6 +188,27 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>npx create-react-app [project-name] --template typescript cd [project-name] 安裝 TailwindCSS 及其相依套件：
+bashCopynpm install -D tailwindcss postcss autoprefixer npx tailwindcss init -p
+設定 tailwind.config.js：
+javascriptCopy/** @type {import(’tailwindcss’).Config} / module.exports = { content: [ “./src/**/.{js,jsx,ts,tsx}”, ], theme: { extend: {}, }, plugins: [], }
+在 src/index.css 中加入 Tailwind directives：
+cssCopy@tailwind base; @tailwind components; @tailwind utilities;
+建立 Context 的 TypeScript 版本（src/context/AppContext.tsx）：
+typescriptCopyimport { createContext, useContext, ReactNode, useState } from ‘react’;
+// 定義狀態的介面 interface AppState { // 在這裡定義你的狀態類型 count: number; // 其他狀態… }
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-11-28 16:33:39 +0800 CST'>November 28, 2024</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [IT] 初始 react project (TailwindCSS & TypeScript & Context)" href="http://localhost:1313/it/init_react_project/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">[IT] 拯救 react
     </h2>
   </header>
@@ -301,18 +322,6 @@ dotnet new sln -o Mysln 進入專案所在的資料夾 cd Mysln 根據預先的�
   </div>
   <footer class="entry-footer"><span title='2024-01-19 00:41:51 +0800 CST'>January 19, 2024</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu</footer>
   <a class="entry-link" aria-label="post link to [IT] CORS 跨原始來源要求" href="http://localhost:1313/it/cors/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">[IT] 事件總線 EventBus
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>EventBus EventBus 用於維護一個事件源與事件處理的映射字典 通過 Singleton，確保 EventBus 的唯一入口 利用反射完成事件源與件事處理的初始化綁定 提供統一的事件注冊(register)、取消注冊(unsubscribe)和觸發(trigger)。 Interfaces IEventData public interface IEventData { DateTime EventTime { get; set; } object EventSource {get; set; } } IEventHandler public interface IEventHandler { } IEventHandler`1 public interface IEventHandler&lt;TEventData&gt; : IEventHandler where TEventData : IEventData { void HandlerEvent(TEventData eventData); } base class EventData public class EventData : IEventData { public DateTime EventTIme { get; set; } object EventSource { get; set; } public EventData() { EventTime = DateTime.Now; } } Domain FishType public enum FishType { None, 鯽魚, 鯉魚, 黑魚, 青魚, 草魚, 鱸魚 } FishingEventData : EventData public class FishingEventData : EventData { public FishType FishType { get; set; } public FishingMan FishingMan { get; set; } } FishingEventHandler : IEventHandler public class FishingEventHandler : IEventHandler&lt;FishingEventData&gt; { public void HandleEvent(FishingEventData eventData) { var type = eventData.FishType; var fishMan = eventData.FishingMan; var Name = fishMan.Name; if (type == FishType.None) { fishMan.Message = string.Format(&#34;{0}: 沒有釣到魚, 累計釣了{1}條魚&#34;, Name, fishMan.FishCount); } else { fishMan.FishCount&#43;&#43;; fishMan.Message = string.Format(&#34;{0}: 釣到一條[{2}], 累計釣了{1}條魚&#34;, Name, fishMan.FishCount, type); } } } FishingMan public class FishingMan { public string Name { get; set; } public int FishCount { get; set; } public FishingRod FishingRod { get; set; } public string Message { get; set; } public FishingMan(string name) { Name = name; FishCount = 0; } public void Fishing() { FishingRod.ThrowHook(this); } } FishingRod 用反射註冊事件 public class FishingRod { public string Message { get; private set; } public FishingRod() { } public void ThrowHook(FishingMan man) { if (new Random().Next() % 2 == 0) { var type = (FishType)(new Random().Next(0, 5) &#43; 1); Message = (&#34;魚兒上鉤了!&#34;); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData); } } else { var type = FishType.None; Message = (&#34;可惜了!&#34;); if (FishingEvent != null) { var eventData = new FishingEventData { FishingMan = man, FishType = type }; EventBus.Default.Trigger&lt;FishingEventData&gt;(eventData); } } } } EventBus 實作 用一個靜態單例來統一管理事件 public class EventBus { public static EventBus Default =&gt; new EventBus(); private readonly ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt; _eventAndHandlerMapping; private EventBus() { _eventAndHandlerMapping = new ConcurrentDictionary&lt;Type, List&lt;Type&gt;&gt;(); MapEventToHandler(); } private void MapEventToHandler() { Assembly assembly = Assembly.GetEntryAssembly(); foreach (var type in assembly.GetTypes()) { if (typeof(IEventHandler).IsAssignableFrom(type)) { Type handlerInterface = type.GetInterface(&#34;IEventHandler`1&#34;); if (handlerInterface == null) continue; Type eventDataType = handlerInterface.GetGenericArguments()[0]; if (_eventAndHandlerMapping.ContainsKey(eventDataType)) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[eventDataType]; handlerTypes.Add(type); _eventAndHandlerMapping[eventDataType] = handlerTypes; } else { var handlerTypes = new List&lt;Type&gt; { type }; _eventAndHandlerMapping[eventDataType] = handlerTypes; } } } } public void Register&lt;TEventData&gt;(Type eventHandler) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; if (!handlerTypes.Contains(eventHandler)) { handlerTypes.Add(eventHandler); _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; } } public void Unsubscribe&lt;TEventData&gt;(Type eventHandler) { List&lt;Type&gt; handlerTypes = _eventAndHandlerMapping[typeof(TEventData)]; if (!handlerTypes.Contains(eventHandler)) { handlerTypes.Remove(eventHandler); _eventAndHandlerMapping[typeof(TEventData)] = handlerTypes; } } public void Trigger&lt;TEventData&gt;(TEventData eventData) where TEventData : IEventData { List&lt;Type&gt; handlers = _eventAndHandlerMapping[eventData.GetType()]; if (handlers != null &amp;&amp; handlers.Count &gt; 0) { foreach (var handler in handlers) { MethodInfo methodInfo = handler.GetMethod(&#34;HandleEvent&#34;); if (methodInfo != null) { object obj = Activator.CreateInstance(handler); methodInfo.Invoke(obj, new object[] { eventData }); } } } } } demo MacOs Cocoa Project public partial class ViewController : NSViewController { public ViewController (IntPtr handle) : base (handle) { } public override void ViewDidLoad () { base.ViewDidLoad (); jeff = new FishingMan(&#34;Jeff&#34;); rod = new FishingRod(); jeff.FishingRod = rod; EventBus eventBus = EventBus.Default; eventBus.Register&lt;FishingEventData&gt;(typeof(FishingEventHandler)); } FishingMan jeff; FishingRod rod; public override NSObject RepresentedObject { get { return base.RepresentedObject; } set { base.RepresentedObject = value; } } partial void Button_Click(NSButton sender) { jeff.Fishing(); TextLabel.StringValue = rod.Message; TextLabel2.StringValue = jeff.Message ?? &#34;&#34;; } } </p>
-  </div>
-  <footer class="entry-footer"><span title='2023-09-25 23:50:02 +0800 CST'>September 25, 2023</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu</footer>
-  <a class="entry-link" aria-label="post link to [IT] 事件總線 EventBus" href="http://localhost:1313/it/eventbus/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
