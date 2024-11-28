@@ -32,7 +32,7 @@ cd [project-name]
 
 2. 安裝 TailwindCSS 及其相依套件：
 ```bash
-bashCopynpm install -D tailwindcss postcss autoprefixer
+npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
