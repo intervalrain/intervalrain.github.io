@@ -39,6 +39,10 @@ menu:
       name: C#
       url: /csharp/csharp
       weight: 50
+    - identifier: AI
+      name: AI
+      url: /ai
+      weight: 60
 
 params:
   env: production
