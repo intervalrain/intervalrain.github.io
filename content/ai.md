@@ -29,7 +29,9 @@ ShowCodeCopyButtons: true
 [1-3 深度學習的發展](/ai/1_3)  
 
 ### 2. 神經網路(CNN)
-[2-1 初試神經網路-手寫辨識 mnist](/ai/2_1)
+[2-1 初試神經網路-手寫辨識 mnist](/ai/2_1)  
+[2-2 張量 Tensor](/ai/2_2)  
+
 
 ### 3. Keras 與 Tensorflow 簡介
 
