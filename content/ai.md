@@ -31,7 +31,7 @@ ShowCodeCopyButtons: true
 ### 2. 神經網路(CNN)
 [2-1 初試神經網路-手寫辨識 mnist](/ai/2_1)  
 [2-2 張量 Tensor](/ai/2_2)  
-
+[2-3 優化器 Optimizer](/ai/2_3)  
 
 ### 3. Keras 與 Tensorflow 簡介
 
