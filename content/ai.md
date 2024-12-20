@@ -36,7 +36,7 @@ ShowCodeCopyButtons: true
 ### 3. Keras 與 Tensorflow 簡介
 [3-1 TensorFlow 介紹](/ai/3_1)  
 [3-2 Keras 介紹](/ai/3_2)  
-[3-3 使用 TensorFlow 與 Keras 函式庫](/ai/3_3)
+[3-3 使用 TensorFlow 與 Keras 函式庫](/ai/3_3)  
 [3-4 實作線性分類器](/ai/3_4)
 
 ### 4. 分類與迴歸
