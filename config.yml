@@ -50,9 +50,14 @@ params:
   keywords: ["rainhu", "intervcalrain", "陣雨", "胡鎮宇", "leetcode", "Rain's Blog", "rainhu's workspace"]
   author: ["Rain Hu", "intervarrain", "陣雨"]
   ShowAllPagesInArchive: true
+  ShowPostNavLinks: true
   ShowBreadCrumbs: true
   comments: true
   GHissueID: 2
+
+  mainSections:
+    - leetcode
+    - ai
 
   assets:
     favicon: "/images/rain.png"
