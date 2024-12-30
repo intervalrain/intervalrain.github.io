@@ -29,3 +29,4 @@ ShowCodeCopyButtons: true
 + [1052. Grumpy Bookstore Owner](/leetcode_list/sliding_window/dblptr/1052)  
 + [1461. Check If a String Contains All Binary Codes of Size K](/leetcode_list/sliding_window/dblptr/1461)  
 + [2841. Maximum Sum of Almost Unique Subarray](/leetcode_list/sliding_window/dblptr/2841)  
++ [2461. Maximum Sum of Distinct Subarrays With Length K](/leetcode_list/sliding_window/dblptr/2461)  
