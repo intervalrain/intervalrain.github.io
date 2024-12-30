@@ -26,3 +26,4 @@ ShowCodeCopyButtons: true
 + [1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold](/leetcode_list/sliding_window_dblptr/1343)  
 + [2090. K Radius Subarray Averages](/leetcode_list/sliding_window_dblptr/2090)  
 + [2379. Minimum Recolors to Get K Consecutive Black Blocks](/leetcode_list/sliding_window_dblptr/2379)  
++ [1052. Grumpy Bookstore Owner](/leetcode_list/sliding_window/dblptr/1052)  
