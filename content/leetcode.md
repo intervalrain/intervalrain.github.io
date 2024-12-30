@@ -20,6 +20,9 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
+
+[科學刷題](/leetcode_list)
+
 **Catalog**
 ---
 ## 一、依題號
