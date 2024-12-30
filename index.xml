@@ -4441,7 +4441,142 @@ You can return the answer in any order.&lt;/p>
 &lt;li>&lt;strong>Output:&lt;/strong> [0,1]&lt;/li>
 &lt;li>&lt;strong>Explanation:&lt;/strong> Because nums[0] + nums[1] == 9, we return [0,1].&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Example 2:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] Catalog</title><link>https://intervalrain.github.io/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/</guid><description>&lt;h2 id="catalog">&lt;strong>Catalog&lt;/strong>&lt;/h2>
+&lt;p>&lt;strong>Example 2:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] 1052. Grumpy Bookstore Owner</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1052/</link><pubDate>Tue, 25 Oct 2022 12:36:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1052/</guid><description>&lt;ul>
+&lt;li>定長度的 sliding window，秒殺&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> maxSatisfied(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> customers, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> grumpy, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> customers.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> sum &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>grumpy[i]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> customers[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> customers[i] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> customers[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> sum;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> (customers[i] &lt;span style="color:#f92672">-&lt;/span> customers[i&lt;span style="color:#f92672">-&lt;/span>k]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, sum);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2379. Minimum Recolors to Get K Consecutive Black Blocks</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379/</link><pubDate>Tue, 25 Oct 2022 12:35:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379/</guid><description>&lt;ul>
+&lt;li>定長度的 sliding window，秒殺&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> minimumRecolors(string blocks, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> cnt &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (blocks[i] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;B&amp;#39;&lt;/span>) cnt&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> k&lt;span style="color:#f92672">-&lt;/span>cnt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> blocks.size(); i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (blocks[i] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;B&amp;#39;&lt;/span>) cnt&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (blocks[i&lt;span style="color:#f92672">-&lt;/span>k] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;B&amp;#39;&lt;/span>) cnt&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> min(res, k&lt;span style="color:#f92672">-&lt;/span>cnt);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2090. K Radius Subarray Averages</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090/</link><pubDate>Tue, 25 Oct 2022 12:34:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090/</guid><description>&lt;p>&lt;img alt="sample" loading="lazy" src="https://assets.leetcode.com/uploads/2021/11/07/eg1.png">&lt;/p>
+&lt;ul>
+&lt;li>這題一樣是定長度的 sliding window，但要做一下轉換，半徑為 &lt;code>k&lt;/code>，代表 window_size 為 &lt;code>2k+1&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> getAverages(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>k&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> res(n, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (m &lt;span style="color:#f92672">&amp;gt;&lt;/span> n) &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">long&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> sum &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> m; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> nums[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[k] &lt;span style="color:#f92672">=&lt;/span> sum &lt;span style="color:#f92672">/&lt;/span> m;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> m, j &lt;span style="color:#f92672">=&lt;/span> k&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>, j&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> (nums[i] &lt;span style="color:#f92672">-&lt;/span> nums[i&lt;span style="color:#f92672">-&lt;/span>m]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[j] &lt;span style="color:#f92672">=&lt;/span> sum &lt;span style="color:#f92672">/&lt;/span> m;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343/</link><pubDate>Tue, 25 Oct 2022 12:33:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343/</guid><description>&lt;ul>
+&lt;li>定長度的 sliding window，秒殺&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> numOfSubarrays(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> arr, &lt;span style="color:#66d9ef">int&lt;/span> k, &lt;span style="color:#66d9ef">int&lt;/span> threshold) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> threshold &lt;span style="color:#f92672">*=&lt;/span> k;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> sum &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> arr[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (sum &lt;span style="color:#f92672">&amp;gt;=&lt;/span> threshold) res&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> arr.size(); i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> (arr[i] &lt;span style="color:#f92672">-&lt;/span> arr[i&lt;span style="color:#f92672">-&lt;/span>k]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (sum &lt;span style="color:#f92672">&amp;gt;=&lt;/span> threshold) res&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 643. Maximum Average Subarray I</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/643/</link><pubDate>Tue, 25 Oct 2022 12:32:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/643/</guid><description>&lt;ul>
+&lt;li>定長度的 sliding window，秒殺&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> findMaxAverage(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> sum &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> nums[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> sum;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> nums.size(); i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> nums[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">-=&lt;/span> nums[i&lt;span style="color:#f92672">-&lt;/span>k];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, sum);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res&lt;span style="color:#f92672">/&lt;/span>(&lt;span style="color:#66d9ef">double&lt;/span>)k;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1456. Maximum Number of Vowels in a Substring of Given Length</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456/</link><pubDate>Tue, 25 Oct 2022 12:31:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456/</guid><description>&lt;ul>
+&lt;li>定長度的 sliding window，秒殺&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> maxVowels(string s, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> cnt &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unordered_set&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> set &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;e&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;i&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;o&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;u&amp;#39;&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (set.count(s[i])) cnt&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> cnt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> s.size(); i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (set.count(s[i])) cnt&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (set.count(s[i&lt;span style="color:#f92672">-&lt;/span>k])) cnt&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, cnt);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 分類清單</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</link><pubDate>Tue, 25 Oct 2022 12:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</guid><description>&lt;h2 id="11-基礎">1.1 基礎&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456">1456. Maximum Number of Vowels in a Substring of Given Length&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/643">643. Maximum Average Subarray I&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090">2090. K Radius Subarray Averages&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379">2379. Minimum Recolors to Get K Consecutive Black Blocks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window/dblptr/1052">1052. Grumpy Bookstore Owner&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>[LeetCode] Catalog</title><link>https://intervalrain.github.io/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/</guid><description>&lt;p>&lt;a href="https://intervalrain.github.io/leetcode_list">科學刷題&lt;/a>&lt;/p>
+&lt;h2 id="catalog">&lt;strong>Catalog&lt;/strong>&lt;/h2>
 &lt;h2 id="一依題號">一、依題號&lt;/h2>
 &lt;h3 id="1-50045">1-500(45)&lt;/h3>
 &lt;p>&lt;a href="https://intervalrain.github.io/leetcode/1">1. Two Sum&lt;/a>&lt;br>
@@ -4491,7 +4626,19 @@ You can return the answer in any order.&lt;/p>
 &lt;a href="https://intervalrain.github.io/leetcode/374">374. Guess Number Higher or Lower II&lt;/a>&lt;br>
 &lt;a href="https://intervalrain.github.io/leetcode/433">433. Minimum Genetic Mutation&lt;/a>&lt;br>
 &lt;a href="https://intervalrain.github.io/leetcode/446">446. Arithmetic Slices II - Subsequence&lt;/a>&lt;br>
-&lt;a href="https://intervalrain.github.io/leetcode/452">452. Minimum Number of Arrows to Burst Balloons&lt;/a>&lt;/p></description></item><item><title>[Problem] Version Query</title><link>https://intervalrain.github.io/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/versionquery/</guid><description>&lt;p>&lt;strong>Version Query&lt;/strong>&lt;/p>
+&lt;a href="https://intervalrain.github.io/leetcode/452">452. Minimum Number of Arrows to Burst Balloons&lt;/a>&lt;/p></description></item><item><title>[LeetCode] 分類清單</title><link>https://intervalrain.github.io/leetcode_list/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/</guid><description>&lt;h2 id="分類清單">分類清單&lt;/h2>
+&lt;p>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr">1. 滑動窗口與雙指針（定長／不定長／單序列／雙序列／三指針／分組循環）&lt;/a>&lt;br>
+2. 二分演算法（二分答案／最小化最大值／最大化最小值／Kth）&lt;br>
+3. 單調棧（基礎／矩形面積／貢獻法／最小字典序）&lt;br>
+4. 網格圖（DFS／BFS／綜合應弿）&lt;br>
+5. 位運算（基礎／性質／拆位／試填／恆等式／思維）&lt;br>
+6. 圖論演算法（DFS／BFS／拓撲排序／最短路／最小生成樹／二分圖／基環樹／歐拉路徑）&lt;br>
+7. 動態規劃（入門／背包／狀態機／劃分／區間／狀壓／數位／數據結構優化／樹形／博弈／概率期望）&lt;br>
+8. 常用數據結構（前綴和／差分／棧／佇列／堆／字典樹／並查集／樹狀樹組／線段樹）&lt;br>
+9. 數學演算法（數論／組合／概率期望／博弈／計算幾何／隨機算法）&lt;br>
+10. 貪心與思維（基本貪心策略／反悔／區間／字典序／數學／思維／腦筋急轉彎／構造）&lt;br>
+11. 鏈表、二叉樹與回溯（前後指針／快慢指針／DFS／BFS／直徑／LCA／一般樹）&lt;br>
+12. 字串（KMP／Z函數／Manacher／字串Hash／AC自動機／後綴數組／子序列自動機） 　&lt;/p></description></item><item><title>[Problem] Version Query</title><link>https://intervalrain.github.io/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/versionquery/</guid><description>&lt;p>&lt;strong>Version Query&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>Hardness: \(\color{red}\textsf{Hard}\)&lt;/li>
 &lt;li>Ralated Topics: &lt;code>Binary Search&lt;/code>、&lt;code>Segment Tree&lt;/code>、&lt;code>Heap (Priority Queue&lt;/code>、&lt;code>Hash Table&lt;/code>&lt;/li>
