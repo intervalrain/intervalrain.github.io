@@ -30,3 +30,6 @@ ShowCodeCopyButtons: true
 + [1461. Check If a String Contains All Binary Codes of Size K](/leetcode_list/sliding_window/dblptr/1461)  
 + [2841. Maximum Sum of Almost Unique Subarray](/leetcode_list/sliding_window/dblptr/2841)  
 + [2461. Maximum Sum of Distinct Subarrays With Length K](/leetcode_list/sliding_window/dblptr/2461)  
++ [1423. Maximum Points You Can Obtain from Cards](/leetcode_list/sliding_window/dblptr/1423)  
++ [1652. Defuse the Bomb](/leetcode_list/sliding_window/dblptr/1652)  
++ [1297. Maximum Number of Occurrences of a Substring](/leetcode_list/sliding_window/dblptr/1297)  
