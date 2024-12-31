@@ -1623,7 +1623,33 @@ The matching should cover the &lt;strong>entire&lt;/strong> input string (not pa
 &lt;li>&lt;strong>Output:&lt;/strong> false&lt;/li>
 &lt;li>&lt;strong>Explanation&lt;/strong>: &amp;ldquo;a&amp;rdquo; does not match the entire string &amp;ldquo;aa&amp;rdquo;.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Example 2:&lt;/strong>&lt;/p></description></item><item><title>[Leetcode] 9. Palindrome Number</title><link>https://intervalrain.github.io/leetcode/9/</link><pubDate>Wed, 26 Oct 2022 10:20:08 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/9/</guid><description>&lt;p>&lt;strong>9. Palindrome Number&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example 2:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] 2134. Minimum Swaps to Group All 1's Together II</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2134/</link><pubDate>Wed, 26 Oct 2022 12:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2134/</guid><description>&lt;ul>
+&lt;li>難度分: 1748&lt;/li>
+&lt;li>遇到 circular 的問題都可以換位思考，這題可以想成「min swaps to group all 1」或「min swaps to group all 0」&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> minSwaps(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> k &lt;span style="color:#f92672">=&lt;/span> accumulate(nums.begin(), nums.end(), &lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">min&lt;/span>(minSwapsHelper(nums, &lt;span style="color:#ae81ff">1&lt;/span>, k), minSwapsHelper(nums, &lt;span style="color:#ae81ff">0&lt;/span>, n&lt;span style="color:#f92672">-&lt;/span>k));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">minSwapsHelper&lt;/span>(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> target, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> curr &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (nums[i] &lt;span style="color:#f92672">==&lt;/span> target) curr&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> cnt &lt;span style="color:#f92672">=&lt;/span> curr;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (nums[i] &lt;span style="color:#f92672">==&lt;/span> target) curr&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (nums[i&lt;span style="color:#f92672">-&lt;/span>k] &lt;span style="color:#f92672">==&lt;/span> target) curr&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cnt &lt;span style="color:#f92672">=&lt;/span> max(cnt, curr);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> k &lt;span style="color:#f92672">-&lt;/span> cnt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[Leetcode] 9. Palindrome Number</title><link>https://intervalrain.github.io/leetcode/9/</link><pubDate>Wed, 26 Oct 2022 10:20:08 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/9/</guid><description>&lt;p>&lt;strong>9. Palindrome Number&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>Hardness: \(\color{green}\textsf{Easy}\)&lt;/li>
 &lt;li>Ralated Topics: &lt;code>Math&lt;/code>&lt;/li>
@@ -1834,6 +1860,7 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 &lt;li>&lt;strong>Explanation:&lt;/strong> 342 + 465 = 807&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>Example 2:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] 1297. Maximum Number of Occurrences of a Substring</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1297/</link><pubDate>Tue, 25 Oct 2022 12:43:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1297/</guid><description>&lt;ul>
+&lt;li>難度分: 1748&lt;/li>
 &lt;li>這題的 minSize 和 maxSize 在 26 以內，範圍不會太大，可以用定長度的 sliding window 硬解。&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -1912,6 +1939,7 @@ You can return the answer in any order.&lt;/p>
 &lt;li>&lt;strong>Explanation:&lt;/strong> Because nums[0] + nums[1] == 9, we return [0,1].&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>Example 2:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] 1423. Maximum Points You Can Obtain from Cards</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1423/</link><pubDate>Tue, 25 Oct 2022 12:41:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1423/</guid><description>&lt;ul>
+&lt;li>難度分: 1574&lt;/li>
 &lt;li>這題同樣是定長度的 sliding window，但要透過一點轉換，變成求 &lt;code>window = n - k&lt;/code> 的最小和&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -1934,6 +1962,7 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2461. Maximum Sum of Distinct Subarrays With Length K</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2461/</link><pubDate>Tue, 25 Oct 2022 12:40:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2461/</guid><description>&lt;ul>
+&lt;li>難度分: 1553&lt;/li>
 &lt;li>定長度的 sliding window，搭配對 window 檢查是否滿足條件&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -1958,6 +1987,7 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2841. Maximum Sum of Almost Unique Subarray</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2841/</link><pubDate>Tue, 25 Oct 2022 12:39:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2841/</guid><description>&lt;ul>
+&lt;li>難度分: 1546&lt;/li>
 &lt;li>定長度的 sliding window，搭配對 window 檢查是否滿足條件&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -1983,6 +2013,7 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1461. Check If a String Contains All Binary Codes of Size K</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1461/</link><pubDate>Tue, 25 Oct 2022 12:38:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1461/</guid><description>&lt;ul>
+&lt;li>難度分: 1504&lt;/li>
 &lt;li>比較簡單的解法，使用 unordered_set&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -2020,6 +2051,7 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1052. Grumpy Bookstore Owner</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1052/</link><pubDate>Tue, 25 Oct 2022 12:36:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1052/</guid><description>&lt;ul>
+&lt;li>難度分: 1418&lt;/li>
 &lt;li>定長度的 sliding window，秒殺&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -2045,6 +2077,7 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2379. Minimum Recolors to Get K Consecutive Black Blocks</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379/</link><pubDate>Tue, 25 Oct 2022 12:35:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379/</guid><description>&lt;ul>
+&lt;li>難度分: 1360&lt;/li>
 &lt;li>定長度的 sliding window，秒殺&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -2063,8 +2096,9 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2090. K Radius Subarray Averages</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090/</link><pubDate>Tue, 25 Oct 2022 12:34:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090/</guid><description>&lt;p>&lt;img alt="sample" loading="lazy" src="https://assets.leetcode.com/uploads/2021/11/07/eg1.png">&lt;/p>
-&lt;ul>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2090. K Radius Subarray Averages</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090/</link><pubDate>Tue, 25 Oct 2022 12:34:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090/</guid><description>&lt;ul>
+&lt;li>難度分: 1358
+&lt;img alt="sample" loading="lazy" src="https://assets.leetcode.com/uploads/2021/11/07/eg1.png">&lt;/li>
 &lt;li>這題一樣是定長度的 sliding window，但要做一下轉換，半徑為 &lt;code>k&lt;/code>，代表 window_size 為 &lt;code>2k+1&lt;/code>。&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -2087,6 +2121,7 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343/</link><pubDate>Tue, 25 Oct 2022 12:33:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343/</guid><description>&lt;ul>
+&lt;li>難度分: 1317&lt;/li>
 &lt;li>定長度的 sliding window，秒殺&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -2126,6 +2161,7 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1456. Maximum Number of Vowels in a Substring of Given Length</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456/</link><pubDate>Tue, 25 Oct 2022 12:31:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456/</guid><description>&lt;ul>
+&lt;li>難度分: 1263&lt;/li>
 &lt;li>定長度的 sliding window，秒殺&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
@@ -2147,18 +2183,27 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 分類清單</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</link><pubDate>Tue, 25 Oct 2022 12:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</guid><description>&lt;h2 id="11-基礎">1.1 基礎&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456">1456. Maximum Number of Vowels in a Substring of Given Length&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/643">643. Maximum Average Subarray I&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090">2090. K Radius Subarray Averages&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379">2379. Minimum Recolors to Get K Consecutive Black Blocks&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window/dblptr/1052">1052. Grumpy Bookstore Owner&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window/dblptr/1461">1461. Check If a String Contains All Binary Codes of Size K&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window/dblptr/2841">2841. Maximum Sum of Almost Unique Subarray&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window/dblptr/2461">2461. Maximum Sum of Distinct Subarrays With Length K&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window/dblptr/1423">1423. Maximum Points You Can Obtain from Cards&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window/dblptr/1652">1652. Defuse the Bomb&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window/dblptr/1297">1297. Maximum Number of Occurrences of a Substring&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456">1456. Maximum Number of Vowels in a Substring of Given Length&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/643">643. Maximum Average Subarray I&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090">2090. K Radius Subarray Averages&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379">2379. Minimum Recolors to Get K Consecutive Black Blocks&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1052">1052. Grumpy Bookstore Owner&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1461">1461. Check If a String Contains All Binary Codes of Size K&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2841">2841. Maximum Sum of Almost Unique Subarray&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2461">2461. Maximum Sum of Distinct Subarrays With Length K&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1423">1423. Maximum Points You Can Obtain from Cards&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1652">1652. Defuse the Bomb&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1297">1297. Maximum Number of Occurrences of a Substring&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 1176. Diet Plan Performance(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 1100. Find K-Length Substrings With No Repeated Characters(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 1852. Distinct Numbers in Each Subarray(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 1151. Minimum Swaps to Group All 1&amp;rsquo;s Together(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 2107. Number of Unique Flavors After sharing K Candies(會員題)&lt;/li>
+&lt;/ul>
+&lt;h2 id="12-進階">1.2 進階&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> 2134. Minimum Swaps to Group All 1&amp;rsquo;s Together II()&lt;/li>
 &lt;/ul></description></item><item><title>[LeetCode] Catalog</title><link>https://intervalrain.github.io/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/</guid><description>&lt;p>&lt;a href="https://intervalrain.github.io/leetcode_list">科學刷題&lt;/a>&lt;/p>
 &lt;h2 id="catalog">&lt;strong>Catalog&lt;/strong>&lt;/h2>
 &lt;h2 id="一依題號">一、依題號&lt;/h2>
