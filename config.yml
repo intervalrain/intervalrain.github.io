@@ -57,6 +57,7 @@ params:
 
   mainSections:
     - leetcode
+    - leetcode_list
     - ai
 
   assets:
