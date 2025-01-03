@@ -40,4 +40,5 @@ ShowCodeCopyButtons: true
 - [ ] 2107. Number of Unique Flavors After sharing K Candies(會員題)
 
 ## 1.2 進階
-- [ ] 2134. Minimum Swaps to Group All 1's Together II()
+- [x] [2134. Minimum Swaps to Group All 1's Together II](/leetcode_list/sliding_window_dblptr/2134)  
+- [x] [2653. Sliding Subarray Beauty](/leetcode_list/sliding_window_dblptr/2653)  

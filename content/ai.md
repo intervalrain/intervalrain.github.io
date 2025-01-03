@@ -42,6 +42,7 @@ ShowCodeCopyButtons: true
 [3-6 Keras API](/ai/3_6)
 
 ### 4. 分類與迴歸
+[4-1 二元分類問題](/ai/4_1)
 
 ### 5. 機器學習(ML)
 
