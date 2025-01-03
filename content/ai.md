@@ -38,8 +38,9 @@ ShowCodeCopyButtons: true
 [3-2 Keras 介紹](/ai/3_2)  
 [3-3 使用 TensorFlow 與 Keras 函式庫](/ai/3_3)  
 [3-4 線性迴歸](/ai/3_4)  
-[3-5 實作線性分類器](/ai/3_5)  
-[3-6 Keras API](/ai/3_6)
+[3-5 邏輯斯迴歸(logistic regression)](/ai/3_5)  
+[3-6 實作線性分類器](/ai/3_6)  
+[3-7 Keras API](/ai/3_7)
 
 ### 4. 分類與迴歸
 [4-1 二元分類問題](/ai/4_1)
