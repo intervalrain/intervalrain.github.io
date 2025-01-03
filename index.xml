@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rain Hu's Workspace</title><link>https://intervalrain.github.io/</link><description>Recent content on Rain Hu's Workspace</description><generator>Hugo -- 0.140.2</generator><language>zh-tw</language><lastBuildDate>Fri, 20 Dec 2024 15:49:27 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>[AI] 3-6. Keras API</title><link>https://intervalrain.github.io/ai/3_6/</link><pubDate>Fri, 20 Dec 2024 15:49:27 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_6/</guid><description>A introduction to Keras API</description></item><item><title>[AI] 3-5. 實作線性分類器</title><link>https://intervalrain.github.io/ai/3_5/</link><pubDate>Thu, 19 Dec 2024 16:55:12 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_5/</guid><description>A implementation of linear classification using Tensorflow library</description></item><item><title>[AI] 3-4. 線性迴歸</title><link>https://intervalrain.github.io/ai/3_4/</link><pubDate>Thu, 19 Dec 2024 15:01:12 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_4/</guid><description>The target of machine learning</description></item><item><title>[AI] 3-3. 使用 TensorFlow 與 Keras 函式庫</title><link>https://intervalrain.github.io/ai/3_3/</link><pubDate>Wed, 18 Dec 2024 16:56:55 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_3/</guid><description>Usages of TensorFlow and Keras</description></item><item><title>[AI] 3-2. Keras 介紹</title><link>https://intervalrain.github.io/ai/3_2/</link><pubDate>Wed, 18 Dec 2024 16:45:50 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_2/</guid><description>Introduction to the Keras</description></item><item><title>[AI] 3-1. TensorFlow 介紹</title><link>https://intervalrain.github.io/ai/3_1/</link><pubDate>Wed, 18 Dec 2024 16:40:40 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_1/</guid><description>Introduction to the TensorFlow</description></item><item><title>[AI] 2-3. 優化器 Optimizer</title><link>https://intervalrain.github.io/ai/2_3/</link><pubDate>Mon, 16 Dec 2024 15:48:11 +0800</pubDate><guid>https://intervalrain.github.io/ai/2_3/</guid><description>The concept of optimizer in machine learning</description></item><item><title>[AI] 2-2. 張量 Tensor</title><link>https://intervalrain.github.io/ai/2_2/</link><pubDate>Sun, 15 Dec 2024 14:26:38 +0800</pubDate><guid>https://intervalrain.github.io/ai/2_2/</guid><description>The concept of tensor</description></item><item><title>[AI] 2-1. 初試神經網路-手寫辨識 mnist</title><link>https://intervalrain.github.io/ai/2_1/</link><pubDate>Sun, 15 Dec 2024 13:05:53 +0800</pubDate><guid>https://intervalrain.github.io/ai/2_1/</guid><description>First trial for neural network using mnist</description></item><item><title>[AI] 1-3. 深度學習的發展</title><link>https://intervalrain.github.io/ai/1_3/</link><pubDate>Fri, 06 Dec 2024 16:26:30 +0800</pubDate><guid>https://intervalrain.github.io/ai/1_3/</guid><description>The development of deep learning</description></item><item><title>[AI] 1-2. 機器學習的基礎技術</title><link>https://intervalrain.github.io/ai/1_2/</link><pubDate>Tue, 03 Dec 2024 15:42:52 +0800</pubDate><guid>https://intervalrain.github.io/ai/1_2/</guid><description>The fundamentals of Machine Learning</description></item><item><title>[AI] 1-1. 何謂人工智慧?</title><link>https://intervalrain.github.io/ai/1_1/</link><pubDate>Tue, 03 Dec 2024 15:39:11 +0800</pubDate><guid>https://intervalrain.github.io/ai/1_1/</guid><description>What is artificial intelligence?</description></item><item><title>[AI] Catalog</title><link>https://intervalrain.github.io/ai/</link><pubDate>Tue, 03 Dec 2024 15:30:11 +0800</pubDate><guid>https://intervalrain.github.io/ai/</guid><description>My learning note to AI</description></item><item><title>[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)</title><link>https://intervalrain.github.io/it/init_react_project/</link><pubDate>Thu, 28 Nov 2024 16:33:39 +0800</pubDate><guid>https://intervalrain.github.io/it/init_react_project/</guid><description>&lt;ol>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rain Hu's Workspace</title><link>https://intervalrain.github.io/</link><description>Recent content on Rain Hu's Workspace</description><generator>Hugo -- 0.140.2</generator><language>zh-tw</language><lastBuildDate>Thu, 02 Jan 2025 12:50:29 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>[AI] 二元分類問題</title><link>https://intervalrain.github.io/ai/4_1/</link><pubDate>Thu, 02 Jan 2025 12:50:29 +0800</pubDate><guid>https://intervalrain.github.io/ai/4_1/</guid><description>Binary categorical classification problem</description></item><item><title>[AI] 3-6. Keras API</title><link>https://intervalrain.github.io/ai/3_6/</link><pubDate>Fri, 20 Dec 2024 15:49:27 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_6/</guid><description>A introduction to Keras API</description></item><item><title>[AI] 3-5. 實作線性分類器</title><link>https://intervalrain.github.io/ai/3_5/</link><pubDate>Thu, 19 Dec 2024 16:55:12 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_5/</guid><description>A implementation of linear classification using Tensorflow library</description></item><item><title>[AI] 3-4. 線性迴歸</title><link>https://intervalrain.github.io/ai/3_4/</link><pubDate>Thu, 19 Dec 2024 15:01:12 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_4/</guid><description>The target of machine learning</description></item><item><title>[AI] 3-3. 使用 TensorFlow 與 Keras 函式庫</title><link>https://intervalrain.github.io/ai/3_3/</link><pubDate>Wed, 18 Dec 2024 16:56:55 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_3/</guid><description>Usages of TensorFlow and Keras</description></item><item><title>[AI] 3-2. Keras 介紹</title><link>https://intervalrain.github.io/ai/3_2/</link><pubDate>Wed, 18 Dec 2024 16:45:50 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_2/</guid><description>Introduction to the Keras</description></item><item><title>[AI] 3-1. TensorFlow 介紹</title><link>https://intervalrain.github.io/ai/3_1/</link><pubDate>Wed, 18 Dec 2024 16:40:40 +0800</pubDate><guid>https://intervalrain.github.io/ai/3_1/</guid><description>Introduction to the TensorFlow</description></item><item><title>[AI] 2-3. 優化器 Optimizer</title><link>https://intervalrain.github.io/ai/2_3/</link><pubDate>Mon, 16 Dec 2024 15:48:11 +0800</pubDate><guid>https://intervalrain.github.io/ai/2_3/</guid><description>The concept of optimizer in machine learning</description></item><item><title>[AI] 2-2. 張量 Tensor</title><link>https://intervalrain.github.io/ai/2_2/</link><pubDate>Sun, 15 Dec 2024 14:26:38 +0800</pubDate><guid>https://intervalrain.github.io/ai/2_2/</guid><description>The concept of tensor</description></item><item><title>[AI] 2-1. 初試神經網路-手寫辨識 mnist</title><link>https://intervalrain.github.io/ai/2_1/</link><pubDate>Sun, 15 Dec 2024 13:05:53 +0800</pubDate><guid>https://intervalrain.github.io/ai/2_1/</guid><description>First trial for neural network using mnist</description></item><item><title>[AI] 1-3. 深度學習的發展</title><link>https://intervalrain.github.io/ai/1_3/</link><pubDate>Fri, 06 Dec 2024 16:26:30 +0800</pubDate><guid>https://intervalrain.github.io/ai/1_3/</guid><description>The development of deep learning</description></item><item><title>[AI] 1-2. 機器學習的基礎技術</title><link>https://intervalrain.github.io/ai/1_2/</link><pubDate>Tue, 03 Dec 2024 15:42:52 +0800</pubDate><guid>https://intervalrain.github.io/ai/1_2/</guid><description>The fundamentals of Machine Learning</description></item><item><title>[AI] 1-1. 何謂人工智慧?</title><link>https://intervalrain.github.io/ai/1_1/</link><pubDate>Tue, 03 Dec 2024 15:39:11 +0800</pubDate><guid>https://intervalrain.github.io/ai/1_1/</guid><description>What is artificial intelligence?</description></item><item><title>[AI] Catalog</title><link>https://intervalrain.github.io/ai/</link><pubDate>Tue, 03 Dec 2024 15:30:11 +0800</pubDate><guid>https://intervalrain.github.io/ai/</guid><description>My learning note to AI</description></item><item><title>[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)</title><link>https://intervalrain.github.io/it/init_react_project/</link><pubDate>Thu, 28 Nov 2024 16:33:39 +0800</pubDate><guid>https://intervalrain.github.io/it/init_react_project/</guid><description>&lt;ol>
 &lt;li>建立專案&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npx create-react-app &lt;span style="color:#f92672">[&lt;/span>project-name&lt;span style="color:#f92672">]&lt;/span> --template typescript
@@ -4167,7 +4167,206 @@ Roman numerals are usually written largest to smallest from left to right. Howev
 &lt;p>You are given two images, &lt;code>img1&lt;/code> and &lt;code>img2&lt;/code>, represented as binary, square matrices of size &lt;code>n x n&lt;/code>. A binary matrix has only &lt;code>0&lt;/code>s and &lt;code>1&lt;/code>s as values.&lt;br>
 We &lt;strong>translate&lt;/strong> one image however we choose by sliding all the &lt;code>1&lt;/code> bits left, right, up, and/or down any number of units. We then place it on top of the other image. We can then calculate the &lt;strong>overlap&lt;/strong> by counting the number of positions that have a &lt;code>1&lt;/code> in &lt;strong>both&lt;/strong> images.
 Note also that a translation does &lt;strong>not&lt;/strong> include any kind of rotation. Any &lt;code>1&lt;/code> bits that are translated outside of the matrix bordered are erased.&lt;br>
-Return &lt;em>the largest possible overlap&lt;/em>.&lt;/p></description></item><item><title>[Leetcode] 12. Integer to Roman</title><link>https://intervalrain.github.io/leetcode/12/</link><pubDate>Wed, 26 Oct 2022 20:36:08 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/12/</guid><description>&lt;p>&lt;strong>12. Integer to Roman&lt;/strong>&lt;/p>
+Return &lt;em>the largest possible overlap&lt;/em>.&lt;/p></description></item><item><title>[LeetCode] 2653. Sliding Subarray Beauty</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2653/</link><pubDate>Thu, 27 Oct 2022 12:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2653/</guid><description>&lt;ul>
+&lt;li>難度分: 1786&lt;/li>
+&lt;li>我覺得這一題稍有難度，主要在處理 &lt;code>findKth&lt;/code> 方法時，有一些技巧，如果單純用 vector 來記錄 window，會 LTE，因為 &lt;code>nums[i]&lt;/code> 的範圍滿小的(-50~50之間)，可以用 &lt;code>bucket sort&lt;/code>，如果數字再更大一點，可以使用 &lt;code>fenwick tree&lt;/code> 或是 &lt;code>segment tree&lt;/code> 範圍求和，使 &lt;code>update&lt;/code> 與 &lt;code>query&lt;/code> 的複雜度都是 \(\log(n)\)&lt;/li>
+&lt;li>Bucket Sort&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">NumberTracker&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> update(&lt;span style="color:#66d9ef">int&lt;/span> num, &lt;span style="color:#66d9ef">int&lt;/span> delta) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">findKth&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>NumberTracker() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">BucketSort&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> NumberTracker {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> cnt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> left_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> right_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> BucketSort(&lt;span style="color:#66d9ef">int&lt;/span> left, &lt;span style="color:#66d9ef">int&lt;/span> right) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> left_ &lt;span style="color:#f92672">=&lt;/span> left;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> right_ &lt;span style="color:#f92672">=&lt;/span> right;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> n_ &lt;span style="color:#f92672">=&lt;/span> right &lt;span style="color:#f92672">-&lt;/span> left &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cnt.assign(n_, &lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">update&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num, &lt;span style="color:#66d9ef">int&lt;/span> delta) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cnt[num &lt;span style="color:#f92672">-&lt;/span> left_] &lt;span style="color:#f92672">+=&lt;/span> delta;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">findKth&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> total &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;=&lt;/span> n_; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> total &lt;span style="color:#f92672">+=&lt;/span> cnt[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (total &lt;span style="color:#f92672">&amp;gt;=&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> i &lt;span style="color:#f92672">+&lt;/span> left_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>NumberTracker&lt;span style="color:#f92672">&amp;gt;&lt;/span> tracker;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Solution() &lt;span style="color:#f92672">:&lt;/span> tracker(make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>BucketSort&lt;span style="color:#f92672">&amp;gt;&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">50&lt;/span>, &lt;span style="color:#ae81ff">50&lt;/span>)) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> getSubarrayBeauty(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k, &lt;span style="color:#66d9ef">int&lt;/span> x) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>update(nums[i], &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> ans &lt;span style="color:#f92672">=&lt;/span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>findKth(x);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res.push_back(min(ans, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>update(nums[i&lt;span style="color:#f92672">-&lt;/span>k], &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>update(nums[i], &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ans &lt;span style="color:#f92672">=&lt;/span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>findKth(x);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res.push_back(min(ans, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Fenwick Tree&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">FenwickTree&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> NumberTracker {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> left_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> right_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> bit;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">lowbit&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> a) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> a &lt;span style="color:#f92672">&amp;amp;&lt;/span> (&lt;span style="color:#f92672">-&lt;/span>a);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> idx, &lt;span style="color:#66d9ef">int&lt;/span> diff) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> bit.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (idx &lt;span style="color:#f92672">&amp;lt;&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bit[idx] &lt;span style="color:#f92672">+=&lt;/span> diff;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx &lt;span style="color:#f92672">+=&lt;/span> lowbit(idx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">query&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> idx) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> sum &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (idx &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">+=&lt;/span> bit[idx];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx &lt;span style="color:#f92672">-=&lt;/span> lowbit(idx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> sum;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FenwickTree(&lt;span style="color:#66d9ef">int&lt;/span> left, &lt;span style="color:#66d9ef">int&lt;/span> right) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> left_ &lt;span style="color:#f92672">=&lt;/span> left;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> right_ &lt;span style="color:#f92672">=&lt;/span> right;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> n_ &lt;span style="color:#f92672">=&lt;/span> right &lt;span style="color:#f92672">-&lt;/span> left &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bit.assign(n_ &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">update&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num, &lt;span style="color:#66d9ef">int&lt;/span> delta) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> num &lt;span style="color:#f92672">-=&lt;/span> left_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> add(num, delta);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">findKth&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> left &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> right &lt;span style="color:#f92672">=&lt;/span> n_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (left &lt;span style="color:#f92672">&amp;lt;&lt;/span> right) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> mid &lt;span style="color:#f92672">=&lt;/span> (left &lt;span style="color:#f92672">+&lt;/span> right) &lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (query(mid) &lt;span style="color:#f92672">&amp;gt;=&lt;/span> k)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> right &lt;span style="color:#f92672">=&lt;/span> mid;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> left &lt;span style="color:#f92672">=&lt;/span> mid &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> min(&lt;span style="color:#ae81ff">0&lt;/span>, left &lt;span style="color:#f92672">+&lt;/span> left_);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Segment Tree (zkw tree)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">NumberTracker&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> build(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> nums) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">update&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num, &lt;span style="color:#66d9ef">int&lt;/span> delta) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">findKth&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>NumberTracker() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">SegmentTree&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> NumberTracker {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> tree_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unordered_map&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> num_to_idx;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unordered_map&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> idx_to_num;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">lowbit&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> a) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> a &lt;span style="color:#f92672">&amp;amp;&lt;/span> (&lt;span style="color:#f92672">-&lt;/span>a);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> SegmentTree() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">build&lt;/span>(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> nums) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sort(nums.begin(), nums.end());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> nums.size(); i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (i &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> nums[i] &lt;span style="color:#f92672">==&lt;/span> nums[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]) &lt;span style="color:#66d9ef">continue&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> num_to_idx[nums[i]] &lt;span style="color:#f92672">=&lt;/span> j;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx_to_num[j&lt;span style="color:#f92672">++&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> nums[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (n_ &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; n_ &lt;span style="color:#f92672">&amp;lt;&lt;/span> num_to_idx.size(); n_ &lt;span style="color:#f92672">&amp;lt;&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> m_ &lt;span style="color:#f92672">=&lt;/span> n_ &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tree_.assign(m_, &lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">update&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num, &lt;span style="color:#66d9ef">int&lt;/span> delta) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> num_to_idx[num];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx &lt;span style="color:#f92672">+=&lt;/span> n_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (idx &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tree_[idx] &lt;span style="color:#f92672">+=&lt;/span> delta;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx &lt;span style="color:#f92672">&amp;gt;&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">findKth&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (idx &lt;span style="color:#f92672">&amp;lt;&lt;/span> n_) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx &lt;span style="color:#f92672">&amp;lt;&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (tree_[idx] &lt;span style="color:#f92672">&amp;lt;&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> k &lt;span style="color:#f92672">-=&lt;/span> tree_[idx];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> idx_to_num[idx &lt;span style="color:#f92672">-&lt;/span> n_];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>NumberTracker&lt;span style="color:#f92672">&amp;gt;&lt;/span> tracker;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Solution() &lt;span style="color:#f92672">:&lt;/span> tracker(make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>SegmentTree&lt;span style="color:#f92672">&amp;gt;&lt;/span>()) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> getSubarrayBeauty(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k, &lt;span style="color:#66d9ef">int&lt;/span> x) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>build(nums);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>update(nums[i], &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> ans &lt;span style="color:#f92672">=&lt;/span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>findKth(x);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res.push_back(min(ans, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>update(nums[i&lt;span style="color:#f92672">-&lt;/span>k], &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>update(nums[i], &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ans &lt;span style="color:#f92672">=&lt;/span> tracker&lt;span style="color:#f92672">-&amp;gt;&lt;/span>findKth(x);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res.push_back(min(ans, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[Leetcode] 12. Integer to Roman</title><link>https://intervalrain.github.io/leetcode/12/</link><pubDate>Wed, 26 Oct 2022 20:36:08 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/12/</guid><description>&lt;p>&lt;strong>12. Integer to Roman&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>Hardness: \(\color{orange}\textsf{Medium}\)&lt;/li>
 &lt;li>Ralated Topics: &lt;code>Hash Table&lt;/code>、&lt;code>Math&lt;/code>、&lt;code>String&lt;/code>&lt;/li>
@@ -4795,7 +4994,8 @@ You can return the answer in any order.&lt;/p>
 &lt;/ul>
 &lt;h2 id="12-進階">1.2 進階&lt;/h2>
 &lt;ul>
-&lt;li>&lt;input disabled="" type="checkbox"> 2134. Minimum Swaps to Group All 1&amp;rsquo;s Together II()&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2134">2134. Minimum Swaps to Group All 1&amp;rsquo;s Together II&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2653">2653. Sliding Subarray Beauty&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>[LeetCode] Catalog</title><link>https://intervalrain.github.io/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/</guid><description>&lt;p>&lt;a href="https://intervalrain.github.io/leetcode_list">科學刷題&lt;/a>&lt;/p>
 &lt;h2 id="catalog">&lt;strong>Catalog&lt;/strong>&lt;/h2>
 &lt;h2 id="一依題號">一、依題號&lt;/h2>
