@@ -44,3 +44,4 @@ ShowCodeCopyButtons: true
 - [x] [2653. Sliding Subarray Beauty](/leetcode_list/sliding_window_dblptr/2653)  
 - [x] [1888. Minimum Number of Flips to Make the Binary String Alternating](/leetcode_list/sliding_window_dblptr/1888)  
 - [x] [567. Permutation in String](/leetcode_list/sliding_window_dblptr/567)    
+- [x] [438. Find All Anagrams in a String](/leetcode_list/sliding_window_dblptr/438)    
