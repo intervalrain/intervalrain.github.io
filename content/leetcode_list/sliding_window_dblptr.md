@@ -45,3 +45,4 @@ ShowCodeCopyButtons: true
 - [x] [1888. Minimum Number of Flips to Make the Binary String Alternating](/leetcode_list/sliding_window_dblptr/1888)  
 - [x] [567. Permutation in String](/leetcode_list/sliding_window_dblptr/567)    
 - [x] [438. Find All Anagrams in a String](/leetcode_list/sliding_window_dblptr/438)    
+- [x] [30. Substring with Concatenation of All Words](/leetcode_list/sliding_window_dblptr/30)    
