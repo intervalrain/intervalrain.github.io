@@ -42,3 +42,4 @@ ShowCodeCopyButtons: true
 ## 1.2 進階
 - [x] [2134. Minimum Swaps to Group All 1's Together II](/leetcode_list/sliding_window_dblptr/2134)  
 - [x] [2653. Sliding Subarray Beauty](/leetcode_list/sliding_window_dblptr/2653)  
+- [x] [1888. Minimum Number of Flips to Make the Binary String Alternating](/leetcode_list/sliding_window_dblptr/1888)  
