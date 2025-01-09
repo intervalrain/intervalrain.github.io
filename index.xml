@@ -4000,7 +4000,68 @@ In each diagonal all elements are the same, so the answer is True.&lt;/li>
 &lt;hr>
 &lt;h3 id="一題目">一、題目&lt;/h3>
 &lt;p>You are given an &lt;code>m x n&lt;/code> integer matrix &lt;code>grid&lt;/code> where each cell is either &lt;code>0&lt;/code> (empty) or &lt;code>1&lt;/code> (obstacles). You can move up, down, left, or right from and to an empty cell in &lt;strong>one step&lt;/strong>.&lt;br>
-Return &lt;em>the minimum number of&lt;/em> &lt;em>&lt;strong>steps&lt;/strong>&lt;/em> &lt;em>to walk from the upper left corner&lt;/em> &lt;code>(0, 0)&lt;/code> &lt;em>to the lower right conrer&lt;/em> &lt;code>m-1, n-1&lt;/code> &lt;em>given that you can eliminate&lt;/em> &lt;em>&lt;strong>at most&lt;/strong>&lt;/em> &lt;code>k&lt;/code> &lt;em>obstacles&lt;/em>. If it is not possible to find such walk return &lt;code>-1&lt;/code>.&lt;/p></description></item><item><title>[LeetCode] 2136. Earliest Possible Day of Full Bloom</title><link>https://intervalrain.github.io/leetcode/2136/</link><pubDate>Sun, 30 Oct 2022 00:25:25 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/2136/</guid><description>&lt;p>&lt;strong>2136. Earliest Possible Day of Full Bloom&lt;/strong>&lt;/p>
+Return &lt;em>the minimum number of&lt;/em> &lt;em>&lt;strong>steps&lt;/strong>&lt;/em> &lt;em>to walk from the upper left corner&lt;/em> &lt;code>(0, 0)&lt;/code> &lt;em>to the lower right conrer&lt;/em> &lt;code>m-1, n-1&lt;/code> &lt;em>given that you can eliminate&lt;/em> &lt;em>&lt;strong>at most&lt;/strong>&lt;/em> &lt;code>k&lt;/code> &lt;em>obstacles&lt;/em>. If it is not possible to find such walk return &lt;code>-1&lt;/code>.&lt;/p></description></item><item><title>[LeetCode] 2953. Count Complete Substrings</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953/</link><pubDate>Sun, 30 Oct 2022 12:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953/</guid><description>&lt;ul>
+&lt;li>難度分: 2449&lt;/li>
+&lt;li>這題是一個定長的 sliding window，比較難想的是 window size 是 k * 1, k * 2, &amp;hellip; 到 k * 26，因為只有 26 個英文字母，所以最多只可能到 26 * k 的長度。&lt;/li>
+&lt;li>額外需要檢查相鄰的字母是否距離 &amp;lt;= 2，我使用的方法是找到一個 &lt;code>j&lt;/code> 記錄最大的不符合的索引值，所以直要 window 不包含該 &lt;code>j&lt;/code>，window 內的所字元都會滿足。&lt;/li>
+&lt;li>所以 pesudo code 會是
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> c &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; c &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">26&lt;/span>; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// window size
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> windowSize &lt;span style="color:#f92672">=&lt;/span> c &lt;span style="color:#f92672">*&lt;/span> k;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// construct window
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> windowSize; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 處理 j
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// 計算進入 window
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 確認初始的 window 是否滿足
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// rolling windo
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> windowSize; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 處理 j
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// 計算進入 window
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// 計算離開 window
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 確認 window 是否滿足
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> countCompleteSubstrings(string s, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> s.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; idx &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">26&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> idx &lt;span style="color:#f92672">*&lt;/span> k &lt;span style="color:#f92672">&amp;lt;=&lt;/span> n; idx&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> len &lt;span style="color:#f92672">=&lt;/span> idx &lt;span style="color:#f92672">*&lt;/span> k;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> cnt(&lt;span style="color:#ae81ff">26&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> valid &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> len; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (i &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> abs(s[i] &lt;span style="color:#f92672">-&lt;/span> s[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]) &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j &lt;span style="color:#f92672">=&lt;/span> i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">++&lt;/span>cnt[s[i]&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> k) valid&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (valid &lt;span style="color:#f92672">==&lt;/span> idx &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> j &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> len; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (abs(s[i] &lt;span style="color:#f92672">-&lt;/span> s[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]) &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j &lt;span style="color:#f92672">=&lt;/span> i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">++&lt;/span>cnt[s[i]&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> k) valid&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (cnt[s[i&lt;span style="color:#f92672">-&lt;/span>len]&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>]&lt;span style="color:#f92672">--&lt;/span> &lt;span style="color:#f92672">==&lt;/span> k) valid&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (valid &lt;span style="color:#f92672">==&lt;/span> idx &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> i&lt;span style="color:#f92672">-&lt;/span>len &lt;span style="color:#f92672">&amp;gt;=&lt;/span> j) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2136. Earliest Possible Day of Full Bloom</title><link>https://intervalrain.github.io/leetcode/2136/</link><pubDate>Sun, 30 Oct 2022 00:25:25 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/2136/</guid><description>&lt;p>&lt;strong>2136. Earliest Possible Day of Full Bloom&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>Hardness: \(\color{red}\textsf{Hard}\)&lt;/li>
 &lt;li>Ralated Topics: &lt;code>Array&lt;/code>、&lt;code>Greedy&lt;/code>、&lt;code>Sorting&lt;/code>&lt;/li>
@@ -5177,6 +5238,7 @@ You can return the answer in any order.&lt;/p>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/438">438. Find All Anagrams in a String&lt;/a>&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/30">30. Substring with Concatenation of All Words&lt;/a>&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156">2156. Find Substring With Given Hash Value&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953">2953. 2953. Count Complete Substrings&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>[LeetCode] Catalog</title><link>https://intervalrain.github.io/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/</guid><description>&lt;p>&lt;a href="https://intervalrain.github.io/leetcode_list">科學刷題&lt;/a>&lt;/p>
 &lt;h2 id="catalog">&lt;strong>Catalog&lt;/strong>&lt;/h2>
 &lt;h2 id="一依題號">一、依題號&lt;/h2>
