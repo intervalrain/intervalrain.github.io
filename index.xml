@@ -4015,7 +4015,59 @@ From the beginning of day &lt;code>0&lt;/code>, you can plant the seeds in &lt;s
 Return &lt;em>the&lt;/em> &lt;em>&lt;strong>earliest&lt;/strong>&lt;/em> &lt;em>possible day where&lt;/em> &lt;em>&lt;strong>all&lt;/strong>&lt;/em> &lt;em>seeds are blooming&lt;/em>.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>Example 1:&lt;/strong>&lt;br>
-&lt;img alt="growplant1" loading="lazy" src="https://assets.leetcode.com/uploads/2021/12/21/1.png">&lt;/p></description></item><item><title>[LeetCode] 18. 4Sum</title><link>https://intervalrain.github.io/leetcode/18/</link><pubDate>Fri, 28 Oct 2022 23:58:48 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/18/</guid><description>&lt;p>&lt;strong>18. 4Sum&lt;/strong>&lt;/p>
+&lt;img alt="growplant1" loading="lazy" src="https://assets.leetcode.com/uploads/2021/12/21/1.png">&lt;/p></description></item><item><title>[LeetCode] 2156. Find Substring With Given Hash Value</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156/</link><pubDate>Sat, 29 Oct 2022 12:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>難度分: 2063&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>這題是 rolling hash，同樣樣到 sliding window 的概念，由左至右需要處理除法問題，會使問題的難度增加，所以這題逆其道而行，從右至左，那就可以把除法問題變成乘法問題了。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在處理商數時，要小心處理負數，由於商數 d 必定介於 0~k之間，可以利用
+$$
+\boxed{\mod(\mod(a)-\mod(b)+k)}
+$$&lt;/p>
+&lt;ul>
+&lt;li>證明：
+$$
+\boxed{
+\begin{array}{ll}
+0\le\mod(a)&amp;lt;k \\
+0\le\mod(b)&amp;lt;k \\
+-k&amp;lt;\mod(a)-\mod(b)&amp;lt;k &amp;amp; 在取 \mod 前先整理成正數\\
+0&amp;lt;\mod(a)-\mod(b)+k&amp;lt; 2k \\
+0&amp;lt;\mod(\mod(a)-\mod(b)+k) &amp;lt; k
+\end{array}
+}
+$$&lt;/li>
+&lt;/ul>
+&lt;p>令 &lt;code>str = dcba&lt;/code>，&lt;code>k = 3&lt;/code>，已知 &lt;code>curr = mod(ap^2+bp+c, m)&lt;/code> 求 &lt;code>mod(bp^2+cp+d, m)&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>\(\mod(bp^2+cp+d)\)&lt;/li>
+&lt;li>\(\quad = \mod((ap^2+bp+c)\times p +d-ax^3)\)&lt;/li>
+&lt;li>\(\quad = \mod(\mod(ap^2+bp+c)\times p +d+m-\mod(ax^3))\)&lt;/li>
+&lt;li>\(\quad = \mod(\text{curr}\times p +d+m-\mod(ax^3))\)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string subStrHash(string s, &lt;span style="color:#66d9ef">int&lt;/span> p, &lt;span style="color:#66d9ef">int&lt;/span> mod, &lt;span style="color:#66d9ef">int&lt;/span> k, &lt;span style="color:#66d9ef">int&lt;/span> val) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> s.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">long&lt;/span> pk &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>, curr &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> curr &lt;span style="color:#f92672">=&lt;/span> (curr &lt;span style="color:#f92672">*&lt;/span> p &lt;span style="color:#f92672">+&lt;/span> (s[n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">-&lt;/span>i]&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)) &lt;span style="color:#f92672">%&lt;/span> mod;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pk &lt;span style="color:#f92672">=&lt;/span> (pk &lt;span style="color:#f92672">*&lt;/span> p) &lt;span style="color:#f92672">%&lt;/span> mod;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> j &lt;span style="color:#f92672">=&lt;/span> n&lt;span style="color:#f92672">-&lt;/span>k;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> curr &lt;span style="color:#f92672">=&lt;/span> (curr &lt;span style="color:#f92672">*&lt;/span> p &lt;span style="color:#f92672">+&lt;/span> (s[n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">-&lt;/span>i]&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> mod &lt;span style="color:#f92672">-&lt;/span> ((s[n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">-&lt;/span>i&lt;span style="color:#f92672">+&lt;/span>k]&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> pk) &lt;span style="color:#f92672">%&lt;/span> mod) &lt;span style="color:#f92672">%&lt;/span> mod;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (curr &lt;span style="color:#f92672">==&lt;/span> val) j &lt;span style="color:#f92672">=&lt;/span> n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">-&lt;/span>i;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> s.substr(j, k);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 18. 4Sum</title><link>https://intervalrain.github.io/leetcode/18/</link><pubDate>Fri, 28 Oct 2022 23:58:48 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/18/</guid><description>&lt;p>&lt;strong>18. 4Sum&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>Hardness: \(\color{orange}\textsf{Medium}\)&lt;/li>
 &lt;li>Ralated Topics: &lt;code>Array&lt;/code>、&lt;code>Two Pointer&lt;/code>、&lt;code>Sorting&lt;/code>&lt;/li>
@@ -5124,6 +5176,7 @@ You can return the answer in any order.&lt;/p>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/567">567. Permutation in String&lt;/a>&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/438">438. Find All Anagrams in a String&lt;/a>&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/30">30. Substring with Concatenation of All Words&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156">2156. Find Substring With Given Hash Value&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>[LeetCode] Catalog</title><link>https://intervalrain.github.io/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/</guid><description>&lt;p>&lt;a href="https://intervalrain.github.io/leetcode_list">科學刷題&lt;/a>&lt;/p>
 &lt;h2 id="catalog">&lt;strong>Catalog&lt;/strong>&lt;/h2>
 &lt;h2 id="一依題號">一、依題號&lt;/h2>
