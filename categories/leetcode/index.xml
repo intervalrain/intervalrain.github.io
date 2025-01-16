@@ -1376,7 +1376,57 @@ In the above grid, the diagonals are:&lt;br>
 In each diagonal all elements are the same, so the answer is True.&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>Example 2:&lt;/strong>
-&lt;img alt="ex2" loading="lazy" src="https://assets.leetcode.com/uploads/2020/11/04/ex2.jpg">&lt;/p></description></item><item><title>[LeetCode] 19. Remove Nth Node From End of List</title><link>https://intervalrain.github.io/leetcode/19/</link><pubDate>Mon, 31 Oct 2022 00:05:10 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/19/</guid><description>&lt;p>&lt;strong>19. Remove Nth Node From End of List&lt;/strong>&lt;/p>
+&lt;img alt="ex2" loading="lazy" src="https://assets.leetcode.com/uploads/2020/11/04/ex2.jpg">&lt;/p></description></item><item><title>[LeetCode] 1016. Binary String With Substrings Representing 1 To N</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1016/</link><pubDate>Mon, 31 Oct 2022 12:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1016/</guid><description>&lt;ul>
+&lt;li>這一題是滿有趣的一題，我的靈感來自於 zkw 的線段樹(但沒有用到線段樹)。&lt;/li>
+&lt;li>觀察 &lt;code>1 ~ n&lt;/code> 的樹，並將它排成 zkw 的線段樹，可以發現以下規則：
+&lt;ul>
+&lt;li>滿足樹的子葉，則必定可以滿足其父節點，例如：找到 &lt;code>&amp;quot;1010&amp;quot;&lt;/code>，則可以滿足 &lt;code>&amp;quot;101&amp;quot;&lt;/code>、&lt;code>&amp;quot;10&amp;quot;&lt;/code>、&lt;code>&amp;quot;1&amp;quot;&lt;/code>。&lt;/li>
+&lt;li>所以可以得到一個數學結論是：我們只需要找到 &lt;code>n ~ n/2+1&lt;/code> 的數即可。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span> [&lt;span style="color:#ae81ff">1&lt;/span>] len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [&lt;span style="color:#ae81ff">10&lt;/span>] &lt;span style="color:#ae81ff">11&lt;/span> len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">100&lt;/span> [&lt;span style="color:#ae81ff">101&lt;/span>] &lt;span style="color:#ae81ff">110&lt;/span> &lt;span style="color:#ae81ff">111&lt;/span> len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">1000&lt;/span> &lt;span style="color:#ae81ff">1001&lt;/span> [&lt;span style="color:#ae81ff">1010&lt;/span>] &lt;span style="color:#ae81ff">1011&lt;/span> &lt;span style="color:#ae81ff">1100&lt;/span> &lt;span style="color:#ae81ff">1101&lt;/span> &lt;span style="color:#ae81ff">1110&lt;/span> &lt;span style="color:#ae81ff">1111&lt;/span> len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#ae81ff">8&lt;/span>) num mask
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">^&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>solution:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> queryString(string s, &lt;span style="color:#66d9ef">int&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (n &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">1979&lt;/span>) &lt;span style="color:#66d9ef">return&lt;/span> false; &lt;span style="color:#75715e">// 剪枝：當 n 太大時必為 false, 證明在下面
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">32&lt;/span> &lt;span style="color:#f92672">-&lt;/span> __builtin_clz(n); &lt;span style="color:#75715e">// n 的位元長度
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (s.size() &lt;span style="color:#f92672">&amp;lt;&lt;/span> len) &lt;span style="color:#66d9ef">return&lt;/span> false; &lt;span style="color:#75715e">// s 長度連 window 都不夠時 return false
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> mask &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> len) &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#75715e">// 遮罩 用來控制 window 長度
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> unordered_set&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> seen; &lt;span style="color:#75715e">// 用來記錄數字是否出現過
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> valid &lt;span style="color:#f92672">=&lt;/span> n &lt;span style="color:#f92672">-&lt;/span> n&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>; &lt;span style="color:#75715e">// 總共需要收集到的數目
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// init
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> curr &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> len; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> curr &lt;span style="color:#f92672">=&lt;/span> ((curr &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">|&lt;/span> (s[i] &lt;span style="color:#f92672">&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (curr &lt;span style="color:#f92672">&amp;lt;=&lt;/span> n &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> curr &lt;span style="color:#f92672">&amp;gt;&lt;/span> n&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>) seen.insert(curr);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (seen.size() &lt;span style="color:#f92672">==&lt;/span> valid) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// rolling
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> len; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> s.size(); i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> curr &lt;span style="color:#f92672">=&lt;/span> ((curr &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">|&lt;/span> (s[i] &lt;span style="color:#f92672">&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>)) &lt;span style="color:#f92672">&amp;amp;&lt;/span> mask;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (curr &lt;span style="color:#f92672">&amp;lt;=&lt;/span> n &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> curr &lt;span style="color:#f92672">&amp;gt;&lt;/span> n&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>) seen.insert(curr);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (seen.size() &lt;span style="color:#f92672">==&lt;/span> valid) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>剪枝的證明：
+我來說明 1979 這個臨界值的計算過程：&lt;/li>
+&lt;/ul>
+&lt;p>當字串長度 = 1000 時，我們需要找到滿足以下條件的最大 n：&lt;/p></description></item><item><title>[LeetCode] 19. Remove Nth Node From End of List</title><link>https://intervalrain.github.io/leetcode/19/</link><pubDate>Mon, 31 Oct 2022 00:05:10 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/19/</guid><description>&lt;p>&lt;strong>19. Remove Nth Node From End of List&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>Hardness: \(\color{orange}\textsf{Medium}\)&lt;/li>
 &lt;li>Ralated Topics: &lt;code>Linked List&lt;/code>、&lt;code>Two Pointers&lt;/code>&lt;/li>
@@ -2647,6 +2697,7 @@ You can return the answer in any order.&lt;/p>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/30">30. Substring with Concatenation of All Words&lt;/a>&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156">2156. Find Substring With Given Hash Value&lt;/a>&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953">2953. 2953. Count Complete Substrings&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1016">1016. Binary String With Substrings Representing 1 To N&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>[LeetCode] Catalog</title><link>https://intervalrain.github.io/leetcode/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/</guid><description>&lt;p>&lt;a href="https://intervalrain.github.io/leetcode_list">科學刷題&lt;/a>&lt;/p>
 &lt;h2 id="catalog">&lt;strong>Catalog&lt;/strong>&lt;/h2>
 &lt;h2 id="一依題號">一、依題號&lt;/h2>
