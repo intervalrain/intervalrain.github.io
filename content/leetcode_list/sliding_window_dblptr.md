@@ -48,3 +48,4 @@ ShowCodeCopyButtons: true
 - [x] [30. Substring with Concatenation of All Words](/leetcode_list/sliding_window_dblptr/30)    
 - [x] [2156. Find Substring With Given Hash Value](/leetcode_list/sliding_window_dblptr/2156)  
 - [x] [2953. 2953. Count Complete Substrings](/leetcode_list/sliding_window_dblptr/2953)  
+- [x] [1016. Binary String With Substrings Representing 1 To N](/leetcode_list/sliding_window_dblptr/1016)    
