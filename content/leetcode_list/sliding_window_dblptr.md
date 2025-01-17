@@ -55,8 +55,8 @@ ShowCodeCopyButtons: true
 - [ ] 2524. Maximum Frequency Score of a substring(會員題)
 
 ## 1.3 其它
-- [ ] [2269. Find the K-Beauty of a Number](/leetcode_list/sliding_window_dblptr/2269)(1280)    
-- [ ] [1984. ](/leetcode_list/sliding_window_dblptr/1984)(1306)  
+- [x] [2269. Find the K-Beauty of a Number](/leetcode_list/sliding_window_dblptr/2269)(1280)    
+- [ ] [1984. Minimum Difference Between Highest and Lowest of K Scores](/leetcode_list/sliding_window_dblptr/1984)(1306)  
 - [ ] [220. ](/leetcode_list/sliding_window_dblptr/220)  
 
 # 2. 不定長滑動窗口
