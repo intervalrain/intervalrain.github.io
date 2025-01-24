@@ -48,7 +48,7 @@ ShowCodeCopyButtons: true
 - [x] [438. Find All Anagrams in a String](/leetcode_list/sliding_window_dblptr/438)    
 - [x] [30. Substring with Concatenation of All Words](/leetcode_list/sliding_window_dblptr/30)    
 - [x] [2156. Find Substring With Given Hash Value](/leetcode_list/sliding_window_dblptr/2156)(2063)  
-- [x] [2953. 2953. Count Complete Substrings](/leetcode_list/sliding_window_dblptr/2953)(2449)  
+- [x] [2953. Count Complete Substrings](/leetcode_list/sliding_window_dblptr/2953)(2449)  
 - [x] [1016. Binary String With Substrings Representing 1 To N](/leetcode_list/sliding_window_dblptr/1016)    
 - [ ] 683. K Empty Slots(會員題)
 - [ ] 2067. Number of Equal Count Substrings(會員題)
@@ -56,8 +56,8 @@ ShowCodeCopyButtons: true
 
 ## 1.3 其它
 - [x] [2269. Find the K-Beauty of a Number](/leetcode_list/sliding_window_dblptr/2269)(1280)    
-- [ ] [1984. Minimum Difference Between Highest and Lowest of K Scores](/leetcode_list/sliding_window_dblptr/1984)(1306)  
-- [ ] [220. ](/leetcode_list/sliding_window_dblptr/220)  
+- [x] [1984. Minimum Difference Between Highest and Lowest of K Scores](/leetcode_list/sliding_window_dblptr/1984)(1306)  
+- [ ] [220. Contains Duplicate III](/leetcode_list/sliding_window_dblptr/220)  
 
 # 2. 不定長滑動窗口
 > 不定長滑動窗口主要分為三類：求最長子數組、求最短子數組，以及求子數組個數。
