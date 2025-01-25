@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Leetcode on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/leetcode/</link><description>Recent content in Leetcode on Rain Hu's Workspace</description><generator>Hugo -- 0.141.0</generator><language>zh-tw</language><lastBuildDate>Fri, 06 Oct 2023 16:30:47 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] Arrangement</title><link>https://intervalrain.github.io/leetcode/summary/</link><pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/summary/</guid><description>&lt;table>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Leetcode on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/leetcode/</link><description>Recent content in Leetcode on Rain Hu's Workspace</description><generator>Hugo -- 0.142.0</generator><language>zh-tw</language><lastBuildDate>Fri, 06 Oct 2023 16:30:47 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] Arrangement</title><link>https://intervalrain.github.io/leetcode/summary/</link><pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/summary/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th style="text-align: left">題號&lt;/th>
@@ -2750,7 +2750,7 @@ You can return the answer in any order.&lt;/p>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/438">438. Find All Anagrams in a String&lt;/a>&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/30">30. Substring with Concatenation of All Words&lt;/a>&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156">2156. Find Substring With Given Hash Value&lt;/a>(2063)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953">2953. 2953. Count Complete Substrings&lt;/a>(2449)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953">2953. Count Complete Substrings&lt;/a>(2449)&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1016">1016. Binary String With Substrings Representing 1 To N&lt;/a>&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> 683. K Empty Slots(會員題)&lt;/li>
 &lt;li>&lt;input disabled="" type="checkbox"> 2067. Number of Equal Count Substrings(會員題)&lt;/li>
@@ -2759,8 +2759,8 @@ You can return the answer in any order.&lt;/p>
 &lt;h2 id="13-其它">1.3 其它&lt;/h2>
 &lt;ul>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2269">2269. Find the K-Beauty of a Number&lt;/a>(1280)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984">1984. Minimum Difference Between Highest and Lowest of K Scores&lt;/a>(1306)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220">220. &lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984">1984. Minimum Difference Between Highest and Lowest of K Scores&lt;/a>(1306)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220">220. Contains Duplicate III&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h1 id="2-不定長滑動窗口">2. 不定長滑動窗口&lt;/h1>
 &lt;blockquote>
