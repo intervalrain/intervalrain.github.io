@@ -67,7 +67,7 @@ ShowCodeCopyButtons: true
 - [x] [3. Longest Substring Without Repeating Characters](/leetcode_list/sliding_window_dblptr/3)
 - [x] [3090. Maximum Length Substring With Two Occurrences](/leetcode_list/sliding_window_dblptr/3090)(1329)
 - [x] [1493. Longest Subarray of 1's After Deleting One Element](/leetcode_list/sliding_window_dblptr/1493)(1423)
-- [ ] [1208](1497)
+- [x] [1208. Get Equal Substrings Within Budget](/leetcode_list/sliding_window_dblptr/1208)(1497)
 - [ ] [2730](1502)
 - [ ] [904](1516)
 - [ ] [1695](1529)
