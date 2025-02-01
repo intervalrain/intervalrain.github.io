@@ -21,6 +21,7 @@ ShowPostNavLinks: true
 ShowCodeCopyButtons: true
 ---
 # 1. 定長滑動窗口
+- [x] [定長滑動窗口 pattern](/leetcode_list/sliding_window_dblptr/pattern_1)
 ## 1.1 基礎
 - [x] [1456. Maximum Number of Vowels in a Substring of Given Length](/leetcode_list/sliding_window_dblptr/1456)(1263)  
 - [x] [643. Maximum Average Subarray I](/leetcode_list/sliding_window_dblptr/643)  
@@ -57,12 +58,13 @@ ShowCodeCopyButtons: true
 ## 1.3 其它
 - [x] [2269. Find the K-Beauty of a Number](/leetcode_list/sliding_window_dblptr/2269)(1280)    
 - [x] [1984. Minimum Difference Between Highest and Lowest of K Scores](/leetcode_list/sliding_window_dblptr/1984)(1306)  
-- [ ] [220. Contains Duplicate III](/leetcode_list/sliding_window_dblptr/220)  
+- [x] [220. Contains Duplicate III](/leetcode_list/sliding_window_dblptr/220)  
 
 # 2. 不定長滑動窗口
 > 不定長滑動窗口主要分為三類：求最長子數組、求最短子數組，以及求子數組個數。
+- [x] [定長滑動窗口 pattern](/leetcode_list/sliding_window_dblptr/pattern_2)
 ## 2.1 求最長/最大
-- [ ] [3]
+- [x] [3. Longest Substring Without Repeating Characters](/leetcode_list/sliding_window_dblptr/3)
 - [ ] [3090](1329)
 - [ ] [1493](1423)
 - [ ] [1208](1497)
