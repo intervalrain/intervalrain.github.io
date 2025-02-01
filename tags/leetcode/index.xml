@@ -1442,6 +1442,52 @@ Return &lt;em>an array&lt;/em> &lt;code>answer&lt;/code> &lt;em>of size&lt;/em> 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 3090. Maximum Length Substring With Two Occurrences</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/3090/</link><pubDate>Tue, 01 Nov 2022 14:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/3090/</guid><description>&lt;ul>
+&lt;li>不定長的 Sliding Window 直接套&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">IWindow&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> add(&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> c) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> c) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">check&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> c) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>IWindow() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Window&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> IWindow{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> cnt[&lt;span style="color:#ae81ff">26&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Window() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> memset(cnt, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#66d9ef">sizeof&lt;/span>(cnt));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> c) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cnt[c&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>]&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> c) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cnt[c&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>]&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">check&lt;/span>(&lt;span style="color:#66d9ef">char&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> c) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> cnt[c&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>IWindow&lt;span style="color:#f92672">&amp;gt;&lt;/span> _w;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Solution()&lt;span style="color:#f92672">:&lt;/span> _w(make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>Window&lt;span style="color:#f92672">&amp;gt;&lt;/span>()) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">maximumLengthSubstring&lt;/span>(string s) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> s.size(), left &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, right &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (right &lt;span style="color:#f92672">&amp;lt;&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span> c &lt;span style="color:#f92672">=&lt;/span> s[right&lt;span style="color:#f92672">++&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>check(c)) _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>erase(s[left&lt;span style="color:#f92672">++&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(c);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, right&lt;span style="color:#f92672">-&lt;/span>left);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 不定長 Sliding Window Pattern</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_2/</link><pubDate>Tue, 01 Nov 2022 14:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_2/</guid><description>&lt;ul>
 &lt;li>不定長度的 sliding window pattern&lt;/li>
 &lt;li>步驟 &lt;br>
