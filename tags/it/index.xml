@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/it/</link><description>Recent content in IT on Rain Hu's Workspace</description><generator>Hugo -- 0.142.0</generator><language>zh-tw</language><lastBuildDate>Thu, 28 Nov 2024 16:33:39 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/it/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)</title><link>https://intervalrain.github.io/it/init_react_project/</link><pubDate>Thu, 28 Nov 2024 16:33:39 +0800</pubDate><guid>https://intervalrain.github.io/it/init_react_project/</guid><description>&lt;ol>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/it/</link><description>Recent content in IT on Rain Hu's Workspace</description><generator>Hugo -- 0.143.0</generator><language>zh-tw</language><lastBuildDate>Thu, 28 Nov 2024 16:33:39 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/it/index.xml" rel="self" type="application/rss+xml"/><item><title>[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)</title><link>https://intervalrain.github.io/it/init_react_project/</link><pubDate>Thu, 28 Nov 2024 16:33:39 +0800</pubDate><guid>https://intervalrain.github.io/it/init_react_project/</guid><description>&lt;ol>
 &lt;li>建立專案&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npx create-react-app &lt;span style="color:#f92672">[&lt;/span>project-name&lt;span style="color:#f92672">]&lt;/span> --template typescript
@@ -163,8 +163,7 @@
 &lt;li>&lt;code>any&lt;/code> 也可被寫成 &lt;code>MounthEvent&lt;/code> 或 &lt;code>SyntheticEvent&lt;/code>。&lt;/li>
 &lt;/ul></description></item><item><title>[IT] ApiController Atrribute</title><link>https://intervalrain.github.io/it/apicontroller/</link><pubDate>Sun, 09 Jun 2024 20:27:03 +0800</pubDate><guid>https://intervalrain.github.io/it/apicontroller/</guid><description>&lt;h1 id="apicontroller-atrribute">ApiController Atrribute&lt;/h1>
 &lt;blockquote>
-&lt;p>當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？&lt;/p>
-&lt;/blockquote>
+&lt;p>當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？&lt;/p>&lt;/blockquote>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[ApiController]&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">TestController&lt;/span> : ControllerBase
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
@@ -991,8 +990,7 @@ AppShell-.->Page4;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[IT] CORS 跨原始來源要求</title><link>https://intervalrain.github.io/it/cors/</link><pubDate>Fri, 19 Jan 2024 00:41:51 +0800</pubDate><guid>https://intervalrain.github.io/it/cors/</guid><description>&lt;h2 id="tldr">TL;DR&lt;/h2>
 &lt;blockquote>
 &lt;p>CORS (Cross-Origin Resource Sharing)&lt;br>
-是一個支援安全跨源請求和資料傳輸的機制，用於在瀏覽器和伺服器之間進行跨源請求。&lt;/p>
-&lt;/blockquote>
+是一個支援安全跨源請求和資料傳輸的機制，用於在瀏覽器和伺服器之間進行跨源請求。&lt;/p>&lt;/blockquote>
 &lt;ul>
 &lt;li>這是一個 W3C 標準，可讓伺服器放寬相同原始來源原則。&lt;/li>
 &lt;li>不是安全性功能，CORS 會放寬安全性。 允許 CORS 並不會增強 API 的安全性。&lt;a href="https://learn.microsoft.com/zh-tw/aspnet/core/security/cors?view=aspnetcore-8.0#how-cors">CORS 的運作方式&lt;/a>&lt;/li>
@@ -1382,8 +1380,7 @@ AppShell-.->Page4;
 &lt;p>&lt;em>示例2: 隱式類型(implicit typing)&lt;/em>&lt;/p></description></item><item><title>[IT] Shell 筆記</title><link>https://intervalrain.github.io/it/shell/</link><pubDate>Thu, 12 Jan 2023 23:34:41 +0800</pubDate><guid>https://intervalrain.github.io/it/shell/</guid><description>&lt;blockquote>
 &lt;p>&lt;strong>Reference&lt;/strong>&lt;br>
 &lt;a href="https://blog.csdn.net/w918589859/article/details/108752592">https://blog.csdn.net/w918589859/article/details/108752592&lt;/a>&lt;br>
-&lt;a href="https://www.w3cschool.cn/linux/linux-Shell.html">https://www.w3cschool.cn/linux/linux-Shell.html&lt;/a>&lt;/p>
-&lt;/blockquote>
+&lt;a href="https://www.w3cschool.cn/linux/linux-Shell.html">https://www.w3cschool.cn/linux/linux-Shell.html&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;h2 id="一shell-簡介">一、Shell 簡介&lt;/h2>
 &lt;ul>
 &lt;li>什麼是 Shell?&lt;br>

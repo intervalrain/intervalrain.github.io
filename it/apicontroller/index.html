@@ -2,7 +2,6 @@
 <meta name=keywords content="IT,C#,ApiController,mvc"><meta name=description content="ApiController Atrribute
 
 當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？
-
 [ApiController]
 public class TestController : ControllerBase
 {
@@ -29,7 +28,6 @@ public class TestController : ControllerBase
 [ApiController] public class TestController : ControllerBase { } 1. 自動 HTTP 400 回應 它會自動產生一個行為過濾器(action filter)，當 ModelState.IsValid 為 false 時，自動回傳 400 Response。 2. 綁定來源參數推斷 可以更改模型綁定的約定，例如，[FromBody] 是針對複雜類型參數推斷的。 3. Multi/form-data 請求推理 對於標示 [FromForm] 的參數，推斷 Content-Type 為 multipart/form-data。 4. 屬性路由要求 強制要求所有操作都必須通過屬性路由。 "><meta property="og:locale" content="zh-tw"><meta property="og:type" content="article"><meta property="article:section" content="it"><meta property="article:published_time" content="2024-06-09T20:27:03+08:00"><meta property="article:modified_time" content="2024-06-09T20:27:03+08:00"><meta property="article:tag" content="IT"><meta property="article:tag" content="C#"><meta property="article:tag" content="Mvc"><meta name=twitter:card content="summary"><meta name=twitter:title content="[IT] ApiController Atrribute"><meta name=twitter:description content="ApiController Atrribute
 
 當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？
-
 [ApiController]
 public class TestController : ControllerBase
 {
