@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Leetcode on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/leetcode/</link><description>Recent content in Leetcode on Rain Hu's Workspace</description><generator>Hugo -- 0.142.0</generator><language>zh-tw</language><lastBuildDate>Fri, 06 Oct 2023 16:30:47 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml"/><item><title>[Leetcode] Arrangement</title><link>https://intervalrain.github.io/leetcode/summary/</link><pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/summary/</guid><description>&lt;table>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Leetcode on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/leetcode/</link><description>Recent content in Leetcode on Rain Hu's Workspace</description><generator>Hugo -- 0.142.0</generator><language>zh-tw</language><lastBuildDate>Sat, 01 Feb 2025 01:09:32 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml"/><item><title>[LeetCode] Grid 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/grid/</link><pubDate>Sat, 01 Feb 2025 01:09:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/grid/</guid><description/></item><item><title>[LeetCode] String 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/string/</link><pubDate>Sat, 01 Feb 2025 00:00:08 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/string/</guid><description/></item><item><title>[LeetCode] Greedy 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/greedy/</link><pubDate>Sat, 01 Feb 2025 00:00:07 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/greedy/</guid><description/></item><item><title>[LeetCode] Linked List and Binary Tree 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/linked_list_binary_tree/</link><pubDate>Sat, 01 Feb 2025 00:00:07 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/linked_list_binary_tree/</guid><description/></item><item><title>[LeetCode] Math 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/math/</link><pubDate>Sat, 01 Feb 2025 00:00:06 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/math/</guid><description/></item><item><title>[LeetCode] Common Data Structure 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/common_data_structure/</link><pubDate>Sat, 01 Feb 2025 00:00:05 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/common_data_structure/</guid><description/></item><item><title>[LeetCode] Dynamic Programming 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/dynamic_programming/</link><pubDate>Sat, 01 Feb 2025 00:00:04 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/dynamic_programming/</guid><description/></item><item><title>[LeetCode] Graph 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/graph/</link><pubDate>Sat, 01 Feb 2025 00:00:03 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/graph/</guid><description/></item><item><title>[LeetCode] Bit Manipulation 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/bit_manipulation/</link><pubDate>Sat, 01 Feb 2025 00:00:02 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/bit_manipulation/</guid><description/></item><item><title>[LeetCode] Monotonic Stack 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/monotonic_stack/</link><pubDate>Sat, 01 Feb 2025 00:00:01 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/monotonic_stack/</guid><description/></item><item><title>[LeetCode] Binary Search 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/binary_search/</link><pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/binary_search/</guid><description/></item><item><title>[Leetcode] Arrangement</title><link>https://intervalrain.github.io/leetcode/summary/</link><pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/summary/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th style="text-align: left">題號&lt;/th>
@@ -1357,8 +1357,214 @@ We drop one ball at the top of each column of the box. Each ball can get stuck i
 Return &lt;em>an array&lt;/em> &lt;code>answer&lt;/code> &lt;em>of size&lt;/em> &lt;code>n&lt;/code> &lt;em>where&lt;/em> &lt;code>answer[i]&lt;/code> &lt;em>is the column that the ball falls out of at the bottom after dropping the ball from the&lt;/em> &lt;code>ith&lt;/code> &lt;em>column at the top, or&lt;/em> &lt;code>-1&lt;/code> &lt;em>if the ball gets stuck in the box.&lt;/em>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>Example 1:&lt;/strong>&lt;br>
-&lt;img alt="ball" loading="lazy" src="https://assets.leetcode.com/uploads/2019/09/26/ball.jpg">&lt;/p></description></item><item><title>[LeetCode] 1984. Minimum Difference Between Highest and Lowest of K Scores</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984/</link><pubDate>Tue, 01 Nov 2022 12:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984/</guid><description>&lt;ul>
-&lt;li>這是一題簡單的定長度 sliding window。先排序再用滑動窗口求值。時間複雜度是 \(n\log(n)\)&lt;/li>
+&lt;img alt="ball" loading="lazy" src="https://assets.leetcode.com/uploads/2019/09/26/ball.jpg">&lt;/p></description></item><item><title>[LeetCode] 3. Longest Substring Without Repeating Characters</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/3/</link><pubDate>Tue, 01 Nov 2022 14:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/3/</guid><description>&lt;ul>
+&lt;li>不定長的 Sliding Window 的 pattern 如下&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Window&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> add(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">find&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>Window() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Bucket&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> Window {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>c
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> _bucketSize;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> _valueDiff;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">index&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> num &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">?&lt;/span> (num &lt;span style="color:#f92672">-&lt;/span> _valueDiff) &lt;span style="color:#f92672">/&lt;/span> _bucketSize
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> : num &lt;span style="color:#f92672">/&lt;/span> _bucketSize;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unordered_map&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> _map;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Bucket(&lt;span style="color:#66d9ef">int&lt;/span> valueDiff)&lt;span style="color:#f92672">:&lt;/span> _valueDiff(valueDiff), _bucketSize(valueDiff &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> index(num);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _map[idx] &lt;span style="color:#f92672">=&lt;/span> num;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> index(num);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _map.erase(idx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">find&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> index(num);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> _map.count(idx) &lt;span style="color:#f92672">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (_map.count(idx&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> num &lt;span style="color:#f92672">-&lt;/span> _map[idx&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">&amp;lt;=&lt;/span> _valueDiff) &lt;span style="color:#f92672">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (_map.count(idx&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> _map[idx&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> num &lt;span style="color:#f92672">&amp;lt;=&lt;/span> _valueDiff);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>Window&lt;span style="color:#f92672">&amp;gt;&lt;/span> _w;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> containsNearbyAlmostDuplicate(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> indexDiff, &lt;span style="color:#66d9ef">int&lt;/span> valueDiff) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> k &lt;span style="color:#f92672">=&lt;/span> indexDiff &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w &lt;span style="color:#f92672">=&lt;/span> make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>Bucket&lt;span style="color:#f92672">&amp;gt;&lt;/span>(valueDiff);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>find(nums[i])) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(nums[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>erase(nums[i&lt;span style="color:#f92672">-&lt;/span>k]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>find(nums[i])) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(nums[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>沒有抽象化的 code&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> containsNearbyAlmostDuplicate(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k, &lt;span style="color:#66d9ef">int&lt;/span> t) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unordered_map&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> map;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> k&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idxin &lt;span style="color:#f92672">=&lt;/span> nums[i] &lt;span style="color:#f92672">/&lt;/span> (t&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (nums[i] &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) idxin&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (i &lt;span style="color:#f92672">&amp;gt;=&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idxout &lt;span style="color:#f92672">=&lt;/span> nums[i&lt;span style="color:#f92672">-&lt;/span>k] &lt;span style="color:#f92672">/&lt;/span> (t&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (nums[i&lt;span style="color:#f92672">-&lt;/span>k] &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) idxout&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> map.erase(idxout);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (map.count(idxin) &lt;span style="color:#f92672">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (map.count(idxin&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> nums[i] &lt;span style="color:#f92672">-&lt;/span> map[idxin&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">&amp;lt;=&lt;/span> t) &lt;span style="color:#f92672">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (map.count(idxin&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> map[idxin&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> nums[i] &lt;span style="color:#f92672">&amp;lt;=&lt;/span> t)) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> map[idxin] &lt;span style="color:#f92672">=&lt;/span> nums[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 不定長 Sliding Window Pattern</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_2/</link><pubDate>Tue, 01 Nov 2022 14:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_2/</guid><description>&lt;ul>
+&lt;li>不定長度的 sliding window pattern&lt;/li>
+&lt;li>步驟 &lt;br>
+move sliding window&lt;br>
+(1) 滑動左指標直到 window 有效
+(2) 加入右指標
+(3) 更新&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Window&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> add(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">check&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>Window() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>Window&lt;span style="color:#f92672">&amp;gt;&lt;/span> _w;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Solution()&lt;span style="color:#f92672">:&lt;/span> _w() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">solve&lt;/span>(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w &lt;span style="color:#f92672">=&lt;/span> make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>WindowImpl&lt;span style="color:#f92672">&amp;gt;&lt;/span>(k);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size(), left &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, right &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (right &lt;span style="color:#f92672">&amp;lt;&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> nums[right&lt;span style="color:#f92672">++&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>check(num)) _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>erase(nums[left&lt;span style="color:#f92672">++&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(num);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, right&lt;span style="color:#f92672">-&lt;/span>left);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> len;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 220. Contains Duplicate III</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220/</link><pubDate>Tue, 01 Nov 2022 13:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220/</guid><description>&lt;ul>
+&lt;li>這是一題是很有趣的一題，會用到 bucket sort 結合 sliding window，時間複雜度是 \(O(n)\)&lt;/li>
+&lt;li>我把 sliding window 的部分拆分開來，讓邏輯更清楚。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Window&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> add(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">find&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>Window() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Bucket&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> Window {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>c
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> _bucketSize;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> _valueDiff;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">index&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> num &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">?&lt;/span> (num &lt;span style="color:#f92672">-&lt;/span> _valueDiff) &lt;span style="color:#f92672">/&lt;/span> _bucketSize
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> : num &lt;span style="color:#f92672">/&lt;/span> _bucketSize;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unordered_map&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> _map;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Bucket(&lt;span style="color:#66d9ef">int&lt;/span> valueDiff)&lt;span style="color:#f92672">:&lt;/span> _valueDiff(valueDiff), _bucketSize(valueDiff &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> index(num);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _map[idx] &lt;span style="color:#f92672">=&lt;/span> num;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> index(num);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _map.erase(idx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">find&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idx &lt;span style="color:#f92672">=&lt;/span> index(num);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> _map.count(idx) &lt;span style="color:#f92672">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (_map.count(idx&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> num &lt;span style="color:#f92672">-&lt;/span> _map[idx&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">&amp;lt;=&lt;/span> _valueDiff) &lt;span style="color:#f92672">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (_map.count(idx&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> _map[idx&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> num &lt;span style="color:#f92672">&amp;lt;=&lt;/span> _valueDiff);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>Window&lt;span style="color:#f92672">&amp;gt;&lt;/span> _w;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> containsNearbyAlmostDuplicate(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> indexDiff, &lt;span style="color:#66d9ef">int&lt;/span> valueDiff) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> k &lt;span style="color:#f92672">=&lt;/span> indexDiff &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w &lt;span style="color:#f92672">=&lt;/span> make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>Bucket&lt;span style="color:#f92672">&amp;gt;&lt;/span>(valueDiff);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> k &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>find(nums[i])) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(nums[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> k; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>erase(nums[i&lt;span style="color:#f92672">-&lt;/span>k]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>find(nums[i])) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(nums[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>沒有抽象化的 code&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> containsNearbyAlmostDuplicate(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k, &lt;span style="color:#66d9ef">int&lt;/span> t) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unordered_map&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> map;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> k&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idxin &lt;span style="color:#f92672">=&lt;/span> nums[i] &lt;span style="color:#f92672">/&lt;/span> (t&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (nums[i] &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) idxin&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (i &lt;span style="color:#f92672">&amp;gt;=&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> idxout &lt;span style="color:#f92672">=&lt;/span> nums[i&lt;span style="color:#f92672">-&lt;/span>k] &lt;span style="color:#f92672">/&lt;/span> (t&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (nums[i&lt;span style="color:#f92672">-&lt;/span>k] &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) idxout&lt;span style="color:#f92672">--&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> map.erase(idxout);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (map.count(idxin) &lt;span style="color:#f92672">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (map.count(idxin&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> nums[i] &lt;span style="color:#f92672">-&lt;/span> map[idxin&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">&amp;lt;=&lt;/span> t) &lt;span style="color:#f92672">||&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (map.count(idxin&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> map[idxin&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> nums[i] &lt;span style="color:#f92672">&amp;lt;=&lt;/span> t)) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> map[idxin] &lt;span style="color:#f92672">=&lt;/span> nums[i];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1984. Minimum Difference Between Highest and Lowest of K Scores</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984/</link><pubDate>Tue, 01 Nov 2022 12:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984/</guid><description>&lt;ul>
+&lt;li>這是一題簡單的定長度 sliding window。先排序再用滑動窗口求值。時間複雜度是 \(O(n\log(n))\)&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
@@ -2720,7 +2926,46 @@ You can return the answer in any order.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 分類清單</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</link><pubDate>Tue, 25 Oct 2022 12:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</guid><description>&lt;h1 id="1-定長滑動窗口">1. 定長滑動窗口&lt;/h1>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 定長 Sliding Window Pattern</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_1/</link><pubDate>Tue, 25 Oct 2022 12:31:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_1/</guid><description>&lt;ul>
+&lt;li>定長度的 sliding window pattern&lt;/li>
+&lt;li>步驟
+&lt;ol>
+&lt;li>construct sliding window + check condition&lt;/li>
+&lt;li>move sliding window&lt;br>
+(1) remove item&lt;br>
+(2) check condition&lt;br>
+(3) add item&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Window&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> add(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">check&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>Window() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>Window&lt;span style="color:#f92672">&amp;gt;&lt;/span> _w;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> solve(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w &lt;span style="color:#f92672">=&lt;/span> make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>WindowImpl&lt;span style="color:#f92672">&amp;gt;&lt;/span>(k);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (i &lt;span style="color:#f92672">&amp;gt;=&lt;/span> k) _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>erase(nums[i&lt;span style="color:#f92672">-&lt;/span>k]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>check(nums[i])) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(nums[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] Sliding Window and Double Pointer 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</link><pubDate>Tue, 25 Oct 2022 12:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</guid><description>&lt;h1 id="1-定長滑動窗口">1. 定長滑動窗口&lt;/h1>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_1">定長滑動窗口 pattern&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="11-基礎">1.1 基礎&lt;/h2>
 &lt;ul>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456">1456. Maximum Number of Vowels in a Substring of Given Length&lt;/a>(1263)&lt;/li>
@@ -2760,7 +3005,7 @@ You can return the answer in any order.&lt;/p>
 &lt;ul>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2269">2269. Find the K-Beauty of a Number&lt;/a>(1280)&lt;/li>
 &lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984">1984. Minimum Difference Between Highest and Lowest of K Scores&lt;/a>(1306)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220">220. Contains Duplicate III&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220">220. Contains Duplicate III&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h1 id="2-不定長滑動窗口">2. 不定長滑動窗口&lt;/h1>
 &lt;blockquote>
@@ -2817,17 +3062,17 @@ You can return the answer in any order.&lt;/p>
 &lt;a href="https://intervalrain.github.io/leetcode/446">446. Arithmetic Slices II - Subsequence&lt;/a>&lt;br>
 &lt;a href="https://intervalrain.github.io/leetcode/452">452. Minimum Number of Arrows to Burst Balloons&lt;/a>&lt;/p></description></item><item><title>[LeetCode] 分類清單</title><link>https://intervalrain.github.io/leetcode_list/</link><pubDate>Tue, 25 Oct 2022 11:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/</guid><description>&lt;h2 id="分類清單">分類清單&lt;/h2>
 &lt;p>&lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr">1. 滑動窗口與雙指針（定長／不定長／單序列／雙序列／三指針／分組循環）&lt;/a>&lt;br>
-2. 二分演算法（二分答案／最小化最大值／最大化最小值／Kth）&lt;br>
-3. 單調棧（基礎／矩形面積／貢獻法／最小字典序）&lt;br>
-4. 網格圖（DFS／BFS／綜合應弿）&lt;br>
-5. 位運算（基礎／性質／拆位／試填／恆等式／思維）&lt;br>
-6. 圖論演算法（DFS／BFS／拓撲排序／最短路／最小生成樹／二分圖／基環樹／歐拉路徑）&lt;br>
-7. 動態規劃（入門／背包／狀態機／劃分／區間／狀壓／數位／數據結構優化／樹形／博弈／概率期望）&lt;br>
-8. 常用數據結構（前綴和／差分／棧／佇列／堆／字典樹／並查集／樹狀樹組／線段樹）&lt;br>
-9. 數學演算法（數論／組合／概率期望／博弈／計算幾何／隨機算法）&lt;br>
-10. 貪心與思維（基本貪心策略／反悔／區間／字典序／數學／思維／腦筋急轉彎／構造）&lt;br>
-11. 鏈表、二叉樹與回溯（前後指針／快慢指針／DFS／BFS／直徑／LCA／一般樹）&lt;br>
-12. 字串（KMP／Z函數／Manacher／字串Hash／AC自動機／後綴數組／子序列自動機） 　&lt;/p></description></item><item><title>[Leetcode] 347. Top K Frequent Elements</title><link>https://intervalrain.github.io/leetcode/347/</link><pubDate>Sat, 23 Jul 2022 23:48:15 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/347/</guid><description>&lt;p>&lt;strong>347. Top K Frequent Elements&lt;/strong>&lt;/p>
+&lt;a href="https://intervalrain.github.io/leetcode_list/binary_search">2. 二分演算法（二分答案／最小化最大值／最大化最小值／Kth）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/monotonic_stack">3. 單調棧（基礎／矩形面積／貢獻法／最小字典序）&lt;/a>
+&lt;a href="https://intervalrain.github.io/leetcode_list/grid">4. 網格圖（DFS／BFS／綜合應用）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/bit_manipulation">5. 位運算（基礎／性質／拆位／試填／恆等式／思維）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/graph">6. 圖論演算法（DFS／BFS／拓撲排序／最短路／最小生成樹／二分圖／基環樹／歐拉路徑）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/dynamic_programming">7. 動態規劃（入門／背包／狀態機／劃分／區間／狀壓／數位／數據結構優化／樹形／博弈／概率期望）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/common_data_structure">8. 常用數據結構（前綴和／差分／棧／佇列／堆／字典樹／並查集／樹狀樹組／線段樹）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/math">9. 數學演算法（數論／組合／概率期望／博弈／計算幾何／隨機算法）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/greedy">10. 貪心與思維（基本貪心策略／反悔／區間／字典序／數學／思維／腦筋急轉彎／構造）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/linked_list_binary_tree">11. 鏈表、二叉樹與回溯（前後指針／快慢指針／DFS／BFS／直徑／LCA／一般樹）&lt;/a>&lt;br>
+&lt;a href="https://intervalrain.github.io/leetcode_list/string">12. 字串（KMP／Z函數／Manacher／字串Hash／AC自動機／後綴數組／子序列自動機）&lt;/a> 　&lt;/p></description></item><item><title>[Leetcode] 347. Top K Frequent Elements</title><link>https://intervalrain.github.io/leetcode/347/</link><pubDate>Sat, 23 Jul 2022 23:48:15 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/347/</guid><description>&lt;p>&lt;strong>347. Top K Frequent Elements&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>Hardness: \(\color{orange}\textsf{Medium}\)&lt;/li>
 &lt;li>Ralated Topics: &lt;code>Array&lt;/code>、&lt;code>Hash Table&lt;/code>、&lt;code>Divide and Conquer&lt;/code>、&lt;code>Sorting&lt;/code>、&lt;code>Heap (Priority Queue)&lt;/code>、&lt;code>Bucket Sort&lt;/code>、&lt;code>Counting&lt;/code>、&lt;code>Quickselect&lt;/code>&lt;/li>

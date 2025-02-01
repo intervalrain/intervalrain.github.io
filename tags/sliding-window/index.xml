@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Sliding Window on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/sliding-window/</link><description>Recent content in Sliding Window on Rain Hu's Workspace</description><generator>Hugo -- 0.142.0</generator><language>zh-tw</language><lastBuildDate>Tue, 01 Nov 2022 14:00:00 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/sliding-window/index.xml" rel="self" type="application/rss+xml"/><item><title>[LeetCode] 不定長 Sliding Window Pattern</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_2/</link><pubDate>Tue, 01 Nov 2022 14:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_2/</guid><description>&lt;ul>
+&lt;li>不定長度的 sliding window pattern&lt;/li>
+&lt;li>步驟 &lt;br>
+move sliding window&lt;br>
+(1) 滑動左指標直到 window 有效
+(2) 加入右指標
+(3) 更新&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Window&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> add(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">check&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>Window() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>Window&lt;span style="color:#f92672">&amp;gt;&lt;/span> _w;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Solution()&lt;span style="color:#f92672">:&lt;/span> _w() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">solve&lt;/span>(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w &lt;span style="color:#f92672">=&lt;/span> make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>WindowImpl&lt;span style="color:#f92672">&amp;gt;&lt;/span>(k);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> len &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size(), left &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, right &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (right &lt;span style="color:#f92672">&amp;lt;&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> nums[right&lt;span style="color:#f92672">++&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>check(num)) _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>erase(nums[left&lt;span style="color:#f92672">++&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(num);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, right&lt;span style="color:#f92672">-&lt;/span>left);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> len;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 定長 Sliding Window Pattern</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_1/</link><pubDate>Tue, 25 Oct 2022 12:31:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_1/</guid><description>&lt;ul>
+&lt;li>定長度的 sliding window pattern&lt;/li>
+&lt;li>步驟
+&lt;ol>
+&lt;li>construct sliding window + check condition&lt;/li>
+&lt;li>move sliding window&lt;br>
+(1) remove item&lt;br>
+(2) check condition&lt;br>
+(3) add item&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Window&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> add(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">erase&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">check&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> num) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>Window() {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unique_ptr&lt;span style="color:#f92672">&amp;lt;&lt;/span>Window&lt;span style="color:#f92672">&amp;gt;&lt;/span> _w;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> solve(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w &lt;span style="color:#f92672">=&lt;/span> make_unique&lt;span style="color:#f92672">&amp;lt;&lt;/span>WindowImpl&lt;span style="color:#f92672">&amp;gt;&lt;/span>(k);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> n; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (i &lt;span style="color:#f92672">&amp;gt;=&lt;/span> k) _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>erase(nums[i&lt;span style="color:#f92672">-&lt;/span>k]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (_w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>check(nums[i])) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> _w&lt;span style="color:#f92672">-&amp;gt;&lt;/span>add(nums[i]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] Sliding Window and Double Pointer 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</link><pubDate>Tue, 25 Oct 2022 12:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</guid><description>&lt;h1 id="1-定長滑動窗口">1. 定長滑動窗口&lt;/h1>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_1">定長滑動窗口 pattern&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="11-基礎">1.1 基礎&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456">1456. Maximum Number of Vowels in a Substring of Given Length&lt;/a>(1263)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/643">643. Maximum Average Subarray I&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold&lt;/a>(1317)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090">2090. K Radius Subarray Averages&lt;/a>(1358)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379">2379. Minimum Recolors to Get K Consecutive Black Blocks&lt;/a>(1360)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1052">1052. Grumpy Bookstore Owner&lt;/a>(1418)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1461">1461. Check If a String Contains All Binary Codes of Size K&lt;/a>(1504)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2841">2841. Maximum Sum of Almost Unique Subarray&lt;/a>(1546)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2461">2461. Maximum Sum of Distinct Subarrays With Length K&lt;/a>(1553)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1423">1423. Maximum Points You Can Obtain from Cards&lt;/a>(1574)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1652">1652. Defuse the Bomb&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1297">1297. Maximum Number of Occurrences of a Substring&lt;/a>(1748)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 1176. Diet Plan Performance(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 1100. Find K-Length Substrings With No Repeated Characters(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 1852. Distinct Numbers in Each Subarray(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 1151. Minimum Swaps to Group All 1&amp;rsquo;s Together(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 2107. Number of Unique Flavors After sharing K Candies(會員題)&lt;/li>
+&lt;/ul>
+&lt;h2 id="12-進階">1.2 進階&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2134">2134. Minimum Swaps to Group All 1&amp;rsquo;s Together II&lt;/a>(1748)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2653">2653. Sliding Subarray Beauty&lt;/a>(1786)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1888">1888. Minimum Number of Flips to Make the Binary String Alternating&lt;/a>(2006)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/567">567. Permutation in String&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/438">438. Find All Anagrams in a String&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/30">30. Substring with Concatenation of All Words&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156">2156. Find Substring With Given Hash Value&lt;/a>(2063)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953">2953. Count Complete Substrings&lt;/a>(2449)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1016">1016. Binary String With Substrings Representing 1 To N&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 683. K Empty Slots(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 2067. Number of Equal Count Substrings(會員題)&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 2524. Maximum Frequency Score of a substring(會員題)&lt;/li>
+&lt;/ul>
+&lt;h2 id="13-其它">1.3 其它&lt;/h2>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2269">2269. Find the K-Beauty of a Number&lt;/a>(1280)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984">1984. Minimum Difference Between Highest and Lowest of K Scores&lt;/a>(1306)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220">220. Contains Duplicate III&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="2-不定長滑動窗口">2. 不定長滑動窗口&lt;/h1>
+&lt;blockquote>
+&lt;p>不定長滑動窗口主要分為三類：求最長子數組、求最短子數組，以及求子數組個數。&lt;/p></description></item></channel></rss>
