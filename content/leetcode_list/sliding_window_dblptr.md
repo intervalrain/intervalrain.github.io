@@ -70,7 +70,7 @@ ShowCodeCopyButtons: true
 - [x] [1208. Get Equal Substrings Within Budget](/leetcode_list/sliding_window_dblptr/1208)(1497)
 - [x] [2730. Find the Longest Semi-Repetitive Substring](/leetcode_list/sliding_window_dblptr/2730)(1502)
 - [x] [904. Fruit Into Baskets](/leetcode_list/sliding_window_dblptr/904)(1516)
-- [ ] [1695](1529)
+- [ ] [1695. Maximum Erasure Value](/leetcode_list/sliding_window_dblptr/1605)(1529)
 - [ ] [2958](1535)
 - [ ] [2779](1638)
 - [ ] [2024](1643)
