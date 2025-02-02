@@ -1327,7 +1327,37 @@ There is also a gene bank &lt;code>bank&lt;/code> that records all the valid gen
 Given the two gene strings &lt;code>start&lt;/code> and &lt;code>end&lt;/code> and the gene bank &lt;code>bank&lt;/code>, return the &lt;em>minimum number of mutations needed to mutate from&lt;/em> &lt;code>start&lt;/code> &lt;em>to&lt;/em> &lt;code>end&lt;/code>. If there is no such a mutation, return &lt;code>-1&lt;/code>.&lt;br>
 Note that the starting point is assumed to be valid, so it might not be included in the bank.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Example 1:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] 1004. Max Consecutive Ones III</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1004/</link><pubDate>Tue, 01 Nov 2022 22:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1004/</guid><description>&lt;ul>
+&lt;p>&lt;strong>Example 1:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] 1658. Minimum Operations to Reduce X to Zero</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1658/</link><pubDate>Tue, 01 Nov 2022 23:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1658/</guid><description>&lt;ul>
+&lt;li>這一是經典的頭尾相連問題，可以透過透過以下手法換轉成簡單的 sliding window
+&lt;ul>
+&lt;li>find &lt;code>head + tail = x&lt;/code>&lt;/li>
+&lt;li>let &lt;code>head + body + tail == total&lt;/code>&lt;/li>
+&lt;li>the problem becomes FIND &lt;code>body = total - x&lt;/code>，問題從求最短頭+尾 變成 最長 window&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>套不定長 sliding window。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> minOperations(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> x) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> total &lt;span style="color:#f92672">=&lt;/span> accumulate(nums.begin(), nums.end(), &lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> target &lt;span style="color:#f92672">=&lt;/span> total &lt;span style="color:#f92672">-&lt;/span> x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> left &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, right &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, res &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> curr &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (target &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) res &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#75715e">// 注意要處理 boundary condition
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span> (right &lt;span style="color:#f92672">&amp;lt;&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> curr &lt;span style="color:#f92672">+=&lt;/span> nums[right&lt;span style="color:#f92672">++&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (curr &lt;span style="color:#f92672">&amp;gt;&lt;/span> target &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> left &lt;span style="color:#f92672">&amp;lt;&lt;/span> right) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> curr &lt;span style="color:#f92672">-=&lt;/span> nums[left&lt;span style="color:#f92672">++&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (curr &lt;span style="color:#f92672">==&lt;/span> target) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, right&lt;span style="color:#f92672">-&lt;/span>left);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">?&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">:&lt;/span> n &lt;span style="color:#f92672">-&lt;/span> res; &lt;span style="color:#75715e">// 最後要將長度轉回來
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1004. Max Consecutive Ones III</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1004/</link><pubDate>Tue, 01 Nov 2022 22:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1004/</guid><description>&lt;ul>
 &lt;li>簡單的不定長 sliding window 問題。&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
