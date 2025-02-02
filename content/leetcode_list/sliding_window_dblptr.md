@@ -73,7 +73,7 @@ ShowCodeCopyButtons: true
 - [x] [1695. Maximum Erasure Value](/leetcode_list/sliding_window_dblptr/1605)(1529)
 - [x] [2958. Length of Longest Subarray With at Most K Frequency](/leetcode_list/sliding_window_dblptr/2958)(1535)
 - [x] [2779. Maximum Beauty of an Array After Applying Operation](/leetcode_list/sliding_window_dblptr/2779)(1638)
-- [ ] [2024](1643)
+- [x] [2024. Maximize the Confusion of an Exam](/leetcode_list/sliding_window_dblptr/2024)(1643)
 - [ ] [1004](1656)
 - [ ] [1658](1817)
 - [ ] [1838](1876)
