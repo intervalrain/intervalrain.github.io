@@ -69,7 +69,7 @@ ShowCodeCopyButtons: true
 - [x] [1493. Longest Subarray of 1's After Deleting One Element](/leetcode_list/sliding_window_dblptr/1493)(1423)
 - [x] [1208. Get Equal Substrings Within Budget](/leetcode_list/sliding_window_dblptr/1208)(1497)
 - [x] [2730. Find the Longest Semi-Repetitive Substring](/leetcode_list/sliding_window_dblptr/2730)(1502)
-- [ ] [904](1516)
+- [x] [904. Fruit Into Baskets](/leetcode_list/sliding_window_dblptr/904)(1516)
 - [ ] [1695](1529)
 - [ ] [2958](1535)
 - [ ] [2779](1638)
