@@ -77,7 +77,7 @@ ShowCodeCopyButtons: true
 - [x] [1004. Max Consecutive Ones III](/leetcode_list/sliding_window_dblptr/1004)(1656)
 - [x] [1658. Minimum Operations to Reduce X to Zero](/leetcode_list/sliding_window_dblptr/1658)(1817)
 - [x] [1838. Frequency of the Most Frequent Element](/leetcode_list/sliding_window_dblptr/1838)(1876)
-- [ ] [2516](1948)
+- [ ] [2516. Take K of Each Character From Left and Right](/leetcode_list/sliding_window_dblptr/2516)(1948)
 - [ ] [2831](1976)
 - [ ] [2271](2022)
 - [ ] [2106](2062)
