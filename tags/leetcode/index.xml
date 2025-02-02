@@ -1357,6 +1357,27 @@ Note that the starting point is assumed to be valid, so it might not be included
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">?&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">:&lt;/span> n &lt;span style="color:#f92672">-&lt;/span> res; &lt;span style="color:#75715e">// 最後要將長度轉回來
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1838. Frequency of the Most Frequent Element</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1838/</link><pubDate>Tue, 01 Nov 2022 23:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1838/</guid><description>&lt;ul>
+&lt;li>這題同樣是經典的 sliding window，經排序過後，我們可以透過 &lt;code>len * max_element_in_window - accumulate_in_window&lt;/code> 的方式來求 token need，&lt;/li>
+&lt;li>接著套不定長 sliding window。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> maxFrequency(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> nums, &lt;span style="color:#66d9ef">int&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sort(nums.begin(), nums.end());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> left &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, right &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, res &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, n &lt;span style="color:#f92672">=&lt;/span> nums.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">long&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> curr &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (right &lt;span style="color:#f92672">&amp;lt;&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> nums[right&lt;span style="color:#f92672">++&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> curr &lt;span style="color:#f92672">+=&lt;/span> num;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> ((&lt;span style="color:#66d9ef">long&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span>)(right&lt;span style="color:#f92672">-&lt;/span>left) &lt;span style="color:#f92672">*&lt;/span> num &lt;span style="color:#f92672">-&lt;/span> curr &lt;span style="color:#f92672">&amp;gt;&lt;/span> k) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> curr &lt;span style="color:#f92672">-=&lt;/span> nums[left&lt;span style="color:#f92672">++&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, right&lt;span style="color:#f92672">-&lt;/span>left);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 1004. Max Consecutive Ones III</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1004/</link><pubDate>Tue, 01 Nov 2022 22:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1004/</guid><description>&lt;ul>
 &lt;li>簡單的不定長 sliding window 問題。&lt;/li>
 &lt;/ul>
