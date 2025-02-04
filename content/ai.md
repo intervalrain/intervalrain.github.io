@@ -41,6 +41,7 @@ ShowCodeCopyButtons: true
 [3-5 邏輯斯迴歸(logistic regression)](/ai/3_5)  
 [3-6 實作線性分類器](/ai/3_6)  
 [3-7 Keras API](/ai/3_7)
+3-8 客製化 Training
 
 ### 4. 分類與迴歸
 [4-1 二元分類問題](/ai/4_1)  
@@ -55,6 +56,10 @@ ShowCodeCopyButtons: true
 [5-5 機器學習的流程](/ai/5_5)  
 
 ### 6. 電腦視覺(CV)
+6-1 卷積神經網路(CNN)
+6-2 預訓練(Pre-training)
+6-3 影像分割
+
 
 ### 7. 時間序列(Time Series)
 
