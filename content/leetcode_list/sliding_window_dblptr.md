@@ -83,7 +83,7 @@ ShowCodeCopyButtons: true
 - [x] [2106. Maximum Fruits Harvested After at Most K Steps](/leetcode_list/sliding_window_dblptr/2106)(2062)
 - [x] [2555. Maximize Win From Two Segments](/leetcode_list/sliding_window_dblptr/2555)(2081)
 - [x] [2009. Minimum Number of Operations to Make Array Continuous](/leetcode_list/sliding_window_dblptr/2009)(2084)
-- [ ] [1610](2147)
+- [x] [1610. Maximum Number of Visible Points](/leetcode_list/sliding_window_dblptr/1610)(2147)
 - [ ] [2781](2204)
 - [ ] [3411](~2300)
 - [ ] [2968](2444)
