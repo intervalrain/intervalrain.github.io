@@ -3909,7 +3909,42 @@ There is also a gene bank &lt;code>bank&lt;/code> that records all the valid gen
 Given the two gene strings &lt;code>start&lt;/code> and &lt;code>end&lt;/code> and the gene bank &lt;code>bank&lt;/code>, return the &lt;em>minimum number of mutations needed to mutate from&lt;/em> &lt;code>start&lt;/code> &lt;em>to&lt;/em> &lt;code>end&lt;/code>. If there is no such a mutation, return &lt;code>-1&lt;/code>.&lt;br>
 Note that the starting point is assumed to be valid, so it might not be included in the bank.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Example 1:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] 2009. Minimum Number of Operations to Make Array Continuous</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2009/</link><pubDate>Wed, 02 Nov 2022 03:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2009/</guid><description>&lt;ul>
+&lt;p>&lt;strong>Example 1:&lt;/strong>&lt;/p></description></item><item><title>[LeetCode] 1610. Maximum Number of Visible Points</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1610/</link><pubDate>Wed, 02 Nov 2022 04:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1610/</guid><description>&lt;ul>
+&lt;li>這一題的兩個關鍵點是
+&lt;ol>
+&lt;li>轉成角度，使用 &lt;code>atan2(dy, dx)&lt;/code> 這個函式，並將 rad 轉成 degree。&lt;/li>
+&lt;li>要考慮座標 0 == 360，頭尾要相接。我的做法是將負數 +360 重覆放一遍。(或是只需要放小於 -180 + angle)&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>剩下的就是 sliding window 了。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> visiblePoints(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;amp;&lt;/span> points, &lt;span style="color:#66d9ef">int&lt;/span> angle, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;amp;&lt;/span> location) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">double&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> angles;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> on &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">auto&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> p : points) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> dy &lt;span style="color:#f92672">=&lt;/span> p[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> location[&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> dx &lt;span style="color:#f92672">=&lt;/span> p[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> location[&lt;span style="color:#ae81ff">0&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (dx &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> dy &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> on&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">continue&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> ang &lt;span style="color:#f92672">=&lt;/span> atan2(dy, dx) &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">180&lt;/span> &lt;span style="color:#f92672">/&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>numbers&lt;span style="color:#f92672">::&lt;/span>pi;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (ang &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">180&lt;/span> &lt;span style="color:#f92672">+&lt;/span> angle) angles.push_back(ang &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">360&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> angles.push_back(ang);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sort(angles.begin(), angles.end());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> left &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, right &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, res &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>, n &lt;span style="color:#f92672">=&lt;/span> angles.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (right &lt;span style="color:#f92672">&amp;lt;&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> curr &lt;span style="color:#f92672">=&lt;/span> angles[right&lt;span style="color:#f92672">++&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (curr &lt;span style="color:#f92672">-&lt;/span> angles[left] &lt;span style="color:#f92672">&amp;gt;&lt;/span> angle) left&lt;span style="color:#f92672">++&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> max(res, right &lt;span style="color:#f92672">-&lt;/span> left);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res &lt;span style="color:#f92672">+&lt;/span> on;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>[LeetCode] 2009. Minimum Number of Operations to Make Array Continuous</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2009/</link><pubDate>Wed, 02 Nov 2022 03:00:00 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2009/</guid><description>&lt;ul>
 &lt;li>這一題排序過後就變成簡單的不定長 sliding window 了，但要注意處理 duplicated number&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Solution&lt;/span> {
