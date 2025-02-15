@@ -48,8 +48,8 @@ cover:
 + 本名：胡鎮宇
 + 專長：
     + 全端開發 (C#.NET, C++, React TypeScript, Python)
-    + 系統架構設計 (Clean Architecture, CQRS, DDD)
-    + AI 整合與開發 (LangChain, RAG)
+    + 系統架構設計 (Clean Architecture, CQRS, DDD, Abp)
+    + AI 整合與開發 (LangChain, RAG, Tensorflow, Keras)
     + 半導體製程與元件物理
 + 語言能力：
     + 中文（母語）
@@ -66,16 +66,30 @@ cover:
 ---
 - [Resume](../resume202411.pdf)
 ## 職業生涯
-### 現職：資深軟體工程師 @ UMC (2022.08 - 2024.11)
+### 系統分析師/副理 @ Advantech (2025.02 - Present)
++ EIoT & IIoT 軟體解決方案開發
++ AIoT 開發
++ Universal Library 開發
++ SDEC 專案
++ 使用語言: C#.NET (Abp Framework), Go, Python, React.TypeScript
+
+### Freelancer (2024.11 - 2025.02)
++ 自由接案工作
++ 開發 [Nihon Go 日文學習平台](https://japanese-learning-platform.vercel.app)
++ 使用語言: React.TypeScript, C#.NET
+
+### 資深軟體工程師 @ UMC (2022.08 - 2024.11)
 + 主導開發 UEDA 5.0 跨區域資料分析解決方案
 + 開發 DSM Bot AI 助手，革新半導體製造資訊查詢
 + 設計 BTV 系統，實現 WAT 量測後端良率
 + 開發 ChatGPT 插件，提升產線可視性
++ 使用語言: C#.NET, React.TypeScript, Python
 
-### 前職：半導體元件研發工程師 @ UMC (2018.08 - 2022.08)
+### 半導體元件研發工程師 @ UMC (2018.08 - 2022.08)
 + 創新 NWR Project，提升 28eHV 與 22eHV 良率
 + 開發 Co-cut Project，優化實驗成本
 + 設計 U2C 工具，提升 CAD 開發效率
++ 使用語言: TCL(TCAD), VBA, Python, Calibre DRC
 
 ## 教育背景
 + 國立清華大學 材料科學工程研究所 (2014-2018)
@@ -101,6 +115,7 @@ cover:
 - Development:
     - [GitHub](https://github.com/intervalrain)
     - [Portfolio](https://intervalrain.github.io)
+    - [Nihon Go](https://japanese-learning-platform.vercel.app)
 
 ## Contact
 - [Email](mailto:intervalrain@gmail.com)
