@@ -40,7 +40,7 @@ ShowCodeCopyButtons: true
 [3-4 線性迴歸](/ai/3_4)  
 [3-5 邏輯斯迴歸(logistic regression)](/ai/3_5)  
 [3-6 實作線性分類器](/ai/3_6)  
-[3-7 Keras API](/ai/3_7)
+[3-7 Keras API](/ai/3_7)  
 [3-8 客製化 Training](/ai/3_8)
 
 ### 4. 分類與迴歸
