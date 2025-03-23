@@ -85,7 +85,7 @@ ShowCodeCopyButtons: true
 - [x] [2009. Minimum Number of Operations to Make Array Continuous](/leetcode_list/sliding_window_dblptr/2009)(2084)
 - [x] [1610. Maximum Number of Visible Points](/leetcode_list/sliding_window_dblptr/1610)(2147)
 - [x] [2781](2204)
-- [ ] [3411](~2300)
+- [x] [3411](~2300)
 - [ ] [2968](2444)
 - [ ] [1040](2456)
 - [ ] [3413](~2500)

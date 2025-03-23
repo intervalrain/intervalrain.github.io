@@ -56,9 +56,9 @@ ShowCodeCopyButtons: true
 [5-5 機器學習的流程](/ai/5_5)  
 
 ### 6. 電腦視覺(CV)
-6-1 卷積神經網路(CNN)
-6-2 預訓練(Pre-training)
-6-3 影像分割
+[6-1 卷積神經網路(CNN)](/ai/6_1)  
+6-2 預訓練(Pre-training)  
+6-3 影像分割  
 
 
 ### 7. 時間序列(Time Series)
