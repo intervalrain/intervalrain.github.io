@@ -1,3 +1,4 @@
+```
 name: github pages
 
 on:
@@ -30,3 +31,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+```
+
+ubuntu decrepted, please help updat
