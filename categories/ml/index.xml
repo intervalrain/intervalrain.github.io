@@ -1,196 +1,196 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ML on Rain Hu's Workspace</title><link>https://intervalrain.github.io/categories/ml/</link><description>Recent content in ML on Rain Hu's Workspace</description><generator>Hugo -- 0.148.2</generator><language>zh-tw</language><lastBuildDate>Wed, 11 Oct 2023 20:48:34 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>[ML] Start Tensorflow Environment with Conda</title><link>https://intervalrain.github.io/ml/environment/</link><pubDate>Wed, 11 Oct 2023 20:48:34 +0800</pubDate><guid>https://intervalrain.github.io/ml/environment/</guid><description>&lt;h1 id="環境建置">環境建置&lt;/h1>
-&lt;ol>
-&lt;li>安裝 Anaconda&lt;/li>
-&lt;li>創建虛擬環境&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>conda create -n tensorflow
-&lt;/code>&lt;/pre>&lt;ol start="3">
-&lt;li>進入虛擬環境 (macOS/Linux)&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>source activate tensorflow
-&lt;/code>&lt;/pre>&lt;ol start="4">
-&lt;li>在環境內安裝 tensorflow&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>pip install tensorflow
-&lt;/code>&lt;/pre>&lt;ol start="5">
-&lt;li>在環境內安裝 jupyter notebook&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>pip install jupyter notebook
-&lt;/code>&lt;/pre>&lt;ol start="6">
-&lt;li>在環境內安裝 pandas&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>pip install pandas
-&lt;/code>&lt;/pre>&lt;ol start="7">
-&lt;li>開啟 jupyter notebook&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>jupyter notebook
-&lt;/code>&lt;/pre>&lt;h1 id="for-terminal-user">For terminal user&lt;/h1>
-&lt;ol>
-&lt;li>開始 Anaconda.Navigator
-&lt;img alt="conda" loading="lazy" src="https://intervalrain.github.io/ML/images/conda.png">&lt;/li>
-&lt;li>在 Environments 中安裝指定模組 ex.&lt;code>tensorflow&lt;/code>, &lt;code>keras&lt;/code>&lt;/li>
-&lt;li>在 terminal 中輸入 conda activate {環境名稱}&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>conda activate tensorflow
-&lt;/code>&lt;/pre>&lt;ol start="4">
-&lt;li>開啟 python&lt;/li>
-&lt;/ol>
-&lt;pre tabindex="0">&lt;code>python
-&lt;/code>&lt;/pre>&lt;p>若成功便會顯示 python 安裝資訊&lt;/p>
-&lt;pre tabindex="0">&lt;code>Python 3.11.5 (main, Sep 11 2023, 08:17:37) [Clang 14.0.6 ] on darwin
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ML on Rain Hu's Workspace</title><link>https://intervalrain.github.io/categories/ml/</link><description>Recent content in ML on Rain Hu's Workspace</description><generator>Hugo -- 0.150.0</generator><language>zh-tw</language><lastBuildDate>Wed, 11 Oct 2023 20:48:34 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/categories/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>[ML] Start Tensorflow Environment with Conda</title><link>https://intervalrain.github.io/ml/environment/</link><pubDate>Wed, 11 Oct 2023 20:48:34 +0800</pubDate><guid>https://intervalrain.github.io/ml/environment/</guid><description>&lt;h1 id="環境建置"&gt;環境建置&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;安裝 Anaconda&lt;/li&gt;
+&lt;li&gt;創建虛擬環境&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;conda create -n tensorflow
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="3"&gt;
+&lt;li&gt;進入虛擬環境 (macOS/Linux)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;source activate tensorflow
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="4"&gt;
+&lt;li&gt;在環境內安裝 tensorflow&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;pip install tensorflow
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="5"&gt;
+&lt;li&gt;在環境內安裝 jupyter notebook&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;pip install jupyter notebook
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="6"&gt;
+&lt;li&gt;在環境內安裝 pandas&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;pip install pandas
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="7"&gt;
+&lt;li&gt;開啟 jupyter notebook&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;jupyter notebook
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id="for-terminal-user"&gt;For terminal user&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;開始 Anaconda.Navigator
+&lt;img alt="conda" loading="lazy" src="https://intervalrain.github.io/ML/images/conda.png"&gt;&lt;/li&gt;
+&lt;li&gt;在 Environments 中安裝指定模組 ex.&lt;code&gt;tensorflow&lt;/code&gt;, &lt;code&gt;keras&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在 terminal 中輸入 conda activate {環境名稱}&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;conda activate tensorflow
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start="4"&gt;
+&lt;li&gt;開啟 python&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;python
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;若成功便會顯示 python 安裝資訊&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Python 3.11.5 (main, Sep 11 2023, 08:17:37) [Clang 14.0.6 ] on darwin
 Type &amp;#34;help&amp;#34;, &amp;#34;copyright&amp;#34;, &amp;#34;credits&amp;#34; or &amp;#34;license&amp;#34; for more information.
-&lt;/code>&lt;/pre>&lt;p>大功告成，接著嘗試訓練第一筆資料&lt;/p></description></item><item><title>[ML] 01. 機器學習基本概念簡介</title><link>https://intervalrain.github.io/ml/lhy01/</link><pubDate>Wed, 02 Aug 2023 23:56:25 +0800</pubDate><guid>https://intervalrain.github.io/ml/lhy01/</guid><description>什麼是機器學習，機器學習任務，監督式學習的運作流程</description></item><item><title>[ML] 簡單實作測試</title><link>https://intervalrain.github.io/ml/work/</link><pubDate>Sun, 30 Apr 2023 00:35:59 +0800</pubDate><guid>https://intervalrain.github.io/ml/work/</guid><description>&lt;h2 id="線性迴歸建模">線性迴歸建模&lt;/h2>
-&lt;h3 id="載入資料">載入資料&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> pandas &lt;span style="color:#66d9ef">as&lt;/span> pd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> matplotlib.pyplot &lt;span style="color:#66d9ef">as&lt;/span> plt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> matplotlib &lt;span style="color:#66d9ef">as&lt;/span> mlp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>url &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;sample.csv&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data &lt;span style="color:#f92672">=&lt;/span> pd&lt;span style="color:#f92672">.&lt;/span>read_csv(url)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x &lt;span style="color:#f92672">=&lt;/span> data[&lt;span style="color:#e6db74">&amp;#34;x-axis&amp;#34;&lt;/span>]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>y &lt;span style="color:#f92672">=&lt;/span> data[&lt;span style="color:#e6db74">&amp;#34;y-axis&amp;#34;&lt;/span>]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="畫圖">畫圖&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">plot&lt;/span>(x, y, w, b):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> line &lt;span style="color:#f92672">=&lt;/span> w &lt;span style="color:#f92672">*&lt;/span> x &lt;span style="color:#f92672">+&lt;/span> b
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>plot(x, line, color&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;red&amp;#34;&lt;/span>, label&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;prediction&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>scatter(x, y, color&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;blue&amp;#34;&lt;/span>, label&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;data&amp;#34;&lt;/span>, marker&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;x&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>title(&lt;span style="color:#e6db74">&amp;#34;Title&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>xlabel(&lt;span style="color:#e6db74">&amp;#34;x Axis&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>ylabel(&lt;span style="color:#e6db74">&amp;#34;y Axis&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>xlim([&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">12&lt;/span>])
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>ylim([&lt;span style="color:#ae81ff">20&lt;/span>,&lt;span style="color:#ae81ff">140&lt;/span>])
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#f92672">.&lt;/span>show()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plot(x, y, &lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="定義-cost-function">定義 cost function&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">cost_function&lt;/span>(x, y, w, b):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> y2 &lt;span style="color:#f92672">=&lt;/span> w &lt;span style="color:#f92672">*&lt;/span> x &lt;span style="color:#f92672">+&lt;/span> b
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> (y &lt;span style="color:#f92672">-&lt;/span> y2) &lt;span style="color:#f92672">**&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> cost&lt;span style="color:#f92672">.&lt;/span>mean()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cost_function(x, y, &lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>假設在 b = 20 的情形下，找 w 的最小值&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>w_arr &lt;span style="color:#f92672">=&lt;/span> []
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>costs &lt;span style="color:#f92672">=&lt;/span> []
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> w &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">101&lt;/span>):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span> &lt;span style="color:#f92672">+&lt;/span> w&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> cost_function(x, y, w2, &lt;span style="color:#ae81ff">20&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_arr&lt;span style="color:#f92672">.&lt;/span>append(w2)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> costs&lt;span style="color:#f92672">.&lt;/span>append(cost)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> matplotlib.pyplot &lt;span style="color:#66d9ef">as&lt;/span> plt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>title(&lt;span style="color:#e6db74">&amp;#34;cost function - when b = 20)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>xlabel(&lt;span style="color:#e6db74">&amp;#34;w&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>ylabel(&lt;span style="color:#e6db74">&amp;#34;cost function&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>plot(w_arr, costs)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>show()
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="利用-numpy-計算矩陣">利用 numpy 計算矩陣&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> numpy &lt;span style="color:#66d9ef">as&lt;/span> np
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ws &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>arange(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">101&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bs &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>arange(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">101&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>costs &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>zeros((&lt;span style="color:#ae81ff">201&lt;/span>, &lt;span style="color:#ae81ff">201&lt;/span>))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> w &lt;span style="color:#f92672">in&lt;/span> ws:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> b &lt;span style="color:#f92672">in&lt;/span> bs:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> cost_function(x, y, w, b)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> costs[i,j] &lt;span style="color:#f92672">=&lt;/span> cost
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> j &lt;span style="color:#f92672">=&lt;/span> j&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i &lt;span style="color:#f92672">=&lt;/span> i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(costs)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="畫-3d-圖">畫 3d 圖&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>ax &lt;span style="color:#f92672">=&lt;/span> plt&lt;span style="color:#f92672">.&lt;/span>axes(projection&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;3d&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>xaxis&lt;span style="color:#f92672">.&lt;/span>set_pane_color((&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>yaxis&lt;span style="color:#f92672">.&lt;/span>set_pane_color((&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>zaxis&lt;span style="color:#f92672">.&lt;/span>set_pane_color((&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>figure(figsize&lt;span style="color:#f92672">=&lt;/span>(&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">7&lt;/span>))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>view_init(&lt;span style="color:#ae81ff">30&lt;/span>, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">110&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>b_grid, w_grid &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>meshgrid(bs, ws)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>plot_surface(w_grid, b_grid, costs, cmap&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Spectral_r&amp;#34;&lt;/span>, alpha&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.7&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>plot_wireframe(w_grid, b_grid, costs, alpha&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.1&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_title(&lt;span style="color:#e6db74">&amp;#34;loss function&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_xlabel(&lt;span style="color:#e6db74">&amp;#34;w&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_ylabel(&lt;span style="color:#e6db74">&amp;#34;b&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_zlabel(&lt;span style="color:#e6db74">&amp;#34;loss&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>w_index, b_index &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>where(costs &lt;span style="color:#f92672">==&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>min(costs))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;red&amp;#34;&lt;/span>, s&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">40&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>show()
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="計算梯度">計算梯度&lt;/h3>
-&lt;ul>
-&lt;li>\(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;大功告成，接著嘗試訓練第一筆資料&lt;/p&gt;</description></item><item><title>[ML] 01. 機器學習基本概念簡介</title><link>https://intervalrain.github.io/ml/lhy01/</link><pubDate>Wed, 02 Aug 2023 23:56:25 +0800</pubDate><guid>https://intervalrain.github.io/ml/lhy01/</guid><description>什麼是機器學習，機器學習任務，監督式學習的運作流程</description></item><item><title>[ML] 簡單實作測試</title><link>https://intervalrain.github.io/ml/work/</link><pubDate>Sun, 30 Apr 2023 00:35:59 +0800</pubDate><guid>https://intervalrain.github.io/ml/work/</guid><description>&lt;h2 id="線性迴歸建模"&gt;線性迴歸建模&lt;/h2&gt;
+&lt;h3 id="載入資料"&gt;載入資料&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; pandas &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; pd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; matplotlib &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; mlp
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;url &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;sample.csv&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;data &lt;span style="color:#f92672"&gt;=&lt;/span&gt; pd&lt;span style="color:#f92672"&gt;.&lt;/span&gt;read_csv(url)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x &lt;span style="color:#f92672"&gt;=&lt;/span&gt; data[&lt;span style="color:#e6db74"&gt;&amp;#34;x-axis&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;y &lt;span style="color:#f92672"&gt;=&lt;/span&gt; data[&lt;span style="color:#e6db74"&gt;&amp;#34;y-axis&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="畫圖"&gt;畫圖&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;plot&lt;/span&gt;(x, y, w, b):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; line &lt;span style="color:#f92672"&gt;=&lt;/span&gt; w &lt;span style="color:#f92672"&gt;*&lt;/span&gt; x &lt;span style="color:#f92672"&gt;+&lt;/span&gt; b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;plot(x, line, color&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;red&amp;#34;&lt;/span&gt;, label&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;prediction&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;scatter(x, y, color&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;, label&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;data&amp;#34;&lt;/span&gt;, marker&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;x&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;title(&lt;span style="color:#e6db74"&gt;&amp;#34;Title&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;xlabel(&lt;span style="color:#e6db74"&gt;&amp;#34;x Axis&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;ylabel(&lt;span style="color:#e6db74"&gt;&amp;#34;y Axis&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;xlim([&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;12&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;ylim([&lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;140&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;show()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plot(x, y, &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="定義-cost-function"&gt;定義 cost function&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;cost_function&lt;/span&gt;(x, y, w, b):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; y2 &lt;span style="color:#f92672"&gt;=&lt;/span&gt; w &lt;span style="color:#f92672"&gt;*&lt;/span&gt; x &lt;span style="color:#f92672"&gt;+&lt;/span&gt; b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cost &lt;span style="color:#f92672"&gt;=&lt;/span&gt; (y &lt;span style="color:#f92672"&gt;-&lt;/span&gt; y2) &lt;span style="color:#f92672"&gt;**&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; cost&lt;span style="color:#f92672"&gt;.&lt;/span&gt;mean()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cost_function(x, y, &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;假設在 b = 20 的情形下，找 w 的最小值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;w_arr &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;costs &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; w &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;101&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w2 &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; &lt;span style="color:#f92672"&gt;+&lt;/span&gt; w&lt;span style="color:#f92672"&gt;/&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cost &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cost_function(x, y, w2, &lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w_arr&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(w2)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; costs&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(cost)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;title(&lt;span style="color:#e6db74"&gt;&amp;#34;cost function - when b = 20)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;xlabel(&lt;span style="color:#e6db74"&gt;&amp;#34;w&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;ylabel(&lt;span style="color:#e6db74"&gt;&amp;#34;cost function&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;plot(w_arr, costs)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;show()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="利用-numpy-計算矩陣"&gt;利用 numpy 計算矩陣&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; numpy &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; np
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ws &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;arange(&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;101&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bs &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;arange(&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;101&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;costs &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;zeros((&lt;span style="color:#ae81ff"&gt;201&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;201&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;i &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; w &lt;span style="color:#f92672"&gt;in&lt;/span&gt; ws:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; j &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; b &lt;span style="color:#f92672"&gt;in&lt;/span&gt; bs:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cost &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cost_function(x, y, w, b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; costs[i,j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cost
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; j &lt;span style="color:#f92672"&gt;=&lt;/span&gt; j&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;=&lt;/span&gt; i&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(costs)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="畫-3d-圖"&gt;畫 3d 圖&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax &lt;span style="color:#f92672"&gt;=&lt;/span&gt; plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;axes(projection&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;3d&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;xaxis&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_pane_color((&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;yaxis&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_pane_color((&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;zaxis&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_pane_color((&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;figure(figsize&lt;span style="color:#f92672"&gt;=&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;view_init(&lt;span style="color:#ae81ff"&gt;30&lt;/span&gt;, &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;110&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;b_grid, w_grid &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;meshgrid(bs, ws)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;plot_surface(w_grid, b_grid, costs, cmap&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Spectral_r&amp;#34;&lt;/span&gt;, alpha&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0.7&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;plot_wireframe(w_grid, b_grid, costs, alpha&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0.1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_title(&lt;span style="color:#e6db74"&gt;&amp;#34;loss function&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_xlabel(&lt;span style="color:#e6db74"&gt;&amp;#34;w&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_ylabel(&lt;span style="color:#e6db74"&gt;&amp;#34;b&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_zlabel(&lt;span style="color:#e6db74"&gt;&amp;#34;loss&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;w_index, b_index &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;where(costs &lt;span style="color:#f92672"&gt;==&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;min(costs))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ax&lt;span style="color:#f92672"&gt;.&lt;/span&gt;scatter(ws[w_index], bs[b_index], costs[w_index, b_index], color&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;red&amp;#34;&lt;/span&gt;, s&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;40&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plt&lt;span style="color:#f92672"&gt;.&lt;/span&gt;show()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="計算梯度"&gt;計算梯度&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;\(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\
 \text{cost} = (\text{y}-(\text{w}\times\text{x}+\text{b}))^2\\
 \text{m} _\text{w} = -2\times\text{x}(\text{y-wx-b})\\
 \text{m} _\text{b} = -2\times(\text{y-wx-b})\\
-\)&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">compute_gradient&lt;/span>(x, y, w, b):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_gradient &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">*&lt;/span>(w&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">+&lt;/span>b&lt;span style="color:#f92672">-&lt;/span>y)&lt;span style="color:#f92672">.&lt;/span>mean()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b_gradient &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>(w&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">+&lt;/span>b&lt;span style="color:#f92672">-&lt;/span>y)&lt;span style="color:#f92672">.&lt;/span>mean()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> w_gradient, b_gradient
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="利用梯度下降計算-cost-最小值">利用梯度下降計算 cost 最小值&lt;/h3>
-&lt;ul>
-&lt;li>\(\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\_rate}\)&lt;/li>
-&lt;li>\(\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\_rate}\)&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>learning_rate &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0.001&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">10&lt;/span>):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_gradient, b_gradient &lt;span style="color:#f92672">=&lt;/span> compute_gradient(x, y, w, b)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w &lt;span style="color:#f92672">=&lt;/span> w &lt;span style="color:#f92672">-&lt;/span> w_gradient &lt;span style="color:#f92672">*&lt;/span> learning_rate
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b &lt;span style="color:#f92672">=&lt;/span> b &lt;span style="color:#f92672">-&lt;/span> b_gradient &lt;span style="color:#f92672">*&lt;/span> learning_rate
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> cost_function(x, y, w, b)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">f&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Iteration &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>i&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> : Cost &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>cost&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">, w: &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>w&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">, b: &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>b&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="gradient_descent-函式">gradient_descent 函式&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">gradient_descent&lt;/span>(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c_hist &lt;span style="color:#f92672">=&lt;/span> []
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_hist &lt;span style="color:#f92672">=&lt;/span> []
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b_hist &lt;span style="color:#f92672">=&lt;/span> []
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w &lt;span style="color:#f92672">=&lt;/span> w_init
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b &lt;span style="color:#f92672">=&lt;/span> b_init
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(run_iteration):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_gradient, b_gradient &lt;span style="color:#f92672">=&lt;/span> gradient_function(x, y, w, b)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w &lt;span style="color:#f92672">=&lt;/span> w &lt;span style="color:#f92672">-&lt;/span> w_gradient &lt;span style="color:#f92672">*&lt;/span> learning_rate
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b &lt;span style="color:#f92672">=&lt;/span> b &lt;span style="color:#f92672">-&lt;/span> b_gradient &lt;span style="color:#f92672">*&lt;/span> learning_rate
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cost &lt;span style="color:#f92672">=&lt;/span> cost_function(x, y, w, b)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> w_hist&lt;span style="color:#f92672">.&lt;/span>append(w)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> b_hist&lt;span style="color:#f92672">.&lt;/span>append(b)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c_hist&lt;span style="color:#f92672">.&lt;/span>append(cost)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> w, b, w_hist, b_hist, c_hist
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="多特徵的預測">多特徵的預測&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> sklearn.model_selection &lt;span style="color:#f92672">import&lt;/span> train_test_split
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scaler &lt;span style="color:#f92672">=&lt;/span> StandardScaler()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scaler&lt;span style="color:#f92672">.&lt;/span>fit(x_train)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_train &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transform(x_train)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_test &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transform(x_test)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_real &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array([[&lt;span style="color:#ae81ff">5.3&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>], [&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>]])
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_real &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transfrom(x_real)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>y_real &lt;span style="color:#f92672">=&lt;/span> (w_final&lt;span style="color:#f92672">*&lt;/span>x_real)&lt;span style="color:#f92672">.&lt;/span>sum(axis&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> b_final
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>y_real
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="特徵縮放加速-gradient-descent">「特徵縮放」加速 gradient descent&lt;/h3>
-&lt;ul>
-&lt;li>w1&lt;em>x1+w2&lt;/em>x2+w3&lt;em>x3+w4&lt;/em>x4+b&lt;/li>
-&lt;li>因分布範圍不同，調整參數，最好令每一個乘積都相當&lt;/li>
-&lt;li>相當於是標準化：\(\frac{\text{x-平均值}}{標準差}\)&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> sklearn.preprocessing &lt;span style="color:#f92672">import&lt;/span> StandardScaler
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scaler &lt;span style="color:#f92672">=&lt;/span> StandardScaler()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scaler&lt;span style="color:#f92672">.&lt;/span>fit(x_train)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_train &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transform(x_train)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x_test &lt;span style="color:#f92672">=&lt;/span> scaler&lt;span style="color:#f92672">.&lt;/span>transform(x_test)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="邏輯迴歸-logistic-regression">邏輯迴歸 Logistic Regression&lt;/h2>
-&lt;h3 id="sigmoid-function">Sigmoid Function&lt;/h3>
-&lt;ul>
-&lt;li>當模性呈現 0-1 關係(邏輯迴歸)時可用&lt;/li>
-&lt;li>\(\text{Sigmoid Function}=\frac{1}{1+e^{-z}}\)&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">sigmoid&lt;/span>(z):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">/&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">+&lt;/span>np&lt;span style="color:#f92672">.&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>z))
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>w &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array([&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>])
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>b &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>z &lt;span style="color:#f92672">=&lt;/span> (w&lt;span style="color:#f92672">*&lt;/span>x_train)&lt;span style="color:#f92672">.&lt;/span>sum(axis&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> b
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sigmoid(z)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;compute_gradient&lt;/span&gt;(x, y, w, b):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w_gradient &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;&lt;span style="color:#f92672"&gt;*&lt;/span&gt;x&lt;span style="color:#f92672"&gt;*&lt;/span&gt;(w&lt;span style="color:#f92672"&gt;*&lt;/span&gt;x&lt;span style="color:#f92672"&gt;+&lt;/span&gt;b&lt;span style="color:#f92672"&gt;-&lt;/span&gt;y)&lt;span style="color:#f92672"&gt;.&lt;/span&gt;mean()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; b_gradient &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;&lt;span style="color:#f92672"&gt;*&lt;/span&gt;(w&lt;span style="color:#f92672"&gt;*&lt;/span&gt;x&lt;span style="color:#f92672"&gt;+&lt;/span&gt;b&lt;span style="color:#f92672"&gt;-&lt;/span&gt;y)&lt;span style="color:#f92672"&gt;.&lt;/span&gt;mean()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; w_gradient, b_gradient
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="利用梯度下降計算-cost-最小值"&gt;利用梯度下降計算 cost 最小值&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;\(\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\_rate}\)&lt;/li&gt;
+&lt;li&gt;\(\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\_rate}\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;learning_rate &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0.001&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(&lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w_gradient, b_gradient &lt;span style="color:#f92672"&gt;=&lt;/span&gt; compute_gradient(x, y, w, b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w &lt;span style="color:#f92672"&gt;=&lt;/span&gt; w &lt;span style="color:#f92672"&gt;-&lt;/span&gt; w_gradient &lt;span style="color:#f92672"&gt;*&lt;/span&gt; learning_rate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; b &lt;span style="color:#f92672"&gt;=&lt;/span&gt; b &lt;span style="color:#f92672"&gt;-&lt;/span&gt; b_gradient &lt;span style="color:#f92672"&gt;*&lt;/span&gt; learning_rate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cost &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cost_function(x, y, w, b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(&lt;span style="color:#e6db74"&gt;f&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Iteration &lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;i&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt; : Cost &lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;cost&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;, w: &lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;w&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;, b: &lt;/span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;b&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="gradient_descent-函式"&gt;gradient_descent 函式&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;gradient_descent&lt;/span&gt;(x, y, w_init, b_init, learning_rate, cost_function, gradient_function, run_iteration):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; c_hist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w_hist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; b_hist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w &lt;span style="color:#f92672"&gt;=&lt;/span&gt; w_init
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; b &lt;span style="color:#f92672"&gt;=&lt;/span&gt; b_init
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(run_iteration):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w_gradient, b_gradient &lt;span style="color:#f92672"&gt;=&lt;/span&gt; gradient_function(x, y, w, b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w &lt;span style="color:#f92672"&gt;=&lt;/span&gt; w &lt;span style="color:#f92672"&gt;-&lt;/span&gt; w_gradient &lt;span style="color:#f92672"&gt;*&lt;/span&gt; learning_rate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; b &lt;span style="color:#f92672"&gt;=&lt;/span&gt; b &lt;span style="color:#f92672"&gt;-&lt;/span&gt; b_gradient &lt;span style="color:#f92672"&gt;*&lt;/span&gt; learning_rate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cost &lt;span style="color:#f92672"&gt;=&lt;/span&gt; cost_function(x, y, w, b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; w_hist&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(w)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; b_hist&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; c_hist&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(cost)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; w, b, w_hist, b_hist, c_hist
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="多特徵的預測"&gt;多特徵的預測&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; sklearn.model_selection &lt;span style="color:#f92672"&gt;import&lt;/span&gt; train_test_split
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scaler &lt;span style="color:#f92672"&gt;=&lt;/span&gt; StandardScaler()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scaler&lt;span style="color:#f92672"&gt;.&lt;/span&gt;fit(x_train)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x_train &lt;span style="color:#f92672"&gt;=&lt;/span&gt; scaler&lt;span style="color:#f92672"&gt;.&lt;/span&gt;transform(x_train)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x_test &lt;span style="color:#f92672"&gt;=&lt;/span&gt; scaler&lt;span style="color:#f92672"&gt;.&lt;/span&gt;transform(x_test)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x_real &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;array([[&lt;span style="color:#ae81ff"&gt;5.3&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;], [&lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x_real &lt;span style="color:#f92672"&gt;=&lt;/span&gt; scaler&lt;span style="color:#f92672"&gt;.&lt;/span&gt;transfrom(x_real)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;y_real &lt;span style="color:#f92672"&gt;=&lt;/span&gt; (w_final&lt;span style="color:#f92672"&gt;*&lt;/span&gt;x_real)&lt;span style="color:#f92672"&gt;.&lt;/span&gt;sum(axis&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;) &lt;span style="color:#f92672"&gt;+&lt;/span&gt; b_final
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;y_real
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="特徵縮放加速-gradient-descent"&gt;「特徵縮放」加速 gradient descent&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;w1&lt;em&gt;x1+w2&lt;/em&gt;x2+w3&lt;em&gt;x3+w4&lt;/em&gt;x4+b&lt;/li&gt;
+&lt;li&gt;因分布範圍不同，調整參數，最好令每一個乘積都相當&lt;/li&gt;
+&lt;li&gt;相當於是標準化：\(\frac{\text{x-平均值}}{標準差}\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; sklearn.preprocessing &lt;span style="color:#f92672"&gt;import&lt;/span&gt; StandardScaler
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scaler &lt;span style="color:#f92672"&gt;=&lt;/span&gt; StandardScaler()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scaler&lt;span style="color:#f92672"&gt;.&lt;/span&gt;fit(x_train)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x_train &lt;span style="color:#f92672"&gt;=&lt;/span&gt; scaler&lt;span style="color:#f92672"&gt;.&lt;/span&gt;transform(x_train)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;x_test &lt;span style="color:#f92672"&gt;=&lt;/span&gt; scaler&lt;span style="color:#f92672"&gt;.&lt;/span&gt;transform(x_test)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="邏輯迴歸-logistic-regression"&gt;邏輯迴歸 Logistic Regression&lt;/h2&gt;
+&lt;h3 id="sigmoid-function"&gt;Sigmoid Function&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;當模性呈現 0-1 關係(邏輯迴歸)時可用&lt;/li&gt;
+&lt;li&gt;\(\text{Sigmoid Function}=\frac{1}{1+e^{-z}}\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;sigmoid&lt;/span&gt;(z):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#f92672"&gt;/&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#f92672"&gt;+&lt;/span&gt;np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;exp(&lt;span style="color:#f92672"&gt;-&lt;/span&gt;z))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;w &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;array([&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;4&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;b &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;z &lt;span style="color:#f92672"&gt;=&lt;/span&gt; (w&lt;span style="color:#f92672"&gt;*&lt;/span&gt;x_train)&lt;span style="color:#f92672"&gt;.&lt;/span&gt;sum(axis&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;) &lt;span style="color:#f92672"&gt;+&lt;/span&gt; b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sigmoid(z)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

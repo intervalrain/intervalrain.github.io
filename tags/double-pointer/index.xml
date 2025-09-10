@@ -1,48 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Double Pointer on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/double-pointer/</link><description>Recent content in Double Pointer on Rain Hu's Workspace</description><generator>Hugo -- 0.148.2</generator><language>zh-tw</language><lastBuildDate>Tue, 25 Oct 2022 12:30:32 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/double-pointer/index.xml" rel="self" type="application/rss+xml"/><item><title>[LeetCode] Sliding Window and Double Pointer 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</link><pubDate>Tue, 25 Oct 2022 12:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</guid><description>&lt;h1 id="1-定長滑動窗口">1. 定長滑動窗口&lt;/h1>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_1">定長滑動窗口 pattern&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="11-基礎">1.1 基礎&lt;/h2>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456">1456. Maximum Number of Vowels in a Substring of Given Length&lt;/a>(1263)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/643">643. Maximum Average Subarray I&lt;/a>&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold&lt;/a>(1317)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090">2090. K Radius Subarray Averages&lt;/a>(1358)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379">2379. Minimum Recolors to Get K Consecutive Black Blocks&lt;/a>(1360)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1052">1052. Grumpy Bookstore Owner&lt;/a>(1418)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1461">1461. Check If a String Contains All Binary Codes of Size K&lt;/a>(1504)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2841">2841. Maximum Sum of Almost Unique Subarray&lt;/a>(1546)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2461">2461. Maximum Sum of Distinct Subarrays With Length K&lt;/a>(1553)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1423">1423. Maximum Points You Can Obtain from Cards&lt;/a>(1574)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1652">1652. Defuse the Bomb&lt;/a>&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1297">1297. Maximum Number of Occurrences of a Substring&lt;/a>(1748)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 1176. Diet Plan Performance(會員題)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 1100. Find K-Length Substrings With No Repeated Characters(會員題)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 1852. Distinct Numbers in Each Subarray(會員題)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 1151. Minimum Swaps to Group All 1&amp;rsquo;s Together(會員題)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 2107. Number of Unique Flavors After sharing K Candies(會員題)&lt;/li>
-&lt;/ul>
-&lt;h2 id="12-進階">1.2 進階&lt;/h2>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2134">2134. Minimum Swaps to Group All 1&amp;rsquo;s Together II&lt;/a>(1748)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2653">2653. Sliding Subarray Beauty&lt;/a>(1786)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1888">1888. Minimum Number of Flips to Make the Binary String Alternating&lt;/a>(2006)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/567">567. Permutation in String&lt;/a>&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/438">438. Find All Anagrams in a String&lt;/a>&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/30">30. Substring with Concatenation of All Words&lt;/a>&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156">2156. Find Substring With Given Hash Value&lt;/a>(2063)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953">2953. Count Complete Substrings&lt;/a>(2449)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1016">1016. Binary String With Substrings Representing 1 To N&lt;/a>&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 683. K Empty Slots(會員題)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 2067. Number of Equal Count Substrings(會員題)&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 2524. Maximum Frequency Score of a substring(會員題)&lt;/li>
-&lt;/ul>
-&lt;h2 id="13-其它">1.3 其它&lt;/h2>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2269">2269. Find the K-Beauty of a Number&lt;/a>(1280)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984">1984. Minimum Difference Between Highest and Lowest of K Scores&lt;/a>(1306)&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220">220. Contains Duplicate III&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h1 id="2-不定長滑動窗口">2. 不定長滑動窗口&lt;/h1>
-&lt;blockquote>
-&lt;p>不定長滑動窗口主要分為三類：求最長子數組、求最短子數組，以及求子數組個數。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Double Pointer on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/double-pointer/</link><description>Recent content in Double Pointer on Rain Hu's Workspace</description><generator>Hugo -- 0.150.0</generator><language>zh-tw</language><lastBuildDate>Tue, 25 Oct 2022 12:30:32 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/double-pointer/index.xml" rel="self" type="application/rss+xml"/><item><title>[LeetCode] Sliding Window and Double Pointer 科學刷題</title><link>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</link><pubDate>Tue, 25 Oct 2022 12:30:32 +0800</pubDate><guid>https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/</guid><description>&lt;h1 id="1-定長滑動窗口"&gt;1. 定長滑動窗口&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/pattern_1"&gt;定長滑動窗口 pattern&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="11-基礎"&gt;1.1 基礎&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1456"&gt;1456. Maximum Number of Vowels in a Substring of Given Length&lt;/a&gt;(1263)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/643"&gt;643. Maximum Average Subarray I&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1343"&gt;1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold&lt;/a&gt;(1317)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2090"&gt;2090. K Radius Subarray Averages&lt;/a&gt;(1358)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2379"&gt;2379. Minimum Recolors to Get K Consecutive Black Blocks&lt;/a&gt;(1360)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1052"&gt;1052. Grumpy Bookstore Owner&lt;/a&gt;(1418)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1461"&gt;1461. Check If a String Contains All Binary Codes of Size K&lt;/a&gt;(1504)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2841"&gt;2841. Maximum Sum of Almost Unique Subarray&lt;/a&gt;(1546)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2461"&gt;2461. Maximum Sum of Distinct Subarrays With Length K&lt;/a&gt;(1553)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1423"&gt;1423. Maximum Points You Can Obtain from Cards&lt;/a&gt;(1574)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1652"&gt;1652. Defuse the Bomb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1297"&gt;1297. Maximum Number of Occurrences of a Substring&lt;/a&gt;(1748)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 1176. Diet Plan Performance(會員題)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 1100. Find K-Length Substrings With No Repeated Characters(會員題)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 1852. Distinct Numbers in Each Subarray(會員題)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 1151. Minimum Swaps to Group All 1&amp;rsquo;s Together(會員題)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 2107. Number of Unique Flavors After sharing K Candies(會員題)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="12-進階"&gt;1.2 進階&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2134"&gt;2134. Minimum Swaps to Group All 1&amp;rsquo;s Together II&lt;/a&gt;(1748)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2653"&gt;2653. Sliding Subarray Beauty&lt;/a&gt;(1786)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1888"&gt;1888. Minimum Number of Flips to Make the Binary String Alternating&lt;/a&gt;(2006)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/567"&gt;567. Permutation in String&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/438"&gt;438. Find All Anagrams in a String&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/30"&gt;30. Substring with Concatenation of All Words&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2156"&gt;2156. Find Substring With Given Hash Value&lt;/a&gt;(2063)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2953"&gt;2953. Count Complete Substrings&lt;/a&gt;(2449)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1016"&gt;1016. Binary String With Substrings Representing 1 To N&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 683. K Empty Slots(會員題)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 2067. Number of Equal Count Substrings(會員題)&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 2524. Maximum Frequency Score of a substring(會員題)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="13-其它"&gt;1.3 其它&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/2269"&gt;2269. Find the K-Beauty of a Number&lt;/a&gt;(1280)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/1984"&gt;1984. Minimum Difference Between Highest and Lowest of K Scores&lt;/a&gt;(1306)&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; &lt;a href="https://intervalrain.github.io/leetcode_list/sliding_window_dblptr/220"&gt;220. Contains Duplicate III&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="2-不定長滑動窗口"&gt;2. 不定長滑動窗口&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不定長滑動窗口主要分為三類：求最長子數組、求最短子數組，以及求子數組個數。&lt;/p&gt;</description></item></channel></rss>

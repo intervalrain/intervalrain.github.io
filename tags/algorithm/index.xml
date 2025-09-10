@@ -1,55 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithm on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/algorithm/</link><description>Recent content in Algorithm on Rain Hu's Workspace</description><generator>Hugo -- 0.148.2</generator><language>zh-tw</language><lastBuildDate>Fri, 19 Jan 2024 01:26:30 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>[Hugo] 使用 Hugo-notice</title><link>https://intervalrain.github.io/hugo/notice/</link><pubDate>Fri, 19 Jan 2024 01:26:30 +0800</pubDate><guid>https://intervalrain.github.io/hugo/notice/</guid><description>Desc Text.</description></item><item><title>[Leetcode] Arrangement</title><link>https://intervalrain.github.io/leetcode/summary/</link><pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/summary/</guid><description>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">題號&lt;/th>
-&lt;th style="text-align: left">題目&lt;/th>
-&lt;th style="text-align: left">類別&lt;/th>
-&lt;th style="text-align: left">題解&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">1&lt;/td>
-&lt;td style="text-align: left">&lt;a href="../../leetcode/1">Two Sum&lt;/a>&lt;/td>
-&lt;td style="text-align: left">Hash Table&lt;/td>
-&lt;td style="text-align: left">Hash Table&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">2&lt;/td>
-&lt;td style="text-align: left">&lt;a href="../../leetcode/2">Add Two numbers&lt;/a>&lt;/td>
-&lt;td style="text-align: left">Linked List&lt;/td>
-&lt;td style="text-align: left">Recursion&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">201&lt;/td>
-&lt;td style="text-align: left">Bitwise AND of Numbers Range&lt;/td>
-&lt;td style="text-align: left">Bitwise Operation&lt;/td>
-&lt;td style="text-align: left">Lowbit = x&amp;amp;(~x+1)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">204&lt;/td>
-&lt;td style="text-align: left">Count Primes&lt;/td>
-&lt;td style="text-align: left">Math Thetory&lt;/td>
-&lt;td style="text-align: left">The Sieve of Eratosthenes&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">408&lt;/td>
-&lt;td style="text-align: left">Valid Word Abbreviation&lt;/td>
-&lt;td style="text-align: left">Two Pointers&lt;/td>
-&lt;td style="text-align: left">字串轉數字&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item><item><title>[Problem] Version Query</title><link>https://intervalrain.github.io/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/versionquery/</guid><description>&lt;p>&lt;strong>Version Query&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>Hardness: \(\color{red}\textsf{Hard}\)&lt;/li>
-&lt;li>Ralated Topics: &lt;code>Binary Search&lt;/code>、&lt;code>Segment Tree&lt;/code>、&lt;code>Heap (Priority Queue&lt;/code>、&lt;code>Hash Table&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h3 id="一題目">一、題目&lt;/h3>
-&lt;p>Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.&lt;br>
-The given apk_info structure is given as below.&lt;br>
-&lt;strong>struct apk_info {&lt;/strong>&lt;br>
-　　&lt;strong>int apk_version;&lt;/strong>&lt;br>
-　　&lt;strong>int min_version = 1;&lt;/strong>&lt;br>
-　　&lt;strong>int max_version = INT_MAX;&lt;/strong>&lt;br>
-&lt;strong>}&lt;/strong>&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Algorithm on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/algorithm/</link><description>Recent content in Algorithm on Rain Hu's Workspace</description><generator>Hugo -- 0.150.0</generator><language>zh-tw</language><lastBuildDate>Fri, 19 Jan 2024 01:26:30 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>[Hugo] 使用 Hugo-notice</title><link>https://intervalrain.github.io/hugo/notice/</link><pubDate>Fri, 19 Jan 2024 01:26:30 +0800</pubDate><guid>https://intervalrain.github.io/hugo/notice/</guid><description>Desc Text.</description></item><item><title>[Leetcode] Arrangement</title><link>https://intervalrain.github.io/leetcode/summary/</link><pubDate>Fri, 06 Oct 2023 16:30:47 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/summary/</guid><description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;題號&lt;/th&gt;
+&lt;th style="text-align: left"&gt;題目&lt;/th&gt;
+&lt;th style="text-align: left"&gt;類別&lt;/th&gt;
+&lt;th style="text-align: left"&gt;題解&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;1&lt;/td&gt;
+&lt;td style="text-align: left"&gt;&lt;a href="../../leetcode/1"&gt;Two Sum&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Hash Table&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Hash Table&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;2&lt;/td&gt;
+&lt;td style="text-align: left"&gt;&lt;a href="../../leetcode/2"&gt;Add Two numbers&lt;/a&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Linked List&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Recursion&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;201&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Bitwise AND of Numbers Range&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Bitwise Operation&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Lowbit = x&amp;amp;(~x+1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;204&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Count Primes&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Math Thetory&lt;/td&gt;
+&lt;td style="text-align: left"&gt;The Sieve of Eratosthenes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;408&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Valid Word Abbreviation&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Two Pointers&lt;/td&gt;
+&lt;td style="text-align: left"&gt;字串轉數字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>[Problem] Version Query</title><link>https://intervalrain.github.io/leetcode/versionquery/</link><pubDate>Thu, 20 Oct 2022 22:29:15 +0800</pubDate><guid>https://intervalrain.github.io/leetcode/versionquery/</guid><description>&lt;p&gt;&lt;strong&gt;Version Query&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hardness: \(\color{red}\textsf{Hard}\)&lt;/li&gt;
+&lt;li&gt;Ralated Topics: &lt;code&gt;Binary Search&lt;/code&gt;、&lt;code&gt;Segment Tree&lt;/code&gt;、&lt;code&gt;Heap (Priority Queue&lt;/code&gt;、&lt;code&gt;Hash Table&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="一題目"&gt;一、題目&lt;/h3&gt;
+&lt;p&gt;Given an information of application(APK) about its range of versions, find its corresponding OS version. If APK versions are probable for two or more OS versions, it must be belong to the latest OS version.&lt;br&gt;
+The given apk_info structure is given as below.&lt;br&gt;
+&lt;strong&gt;struct apk_info {&lt;/strong&gt;&lt;br&gt;
+　　&lt;strong&gt;int apk_version;&lt;/strong&gt;&lt;br&gt;
+　　&lt;strong&gt;int min_version = 1;&lt;/strong&gt;&lt;br&gt;
+　　&lt;strong&gt;int max_version = INT_MAX;&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
