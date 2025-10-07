@@ -1,3 +1,29 @@
+---
+title: "[C#] 並行與異步編程完整教學"
+date: 2025-10-07T15:55:07+08:00
+keywords: ["C#", "asynchronous programming", "channel", "thread"]
+tags: ["C#"]
+Categories: ["C#"]
+draft: false
+description: "A complete tutorial of C# asynchronous programming and concepts of channel and thread"
+author: "Rain Hu"           # Rain Hu, 陣雨, intervalrain
+showToc: true
+TocOpen: true
+math: true                  # KaTex or not
+mermaid: true
+hidemeta: false
+canonicalURL: "https://intervalrain.github.io/"
+disableHLJS: true
+disableShare: true
+disableHLJS: false
+hideSummary: false
+searchHidden: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowCodeCopyButtons: true
+---
+
 # C# 並行與異步編程完整教學
 
 ## 目錄
