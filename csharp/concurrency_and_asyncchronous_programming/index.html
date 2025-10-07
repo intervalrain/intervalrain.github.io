@@ -1,0 +1,1517 @@
+<!doctype html><html lang=zh-tw dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Rain Hu's Workspace</title><meta name=keywords content><meta name=description content="C# 並行與異步編程完整教學
+目錄
+
+基礎概念
+處理器架構
+同步機制
+異步編程元件
+常見模式
+常見問題與陷阱
+
+
+基礎概念
+多執行緒與並行
+執行緒 (Thread) 是作業系統能夠進行運算排程的最小單位。一個程序可以包含多個執行緒，這些執行緒共享程序的記憶體空間。
+並行 (Concurrency) 是指多個任務在重疊的時間段內執行，不一定是同時執行。
+平行 (Parallelism) 是指多個任務在同一時刻真正同時執行，需要多核處理器支援。
+異步編程 (Asynchronous Programming)
+異步編程允許程式在等待某個操作完成時繼續執行其他工作，而不是阻塞等待。在 C# 中，主要透過 async 和 await 關鍵字實現。
+// 同步版本 - 會阻塞執行緒
+public string DownloadData(string url)
+{
+    var client = new HttpClient();
+    var response = client.GetStringAsync(url).Result; // 阻塞
+    return response;
+}
+
+// 異步版本 - 不阻塞執行緒
+public async Task<string> DownloadDataAsync(string url)
+{
+    var client = new HttpClient();
+    var response = await client.GetStringAsync(url); // 不阻塞
+    return response;
+}
+關鍵差異："><meta name=author content="Rain Hu, intervarrain, 陣雨"><link rel=canonical href=https://intervalrain.github.io/csharp/concurrency_and_asyncchronous_programming/><meta name=google-site-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.4c6c0beaf1dfe52cd0f712a5896ac127e66fd064cfc598e04750f496d470699e.css integrity="sha256-TGwL6vHf5SzQ9xKliWrBJ+Zv0GTPxZjgR1D0ltRwaZ4=" rel="preload stylesheet" as=style><link rel=icon href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=16x16 href=https://intervalrain.github.io/images/rain.png><link rel=icon type=image/png sizes=32x32 href=https://intervalrain.github.io/images/rain.png><link rel=apple-touch-icon href=https://intervalrain.github.io/images/rain.png><link rel=mask-icon href=https://intervalrain.github.io/images/rain.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-tw href=https://intervalrain.github.io/csharp/concurrency_and_asyncchronous_programming/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script src=https://utteranc.es/client.js repo=intervalrain.github.io issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script><meta property="og:url" content="https://intervalrain.github.io/csharp/concurrency_and_asyncchronous_programming/"><meta property="og:site_name" content="Rain Hu's Workspace"><meta property="og:title" content="Rain Hu's Workspace"><meta property="og:description" content="C# 並行與異步編程完整教學 目錄 基礎概念 處理器架構 同步機制 異步編程元件 常見模式 常見問題與陷阱 基礎概念 多執行緒與並行 執行緒 (Thread) 是作業系統能夠進行運算排程的最小單位。一個程序可以包含多個執行緒，這些執行緒共享程序的記憶體空間。
+並行 (Concurrency) 是指多個任務在重疊的時間段內執行，不一定是同時執行。
+平行 (Parallelism) 是指多個任務在同一時刻真正同時執行，需要多核處理器支援。
+異步編程 (Asynchronous Programming) 異步編程允許程式在等待某個操作完成時繼續執行其他工作，而不是阻塞等待。在 C# 中，主要透過 async 和 await 關鍵字實現。
+// 同步版本 - 會阻塞執行緒 public string DownloadData(string url) { var client = new HttpClient(); var response = client.GetStringAsync(url).Result; // 阻塞 return response; } // 異步版本 - 不阻塞執行緒 public async Task<string> DownloadDataAsync(string url) { var client = new HttpClient(); var response = await client.GetStringAsync(url); // 不阻塞 return response; } 關鍵差異："><meta property="og:locale" content="zh-tw"><meta property="og:type" content="article"><meta property="article:section" content="csharp"><meta name=twitter:card content="summary"><meta name=twitter:title content><meta name=twitter:description content="C# 並行與異步編程完整教學
+目錄
+
+基礎概念
+處理器架構
+同步機制
+異步編程元件
+常見模式
+常見問題與陷阱
+
+
+基礎概念
+多執行緒與並行
+執行緒 (Thread) 是作業系統能夠進行運算排程的最小單位。一個程序可以包含多個執行緒，這些執行緒共享程序的記憶體空間。
+並行 (Concurrency) 是指多個任務在重疊的時間段內執行，不一定是同時執行。
+平行 (Parallelism) 是指多個任務在同一時刻真正同時執行，需要多核處理器支援。
+異步編程 (Asynchronous Programming)
+異步編程允許程式在等待某個操作完成時繼續執行其他工作，而不是阻塞等待。在 C# 中，主要透過 async 和 await 關鍵字實現。
+// 同步版本 - 會阻塞執行緒
+public string DownloadData(string url)
+{
+    var client = new HttpClient();
+    var response = client.GetStringAsync(url).Result; // 阻塞
+    return response;
+}
+
+// 異步版本 - 不阻塞執行緒
+public async Task<string> DownloadDataAsync(string url)
+{
+    var client = new HttpClient();
+    var response = await client.GetStringAsync(url); // 不阻塞
+    return response;
+}
+關鍵差異："><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Csharps","item":"https://intervalrain.github.io/csharp/"},{"@type":"ListItem","position":2,"name":"","item":"https://intervalrain.github.io/csharp/concurrency_and_asyncchronous_programming/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"","name":"","description":"C# 並行與異步編程完整教學 目錄 基礎概念 處理器架構 同步機制 異步編程元件 常見模式 常見問題與陷阱 基礎概念 多執行緒與並行 執行緒 (Thread) 是作業系統能夠進行運算排程的最小單位。一個程序可以包含多個執行緒，這些執行緒共享程序的記憶體空間。\n並行 (Concurrency) 是指多個任務在重疊的時間段內執行，不一定是同時執行。\n平行 (Parallelism) 是指多個任務在同一時刻真正同時執行，需要多核處理器支援。\n異步編程 (Asynchronous Programming) 異步編程允許程式在等待某個操作完成時繼續執行其他工作，而不是阻塞等待。在 C# 中，主要透過 async 和 await 關鍵字實現。\n// 同步版本 - 會阻塞執行緒 public string DownloadData(string url) { var client = new HttpClient(); var response = client.GetStringAsync(url).Result; // 阻塞 return response; } // 異步版本 - 不阻塞執行緒 public async Task\u0026lt;string\u0026gt; DownloadDataAsync(string url) { var client = new HttpClient(); var response = await client.GetStringAsync(url); // 不阻塞 return response; } 關鍵差異：\n","keywords":[],"articleBody":"C# 並行與異步編程完整教學 目錄 基礎概念 處理器架構 同步機制 異步編程元件 常見模式 常見問題與陷阱 基礎概念 多執行緒與並行 執行緒 (Thread) 是作業系統能夠進行運算排程的最小單位。一個程序可以包含多個執行緒，這些執行緒共享程序的記憶體空間。\n並行 (Concurrency) 是指多個任務在重疊的時間段內執行，不一定是同時執行。\n平行 (Parallelism) 是指多個任務在同一時刻真正同時執行，需要多核處理器支援。\n異步編程 (Asynchronous Programming) 異步編程允許程式在等待某個操作完成時繼續執行其他工作，而不是阻塞等待。在 C# 中，主要透過 async 和 await 關鍵字實現。\n// 同步版本 - 會阻塞執行緒 public string DownloadData(string url) { var client = new HttpClient(); var response = client.GetStringAsync(url).Result; // 阻塞 return response; } // 異步版本 - 不阻塞執行緒 public async Task\u003cstring\u003e DownloadDataAsync(string url) { var client = new HttpClient(); var response = await client.GetStringAsync(url); // 不阻塞 return response; } 關鍵差異：\n同步方法會佔用執行緒直到操作完成 異步方法在等待時釋放執行緒，讓它可以處理其他工作 異步特別適合 I/O 密集型操作（網路請求、檔案讀寫、資料庫查詢） 處理器架構 單核處理器 在單核處理器上，作業系統透過時間切片 (Time Slicing) 快速切換執行緒，創造出並行執行的假象。這種切換稱為上下文切換 (Context Switch)，有一定的效能開銷。\n// 在單核上執行多執行緒 public void SingleCoreExample() { var thread1 = new Thread(() =\u003e { for (int i = 0; i \u003c 100; i++) Console.WriteLine($\"Thread 1: {i}\"); }); var thread2 = new Thread(() =\u003e { for (int i = 0; i \u003c 100; i++) Console.WriteLine($\"Thread 2: {i}\"); }); thread1.Start(); thread2.Start(); // 輸出會交錯出現，但不是真正的同時執行 } 多核處理器 多核處理器可以真正同時執行多個執行緒，實現平行處理。現代電腦通常都是多核架構。\n// 利用多核進行平行計算 public void MultiCoreExample() { var numbers = Enumerable.Range(1, 1000000).ToArray(); // 單執行緒計算 var sw = Stopwatch.StartNew(); long sum1 = numbers.Sum(x =\u003e (long)x * x); sw.Stop(); Console.WriteLine($\"單執行緒: {sw.ElapsedMilliseconds}ms\"); // 平行計算 sw.Restart(); long sum2 = numbers.AsParallel().Sum(x =\u003e (long)x * x); sw.Stop(); Console.WriteLine($\"平行處理: {sw.ElapsedMilliseconds}ms\"); } 效能考量：\nCPU 密集型任務受益於多核平行處理 I/O 密集型任務更適合異步編程 過多的執行緒會導致上下文切換開銷增加 同步機制 Mutex (互斥鎖) Mutex 是一種跨程序的同步原語，確保同一時間只有一個執行緒可以進入臨界區。\npublic class MutexExample { private static Mutex mutex = new Mutex(); private static int counter = 0; public void IncrementWithMutex() { mutex.WaitOne(); // 取得互斥鎖 try { counter++; Console.WriteLine($\"Counter: {counter}, Thread: {Thread.CurrentThread.ManagedThreadId}\"); Thread.Sleep(100); // 模擬工作 } finally { mutex.ReleaseMutex(); // 釋放互斥鎖 } } public void RunExample() { var threads = new Thread[5]; for (int i = 0; i \u003c 5; i++) { threads[i] = new Thread(IncrementWithMutex); threads[i].Start(); } foreach (var thread in threads) thread.Join(); } } Mutex vs Monitor (lock)：\nMutex 可以跨程序使用 Monitor (lock) 只能在同一程序內使用，但效能較好 Mutex 有擁有者概念，只有取得 Mutex 的執行緒才能釋放它 Monitor 與 lock lock 是 C# 的語法糖，底層使用 Monitor 類別。\npublic class MonitorExample { private readonly object lockObject = new object(); private int counter = 0; public void IncrementWithLock() { lock (lockObject) // 等同於 Monitor.Enter/Exit { counter++; Console.WriteLine($\"Counter: {counter}\"); } } // 使用 Monitor 的完整寫法 public void IncrementWithMonitor() { Monitor.Enter(lockObject); try { counter++; Console.WriteLine($\"Counter: {counter}\"); } finally { Monitor.Exit(lockObject); } } // Monitor 提供超時功能 public bool TryIncrementWithTimeout(int timeoutMs) { if (Monitor.TryEnter(lockObject, timeoutMs)) { try { counter++; return true; } finally { Monitor.Exit(lockObject); } } return false; } } 異步編程元件 Thread（執行緒） Thread 是最基礎的多執行緒機制，提供對執行緒的直接控制。\npublic class ThreadExample { // 基本使用 public void BasicThreadUsage() { var thread = new Thread(DoWork); thread.Start(); thread.Join(); // 等待執行緒完成 } private void DoWork() { Console.WriteLine($\"執行緒 {Thread.CurrentThread.ManagedThreadId} 開始工作\"); Thread.Sleep(1000); Console.WriteLine(\"工作完成\"); } // 傳遞參數 public void ThreadWithParameter() { var thread = new Thread(DoWorkWithParam); thread.Start(\"Hello from main thread\"); } private void DoWorkWithParam(object data) { string message = (string)data; Console.WriteLine(message); } // 前景與背景執行緒 public void ForegroundVsBackground() { // 前景執行緒：應用程式會等待它完成 var foregroundThread = new Thread(LongRunningWork); foregroundThread.IsBackground = false; foregroundThread.Start(); // 背景執行緒：應用程式結束時會被終止 var backgroundThread = new Thread(LongRunningWork); backgroundThread.IsBackground = true; backgroundThread.Start(); } private void LongRunningWork() { for (int i = 0; i \u003c 10; i++) { Console.WriteLine($\"Working... {i}\"); Thread.Sleep(500); } } } Thread 的限制：\n建立執行緒的開銷較大（約 1MB 記憶體） 難以控制執行緒數量 缺乏取消機制 不易處理例外狀況 不適合大量短期任務 Task（任務） Task 是基於執行緒池的抽象，提供更好的資源管理和錯誤處理。\npublic class TaskExample { // 基本使用 public async Task BasicTaskUsage() { // 建立並啟動 Task Task task = Task.Run(() =\u003e { Console.WriteLine(\"Task 正在執行\"); Thread.Sleep(1000); }); await task; // 等待完成 } // 回傳值的 Task public async Task\u003cint\u003e TaskWithReturnValue() { Task\u003cint\u003e task = Task.Run(() =\u003e { Thread.Sleep(1000); return 42; }); int result = await task; return result; } // 平行執行多個 Task public async Task ParallelTasks() { var task1 = Task.Run(() =\u003e DownloadData(\"url1\")); var task2 = Task.Run(() =\u003e DownloadData(\"url2\")); var task3 = Task.Run(() =\u003e DownloadData(\"url3\")); // 等待所有任務完成 await Task.WhenAll(task1, task2, task3); // 或等待任一任務完成 await Task.WhenAny(task1, task2, task3); } // 連續任務 public async Task TaskContinuation() { var result = await Task.Run(() =\u003e 10) .ContinueWith(t =\u003e t.Result * 2) .ContinueWith(t =\u003e t.Result + 5); Console.WriteLine(result); // 25 } // 取消 Task public async Task TaskCancellation() { var cts = new CancellationTokenSource(); var token = cts.Token; var task = Task.Run(async () =\u003e { for (int i = 0; i \u003c 100; i++) { token.ThrowIfCancellationRequested(); await Task.Delay(100); Console.WriteLine($\"進度: {i}%\"); } }, token); // 2 秒後取消 await Task.Delay(2000); cts.Cancel(); try { await task; } catch (OperationCanceledException) { Console.WriteLine(\"任務已取消\"); } } // 錯誤處理 public async Task TaskErrorHandling() { try { await Task.Run(() =\u003e { throw new InvalidOperationException(\"發生錯誤\"); }); } catch (InvalidOperationException ex) { Console.WriteLine($\"捕獲例外: {ex.Message}\"); } } private string DownloadData(string url) { Thread.Sleep(1000); return $\"Data from {url}\"; } } SemaphoreSlim（輕量級信號量） SemaphoreSlim 限制同時存取資源的執行緒數量，是異步友好的同步原語。\npublic class SemaphoreSlimExample { private readonly SemaphoreSlim semaphore = new SemaphoreSlim(3); // 最多 3 個並行 // 基本使用 public async Task BasicUsage() { await semaphore.WaitAsync(); // 進入信號量 try { Console.WriteLine($\"執行緒 {Thread.CurrentThread.ManagedThreadId} 進入\"); await Task.Delay(2000); // 模擬工作 } finally { semaphore.Release(); // 釋放信號量 } } // 限制並行 API 呼叫 public class ApiClient { private readonly SemaphoreSlim semaphore = new SemaphoreSlim(5); // 最多 5 個並行請求 private readonly HttpClient httpClient = new HttpClient(); public async Task\u003cstring\u003e GetDataAsync(string url) { await semaphore.WaitAsync(); try { Console.WriteLine($\"開始請求: {url}\"); var response = await httpClient.GetStringAsync(url); Console.WriteLine($\"完成請求: {url}\"); return response; } finally { semaphore.Release(); } } // 批次處理多個請求 public async Task ProcessManyRequests() { var urls = Enumerable.Range(1, 20).Select(i =\u003e $\"https://api.example.com/data/{i}\"); var tasks = urls.Select(url =\u003e GetDataAsync(url)); var results = await Task.WhenAll(tasks); } } // 使用超時 public async Task\u003cbool\u003e TryEnterWithTimeout(int timeoutMs) { if (await semaphore.WaitAsync(timeoutMs)) { try { // 執行工作 await Task.Delay(1000); return true; } finally { semaphore.Release(); } } Console.WriteLine(\"無法在時限內取得信號量\"); return false; } // 動態調整容量 public class DynamicSemaphore { private SemaphoreSlim semaphore; private int currentLimit; public DynamicSemaphore(int initialLimit) { currentLimit = initialLimit; semaphore = new SemaphoreSlim(initialLimit); } public async Task IncreaseCapacity(int amount) { for (int i = 0; i \u003c amount; i++) { semaphore.Release(); } currentLimit += amount; Console.WriteLine($\"容量增加至 {currentLimit}\"); } public async Task Work() { await semaphore.WaitAsync(); try { // 執行工作 await Task.Delay(1000); } finally { semaphore.Release(); } } } } SemaphoreSlim 使用場景：\n限制資料庫連線數量 控制並行 API 請求 限制檔案同時讀寫數 資源池管理 Channel（通道） Channel 是 .NET 中用於生產者-消費者模式的高效能、執行緒安全的資料結構。\npublic class ChannelExample { // 基本的生產者-消費者 public async Task BasicProducerConsumer() { var channel = Channel.CreateUnbounded\u003cint\u003e(); // 生產者 var producer = Task.Run(async () =\u003e { for (int i = 0; i \u003c 10; i++) { await channel.Writer.WriteAsync(i); Console.WriteLine($\"生產: {i}\"); await Task.Delay(100); } channel.Writer.Complete(); // 標記完成 }); // 消費者 var consumer = Task.Run(async () =\u003e { await foreach (var item in channel.Reader.ReadAllAsync()) { Console.WriteLine($\"消費: {item}\"); await Task.Delay(200); } }); await Task.WhenAll(producer, consumer); } // 有界通道（限制容量） public async Task BoundedChannel() { var options = new BoundedChannelOptions(5) { FullMode = BoundedChannelFullMode.Wait // 滿時等待 }; var channel = Channel.CreateBounded\u003cstring\u003e(options); var producer = Task.Run(async () =\u003e { for (int i = 0; i \u003c 20; i++) { await channel.Writer.WriteAsync($\"Item {i}\"); Console.WriteLine($\"生產 Item {i}\"); } channel.Writer.Complete(); }); var consumer = Task.Run(async () =\u003e { await foreach (var item in channel.Reader.ReadAllAsync()) { Console.WriteLine($\"消費 {item}\"); await Task.Delay(500); // 慢速消費 } }); await Task.WhenAll(producer, consumer); } // 多個生產者，多個消費者 public async Task MultipleProducersConsumers() { var channel = Channel.CreateUnbounded\u003cint\u003e(); // 3 個生產者 var producers = Enumerable.Range(0, 3).Select(producerId =\u003e Task.Run(async () =\u003e { for (int i = 0; i \u003c 5; i++) { int value = producerId * 100 + i; await channel.Writer.WriteAsync(value); Console.WriteLine($\"生產者 {producerId} 生產: {value}\"); await Task.Delay(Random.Shared.Next(100, 300)); } }) ).ToArray(); // 等待所有生產者完成後關閉通道 _ = Task.Run(async () =\u003e { await Task.WhenAll(producers); channel.Writer.Complete(); }); // 2 個消費者 var consumers = Enumerable.Range(0, 2).Select(consumerId =\u003e Task.Run(async () =\u003e { await foreach (var item in channel.Reader.ReadAllAsync()) { Console.WriteLine($\"消費者 {consumerId} 消費: {item}\"); await Task.Delay(Random.Shared.Next(100, 300)); } }) ).ToArray(); await Task.WhenAll(consumers); } // 資料處理管道 public class DataPipeline { public async Task ProcessData() { var stage1Channel = Channel.CreateUnbounded\u003cint\u003e(); var stage2Channel = Channel.CreateUnbounded\u003cint\u003e(); var stage3Channel = Channel.CreateUnbounded\u003cstring\u003e(); // 階段 1: 產生資料 var stage1 = Task.Run(async () =\u003e { for (int i = 1; i \u003c= 100; i++) { await stage1Channel.Writer.WriteAsync(i); } stage1Channel.Writer.Complete(); }); // 階段 2: 過濾偶數 var stage2 = Task.Run(async () =\u003e { await foreach (var number in stage1Channel.Reader.ReadAllAsync()) { if (number % 2 == 0) { await stage2Channel.Writer.WriteAsync(number); } } stage2Channel.Writer.Complete(); }); // 階段 3: 轉換為字串 var stage3 = Task.Run(async () =\u003e { await foreach (var number in stage2Channel.Reader.ReadAllAsync()) { await stage3Channel.Writer.WriteAsync($\"Number: {number}\"); } stage3Channel.Writer.Complete(); }); // 最終消費 var consumer = Task.Run(async () =\u003e { await foreach (var result in stage3Channel.Reader.ReadAllAsync()) { Console.WriteLine(result); } }); await Task.WhenAll(stage1, stage2, stage3, consumer); } } // 錯誤處理 public async Task ChannelWithErrorHandling() { var channel = Channel.CreateUnbounded\u003cint\u003e(); var producer = Task.Run(async () =\u003e { try { for (int i = 0; i \u003c 10; i++) { if (i == 5) throw new InvalidOperationException(\"生產錯誤\"); await channel.Writer.WriteAsync(i); } channel.Writer.Complete(); } catch (Exception ex) { channel.Writer.Complete(ex); // 傳遞例外 } }); var consumer = Task.Run(async () =\u003e { try { await foreach (var item in channel.Reader.ReadAllAsync()) { Console.WriteLine($\"處理: {item}\"); } } catch (Exception ex) { Console.WriteLine($\"消費者捕獲例外: {ex.Message}\"); } }); await Task.WhenAll(producer, consumer); } } Channel 優勢：\n執行緒安全，無需額外鎖定 支援異步操作 效能優異 內建背壓處理（有界通道） 清晰的完成語意 常見模式 生產者-消費者模式 public class ProducerConsumerPattern { // 使用 BlockingCollection public void UsingBlockingCollection() { var queue = new BlockingCollection\u003cint\u003e(boundedCapacity: 10); var producer = Task.Run(() =\u003e { for (int i = 0; i \u003c 20; i++) { queue.Add(i); Console.WriteLine($\"生產: {i}\"); Thread.Sleep(100); } queue.CompleteAdding(); }); var consumer = Task.Run(() =\u003e { foreach (var item in queue.GetConsumingEnumerable()) { Console.WriteLine($\"消費: {item}\"); Thread.Sleep(200); } }); Task.WaitAll(producer, consumer); } // 使用 Channel (推薦) public async Task UsingChannel() { var channel = Channel.CreateBounded\u003cint\u003e(10); var producer = Task.Run(async () =\u003e { for (int i = 0; i \u003c 20; i++) { await channel.Writer.WriteAsync(i); Console.WriteLine($\"生產: {i}\"); await Task.Delay(100); } channel.Writer.Complete(); }); var consumer = Task.Run(async () =\u003e { await foreach (var item in channel.Reader.ReadAllAsync()) { Console.WriteLine($\"消費: {item}\"); await Task.Delay(200); } }); await Task.WhenAll(producer, consumer); } } 平行處理模式 public class ParallelProcessingPatterns { // Parallel.For public void ParallelFor() { Parallel.For(0, 100, i =\u003e { Console.WriteLine($\"處理項目 {i} on thread {Thread.CurrentThread.ManagedThreadId}\"); Thread.Sleep(10); }); } // Parallel.ForEach public void ParallelForEach() { var items = Enumerable.Range(1, 100).ToList(); Parallel.ForEach(items, new ParallelOptions { MaxDegreeOfParallelism = 4 }, item =\u003e { Console.WriteLine($\"處理 {item}\"); Thread.Sleep(10); }); } // PLINQ public void PlinqExample() { var numbers = Enumerable.Range(1, 1000000); var result = numbers .AsParallel() .WithDegreeOfParallelism(4) .Where(n =\u003e IsPrime(n)) .OrderBy(n =\u003e n) .Take(100) .ToList(); Console.WriteLine($\"找到 {result.Count} 個質數\"); } private bool IsPrime(int n) { if (n \u003c 2) return false; for (int i = 2; i \u003c= Math.Sqrt(n); i++) { if (n % i == 0) return false; } return true; } // Task 平行處理 public async Task TaskParallelProcessing() { var items = Enumerable.Range(1, 100).ToList(); var tasks = new List(); var semaphore = new SemaphoreSlim(10); // 限制並行度 foreach (var item in items) { await semaphore.WaitAsync(); var task = Task.Run(async () =\u003e { try { await ProcessItem(item); } finally { semaphore.Release(); } }); tasks.Add(task); } await Task.WhenAll(tasks); } private async Task ProcessItem(int item) { await Task.Delay(100); Console.WriteLine($\"處理完成: {item}\"); } } 異步鎖定模式 public class AsyncLockPatterns { // 使用 SemaphoreSlim 實作異步鎖 private readonly SemaphoreSlim asyncLock = new SemaphoreSlim(1, 1); public async Task CriticalSection() { await asyncLock.WaitAsync(); try { // 臨界區 await Task.Delay(1000); } finally { asyncLock.Release(); } } // 自訂 AsyncLock 類別 public class AsyncLock { private readonly SemaphoreSlim semaphore = new SemaphoreSlim(1, 1); public async Task LockAsync() { await semaphore.WaitAsync(); return new LockReleaser(semaphore); } private class LockReleaser : IDisposable { private readonly SemaphoreSlim semaphore; public LockReleaser(SemaphoreSlim semaphore) { this.semaphore = semaphore; } public void Dispose() { semaphore.Release(); } } } // 使用範例 private readonly AsyncLock myLock = new AsyncLock(); public async Task UseAsyncLock() { using (await myLock.LockAsync()) { // 臨界區 await Task.Delay(1000); } } } 取消與逾時模式 public class CancellationPatterns { // 基本取消 public async Task BasicCancellation(CancellationToken cancellationToken) { for (int i = 0; i \u003c 100; i++) { cancellationToken.ThrowIfCancellationRequested(); await Task.Delay(100, cancellationToken); Console.WriteLine($\"進度: {i}%\"); } } // 逾時取消 public async Task WithTimeout() { using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5)); try { await LongRunningOperation(cts.Token); } catch (OperationCanceledException) { Console.WriteLine(\"操作逾時\"); } } // 組合多個取消來源 public async Task CombinedCancellation(CancellationToken externalToken) { using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10)); using var combined = CancellationTokenSource.CreateLinkedTokenSource(externalToken, cts.Token); await LongRunningOperation(combined.Token); } // 手動取消 public async Task ManualCancellation() { var cts = new CancellationTokenSource(); var task = Task.Run(async () =\u003e { await LongRunningOperation(cts.Token); }); // 3 秒後取消 await Task.Delay(3000); cts.Cancel(); try { await task; } catch (OperationCanceledException) { Console.WriteLine(\"操作已取消\"); } } private async Task LongRunningOperation(CancellationToken cancellationToken) { for (int i = 0; i \u003c 100; i++) { cancellationToken.ThrowIfCancellationRequested(); await Task.Delay(100); } } } 重試模式 public class RetryPatterns { // 簡單重試 public async Task RetryAsync(Func","wordCount":"3255","inLanguage":"zh-tw","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":[{"@type":"Person","name":"Rain Hu"},{"@type":"Person","name":"intervarrain"},{"@type":"Person","name":"陣雨"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://intervalrain.github.io/csharp/concurrency_and_asyncchronous_programming/"},"publisher":{"@type":"Organization","name":"Rain Hu's Workspace","logo":{"@type":"ImageObject","url":"https://intervalrain.github.io/images/rain.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://intervalrain.github.io/ accesskey=h title="Rain Hu's Workspace (Alt + H)"><img src=https://intervalrain.github.io/images/rain.png alt aria-label=logo height=35>Rain Hu's Workspace</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://intervalrain.github.io/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://intervalrain.github.io/aboutme title="About me"><span>About me</span></a></li><li><a href=https://intervalrain.github.io/archives title=Archives><span>Archives</span></a></li><li><a href=https://intervalrain.github.io/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://intervalrain.github.io/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://intervalrain.github.io/csharp/csharp title=C#><span>C#</span></a></li><li><a href=https://intervalrain.github.io/csindex title=CS><span>CS</span></a></li><li><a href=https://intervalrain.github.io/leetcode title=LeetCode><span>LeetCode</span></a></li><li><a href=https://intervalrain.github.io/ai title=AI><span>AI</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://intervalrain.github.io/>首頁</a>&nbsp;»&nbsp;<a href=https://intervalrain.github.io/csharp/>Csharps</a></div><h1 class="post-title entry-hint-parent"></h1><div class=post-meta>Rain Hu, intervarrain, 陣雨&nbsp;|&nbsp;<a href=https://github.com/intervalrain/intervalrain.github.io/tree/main/content//Csharp/concurrency_and_asyncchronous_programming.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></div></header><div class=post-content><h1 id=c-並行與異步編程完整教學>C# 並行與異步編程完整教學<a hidden class=anchor aria-hidden=true href=#c-並行與異步編程完整教學>#</a></h1><h2 id=目錄>目錄<a hidden class=anchor aria-hidden=true href=#目錄>#</a></h2><ol><li><a href=#%E5%9F%BA%E7%A4%8E%E6%A6%82%E5%BF%B5>基礎概念</a></li><li><a href=#%E8%99%95%E7%90%86%E5%99%A8%E6%9E%B6%E6%A7%8B>處理器架構</a></li><li><a href=#%E5%90%8C%E6%AD%A5%E6%A9%9F%E5%88%B6>同步機制</a></li><li><a href=#%E7%95%B0%E6%AD%A5%E7%B7%A8%E7%A8%8B%E5%85%83%E4%BB%B6>異步編程元件</a></li><li><a href=#%E5%B8%B8%E8%A6%8B%E6%A8%A1%E5%BC%8F>常見模式</a></li><li><a href=#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E9%99%B7%E9%98%B1>常見問題與陷阱</a></li></ol><hr><h2 id=基礎概念>基礎概念<a hidden class=anchor aria-hidden=true href=#基礎概念>#</a></h2><h3 id=多執行緒與並行>多執行緒與並行<a hidden class=anchor aria-hidden=true href=#多執行緒與並行>#</a></h3><p><strong>執行緒 (Thread)</strong> 是作業系統能夠進行運算排程的最小單位。一個程序可以包含多個執行緒，這些執行緒共享程序的記憶體空間。</p><p><strong>並行 (Concurrency)</strong> 是指多個任務在重疊的時間段內執行，不一定是同時執行。</p><p><strong>平行 (Parallelism)</strong> 是指多個任務在同一時刻真正同時執行，需要多核處理器支援。</p><h3 id=異步編程-asynchronous-programming>異步編程 (Asynchronous Programming)<a hidden class=anchor aria-hidden=true href=#異步編程-asynchronous-programming>#</a></h3><p>異步編程允許程式在等待某個操作完成時繼續執行其他工作，而不是阻塞等待。在 C# 中，主要透過 <code>async</code> 和 <code>await</code> 關鍵字實現。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#75715e>// 同步版本 - 會阻塞執行緒</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> DownloadData(<span style=color:#66d9ef>string</span> url)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> client = <span style=color:#66d9ef>new</span> HttpClient();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> response = client.GetStringAsync(url).Result; <span style=color:#75715e>// 阻塞</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> response;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 異步版本 - 不阻塞執行緒</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>string</span>&gt; DownloadDataAsync(<span style=color:#66d9ef>string</span> url)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> client = <span style=color:#66d9ef>new</span> HttpClient();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> response = <span style=color:#66d9ef>await</span> client.GetStringAsync(url); <span style=color:#75715e>// 不阻塞</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> response;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>關鍵差異</strong>：</p><ul><li>同步方法會佔用執行緒直到操作完成</li><li>異步方法在等待時釋放執行緒，讓它可以處理其他工作</li><li>異步特別適合 I/O 密集型操作（網路請求、檔案讀寫、資料庫查詢）</li></ul><hr><h2 id=處理器架構>處理器架構<a hidden class=anchor aria-hidden=true href=#處理器架構>#</a></h2><h3 id=單核處理器>單核處理器<a hidden class=anchor aria-hidden=true href=#單核處理器>#</a></h3><p>在單核處理器上，作業系統透過時間切片 (Time Slicing) 快速切換執行緒，創造出並行執行的假象。這種切換稱為上下文切換 (Context Switch)，有一定的效能開銷。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#75715e>// 在單核上執行多執行緒</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> SingleCoreExample()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> thread1 = <span style=color:#66d9ef>new</span> Thread(() =&gt; 
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>100</span>; i++)
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;Thread 1: {i}&#34;</span>);
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> thread2 = <span style=color:#66d9ef>new</span> Thread(() =&gt; 
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>100</span>; i++)
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;Thread 2: {i}&#34;</span>);
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    thread1.Start();
+</span></span><span style=display:flex><span>    thread2.Start();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 輸出會交錯出現，但不是真正的同時執行</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=多核處理器>多核處理器<a hidden class=anchor aria-hidden=true href=#多核處理器>#</a></h3><p>多核處理器可以真正同時執行多個執行緒，實現平行處理。現代電腦通常都是多核架構。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#75715e>// 利用多核進行平行計算</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> MultiCoreExample()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> numbers = Enumerable.Range(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1000000</span>).ToArray();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 單執行緒計算</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> sw = Stopwatch.StartNew();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>long</span> sum1 = numbers.Sum(x =&gt; (<span style=color:#66d9ef>long</span>)x * x);
+</span></span><span style=display:flex><span>    sw.Stop();
+</span></span><span style=display:flex><span>    Console.WriteLine(<span style=color:#e6db74>$&#34;單執行緒: {sw.ElapsedMilliseconds}ms&#34;</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 平行計算</span>
+</span></span><span style=display:flex><span>    sw.Restart();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>long</span> sum2 = numbers.AsParallel().Sum(x =&gt; (<span style=color:#66d9ef>long</span>)x * x);
+</span></span><span style=display:flex><span>    sw.Stop();
+</span></span><span style=display:flex><span>    Console.WriteLine(<span style=color:#e6db74>$&#34;平行處理: {sw.ElapsedMilliseconds}ms&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>效能考量</strong>：</p><ul><li>CPU 密集型任務受益於多核平行處理</li><li>I/O 密集型任務更適合異步編程</li><li>過多的執行緒會導致上下文切換開銷增加</li></ul><hr><h2 id=同步機制>同步機制<a hidden class=anchor aria-hidden=true href=#同步機制>#</a></h2><h3 id=mutex-互斥鎖>Mutex (互斥鎖)<a hidden class=anchor aria-hidden=true href=#mutex-互斥鎖>#</a></h3><p>Mutex 是一種跨程序的同步原語，確保同一時間只有一個執行緒可以進入臨界區。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MutexExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> Mutex mutex = <span style=color:#66d9ef>new</span> Mutex();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span> counter = <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> IncrementWithMutex()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        mutex.WaitOne(); <span style=color:#75715e>// 取得互斥鎖</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            counter++;
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;Counter: {counter}, Thread: {Thread.CurrentThread.ManagedThreadId}&#34;</span>);
+</span></span><span style=display:flex><span>            Thread.Sleep(<span style=color:#ae81ff>100</span>); <span style=color:#75715e>// 模擬工作</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            mutex.ReleaseMutex(); <span style=color:#75715e>// 釋放互斥鎖</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> RunExample()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> threads = <span style=color:#66d9ef>new</span> Thread[<span style=color:#ae81ff>5</span>];
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>5</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            threads[i] = <span style=color:#66d9ef>new</span> Thread(IncrementWithMutex);
+</span></span><span style=display:flex><span>            threads[i].Start();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> thread <span style=color:#66d9ef>in</span> threads)
+</span></span><span style=display:flex><span>            thread.Join();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>Mutex vs Monitor (lock)</strong>：</p><ul><li>Mutex 可以跨程序使用</li><li>Monitor (lock) 只能在同一程序內使用，但效能較好</li><li>Mutex 有擁有者概念，只有取得 Mutex 的執行緒才能釋放它</li></ul><h3 id=monitor-與-lock>Monitor 與 lock<a hidden class=anchor aria-hidden=true href=#monitor-與-lock>#</a></h3><p><code>lock</code> 是 C# 的語法糖，底層使用 <code>Monitor</code> 類別。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MonitorExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>object</span> lockObject = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>object</span>();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> counter = <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> IncrementWithLock()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>lock</span> (lockObject) <span style=color:#75715e>// 等同於 Monitor.Enter/Exit</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            counter++;
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;Counter: {counter}&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 使用 Monitor 的完整寫法</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> IncrementWithMonitor()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        Monitor.Enter(lockObject);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            counter++;
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;Counter: {counter}&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Monitor.Exit(lockObject);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Monitor 提供超時功能</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>bool</span> TryIncrementWithTimeout(<span style=color:#66d9ef>int</span> timeoutMs)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (Monitor.TryEnter(lockObject, timeoutMs))
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                counter++;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Monitor.Exit(lockObject);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><h2 id=異步編程元件>異步編程元件<a hidden class=anchor aria-hidden=true href=#異步編程元件>#</a></h2><h3 id=thread執行緒>Thread（執行緒）<a hidden class=anchor aria-hidden=true href=#thread執行緒>#</a></h3><p><code>Thread</code> 是最基礎的多執行緒機制，提供對執行緒的直接控制。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ThreadExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 基本使用</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> BasicThreadUsage()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> thread = <span style=color:#66d9ef>new</span> Thread(DoWork);
+</span></span><span style=display:flex><span>        thread.Start();
+</span></span><span style=display:flex><span>        thread.Join(); <span style=color:#75715e>// 等待執行緒完成</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> DoWork()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>$&#34;執行緒 {Thread.CurrentThread.ManagedThreadId} 開始工作&#34;</span>);
+</span></span><span style=display:flex><span>        Thread.Sleep(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>&#34;工作完成&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 傳遞參數</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> ThreadWithParameter()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> thread = <span style=color:#66d9ef>new</span> Thread(DoWorkWithParam);
+</span></span><span style=display:flex><span>        thread.Start(<span style=color:#e6db74>&#34;Hello from main thread&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> DoWorkWithParam(<span style=color:#66d9ef>object</span> data)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>string</span> message = (<span style=color:#66d9ef>string</span>)data;
+</span></span><span style=display:flex><span>        Console.WriteLine(message);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 前景與背景執行緒</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> ForegroundVsBackground()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 前景執行緒：應用程式會等待它完成</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> foregroundThread = <span style=color:#66d9ef>new</span> Thread(LongRunningWork);
+</span></span><span style=display:flex><span>        foregroundThread.IsBackground = <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        foregroundThread.Start();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 背景執行緒：應用程式結束時會被終止</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> backgroundThread = <span style=color:#66d9ef>new</span> Thread(LongRunningWork);
+</span></span><span style=display:flex><span>        backgroundThread.IsBackground = <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>        backgroundThread.Start();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> LongRunningWork()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>10</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;Working... {i}&#34;</span>);
+</span></span><span style=display:flex><span>            Thread.Sleep(<span style=color:#ae81ff>500</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>Thread 的限制</strong>：</p><ul><li>建立執行緒的開銷較大（約 1MB 記憶體）</li><li>難以控制執行緒數量</li><li>缺乏取消機制</li><li>不易處理例外狀況</li><li>不適合大量短期任務</li></ul><h3 id=task任務>Task（任務）<a hidden class=anchor aria-hidden=true href=#task任務>#</a></h3><p><code>Task</code> 是基於執行緒池的抽象，提供更好的資源管理和錯誤處理。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TaskExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 基本使用</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task BasicTaskUsage()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 建立並啟動 Task</span>
+</span></span><span style=display:flex><span>        Task task = Task.Run(() =&gt; 
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>&#34;Task 正在執行&#34;</span>);
+</span></span><span style=display:flex><span>            Thread.Sleep(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> task; <span style=color:#75715e>// 等待完成</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 回傳值的 Task</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>int</span>&gt; TaskWithReturnValue()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        Task&lt;<span style=color:#66d9ef>int</span>&gt; task = Task.Run(() =&gt; 
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Thread.Sleep(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>42</span>;
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> result = <span style=color:#66d9ef>await</span> task;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> result;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 平行執行多個 Task</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task ParallelTasks()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> task1 = Task.Run(() =&gt; DownloadData(<span style=color:#e6db74>&#34;url1&#34;</span>));
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> task2 = Task.Run(() =&gt; DownloadData(<span style=color:#e6db74>&#34;url2&#34;</span>));
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> task3 = Task.Run(() =&gt; DownloadData(<span style=color:#e6db74>&#34;url3&#34;</span>));
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 等待所有任務完成</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(task1, task2, task3);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 或等待任一任務完成</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAny(task1, task2, task3);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 連續任務</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task TaskContinuation()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> result = <span style=color:#66d9ef>await</span> Task.Run(() =&gt; <span style=color:#ae81ff>10</span>)
+</span></span><span style=display:flex><span>            .ContinueWith(t =&gt; t.Result * <span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>            .ContinueWith(t =&gt; t.Result + <span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        Console.WriteLine(result); <span style=color:#75715e>// 25</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 取消 Task</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task TaskCancellation()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> cts = <span style=color:#66d9ef>new</span> CancellationTokenSource();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> token = cts.Token;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> task = Task.Run(<span style=color:#66d9ef>async</span> () =&gt; 
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>100</span>; i++)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                token.ThrowIfCancellationRequested();
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;進度: {i}%&#34;</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }, token);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 2 秒後取消</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>2000</span>);
+</span></span><span style=display:flex><span>        cts.Cancel();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> task;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>catch</span> (OperationCanceledException)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>&#34;任務已取消&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤處理</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task TaskErrorHandling()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> Task.Run(() =&gt; 
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> InvalidOperationException(<span style=color:#e6db74>&#34;發生錯誤&#34;</span>);
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>catch</span> (InvalidOperationException ex)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;捕獲例外: {ex.Message}&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>string</span> DownloadData(<span style=color:#66d9ef>string</span> url)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        Thread.Sleep(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>$&#34;Data from {url}&#34;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=semaphoreslim輕量級信號量>SemaphoreSlim（輕量級信號量）<a hidden class=anchor aria-hidden=true href=#semaphoreslim輕量級信號量>#</a></h3><p><code>SemaphoreSlim</code> 限制同時存取資源的執行緒數量，是異步友好的同步原語。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SemaphoreSlimExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> SemaphoreSlim semaphore = <span style=color:#66d9ef>new</span> SemaphoreSlim(<span style=color:#ae81ff>3</span>); <span style=color:#75715e>// 最多 3 個並行</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 基本使用</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task BasicUsage()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> semaphore.WaitAsync(); <span style=color:#75715e>// 進入信號量</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;執行緒 {Thread.CurrentThread.ManagedThreadId} 進入&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>2000</span>); <span style=color:#75715e>// 模擬工作</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            semaphore.Release(); <span style=color:#75715e>// 釋放信號量</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 限制並行 API 呼叫</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ApiClient</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> SemaphoreSlim semaphore = <span style=color:#66d9ef>new</span> SemaphoreSlim(<span style=color:#ae81ff>5</span>); <span style=color:#75715e>// 最多 5 個並行請求</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> HttpClient httpClient = <span style=color:#66d9ef>new</span> HttpClient();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>string</span>&gt; GetDataAsync(<span style=color:#66d9ef>string</span> url)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> semaphore.WaitAsync();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;開始請求: {url}&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>var</span> response = <span style=color:#66d9ef>await</span> httpClient.GetStringAsync(url);
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;完成請求: {url}&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> response;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                semaphore.Release();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 批次處理多個請求</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task ProcessManyRequests()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> urls = Enumerable.Range(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>20</span>).Select(i =&gt; <span style=color:#e6db74>$&#34;https://api.example.com/data/{i}&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> tasks = urls.Select(url =&gt; GetDataAsync(url));
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> results = <span style=color:#66d9ef>await</span> Task.WhenAll(tasks);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 使用超時</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>bool</span>&gt; TryEnterWithTimeout(<span style=color:#66d9ef>int</span> timeoutMs)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>await</span> semaphore.WaitAsync(timeoutMs))
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 執行工作</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                semaphore.Release();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>&#34;無法在時限內取得信號量&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 動態調整容量</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>DynamicSemaphore</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> SemaphoreSlim semaphore;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> currentLimit;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> DynamicSemaphore(<span style=color:#66d9ef>int</span> initialLimit)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            currentLimit = initialLimit;
+</span></span><span style=display:flex><span>            semaphore = <span style=color:#66d9ef>new</span> SemaphoreSlim(initialLimit);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task IncreaseCapacity(<span style=color:#66d9ef>int</span> amount)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; amount; i++)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                semaphore.Release();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            currentLimit += amount;
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;容量增加至 {currentLimit}&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task Work()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> semaphore.WaitAsync();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 執行工作</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                semaphore.Release();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>SemaphoreSlim 使用場景</strong>：</p><ul><li>限制資料庫連線數量</li><li>控制並行 API 請求</li><li>限制檔案同時讀寫數</li><li>資源池管理</li></ul><h3 id=channel通道>Channel（通道）<a hidden class=anchor aria-hidden=true href=#channel通道>#</a></h3><p><code>Channel&lt;T></code> 是 .NET 中用於生產者-消費者模式的高效能、執行緒安全的資料結構。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ChannelExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 基本的生產者-消費者</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task BasicProducerConsumer()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> channel = Channel.CreateUnbounded&lt;<span style=color:#66d9ef>int</span>&gt;();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 生產者</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> producer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>10</span>; i++)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> channel.Writer.WriteAsync(i);
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;生產: {i}&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            channel.Writer.Complete(); <span style=color:#75715e>// 標記完成</span>
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 消費者</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> consumer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> item <span style=color:#66d9ef>in</span> channel.Reader.ReadAllAsync())
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;消費: {item}&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>200</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(producer, consumer);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 有界通道（限制容量）</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task BoundedChannel()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> options = <span style=color:#66d9ef>new</span> BoundedChannelOptions(<span style=color:#ae81ff>5</span>)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            FullMode = BoundedChannelFullMode.Wait <span style=color:#75715e>// 滿時等待</span>
+</span></span><span style=display:flex><span>        };
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> channel = Channel.CreateBounded&lt;<span style=color:#66d9ef>string</span>&gt;(options);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> producer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>20</span>; i++)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> channel.Writer.WriteAsync(<span style=color:#e6db74>$&#34;Item {i}&#34;</span>);
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;生產 Item {i}&#34;</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            channel.Writer.Complete();
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> consumer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> item <span style=color:#66d9ef>in</span> channel.Reader.ReadAllAsync())
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;消費 {item}&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>500</span>); <span style=color:#75715e>// 慢速消費</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(producer, consumer);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 多個生產者，多個消費者</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task MultipleProducersConsumers()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> channel = Channel.CreateUnbounded&lt;<span style=color:#66d9ef>int</span>&gt;();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 3 個生產者</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> producers = Enumerable.Range(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>3</span>).Select(producerId =&gt;
+</span></span><span style=display:flex><span>            Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>5</span>; i++)
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>int</span> <span style=color:#66d9ef>value</span> = producerId * <span style=color:#ae81ff>100</span> + i;
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>await</span> channel.Writer.WriteAsync(<span style=color:#66d9ef>value</span>);
+</span></span><span style=display:flex><span>                    Console.WriteLine(<span style=color:#e6db74>$&#34;生產者 {producerId} 生產: {value}&#34;</span>);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>await</span> Task.Delay(Random.Shared.Next(<span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>300</span>));
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            })
+</span></span><span style=display:flex><span>        ).ToArray();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 等待所有生產者完成後關閉通道</span>
+</span></span><span style=display:flex><span>        _ = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> Task.WhenAll(producers);
+</span></span><span style=display:flex><span>            channel.Writer.Complete();
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 2 個消費者</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> consumers = Enumerable.Range(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>2</span>).Select(consumerId =&gt;
+</span></span><span style=display:flex><span>            Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> item <span style=color:#66d9ef>in</span> channel.Reader.ReadAllAsync())
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    Console.WriteLine(<span style=color:#e6db74>$&#34;消費者 {consumerId} 消費: {item}&#34;</span>);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>await</span> Task.Delay(Random.Shared.Next(<span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>300</span>));
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            })
+</span></span><span style=display:flex><span>        ).ToArray();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(consumers);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 資料處理管道</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>DataPipeline</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task ProcessData()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> stage1Channel = Channel.CreateUnbounded&lt;<span style=color:#66d9ef>int</span>&gt;();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> stage2Channel = Channel.CreateUnbounded&lt;<span style=color:#66d9ef>int</span>&gt;();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> stage3Channel = Channel.CreateUnbounded&lt;<span style=color:#66d9ef>string</span>&gt;();
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 階段 1: 產生資料</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> stage1 = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>1</span>; i &lt;= <span style=color:#ae81ff>100</span>; i++)
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>await</span> stage1Channel.Writer.WriteAsync(i);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                stage1Channel.Writer.Complete();
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 階段 2: 過濾偶數</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> stage2 = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> number <span style=color:#66d9ef>in</span> stage1Channel.Reader.ReadAllAsync())
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> (number % <span style=color:#ae81ff>2</span> == <span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>                    {
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>await</span> stage2Channel.Writer.WriteAsync(number);
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                stage2Channel.Writer.Complete();
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 階段 3: 轉換為字串</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> stage3 = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> number <span style=color:#66d9ef>in</span> stage2Channel.Reader.ReadAllAsync())
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>await</span> stage3Channel.Writer.WriteAsync(<span style=color:#e6db74>$&#34;Number: {number}&#34;</span>);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                stage3Channel.Writer.Complete();
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 最終消費</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> consumer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> result <span style=color:#66d9ef>in</span> stage3Channel.Reader.ReadAllAsync())
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    Console.WriteLine(result);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> Task.WhenAll(stage1, stage2, stage3, consumer);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤處理</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task ChannelWithErrorHandling()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> channel = Channel.CreateUnbounded&lt;<span style=color:#66d9ef>int</span>&gt;();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> producer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>10</span>; i++)
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> (i == <span style=color:#ae81ff>5</span>)
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> InvalidOperationException(<span style=color:#e6db74>&#34;生產錯誤&#34;</span>);
+</span></span><span style=display:flex><span>                    
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>await</span> channel.Writer.WriteAsync(i);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                channel.Writer.Complete();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>catch</span> (Exception ex)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                channel.Writer.Complete(ex); <span style=color:#75715e>// 傳遞例外</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> consumer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> item <span style=color:#66d9ef>in</span> channel.Reader.ReadAllAsync())
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    Console.WriteLine(<span style=color:#e6db74>$&#34;處理: {item}&#34;</span>);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>catch</span> (Exception ex)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;消費者捕獲例外: {ex.Message}&#34;</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(producer, consumer);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><strong>Channel 優勢</strong>：</p><ul><li>執行緒安全，無需額外鎖定</li><li>支援異步操作</li><li>效能優異</li><li>內建背壓處理（有界通道）</li><li>清晰的完成語意</li></ul><hr><h2 id=常見模式>常見模式<a hidden class=anchor aria-hidden=true href=#常見模式>#</a></h2><h3 id=生產者-消費者模式>生產者-消費者模式<a hidden class=anchor aria-hidden=true href=#生產者-消費者模式>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ProducerConsumerPattern</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 使用 BlockingCollection</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> UsingBlockingCollection()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> queue = <span style=color:#66d9ef>new</span> BlockingCollection&lt;<span style=color:#66d9ef>int</span>&gt;(boundedCapacity: <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> producer = Task.Run(() =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>20</span>; i++)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                queue.Add(i);
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;生產: {i}&#34;</span>);
+</span></span><span style=display:flex><span>                Thread.Sleep(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            queue.CompleteAdding();
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> consumer = Task.Run(() =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> item <span style=color:#66d9ef>in</span> queue.GetConsumingEnumerable())
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;消費: {item}&#34;</span>);
+</span></span><span style=display:flex><span>                Thread.Sleep(<span style=color:#ae81ff>200</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        Task.WaitAll(producer, consumer);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 使用 Channel (推薦)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task UsingChannel()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> channel = Channel.CreateBounded&lt;<span style=color:#66d9ef>int</span>&gt;(<span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> producer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>20</span>; i++)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> channel.Writer.WriteAsync(i);
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;生產: {i}&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            channel.Writer.Complete();
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> consumer = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> item <span style=color:#66d9ef>in</span> channel.Reader.ReadAllAsync())
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;消費: {item}&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>200</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(producer, consumer);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=平行處理模式>平行處理模式<a hidden class=anchor aria-hidden=true href=#平行處理模式>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ParallelProcessingPatterns</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Parallel.For</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> ParallelFor()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        Parallel.For(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>100</span>, i =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;處理項目 {i} on thread {Thread.CurrentThread.ManagedThreadId}&#34;</span>);
+</span></span><span style=display:flex><span>            Thread.Sleep(<span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Parallel.ForEach</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> ParallelForEach()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> items = Enumerable.Range(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>100</span>).ToList();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        Parallel.ForEach(items, <span style=color:#66d9ef>new</span> ParallelOptions 
+</span></span><span style=display:flex><span>        { 
+</span></span><span style=display:flex><span>            MaxDegreeOfParallelism = <span style=color:#ae81ff>4</span> 
+</span></span><span style=display:flex><span>        }, 
+</span></span><span style=display:flex><span>        item =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;處理 {item}&#34;</span>);
+</span></span><span style=display:flex><span>            Thread.Sleep(<span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// PLINQ</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> PlinqExample()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> numbers = Enumerable.Range(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1000000</span>);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> result = numbers
+</span></span><span style=display:flex><span>            .AsParallel()
+</span></span><span style=display:flex><span>            .WithDegreeOfParallelism(<span style=color:#ae81ff>4</span>)
+</span></span><span style=display:flex><span>            .Where(n =&gt; IsPrime(n))
+</span></span><span style=display:flex><span>            .OrderBy(n =&gt; n)
+</span></span><span style=display:flex><span>            .Take(<span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>            .ToList();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>$&#34;找到 {result.Count} 個質數&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>bool</span> IsPrime(<span style=color:#66d9ef>int</span> n)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (n &lt; <span style=color:#ae81ff>2</span>) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>2</span>; i &lt;= Math.Sqrt(n); i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (n % i == <span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Task 平行處理</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task TaskParallelProcessing()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> items = Enumerable.Range(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>100</span>).ToList();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> tasks = <span style=color:#66d9ef>new</span> List&lt;Task&gt;();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> semaphore = <span style=color:#66d9ef>new</span> SemaphoreSlim(<span style=color:#ae81ff>10</span>); <span style=color:#75715e>// 限制並行度</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> item <span style=color:#66d9ef>in</span> items)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> semaphore.WaitAsync();
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> task = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>await</span> ProcessItem(item);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    semaphore.Release();
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            tasks.Add(task);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(tasks);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task ProcessItem(<span style=color:#66d9ef>int</span> item)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>$&#34;處理完成: {item}&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=異步鎖定模式>異步鎖定模式<a hidden class=anchor aria-hidden=true href=#異步鎖定模式>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AsyncLockPatterns</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 使用 SemaphoreSlim 實作異步鎖</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> SemaphoreSlim asyncLock = <span style=color:#66d9ef>new</span> SemaphoreSlim(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task CriticalSection()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> asyncLock.WaitAsync();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 臨界區</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            asyncLock.Release();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 自訂 AsyncLock 類別</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AsyncLock</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> SemaphoreSlim semaphore = <span style=color:#66d9ef>new</span> SemaphoreSlim(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;IDisposable&gt; LockAsync()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> semaphore.WaitAsync();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> LockReleaser(semaphore);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>LockReleaser</span> : IDisposable
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> SemaphoreSlim semaphore;
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> LockReleaser(SemaphoreSlim semaphore)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>this</span>.semaphore = semaphore;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> Dispose()
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                semaphore.Release();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 使用範例</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> AsyncLock myLock = <span style=color:#66d9ef>new</span> AsyncLock();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task UseAsyncLock()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>using</span> (<span style=color:#66d9ef>await</span> myLock.LockAsync())
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 臨界區</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=取消與逾時模式>取消與逾時模式<a hidden class=anchor aria-hidden=true href=#取消與逾時模式>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CancellationPatterns</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 基本取消</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task BasicCancellation(CancellationToken cancellationToken)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>100</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            cancellationToken.ThrowIfCancellationRequested();
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>100</span>, cancellationToken);
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>$&#34;進度: {i}%&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 逾時取消</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task WithTimeout()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>using</span> var cts = <span style=color:#66d9ef>new</span> CancellationTokenSource(TimeSpan.FromSeconds(<span style=color:#ae81ff>5</span>));
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> LongRunningOperation(cts.Token);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>catch</span> (OperationCanceledException)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>&#34;操作逾時&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 組合多個取消來源</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task CombinedCancellation(CancellationToken externalToken)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>using</span> var cts = <span style=color:#66d9ef>new</span> CancellationTokenSource(TimeSpan.FromSeconds(<span style=color:#ae81ff>10</span>));
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>using</span> var combined = CancellationTokenSource.CreateLinkedTokenSource(externalToken, cts.Token);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> LongRunningOperation(combined.Token);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 手動取消</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task ManualCancellation()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> cts = <span style=color:#66d9ef>new</span> CancellationTokenSource();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> task = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> LongRunningOperation(cts.Token);
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 3 秒後取消</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>3000</span>);
+</span></span><span style=display:flex><span>        cts.Cancel();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> task;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>catch</span> (OperationCanceledException)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Console.WriteLine(<span style=color:#e6db74>&#34;操作已取消&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task LongRunningOperation(CancellationToken cancellationToken)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>100</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            cancellationToken.ThrowIfCancellationRequested();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=重試模式>重試模式<a hidden class=anchor aria-hidden=true href=#重試模式>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RetryPatterns</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 簡單重試</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;T&gt; RetryAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; operation, <span style=color:#66d9ef>int</span> maxRetries = <span style=color:#ae81ff>3</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; maxRetries; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> operation();
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>catch</span> (Exception ex) when (i &lt; maxRetries - <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Console.WriteLine(<span style=color:#e6db74>$&#34;嘗試 {i + 1} 失敗: {ex.Message}&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(TimeSpan.FromSeconds(Math.Pow(<span style=color:#ae81ff>2</span>, i))); <span style=color:#75715e>// 指數退避</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> operation(); <span style=color:#75715e>// 最後一次嘗試，讓例外拋出</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 使用範例</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task RetryExample()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> result = <span style=color:#66d9ef>await</span> RetryAsync(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> client = <span style=color:#66d9ef>new</span> HttpClient();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> client.GetStringAsync(<span style=color:#e6db74>&#34;https://api.example.com/data&#34;</span>);
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 進階重試（使用 Polly 函式庫的概念）</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RetryPolicy</span>&lt;T&gt;
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>int</span> maxRetries;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> Func&lt;<span style=color:#66d9ef>int</span>, TimeSpan&gt; delayProvider;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> RetryPolicy(<span style=color:#66d9ef>int</span> maxRetries, Func&lt;<span style=color:#66d9ef>int</span>, TimeSpan&gt; delayProvider)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span>.maxRetries = maxRetries;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span>.delayProvider = delayProvider;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;T&gt; ExecuteAsync(Func&lt;Task&lt;T&gt;&gt; operation)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Exception lastException = <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> retry = <span style=color:#ae81ff>0</span>; retry &lt; maxRetries; retry++)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> operation();
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>catch</span> (Exception ex)
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    lastException = ex;
+</span></span><span style=display:flex><span>                    
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> (retry &lt; maxRetries - <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>                    {
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>var</span> delay = delayProvider(retry);
+</span></span><span style=display:flex><span>                        Console.WriteLine(<span style=color:#e6db74>$&#34;重試 {retry + 1}/{maxRetries}，等待 {delay.TotalSeconds} 秒&#34;</span>);
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>await</span> Task.Delay(delay);
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> AggregateException(<span style=color:#e6db74>&#34;重試全部失敗&#34;</span>, lastException);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><h2 id=常見問題與陷阱>常見問題與陷阱<a hidden class=anchor aria-hidden=true href=#常見問題與陷阱>#</a></h2><h3 id=死鎖-deadlock>死鎖 (Deadlock)<a hidden class=anchor aria-hidden=true href=#死鎖-deadlock>#</a></h3><p>死鎖發生在兩個或多個執行緒互相等待對方釋放資源。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>DeadlockExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>object</span> lock1 = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>object</span>();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>object</span> lock2 = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>object</span>();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤：可能造成死鎖</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> BadMethod1()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>lock</span> (lock1)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Thread.Sleep(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>lock</span> (lock2)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 工作</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> BadMethod2()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>lock</span> (lock2)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Thread.Sleep(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>lock</span> (lock1)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 工作</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 解決方案 1：統一鎖定順序</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> GoodMethod1()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>lock</span> (lock1)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>lock</span> (lock2)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 工作</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> GoodMethod2()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>lock</span> (lock1)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>lock</span> (lock2)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 工作</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 解決方案 2：使用 Monitor.TryEnter</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>bool</span> TryAcquireLocks(<span style=color:#66d9ef>int</span> timeoutMs = <span style=color:#ae81ff>1000</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>bool</span> lock1Acquired = <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>bool</span> lock2Acquired = <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            lock1Acquired = Monitor.TryEnter(lock1, timeoutMs);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (!lock1Acquired) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            lock2Acquired = Monitor.TryEnter(lock2, timeoutMs);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (!lock2Acquired) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 執行工作</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (lock2Acquired) Monitor.Exit(lock2);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (lock1Acquired) Monitor.Exit(lock1);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=競態條件-race-condition>競態條件 (Race Condition)<a hidden class=anchor aria-hidden=true href=#競態條件-race-condition>#</a></h3><p>多個執行緒同時存取共享資源導致非預期的結果。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RaceConditionExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> counter = <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤：有競態條件</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> UnsafeIncrement()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        counter++; <span style=color:#75715e>// 不是原子操作</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 解決方案 1：使用 lock</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>readonly</span> <span style=color:#66d9ef>object</span> counterLock = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>object</span>();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> SafeIncrement()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>lock</span> (counterLock)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            counter++;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 解決方案 2：使用 Interlocked</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> AtomicIncrement()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        Interlocked.Increment(<span style=color:#66d9ef>ref</span> counter);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 檢查再操作的競態條件</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> Dictionary&lt;<span style=color:#66d9ef>string</span>, <span style=color:#66d9ef>int</span>&gt; dictionary = <span style=color:#66d9ef>new</span> Dictionary&lt;<span style=color:#66d9ef>string</span>, <span style=color:#66d9ef>int</span>&gt;();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> UnsafeCheckThenAct(<span style=color:#66d9ef>string</span> key)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (!dictionary.ContainsKey(key)) <span style=color:#75715e>// 檢查</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            dictionary[key] = <span style=color:#ae81ff>0</span>; <span style=color:#75715e>// 操作 - 可能在這之間其他執行緒已加入</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        dictionary[key]++;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確：使用 ConcurrentDictionary</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ConcurrentDictionary&lt;<span style=color:#66d9ef>string</span>, <span style=color:#66d9ef>int</span>&gt; concurrentDict = <span style=color:#66d9ef>new</span> ConcurrentDictionary&lt;<span style=color:#66d9ef>string</span>, <span style=color:#66d9ef>int</span>&gt;();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> SafeCheckThenAct(<span style=color:#66d9ef>string</span> key)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        concurrentDict.AddOrUpdate(key, <span style=color:#ae81ff>1</span>, (k, v) =&gt; v + <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=asyncawait-常見錯誤>async/await 常見錯誤<a hidden class=anchor aria-hidden=true href=#asyncawait-常見錯誤>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AsyncAwaitMistakes</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤 1：async void（除了事件處理器外應避免）</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>void</span> BadAsyncVoid()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Exception(<span style=color:#e6db74>&#34;無法被捕獲&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確：使用 async Task</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task GoodAsyncTask()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Exception(<span style=color:#e6db74>&#34;可以被捕獲&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤 2：阻塞式等待異步方法（可能死鎖）</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> BadBlockingWait()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> result = GetDataAsync().Result; <span style=color:#75715e>// 危險</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 或 GetDataAsync().Wait();</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確：使用 await</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task GoodAwait()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> result = <span style=color:#66d9ef>await</span> GetDataAsync();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤 3：不必要的 async/await</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>string</span>&gt; UnnecessaryAsync()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> GetDataAsync(); <span style=color:#75715e>// 多餘</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確：直接回傳 Task</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Task&lt;<span style=color:#66d9ef>string</span>&gt; EfficientAsync()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> GetDataAsync();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤 4：在 loop 中未等待 Task</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task BadLoop()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> tasks = <span style=color:#66d9ef>new</span> List&lt;Task&gt;();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>10</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            tasks.Add(ProcessAsync(i)); <span style=color:#75715e>// 不等待</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 問題：可能超出範圍或資源耗盡</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確：控制並行度</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task GoodLoop()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> semaphore = <span style=color:#66d9ef>new</span> SemaphoreSlim(<span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> tasks = <span style=color:#66d9ef>new</span> List&lt;Task&gt;();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>10</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> semaphore.WaitAsync();
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> index = i; <span style=color:#75715e>// 捕獲變數</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>var</span> task = Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>try</span>
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>await</span> ProcessAsync(index);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>finally</span>
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    semaphore.Release();
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>            tasks.Add(task);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(tasks);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤 5：捕獲變數問題</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task BadCapture()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> tasks = <span style=color:#66d9ef>new</span> List&lt;Task&gt;();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>5</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            tasks.Add(Task.Run(() =&gt; Console.WriteLine(i))); <span style=color:#75715e>// 錯誤：可能都印出 5</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(tasks);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task GoodCapture()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> tasks = <span style=color:#66d9ef>new</span> List&lt;Task&gt;();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>5</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> index = i; <span style=color:#75715e>// 區域複製</span>
+</span></span><span style=display:flex><span>            tasks.Add(Task.Run(() =&gt; Console.WriteLine(index)));
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(tasks);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>string</span>&gt; GetDataAsync()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;data&#34;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task ProcessAsync(<span style=color:#66d9ef>int</span> index)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>$&#34;處理 {index}&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=執行緒池耗盡>執行緒池耗盡<a hidden class=anchor aria-hidden=true href=#執行緒池耗盡>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ThreadPoolStarvation</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤：阻塞執行緒池</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> BadThreadPoolUsage()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>1000</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            Task.Run(() =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                Thread.Sleep(<span style=color:#ae81ff>10000</span>); <span style=color:#75715e>// 阻塞執行緒</span>
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 執行緒池很快耗盡</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確：使用異步</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task GoodAsyncUsage()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> tasks = <span style=color:#66d9ef>new</span> List&lt;Task&gt;();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>1000</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            tasks.Add(Task.Run(<span style=color:#66d9ef>async</span> () =&gt;
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>10000</span>); <span style=color:#75715e>// 不阻塞執行緒</span>
+</span></span><span style=display:flex><span>            }));
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(tasks);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 設定執行緒池大小</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> ConfigureThreadPool()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        ThreadPool.SetMinThreads(<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>50</span>);
+</span></span><span style=display:flex><span>        ThreadPool.SetMaxThreads(<span style=color:#ae81ff>200</span>, <span style=color:#ae81ff>200</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=記憶體洩漏>記憶體洩漏<a hidden class=anchor aria-hidden=true href=#記憶體洩漏>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MemoryLeakExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤：事件處理器未取消訂閱</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Publisher</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>event</span> EventHandler DataChanged;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> RaiseEvent()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            DataChanged?.Invoke(<span style=color:#66d9ef>this</span>, EventArgs.Empty);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>BadSubscriber</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> Publisher publisher;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> BadSubscriber(Publisher publisher)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span>.publisher = publisher;
+</span></span><span style=display:flex><span>            publisher.DataChanged += OnDataChanged; <span style=color:#75715e>// 未取消訂閱</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> OnDataChanged(<span style=color:#66d9ef>object</span> sender, EventArgs e)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 處理</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確：實作 IDisposable</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>GoodSubscriber</span> : IDisposable
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> Publisher publisher;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> GoodSubscriber(Publisher publisher)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span>.publisher = publisher;
+</span></span><span style=display:flex><span>            publisher.DataChanged += OnDataChanged;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> OnDataChanged(<span style=color:#66d9ef>object</span> sender, EventArgs e)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 處理</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> Dispose()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (publisher != <span style=color:#66d9ef>null</span>)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                publisher.DataChanged -= OnDataChanged;
+</span></span><span style=display:flex><span>                publisher = <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 錯誤：Timer 未釋放</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>BadTimerUsage</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> Timer timer;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> StartTimer()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            timer = <span style=color:#66d9ef>new</span> Timer(OnTimer, <span style=color:#66d9ef>null</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1000</span>); <span style=color:#75715e>// 未釋放</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> OnTimer(<span style=color:#66d9ef>object</span> state)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 處理</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 正確</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>GoodTimerUsage</span> : IDisposable
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> Timer timer;
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> StartTimer()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            timer = <span style=color:#66d9ef>new</span> Timer(OnTimer, <span style=color:#66d9ef>null</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>void</span> OnTimer(<span style=color:#66d9ef>object</span> state)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 處理</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> Dispose()
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            timer?.Dispose();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=configureawait>ConfigureAwait<a hidden class=anchor aria-hidden=true href=#configureawait>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ConfigureAwaitExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 函式庫程式碼應使用 ConfigureAwait(false)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>string</span>&gt; LibraryMethod()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> client = <span style=color:#66d9ef>new</span> HttpClient();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> response = <span style=color:#66d9ef>await</span> client.GetStringAsync(<span style=color:#e6db74>&#34;https://api.example.com&#34;</span>)
+</span></span><span style=display:flex><span>            .ConfigureAwait(<span style=color:#66d9ef>false</span>); <span style=color:#75715e>// 不需要回到原始上下文</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> response;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// UI 程式碼通常需要原始上下文</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task UiMethod()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> data = <span style=color:#66d9ef>await</span> GetDataAsync();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 需要在 UI 執行緒上更新 UI</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// textBox.Text = data; // 需要同步上下文</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// ASP.NET Core 中不需要 ConfigureAwait(false)</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 因為沒有同步上下文</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>string</span>&gt; GetDataAsync()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;data&#34;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><h2 id=效能最佳化建議>效能最佳化建議<a hidden class=anchor aria-hidden=true href=#效能最佳化建議>#</a></h2><h3 id=選擇合適的並行機制>選擇合適的並行機制<a hidden class=anchor aria-hidden=true href=#選擇合適的並行機制>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ChoosingRightTool</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// CPU 密集型：使用 Parallel 或 PLINQ</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> CpuBound()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> numbers = Enumerable.Range(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1000000</span>);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> primes = numbers
+</span></span><span style=display:flex><span>            .AsParallel()
+</span></span><span style=display:flex><span>            .Where(n =&gt; IsPrime(n))
+</span></span><span style=display:flex><span>            .ToList();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// I/O 密集型：使用 async/await</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task IoBound()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> tasks = <span style=color:#66d9ef>new</span> List&lt;Task&lt;<span style=color:#66d9ef>string</span>&gt;&gt;();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>10</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            tasks.Add(FetchDataAsync(<span style=color:#e6db74>$&#34;https://api.example.com/data/{i}&#34;</span>));
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> results = <span style=color:#66d9ef>await</span> Task.WhenAll(tasks);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 資料流處理：使用 Channel</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task DataStream()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> channel = Channel.CreateBounded&lt;<span style=color:#66d9ef>int</span>&gt;(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> producer = ProduceData(channel.Writer);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> consumer = ConsumeData(channel.Reader);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.WhenAll(producer, consumer);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>bool</span> IsPrime(<span style=color:#66d9ef>int</span> n)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (n &lt; <span style=color:#ae81ff>2</span>) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>2</span>; i &lt;= Math.Sqrt(n); i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (n % i == <span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task&lt;<span style=color:#66d9ef>string</span>&gt; FetchDataAsync(<span style=color:#66d9ef>string</span> url)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> client = <span style=color:#66d9ef>new</span> HttpClient();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> client.GetStringAsync(url);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task ProduceData(ChannelWriter&lt;<span style=color:#66d9ef>int</span>&gt; writer)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; <span style=color:#ae81ff>1000</span>; i++)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> writer.WriteAsync(i);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        writer.Complete();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task ConsumeData(ChannelReader&lt;<span style=color:#66d9ef>int</span>&gt; reader)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> <span style=color:#66d9ef>foreach</span> (<span style=color:#66d9ef>var</span> item <span style=color:#66d9ef>in</span> reader.ReadAllAsync())
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 處理</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=監控與診斷>監控與診斷<a hidden class=anchor aria-hidden=true href=#監控與診斷>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MonitoringExample</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 記錄執行緒池資訊</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> LogThreadPoolInfo()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        ThreadPool.GetAvailableThreads(<span style=color:#66d9ef>out</span> <span style=color:#66d9ef>int</span> workerThreads, <span style=color:#66d9ef>out</span> <span style=color:#66d9ef>int</span> ioThreads);
+</span></span><span style=display:flex><span>        ThreadPool.GetMaxThreads(<span style=color:#66d9ef>out</span> <span style=color:#66d9ef>int</span> maxWorkerThreads, <span style=color:#66d9ef>out</span> <span style=color:#66d9ef>int</span> maxIoThreads);
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>$&#34;可用工作執行緒: {workerThreads}/{maxWorkerThreads}&#34;</span>);
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>$&#34;可用 I/O 執行緒: {ioThreads}/{maxIoThreads}&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 效能計數器</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>async</span> Task MeasurePerformance()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> sw = Stopwatch.StartNew();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> PerformWork();
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        sw.Stop();
+</span></span><span style=display:flex><span>        Console.WriteLine(<span style=color:#e6db74>$&#34;執行時間: {sw.ElapsedMilliseconds}ms&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>async</span> Task PerformWork()
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>await</span> Task.Delay(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><h2 id=總結>總結<a hidden class=anchor aria-hidden=true href=#總結>#</a></h2><p>本教學涵蓋了 C# 並行與異步編程的核心概念：</p><ol><li><strong>基礎概念</strong>：理解執行緒、並行、異步的差異</li><li><strong>同步機制</strong>：Mutex、Monitor 用於保護共享資源</li><li><strong>異步元件</strong>：Thread、Task、SemaphoreSlim、Channel 各有適用場景</li><li><strong>常見模式</strong>：生產者-消費者、平行處理、重試等實用模式</li><li><strong>避免陷阱</strong>：死鎖、競態條件、記憶體洩漏等常見問題</li></ol><p>選擇合適的工具和模式，遵循最佳實務，就能寫出高效、穩定的並行程式。</p></div><footer class=post-footer><ul class=post-tags></ul></footer><script src=https://utteranc.es/client.js repo=Reid00/hugo-blog-talks issue-term=pathname label=Comment theme=github-light crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2025 <a href=https://intervalrain.github.io/>Rain Hu's Workspace</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
