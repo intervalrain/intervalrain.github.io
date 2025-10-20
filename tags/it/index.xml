@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/it/</link><description>Recent content in IT on Rain Hu's Workspace</description><generator>Hugo -- 0.151.0</generator><language>zh-tw</language><lastBuildDate>Sun, 23 Mar 2025 16:00:02 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/it/index.xml" rel="self" type="application/rss+xml"/><item><title>[.NET] User Secret CLI</title><link>https://intervalrain.github.io/it/user_secrets/</link><pubDate>Sun, 23 Mar 2025 16:00:02 +0800</pubDate><guid>https://intervalrain.github.io/it/user_secrets/</guid><description>How to set user secret using dotnet</description></item><item><title>[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)</title><link>https://intervalrain.github.io/it/init_react_project/</link><pubDate>Thu, 28 Nov 2024 16:33:39 +0800</pubDate><guid>https://intervalrain.github.io/it/init_react_project/</guid><description>&lt;ol&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IT on Rain Hu's Workspace</title><link>https://intervalrain.github.io/tags/it/</link><description>Recent content in IT on Rain Hu's Workspace</description><generator>Hugo -- 0.151.2</generator><language>zh-tw</language><lastBuildDate>Sun, 23 Mar 2025 16:00:02 +0800</lastBuildDate><atom:link href="https://intervalrain.github.io/tags/it/index.xml" rel="self" type="application/rss+xml"/><item><title>[.NET] User Secret CLI</title><link>https://intervalrain.github.io/it/user_secrets/</link><pubDate>Sun, 23 Mar 2025 16:00:02 +0800</pubDate><guid>https://intervalrain.github.io/it/user_secrets/</guid><description>How to set user secret using dotnet</description></item><item><title>[IT] 初始 react project (TailwindCSS &amp; TypeScript &amp; Context)</title><link>https://intervalrain.github.io/it/init_react_project/</link><pubDate>Thu, 28 Nov 2024 16:33:39 +0800</pubDate><guid>https://intervalrain.github.io/it/init_react_project/</guid><description>&lt;ol&gt;
 &lt;li&gt;建立專案&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npx create-react-app &lt;span style="color:#f92672"&gt;[&lt;/span&gt;project-name&lt;span style="color:#f92672"&gt;]&lt;/span&gt; --template typescript
@@ -163,7 +163,8 @@
 &lt;li&gt;&lt;code&gt;any&lt;/code&gt; 也可被寫成 &lt;code&gt;MounthEvent&lt;/code&gt; 或 &lt;code&gt;SyntheticEvent&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;</description></item><item><title>[IT] ApiController Atrribute</title><link>https://intervalrain.github.io/it/apicontroller/</link><pubDate>Sun, 09 Jun 2024 20:27:03 +0800</pubDate><guid>https://intervalrain.github.io/it/apicontroller/</guid><description>&lt;h1 id="apicontroller-atrribute"&gt;ApiController Atrribute&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-csharp" data-lang="csharp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;[ApiController]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;public&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;TestController&lt;/span&gt; : ControllerBase
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
@@ -990,7 +991,8 @@ AppShell-.-&gt;Page4;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>[IT] CORS 跨原始來源要求</title><link>https://intervalrain.github.io/it/cors/</link><pubDate>Fri, 19 Jan 2024 00:41:51 +0800</pubDate><guid>https://intervalrain.github.io/it/cors/</guid><description>&lt;h2 id="tldr"&gt;TL;DR&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;CORS (Cross-Origin Resource Sharing)&lt;br&gt;
-是一個支援安全跨源請求和資料傳輸的機制，用於在瀏覽器和伺服器之間進行跨源請求。&lt;/p&gt;&lt;/blockquote&gt;
+是一個支援安全跨源請求和資料傳輸的機制，用於在瀏覽器和伺服器之間進行跨源請求。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;這是一個 W3C 標準，可讓伺服器放寬相同原始來源原則。&lt;/li&gt;
 &lt;li&gt;不是安全性功能，CORS 會放寬安全性。 允許 CORS 並不會增強 API 的安全性。&lt;a href="https://learn.microsoft.com/zh-tw/aspnet/core/security/cors?view=aspnetcore-8.0#how-cors"&gt;CORS 的運作方式&lt;/a&gt;&lt;/li&gt;
@@ -1380,7 +1382,8 @@ AppShell-.-&gt;Page4;
 &lt;p&gt;&lt;em&gt;示例2: 隱式類型(implicit typing)&lt;/em&gt;&lt;/p&gt;</description></item><item><title>[IT] Shell 筆記</title><link>https://intervalrain.github.io/it/shell/</link><pubDate>Thu, 12 Jan 2023 23:34:41 +0800</pubDate><guid>https://intervalrain.github.io/it/shell/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;&lt;br&gt;
 &lt;a href="https://blog.csdn.net/w918589859/article/details/108752592"&gt;https://blog.csdn.net/w918589859/article/details/108752592&lt;/a&gt;&lt;br&gt;
-&lt;a href="https://www.w3cschool.cn/linux/linux-Shell.html"&gt;https://www.w3cschool.cn/linux/linux-Shell.html&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;a href="https://www.w3cschool.cn/linux/linux-Shell.html"&gt;https://www.w3cschool.cn/linux/linux-Shell.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id="一shell-簡介"&gt;一、Shell 簡介&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;什麼是 Shell?&lt;br&gt;
