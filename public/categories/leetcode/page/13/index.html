@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Leetcode | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="">
+<meta name="description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+<meta name="author" content="Rain Hu, intervarrain, 陣雨">
+<link rel="canonical" href="http://localhost:1313/categories/leetcode/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4c6c0beaf1dfe52cd0f712a5896ac127e66fd064cfc598e04750f496d470699e.css" integrity="sha256-TGwL6vHf5SzQ9xKliWrBJ&#43;Zv0GTPxZjgR1D0ltRwaZ4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/leetcode/index.xml">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/categories/leetcode/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=XYZabc"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'XYZabc');
+</script><meta property="og:url" content="http://localhost:1313/categories/leetcode/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="Leetcode">
+  <meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode">
+<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/ai" title="AI">
+                    <span>AI</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/categories/">Categories</a></div>
+  <h1>
+    Leetcode
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 1293. Shortest Path in a Grid with Obstacles Elimination
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1293. Shortest Path in a Grid with Obstacles Elimination
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Breadth-First Search、Matrix 一、題目 You are given an m x n integer matrix grid where each cell is either 0 (empty) or 1 (obstacles). You can move up, down, left, or right from and to an empty cell in one step.
+Return the minimum number of steps to walk from the upper left corner (0, 0) to the lower right conrer m-1, n-1 given that you can eliminate at most k obstacles. If it is not possible to find such walk return -1.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-30 21:29:37 +0800 CST'>October 30, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 1293. Shortest Path in a Grid with Obstacles Elimination" href="http://localhost:1313/leetcode/1293/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 2953. Count Complete Substrings
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 難度分: 2449 這題是一個定長的 sliding window，比較難想的是 window size 是 k * 1, k * 2, … 到 k * 26，因為只有 26 個英文字母，所以最多只可能到 26 * k 的長度。 額外需要檢查相鄰的字母是否距離 &lt;= 2，我使用的方法是找到一個 j 記錄最大的不符合的索引值，所以直要 window 不包含該 j，window 內的所字元都會滿足。 所以 pesudo code 會是 for (int c = 1; c &lt;= 26; i&#43;&#43;) { // window size int windowSize = c * k; // construct window for (int i = 0; i &lt; windowSize; i&#43;&#43;) { // 處理 j // 計算進入 window } // 確認初始的 window 是否滿足 // rolling windo for (int i = windowSize; i &lt; n; i&#43;&#43;) { // 處理 j // 計算進入 window // 計算離開 window // 確認 window 是否滿足 } } class Solution { public: int countCompleteSubstrings(string s, int k) { int n = s.size(); int res = 0; for (int idx = 1; idx &lt;= 26 &amp;&amp; idx * k &lt;= n; idx&#43;&#43;) { int len = idx * k; int j = -1; vector&lt;int&gt; cnt(26, 0); int valid = 0; for (int i = 0; i &lt; len; i&#43;&#43;) { if (i &gt; 0 &amp;&amp; abs(s[i] - s[i-1]) &gt; 2) { j = i-1; } if (&#43;&#43;cnt[s[i]-&#39;a&#39;] == k) valid&#43;&#43;; } if (valid == idx &amp;&amp; j &lt; 0) { res&#43;&#43;; } for (int i = len; i &lt; n; i&#43;&#43;) { if (abs(s[i] - s[i-1]) &gt; 2) { j = i-1; } if (&#43;&#43;cnt[s[i]-&#39;a&#39;] == k) valid&#43;&#43;; if (cnt[s[i-len]-&#39;a&#39;]-- == k) valid--; if (valid == idx &amp;&amp; i-len &gt;= j) { res&#43;&#43;; } } } return res; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-30 12:00:00 +0800 CST'>October 30, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 2953. Count Complete Substrings" href="http://localhost:1313/leetcode_list/sliding_window_dblptr/2953/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 2136. Earliest Possible Day of Full Bloom
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>2136. Earliest Possible Day of Full Bloom
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Greedy、Sorting 一、題目 You have n flower seeds. Every seed must be planted first before it can begin to grow, then bloom. Planting a seed take time and so does the growth of a seed. You are given two 0-indexed integer arrays plantTime and growTime, of length n each:
+plantTime[i] is the number of full days it takes you to plant the ith seed. Every day, you can work on planting exactly one seed. You do not have to work on planting the same seed on consecutive days, but the planting of a seed is not complete until you have worked plantTime[i] days on planting it in total. growTime[i] is the number of full days it takes the ith seed to grow after being completely planted. After the last day of its growth, the flower blooms and stays bloomed forever. From the beginning of day 0, you can plant the seeds in any order.
+Return the earliest possible day where all seeds are blooming. Example 1:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-30 00:25:25 +0800 CST'>October 30, 2022</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 2136. Earliest Possible Day of Full Bloom" href="http://localhost:1313/leetcode/2136/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 2156. Find Substring With Given Hash Value
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 難度分: 2063
+這題是 rolling hash，同樣樣到 sliding window 的概念，由左至右需要處理除法問題，會使問題的難度增加，所以這題逆其道而行，從右至左，那就可以把除法問題變成乘法問題了。
+在處理商數時，要小心處理負數，由於商數 d 必定介於 0~k之間，可以利用 $$ \boxed{\mod(\mod(a)-\mod(b)&#43;k)} $$
+證明： $$ \boxed{ \begin{array}{ll} 0\le\mod(a)&lt;k \\ 0\le\mod(b)&lt;k \\ -k&lt;\mod(a)-\mod(b)&lt;k &amp; 在取 \mod 前先整理成正數\\ 0&lt;\mod(a)-\mod(b)&#43;k&lt; 2k \\ 0&lt;\mod(\mod(a)-\mod(b)&#43;k) &lt; k \end{array} } $$ 令 str = dcba，k = 3，已知 curr = mod(ap^2&#43;bp&#43;c, m) 求 mod(bp^2&#43;cp&#43;d, m)
+\(\mod(bp^2&#43;cp&#43;d)\) \(\quad = \mod((ap^2&#43;bp&#43;c)\times p &#43;d-ax^3)\) \(\quad = \mod(\mod(ap^2&#43;bp&#43;c)\times p &#43;d&#43;m-\mod(ax^3))\) \(\quad = \mod(\text{curr}\times p &#43;d&#43;m-\mod(ax^3))\) class Solution { public: string subStrHash(string s, int p, int mod, int k, int val) { int n = s.size(); long pk = 1, curr = 0; for (int i = 0; i &lt; k; i&#43;&#43;) { curr = (curr * p &#43; (s[n-1-i]-&#39;a&#39;&#43;1)) % mod; pk = (pk * p) % mod; } int j = n-k; for (int i = k; i &lt; n; i&#43;&#43;) { curr = (curr * p &#43; (s[n-1-i]-&#39;a&#39;&#43;1) &#43; mod - ((s[n-1-i&#43;k]-&#39;a&#39;&#43;1) * pk) % mod) % mod; if (curr == val) j = n-1-i; } return s.substr(j, k); } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-29 12:00:00 +0800 CST'>October 29, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 2156. Find Substring With Given Hash Value" href="http://localhost:1313/leetcode_list/sliding_window_dblptr/2156/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 18. 4Sum
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>18. 4Sum
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Sorting 一、題目 Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+0 &lt;= a, b, c, d &lt; n a, b, c and d are distinct. nums[a] &#43; nums[b] &#43; nums[c] &#43; nums[d] == target You may return the answer in any order. Example 1:
+Input: nums = [1,0,-1,0,-2,2], target = 0 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]] Example 2:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-28 23:58:48 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 18. 4Sum" href="http://localhost:1313/leetcode/18/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 17. Letter Combinations of a Phone Number
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>17. Letter Combinations of a Phone Number
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table,String,Backtracking 一、題目 Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order
+A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+Example 1:
+Input: digits = “23” Output: [“ad”,“ae”,“af”,“bd”,“be”,“bf”,“cd”,“ce”,“cf”] Example 2:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-28 22:59:22 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 17. Letter Combinations of a Phone Number" href="http://localhost:1313/leetcode/17/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 16. 3Sum Closet
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>no. &lt;/strong&gt;
+&lt;ul&gt; &lt;li&gt;Hardness: \(\color{orange}\textsf{Medium}\)&lt;/li&gt; &lt;li&gt;Ralated Topics: &lt;code&gt;Array&lt;/code&gt;、&lt;code&gt;Two Pointers&lt;/code&gt;、&lt;code&gt;Sorting&lt;/code&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr&gt; &lt;h3 id=&#34;一題目&#34;&gt;一、題目&lt;/h3&gt; &lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; of length &lt;code&gt;n&lt;/code&gt; and an integer &lt;code&gt;target&lt;/code&gt;, find three integers in &lt;code&gt;nums&lt;/code&gt; such that the sum is closet to &lt;code&gt;target&lt;/code&gt;.
+Return *the sum of the three integers`.
+You may assume that each input would have exactly one solution.
+&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;
+&lt;ul&gt; &lt;li&gt;&lt;strong&gt;Input:&lt;/strong&gt; nums = [-1,2,1,-4], target = 1&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Output:&lt;/strong&gt; 2&lt;/li&gt; &lt;li&gt;&lt;strong&gt;Explanation:&lt;/strong&gt; The sum that is closet to the target is 2. (-1 &#43; 2 &#43; 1 = 2).&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt;
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-28 21:51:20 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 16. 3Sum Closet" href="http://localhost:1313/leetcode/16/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 15. 3Sum
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>15. 3Sum
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Array、Two Pointer、Sorting 一、題目 Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, j != k, and nums[i] &#43; nums[j] &#43; nums[k] == 0.
+Notice that the solution set must not contain duplicate triplets.
+Example 1:
+Input: nums = [-1,0,1,2,-1,-4] Output: [[-1,-1,2],[-1,0,1]] Explanation:
+nums[0] &#43; nums[1] &#43; nums[2] = (-1) &#43; 0 &#43; 1 = 0.
+nums[1] &#43; nums[2] &#43; nums[4] = 0 &#43; 1 &#43; (-1) = 0.
+nums[0] &#43; nums[3] &#43; nums[4] = (-1) &#43; 2 &#43; (-1) = 0.
+The distinct triplets are [-1,0,1] and [-1,-1,2].
+Notice that the order of the output and the order of the triplets does not matter. Example 2:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-28 13:30:19 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 15. 3Sum" href="http://localhost:1313/leetcode/15/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 30. Substring with Concatenation of All Words
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 這一題與 567 類似，差別是將字元比較改成字串比較。 注意因為字串比較不一定是從 0 開始，所以還要多一個 for start in range(0, wordLen) 的迴圈來調整起始位置 class Solution { public: vector&lt;int&gt; findSubstring(string s, vector&lt;string&gt;&amp; words) { unordered_map&lt;string, int&gt; cnt1, cnt2; for (const auto&amp; word : words) cnt1[word]&#43;&#43;; int wordLen = words[0].size(); int k = words.size(); vector&lt;int&gt; res; if (s.size() &lt; wordLen * k) return res; for (int start = 0; start &lt; wordLen; start&#43;&#43;) { cnt2.clear(); int valid = 0; for (int i = start; i &lt; k * wordLen; i &#43;= wordLen) { string sin = s.substr(i, wordLen); if (cnt1.count(sin) &amp;&amp; &#43;&#43;cnt2[sin] == cnt1[sin]) valid&#43;&#43;; } if (valid == cnt1.size()) res.push_back(start); for (int i = start &#43; k * wordLen; i &lt; s.size(); i &#43;= wordLen) { string sin = s.substr(i, wordLen); if (cnt1.count(sin) &amp;&amp; &#43;&#43;cnt2[sin] == cnt1[sin]) valid&#43;&#43;; string sout = s.substr(i-k*wordLen, wordLen); if (cnt1.count(sout) &amp;&amp; cnt2[sout]-- == cnt1[sout]) valid--; if (valid == cnt1.size()) res.push_back(i-(k-1)*wordLen); } } return res; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-28 12:30:00 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 30. Substring with Concatenation of All Words" href="http://localhost:1313/leetcode_list/sliding_window_dblptr/30/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 438. Find All Anagrams in a String
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 這一題與 567 類似，是找 anagram 題題目，令 p 長度為 window size，即可解。 class Solution { public: vector&lt;int&gt; findAnagrams(string s, string p) { vector&lt;int&gt; res; int k = p.size(); int n = s.size(); if (n &lt; k) return res; unordered_map&lt;char,int&gt; cnt1, cnt2; for (const auto&amp; c : p) cnt1[c]&#43;&#43;; int valid = 0; for (int i = 0; i &lt; k; i&#43;&#43;) { if (cnt1.count(s[i]) &amp;&amp; &#43;&#43;cnt2[s[i]] == cnt1[s[i]]) valid&#43;&#43;; } if (valid == cnt1.size()) res.push_back(0); for (int i = k; i &lt; n; i&#43;&#43;) { if (cnt1.count(s[i]) &amp;&amp; &#43;&#43;cnt2[s[i]] == cnt1[s[i]]) valid&#43;&#43;; if (cnt1.count(s[i-k]) &amp;&amp; cnt2[s[i-k]]-- == cnt1[s[i-k]]) valid--; if (valid == cnt1.size()) res.push_back(i-k&#43;1); } return res; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-28 12:20:00 +0800 CST'>October 28, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 438. Find All Anagrams in a String" href="http://localhost:1313/leetcode_list/sliding_window_dblptr/438/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/categories/leetcode/page/12/">
+      «&nbsp;上一頁&nbsp;
+    </a>
+    <a class="next" href="http://localhost:1313/categories/leetcode/page/14/">下一頁&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

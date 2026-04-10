@@ -1,0 +1,64 @@
+---
+type Props = {
+  categories: { category: string; categoryName: string; count: number }[];
+  activeCategory?: string;
+};
+
+const { categories, activeCategory } = Astro.props;
+---
+
+<aside class="category-sidebar">
+  <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-subtle">
+    Categories
+  </h2>
+  <ul class="flex flex-col gap-0.5">
+    <li>
+      <a
+        href="/posts/"
+        class:list={[
+          "flex items-center justify-between rounded-md px-3 py-1.5 text-sm transition-colors",
+          !activeCategory
+            ? "bg-accent/10 font-medium text-accent"
+            : "text-subtle hover:bg-muted hover:text-foreground",
+        ]}
+      >
+        <span>All</span>
+        <span
+          class:list={[
+            "text-xs",
+            !activeCategory ? "text-accent/70" : "text-subtle/60",
+          ]}
+        >
+          {categories.reduce((sum, c) => sum + c.count, 0)}
+        </span>
+      </a>
+    </li>
+    {
+      categories.map(({ category, categoryName, count }) => (
+        <li>
+          <a
+            href={`/categories/${category}/`}
+            class:list={[
+              "flex items-center justify-between rounded-md px-3 py-1.5 text-sm transition-colors",
+              activeCategory === category
+                ? "bg-accent/10 font-medium text-accent"
+                : "text-subtle hover:bg-muted hover:text-foreground",
+            ]}
+          >
+            <span>{categoryName}</span>
+            <span
+              class:list={[
+                "text-xs",
+                activeCategory === category
+                  ? "text-accent/70"
+                  : "text-subtle/60",
+              ]}
+            >
+              {count}
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</aside>

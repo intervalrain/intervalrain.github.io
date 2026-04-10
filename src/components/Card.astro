@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { slugifyStr } from "@/utils/slugify";
+import { getPath } from "@/utils/getPath";
+import Datetime from "./Datetime.astro";
+
+type Props = {
+  variant?: "h2" | "h3";
+} & CollectionEntry<"blog">;
+
+const { variant: Heading = "h2", id, data, filePath } = Astro.props;
+
+const { title, description, tags, ...props } = data;
+---
+
+<li class="group my-4 rounded-lg border border-transparent p-4 transition-colors hover:border-border hover:bg-surface">
+  <a
+    href={getPath(id, filePath)}
+    class="inline-block text-lg font-medium text-foreground decoration-accent/40 underline-offset-4 hover:text-accent hover:underline focus-visible:no-underline focus-visible:underline-offset-0"
+  >
+    <Heading
+      style={{ viewTransitionName: slugifyStr(title.replaceAll(".", "-")) }}
+    >
+      {title}
+    </Heading>
+  </a>
+  <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-subtle">
+    <Datetime {...props} size="sm" />
+    {
+      tags.length > 0 && (
+        <>
+          <span aria-hidden="true" class="text-border">·</span>
+          <span class="flex flex-wrap gap-1">
+            {tags.slice(0, 3).map(tag => (
+              <span class="rounded-md bg-muted px-1.5 py-0.5 text-xs text-subtle">
+                {tag}
+              </span>
+            ))}
+          </span>
+        </>
+      )
+    }
+  </div>
+  {description && <p class="mt-2 text-sm leading-relaxed text-subtle">{description}</p>}
+</li>

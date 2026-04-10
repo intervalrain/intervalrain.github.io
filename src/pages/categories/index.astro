@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import getUniqueCategories from "@/utils/getUniqueCategories";
+import getPostsByCategory from "@/utils/getPostsByCategory";
+import { SITE } from "@/config";
+
+const posts = await getCollection("blog");
+const categories = getUniqueCategories(posts);
+const categoriesWithCount = categories.map(c => ({
+  ...c,
+  count: getPostsByCategory(posts, c.category).length,
+}));
+---
+
+<Layout title={`Categories | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Categories" pageDesc="All the categories used in posts.">
+    <ul class="grid gap-3 sm:grid-cols-2">
+      {
+        categoriesWithCount.map(({ category, categoryName, count }) => (
+          <li>
+            <a
+              href={`/categories/${category}/`}
+              class="flex items-center justify-between rounded-lg border border-border p-4 transition-colors hover:border-accent/40 hover:bg-accent/5"
+            >
+              <span class="font-medium text-foreground">{categoryName}</span>
+              <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-subtle">
+                {count}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

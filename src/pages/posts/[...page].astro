@@ -1,0 +1,52 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Card from "@/components/Card.astro";
+import Pagination from "@/components/Pagination.astro";
+import CategorySidebar from "@/components/CategorySidebar.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import getUniqueCategories from "@/utils/getUniqueCategories";
+import getPostsByCategory from "@/utils/getPostsByCategory";
+import { SITE } from "@/config";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return paginate(getSortedPosts(posts), { pageSize: SITE.postPerPage });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+
+const posts = await getCollection("blog");
+const categories = getUniqueCategories(posts);
+const categoriesWithCount = categories.map(c => ({
+  ...c,
+  count: getPostsByCategory(posts, c.category).length,
+}));
+---
+
+<Layout title={`Posts | ${SITE.title}`}>
+  <Header />
+  <Breadcrumb />
+  <div class="mx-auto w-full max-w-5xl px-4 pb-4">
+    <div class="flex flex-col gap-8 sm:flex-row">
+      <div class="sm:sticky sm:top-20 sm:h-fit sm:w-48 sm:shrink-0">
+        <CategorySidebar categories={categoriesWithCount} />
+      </div>
+      <main id="main-content" class="min-w-0 flex-1">
+        <h1 class="text-2xl font-semibold sm:text-3xl">Posts</h1>
+        <p class="mt-2 mb-6 italic text-subtle">All the articles I've posted.</p>
+        <ul>
+          {page.data.map(data => <Card {...data} />)}
+        </ul>
+      </main>
+    </div>
+  </div>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop={page.lastPage > 1} />
+</Layout>

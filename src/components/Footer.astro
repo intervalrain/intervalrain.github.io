@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Socials from "./Socials.astro";
+import { SITE } from "@/config";
+
+const currentYear = new Date().getFullYear();
+
+type Props = {
+  noMarginTop?: boolean;
+} & HTMLAttributes<"footer">;
+
+const { noMarginTop = false, class: className, ...attrs } = Astro.props;
+---
+
+<footer
+  class:list={["app-layout", { "mt-auto": !noMarginTop }, className]}
+  {...attrs}
+>
+  <div
+    class="flex flex-col items-center gap-4 border-t border-border py-6 sm:flex-row sm:justify-between"
+  >
+    <p class="text-xs text-subtle">
+      &copy; {currentYear} {SITE.author}. Built with Astro.
+    </p>
+    <Socials />
+  </div>
+</footer>

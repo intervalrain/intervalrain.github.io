@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Programming | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="">
+<meta name="description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+<meta name="author" content="Rain Hu, intervarrain, 陣雨">
+<link rel="canonical" href="http://localhost:1313/categories/programming/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4c6c0beaf1dfe52cd0f712a5896ac127e66fd064cfc598e04750f496d470699e.css" integrity="sha256-TGwL6vHf5SzQ9xKliWrBJ&#43;Zv0GTPxZjgR1D0ltRwaZ4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/programming/index.xml">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/categories/programming/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=XYZabc"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'XYZabc');
+</script><meta property="og:url" content="http://localhost:1313/categories/programming/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="Programming">
+  <meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Programming">
+<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/ai" title="AI">
+                    <span>AI</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/categories/">Categories</a></div>
+  <h1>
+    Programming
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[C&#43;&#43;] stringstream 類範例 - split 與 concat
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>stringstream 需引用 &lt;sstream&gt; , &lt;iostream&gt;, &lt;string&gt;函式庫 配合 str() 將 stringstream 類轉換成 string 類別。 split() vector&lt;string&gt; split(string&amp; str, char del){ stringstream ss(str); string item; vector&lt;string&gt; res; while (getline(ss, item, del)){ if (!item.empty()){ res.push_back(item); } } return res; } concat() string concat(vector&lt;string&gt;&amp; svec, char del){ stringstream ss; for (const auto&amp; s : svec){ ss &lt;&lt; s &lt;&lt; del; } return ss.str(); } [leetcode 1859. Sorting the Sentence] class Solution { public: string sortSentence(string s) { vector&lt;string&gt; tmp = split(s, &#39; &#39;); int n = tmp.size(); vector&lt;string&gt; svec(n); for (const string&amp; s : tmp){ int pos = s.back() - &#39;1&#39;; svec[pos] = s.substr(0, s.length()-1); } return concat(svec, &#39; &#39;); } string concat(vector&lt;string&gt;&amp; svec, char del){ string res; stringstream ss; for (const string&amp; s : svec) ss &lt;&lt; del &lt;&lt; s; res = ss.str(); return res.substr(1); } vector&lt;string&gt; split(string&amp; str, char del){ vector&lt;string&gt; res; stringstream ss(str); string item; while (getline(ss, item, del)){ if (!item.empty()){ res.push_back(item); } } return res; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-14 00:21:23 +0800 CST'>October 14, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [C&#43;&#43;] stringstream 類範例 - split 與 concat" href="http://localhost:1313/c&#43;&#43;/stringstream/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[ML] introduction
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>什麼是 AI &amp; ML &amp; DL 人工智慧是我們想要達成的目標，而機器學習是想要達成目標的手段，希望機器通過學習的方式，變得跟人一樣聰明。 而深度學習就是機器學習的其中一種方法。
+人工智慧(Aritificial Intelligence, AI) → 目標 機器學習(Machine Learning, ML) → 手段 深度學習(Deep Learning, DL) … 在機器學習出現之前 生物的行為取決於兩件事，一個是後天學習的結果，一個是天生的本能。
+Hand-crafted rules: 人類為機器設定好的天生本能 僵化，無法超越創造者 需要大量人力，不適合小企業 機器學習 寫程式讓機器可以學習 → 尋找關聯資料的函式 舉例：語音辨識、影像辨識、Alpha Go、對話機器人 框架(Framework) 設定一定量的函數 餵入數據 評估函數的好壞 找出最好的函數
+\(\begin{array}{rc} \text{step1}&amp;\boxed{\text{Define a set of function}}\\ &amp;\downarrow\\ \text{step2}&amp;\boxed{\text{Evaluate goodness of function}}\\ &amp;\downarrow\\ \text{step3}&amp;\boxed{\text{Pick the best function}}\end{array}\) 告訴機器 input 和正確的 output 這就叫作 supervised learning。 機器學習相關的技術 任務(Task) 迴歸(Regression) Regression 指的是函數的輸出為 scalar(數值)，如 PM2.5。 分類(Classification) Classification 指的是函數的輸出為 東西的類別。 當分類為 Yes or No，則為 Binary Classificatino，如垃圾郵件。 當分類是多個選項的，則為 Multi-Classification，如新聞分類。 結構性學習(Structured Learning) 讓機器的輸出具有結構性。 如語音辨識，聲音訊號為輸入，句子為輸出。 如影像辨識，圖片是輸入，人名是輸出。 方法(Method) 選不同的 function set 就是選不同的 model。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-19 18:18:52 +0800 CST'>June 19, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [ML] introduction" href="http://localhost:1313/ml/lec0/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - deque
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Deque 不同於 stack 與 queues， deques 兩個端點都支援擴展。 基於 doubly linked list，deques 有幾項額外的特徵： 支援隨機存取 插入元素時間 \(O(1)\) 函式 1. push_front() 2. push_back() 3. front() 4. back() 5. begin() 6. end() 7. insert() 8. erase() 9. pop_front() 10. pop_back() 11. empty() 12. clear() 13. random_access() 內部運作原理 上述所有函數和操作都在雙鏈表中以O（1）時間執行，但這些清單不能隨機訪問任何元素。C&#43;&#43;中的deque也是如此。這個 O（1） 在 deque 中可以使用圓形陣列來實現。使用循環陣列，可以在O（1）時間內實現從陣列的正面和背面插入和刪除等操作以及元素的隨機訪問。但這帶來了一個問題。當 deque 增長到超出容量時，使用者將需要將數位大小加倍，並將所有數據複製到陣列中。此外，如果數據是某個使用者定義的對象，那麼加倍和複製數據的成本就會變得非常昂貴。 這是一個基本的解決方案。Deque使用一些棘手的實現，當它說O（1）來push_back（）和push_front（）時，它實際上是調用的複製構造函數數量的常數時間。因此，如果數據物件是具有多個成員的某個類物件，則最小化複製構造函數調用的數量將節省時間。此外，複製構造函數調用的次數是恆定的。現在讓我們看看如何實現這一點。 這可以通過使用指向一些固定大小的塊的指標數位來實現，這些塊包含deque數據。下面是一個說明性示例。 這些 Deque 數據被劃分為固定大小的塊。在這裡，我們考慮了將數據劃分為大小為5的固定塊。 塊的填充從指標的兩個 deque 陣列的中間開始，並使用push_front和push_back操作向前和向後擴展。中間塊通常是滿的，當它被填滿時，數據被移動到上部或下部塊。 在上部塊中，元素以相反的順序推送，因為在這種情況下，填充數據的第一個位置將是4，然後是3，2，1，0。但是在中間和下部塊中，數據按正向順序填充，如0，1，2，3，4等。 當上面的塊被填滿時，指標將創建一個新塊並開始指向一個新的數位塊。這為更多數據創造了空間。在這種情況下，也可以填充指標塊。這會導致一個問題。 這是加倍來救援的時候。在加倍時，指標陣列的大小加倍。這不會複製整個數據，而只會複製指標。這是許多人在討論恆定時間時提出的一般論點。時間在調用的複製構造函數數方面保持不變。 如果數據集非常大，則指標塊幾乎不會執行加倍，因為單個指標可以指向大量數據塊。因此，指標陣列被填充並加倍的可能性非常小。 </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-12 01:36:18 +0800 CST'>June 12, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - deque" href="http://localhost:1313/c&#43;&#43;/stl_deque/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[C&#43;&#43;] Custom Comparator
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>C&#43;&#43; Custom Comparator sort(iter, iter, comp) Lambda function int main(){ auto comp = [](int a, int b){ return a &lt; b; } vector&lt;int&gt; = {3,6,7,2,1,9,5,4,8}; sort(vec.begin(), vec.end(), comp); // 1,2,3,4,5,6,7,8,9 } Usual boolean function bool comp(const int&amp; a, const int&amp; b){ return a &lt; b; } int main(){ vector&lt;int&gt; = {3,6,7,2,1,9,5,4,8}; sort(vec.begin(), vec.end(), comp); // 1,2,3,4,5,6,7,8,9 } Old solution using struct/class with () operator struct cmp { bool operator() (int a, int b) const { return a &lt; b; } }; int main(){ vector&lt;int&gt; = {3,6,7,2,1,9,5,4,8}; sort(vec.begin(), vec.end(), comp()); // 1,2,3,4,5,6,7,8,9 } priority_queue(element, container, comp) Modern C&#43;&#43;20 Solution(lambda) We can use lambda function as comparator. As usual, comparator should return boolean value, indicating whether the element passed as first argument is considered to go before the second in the specific strict weak ordering it defines. int main(){ auto comp = [](int a, int b){ return a &lt; b; } vector&lt;int&gt; vec = {3,6,7,2,1,9,5,4,8}; priority_queue&lt;int, vector&lt;int, decltype(comp)&gt; pq; for (int num : vec) pq.push(num); while (!pq.empty()) { cout &lt;&lt; pq.top() &lt;&lt; &#34; &#34;; // 9,8,7,6,5,4,3,2,1 pq.pop(); } cout &lt;&lt; endl; } Modern C&#43;&#43;11 Solution(lambda) Before C&#43;&#43;20 we need to pass lambda function as argument to set constructor. int main(){ auto comp = [](int a, int b){ return a &lt; b; } vector&lt;int&gt; vec = {3,6,7,2,1,9,5,4,8}; priority_queue&lt;int, vector&lt;int, decltype(comp)&gt; pq(comp); for (int num : vec) pq.push(num); while (!pq.empty()) { cout &lt;&lt; pq.top() &lt;&lt; &#34; &#34;; // 9,8,7,6,5,4,3,2,1 pq.pop(); } cout &lt;&lt; endl; } Usual function Make comparator as usual boolean function bool comp(int a, int b){ return a &lt; b; } int main(){ vector&lt;int&gt; vec = {3,6,7,2,1,9,5,4,8}; priority_queue&lt;int, vector&lt;int, decltype(&amp;comp)&gt; pq(comp); // priority_queue&lt;int, vector&lt;int, decltype(comp)*&gt; pq(comp); // in C&#43;&#43;20, constructor can be ignored the same as lambda function. for (int num : vec) pq.push(num); while (!pq.empty()) { cout &lt;&lt; pq.top() &lt;&lt; &#34; &#34;; // 9,8,7,6,5,4,3,2,1 pq.pop(); } cout &lt;&lt; endl; } Old solution using struct/class with () operator struct cmp { bool operator() (int a, int b) const { return a &lt; b; } }; int main(){ vector&lt;int&gt; = {3,6,7,2,1,9,5,4,8}; priority_queue&lt;int, vector&lt;int&gt;, comp&gt; pq(vec.begin(), vec.end()); while (!pq.empty()) { cout &lt;&lt; pq.top() &lt;&lt; &#34; &#34;; // 9,8,7,6,5,4,3,2,1 pq.pop(); } cout &lt;&lt; endl; } Alternative solution: create struct/class from boolean function bool comp(int a, int b){ return a &lt; b; } #include &lt;type_traits&gt; using Cmp = integral_constant&lt;decltype(&amp;comp), &amp;comp&gt;; int main(){ vector&lt;int&gt; = {3,6,7,2,1,9,5,4,8}; priority_queue&lt;int, vector&lt;int, decltype(&amp;comp)&gt; pq(comp); for (int num : vec) pq.push(num); while (!pq.empty()) { cout &lt;&lt; pq.top() &lt;&lt; &#34; &#34;; // 9,8,7,6,5,4,3,2,1 pq.pop(); } cout &lt;&lt; endl; } </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-11 10:07:49 +0800 CST'>June 11, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [C&#43;&#43;] Custom Comparator" href="http://localhost:1313/c&#43;&#43;/custom_comparator/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - pair
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>pair 函式庫 #include &lt;utility&gt; 宣告 pair&lt;data_type1, data_type2&gt; Pair_name; 初始化 pair&lt;int, int&gt; p1; // 宣告但不初始化 pair&lt;int, char&gt; p2(1, &#39;a&#39;); // 不同資料型態的初始化 pair&lt;int, int&gt; p3(1, 10); // 同資料型態的初始化 pair&lt;int, int&gt; p4(p3); // 利用其它 pair 來初始化 pair&lt;int, int&gt; p5 = {1, 2} // 用 assign 的方式初始化 p2 = make_pair(1, &#39;a&#39;); // 利用 make_pair 函式 成員 .first .second 函式 1. make_pair(v1, v2); 2. pair1.swap(pair2); 3. tie(a,b) 示例 #include &lt;iostream&gt; #include &lt;utility&gt; using namespace std; int main(){ // initialize pair&lt;int,int&gt; p1; pair&lt;int,int&gt; p2(2,4); pair&lt;int,char&gt; p3(3,&#39;c&#39;); pair&lt;int,int&gt; p4(p2); pair&lt;int,int&gt; p5 = {5,10}; // member cout &lt;&lt; p2.first &lt;&lt; &#34; &#34; &lt;&lt; p2.second &lt;&lt; endl; // 2 4 cout &lt;&lt; p3.first &lt;&lt; &#34; &#34; &lt;&lt; p3.second &lt;&lt; endl; // 3 c cout &lt;&lt; p4.first &lt;&lt; &#34; &#34; &lt;&lt; p4.second &lt;&lt; endl; // 2 4 cout &lt;&lt; p5.first &lt;&lt; &#34; &#34; &lt;&lt; p5.second &lt;&lt; endl; // 5 10 // function p1 = make_pair(1,2); cout &lt;&lt; p1.first &lt;&lt; &#34; &#34; &lt;&lt; p1.second &lt;&lt; endl; // 1 2 // a.swap(b) p1.swap(p2); cout &lt;&lt; p1.first &lt;&lt; &#34; &#34; &lt;&lt; p1.second &lt;&lt; endl; // 2 4 cout &lt;&lt; p2.first &lt;&lt; &#34; &#34; &lt;&lt; p2.second &lt;&lt; endl; // 1 2 // tie(a,b) = pair int a, b; tie(a, b) = p1; cout &lt;&lt; a &lt;&lt; &#34; &#34; &lt;&lt; b &lt;&lt; endl; // 2 4 return 0; } </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-02 01:23:15 +0800 CST'>June 2, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [C&#43;&#43;] The C&#43;&#43; Standard Template Library(STL) - pair" href="http://localhost:1313/c&#43;&#43;/stl_pair/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[VHDL] HDLbits 1 - Getting Started
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>HDLBits HDLBits 是一系列小型電路設計的練習，用於使用 Verilog 硬體描述語言(HDL)進行數位硬體設計。 由教學的題型由淺入深，逐步建立起電路設計的技能。 每個問題都會要求讀者使用 Verilog 設計一個小電路。HDLBits 會對提交的程式碼作判讀。透過一組測試碼來進行向量模擬，並與解答比較，檢查正確性。
+Catalog 1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450
+1 Getting Started \(\text{assign one}\) Build a circuit with no inputs and one output. The output should always drive 1 (or logic high). module top_module( output one); assign one = 1&#39;b1; endmodule \(\text{assign zero}\) Build a circuit with no inputs and one output that outputs a constant 0. module top_module( output zero ); assign zero = 1&#39;b0; endmodule </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 1 - Getting Started" href="http://localhost:1313/verilog/hdlbits1/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[VHDL] HDLbits 2 - Verilog Language
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450
+2 Verilog Language 2.1 Basics wire Create a module with one input and ont output that behaves like a wire module top_module( input in, output out); assign out = in; endmodule multi-in-out Create a module with 3 inputs and 4 outputs that behaves like wires that makes these connections: module top_module( input a,b,c, output w,x,y,z ); assign w = a; assign x = b; assign y = b; assign z = c; endmodule not gate Create a module that implements a NOT gate. module top_module( input in, output out ); assign out = ~in; endmodule and gate Create a module that implments an AND gate. module top_module( input a,b, output out ); assign out = a &amp; b; endmodule nor gate Create a module that implements a NOR gate. A NOR gate is an OR gate with its output inverted. A NOR function needs two operators when written in Verilog. module top_module( input a,b, output out ); assign out = ~(a|b); endmodule xnor gate Create a module that implements a XNOR gate. module top_module( input a, b, output out ); assign out = ~(a^b); endmodule wire declaration Implement following circuits. Create two intermediate wires to connect the AND and OR gates together. Note that the wire that feeds the NOT gate is really wire out, so you do not necessarily need to declare a third wire here. Notice how wires are driven by exactly one source (output of a gate), but can feed multiple inputs. module top_module( input a,b,c,d, output out, out_n ); wire w1, w2; assign w1 = a &amp; b; assign w2 = c &amp; d; assign out = w1 | w2; assign out_n = ~out; endmodule 7458 The 7458 is a chip with four AND gates and two OR gates. Create a module with the same functionality as the 7458 chip. It has 10 inputs and 2 outputs. module top_module( input p1a, p1b, p1c, p1d, p1e, p1f, output p1y, intput p2a, p2b, p2c, p2d, output p2y ); wire w1a, w1b; wire w2a, w2b; assign w1a = p1a &amp; p1b &amp; p1c; assign w1b = p1d &amp; p1e &amp; p1f; assign p1y = w1a | w1b; assign w2a = p2a &amp; p2b; assign w2b = p2c &amp; p2d; assign p2y = w2a | w2b; endmodule 2.2 Vectors vector Build a circuit that has one 3-bit input, then outputs the same vector, and also splits it into three separate 1-bit outputs. Connect outputs o0 to the input vector’s position 0, o1 to position 1, etc.
+In a diagram, a tick mark with a number next to it indicates the width of the vector (or “bus”), rather than drawing a separate line for each bit in the vector. module top_module ( input wire [2:0] vec, output wire [2:0] outv, output wire o2, output wire o1, output wire o0 ); assign outv = vec; assign o0 = vec[0]; assign o1 = vec[1]; assign o2 = vec[2]; endmodule vector select Build a combinational circuit that splits an input half-word (16 bits, [15:0]) into lower [7:0] and upper [15:8] bytes. module top_module ( input [15:0] in, output [7:0] out_hi, output [7:0] out_lo ); assign out_hi = in[15:8]; assign out_lo = in[7:0]; endmodule vector swap A 32-bit vector can be viewed as containing 4 bytes (bits [31:24], [23:16], etc.). Build a circuit that will reverse the byte ordering of the 4-byte word.
+AaaaaaaaBbbbbbbbCcccccccDddddddd =&gt; DdddddddCcccccccBbbbbbbbAaaaaaaa
+This operation is often used when the endianness of a piece of data needs to be swapped, for example between little-endian x86 systems and the big-endian formats used in many Internet protocols. module top_module ( input [31:0] in, output [31:0] out ); assign out[31:24] = in[ 7: 0]; assign out[23:16] = in[15: 8]; assign out[15: 8] = in[23:16]; assign out[ 7: 0] = in[31:24]; endmodule vector gates uild a circuit that has two 3-bit inputs that computes the bitwise-OR of the two vectors, the logical-OR of the two vectors, and the inverse (NOT) of both vectors. Place the inverse of b in the upper half of out_not (i.e., bits [5:3]), and the inverse of a in the lower half. module top_module ( input [2:0] a, input [2:0] b, output [2:0] out_or_bitwise, output out_or_logical, output [5:0] out_not ); assign out_or_bitwise = a | b; assign out_or_logical = a || b; assign out_not[2:0] = ~a; assign out_not[5:3] = ~b; endmodule gate-prefix vector Build a combinational circuit with four inputs, in[3:0]. There are 3 outputs: out_and: output of a 4-input AND gate. out_or: output of a 4-input OR gate. out_xor: outout of a 4-input XOR gate. module top_module ( input [3:0] in, output out_and, output out_or, output out_xor ); assign out_and = &amp; in; assign out_or = | in; assign out_xor = ^ in; endmodule vector concatenate Given several input vectors, concatenate them together then split them up into several output vectors. There are six 5-bit input vectors: a, b, c, d, e, and f, for module top_module ( input [4:0] a, b, c, d, e, f, output [7:0] w, x, y, z ); assign {w, x, y, z} = {a, b, c, d, e, f, 2&#39;b11}; endmodule vector reverse Given an 8-bit input vector [7:0], reverse its bit ordering. module top_module( input [7:0] in, output [7:0] out ); assign {out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7]} = in endmodule module top_module( input [7:0] in, output [7:0] out ); always @(*) begin for (int i=0; i&lt;8; i&#43;&#43;) out[i] = in[8-i-1]; end endmodule module top_module( input [7:0] in, output [7:0] out ); generate genvar i; for (i=0; i&lt;8; i = i&#43;1) begin: my_block_name assign out[i] = in[8-i-1]; end endgenerate endmodule vector replication Build a circuit that sign-extends an 8-bit number to 32 bits. This requires a concatenation of 24 copies of the sign bit (i.e., replicate bit[7] 24 times) followed by the 8-bit number itself. module top_module ( input [7:0] in, output [31:0] out ); assign out = {{24{in[7]}}, in}; endmodule vector replication2 Given five 1-bit signals (a, b, c, d, and e), compute all 25 pairwise one-bit comparisons in the 25-bit output vector. The output should be 1 if the two bits being compared are equal. module top_module ( input a, b, c, d, e, output [24:0] out ); assign out = ~{{5{a}}, {5{b}}, {5{c}}, {5{d}}, {5{e}}} ^ {5{a,b,c,d,e}}; endmodule 2.3 Modules: Hierarchy By now, you’re familiar with a module, which is a circuit that interacts with its outside through input and output ports. Larger, more complex circuits are built by composing bigger modules out of smaller modules and other pieces (such as assign statements and always blocks) connected together. This forms a hierarchy, as modules can contain instances of other modules.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;27 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 2 - Verilog Language" href="http://localhost:1313/verilog/hdlbits2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[VHDL] HDLbits 3 - Circuits
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450
+3 Circuits 3.1 Combinational Logic 3.1.1 Basic Gates Wire module top_module ( input in, output out); assign out = in; endmodule GND module top_module ( output out); assign out = 1&#39;b0; endmodule NOR module top_module ( input in1, input in2, output out); assign out = ~(in1|in2); endmodule Another Gate ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;18 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 3 - Circuits" href="http://localhost:1313/verilog/hdlbits3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[VHDL] HDLbits 4 - Verification: Reading Simulations
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>4 Verification - Reading Simulations 4.1 Finding bugs in code 4.2 Build a circuit from a simulation waveform 1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 4 - Verification: Reading Simulations" href="http://localhost:1313/verilog/hdlbits4/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/cover.jpg" alt="Oh! You closed up the window, so you cannot see raining">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[VHDL] HDLbits 5 - Verification: Writing Testbenches
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>5 Verification - Writing Testbenches 1. Getting Started
+2. Verilog Language
+3. Circuits
+4. Verification: Reading Simulations
+5. Verification: Writing Testbenches
+6. CS450
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-05-28 00:10:20 +0800 CST'>May 28, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [VHDL] HDLbits 5 - Verification: Writing Testbenches" href="http://localhost:1313/verilog/hdlbits5/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/categories/programming/">
+      «&nbsp;上一頁&nbsp;
+    </a>
+    <a class="next" href="http://localhost:1313/categories/programming/page/3/">下一頁&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

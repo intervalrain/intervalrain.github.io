@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[LeetCode] 1016. Binary String With Substrings Representing 1 To N | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="Leetcode">
+<meta name="description" content="
+這一題是滿有趣的一題，我的靈感來自於 zkw 的線段樹(但沒有用到線段樹)。
+觀察 1 ~ n 的樹，並將它排成 zkw 的線段樹，可以發現以下規則：
+
+滿足樹的子葉，則必定可以滿足其父節點，例如：找到 &quot;1010&quot;，則可以滿足 &quot;101&quot;、&quot;10&quot;、&quot;1&quot;。
+所以可以得到一個數學結論是：我們只需要找到 n ~ n/2&#43;1 的數即可。
+
+
+
+                          [1]                           len = 1
+              [10]                      11              len = 2
+       100         [101]         110         111        len = 3
+    1000  1001  [1010]  1011  1100  1101  1110  1111    len = 4
+    (8)          num                            mask
+     ^ 1&lt;&lt;3
+
+solution:
+
+class Solution {
+public:
+    bool queryString(string s, int n) {
+        if (n &gt; 1979) return false;            // 剪枝：當 n 太大時必為 false, 證明在下面
+        int len = 32 - __builtin_clz(n);       // n 的位元長度
+        if (s.size() &lt; len) return false;      // s 長度連 window 都不夠時 return false
+        int mask = (1 &lt;&lt; len) - 1;             // 遮罩 用來控制 window 長度
+        unordered_set&lt;int&gt; seen;               // 用來記錄數字是否出現過
+        int valid = n - n/2;                   // 總共需要收集到的數目
+        
+        // init
+        int curr = 0;
+        for (int i = 0; i &lt; len; i&#43;&#43;) {
+            curr = ((curr &lt;&lt; 1) | (s[i] &amp; 1));
+            if (curr &lt;= n &amp;&amp; curr &gt; n/2) seen.insert(curr);
+            if (seen.size() == valid) return true;
+        }
+        
+        // rolling
+        for (int i = len; i &lt; s.size(); i&#43;&#43;) {
+            curr = ((curr &lt;&lt; 1) | (s[i] &amp; 1)) &amp; mask;
+            if (curr &lt;= n &amp;&amp; curr &gt; n/2) seen.insert(curr);
+            if (seen.size() == valid) return true;
+        }
+        
+        return false;
+    }
+};
+
+剪枝的證明：
+我來說明 1979 這個臨界值的計算過程：
+
+當字串長度 = 1000 時，我們需要找到滿足以下條件的最大 n：">
+<meta name="author" content="Rain Hu">
+<link rel="canonical" href="https://intervalrain.github.io/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4c6c0beaf1dfe52cd0f712a5896ac127e66fd064cfc598e04750f496d470699e.css" integrity="sha256-TGwL6vHf5SzQ9xKliWrBJ&#43;Zv0GTPxZjgR1D0ltRwaZ4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/leetcode_list/sliding_window_dblptr/1016/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=XYZabc"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'XYZabc');
+</script><meta property="og:url" content="http://localhost:1313/leetcode_list/sliding_window_dblptr/1016/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="[LeetCode] 1016. Binary String With Substrings Representing 1 To N">
+  <meta property="og:description" content=" 這一題是滿有趣的一題，我的靈感來自於 zkw 的線段樹(但沒有用到線段樹)。 觀察 1 ~ n 的樹，並將它排成 zkw 的線段樹，可以發現以下規則： 滿足樹的子葉，則必定可以滿足其父節點，例如：找到 &#34;1010&#34;，則可以滿足 &#34;101&#34;、&#34;10&#34;、&#34;1&#34;。 所以可以得到一個數學結論是：我們只需要找到 n ~ n/2&#43;1 的數即可。 [1] len = 1 [10] 11 len = 2 100 [101] 110 111 len = 3 1000 1001 [1010] 1011 1100 1101 1110 1111 len = 4 (8) num mask ^ 1&lt;&lt;3 solution: class Solution { public: bool queryString(string s, int n) { if (n &gt; 1979) return false; // 剪枝：當 n 太大時必為 false, 證明在下面 int len = 32 - __builtin_clz(n); // n 的位元長度 if (s.size() &lt; len) return false; // s 長度連 window 都不夠時 return false int mask = (1 &lt;&lt; len) - 1; // 遮罩 用來控制 window 長度 unordered_set&lt;int&gt; seen; // 用來記錄數字是否出現過 int valid = n - n/2; // 總共需要收集到的數目 // init int curr = 0; for (int i = 0; i &lt; len; i&#43;&#43;) { curr = ((curr &lt;&lt; 1) | (s[i] &amp; 1)); if (curr &lt;= n &amp;&amp; curr &gt; n/2) seen.insert(curr); if (seen.size() == valid) return true; } // rolling for (int i = len; i &lt; s.size(); i&#43;&#43;) { curr = ((curr &lt;&lt; 1) | (s[i] &amp; 1)) &amp; mask; if (curr &lt;= n &amp;&amp; curr &gt; n/2) seen.insert(curr); if (seen.size() == valid) return true; } return false; } }; 剪枝的證明： 我來說明 1979 這個臨界值的計算過程： 當字串長度 = 1000 時，我們需要找到滿足以下條件的最大 n：">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="leetcode_list">
+    <meta property="article:published_time" content="2022-10-31T12:00:00+08:00">
+    <meta property="article:modified_time" content="2022-10-31T12:00:00+08:00">
+    <meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[LeetCode] 1016. Binary String With Substrings Representing 1 To N">
+<meta name="twitter:description" content="
+這一題是滿有趣的一題，我的靈感來自於 zkw 的線段樹(但沒有用到線段樹)。
+觀察 1 ~ n 的樹，並將它排成 zkw 的線段樹，可以發現以下規則：
+
+滿足樹的子葉，則必定可以滿足其父節點，例如：找到 &quot;1010&quot;，則可以滿足 &quot;101&quot;、&quot;10&quot;、&quot;1&quot;。
+所以可以得到一個數學結論是：我們只需要找到 n ~ n/2&#43;1 的數即可。
+
+
+
+                          [1]                           len = 1
+              [10]                      11              len = 2
+       100         [101]         110         111        len = 3
+    1000  1001  [1010]  1011  1100  1101  1110  1111    len = 4
+    (8)          num                            mask
+     ^ 1&lt;&lt;3
+
+solution:
+
+class Solution {
+public:
+    bool queryString(string s, int n) {
+        if (n &gt; 1979) return false;            // 剪枝：當 n 太大時必為 false, 證明在下面
+        int len = 32 - __builtin_clz(n);       // n 的位元長度
+        if (s.size() &lt; len) return false;      // s 長度連 window 都不夠時 return false
+        int mask = (1 &lt;&lt; len) - 1;             // 遮罩 用來控制 window 長度
+        unordered_set&lt;int&gt; seen;               // 用來記錄數字是否出現過
+        int valid = n - n/2;                   // 總共需要收集到的數目
+        
+        // init
+        int curr = 0;
+        for (int i = 0; i &lt; len; i&#43;&#43;) {
+            curr = ((curr &lt;&lt; 1) | (s[i] &amp; 1));
+            if (curr &lt;= n &amp;&amp; curr &gt; n/2) seen.insert(curr);
+            if (seen.size() == valid) return true;
+        }
+        
+        // rolling
+        for (int i = len; i &lt; s.size(); i&#43;&#43;) {
+            curr = ((curr &lt;&lt; 1) | (s[i] &amp; 1)) &amp; mask;
+            if (curr &lt;= n &amp;&amp; curr &gt; n/2) seen.insert(curr);
+            if (seen.size() == valid) return true;
+        }
+        
+        return false;
+    }
+};
+
+剪枝的證明：
+我來說明 1979 這個臨界值的計算過程：
+
+當字串長度 = 1000 時，我們需要找到滿足以下條件的最大 n：">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "[LeetCode] 1016. Binary String With Substrings Representing 1 To N",
+      "item": "http://localhost:1313/leetcode_list/sliding_window_dblptr/1016/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[LeetCode] 1016. Binary String With Substrings Representing 1 To N",
+  "name": "[LeetCode] 1016. Binary String With Substrings Representing 1 To N",
+  "description": " 這一題是滿有趣的一題，我的靈感來自於 zkw 的線段樹(但沒有用到線段樹)。 觀察 1 ~ n 的樹，並將它排成 zkw 的線段樹，可以發現以下規則： 滿足樹的子葉，則必定可以滿足其父節點，例如：找到 \u0026quot;1010\u0026quot;，則可以滿足 \u0026quot;101\u0026quot;、\u0026quot;10\u0026quot;、\u0026quot;1\u0026quot;。 所以可以得到一個數學結論是：我們只需要找到 n ~ n/2+1 的數即可。 [1] len = 1 [10] 11 len = 2 100 [101] 110 111 len = 3 1000 1001 [1010] 1011 1100 1101 1110 1111 len = 4 (8) num mask ^ 1\u0026lt;\u0026lt;3 solution: class Solution { public: bool queryString(string s, int n) { if (n \u0026gt; 1979) return false; // 剪枝：當 n 太大時必為 false, 證明在下面 int len = 32 - __builtin_clz(n); // n 的位元長度 if (s.size() \u0026lt; len) return false; // s 長度連 window 都不夠時 return false int mask = (1 \u0026lt;\u0026lt; len) - 1; // 遮罩 用來控制 window 長度 unordered_set\u0026lt;int\u0026gt; seen; // 用來記錄數字是否出現過 int valid = n - n/2; // 總共需要收集到的數目 // init int curr = 0; for (int i = 0; i \u0026lt; len; i++) { curr = ((curr \u0026lt;\u0026lt; 1) | (s[i] \u0026amp; 1)); if (curr \u0026lt;= n \u0026amp;\u0026amp; curr \u0026gt; n/2) seen.insert(curr); if (seen.size() == valid) return true; } // rolling for (int i = len; i \u0026lt; s.size(); i++) { curr = ((curr \u0026lt;\u0026lt; 1) | (s[i] \u0026amp; 1)) \u0026amp; mask; if (curr \u0026lt;= n \u0026amp;\u0026amp; curr \u0026gt; n/2) seen.insert(curr); if (seen.size() == valid) return true; } return false; } }; 剪枝的證明： 我來說明 1979 這個臨界值的計算過程： 當字串長度 = 1000 時，我們需要找到滿足以下條件的最大 n：\n",
+  "keywords": [
+    "Leetcode"
+  ],
+  "articleBody": " 這一題是滿有趣的一題，我的靈感來自於 zkw 的線段樹(但沒有用到線段樹)。 觀察 1 ~ n 的樹，並將它排成 zkw 的線段樹，可以發現以下規則： 滿足樹的子葉，則必定可以滿足其父節點，例如：找到 \"1010\"，則可以滿足 \"101\"、\"10\"、\"1\"。 所以可以得到一個數學結論是：我們只需要找到 n ~ n/2+1 的數即可。 [1] len = 1 [10] 11 len = 2 100 [101] 110 111 len = 3 1000 1001 [1010] 1011 1100 1101 1110 1111 len = 4 (8) num mask ^ 1\u003c\u003c3 solution: class Solution { public: bool queryString(string s, int n) { if (n \u003e 1979) return false; // 剪枝：當 n 太大時必為 false, 證明在下面 int len = 32 - __builtin_clz(n); // n 的位元長度 if (s.size() \u003c len) return false; // s 長度連 window 都不夠時 return false int mask = (1 \u003c\u003c len) - 1; // 遮罩 用來控制 window 長度 unordered_set\u003cint\u003e seen; // 用來記錄數字是否出現過 int valid = n - n/2; // 總共需要收集到的數目 // init int curr = 0; for (int i = 0; i \u003c len; i++) { curr = ((curr \u003c\u003c 1) | (s[i] \u0026 1)); if (curr \u003c= n \u0026\u0026 curr \u003e n/2) seen.insert(curr); if (seen.size() == valid) return true; } // rolling for (int i = len; i \u003c s.size(); i++) { curr = ((curr \u003c\u003c 1) | (s[i] \u0026 1)) \u0026 mask; if (curr \u003c= n \u0026\u0026 curr \u003e n/2) seen.insert(curr); if (seen.size() == valid) return true; } return false; } }; 剪枝的證明： 我來說明 1979 這個臨界值的計算過程： 當字串長度 = 1000 時，我們需要找到滿足以下條件的最大 n：\n對於任意數字 n： 需 需 要 要 的 表 位 示 元 的 數 數 ( 字 b 數 i 量 t s = ) ⌊ = n / ⌊ 2 l ⌋ o g + ₂ ( 1 n ) ⌋ ( + 從 1 n / 2 + 1 到 n ) 在字串中可用的位置數： a v a i l a b l e _ p o s = L - b i t s + 1 其中 L 是字串長度(1000)\n要滿足： 需 ⌊ n 要 n 表 2 示 2 的 ⌋ + 數 字 + 1 數 量 1 ≤ ≤ ≤ 1 0 a L 0 v 0 a - i - l ( a ⌊ l b l o l o g e g ₂ _ ₂ ( p ( n o n ) s ) ⌋ + 1 ) + 1 用程式來找這個值：\ndef check(n): bits = n.bit_length() # 等同於 ⌊log₂(n)⌋ + 1 need_nums = n//2 + 1 # 需要表示的數字數量 available = 1000 - bits + 1 return need_nums \u003c= available # 二分搜尋找最大的 n left, right = 1, 10000 while left + 1 \u003c right: mid = (left + right) // 2 if check(mid): left = mid else: right = mid # left 就是答案 1979 驗證 1979：\nn b n a i e v = t e a s d i 1 _ l 9 = n a 7 u b 9 1 m l 1 s e ( = = 因 為 9 1 9 0 1 0 0 9 0 7 ( 9 從 - \u003c 9 1 9 1 2 0 0 + 4 到 8 1 1 = 9 = 7 2 9 9 ¹ ) 9 ¹ 0 ) 驗證 1980：\nn b n a 此 i e v 時 = t e a s d i n 1 _ l e 9 = n a e 8 u b d 0 1 m l _ 1 s e n u = = m s 9 1 9 0 \u003e 1 0 0 a ( v 從 - a i 9 1 l 9 1 a 1 b + l 到 e 1 ， 1 所 9 = 以 8 0 9 1 ) 9 9 0 8 0 不 行 這表示：\n1979 是最大可能的 n 因為剛好需要 990 個位置來表示所有需要的數字 如果 n = 1980，則需要 991 個位置，但我們只有 990 個可用位置 所以 1979 就是這個精確的臨界值。\n",
+  "wordCount" : "609",
+  "inLanguage": "zh-tw",
+  "datePublished": "2022-10-31T12:00:00+08:00",
+  "dateModified": "2022-10-31T12:00:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Rain Hu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/leetcode_list/sliding_window_dblptr/1016/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rain Hu's Workspace",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/images/rain.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/ai" title="AI">
+                    <span>AI</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a></div>
+    <h1 class="post-title entry-hint-parent">
+      [LeetCode] 1016. Binary String With Substrings Representing 1 To N
+    </h1>
+    <div class="post-meta"><span title='2022-10-31 12:00:00 +0800 CST'>October 31, 2022</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu&nbsp;|&nbsp;<a href="https://github.com/intervalrain/intervalrain.github.io/tree/main/content//leetcode_list/sliding_window_dblptr/1016.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> 
+
+  <div class="post-content"><ul>
+<li>這一題是滿有趣的一題，我的靈感來自於 zkw 的線段樹(但沒有用到線段樹)。</li>
+<li>觀察 <code>1 ~ n</code> 的樹，並將它排成 zkw 的線段樹，可以發現以下規則：
+<ul>
+<li>滿足樹的子葉，則必定可以滿足其父節點，例如：找到 <code>&quot;1010&quot;</code>，則可以滿足 <code>&quot;101&quot;</code>、<code>&quot;10&quot;</code>、<code>&quot;1&quot;</code>。</li>
+<li>所以可以得到一個數學結論是：我們只需要找到 <code>n ~ n/2+1</code> 的數即可。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>                          [<span style="color:#ae81ff">1</span>]                           len <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>              [<span style="color:#ae81ff">10</span>]                      <span style="color:#ae81ff">11</span>              len <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">100</span>         [<span style="color:#ae81ff">101</span>]         <span style="color:#ae81ff">110</span>         <span style="color:#ae81ff">111</span>        len <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">1000</span>  <span style="color:#ae81ff">1001</span>  [<span style="color:#ae81ff">1010</span>]  <span style="color:#ae81ff">1011</span>  <span style="color:#ae81ff">1100</span>  <span style="color:#ae81ff">1101</span>  <span style="color:#ae81ff">1110</span>  <span style="color:#ae81ff">1111</span>    len <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#ae81ff">8</span>)          num                            mask
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">^</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><ul>
+<li>solution:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> queryString(string s, <span style="color:#66d9ef">int</span> n) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1979</span>) <span style="color:#66d9ef">return</span> false;            <span style="color:#75715e">// 剪枝：當 n 太大時必為 false, 證明在下面
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span> <span style="color:#f92672">-</span> __builtin_clz(n);       <span style="color:#75715e">// n 的位元長度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (s.size() <span style="color:#f92672">&lt;</span> len) <span style="color:#66d9ef">return</span> false;      <span style="color:#75715e">// s 長度連 window 都不夠時 return false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> mask <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> len) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;             <span style="color:#75715e">// 遮罩 用來控制 window 長度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        unordered_set<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> seen;               <span style="color:#75715e">// 用來記錄數字是否出現過
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> valid <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> n<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;                   <span style="color:#75715e">// 總共需要收集到的數目
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// init
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> curr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> len; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            curr <span style="color:#f92672">=</span> ((curr <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">|</span> (s[i] <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>));
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (curr <span style="color:#f92672">&lt;=</span> n <span style="color:#f92672">&amp;&amp;</span> curr <span style="color:#f92672">&gt;</span> n<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) seen.insert(curr);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (seen.size() <span style="color:#f92672">==</span> valid) <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// rolling
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> len; i <span style="color:#f92672">&lt;</span> s.size(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            curr <span style="color:#f92672">=</span> ((curr <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">|</span> (s[i] <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>)) <span style="color:#f92672">&amp;</span> mask;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (curr <span style="color:#f92672">&lt;=</span> n <span style="color:#f92672">&amp;&amp;</span> curr <span style="color:#f92672">&gt;</span> n<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) seen.insert(curr);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (seen.size() <span style="color:#f92672">==</span> valid) <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><ul>
+<li>剪枝的證明：
+我來說明 1979 這個臨界值的計算過程：</li>
+</ul>
+<p>當字串長度 = 1000 時，我們需要找到滿足以下條件的最大 n：</p>
+<ol>
+<li>對於任意數字 n：</li>
+</ol>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 304 41"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>需</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>需</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>要</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>要</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>的</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>表</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>位</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>示</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>元</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>的</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>數</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>數</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>字</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>數</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>量</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>)</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>⌊</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>⌊</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>⌋</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>₂</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>)</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>⌋</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>從</text>
+<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>到</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>)</text>
+</g>
+
+    </svg>
+  
+</div>
+<ol start="2">
+<li>在字串中可用的位置數：</li>
+</ol>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 232 25"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>_</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>1</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>其中 L 是字串長度(1000)</p>
+<ol start="3">
+<li>要滿足：</li>
+</ol>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 288 57"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 8,32 L 16,16' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>需</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>⌊</text>
+<text text-anchor='middle' x='0' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>要</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>表</text>
+<text text-anchor='middle' x='16' y='36' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>示</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>的</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>⌋</text>
+<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>數</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>字</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='48' y='36' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>數</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>量</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='64' y='36' fill='currentColor' style='font-size:1em'>≤</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>≤</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>≤</text>
+<text text-anchor='middle' x='80' y='36' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='88' y='36' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='96' y='36' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='104' y='36' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='120' y='36' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>⌊</text>
+<text text-anchor='middle' x='136' y='36' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='144' y='36' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='152' y='36' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='160' y='36' fill='currentColor' style='font-size:1em'>₂</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>_</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>₂</text>
+<text text-anchor='middle' x='168' y='36' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='176' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='184' y='36' fill='currentColor' style='font-size:1em'>)</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>)</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>⌋</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>)</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>1</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>用程式來找這個值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check</span>(n):
+</span></span><span style="display:flex;"><span>    bits <span style="color:#f92672">=</span> n<span style="color:#f92672">.</span>bit_length()  <span style="color:#75715e"># 等同於 ⌊log₂(n)⌋ + 1</span>
+</span></span><span style="display:flex;"><span>    need_nums <span style="color:#f92672">=</span> n<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>   <span style="color:#75715e"># 需要表示的數字數量</span>
+</span></span><span style="display:flex;"><span>    available <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">-</span> bits <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> need_nums <span style="color:#f92672">&lt;=</span> available
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 二分搜尋找最大的 n</span>
+</span></span><span style="display:flex;"><span>left, right <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> left <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> right:
+</span></span><span style="display:flex;"><span>    mid <span style="color:#f92672">=</span> (left <span style="color:#f92672">+</span> right) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> check(mid):
+</span></span><span style="display:flex;"><span>        left <span style="color:#f92672">=</span> mid
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        right <span style="color:#f92672">=</span> mid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># left 就是答案 1979</span>
+</span></span></code></pre></div><p>驗證 1979：</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 264 73"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='0' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='0' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='8' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='52' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='16' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='24' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='24' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>_</text>
+<text text-anchor='middle' x='32' y='52' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>7</text>
+<text text-anchor='middle' x='48' y='36' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='48' y='52' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='56' y='36' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='56' y='52' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='64' y='36' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='64' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='80' y='36' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='80' y='52' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>因</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>為</text>
+<text text-anchor='middle' x='96' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='96' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='104' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='104' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='112' y='36' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='112' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='120' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>7</text>
+<text text-anchor='middle' x='128' y='36' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='136' y='36' fill='currentColor' style='font-size:1em'>從</text>
+<text text-anchor='middle' x='136' y='52' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>&lt;</text>
+<text text-anchor='middle' x='152' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='160' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='160' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='168' y='36' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='176' y='52' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>4</text>
+<text text-anchor='middle' x='184' y='36' fill='currentColor' style='font-size:1em'>到</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>8</text>
+<text text-anchor='middle' x='192' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='200' y='36' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='208' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='208' y='52' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='216' y='36' fill='currentColor' style='font-size:1em'>7</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='224' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='224' y='52' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>¹</text>
+<text text-anchor='middle' x='232' y='36' fill='currentColor' style='font-size:1em'>)</text>
+<text text-anchor='middle' x='232' y='52' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>¹</text>
+<text text-anchor='middle' x='240' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>)</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>驗證 1980：</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 288 89"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='0' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='0' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='0' y='68' fill='currentColor' style='font-size:1em'>此</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='8' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='52' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='8' y='68' fill='currentColor' style='font-size:1em'>時</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='16' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='24' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='24' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='24' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>_</text>
+<text text-anchor='middle' x='32' y='52' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='32' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>8</text>
+<text text-anchor='middle' x='48' y='36' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='48' y='52' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='48' y='68' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='56' y='36' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='56' y='52' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='56' y='68' fill='currentColor' style='font-size:1em'>_</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='64' y='36' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='64' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='72' y='68' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='80' y='36' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='80' y='52' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='80' y='68' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='88' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='96' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='96' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='104' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='104' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='104' y='68' fill='currentColor' style='font-size:1em'>&gt;</text>
+<text text-anchor='middle' x='112' y='36' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='112' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='120' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='120' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='128' y='36' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='128' y='68' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='136' y='36' fill='currentColor' style='font-size:1em'>從</text>
+<text text-anchor='middle' x='136' y='52' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='136' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='144' y='68' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='152' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='152' y='68' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='160' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='160' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='160' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='168' y='36' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='168' y='68' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='176' y='52' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='176' y='68' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='184' y='36' fill='currentColor' style='font-size:1em'>到</text>
+<text text-anchor='middle' x='184' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='192' y='68' fill='currentColor' style='font-size:1em'>，</text>
+<text text-anchor='middle' x='200' y='36' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='200' y='68' fill='currentColor' style='font-size:1em'>所</text>
+<text text-anchor='middle' x='208' y='36' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='208' y='52' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='208' y='68' fill='currentColor' style='font-size:1em'>以</text>
+<text text-anchor='middle' x='216' y='36' fill='currentColor' style='font-size:1em'>8</text>
+<text text-anchor='middle' x='224' y='36' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='224' y='52' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='224' y='68' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='232' y='36' fill='currentColor' style='font-size:1em'>)</text>
+<text text-anchor='middle' x='232' y='52' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='232' y='68' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='240' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='240' y='68' fill='currentColor' style='font-size:1em'>8</text>
+<text text-anchor='middle' x='248' y='68' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='264' y='68' fill='currentColor' style='font-size:1em'>不</text>
+<text text-anchor='middle' x='272' y='68' fill='currentColor' style='font-size:1em'>行</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>這表示：</p>
+<ol>
+<li>1979 是最大可能的 n</li>
+<li>因為剛好需要 990 個位置來表示所有需要的數字</li>
+<li>如果 n = 1980，則需要 991 個位置，但我們只有 990 個可用位置</li>
+</ol>
+<p>所以 1979 就是這個精確的臨界值。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/leetcode/">Leetcode</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/leetcode/19/">
+    <span class="title">« 上一頁</span>
+    <br>
+    <span>[LeetCode] 19. Remove Nth Node From End of List</span>
+  </a>
+  <a class="next" href="http://localhost:1313/leetcode/766/">
+    <span class="title">下一頁 »</span>
+    <br>
+    <span>[LeetCode] 766. Toeplitz Matrix</span>
+  </a>
+</nav>
+
+    
+  </footer><script src="https://utteranc.es/client.js"
+    repo="Reid00/hugo-blog-talks"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '複製';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已複製！';
+            setTimeout(() => {
+                copybutton.innerHTML = '複製';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

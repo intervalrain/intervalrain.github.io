@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Leetcode | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="">
+<meta name="description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+<meta name="author" content="Rain Hu, intervarrain, 陣雨">
+<link rel="canonical" href="http://localhost:1313/categories/leetcode/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4c6c0beaf1dfe52cd0f712a5896ac127e66fd064cfc598e04750f496d470699e.css" integrity="sha256-TGwL6vHf5SzQ9xKliWrBJ&#43;Zv0GTPxZjgR1D0ltRwaZ4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/leetcode/index.xml">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/categories/leetcode/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=XYZabc"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'XYZabc');
+</script><meta property="og:url" content="http://localhost:1313/categories/leetcode/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="Leetcode">
+  <meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode">
+<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/ai" title="AI">
+                    <span>AI</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/categories/">Categories</a></div>
+  <h1>
+    Leetcode
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[Leetcode] 9. Palindrome Number
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>9. Palindrome Number
+Hardness: \(\color{green}\textsf{Easy}\) Ralated Topics: Math 一、題目 Given an integer x, return true if x is palindrome number.
+An integer is a palindrome when it reads the same backward as forward.
+For example, 121 is a palindrome while 123 is not. Example 1:
+Input: x = 121 Output: true Explanation: 121 reads as 121 from left to right and from right to left. Example 2:
+Input: x = -121 Output: false Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome. Example 3:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-26 10:20:08 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 9. Palindrome Number" href="http://localhost:1313/leetcode/9/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[Leetcode] 8. String to Integer (atoi)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>8. String to Integer (atoi)
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String 一、題目 Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C&#43;&#43;’s atoi function).
+The algorithm for myAtoi(string s) is as follows:
+Read in and ignore any leading whitespace. Check if the next character (if not already at the end of the string) is &#39;-&#39; or &#39;&#43;&#39;. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present. Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored. Convert these digits into an integer (i.e. &#34;123&#34; -&gt; 123, &#34;0032&#34; -&gt; 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2). If the integer is out of the 32-bit signed integer range [-2^31, 2^31-1], then clamp the integer so that it remains in the range. Specifically, integers less than -2^31 should be clamped to -2^31, and integer greater than 2^31-1 should be clamped to 2^31-1. Return the integer as the final result. Note:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-26 00:21:56 +0800 CST'>October 26, 2022</span>&nbsp;·&nbsp;4 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 8. String to Integer (atoi)" href="http://localhost:1313/leetcode/8/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[Leetcode] 7. Reverse Integer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>7. Reverse Integer
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Math 一、題目 Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31-1], then return 0.
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+Example 1:
+Input: x = 123 Output: 321 Example 2:
+Input: x = -123 Output: -321 Example 3:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-25 23:47:53 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 7. Reverse Integer" href="http://localhost:1313/leetcode/7/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[Leetcode] 6. Zigzag Conversion
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>6. Zigzag Conversion
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String 一、題目 The string &#34;PAYPALISHIRING&#34; is written in a zigzag pattern on a given number of rows like this: (you may want to dispaly this pattern in a fixed font for better legibility)
+\( \quad\texttt{P A H N}\\ \quad\texttt{APLSIIG}\\ \quad\texttt{Y I R}\\ \)
+And then read line by line: &#34;PAHNAPLSIIGYIR&#34;
+Write the code that will take a string and make this conversion given a number of rows: string convert(string s, int numRows
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-25 21:40:24 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [Leetcode] 6. Zigzag Conversion" href="http://localhost:1313/leetcode/6/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 5. Longest Palindromic Substring
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>5. Longest Substring Without Repeating Characters
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: String、Dynamic Programming 一、題目 Given a string s, return the longest palindromic substring in s.
+A string is called a palindrome string if the reverse of that string is the same of the original string.
+Example 1:
+Input: s = “babad” Output: “bab” Explanation: “aba” is also a valid answer. Example 2:
+Input: s = “cbbd” Output: “bb” Constraints:
+1 &lt;= s.length &lt;= 1000 s consists of only digits and English letters. 二、分析 注意 palindrome string 的特性： 當長度為 1 時，必為 palindrome string 當長度為 2 時，兩個字元必須相同才為 palindrome string 當長度 &gt;2 時，palindrome string 必須滿足 最左邊的字元等於最右邊的字元，即 s[left] == s[right] 除去最左邊的字元跟最右邊的字元，必須為 palindrome string，
+即 s.substr(left&#43;1, len-2) 為 palindromic。 三、解題 1. Dynamic Prograimming Time complexity: \(O(n^2)\) Space complexity: \(O(n^2)\) string longestPalindrome(string s) { int n = s.length(); string res; bool dp[n][n]; memset(dp, false, sizeof(dp)); int len = 0; for (int j = 0; j &lt; n; j&#43;&#43;) { for (int i = 0; i &lt;= j; i&#43;&#43;) { if (i == j) { // 長度為 1 dp[i][j] = true; } else if (j - i == 1) { // 長度為 2 dp[i][j] = s[i] == s[j]; } else { // 長度 &gt; 2 dp[i][j] = s[i] == s[j] &amp;&amp; dp[i&#43;1][j-1]; } if (dp[i][j] &amp;&amp; j - i &#43; 1 &gt; len) { // 比較長度 len = j - i &#43; 1; res = s.substr(i, len); } } } return res; } 回目錄 Catalog
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-25 16:32:51 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 5. Longest Palindromic Substring" href="http://localhost:1313/leetcode/5/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 4. Median of Two Sorted Arrays
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>4. Median of Two Sorted Arrays
+Hardness: \(\color{red}\textsf{Hard}\) Ralated Topics: Array、Binary Search、Divide and Conquer 一、題目 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the sorted arrays.
+The overall run time complexity should be O(log (m&#43;n)).
+Example 1:
+Input: nums1 = [1,3], nums2 = [2] Output: 2.00000 Explanation: merged array = [1,2,3] and median is 2. Example 2:
+Input: nums1 = [1,2], nums2 = [3,4] Output: 2.50000 Explanation: merged array = [1,2,3,4] and median is (2 &#43; 3) / 2 = 2.5. Constraints:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-25 14:52:18 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;3 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 4. Median of Two Sorted Arrays" href="http://localhost:1313/leetcode/4/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 3. Longest Substring Without Repeating Characters
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>3. Longest Substring Without Repeating Characters
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Hash Table、String、Sliding Window 一、題目 Given a string s, find the length of the longest substring without repeating characters.
+Example 1:
+Input: s = “abcabcbb” Output: 3 Explanation: The answer is “abc”, with the length of 3. Example 2:
+Input: s = “bbbbb” Output: 1 Explanation: The answer is “b”, with the length of 1. Example 3:
+Input: s = “pwwkew” Output: 3 Explanation: The answer is “wke”, with the length of 3. Notice that the answer must be a substring, “pwke” is a subsequence and not a substring. Constraints:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-25 14:20:00 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 3. Longest Substring Without Repeating Characters" href="http://localhost:1313/leetcode/3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 2. Add Two Numbers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>2. Add Two Numbers
+Hardness: \(\color{orange}\textsf{Medium}\) Ralated Topics: Linked List、Math、Recursion 一、題目 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Example 1:
+Input: l1 = [2,4,3], l2 = [5,6,4] Output: [7,0,8] Explanation: 342 &#43; 465 = 807 Example 2:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-25 13:38:00 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 2. Add Two Numbers" href="http://localhost:1313/leetcode/2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 1297. Maximum Number of Occurrences of a Substring
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 難度分: 1748 這題的 minSize 和 maxSize 在 26 以內，範圍不會太大，可以用定長度的 sliding window 硬解。 class Solution { public: int maxFreq(string s, int maxLetters, int minSize, int maxSize) { int res = 0; for (int i = minSize; i &lt;= maxSize; i&#43;&#43;) { res = max(res, maxFreqWithWindowSize(s, maxLetters, i)); } return res; } int maxFreqWithWindowSize(string&amp; s, int th, int k) { int n = s.size(); int cnt[26]; memset(cnt, 0, sizeof(cnt)); int uq = 0; int res = 0; unordered_map&lt;string, int&gt; map; for (int i = 0; i &lt; k; i&#43;&#43;) { if (cnt[s[i]-&#39;a&#39;]&#43;&#43; == 0) uq&#43;&#43;; } if (uq &lt;= th) { map[s.substr(0, k)]&#43;&#43;; res = 1; }; for (int i = k; i &lt; n; i&#43;&#43;) { if (cnt[s[i]-&#39;a&#39;]&#43;&#43; == 0) uq&#43;&#43;; if (--cnt[s[i-k]-&#39;a&#39;] == 0) uq--; if (uq &lt;= th) { string t = s.substr(i-k&#43;1, k); res = max(res, &#43;&#43;map[t]); } } return res; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-25 12:43:32 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 1297. Maximum Number of Occurrences of a Substring" href="http://localhost:1313/leetcode_list/sliding_window_dblptr/1297/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[LeetCode] 1652. Defuse the Bomb
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 這題要用 sliding window 解需要處理 circular iteration class Solution { public: vector&lt;int&gt; decrypt(vector&lt;int&gt;&amp; code, int k) { int n = code.size(); vector&lt;int&gt; res(n, 0); if (k == 0) return res; int m = abs(k); int start = k &gt; 0 ? 1 : n&#43;k; int sum = 0; for (int i = 0; i &lt; m; i&#43;&#43;) { sum &#43;= code[(start &#43; i) % n]; } res[0] = sum; for (int i = m, j = 1; i &lt; m &#43; n - 1; i&#43;&#43;, j&#43;&#43;) { int in = (start &#43; i) % n; int out = (start &#43; i - k) % n; sum &#43;= (code[(start &#43; i) % n] - code[(start &#43; i - m) % n]); res[j] = sum; } return res; } }; </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-10-25 12:42:32 +0800 CST'>October 25, 2022</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [LeetCode] 1652. Defuse the Bomb" href="http://localhost:1313/leetcode_list/sliding_window_dblptr/1652/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/categories/leetcode/page/14/">
+      «&nbsp;上一頁&nbsp;
+    </a>
+    <a class="next" href="http://localhost:1313/categories/leetcode/page/16/">下一頁&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+---
+// Initializes Mermaid.js for rendering diagrams in ```mermaid code blocks
+---
+
+<script is:inline data-astro-rerun>
+  (async () => {
+    const mermaidBlocks = document.querySelectorAll('pre > code.language-mermaid');
+    if (mermaidBlocks.length === 0) return;
+
+    const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs');
+
+    // Detect theme
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+    mermaid.initialize({ startOnLoad: false, theme });
+
+    for (const codeEl of mermaidBlocks) {
+      const pre = codeEl.parentElement;
+      const div = document.createElement('div');
+      div.className = 'mermaid';
+      div.textContent = codeEl.textContent;
+      pre.parentNode.replaceChild(div, pre);
+    }
+
+    await mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+  })();
+</script>

@@ -1,0 +1,23 @@
+export const SITE = {
+  website: "https://intervalrain.github.io/",
+  author: "Rain Hu",
+  profile: "https://intervalrain.github.io/",
+  desc: "Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊",
+  title: "Rain Hu's Workspace",
+  ogImage: "og.png",
+  lightAndDarkMode: true,
+  postPerIndex: 5,
+  postPerPage: 5,
+  scheduledPostMargin: 15 * 60 * 1000,
+  showArchives: true,
+  showBackButton: true,
+  editPost: {
+    enabled: true,
+    text: "Suggest Changes",
+    url: "https://github.com/intervalrain/intervalrain.github.io/edit/main/",
+  },
+  dynamicOgImage: true,
+  dir: "ltr" as const,
+  lang: "zh-TW",
+  timezone: "Asia/Taipei",
+} as const;

@@ -1,0 +1,43 @@
+---
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+import { SITE } from "@/config";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
+type Props = {
+  class?: string;
+  size?: "sm" | "lg";
+  pubDatetime: string | Date;
+  timezone?: string;
+  modDatetime?: string | Date | null;
+};
+
+const {
+  pubDatetime,
+  modDatetime,
+  size = "sm",
+  class: className = "",
+  timezone: postTimezone,
+} = Astro.props;
+
+const isModified = modDatetime && modDatetime > pubDatetime;
+
+const datetime = dayjs(isModified ? modDatetime : pubDatetime).tz(
+  postTimezone || SITE.timezone
+);
+
+const date = datetime.format("YYYY-MM-DD");
+---
+
+<span class:list={["inline-flex items-center gap-1 text-subtle", className]}>
+  {isModified && <span class:list={[{ "text-xs": size === "sm", "text-sm": size === "lg" }]}>Updated</span>}
+  <time
+    class:list={[{ "text-xs": size === "sm", "text-sm": size === "lg" }]}
+    datetime={datetime.toISOString()}
+  >
+    {date}
+  </time>
+</span>

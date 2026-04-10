@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AI | Rain Hu&#39;s Workspace</title>
+<meta name="keywords" content="">
+<meta name="description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+<meta name="author" content="Rain Hu, intervarrain, 陣雨">
+<link rel="canonical" href="http://localhost:1313/categories/ai/">
+<meta name="google-site-verification" content="XYZabc">
+<meta name="msvalidate.01" content="XYZabc">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4c6c0beaf1dfe52cd0f712a5896ac127e66fd064cfc598e04750f496d470699e.css" integrity="sha256-TGwL6vHf5SzQ9xKliWrBJ&#43;Zv0GTPxZjgR1D0ltRwaZ4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/rain.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/rain.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/rain.png">
+<link rel="mask-icon" href="http://localhost:1313/images/rain.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/ai/index.xml">
+<link rel="alternate" hreflang="zh-tw" href="http://localhost:1313/categories/ai/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<script src="https://utteranc.es/client.js"
+    repo="intervalrain.github.io"
+    issue-term="pathname"
+    label="Comment"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=XYZabc"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'XYZabc');
+</script><meta property="og:url" content="http://localhost:1313/categories/ai/">
+  <meta property="og:site_name" content="Rain Hu&#39;s Workspace">
+  <meta property="og:title" content="AI">
+  <meta property="og:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+  <meta property="og:locale" content="zh-tw">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI">
+<meta name="twitter:description" content="Rain Hu 記錄生活、工作、學習、個人創作的空間，包含了音樂創作、文字創作、演算法筆記、資工學習資料、架站資料、程式語言筆記、Leetcode 解題分析等各式各樣的資訊">
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Rain Hu&#39;s Workspace (Alt + H)">
+                <img src="http://localhost:1313/images/rain.png" alt="" aria-label="logo"
+                    height="35">Rain Hu&#39;s Workspace</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/aboutme" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csharp/csharp" title="C#">
+                    <span>C#</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/csindex" title="CS">
+                    <span>CS</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/leetcode" title="LeetCode">
+                    <span>LeetCode</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/ai" title="AI">
+                    <span>AI</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">首頁</a>&nbsp;»&nbsp;<a href="http://localhost:1313/categories/">Categories</a></div>
+  <h1>
+    AI
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[AI] 2-1. 初試神經網路-手寫辨識 mnist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> MNIST 是經典的手寫數字圖片資料集，已經內建在 tensorflow 裡面，這個資料集可以相當於是深度學習的 “Hello World”，是由美國國家標準與技術研究院(National Institute of Standard and Technology) 所提供。 1. 認識 MNIST 資料集 透過 tensorflow 引入資料集 from tensorflow.keras.datasets import mnist (train_images, train_labels), (test_images, test_labels) = mnist.load_data() 查看資料的大小 train_images.shape len(train_labels) test_images.shape test_labels min(test_labels), max(test_labels) 結果 (60000, 28, 28) # 代表 train_images 是 60000 張 28*28 的圖片 60000 # 代表 train_labels 同樣也有 60000 份 (10000, 28, 28) # 代表 test_images 有 10000 張 28*28 的圖片 array([7, 2, 1, ..., 4, 5, 6], dtype=uint8) (0, 9) # 代表 test_labels 是 0-9 的數字，資料型別是 uint8 2. 神經網路架構 接下來的操作流程是： 將測資 train_images 和 train_labels 餵給神經網路 神經網路學習分類圖片，與每張圖片的標籤對比，分類錯誤就修正(學習) 最後對 test_images 進行預測，並驗證結果看是否與 test_labels 吻合 from tensorflow import keras from tensorflow.keras import layers model = keras.Sequential([ layers.Dense(512, activation=&#34;relu&#34;) layers.Dense(10, activation=&#34;softmax&#34;) ]) 組成神經網路的基本元件為層(layer)，一個層就是一個資料處理的模組。可以視之為資料的過濾器。具體而言，每一層都會從資料中萃取出特定的轉換或是表示法(representation)，這些特定的表示法會有助於解決某些問題。大多數深度學習模型會將許多層連接在一起，漸次執行資料萃取(data distillation)。 在範例中，神經網路由兩個密集層(Dense layers)緊密連接組成，密集層也稱為全連接(fully connected) 神經層。第二個密集層是有 10 個輸出的 softmax 層，最終會輸出 10 個機率評分的陣列，每個評分就是對應到每一個數字的機率。 model.compile(optimizer=&#39;adam&#39;, loss=&#39;sparse_categorical_crossentropy&#39;, metrics=[&#39;accuracy&#39;]) 為了讓神經網路接受訓練，還需要準備三個元件才能進行編譯。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-15 13:05:53 +0800 CST'>December 15, 2024</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [AI] 2-1. 初試神經網路-手寫辨識 mnist" href="http://localhost:1313/ai/2_1/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[AI] 1-3. 深度學習的發展
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 卷積神經網路與反向傳播這兩個應用於電腦視覺的深度學習關鍵概念，在 1989 年就已經被研究透徹。長短期記憶(Long Short-Term Memory, LSTM) 演算法是時間序列的深度學習基礎，也於 1997 年發展出來，之後幾乎沒有什麼演進。那麼為什麼深度學習會在 2012 年後才開始蓬勃發展呢？
+技術演變 硬體 資料集和競賽評比 演算法的進步 因為機器學習的發展是經由實驗結果來驗證(而不是由理論引導)，所有只有當資料和硬體可支撐新思維時，才能促進演算法的進步。
+硬體 從 1990 到 2010 年，CPU 提升了約 5000 倍，但這仍然無法供應電腦視覺或語音辨識的典型深度學習模型。
+在 2000 年代，由 NVIDIA 和 AMD 等公司投資大規模平行運算晶片(graphical processing units, 圖形處理單元, GPU)，以應愈來愈逼真的影音遊戲。在 2007 年，NVIDIA 推出了 CUDA，一個針對 GPU 的程式開發介面。從物理建模開始，只需要 GPU 就可以在各種高度平行化運算中取代大量 CPU。深度神經網路主要由許多矩陣多項式構成，也屬於高度平行化處理。因此在 2011 年，開始有研究人員(Dan Ciresan, Alex Krizhevsky)以 CUDA 來開發神經網路。
+資料 除了過去 20 年儲存設備爆發式的發展外，網際網路的興起才是真正影響資料源的重大關鍵，大量來自於網路的資料被應用於機器學習上。
+ImageNet 提供了大量的已被標註(labled)的影像，包含許多大尺寸的影像資料，還有最重要的，其相關的年度影像辨識競賽。
+Kaggle 是一個專注於資料科學和機器學習的競賽平台，於 2010 年成立。這個平台不僅提供大量的公開資料集，還定期舉辦競賽，讓研究者和工程師能夠透過實際問題來測試與優化他們的演算法。Kaggle 競賽的主題多元，涵蓋醫學影像分析、自然語言處理、時間序列預測等。透過這樣的競爭環境，不僅促進了演算法的進步，也加速了實驗結果的分享與技術的迭代。
+ImageNet 與 Kaggle 的共同點在於，它們都提供了一個標準化的評測基準，使得研究人員能夠客觀地比較不同的模型表現。此外，這些平台的出現，使得深度學習的研究與應用從少數實驗室走向全球，更多人參與的結果是加速了技術的發展。
+演算法的進步 深度學習模型的核心挑戰之一在於深層網路結構中的梯度傳播問題（gradient propagation）。隨著網路層數的增加，用於訓練神經網路的回饋訊號可能會逐漸消失。這個問題在早期深度學習的研究中，極大地限制了神經網路的深度及其表現能力。然而，隨著多項關鍵演算法改進的提出，這一瓶頸逐漸被克服，深層網路得以成功訓練並展現強大的性能。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-06 16:26:30 +0800 CST'>December 6, 2024</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [AI] 1-3. 深度學習的發展" href="http://localhost:1313/ai/1_3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[AI] 1-2. 機器學習的基礎技術
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>機率建模(Probabilistic modeling) 單純貝氏演算法(Naive Bayes thorem) 單純貝氏定理是一種基於機率理論的分類方法，適用於文本分類等任務，其核心概念是基於特徵條件獨立的假設來計算後驗機率。
+以下是一個使用 Python 使現文本分類的範例
+from sklearn.naive_bayes import MultinomialNB from sklearn.feature_extraction.text import CountVectorizer # 示範文本數據 texts = [&#34;這部電影很好看&#34;, &#34;服務很差&#34;, &#34;餐點美味&#34;, &#34;環境很糟&#34;] labels = [&#34;正面&#34;, &#34;負面&#34;, &#34;正面&#34;, &#34;負面&#34;] # 將文本轉換為特徵向量 vectorizer = CountVectorizer() X = vectorizer.fit_transform(texts) # 訓練模型 clf = MultinomialNB() clf.fit(X, labels) # 預測新文本 new_text = [&#34;這家餐廳很棒&#34;] new_X = vectorizer.transform(new_text) prediction = clf.predict(new_X) 邏輯迴歸(logistic regression, logreg) 邏輯迴歸是一種二元分類問題的基礎演算法。儘管名稱中有「迴歸」，但實際上是一個分類模型，通過 sigmoid 函數 將線性預測轉換成機率值。
+from sklearn.linear_model import LogisticRegression import numpy as np # 示範數據 X = np.array([[1, 2], [2, 3], [3, 4], [4, 5]]) y = np.array([0, 0, 1, 1]) # 創建和訓練模型 model = LogisticRegression() model.fit(X, y) # 預測 prediction = model.predict([[2.5, 3.5]]) 早期的神經網路 1980年代的神經網路發展奠定了現代深度學習的基礎。反向傳播算法的發明是一個重要突破，它提供了一種有效的方法來訓練多層神經網路。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-03 15:42:52 +0800 CST'>December 3, 2024</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [AI] 1-2. 機器學習的基礎技術" href="http://localhost:1313/ai/1_2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[AI] 1-1. 何謂人工智慧?
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>人工智慧(Artificial Intelligence, 簡稱 AI)，但何謂人工智慧？
+首先我們先探討人工智慧、機器學習、深度學習之間的關係。 一般而言，人工智慧包含了機器學習，然後機器學習包含了深度學習。
+人工智慧 符號式 AI(Symbolic AI) 人工智慧出現在 1950 年代，其簡單定義為「能自動化地執行一般人類的智慧工作」，故包含了機器學習、深度學習，同時也涵蓋了許多不涉及學習的做法。
+在 1980 年代以前，大部分的 AI 科學家都認為，想要讓人工智慧與人類匹敵，需要靠工程師編寫大量的規則來操控人工智慧的行為。這種人工智慧被稱為 Symbolic AI，意即符號式 AI，或稱 Rule-based AI。這種 AI 的形式在流行於 1950 至 1980 年代，隨著專家系統興起而達到顛峰。 Symbolic AI 可以解決規則清楚的問題，如棋盤遊戲、卡牌遊戲，但對於更複雜、更模糊的問題，如影像辨識、語音辨識或語言翻譯，要找出明確規則是相當困難的。故需要新方法來取代 Symbolic AI，那就是 Machine Learning。
+機器學習(Machine Learning) Symbolic AI 需要透過明確的步驟，定義出規則；而機器學習反其道而行：機器根據輸入資料及相應答案，自己找出有哪些規則。換句話說，機器學習系統是透過訓練(training)來學習，而非透過定義規則。
+為了實現機器學習，有三個要素：
+輸入資料 標準答案 判斷好或壞 機器學習將輸入資料轉換成有意義的輸出，並且和輸入資料所附帶的標準答案進行比對修正來學習。因此，機器學習的核心就是要對資料進行有意義的轉換。
+故機器學習通常需要人工特徵工程，適合結構化的數據與較小規模的數據集。 比方說要做手寫數字辨識，可能要透過封閉環的數量、橫向與縱向的直方圖來定義規則，這些形式的規則也許可以得到不錯的結果，但因為仰賴人力來維護，故這種方式很吃力，也可能導致系統非常地脆弱，因為每一個新的樣本，都可能對先前建立好的規則產生致命的影響，因此必須在既有的架構上添加新的資料轉換規則，進而與既存的規則產生影響。
+常用的包含決策樹、SVM、隨機森林、類神經網路(Neural Network)等演算法。
+深度學習(Deep Learning) 既然找出「有意義的轉換方式」是如此痛苦的，科學家便開始嘗試將系統性地將這一過程自動化。
+透過使用卷積類神經網路(Convolutional Neural Network, CNN)，並強調使用連續、多層的學習方式，使表達式更有意義。
+深度指的是一個模型用了多少「層」來處理資料，與機器學習通常 1~2 層的資料表示法相比(有時稱為淺層學習(shallow learning))，深度學習通常涉及數十層，甚至上百層，這樣的學習法被稱為分層或階層表示法的學習(layered representation learning, hierarchical representation learning)。 在深度學習中，所謂「層」會對輸入資料做怎樣的轉換，取決於儲存在該層的權重(weight)，而權重是多個數字組成的，權重也被稱為層的參數(parameters)，而「學習」就是指幫神經網路的每一層找出適當的權重值。
+\( \boxed{ \begin{array}{ccc} &amp;&amp; \text{輸入資料 X} &amp; \\ &amp;&amp; \downarrow &amp; \\ \red{\boxed{\text{權重}}} &amp; \red{\rightarrow} &amp; \boxed{\text{層(資料轉換)}} \\ &amp;&amp; \downarrow &amp; \\ \red{\boxed{\text{權重}}} &amp; \red{\rightarrow} &amp; \boxed{\text{層(資料轉換)}} \\ &amp;&amp; \downarrow &amp; \\ &amp;&amp; \boxed{\text{預測 Y’}} &amp; \end{array} } \)
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-03 15:39:11 +0800 CST'>December 3, 2024</span>&nbsp;·&nbsp;2 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [AI] 1-1. 何謂人工智慧?" href="http://localhost:1313/ai/1_1/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[AI] Catalog
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. 簡介 1-1 何謂人工智慧?
+1-2 機器學習的基礎技術
+1-3 深度學習的發展
+2. 神經網路(CNN) 2-1 初試神經網路-手寫辨識 mnist
+2-2 張量 Tensor
+2-3 優化器 Optimizer
+3. Keras 與 Tensorflow 簡介 3-1 TensorFlow 介紹
+3-2 Keras 介紹
+3-3 使用 TensorFlow 與 Keras 函式庫
+3-4 線性迴歸
+3-5 邏輯斯迴歸(logistic regression)
+3-6 實作線性分類器
+3-7 Keras API
+3-8 客製化 Training
+4. 分類與迴歸 4-1 二元分類問題
+4-2 多元分類問題
+4-3 迴歸問題
+5. 機器學習(ML) 5-1 普適化
+5-2 評估模型
+5-3 提升模型的表現
+5-4 提高普適化能力
+5-5 機器學習的流程
+6. 電腦視覺(CV) 6-1 卷積神經網路(CNN)
+6-2 預訓練(Pre-training)
+6-3 影像分割
+7. 時間序列(Time Series) 8. 自然語言處理(NLP) 9. 生成式 AI(Gen AI)</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-03 15:30:11 +0800 CST'>December 3, 2024</span>&nbsp;·&nbsp;1 分鐘&nbsp;·&nbsp;Rain Hu</footer>
+  <a class="entry-link" aria-label="post link to [AI] Catalog" href="http://localhost:1313/ai/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/categories/ai/">
+      «&nbsp;上一頁&nbsp;
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Rain Hu&#39;s Workspace</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

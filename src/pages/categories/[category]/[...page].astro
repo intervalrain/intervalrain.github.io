@@ -1,0 +1,67 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPathsOptions } from "astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Card from "@/components/Card.astro";
+import Pagination from "@/components/Pagination.astro";
+import CategorySidebar from "@/components/CategorySidebar.astro";
+import getUniqueCategories from "@/utils/getUniqueCategories";
+import getPostsByCategory from "@/utils/getPostsByCategory";
+import { SITE } from "@/config";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = await getCollection("blog");
+  const categories = getUniqueCategories(posts);
+
+  return categories.flatMap(({ category, categoryName }) => {
+    const categoryPosts = getPostsByCategory(posts, category);
+
+    return paginate(categoryPosts, {
+      params: { category },
+      props: { categoryName },
+      pageSize: SITE.postPerPage,
+    });
+  });
+}
+
+const { category } = Astro.params;
+const { page, categoryName } = Astro.props;
+
+const posts = await getCollection("blog");
+const categories = getUniqueCategories(posts);
+const categoriesWithCount = categories.map(c => ({
+  ...c,
+  count: getPostsByCategory(posts, c.category).length,
+}));
+---
+
+<Layout title={`${categoryName} | ${SITE.title}`}>
+  <Header />
+  <Breadcrumb />
+  <div class="mx-auto w-full max-w-5xl px-4 pb-4">
+    <div class="flex flex-col gap-8 sm:flex-row">
+      <div class="sm:sticky sm:top-20 sm:h-fit sm:w-48 sm:shrink-0">
+        <CategorySidebar
+          categories={categoriesWithCount}
+          activeCategory={category}
+        />
+      </div>
+      <main id="main-content" class="min-w-0 flex-1">
+        <h1 class="text-2xl font-semibold sm:text-3xl">{categoryName}</h1>
+        <p class="mt-2 mb-6 italic text-subtle">
+          All the articles in category "{categoryName}".
+        </p>
+        <ul>
+          {page.data.map(data => <Card {...data} />)}
+        </ul>
+      </main>
+    </div>
+  </div>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop={page.lastPage > 1} />
+</Layout>

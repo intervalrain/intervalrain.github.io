@@ -1,0 +1,158 @@
+---
+import IconX from "@/assets/icons/IconX.svg";
+import IconMoon from "@/assets/icons/IconMoon.svg";
+import IconSearch from "@/assets/icons/IconSearch.svg";
+import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
+import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
+import LinkButton from "./LinkButton.astro";
+import { SITE } from "@/config";
+
+const { pathname } = Astro.url;
+
+const currentPath =
+  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+
+const isActive = (path: string) => {
+  const currentPathArray = currentPath.split("/").filter(p => p.trim());
+  const pathArray = path.split("/").filter(p => p.trim());
+  return currentPath === path || currentPathArray[0] === pathArray[0];
+};
+---
+
+<a
+  id="skip-to-content"
+  href="#main-content"
+  class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4"
+>
+  Skip to content
+</a>
+
+<header class="app-layout sticky top-0 z-40 bg-background/80 backdrop-blur-md">
+  <div
+    id="top-nav-wrap"
+    class="flex items-center justify-between border-b border-border py-4"
+  >
+    <a
+      href="/"
+      class="text-lg font-bold tracking-tight text-foreground hover:text-accent transition-colors"
+    >
+      {SITE.title}
+    </a>
+    <nav id="nav-menu" class="flex items-center">
+      <button
+        id="menu-btn"
+        class="focus-outline p-2 sm:hidden"
+        aria-label="Open Menu"
+        aria-expanded="false"
+        aria-controls="menu-items"
+      >
+        <IconX id="close-icon" class="hidden" />
+        <IconMenuDeep id="menu-icon" />
+      </button>
+      <ul
+        id="menu-items"
+        class:list={[
+          "absolute left-0 top-full z-50 hidden w-full flex-col bg-background px-4 pb-4 shadow-lg sm:relative sm:top-auto sm:flex sm:w-auto sm:flex-row sm:items-center sm:gap-1 sm:bg-transparent sm:px-0 sm:pb-0 sm:shadow-none",
+        ]}
+      >
+        <li>
+          <a
+            href="/about"
+            class:list={[
+              "block px-3 py-2 text-sm font-medium text-subtle transition-colors hover:text-accent sm:py-1",
+              { "active-nav text-accent": isActive("/about") },
+            ]}
+          >
+            About Me
+          </a>
+        </li>
+        <li>
+          <a
+            href="/archives"
+            class:list={[
+              "block px-3 py-2 text-sm font-medium text-subtle transition-colors hover:text-accent sm:py-1",
+              { "active-nav text-accent": isActive("/archives") },
+            ]}
+          >
+            Archives
+          </a>
+        </li>
+        <li>
+          <a
+            href="/categories"
+            class:list={[
+              "block px-3 py-2 text-sm font-medium text-subtle transition-colors hover:text-accent sm:py-1",
+              { "active-nav text-accent": isActive("/categories") },
+            ]}
+          >
+            Categories
+          </a>
+        </li>
+        <li>
+          <a
+            href="/tags"
+            class:list={[
+              "block px-3 py-2 text-sm font-medium text-subtle transition-colors hover:text-accent sm:py-1",
+              { "active-nav text-accent": isActive("/tags") },
+            ]}
+          >
+            Tags
+          </a>
+        </li>
+        <li class="flex items-center gap-1 px-2 sm:ml-2 sm:border-l sm:border-border sm:px-0 sm:pl-2">
+          <LinkButton
+            href="/search"
+            class:list={[
+              "focus-outline p-2 text-subtle hover:text-accent sm:p-1",
+              { "text-accent": isActive("/search") },
+            ]}
+            title="Search"
+            aria-label="search"
+          >
+            <IconSearch class="size-4" />
+            <span class="sr-only">Search</span>
+          </LinkButton>
+          {
+            SITE.lightAndDarkMode && (
+              <button
+                id="theme-btn"
+                class="focus-outline relative size-8 p-1 text-subtle hover:text-accent"
+                title="Toggles light & dark"
+                aria-label="auto"
+                aria-live="polite"
+              >
+                <IconMoon class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                <IconSunHigh class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+              </button>
+            )
+          }
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function toggleNav() {
+    const menuBtn = document.querySelector("#menu-btn");
+    const menuItems = document.querySelector("#menu-items");
+    const menuIcon = document.querySelector("#menu-icon");
+    const closeIcon = document.querySelector("#close-icon");
+
+    if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
+
+    menuBtn.addEventListener("click", () => {
+      const openMenu = menuBtn.getAttribute("aria-expanded") === "true";
+
+      menuBtn.setAttribute("aria-expanded", openMenu ? "false" : "true");
+      menuBtn.setAttribute("aria-label", openMenu ? "Open Menu" : "Close Menu");
+
+      menuItems.classList.toggle("hidden");
+      menuIcon.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
+    });
+  }
+
+  toggleNav();
+  document.addEventListener("astro:after-swap", toggleNav);
+</script>

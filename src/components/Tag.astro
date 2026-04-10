@@ -1,0 +1,23 @@
+---
+type Props = {
+  tag: string;
+  tagName: string;
+  size?: "sm" | "lg";
+};
+
+const { tag, tagName, size = "lg" } = Astro.props;
+---
+
+<li>
+  <a
+    href={`/tags/${tag}/`}
+    transition:name={tag}
+    class:list={[
+      "inline-flex items-center rounded-full border border-border bg-muted/50 font-medium text-subtle transition-colors hover:border-accent/40 hover:bg-accent/10 hover:text-accent",
+      { "px-2.5 py-0.5 text-xs": size === "sm" },
+      { "px-3 py-1 text-sm": size === "lg" },
+    ]}
+  >
+    <span class="mr-0.5 text-accent/60">#</span>{tagName}
+  </a>
+</li>
