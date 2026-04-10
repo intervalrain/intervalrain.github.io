@@ -21,18 +21,27 @@ title: "About"
 ## 職業生涯
 
 ### 系統分析師/副理 @ Advantech (2025.02 - Present)
-- EIoT & IIoT 軟體解決方案開發
-- AIoT 開發 / Universal Library 開發
-- 使用語言: C#.NET (Abp Framework), Go, Python, React.TypeScript
+- WiseIoT & WEDA 開發
+- [SubNode SDK](https://github.com/Advantech-WISE-Edge/WEDA-Sub-Node)(Open Source): To connect 3rd party devices to WEDA platform
+- Digital-twin Services: 
+    - Shadow Agent: State sync between edge devices and cloud
+    - Transceiver: Command dispatch to edge devices
+    - File Transfer: File management of devices via cloud
+- Container Mgmt: Container management of devices via cloud
+- Service Framework: An Abp-like framework to construct microservices communicating through NATS
 
 ### 資深軟體工程師 @ UMC (2022.08 - 2024.11)
-- 主導開發 UEDA 5.0 跨區域資料分析解決方案
-- 開發 DSM Bot AI 助手，革新半導體製造資訊查詢
-- 使用語言: C#.NET, React.TypeScript, Python
+- UEDA 5.0: Data analysis platform, DB integration
+- DSM Bot: Chat bot with LLM & RAG, isolate secured content based on LDAP
+- RetrievalForm: Integrated data access application
 
 ### 半導體元件研發工程師 @ UMC (2018.08 - 2022.08)
-- 創新 NWR Project，提升 28eHV 與 22eHV 良率
-- 使用語言: TCL(TCAD), VBA, Python
+- NWR Project: Enhance 5% yield rate on 22eHV & 28eHV
+- 40eHV, 28eHV, 22eHV development
+- IDAS: Integrated data analysis system
+- KPlug: A plug-in for KLayout
+- IVCur: A excel macro to quick visualize data measured by tester-4156
+- U2C: An application to translate between BooleanOperation and DRC script
 
 ## 教育背景
 - 國立清華大學 材料科學工程研究所 (2014-2018)

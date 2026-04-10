@@ -6,6 +6,7 @@ import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconInstagram from "@/assets/icons/IconInstagram.svg";
 import IconYouTube from "@/assets/icons/IconYouTube.svg";
+import IconThreads from "@/assets/icons/IconThreads.svg";
 import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
@@ -48,6 +49,12 @@ export const SOCIALS: Social[] = [
     href: "https://www.youtube.com/channel/UCE0Y75__1fPNJGmwbMG0MSA",
     linkTitle: `${SITE.title} on YouTube`,
     icon: IconYouTube,
+  },
+  {
+    name: "Threads",
+    href: "https://www.threads.com/@intervalrain",
+    linkTitle: `${SITE.title} on Threads`,
+    icon: IconThreads,
   },
 ] as const;
 
