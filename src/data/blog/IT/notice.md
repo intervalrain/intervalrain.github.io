@@ -3,10 +3,7 @@ title: "[Hugo] 使用 Hugo-notice"
 author: "Rain Hu"
 pubDatetime: 2024-01-19T01:26:30+08:00
 description: "Desc Text."
-category: "IT"
-tags: ["Algorithm", "Java", "C++", "Programming", "Life", "Music", "TCAD"]
-math: true
-mermaid: true
+tags: ["algorithm", "java", "cpp", "programming", "life", "music", "tcad"]
 ---
 
 ## Shortcodes 介紹

@@ -3,10 +3,7 @@ title: "[IT] MVC 及其變形"
 author: "hgraca"
 pubDatetime: 2023-10-19T10:54:19+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["mvc", "model-view-controller", "mvp", "mvvm", "design-pattern", "web-architecture"]
 ---
 
 創立一個可維護的應用程式一直是程式設計的一項長期挑戰。

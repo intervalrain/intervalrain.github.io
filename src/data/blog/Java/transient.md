@@ -3,9 +3,7 @@ title: "[Java] transient 關鍵字"
 author: "Rain Hu"
 pubDatetime: 2022-03-08T23:53:27+08:00
 description: "Introduction to keyword transient"
-category: "Programming"
-tags: ["Java"]
-math: true
+tags: ["java"]
 ---
 # 1. transient 的作用及使用方法
 + 當一個物件繼承(implements)了 Serializable 介面，這個物件就可以被序列化，Java 的序列化模式為開發者提供了許多便利，開發者可以不必關心具體序列化的過程，只要繼承了 Serializable 介面，該類別(class)的所有屬性(property)和方法(method)都會自動序列化。
@@ -15,7 +13,7 @@ math: true
 + 如此一來，這些私密訊息的生命週期只會存在於調用者的記憶體(memory)中，不會寫到磁碟(disk)裡。
 > 注意讀取時，讀取數據的順序一定要和存放數據的順序保持一致。
 + 範例：
-```Java
+```java
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

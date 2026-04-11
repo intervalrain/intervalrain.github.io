@@ -3,10 +3,7 @@ title: "[DXP] 在 spotfire 中創建自定義任務"
 author: "Rain Hu"
 pubDatetime: 2023-06-06T21:36:12+08:00
 description: "在 spotfire 中創建自定義任務"
-category: "Data"
-tags: []
-math: true
-mermaid: true
+tags: ["spotfire", "automation-services", "custom-task", "dxp", "csharp"]
 ---
 
 ### 簡介
@@ -49,7 +46,7 @@ mermaid: true
 ### 自動化 Task 範例
 + 一個 Task 需繼承 `Task` 母類別。
 + 一個 `Task` 類別必須擁有一個無參建構式，並呼叫 base 建構式，並傳入標題和描述。如果相同的任務名稱已經在使用中，可以選擇性地使用 XmlRoot 命名空間來避免命名衝突。為自訂任務使用自訂命名空間。
-```C#
+```csharp
 // 自定義任務的命名空間
 [XmlRoot("urn:spotfiredeveloper.automationservicesexample")]
 public sealed class ApplyBookmark : Task
@@ -66,7 +63,7 @@ public sealed class ApplyBookmark : Task
 }
 ```
 + 當任務被執行時，會執行 `ExecuteCore` 方法。
-```C#
+```csharp
 protected override TaskExecutionStatus ExecuteCore(TaskExecutionContext context)
 {
     // 沒有文件被讀取

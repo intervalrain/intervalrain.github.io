@@ -3,10 +3,7 @@ title: "[IT] Design Patterns"
 author: "Rain Hu"
 pubDatetime: 2023-05-01T00:22:49+08:00
 description: "簡介設計模式"
-category: "IT"
-tags: ["Design Patterns"]
-math: true
-mermaid: true
+tags: ["design-pattern"]
 ---
 
 # 設計模式 Design Pattern

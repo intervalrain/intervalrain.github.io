@@ -3,9 +3,7 @@ title: "[VHDL] HDLbits 1 - Getting Started"
 author: "Rain Hu"
 pubDatetime: 2022-05-28T00:10:20+08:00
 description: "Verilog tutorial"
-category: "Hardware"
-tags: ["Programming", "HDLbits"]
-math: true
+tags: ["programming", "hdlbits"]
 ---
 # [HDLBits](https://hdlbits.01xz.net/wiki/Main_Page)
 > HDLBits 是一系列小型電路設計的練習，用於使用 Verilog 硬體描述語言(HDL)進行數位硬體設計。
@@ -22,9 +20,9 @@ math: true
 
 # 1 Getting Started
 
-## \\(\text{assign one}\\)
+## $\text{assign one}$
 + Build a circuit with no inputs and one output. The output should always drive 1 (or logic high).
-```Verilog
+```verilog
 module top_module( output one);
     
     assign one = 1'b1;
@@ -32,9 +30,9 @@ module top_module( output one);
 endmodule
 ```
 ---
-## \\(\text{assign zero}\\)
+## $\text{assign zero}$
 + Build a circuit with no inputs and one output that outputs a constant 0.
-```Verilog
+```verilog
 module top_module(
     output zero );
 

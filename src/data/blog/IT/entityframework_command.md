@@ -3,10 +3,7 @@ title: "[IT] EntityFramework Commands"
 author: "Rain Hu"
 pubDatetime: 2024-03-31T14:37:44+08:00
 description: "Some commands to trigger migration operations"
-category: "IT"
-tags: ["C#"]
-math: true
-mermaid: true
+tags: ["csharp"]
 ---
 
 ## 前置作業

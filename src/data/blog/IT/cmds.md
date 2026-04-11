@@ -3,10 +3,7 @@ title: "[Vim] 常見 Vim Commands"
 author: "Rain Hu"
 pubDatetime: 2025-10-08T11:34:35+08:00
 description: "My favorites Vim commands"
-category: "IT"
-tags: ["Vim", "CLI", "Programming"]
-math: true
-mermaid: true
+tags: ["vim", "cli", "programming"]
 ---
 
 # Vim Cmds

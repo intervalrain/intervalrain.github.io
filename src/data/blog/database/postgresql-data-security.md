@@ -3,7 +3,7 @@ title: "[PostgreSQL] 資料保護機制"
 author: "Rain Hu"
 pubDatetime: 2026-04-11T15:50:33+08:00
 description: "在 PostgreSQL 中透過 Schema 隔離與 Column-Level GRANT 實現資料保護，讓不同角色只能存取該看到的資料。"
-tags: ["PostgreSQL", "Database", "Security"]
+tags: ["postgresql", "database", "security"]
 ---
 
 在一般的 PostgreSQL 專案中，所有的 table 都放在預設的 `public` schema 裡。隨著系統規模成長，這種做法會產生幾個問題：

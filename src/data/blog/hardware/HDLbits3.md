@@ -3,9 +3,7 @@ title: "[VHDL] HDLbits 3 - Circuits"
 author: "Rain Hu"
 pubDatetime: 2022-05-28T00:10:20+08:00
 description: "Verilog tutorial"
-category: "Hardware"
-tags: ["Programming", "HDLbits"]
-math: true
+tags: ["programming", "hdlbits"]
 ---
 
 [1. Getting Started](/verilog/hdlbits1/#1-getting-started)  
@@ -20,7 +18,7 @@ math: true
 ### 3.1.1 Basic Gates
 #### Wire
 ![q4h](https://hdlbits.01xz.net/mw/images/d/d7/Exams_m2014q4h.png)
-```Verilog
+```verilog
 module top_module (
     input in,
     output out);
@@ -32,7 +30,7 @@ endmodule
 ---
 #### GND
 ![GND](https://hdlbits.01xz.net/mw/images/5/54/Exams_m2014q4i.png)
-```Verilog
+```verilog
 module top_module (
     output out);
 
@@ -43,7 +41,7 @@ endmodule
 ---
 #### NOR
 ![NOR](https://hdlbits.01xz.net/mw/images/e/e9/Exams_m2014q4e.png)
-```Verilog
+```verilog
 module top_module (
     input in1,
     input in2,
@@ -56,7 +54,7 @@ endmodule
 ---
 #### Another Gate
 ![AnotherGate](https://hdlbits.01xz.net/mw/images/b/b6/Exams_m2014q4f.png)
-```Verilog
+```verilog
 module top_module (
     input in1,
     input in2,
@@ -69,7 +67,7 @@ endmodule
 ---
 #### Two gates
 ![TwoGates](https://hdlbits.01xz.net/mw/images/e/e6/Exams_m2014q4g.png)
-```Verilog
+```verilog
 module top_module (
     input in1,
     input in2,
@@ -85,7 +83,7 @@ endmodule
 ```
 ---
 #### More logic gates
-```Verilog
+```verilog
 module top_module( 
     input a, b,
     output out_and,
@@ -118,7 +116,7 @@ endmodule
 ---
 #### 7420 chip
 ![7420](https://hdlbits.01xz.net/mw/images/4/48/7420.png)
-```Verilog
+```verilog
 module top_module ( 
     input p1a, p1b, p1c, p1d,
     output p1y,
@@ -132,7 +130,7 @@ endmodule\
 ```
 ---
 #### Truth tables  
-\\(\begin{array}{|c|ccc|c|}\hline
+$\begin{array}{|c|ccc|c|}\hline
 \text{Row}&&\text{Inputs}&&\text{Outputs}\\\\\hline
 \text{number}&\text{x3}&\text{x2}&\text{x1}&\text{f}\\\\\hline
 0&0&0&0&0\\\\\hline
@@ -145,7 +143,7 @@ endmodule\
 7&1&1&1&1\\\\\hline
 \end{array
 ![truthtable1](https://hdlbits.01xz.net/mw/images/f/f6/Truthtable1.png)
-```Verilog
+```verilog
 module top_module( 
     input x3,
     input x2,
@@ -160,7 +158,7 @@ endmodule
 ---
 #### Two-bit equality
 + Create a circuit that has two 2-bit inputs A[1:0] and B[1:0], and produces an output z. The value of z should be 1 if A = B, otherwise z should be 0.
-```Verilog
+```verilog
 module top_module ( input [1:0] A, input [1:0] B, output z ); 
 
     assign z = (A == B);
@@ -169,7 +167,7 @@ endmodule
 ```
 ---
 #### Simple circuit A
-```Verilog
+```verilog
 module top_module (input x, input y, output z);
 
     assign z = (x^y) &x;
@@ -179,7 +177,7 @@ endmodule
 ---
 #### Simple circuit B
 ![q4b](https://hdlbits.01xz.net/mw/images/6/6a/Mt2015_q4b.png)
-```Verilog
+```verilog
 module top_module ( input x, input y, output z );
 
     assign z = (x==y);
@@ -190,7 +188,7 @@ endmodule
 ---
 #### Combine circuits A and B
 ![q4](https://hdlbits.01xz.net/mw/images/f/f5/Mt2015_q4.png)
-```Verilog
+```verilog
 module top_module (input x, input y, output z);
     
     wire o1, o2, o3, o4;
@@ -227,7 +225,7 @@ endmodule
 + **Design hint**: When designing circuits, one often has to think of the problem "backwards", starting from the outputs then working backwards towards the inputs. This is often the opposite of how one would think about a (sequential, imperative) programming problem, where one would look at the inputs first then decide on an action (or output). For sequential programs, one would often think "If (inputs are ___ ) then (output should be ___ )". On the other hand, hardware designers often think "The (output should be ___ ) when (inputs are ___ )".
 + The above problem description is written in an imperative form suitable for software programming (*if ring then do this*), so you must convert it to a more declarative form suitable for hardware implementation (`assign ringer = ___`). Being able to think in, and translate between, both styles is one of the most important skills needed for hardware design.
 ![ringer](https://hdlbits.01xz.net/mw/images/9/96/Ringer.png)
-```Verilog
+```verilog
 module top_module (
     input ring,
     input vibrate_mode,
@@ -246,7 +244,7 @@ endmodule
 + The thermostat can be in one of two modes: **heating** (`mode = 1`) and **cooling** (`mode = 0`). In heating mode, turn the heater on when it is too cold (`too_cold = 1`) but do not use the air conditioner. In cooling mode, turn the air conditioner on when it is too hot (`too_hot = 1`), but do not turn on the heater. When the heater or air conditioner are on, also turn on the fan to circulate the air. In addition, the user can also request the fan to turn on (fan_on = 1), even if the heater and air conditioner are off.
 + Try to use only assign statements, to see whether you can translate a problem description into a collection of logic gates.
 + 畫出真值表  
-\\(\begin{array}{|cccc|ccc|}\hline
+$\begin{array}{|cccc|ccc|}\hline
 \text{mode}&\text{too\\_cold}&\text{too\\_hot}&\text{fan on}&\text{heater}&\text{aircon}&\text{fan}\\\\\hline
 0&0&0&0&0&0&0\\\\\hline
 0&0&0&1&0&0&1\\\\\hline
@@ -264,8 +262,8 @@ endmodule
 1&1&0&1&1&0&1\\\\\hline
 1&1&1&0&1&0&1\\\\\hline
 1&1&1&1&1&0&1\\\\\hline
-\end{array}\\)
-```Verilog
+\end{array}$
+```verilog
 module top_module (
     input too_cold,
     input too_hot,
@@ -284,7 +282,7 @@ endmodule
 ---
 #### 3-bit population count
 + A "population count" circuit counts the number of '1's in an input vector. Build a population count circuit for a 3-bit input vector.
-```Verilog
+```verilog
 module top_module( 
     input [2:0] in,
     output [1:0] out );
@@ -305,7 +303,7 @@ endmodule
     + **out_both**: Each bit of this output vector should indicate whether both the corresponding input bit and its neighbour to the **left** (higher index) are '1'. For example, `out_both[2]` should indicate if `in[2]` and `in[3]` are both 1. Since `in[3]` has no neighbour to the left, the answer is obvious so we don't need to know `out_both[3]`.
     + **out_any**: Each bit of this output vector should indicate whether any of the corresponding input bit and its neighbour to the **right** are '1'. For example, `out_any[2]` should indicate if either `in[2]` or `in[1]` are 1. Since `in[0]` has no neighbour to the right, the answer is obvious so we don't need to know `out_any[0]`.
     + **out_different**: Each bit of this output vector should indicate whether the corresponding input bit is different from its neighbour to the **left**. For example, `out_different[2]` should indicate if `in[2]` is different from `in[3]`. For this part, treat the vector as wrapping around, so `in[3]`'s neighbour to the left is `in[0]`.
-```Verilog
+```verilog
 module top_module( 
     input [3:0] in,
     output [2:0] out_both,
@@ -333,7 +331,7 @@ endmodule
     + **out_both**: Each bit of this output vector should indicate whether both the corresponding input bit and its neighbour to the **left** are '1'. For example, `out_both[98]` should indicate if `in[98]` and `in[99]` are both 1. Since `in[99]` has no neighbour to the left, the answer is obvious so we don't need to know `out_both[99]`.
     + **out_any**: Each bit of this output vector should indicate whether any of the corresponding input bit and its neighbour to the **right** are '1'. For example, `out_any[2]` should indicate if either `in[2]` or `in[1]` are 1. Since `in[0]` has no neighbour to the right, the answer is obvious so we don't need to know `out_any[0]`.
     + **out_different**: Each bit of this output vector should indicate whether the corresponding input bit is different from its neighbour to the **left**. For example, `out_different[98]` should indicate if `in[98]` is different from `in[99]`. For this part, treat the vector as wrapping around, so `in[99]`'s neighbour to the left is `in[0]`.
-```Verilog
+```verilog
 module top_module( 
     input [99:0] in,
     output [98:0] out_both,
@@ -350,7 +348,7 @@ endmodule
 ### 3.1.2 Multiplexers
 #### 2-to-1 multiplexer  
 + Create a one-bit wide, 2-to-1 multiplexer. When sel=0, choose a. When sel=1, choose b.
-```Verilog
+```verilog
 module top_module( 
     input a, b, sel,
     output out ); 
@@ -362,7 +360,7 @@ endmodule
 ---
 #### 2-to-1 bus multiplexer  
 + Create a 100-bit wide, 2-to-1 multiplexer. When sel=0, choose a. When sel=1, choose b.
-```Verilog
+```verilog
 module top_module( 
     input [99:0] a, b,
     input sel,
@@ -375,7 +373,7 @@ endmodule
 ---
 #### 9-to-1 multiplexer  
 + Create a 16-bit 9-to-1 multiplexer. sel=0 chooses a, sel=1 chooses b, etc. For the unused cases (sel=9 to 15), set all output bits to '1'.
-```Verilog
+```verilog
 module top_module( 
     input [15:0] a, b, c, d, e, f, g, h, i,
     input [3:0] sel,
@@ -401,7 +399,7 @@ endmodule
 ---
 #### 256-to-1 multiplexer  
 + Create a 1-bit wide, 256-to-1 multiplexer. The 256 inputs are all packed into a single 256-bit input vector. sel=0 should be select `in[0]`, sel1 selectes bits `in[1]`, sel=2 selects bits `in[2]`, etc.
-```Verilog
+```verilog
 module top_module( 
     input [255:0] in,
     input [7:0] sel,
@@ -414,7 +412,7 @@ endmodule
 ---
 #### 256-to-1 4-bit multiplexer  
 + Create a 4-bit wide, 256-to-1 multiplexer. The 256 4-bit inputs are all packed into a single 1024-bit input vector. sel=0 should select bits `in[3:0]`,sel=1 selects bits `in[7:4]`, sel=2 selects bits `in[11:8]`, etc.
-```Verilog
+```verilog
 module top_module( 
     input [1023:0] in,
     input [7:0] sel,
@@ -430,7 +428,7 @@ endmodule
 ### 3.1.3 Arithmetic Circuits
 #### Half adder
 + Create a half adder. A half adder adds two bits (with no carry-in) and produces a sum and carry-out.
-```Verilog
+```verilog
 module top_module( 
     input a, b,
     output cout, sum );
@@ -442,7 +440,7 @@ endmodule
 ---
 #### Full adder
 + Create a full adder. A full adder adds three bits (including carry-in) and produces a sum and a carry-out.
-```Verilog
+```verilog
 module top_module( 
     input a, b, cin,
     output cout, sum );
@@ -454,7 +452,7 @@ endmodule
 ---
 #### 3-bit binary adder
 + Now that you know how to build a full adder, make 3 instances of it to create a 3-bit binary ripple-carry adder. The adder adds two 3-bit numbers and a carry-in to produce a 3-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from each full adder in the ripple-carry adder. cout[2] is the final carry-out from the last full adder, and is the carry-out you usually see.
-```Verilog
+```verilog
 module top_module( 
     input [2:0] a, b,
     input cin,
@@ -478,7 +476,7 @@ endmodule
 #### Adder
 + Implement the following circuit: 
 ![Adder](https://hdlbits.01xz.net/mw/images/d/d2/Exams_m2014q4j.png)
-```Verilog
+```verilog
 module top_module (
     input [3:0] x,
     input [3:0] y, 
@@ -506,7 +504,7 @@ endmodule
 ---
 #### Signed addition overflow
 + Assume that you have two 8-bit 2's complement numbers, a[7:0] and b[7:0]. These numbers are added to produce s[7:0]. Also compute whether a (signed) overflow has occurred.
-```Verilog
+```verilog
 module top_module (
     input [7:0] a,
     input [7:0] b,
@@ -522,7 +520,7 @@ endmodule
 ---
 #### 100-bit binary adder
 + Create a 100-bit binary adder. The adder adds two 100-bit numbers and a carry-in to produce a 100-bit sum and carry out.
-```Verilog
+```verilog
 module top_module(
     input [99:0] a, b,
     input cin,
@@ -536,7 +534,7 @@ endmodule
 ---
 #### 4-digit BCD adder
 + You are provided with a BCD (binary-coded decimal) one-digit adder named bcd_fadd that adds two BCD digits and carry-in, and produces a sum and carry-out.
-```Verilog
+```verilog
 module bcd_fadd (
     input [3:0] a,
     input [3:0] b,
@@ -545,7 +543,7 @@ module bcd_fadd (
     output [3:0] sum );
 ```
 Instantiate 4 copies of bcd_fadd to create a 4-digit BCD ripple-carry adder. Your adder should add two 4-digit BCD numbers (packed into 16-bit vectors) and a carry-in to produce a 4-digit sum and carry out.
-```Verilog
+```verilog
 module top_module (
     input [15:0] a, b,
     input cin,
@@ -566,7 +564,7 @@ endmodule
 #### Kmap1
 + Implement the circuit described by the Karnaugh map below.
 ![kmap1](https://hdlbits.01xz.net/mw/images/2/20/Kmap1.png)
-```Verilog
+```verilog
 module top_module(
     input a,
     input b,
@@ -581,7 +579,7 @@ endmodule
 #### Kmap2
 + Implement the circuit described by the Karnaugh map below.
 ![kmap2](https://hdlbits.01xz.net/mw/images/4/4d/Kmap2.png)
-```Verilog
+```verilog
 module top_module(
     input a,
     input b,
@@ -604,7 +602,7 @@ endmodule
 #### Kmap3
 + Implement the circuit described by the Karnaugh map below.
 ![kmap3](https://hdlbits.01xz.net/mw/images/1/1f/Kmap3.png)
-```Verilog
+```verilog
 module top_module(
     input a,
     input b,
@@ -621,7 +619,7 @@ endmodule
 #### Kmap4
 + Implement the circuit described by the Karnaugh map below.
 ![kmap4](https://hdlbits.01xz.net/mw/images/9/98/Kmap4.png)
-```Verilog
+```verilog
 module top_module(
     input a,
     input b,
@@ -644,7 +642,7 @@ endmodule
 #### Minimum SOP and POS
 + A single-output digital system with four inputs (a,b,c,d) generates a logic-1 when 2, 7, or 15 appears on the inputs, and a logic-0 when 0, 1, 4, 5, 6, 9, 10, 13, or 14 appears. The input conditions for the numbers 3, 8, 11, and 12 never occur in this system. For example, 7 corresponds to a,b,c,d being set to 0,1,1,1, respectively.
 + Determine the output out_sop in minimum SOP form, and the output out_pos in minimum POS form.
-```Verilog
+```verilog
 module top_module (
     input a,
     input b,
@@ -669,7 +667,7 @@ endmodule
 + Consider the function f shown in the Karnaugh map below.
 + Implement this function. **d** is don't-care, which means you may choose to output whatever value is convenient.
 ![q3](https://hdlbits.01xz.net/mw/images/a/a2/Exams_m2014q3.png)
-```Verilog
+```verilog
 module top_module (
     input [4:1] x,
     output f );
@@ -684,7 +682,7 @@ endmodule
 + Consider the function f shown in the Karnaugh map below. Implement this function.
 (The original exam question asked for simplified SOP and POS forms of the function.)
 ![q1g](https://hdlbits.01xz.net/mw/thumb.php?f=Exams_2012q1g.png&width=195)
-```Verilog
+```verilog
 module top_module (
     input [4:1] x,
     output f
@@ -702,7 +700,7 @@ endmodule
 + (The requirement to use only 2-to-1 multiplexers exists because the original exam question also wanted to test logic function simplification using K-maps and how to synthesize logic functions using only multiplexers. If you wish to treat this as purely a Verilog exercise, you may ignore this constraint and write the module any way you wish.)
 ![q3](https://hdlbits.01xz.net/mw/images/a/a6/Ece241_2014_q3.png)
 ![q3mux](https://hdlbits.01xz.net/mw/images/b/bc/Ece241_2014_q3mux.png)
-```Verilog
+```verilog
 module top_module (
     input c,
     input d,
@@ -722,7 +720,7 @@ endmodule
 + A D flip-flop is a circuit that stores a bit and is updated periodically, at the (usually) positive edge of a clock signal. D flip-flops are created by the logic synthesizer when a clocked always block is used (See alwaysblock2). A D + flip-flop is the simplest form of "blob of combinational logic followed by a flip-flop" where the combinational logic portion is just a wire.
 + Create a single D flip-flop.
 ![dff](https://hdlbits.01xz.net/mw/images/6/6c/Dff.png)
-```Verilog
+```verilog
 module top_module (
     input clk,    // Clocks are used in sequential circuits
     input d,
@@ -737,7 +735,7 @@ endmodule
 ---
 #### D flip-flops
 + Create 8 D flip-flops. All DFFs should be triggered by the positive edge of `clk`.
-```Verilog
+```verilog
 module top_module (
     input clk,
     input [7:0] d,
@@ -753,7 +751,7 @@ endmodule
 ---
 #### DFF with reset
 + Create 8 D flip-flops with active high synchronous reset. All DFFs should be triggered by the positive edge of `clk`.
-```Verilog
+```verilog
 module top_module (
     input clk,
     input reset,            // Synchronous reset
@@ -775,7 +773,7 @@ endmodule
 ---
 #### DFF with reset value
 + Create 8 D flip-flops with active high synchronous reset. The flip-flops must be reset to 0x34 rather than zero. All DFFs should be triggered by the **negative** edge of `clk`.
-```Verilog
+```verilog
 module top_module (
     input clk,
     input reset,
@@ -797,7 +795,7 @@ endmodule
 ---
 #### DFF with asynchronous reset
 + Create 8 D flip-flops with active high asynchronous reset. All DFFs should be triggered by the positive edge of `clk`.
-```Verilog
+```verilog
 module top_module (
     input clk,
     input areset,   // active high asynchronous reset
@@ -814,19 +812,19 @@ module top_module (
 endmodule
 ```
 + In Verilog, the sensity list looks strange. The FF's reset is sensitive to the **level** of areset, so why does using "posedge areset" work? To see why it works, consider the truth table for all events that change the input signals, assuming clk and areset do not swith at precisely the same time.  
-\\(\begin{array}{|c|c|c|l|}\hline
+$\begin{array}{|c|c|c|l|}\hline
 \text{clk}&\text{areset}&\text{output}&\text{comment}\\\\\hline
 \text{x}&\text{0}\rightarrow\text{1}&\text{q}\leftarrow{0;}&\text{because areset = 1}\\\\\hline
 \text{x}&\text{1}\rightarrow\text{0}&\text{no change}&\text{always block not triggered}\\\\\hline
 \text{0}\rightarrow\text{1}&\text{0}&\text{q}\leftarrow{d;}&\text{not resetting}\\\\\hline
 \text{0}\rightarrow\text{1}&\text{1}&\text{q}\leftarrow{0;}&\text{still resetting, q was 0 before too}\\\\\hline
 \text{1}\rightarrow\text{0}&\text{x}&\text{no change}&\text{always block not triggered}\\\\\hline
-\end{array}\\)
+\end{array}$
 ---
 #### DFF with byte enable
 + Create 16 D flip-flops. It's sometimes useful to only modify parts of a group of flip-flops. The byte-enable inputs control whether each byte of the 16 registers should be written to on that cycle. `byteena[1]` controls the upper byte `d[15:8]`, while `byteena[0]` controls the lower byte `d[7:0]`. `resetn` is a synchronous, active-low reset. All DFFs should be triggered by the positive edge of `clk`.
 
-```Verilog
+```verilog
 module top_module (
     input clk,
     input resetn,
@@ -857,7 +855,7 @@ endmodule
 ![q4a](https://hdlbits.01xz.net/mw/images/0/03/Exams_m2014q4a.png)
 + Note that this is a latch, so a Quartus warning about hvaing inferred a latch is expected.
 + 對於組合邏輯，if 若沒有補全 else，case 條件不完全，可能會產生 latch。但是如果中間的信號有初值，就不會產生 latch。所以要盡量避免 latch 的產生，避免對時序的危害很大。
-```Verilog
+```verilog
 module top_module (
     input d,
     input ena,
@@ -874,7 +872,7 @@ endmodule
 #### DFFAR
 + Implement the following circuit:
 ![q4b](https://hdlbits.01xz.net/mw/images/b/b3/Exams_m2014q4b.png)
-```Verilog
+```verilog
 module top_module (
     input clk,
     input d, 
@@ -894,7 +892,7 @@ endmodule
 #### DFFR
 + Implement the following circuit:
 ![q4c](https://hdlbits.01xz.net/mw/images/6/6d/Exams_m2014q4c.png)
-```Verilog
+```verilog
 module top_module (
     input clk,
     input d,
@@ -916,7 +914,7 @@ endmodule
 #### DFF+gate
 + Implement the following circuit:
 ![Dffgate](https://hdlbits.01xz.net/mw/images/f/f2/Exams_m2014q4d.png)
-```Verilog
+```verilog
 module top_module (
     input clk,
     input in,
@@ -934,7 +932,7 @@ endmodule
 + Consider the sequential circuit below:
 ![muxdff](https://hdlbits.01xz.net/mw/thumb.php?f=Mt2015_muxdff.png&width=800)
 + Assume that you want to implement hierarchical Verilog code for this circuit, using three instantiations of a submodule that has a flip-flop and multiplexer in it. Write a Verilog module (containing one flip-flop and multiplexer) named top_module for this submodule.
-```Verilog
+```verilog
 module top_module (
 	  input clk,
 	  input L,

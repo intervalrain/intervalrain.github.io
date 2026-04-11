@@ -3,10 +3,7 @@ title: "[C#] IEnumerable & IEnumerator 迭代器"
 author: "Rain Hu"
 pubDatetime: 2023-02-27T11:50:20+08:00
 description: "Introduction to Iterator in C#, including IEnumerator and IEnumerable"
-category: "Programming"
-tags: ["C#", "C"]
-math: true
-mermaid: true
+tags: ["csharp", "c"]
 ---
 ## 1. 簡介
 + 迭代器包含了以下四種類型
@@ -18,7 +15,7 @@ mermaid: true
     + `IEnuerable` 返回 `object`
     + `IEnuerable<string>` 返回 `string`
 + 基本的語法為：
-```Cs
+```csharp
 public static IEnumerable<int> GetFibonacciSeries(int end)
 {
     int cnt = 0;
@@ -46,7 +43,7 @@ public static void Main(string[] args)
 
 ## 2. 延遲執行
 + 雖然同樣的程式可以用 `List<T>` 的方式重新寫成下面的程式碼，其列印結果也會一樣，但在執行期卻會有很大的差異。
-```Cs
+```csharp
 public static List<int> GetFibonacciSeriesList(int end)
 {
     int cnt = 0;
@@ -73,7 +70,7 @@ public static void Main(string[] args)
 }    
 ```
 + 延遲執行屬於 lambda 演算的一部分，目的是「**只在需要獲取計算結果時執行程式**」。
-```Cs
+```csharp
 public static void Main(string[] args)
 {
     // 調用迭代器的方法，從 IEnumerable<T> 取得 IEnumerator<T>
@@ -108,7 +105,7 @@ public static void Main(string[] args)
     + 只有在執行了 `IEnumerator<T>.Dispose()` 方法時，才會調用 finally 的區塊。
     + 而每次的 `IEnumerator<T>.MoveNext()` 都會使程式停止在 `yield return`。
 + 不管是用 `using` 搭配 `IEnumerable.GetEnumerator()`，或是使用 `foreach(var val in Iterator())` 回傳的結果都是只有出現一次的 `In finally block`，代表後者隱含了一條 `using` 的語句。
-```Cs
+```csharp
 public static IEnumerable<string> Iterator()
 {
     try 

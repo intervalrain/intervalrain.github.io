@@ -3,10 +3,7 @@ title: "[IT] 程式語言的演進 Programming Language Evolution"
 author: "hgraca"
 pubDatetime: 2023-10-14T02:09:18+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["programming-language", "software-evolution", "oop", "modularity", "encapsulation"]
 ---
 程式設計語言本身並非架構的產物，但如果我不寫關於它，我會覺得《軟體架構編年史》似乎缺少了些什麼。
 

@@ -3,10 +3,7 @@ title: "[DXP] 在 spotfire 中創建自定義工具"
 author: "Rain Hu"
 pubDatetime: 2023-06-06T22:38:08+08:00
 description: "在 spotfire 中創建自定義工具"
-category: "Data"
-tags: []
-math: true
-mermaid: true
+tags: ["spotfire", "custom-tool", "extension-development", "dxp", "csharp"]
 ---
 
 ## 簡介
@@ -27,25 +24,25 @@ mermaid: true
 
 ## Tools 文本
 ### 1. Application
-```C#
+```csharp
 public sealed class MyApplicationTool : CustomTool<AnalysisApplication>
 ```
 + AnalysisApplication tools 可從「**Tools**」選單中取得，在啟動 Spotfire 後即可啟用。
 
 ### 2. Document
-```C#
+```csharp
 public sealed class MyDocumentTool : CustomTool<Document>
 ```
 + Document tools 可從「**工具**」選單中取得，在文件開啟時啟用。
 
 ### 3. Page
-```C#
+```csharp
 public sealed class MyPageTool : CustomTool<Page>
 ```
 + Page tools 可從頁面文本選單中使用，但 web client 無法使用。
 
 ### 4. Visual
-```C#
+```csharp
 public sealed class MyVisualTool : CustomTool<VisualContent>
 ```
 + VisualContent 文本為頁面上的所有視覺工具提供了一個工具。還有針對特定可視化類型應用的視覺工具的子文本：
@@ -69,19 +66,19 @@ public sealed class MyVisualTool : CustomTool<VisualContent>
 + 通過覆寫 `IsVisibleCore` 方法，可以將多個子文本結合起來，從而隱藏除了有明確定的子文本以外的工具。例如，擁有一個僅對散點圖和條形圖可用的工具，並在有標記(marking)時啟用。
 ### 5. TablePlot
 TablePlotColumn
-```C#
+```csharp
 public sealed class MyTablePlotColumnTool : CustomTool<TablePlotColumnContext>
 ```
 + 當右鍵點擊列標題時，可在文本菜單中找到。
 ---
 TablePlotCell
-```C#
+```csharp
 public sealed class MyTablePlotCellTool : CustomTool<TablePlotCellContext>
 ```
 + 在表格中右鍵點擊單元格時顯示的文本菜單選單中可用。
 ---
 TablePlotCopyCellValue
-```C#
+```csharp
 public sealed class MyTablePlotCopyCellValueTool : CustomTool<TablePlotCopyCellValueContext>
 ```
 + 在表格中右鍵點擊單元格時，可以在文本菜單的「Copy Cell」子菜單中找到。根據右鍵點擊的儲存格內容，且沒有添加任何擴展功能，子菜單標題可能包含以下一個或多個項目：
@@ -92,13 +89,13 @@ public sealed class MyTablePlotCopyCellValueTool : CustomTool<TablePlotCopyCellV
 + TablePlotCopyCellValue 在 web client 無法使用。
 
 ### 6. Map Chart Coordinates Context
-```C#
+```csharp
 public sealed class MyMapChartCoordinatesTool : CustomTool<MapChartCoordinatesContext>
 ```
 + 當使用者在地圖圖表上按右鍵時，具有 MapChartCoordinatesContext 的自訂工具將自動被呼叫。座標可在上下文物件的屬性中取得。
 
 ### 7. Filter
-```C#
+```csharp
 public sealed class MyFilterTool : CustomTool<FilterBase>
 ```
 + FilterBase 文本使篩選器面板中的所有篩選器工具可用。還有針對特定篩選器類型應用的篩選器工具的子文本：
@@ -117,7 +114,7 @@ public sealed class MyFilterTool : CustomTool<FilterBase>
     + 未指定 menu group，它將出現在「工具」菜單中。
     + 指定 menu group，因此它將出現在「工具」選單中的自訂工具群組中。
 + 為了防止意外或未經管理的從其他專案添加工具，只有在相同的 Spotfire 擴充專案中實現的工具才能在菜單子組中分組。通過將工具收集在一個 `AddIn` 中，創建該組，然後在註冊它們時將其傳遞給要包含在該組中的工具。使用 `AddIn.ToolRegistrar.Register` 方法註冊工具：
-```C#
+```csharp
 public sealed class CustomToolAddIn : AddIn
 {
     protected override void RegisterTools(ToolRegistrar registrar)
@@ -133,29 +130,29 @@ public sealed class CustomToolAddIn : AddIn
 ```
 + 自訂頂層選單
 ![pic2](https://community.tibco.com/servlet/rtaImage?eid=ka54z0000004XLz&feoid=00N4z000003259m&refid=0EM4z000003V2dI)
-```C#
+```csharp
 [ApiVersion("10.10.0")]
 public static MenuCategory CreateCustom(params string[] path);
 ```
 範例：
-```C#
+```csharp
 MenuCategory.CreateCustom("First", "Second");
 ```
 + First 作為最上層的菜單標題， Second 為子菜單
 或在實作 customTool 時指定
-```C#
+```csharp
 public MyTool()
     : base(menuText, requiredLicense, MenuCategory.CreateCustom("First", "Second")) {}
 ```
 ---
 ## Custom Tool 建構子
 + CustomTool 類別的建構式有一個必要的字串參數 `menuText`，該字串會顯示在選單和工具提示中。可以使用 `GetMenuTextCore` 覆寫此文字，以獲取適應 Web Client 端本地化設置的文字。建構函式的可選參數包括運行該工具所需的許可證 `requiredLicense`、選單類別 `menuCategory` 和要顯示在選單中的自訂圖示 `image`。
-```C#
+```csharp
 protected CustomTool(string menuText, LicensedFunction requiredLicense, MenuCategory menuCategory, Image image)
 ```
 ### ExecuteCore
 + 工具邏輯是透過覆寫 `ExecuteCore` 或 `ExecuteAndPromptCore` 方法來實現的，當工具需要提示使用者輸入時，後者會被使用。
-```C#
+```csharp
 protected virtual void ExecuteCore(TContext context);
 protected virtual IEnumerable<Object> ExecuteAndPromptCore(TContext context);
 ```
@@ -164,7 +161,7 @@ protected virtual IEnumerable<Object> ExecuteAndPromptCore(TContext context);
 + 如果該工具使用提示，則需要覆寫 `GetSupportsPromptingCore` 以返回 `true`。
 + Web Client 中的 Tools: 
     + 預期 Web Client 端中的工具支援提示，並且必須實現 `ExecuteAndPromptCore` (`ExecuteCore` 永遠不會被框架呼叫)。但是，可以使用以下解決方法在 `ExecuteAndPromptCore` 中實現不提示的 Web 客戶端工具，該方法調用 `ExecuteCore` 並返回沒有提示模型：
-    ```C#
+    ```csharp
     protected override IEnumerable<object> ExecuteAndPromptCore(Visualization context)
     {
         this.ExecuteCore(context);
@@ -175,16 +172,16 @@ protected virtual IEnumerable<Object> ExecuteAndPromptCore(TContext context);
 ### IsEnabledCore
 + 有兩種方法可以覆寫，以指定何時應該顯示工具，以及何時應該啟用工具。
     + `IsEnabledCore` 回傳一個布林值，以指定該工具是否應該在選單中啟用。
-    ```C#
+    ```csharp
     protected override bool IsEnabledCore(TContext context)
     ```
     + `IsVisibleCore` 回傳一個布林值，指定該工具是否應該在選單中顯示。
-    ```C#
+    ```csharp
     protected override bool IsVisibleCore(TContext context)
     ```
 
 + 範例1: 將當下的頁籤移至最後。
-```C#
+```csharp
 public sealed class PageTool : CustomTool<Page>
 {
     public PageTool()
@@ -207,7 +204,7 @@ public sealed class PageTool : CustomTool<Page>
 ```
 
 + 範例2: 將 visualization 中標記的值寫出來。
-```C#
+```csharp
 public sealed class PlotTool : CustomTool<VisualContent>
 {
     public PlotTool()
@@ -256,7 +253,7 @@ public sealed class PlotTool : CustomTool<VisualContent>
 
 範例3: 在 Spotfire 表格中右鍵點擊顯示圖像的儲存格，選擇「複製儲存格 > 圖像」，將圖像按比例縮放後添加到剪貼簿中。此範例實現了一個工具，可將全尺寸圖像複製到剪貼簿中。它可以從通用的 Spotfire 圖像複製工具相同的位置訪問：
 ![pic4](https://community.tibco.com/servlet/rtaImage?eid=ka54z0000004Zgk&feoid=00N4z000003259m&refid=0EM4z000003V3di)
-```C#
+```csharp
 public sealed class CopyCellValueTool : CustomTool<CopyCellValueContext>
 {
     public CopyCellValueTool() : base("Image (fullsize)") {}
@@ -295,7 +292,7 @@ public sealed class CopyCellValueTool : CustomTool<CopyCellValueContext>
 ```
 
 範例4: 將「顯示儲存格資訊」項目添加到儲存格內容選單中。該工具會顯示一個訊息方塊，顯示所選儲存格的欄位名稱和儲存格值。
-```C#
+```csharp
 public sealed class TablePlotCellContextExampleTool : CustomTool<TablePlotCellContext>
 {
     public TablePlotCellContextExampleTool() : base(Properties.Resources.TablePlotCellToolTitle) {}

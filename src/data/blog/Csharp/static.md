@@ -3,16 +3,13 @@ title: "[C#] static class 靜態類別"
 author: "Rain Hu"
 pubDatetime: 2023-02-28T21:08:01+08:00
 description: "Introduction to static class in C#"
-category: "Programming"
-tags: ["C#", "C"]
-math: true
-mermaid: true
+tags: ["csharp", "c"]
 ---
 
 ## 1. 介紹
 + 靜態類別指的是使用 `static` 修飾類別，可以用於裝載一個全部由**靜態方法**組成的工具類別。
 + 雖然宣告一個僅包含靜態方法的非靜態類別完成是合法的，但是加註 `static` 關鍵字可以表明該類別的用途，並且防之該類別被當作變數類型或是類型實參使用。
-```Cs
+```csharp
 public static class Util
 {
     public static string getCOL(string str, char del, int col)

@@ -3,10 +3,7 @@ title: "[IT] 單體架構 Monolithic Architecture"
 author: "hgraca"
 pubDatetime: 2023-10-15T12:06:51+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["monolithic-architecture", "modular-programming", "software-architecture", "anti-pattern"]
 ---
 
 建立一個單體系統一直以來都是預設的架構風格，最初軟體開發剛萌芽時，每個應用程式只有一個檔案，然後才出現了包含多個檔案的應用程式，並且直到1990年代我們才開始看到由其他應用程式組成的應用程式（儘管第一次的實驗是在1980年代進行的）。

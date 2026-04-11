@@ -3,10 +3,7 @@ title: "[IT] React + .Net"
 author: "Rain Hu"
 pubDatetime: 2024-06-11T22:00:23+08:00
 description: ""
-category: "IT"
-tags: ["C#", "react"]
-math: true
-mermaid: true
+tags: ["csharp", "react"]
 ---
 
 # React + .Net

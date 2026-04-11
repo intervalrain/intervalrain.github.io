@@ -3,10 +3,7 @@ title: "[ML] General guide on ML"
 author: "Rain Hu"
 pubDatetime: 2024-01-14T14:31:56+08:00
 description: "general guide on machine learning"
-category: "AI"
-tags: ["Machine Learning"]
-math: true
-mermaid: true
+tags: ["machine-learning"]
 ---
 + Loss on training data
     + large:

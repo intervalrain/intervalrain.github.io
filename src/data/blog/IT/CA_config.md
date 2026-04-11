@@ -3,10 +3,7 @@ title: "[IT] 用 C# 建置 Clean Architecture 專案"
 author: "Rain Hu"
 pubDatetime: 2024-03-09T13:59:22+08:00
 description: ""
-category: "IT"
-tags: ["C#", "Clean Architecture"]
-math: true
-mermaid: true
+tags: ["csharp", "clean-architecture"]
 ---
 # Configure C# Solution step by step
 + 開啟 Terminal

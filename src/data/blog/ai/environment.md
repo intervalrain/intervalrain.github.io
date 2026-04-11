@@ -3,10 +3,7 @@ title: "[ML] Start Tensorflow Environment with Conda"
 author: "Rain Hu"
 pubDatetime: 2023-10-11T20:48:34+08:00
 description: ""
-category: "AI"
-tags: ["Machine Learning"]
-math: true
-mermaid: true
+tags: ["machine-learning"]
 ---
 
 # 環境建置

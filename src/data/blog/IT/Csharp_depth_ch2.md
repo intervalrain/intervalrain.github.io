@@ -3,16 +3,13 @@ title: "[IT] C# Depth Ch.2 C# 2"
 author: "Rain Hu"
 pubDatetime: 2023-01-20T10:10:46+08:00
 description: ""
-category: "IT"
-tags: ["C#"]
-math: true
-mermaid: true
+tags: ["csharp"]
 ---
 # C# 2
 ## 一、泛型
 + 使用泛型(generic type)可以在編寫在編譯時類型安全的通用程式碼，無須事先知道要使用的具體類型。
 *示例1: array類型: 大小需預先設定，若要添加需要重新分配*
-```Csharp
+```csharp
 public static void Main(string[] args)
 {
     PrintNames(GenerateNames());
@@ -36,7 +33,7 @@ public static string[] GenerateNames()
 }
 ```
 *示例2: ArrayList類型: ArrayList.Add是Object的方法，但如果塞入不適合的參數類型，可能會引發InvalidCastException*
-```Csharp
+```csharp
 public static void Main(string[] args)
 {
     PrintNames(GenerateNames());
@@ -60,7 +57,7 @@ public static ArrayList GenerateNames()
 }
 ```
 *示例3: StringCollection專用類型: 解決前述兩個問題，但也限制了返回值。*
-```Csharp
+```csharp
 public static void Main(string[] args)
 {
     PrintNames(GenerateNames());
@@ -84,7 +81,7 @@ public static StringCollection GenerateNames()
 }
 ```
 *示例4: List<T>泛型*
-```Csharp
+```csharp
 public static void Main(string[] args)
 {
     PrintNames(GenerateNames());
@@ -116,25 +113,25 @@ public static List<string> GenerateNames()
 + 宣告函數時用於描述函數輸入類別的參數稱為形參(parameter)。
 + 函數調用時實際傳遞給函數的參數稱為實參(argument)。
 + 泛型及兩個參數概念：**類型形參(Type parameter)**和**類型實參(type argument)**，相當於把形參和實參的思想套用在表示類型訊息上。
-```Csharp
+```csharp
 // Type parameter
 public class List<T> ... { }
 // Type argument
 List<string> list = new List<string>();
 ```
 + 同樣，當宣告有繼承母類別或是介面時，泛型形參也可以作為母類別或介面的泛型實參。
-```Csharp
+```csharp
 public class List<T> : IEnumerable<T>
 ```
 ### 2. 泛型類型與泛型方法的度(arity)
 + 泛型類型或泛型方法可以宣告多個類型形參。
-```Csharp
+```csharp
 public class Dictionary<TKey, TValue>
 ```
 + 泛型度(arity)是泛型宣告中類型形參的數量，非泛型的宣告可視為泛型度為 0。
 + 泛型度不同的同名接口，就屬於不同的類型。如`IEnumerable<T>` 與 `IEnumerable`，但不能僅透過類型形參名稱重載方法。
 + 也不能出現重複的類型形參名稱；但同名類型實參是許可的。
-```Csharp
+```csharp
 public void Method() {}         // arity = 0
 public void Method<T>()) {}     // arity = 1
 public void Method<T1,T2>() {}  // arity = 2
@@ -147,7 +144,7 @@ var dict = new Dictoinary<string,string>(); // 同名類型實參是允許的
 + `enum` 不能宣告為泛型
 + `class`, `struct`, `interface`, `delegate` 都可以被宣告成泛型類型。
     + 但 class member 中，有些看似是泛型其實不然，原則是：判斷一個宣告是否為泛型宣告取決於它是否引入新的類型形參。  
-    ```Csharp
+    ```csharp
     public class ValidatingList<TItem>
     {
         // 實際上 TItem 用作 List<T> 的類型實參，TItem 由 Validating 的宣告來引入類型形參。
@@ -156,7 +153,7 @@ var dict = new Dictoinary<string,string>(); // 同名類型實參是允許的
     ```
 ### 4. 方法類型實參的類型推斷
 + 方法類型在以下情境時，可以省略類型實參，編譯器可以自動推斷實際的類型：
-```Csharp
+```csharp
 public static List<T> CopyList<T>(List<T> input) { ... }
 
 public static void Main()
@@ -167,7 +164,7 @@ public static void Main()
 }
 ```
 + 利用方法類型實參的自動推斷，我們可以靜用靜態方法重載建構式，以簡化建構式。
-```Csharp
+```csharp
 public static void Main()
 {
     var tuple1 = new Tuple<int,int>(3,7);

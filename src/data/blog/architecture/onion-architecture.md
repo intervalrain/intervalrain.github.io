@@ -3,10 +3,7 @@ title: "[IT] 洋蔥架構 Onion Architecture"
 author: "hgraca"
 pubDatetime: 2023-10-29T20:34:57+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["onion-architecture", "ports-and-adapters", "dependency-inversion", "domain-driven-design", "software-architecture"]
 ---
 # 洋蔥架構
 洋蔥架構是由 Jeffrey Palermo 在 2008 年提出的。在我看來，它是基於 Ports & Adapters 架構的構念，將領域(domain)放在應用程式的中心，將交付機制(UI)和系統使用的基礎設施(infrastructure, ex.ORM，搜索引擎，第三方API等)。差別是，它對內部進行了分層。

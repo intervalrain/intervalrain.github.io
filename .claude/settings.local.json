@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --import 'data:text/javascript,import{register}from\"node:module\";register\\(\"data:text/javascript,export function resolve\\(s,c,n\\){return n\\(s,c\\)}export function load\\(u,c,n\\){return n\\(u,c\\)}\"\\);' /tmp/test_math.mjs)",
+      "Bash(npx --yes -p unified -p remark-parse -p remark-math -p remark-rehype -p rehype-katex -p rehype-stringify node /tmp/test_math.mjs)",
+      "Bash(node test_math.mjs)",
+      "Bash(pnpm exec:*)",
+      "Bash(pnpm build:*)"
+    ]
+  }
+}

@@ -3,10 +3,7 @@ title: "[C#] 並行與異步編程完整教學"
 author: "Rain Hu"
 pubDatetime: 2025-10-07T15:55:07+08:00
 description: "A complete tutorial of C# asynchronous programming and concepts of channel and thread"
-category: "Programming"
-tags: ["C#"]
-math: true
-mermaid: true
+tags: ["csharp"]
 ---
 
 # C# 並行與異步編程完整教學

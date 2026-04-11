@@ -3,10 +3,7 @@ title: "[IT] .NET Maui"
 author: "Rain Hu"
 pubDatetime: 2024-01-28T13:30:34+08:00
 description: ""
-category: "IT"
-tags: ["C#", ".net", "maui"]
-math: true
-mermaid: true
+tags: ["csharp", "dotnet", "maui"]
 ---
 
 # .NET Maui
@@ -19,7 +16,7 @@ mermaid: true
 + 一個 .NET Maui 專案底下，預設會有幾個資料夾與檔案，其關係如下圖：
     + `/Platforms` 底下的各個資料夾為不同平台的入口，不同的平台各有一個 `Program.cs`。
     + 各個 `Program.cs` 內又會透過注入該 namespace 底下的 `AppDelegate` ，將入口指向 `MauiProgram` 的 `CreateMauiApp()`，就此將不同平台路由到 `MauiProgram.cs` 這個統一的入口。
-```Csharp
+```csharp
 public class Program
 {
     static void Main(string[] args)
@@ -49,7 +46,7 @@ graph TD;
   AppShell-.->Page4;
 ```
 
-```Csharp
+```csharp
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
@@ -80,7 +77,7 @@ public partial class App : Application
 ## Router
 + 在此可以發現 `AppShell` 作為一個 Controller 的功能，用來引導頁面的路由。
 + 我們可以透過 `RegisterRoute` 來注冊要顯示的頁面。
-```Csharp
+```csharp
 public partial class AppShell : Shell
 {
     public AppShell()
@@ -141,7 +138,7 @@ public partial class AppShell : Shell
 ```
 ## Shell
 + 接著我們可以透過 `Shell` 來控制面版上要顯示的頁面：
-```Csharp
+```csharp
 public void btnPage1_Clicked()
 {
     Shell.Current.GoToAsync(nameof(Page1));
@@ -151,7 +148,7 @@ public void btnPage1_Clicked()
 ## GoToAsync
 + Shell 本身是一個 View，也是一個 Layout
 + `GoToAsync` 可以用來切換頁面
-```Csharp
+```csharp
 void btnPage1_Clicked(object sender, EvertArgs e)
 {
     Shell.Current.GoToAsync($"{nameof(Page1)}");  // 前往 Page1
@@ -171,7 +168,7 @@ void btnCancel_Clicked(object sender, EvertArgs e)
 ## QueryProperty
 + 透過 `QueryPropertyAttribute` 可以達到如 http method 裡的 get 的方法。
 + 以下範例等同於實現 `page1?Id=1`，在路由到 page1 的同時，將 property: Id 賦值。
-```Csharp
+```csharp
 [QueryProperty(nameof(PageId), "Id")]
 public partial class Page1 : ContentPage
 {

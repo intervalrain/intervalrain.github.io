@@ -3,10 +3,7 @@ title: "[IT] Model1 & Model2"
 author: "hgraca"
 pubDatetime: 2023-10-19T22:47:32+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["mvc", "model-view-controller", "jsp", "web-architecture", "design-pattern"]
 ---
 Java Server Pages (JSP) 是一種技術，這種腳本語言與 PHP、ASP，甚至 Python 相當，用於創建由 JVM 解釋的伺服器端頁面，並可以使用 Java 物件。
 

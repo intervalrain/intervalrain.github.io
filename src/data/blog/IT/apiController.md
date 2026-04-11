@@ -3,10 +3,7 @@ title: "[IT] ApiController Atrribute"
 author: "Rain Hu"
 pubDatetime: 2024-06-09T20:27:03+08:00
 description: ""
-category: "IT"
-tags: ["C#", "mvc"]
-math: true
-mermaid: true
+tags: ["csharp", "mvc"]
 ---
 # ApiController Atrribute
 > 當我在 API 專案中建立新的 controller 時，它會自帶一個 [ApiController] 屬性的控制器類別，而這個標籤的作用為何呢？

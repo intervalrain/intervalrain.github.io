@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm astro:*)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(gtimeout 120 pnpm astro build)",
+      "Bash(curl -s http://localhost:4399/)"
+    ]
+  }
+}

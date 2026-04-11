@@ -3,10 +3,7 @@ title: "[IT] Clean Architecture - 第2章 - 兩個價值維度"
 author: "Rain Hu"
 pubDatetime: 2023-09-04T15:18:12+08:00
 description: "two values"
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["clean-architecture", "software-design", "behavior-vs-structure", "robert-c-martin"]
 ---
 ![ch2](/clean_arch/images/ch2.png)
 # Ch2. 兩個價值維度

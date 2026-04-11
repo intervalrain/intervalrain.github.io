@@ -3,10 +3,7 @@ title: "[IT] 領域驅動設計 Domain-Driven Design"
 author: "hgraca"
 pubDatetime: 2023-10-26T23:11:53+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["domain-driven-design", "ubiquitous-language", "bounded-context", "layered-architecture", "anti-corruption-layer"]
 ---
 「領域驅動設計」這個詞是在 Eric Evans 在他的著作《領域驅動設計：解決軟體核心的複雜性(Domain-Driven Design: Tackling complexity in the Heart of Software, 2003)》中所提出的，書中正式地提出了許多軟體開發的概念。
 

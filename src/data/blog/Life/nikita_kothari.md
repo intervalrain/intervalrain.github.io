@@ -3,9 +3,7 @@ title: "[Life] Some change of road to SWE"
 author: "intervalrain"
 pubDatetime: 2022-06-14T22:43:59+08:00
 description: "Suggestion from Nikita Kothari at LinkedIn"
-category: "Life"
-tags: []
-math: true
+tags: ["career", "software-engineer", "interview-prep", "leetcode", "job-search"]
 ---
 陣雨：
 > 在每日一題 Leetcode 的日常中，看到 LinkedIn 上來自 LinkedIn 自己工程師的建議，一語驚醒夢中人，於是記錄下來，警醒自己：

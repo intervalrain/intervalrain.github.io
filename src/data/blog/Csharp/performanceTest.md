@@ -3,13 +3,10 @@ title: "[CS] Sample cost for performance test"
 author: "Rain Hu"
 pubDatetime: 2023-05-16T21:26:24+08:00
 description: ""
-category: "Programming"
-tags: ["C#"]
-math: true
-mermaid: true
+tags: ["csharp"]
 ---
 ### Sample code for stop watch
-```Csharp
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Data;

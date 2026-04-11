@@ -3,10 +3,7 @@ title: "[IT] 事件總線 EventBus"
 author: "Rain Hu"
 pubDatetime: 2023-09-25T23:50:02+08:00
 description: ""
-category: "IT"
-tags: []
-math: true
-mermaid: true
+tags: ["event-bus", "design-pattern", "csharp", "publish-subscribe", "singleton"]
 ---
 
 # EventBus

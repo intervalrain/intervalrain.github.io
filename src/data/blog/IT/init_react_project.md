@@ -3,10 +3,7 @@ title: "[IT] 初始 react project (TailwindCSS & TypeScript & Context)"
 author: "Rain Hu"
 pubDatetime: 2024-11-28T16:33:39+08:00
 description: ""
-category: "IT"
-tags: ["react", "TypeScript", "TailwindCSS"]
-math: true
-mermaid: true
+tags: ["react", "typescript", "tailwindcss"]
 ---
 
 1. 建立專案

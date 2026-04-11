@@ -3,9 +3,7 @@ title: "[IT] MySQL Functions"
 author: "Rain Hu"
 pubDatetime: 2022-09-01T13:28:14+08:00
 description: "Built-in function in MySQL"
-category: "IT"
-tags: ["SQL"]
-math: true
+tags: ["sql"]
 ---
 
 ## String Functions

@@ -3,10 +3,7 @@ title: "[DXP] Spotfire Extension 擴充程式"
 author: "Rain Hu"
 pubDatetime: 2023-06-23T03:03:52+08:00
 description: "spotfire sdk 介紹"
-category: "Data"
-tags: []
-math: true
-mermaid: true
+tags: ["spotfire", "extension", "sdk", "add-in", "dxp"]
 ---
 
 # Spotfire Extension

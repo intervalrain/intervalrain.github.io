@@ -3,10 +3,7 @@ title: "[DXP] 使用 Visual Studio 對 Spotfire 開發進行環境設置"
 author: "Rain Hu"
 pubDatetime: 2023-06-06T20:58:59+08:00
 description: "spotfire 開發環境設置"
-category: "Data"
-tags: []
-math: true
-mermaid: true
+tags: ["spotfire", "visual-studio", "sdk", "extension-development", "dxp"]
 ---
 
 ## 在 Visual Studio 中創建 Extension

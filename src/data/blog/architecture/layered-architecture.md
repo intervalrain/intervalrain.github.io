@@ -3,10 +3,7 @@ title: "[IT] 分層架構 Layered Architecture"
 author: "hgraca"
 pubDatetime: 2023-10-17T21:44:07+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["layered-architecture", "separation-of-concerns", "software-architecture", "domain-driven-design"]
 ---
 
 分層是一種常見於系統中做法，用於分隔或組織程式碼，根據程式碼在系統中的角色或職責。

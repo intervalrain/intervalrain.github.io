@@ -3,10 +3,7 @@ title: "基於 Ollama 和 LangChain 的 Naive RAG 實作(搭配 streamlit UI)"
 author: "Rain Hu"
 pubDatetime: 2024-07-30T23:55:29+08:00
 description: "本文將介紹一個使用 Streamlit、Ollama 和 LangChain 構建的文件查詢系統。"
-category: "AI"
-tags: ["GenAI", "RAG", "Ollama", "LangChain", "mistral", "Programming"]
-math: true
-mermaid: true
+tags: ["genai", "rag", "ollama", "langchain", "mistral", "programming"]
 ---
 
 > 在此為確保程式碼的可執行性，使用了免費的模型，若要求性能，可以使用替代方案。

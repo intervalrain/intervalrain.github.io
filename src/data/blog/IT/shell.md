@@ -3,10 +3,7 @@ title: "[IT] Shell 筆記"
 author: "Rain Hu"
 pubDatetime: 2023-01-12T23:34:41+08:00
 description: ""
-category: "IT"
-tags: ["Linux", "Shell"]
-math: true
-mermaid: true
+tags: ["linux", "shell"]
 ---
 > **Reference**  
 > https://blog.csdn.net/w918589859/article/details/108752592  

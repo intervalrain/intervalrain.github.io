@@ -3,10 +3,7 @@ title: "[IT] 使用 Clean Architecture + DDD 建置 Restful API"
 author: "Rain Hu"
 pubDatetime: 2024-02-26T15:03:15+08:00
 description: ""
-category: "IT"
-tags: ["C#", "Clean Architecture"]
-math: true
-mermaid: true
+tags: ["csharp", "clean-architecture"]
 ---
 # 程式碼
 https://github.com/intervalrain/webapi_ca/

@@ -3,9 +3,7 @@ title: "[TCAD] 工具語言"
 author: "Rain Hu"
 pubDatetime: 2022-03-26T21:46:26+08:00
 description: "TCAD learning notes"
-category: "Hardware"
-tags: ["Programming", "TCAD"]
-math: true
+tags: ["programming", "tcad"]
 ---
 # TCAD 常用的三種程式語言
 ### 工具語言
@@ -47,7 +45,7 @@ math: true
 
 + TCL 語言：`set` 與 `puts`
     + 其中 @...@ 因為是 SPP 語言，故會先被前面定義好的 header 取代，之後才會執向 .cmd 檔。
-```Tcl
+```tcl
 set A [expr -@BF_Thick@-@AB_Thick@-@GR_Thick@-@CH_Thick@-@ML_Thick@]
 puts "DOE: Xmin [format %.2f $A]"
 ```

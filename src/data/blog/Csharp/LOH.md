@@ -3,10 +3,7 @@ title: "[C#] Large Object Heap"
 author: "Rain Hu"
 pubDatetime: 2023-07-22T20:59:57+08:00
 description: "Introduction to Large Object Heap"
-category: "Programming"
-tags: ["C#"]
-math: true
-mermaid: true
+tags: ["csharp"]
 ---
 
 # LOH(Large Object Heap)

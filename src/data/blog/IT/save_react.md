@@ -3,10 +3,7 @@ title: "[IT] 拯救 react"
 author: "Rain Hu"
 pubDatetime: 2024-08-16T01:44:44+08:00
 description: ""
-category: "IT"
 tags: ["react"]
-math: true
-mermaid: true
 ---
 
 1. 安裝個離線版

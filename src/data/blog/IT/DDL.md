@@ -3,9 +3,7 @@ title: "[IT] 動態鏈結庫(DDL)"
 author: "Rain Hu"
 pubDatetime: 2022-09-18T22:45:56+08:00
 description: "Command to construct DDL"
-category: "IT"
-tags: []
-math: true
+tags: ["dynamic-linked-library", "shared-library", "c", "compilation", "linker"]
 ---
 # 動態鏈結庫(Dynamic Linked Library, DDL)
 + 將程式中重複引用的程式庫獨立包裝出來以便共同引用
@@ -14,7 +12,7 @@ math: true
 
 ## 示例
 + 創建一個自定義程式庫 math.c
-```C++
+```cpp
 // math.c
 int add(int a, int b)
 {
@@ -23,7 +21,7 @@ int add(int a, int b)
 
 ```
 + 建建一個 math.h 只包含函式的宣告
-```C++
+```cpp
 // math.h
 int add(int a, int b);
 ```
@@ -35,7 +33,7 @@ int add(int a, int b);
 $ gcc -shared -fPIC math.c -o libmath.so
 ```
 + 在主程式中包含 math.h 頭文件
-```C++
+```cpp
 // main.c
 #include <stdio.h>
 #include <math.h>

@@ -3,10 +3,7 @@ title: "[IT] Clean Architecture - Catalog"
 author: "Rain Hu"
 pubDatetime: 2023-09-03T22:32:22+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["clean-architecture", "robert-c-martin", "table-of-contents", "software-design"]
 ---
 ![CleanArchitecture](http://geekdaxue.co/uploads/projects/Clean-Architecture-zh/docs/cover.jpg)
 > Clean Architecture  
@@ -32,7 +29,7 @@ mermaid: true
 #### [第10章 - ISP 介面隔離原則](/clean_arch/ch10)
 #### [第11章 - DIP 依賴反轉原則](/clean_arch/ch11)
 ---
-### [第四部分 組件構建原則)(/clean_arch/sec4)
+### [第四部分 組件構建原則](/clean_arch/sec4)
 #### [第12章 - 元件](/clean_arch/ch12)
 #### [第13章 - 元件聚合](/clean_arch/ch13)
 #### [第14章 - 元件耦合](/clean_arch/ch14)

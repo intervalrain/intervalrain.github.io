@@ -3,9 +3,7 @@ title: "[IT] Introduction to Microservices, Docker and Kubernetes"
 author: "Rain Hu"
 pubDatetime: 2022-04-29T11:40:10+08:00
 description: "Desc Text."
-category: "IT"
-tags: []
-math: true
+tags: ["microservices", "docker", "kubernetes", "containerization", "devops"]
 ---
 # Microservices
 ![microservice](/images/IT/microservices.png)

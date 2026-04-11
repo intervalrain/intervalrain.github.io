@@ -3,16 +3,13 @@ title: "[C#] Partial Type 局部類型"
 author: "Rain Hu"
 pubDatetime: 2023-02-28T15:11:11+08:00
 description: "Introduction to partial class ans partial method in C#"
-category: "Programming"
-tags: ["C#", "C"]
-math: true
-mermaid: true
+tags: ["csharp", "c"]
 ---
 
 ## 1. 用法
 + `partial` 關鍵字可用於 `class`、`interface`、`struct`，可將之拆開於不同的檔案撰寫。
 + 可以方便不同的工程師在不同的檔案中共同開發同一個 `class`、`interface`、`struct`。
-```Cs
+```csharp
 public partial class Util
 {
     public static IEnumerable<int> GetFibonacci() { ... }
@@ -27,7 +24,7 @@ public partial class Util
 + 可以在一個局部類別中只宣告方法，在另一個局部類別中可選擇實作或不實作，若不實作，編譯器會直接省略這個宣告而不編譯。
 + 局部方法預設是 `private` 的
 + 局部方法的返回值必須是 `void` 且不能使用 `out` 參數，但可以使用 `ref` 參數。
-```Cs
+```csharp
 partial class Demo
 {
     public Demo()

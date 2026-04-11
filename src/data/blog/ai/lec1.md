@@ -3,9 +3,7 @@ title: "[ML] 機器學習與統計學"
 author: "Rain Hu"
 pubDatetime: 2022-11-07T18:18:52+08:00
 description: "Introduction to Machine Learning"
-category: "AI"
-tags: ["Programming", "Machine Learning"]
-math: true
+tags: ["programming", "machine-learning"]
 ---
 # Introduction to ML
 
@@ -17,7 +15,7 @@ math: true
   + 統計學是在資料分析的基礎上，研究如何測定、收集、整理、歸納和分析反映資料，以便給出正確訊息的科學。
 + 機器學習
   + 機器學習演算法是一類從資料中自動分析獲得規律，並利用規律對未知資料進行預測的演算法。
-  \\(\begin{array}{lll}
+  $\begin{array}{lll}
   \text{Item} & \text{Statistics} & \text{Machine Learning}\\\\\hline
   \text{特性} & \text{伴隨事前假設，依賴明確規則，以模型定義資料關聯性，重視模型解釋性} & \text{幾乎無視前假設，不依賴明確規則，相信經驗}\\\\
   & \text{事前假設(人)}\rightarrow\text{模型估計(機器)} & \text{特徵萃取(機器)}\rightarrow\text{網路建構(機器)} \\\\\hline
@@ -28,7 +26,7 @@ math: true
   \text{缺點} & \text{所有推論接基於事前假設，常難以驗證假設的正確性} & \text{模型難以解釋(黑盒子)}\\\\
   & \text{難以抓取資料中過於複雜的特徵} & \text{推論無強烈理論根據} \\\\\hline
   \text{專家} & \text{統計背景} & \text{資訊背景及統計背景} \\\\\hline
-  \end{array}\\)
+  \end{array}$
 
 ## 結論
 + 統計模型的重點是有合理的事前假設
@@ -40,7 +38,7 @@ math: true
   + 資料無明確規則(如影像及語音辨識)，且資料量夠多時，建議使用機器學習方法(可以佐以人為提示)
 
 ## 統計與機器學習類似的專有名詞
-\\(\begin{array}{ll}
+$\begin{array}{ll}
 \text{Statistics} & \text{Machine Learning}
 \text{response, dependent variable} & \text{label} \\\\\hline
 \text{covariate, explanatory variable, independent variable} & \text{feature} \\\\\hline
@@ -49,4 +47,4 @@ math: true
 \text{fitting} & \text{learning} \\\\\hline
 \text{refression, classification} & \text{supervised learning} \\\\\hline
 \text{density estimation, cluster} & \text{unsupervised learning} \\\\\hline
-\end{array}\\)
+\end{array}$

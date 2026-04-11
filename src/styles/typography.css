@@ -77,6 +77,11 @@
       @apply rounded-r-md border-s-4 border-s-accent/50 bg-muted/30 px-4 py-1 wrap-break-word italic opacity-90;
     }
 
+    /* Hide KaTeX MathML source (accessibility fallback) to prevent duplicate display */
+    .katex-mathml {
+      display: none;
+    }
+
     details {
       @apply inline-block cursor-pointer text-foreground select-none [&_p]:hidden [&_ul]:my-0!;
     }

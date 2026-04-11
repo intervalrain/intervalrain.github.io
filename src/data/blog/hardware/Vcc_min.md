@@ -3,10 +3,8 @@ title: "[Device] SRAM Vcc_min Introduction"
 author: "Rain Hu"
 pubDatetime: 2022-03-05T22:07:03+08:00
 description: "Intro to SRAM Vcc_min"
-category: "Hardware"
-tags: []
+tags: ["sram", "vcc-min", "semiconductor", "memory-testing", "yield"]
 draft: true
-math: true
 ---
 
 # Vcc_min Methodology

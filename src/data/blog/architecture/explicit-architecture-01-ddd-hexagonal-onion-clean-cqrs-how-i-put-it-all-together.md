@@ -3,10 +3,7 @@ title: "[IT] DDD, Hexagonal, Onion, Clean, CQRS 大整合"
 author: "hgraca"
 pubDatetime: 2023-11-06T23:38:13+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["explicit-architecture", "ddd", "hexagonal-architecture", "cqrs", "onion-architecture", "ports-and-adapters"]
 ---
 
 本文是介紹我如何將 DDD, Hexagonal, Onion, Clean, CQRS Architecture 等架構概念整合在一起，我將它命名為 **Explicit Architecture**。上述的概念基本上都是通過了市場的試驗，並在許多高要求的平台上被應用。

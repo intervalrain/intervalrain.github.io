@@ -3,9 +3,7 @@ title: "[Java] Integer.bitCount 解析"
 author: "Rain Hu"
 pubDatetime: 2022-03-01T20:37:02+08:00
 description: "Desc Text."
-category: "Programming"
-tags: ["Java"]
-math: true
+tags: ["java"]
 ---
 
 # Integer.bitCount 的函式解析
@@ -13,7 +11,7 @@ math: true
 
 ## 雛形
 + 從低位開始，檢查是否為 1。
-```Java
+```java
 public static int bitCount(int i){
     int count = 0;
     while (i > 0) {
@@ -24,11 +22,11 @@ public static int bitCount(int i){
     return count;
 }
 ```
-+ 時間複雜度為 \\(O(n)\\)，\\(n\\) 為整數的位數(bit 數)。
++ 時間複雜度為 $O(n)$，$n$ 為整數的位數(bit 數)。
 
 ## 優化
 + 利用(i - 1) & i 可以消除最低位數的 1 的性質來計算。
-```Java
+```java
 public static bitCount(int i){
     int count = 0;
     while (i > 0){
@@ -38,11 +36,11 @@ public static bitCount(int i){
     return count;
 }
 ```
-+ 時間複雜度為 \\(O(n))\\)，\\(n\\) 為位數為 1 的個數。
++ 時間複雜度為 $O(n))$，$n$ 為位數為 1 的個數。
 
 ## 利用 int 的特性再優化
 + 因為 int 的最大正整數為 2^31，故我們可以兩兩錯位相加來求和
-```Java
+```java
 private static int bitCount(int i){
     i = (i & 0x55555555) + ((i >>> 1) & 0x55555555);  // 0b0101_0101_0101_0101_0101_0101_0101_0101
     i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);  // 0b0011_0011_0011_0011_0011_0011_0011_0011
@@ -52,10 +50,10 @@ private static int bitCount(int i){
     return i;
 }
 ```
-+ 時間複雜度為 \\(O(1))\\)。
++ 時間複雜度為 $O(1))$。
 
 ## Source Code(final)
-```Java
+```java
 public static int bitCount(int i) {
     // HD, Figure 5-2
     i = i - ((i >>> 1) & 0x55555555);

@@ -3,9 +3,7 @@ title: "[ML] introduction"
 author: "Rain Hu"
 pubDatetime: 2022-06-19T18:18:52+08:00
 description: "Introduction to Machine Learning"
-category: "AI"
-tags: ["Programming", "Machine Learning"]
-math: true
+tags: ["programming", "machine-learning"]
 ---
 
 # 什麼是 AI & ML & DL
@@ -32,12 +30,12 @@ math: true
     + 餵入數據
     + 評估函數的好壞  
     + 找出最好的函數  
-    \\(\begin{array}{rc}
+    $\begin{array}{rc}
     \text{step1}&\boxed{\text{Define a set of function}}\\\\
     &\downarrow\\\\
     \text{step2}&\boxed{\text{Evaluate goodness of function}}\\\\
     &\downarrow\\\\
-    \text{step3}&\boxed{\text{Pick the best function}}\end{array}\\)
+    \text{step3}&\boxed{\text{Pick the best function}}\end{array}$
     ![frameword](/ML/L0/framework.png)
         + 告訴機器 input 和正確的 output 這就叫作 **supervised learning**。
 

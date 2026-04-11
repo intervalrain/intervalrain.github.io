@@ -3,9 +3,7 @@ title: "[LeetCode] Sliding Window and Double Pointer 科學刷題"
 author: "Rain Hu"
 pubDatetime: 2022-10-25T12:30:32+08:00
 description: ""
-category: "Algorithm"
-tags: ["Sliding Window", "Double Pointer"]
-math: true
+tags: ["sliding-window", "two-pointers"]
 ---
 # 1. 定長滑動窗口
 - [x] [定長滑動窗口 pattern](/leetcode_list/sliding_window_dblptr/pattern_1)

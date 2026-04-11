@@ -3,15 +3,12 @@ title: "[C#] C#3、LINQ 及相關特性"
 author: "Rain Hu"
 pubDatetime: 2023-05-01T14:10:48+08:00
 description: "Introduction to LINQ in C#"
-category: "Programming"
-tags: ["C#", "C"]
-math: true
-mermaid: true
+tags: ["csharp", "c"]
 ---
 
 ## 1. 屬性的自動實現
 + 在 C#3 以前，每個屬性需要手動實現，也就是需要手動為屬性添加 get 訪問器與 set 訪問器，如：
-```Csharp
+```csharp
 private string name;
 public string Name
 {
@@ -21,11 +18,11 @@ public string Name
 ```
 + 在 C#3 以後，可以透過自動實現的方式撰寫：
     + 其中命名為 `name` 的變數由編譯器自動創建並為其賦予名稱。
-```Csharp
+```csharp
 public string Name { get; set; }
 ```
 + 但在 C#3 時，不能宣告 `readonly` 的自動屬性，且不能在宣告時賦予初始值，在 C#6 做了修正。在 C#3 只能透過訪問子分離來模擬 `readonly`：
-```Csharp
+```csharp
 public string Name { get; private set; }
 ```
 
@@ -38,7 +35,7 @@ public string Name { get; private set; }
     + 隱式類型則允許了類型推斷，透過上下文判斷出類型．
     
 + C#3 開始支援隱式類型的寫法，關鍵字是 `var`。
-    ```Csharp
+    ```csharp
     var name = "Rainhu";
     // string name = "Rainhu"
     ```
@@ -46,7 +43,7 @@ public string Name { get; private set; }
         1. 變數必須在宣告時就初始化。
         2. 用於初始化的表達式必須已具備某個類型。
         3. 只能用於局部變數
-        ```Csharp
+        ```csharp
         var x;
         x = 10;         // 違反1
 
@@ -57,12 +54,12 @@ public string Name { get; private set; }
     1. 變數為匿名類型，不能為其指定類型。 
     2. 變數的型別過長，並且初始化表達式就足以用來推斷。
     3. 變數的精確類型不重要，並可以透過初始化表達式來推斷。
-    ```Csharp
+    ```csharp
     Dictionary<string, List<decimal>> mapping = new Dictionary<string List<decimal>>();
     var mapping = new Dictionary<string, List<decimal>>();
     ```
 + 隱式類型的數組
-    ```Csharp
+    ```csharp
     int[] arr = new int[10];
     int[] arr1 = { 1, 2, 3, 4, 5 };
     int[] arr2 = new int[] { 1, 2, 3, 4, 5 };
@@ -73,7 +70,7 @@ public string Name { get; private set; }
     ```
 + 物件與集合的初始化
     + 以電子商務系統為例
-    ```Csharp
+    ```csharp
     public class Order
     {
         private readonly List<OrderItem> items = new List<OrderItem>();
@@ -97,7 +94,7 @@ public string Name { get; private set; }
     }
     ```
     + 若不使用物件初始化器與集合初始化器便會像：
-    ```Csharp
+    ```csharp
     var customer = new Customer();
     customer.Name = "Mike";
     customer.Address = "Japan";
@@ -117,7 +114,7 @@ public string Name { get; private set; }
     order.Items.Add(item2);
     ```
     + 若使用物件初始化器與集合初始化器，便可大大增加可讀性，並且在接下來的 LINQ 上有大大的好處：
-    ```Csharp
+    ```csharp
     var order = new Order
     {
         OrderId = "order12345",
@@ -133,7 +130,7 @@ public string Name { get; private set; }
 ## 3. 匿名類型
 + 前面說到隱式類型，好像是可有可無的存在，但在匿名類型，就是一個只能用隱式類型來宣告的情況了。
     + 匿名類型的宣告：
-    ```Csharp
+    ```csharp
     var procuct
     {
         Name = "CD Pro-2",
@@ -143,7 +140,7 @@ public string Name { get; private set; }
     int price = product.Price;
     ```
     + 搭配隱式類型數組的匿名類型宣告：
-    ```Csharp
+    ```csharp
     var products = new[]
     {
         new { Name = "CD Pro-2", Price = 50000 },
@@ -155,7 +152,7 @@ public string Name { get; private set; }
 ### 基本語法
 + lambda 表達式的基本語法為：`參數列表 => 主體`
     + 與之前的匿名方法類似，只是將 `delegate` 換成了 `=>`
-    ```Csharp
+    ```csharp
     Action<string> action = (string msg) =>
     {
         Console.WriteLine(msg);
@@ -163,21 +160,21 @@ public string Name { get; private set; }
     action("hello world!");
     ```
     + 但在主體包含的內容很短時，可以簡化成：
-    ```Csharp
+    ```csharp
     Action<string> action = (string msg) => Console.WriteLine(msg);
     ```
     + 參數列表若可以經由類型推斷，那麼可以進一步簡化成：
-    ```Csharp
+    ```csharp
     Action<string> action = (msg) => Console.WriteLine(msg);
     ```
     + 參數列表只有一個參數，括號也可以省略：
-    ```Csharp
+    ```csharp
     Action<string> action = msg => Console.WriteLine(msg);
     ```
 ### 捕獲變數
 + 對開發者而言，lambda 表達式除了可以使用自於的參數列表外，還可以捕捉靜態變數、物件實例、`this`變數、方法參數或局部變數，後者全部都為捕獲變數，而根據不同的作用域，編譯器會為其編譯成相對應的 IL code。
     + 在此提供一個以生成類來實現的例子：
-    ```Csharp
+    ```csharp
     public Action<string> CreateAction(string methodParameter)
     {
         string methodLocal = "method Local";
@@ -197,7 +194,7 @@ public string Name { get; private set; }
     }
     ```
     + 經轉譯後的程式碼
-    ```Csharp
+    ```csharp
     private class LambdaContext
     {
         public CapturedVariable original;
@@ -229,12 +226,12 @@ public string Name { get; private set; }
 
 ## 5. 擴展方法 Extension Method
 + 擴展方法是一種靜態方法，可以對其第一個參數的類型物件以物件的方式進行調用：
-    ```Csharp
+    ```csharp
     SampleClass.Method(x,y);
     x.Method(y);
     ```
 + 宣告方式：
-    ```Csharp
+    ```csharp
     using System;
     namespace Battle.Extensions
     {
@@ -248,7 +245,7 @@ public string Name { get; private set; }
     }
     ```
     + 調用方式
-    ```Csharp
+    ```csharp
     Warrior Alpha = new Warrior
     {
         Name = "Alpha",
@@ -271,7 +268,7 @@ public string Name { get; private set; }
 + 編譯器唯一需要做的是為擴展方法及其所在類添加`[Extension]`特性。該特性在命名空間`System.Runtime.CompileServices`下。本質上是一個標記，標記擴充方法。
 ## 6. LINQ 查詢
 + 接著我們可以透過 lambda 表達式與擴充方法來進行鏈式調用：
-    ```Csharp
+    ```csharp
     Warrior Alpha = { Name = "Alpha", Level = 5, Attack = 10, HP = 20 };
     Warrior Beta =  { Name = "Beta",  Level = 3, Attack =  6, HP = 12 };
     Warrior Gamma = { Name = "Gamma", Level = 5, Attack = 12, HP = 18 };
@@ -284,7 +281,7 @@ public string Name { get; private set; }
         // ["ALPHA", "DELTA", "GAMMA"]
     ```
     + 若沒有使用 `IEnumerable` 的擴充方法，會長這樣，可讀性整個就下降了：
-    ```Csharp
+    ```csharp
     Warrior[] warriors = { Alpha, Beta, Gamma, Delta };
     IEnumerable<string> query = 
         Enumerable.Select(
@@ -295,14 +292,14 @@ public string Name { get; private set; }
             warrior => warrior.Name.ToUpper());
     ```
     + LINQ 還可以使用**查詢表達式**：
-    ```Csharp
+    ```csharp
     IEnumerale<string> query = from warrior in warriors
                                where warrior.Level >= 5
                                orderby warrior.Name
                                select warrior.Name.ToUpper();
     ```
     + 甚至可以利用 `let` 引入新的變數
-    ```Csharp
+    ```csharp
     IEnumerale<string> query = from warrior in warriors
                                let name = warrior.Name
                                where warrior.Level >= 5

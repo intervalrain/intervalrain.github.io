@@ -3,13 +3,7 @@ title: "[System Design] Digital Twin Shadow 設計：高頻場景下如何確保
 author: "Rain Hu"
 pubDatetime: 2026-04-09T20:35:38+08:00
 description: ""
-category: "Architecture"
-tags: ["System Design", "Programming"]
-math: true
-mermaid: true
----
-以下是整理好的 Markdown，已經把你整個問題（高頻 + reorder + retry）提升到 production-grade 設計層級 👇
-
+tags: ["system-design", "programming"]
 ---
 
 ## 問題背景
@@ -20,7 +14,7 @@ mermaid: true
 Client → Desired State → Shadow → Device → Reported State → Shadow
 ```
 
-在**高頻更新（high throughput）**場景下，會出現以下問題：
+在**高頻更新(high throughput)** 場景下，會出現以下問題：
 
 ### 典型錯誤情境
 
@@ -42,7 +36,7 @@ C 被 B 覆蓋（狀態倒退）
 
 ---
 
-## ⚠️ 問題本質
+## 問題本質
 
 這不是單純「DB 太慢」的問題，而是：
 
@@ -67,10 +61,10 @@ device → queue → single worker
 
 #### 問題：
 
-* ❌ 無法跨 instance（multi-node 失效）
-* ❌ crash 後順序破壞
-* ❌ retry 無法處理
-* ❌ 不能防止舊資料覆蓋新資料
+* 無法跨 instance（multi-node 失效）
+* crash 後順序破壞
+* retry 無法處理
+* 不能防止舊資料覆蓋新資料
 
 ---
 
@@ -82,8 +76,8 @@ traceId: UUID
 
 #### 問題：
 
-* ❌ 無法比較新舊
-* ❌ 只能做 dedup，不能做 ordering
+* 無法比較新舊
+* 只能做 dedup，不能做 ordering
 
 ---
 
@@ -95,8 +89,8 @@ timestamp: now()
 
 #### 問題：
 
-* ❌ clock skew（多機時間不同步）
-* ❌ 無法保證全域順序
+* clock skew（多機時間不同步）
+* 無法保證全域順序
 
 ---
 
@@ -136,10 +130,10 @@ AND version < ?
 
 ### 特性
 
-* ✔ 防止 state regression
-* ✔ 不怕 reorder
-* ✔ 不怕 retry
-* ✔ 支援 multi-instance
+* 防止 state regression
+* 不怕 reorder
+* 不怕 retry
+* 支援 multi-instance
 
 ---
 
@@ -147,7 +141,7 @@ AND version < ?
 
 如果 client 沒提供 version：
 
-### ✔ 作法
+### 作法
 
 ```text
 server 為每個 device 維護單調遞增 version
@@ -171,7 +165,7 @@ INCR device:{id}:version
 
 ---
 
-### ⚠️ 注意
+### 注意
 
 > server 無法還原「client 原始順序」，只能保證「處理順序一致」
 
@@ -225,7 +219,7 @@ device → queue → worker
 * 降低 DB contention
 * 平滑流量
 
-⚠️ **不能當作 correctness 保證**
+**不能當作 correctness 保證**
 
 ---
 
@@ -313,7 +307,7 @@ reported
 delta
 ```
 
-👉 類似 AWS IoT Shadow
+類似 AWS IoT Shadow
 
 ---
 
@@ -346,6 +340,6 @@ delta
 
 ---
 
-## 一句話總結
+## 總結
 
 > **不要試圖讓資料「不亂序」，而是讓亂序也不會出錯**

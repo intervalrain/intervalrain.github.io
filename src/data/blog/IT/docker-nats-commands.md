@@ -3,10 +3,7 @@ title: "[Docker] Docker 指令 以 NATS 為例"
 author: "Rain Hu"
 pubDatetime: 2025-10-05T06:39:57+08:00
 description: "Docker commands collection"
-category: "IT"
-tags: ["Docker", "Programming"]
-math: true
-mermaid: true
+tags: ["docker", "programming"]
 ---
 
 # Docker NATS Server 指令大全

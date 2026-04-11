@@ -3,10 +3,7 @@ title: "[IT] 架構風格 vs. 架構模式 vs. 設計模式 Architectural Styles
 author: "hgraca"
 pubDatetime: 2023-10-14T14:29:21+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["architectural-style", "architectural-pattern", "design-pattern", "software-architecture"]
 ---
 
 在上一篇文章中，我介紹了程式語言的演進，以及它告訴我們的事情：軟體發展的驅勢是走向更多的**模組化(modularity)**與**封裝(encapsulation)**。

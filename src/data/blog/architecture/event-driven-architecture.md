@@ -3,10 +3,7 @@ title: "[IT] 事件驅動架構 Event-Driven Architecture"
 author: "hgraca"
 pubDatetime: 2023-10-31T23:25:09+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["event-driven-architecture", "decoupling", "async", "event-sourcing", "domain-event"]
 ---
 利用事件來設計應用程式似乎是 80年代後期開始的一種做法，我們可以在使用事件在前端或後端任何地方使用事件，當按下一個按鈕，涉及某些數據變更，或是執行某些後端動作時。
 

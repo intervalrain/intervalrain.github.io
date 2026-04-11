@@ -1,11 +1,9 @@
 ---
 title: "[Logic Design] Lec 01 - 數字系統與轉換"
 author: "Rain Hu"
-pubDatetime: 2021-09-18T03:11:35+08:00
+pubDatetime: 2021-09-11T03:11:35+08:00
 description: "Introduction to number systems in computer"
-category: "Hardware"
-tags: []
-math: true
+tags: ["logic-design"]
 ---
 # 數位系統與開關電路
 + 在現實世界中，資訊是以**類比**(Analog)的方式傳遞的，換言之，資訊是**連續的**
@@ -30,7 +28,7 @@ math: true
 # 數字系統與轉換
 + 在現實世界中，最普遍使用的數字系統為十進制(Decimal)
 + 然而在電腦世界中，因為只有代表開與關的 0 與 1，故使用的數字系統是以二進制(Binary)為基礎。
-   + \\(N=(a_2a_1a_0)_R=a_2\times R^2+a_1\times R^1+a_0\times R^0\\)
+   + $N=(a_2a_1a_0)_R=a_2\times R^2+a_1\times R^1+a_0\times R^0$
 # 負數
 |N|正數表示|-N|正數加負號|1的補數|2的補數|
 |---|---|---|---|---|----|

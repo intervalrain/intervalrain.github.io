@@ -3,20 +3,18 @@ title: "monotonic_stack"
 author: "Rain Hu"
 pubDatetime: 2024-01-01T00:00:00+08:00
 description: ""
-category: "Algorithm"
-tags: []
+tags: ["monotonic-stack", "leetcode"]
 ---
 
 ---
 title: "[LeetCode] Monotonic Stack 科學刷題"
-tags: ["Leetcode", "Monotonic Stack"]
+tags: ["leetcode", "monotonic-stack"]
 date: 2025-02-01T00:00:01+08:00
 draft: false
 Categories: Leetcode
 author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true

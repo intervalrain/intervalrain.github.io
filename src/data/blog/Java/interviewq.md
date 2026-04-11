@@ -3,9 +3,7 @@ title: "[Java] 面試常見問題"
 author: "Rain Hu"
 pubDatetime: 2022-03-16T02:45:45+08:00
 description: "針對Java常見面試考題整理，持續更新。"
-category: "Programming"
-tags: ["Java"]
-math: true
+tags: ["java"]
 ---
 ### 1. 請說明 Final, Finally, Finalize 三者不同?
 + Final:
@@ -77,11 +75,11 @@ math: true
     1. 有順序性(索引值)。
     2. 可重複。
     3. ArrayList 實作了 List 介面。
-    4. ArrayList: 插入、刪除速度 \\(O(n)\\)，走訪速度\\(O(1)\\)。
-    5. LinkedList: 插入、刪除速度 \\O(1)\\)，走訪速度\\(O(n)\\)。
+    4. ArrayList: 插入、刪除速度 $O(n)$，走訪速度$O(1)$。
+    5. LinkedList: 插入、刪除速度 \\O(1)$，走訪速度$O(n)$。
 + Set
     1. 無順序性(配合 iterator)
-    2. 不可重複，走訪速度\\(O(1)\\)。
+    2. 不可重複，走訪速度$O(1)$。
     3. HashSet 實作了 Set 介面。
     4. HashSet: 無順序性，查找速度快。
     5. LinkedHashSet: 有順序性

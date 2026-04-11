@@ -7,7 +7,7 @@ export const SITE = {
   ogImage: "og.png",
   lightAndDarkMode: true,
   postPerIndex: 5,
-  postPerPage: 5,
+  postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000,
   showArchives: true,
   showBackButton: true,

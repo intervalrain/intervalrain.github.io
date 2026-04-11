@@ -3,10 +3,7 @@ title: "[ML] sample1 - 手寫數字辨識"
 author: "Rain Hu"
 pubDatetime: 2023-10-28T14:11:35+08:00
 description: ""
-category: "AI"
-tags: ["Software Architecture"]
-math: true
-mermaid: true
+tags: ["software-architecture"]
 ---
 # MNIST
 NIST(National Insitute of Standards and Technology) 是美國國家標準與技術研究院，MNIST 是由 NIST 所提供的一組經典的機器學習測資，可以想成是深度學習中的「Hello World!」，它由 60000張 訓練圖片與 10000 張測試圖片所組成，為手寫數字的灰階圖片，大小為 28 * 28 像素，分類 0 到 9 共 10 個數字。

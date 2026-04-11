@@ -3,9 +3,7 @@ title: "[Leetcode] Maximum Frequency Stack 最大頻率堆疊"
 author: "Rain Hu"
 pubDatetime: 2022-03-19T16:53:23+08:00
 description: "Maximum Frequency Stack algorithm"
-category: "Algorithm"
-tags: []
-math: true
+tags: ["leetcode"]
 ---
 # 題目
 ## 題目描述
@@ -23,7 +21,7 @@ math: true
 [null, null, null, null, null, null, null, 5, 7, 5, 4]  
 
 **說明**
-```Java
+```java
 FreqStack freqStack = new FreqStack();
 freqStack.push(5); // The stack is [5]
 freqStack.push(7); // The stack is [5,7]
@@ -39,7 +37,7 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 # 解題
 ## 想法
 + 在解題時，我打算在 push 時動手腳，將 push 的元素直接 push 到對的位置後，執行 pop 的動作時，就只要將最頂端的元素取出即可。
-```Java
+```java
 FreqStack freqStack = new FreqStack();
 freqStack.push(5); // [5]
 freqStack.push(7); // [5,7]
@@ -54,13 +52,13 @@ freqStack.pop();   // return 5, [5,7,4]
 freqStack.pop();   // return 4, [5,7]
 ```
 + 為了實現以上的想法，我試想將出現次數相同的元素放在同一個 stack，取出時則從頻率最高的 stack 開始取，即為：
-```Java
+```java
 freqStack[0] = [5,7,4] // 檢查元素是否出現在 freqStack[0] 否則則往freqStack[1] 移動
 freqStack[1] = [5,7]
 freqStack[2] = [5]  // pop 的時候，從freqStack[2] 開始取，空了則將 freqStack[2] 移除
 ```
 ## 實作1: List of Stacks
-```Java
+```java
 public class freqStack{
     // Field
     List<Stack<Integer>> stacks;
@@ -103,10 +101,10 @@ public class freqStack{
     }
 }
 ```
-+ 然而，此時 push 的 complexity 與欲 push 的元素的出現次數 n 有關，元素出現 n 次，則需要往下找 n 個 stack，也就是 \\(O(n)\\)。
++ 然而，此時 push 的 complexity 與欲 push 的元素的出現次數 n 有關，元素出現 n 次，則需要往下找 n 個 stack，也就是 $O(n)$。
 ## 實作2: Use HashMap to record freqency
 + 為了優化，我們可以加入一個 HashMap 來記錄出現的次數，再下次要 push 此元素時，只需要到 HashMap 中查詢出現的次數即可。
-```Java
+```java
 public class freqStack{
     // Field
     List<Stack<Integer>> stacks;

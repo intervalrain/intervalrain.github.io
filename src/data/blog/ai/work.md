@@ -3,10 +3,7 @@ title: "[ML] 簡單實作測試"
 author: "Rain Hu"
 pubDatetime: 2023-04-30T00:35:59+08:00
 description: ""
-category: "AI"
-tags: ["Machine Learning"]
-math: true
-mermaid: true
+tags: ["machine-learning"]
 ---
 
 ## 線性迴歸建模
@@ -104,11 +101,11 @@ plt.show()
 ```
 
 ### 計算梯度
-+ \\(\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\\\
++ $\text{cost} = (\text{y}_\text{pred}-\text{y})^2\\\\
 \text{cost} = (\text{y}-(\text{w}\times\text{x}+\text{b}))^2\\\\
 \text{m} _\text{w} = -2\times\text{x}(\text{y-wx-b})\\\\
 \text{m} _\text{b} = -2\times(\text{y-wx-b})\\\\
-\\)
+$
 ```python
 def compute_gradient(x, y, w, b):
     w_gradient = 2*x*(w*x+b-y).mean()
@@ -117,8 +114,8 @@ def compute_gradient(x, y, w, b):
 ```
 
 ### 利用梯度下降計算 cost 最小值
-+ \\(\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\\_rate}\\)
-+ \\(\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\\_rate}\\)
++ $\text{w}_2=\text{w}-\text{m} _\text{w} \times \text{learning\\_rate}$
++ $\text{b}_2=\text{b}-\text{m} _\text{b} \times \text{learning\\_rate}$
 ```python
 learning_rate = 0.001
 for i in range(10):
@@ -166,7 +163,7 @@ y_real
 ### 「特徵縮放」加速 gradient descent
 + w1*x1+w2*x2+w3*x3+w4*x4+b
 + 因分布範圍不同，調整參數，最好令每一個乘積都相當
-+ 相當於是標準化：\\(\frac{\text{x-平均值}}{標準差}\\)
++ 相當於是標準化：$\frac{\text{x-平均值}}{標準差}$
 ```python
 from sklearn.preprocessing import StandardScaler
 
@@ -179,7 +176,7 @@ x_test = scaler.transform(x_test)
 ## 邏輯迴歸 Logistic Regression
 ### Sigmoid Function
 + 當模性呈現 0-1 關係(邏輯迴歸)時可用
-+ \\(\text{Sigmoid Function}=\frac{1}{1+e^{-z}}\\)
++ $\text{Sigmoid Function}=\frac{1}{1+e^{-z}}$
 
 ```python
 def sigmoid(z):

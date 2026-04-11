@@ -3,12 +3,10 @@ title: "[Problem] Version Query"
 author: "Rain Hu"
 pubDatetime: 2022-10-20T22:29:15+08:00
 description: ""
-category: "Algorithm"
-tags: []
-math: true
+tags: ["binary-search", "heap", "hash-table"]
 ---
 **Version Query**
-+ Hardness: \\(\color{red}\textsf{Hard}\\)
++ Hardness: $\color{red}\textsf{Hard}$
 + Ralated Topics: `Binary Search`、`Segment Tree`、`Heap (Priority Queue`、`Hash Table`
 ---
 ### 一、題目
@@ -21,7 +19,7 @@ The given apk_info structure is given as below.
 **}**
 
 **Example 1:**  
-\\(\begin{array}{|l|}\hline
+$\begin{array}{|l|}\hline
 \text{Input: }\\\\
 \begin{array}{|c|c|c|}\hline
 \text{apk version}&\text{min OS version}&\text{max OS version}\\\\\hline
@@ -31,15 +29,15 @@ The given apk_info structure is given as below.
 \end{array}\\\\
 \text{OS version query = [18,4,14,10]}\\\\\\\\
 \text{Output:}\\\\\text{apk version = [1,2,3,0]}(0 \text{ means not found})\\\\\hline
-\end{array}\\)  
+\end{array}$  
 
 
 **Constraints:**  
-\\(\begin{array}{|l|}\hline
+$\begin{array}{|l|}\hline
 \text{1. 1} \le \text{Apk version < } 10^{31}\\\\
 \text{2. 1} \le \text{OS version < } 10^{31}\\\\
 \text{3. 1} \le \text{Query times < } 10^{31}\\\\\hline
-\end{array}\\)  
+\end{array}$  
 
 ### 二、分析
 + 重點其實就是區間求極值，所以筆者最先開始想到的是線段樹，線段樹的介紹可參考這裡：[Segment Tree 線段樹](/c++/segtree)
@@ -48,7 +46,7 @@ The given apk_info structure is given as below.
 ![skyline](https://assets.leetcode.com/uploads/2020/12/01/merged.jpg)
 ### 三、解題
 #### Priority Queue
-```C++
+```cpp
 struct apk_info{
     int apk_version;
     int min_version = 1;
@@ -139,12 +137,12 @@ int main(){
 ```
 
 #### 補充(segment tree)
-+ 用segment tree 來解區域更新的題目時，若把每個子葉點退化到單點的話，其空間複雜度會太高，可以用兩個 map 由左到右將 x 軸從小到大帶入，每個索引值 i 對應到一個有使用到的 x 軸座標。然後用左閉右開(\\([a,b)\\))的方式去維護區間的值。
-+ 在用segment tree 做區域更新時，若每次都對所有子葉做更新的話，其時間複雜度會拉高到\\(O(k)\\)，\\(k\\) 為線段長。其下 slash 掉的部分，在 the skyline problem 中會造成 TLE，所以我們每次只對其必要的點做更新，待全部資料輸入完後，再一次從上而下做更新(renew)。其時間複雜度雜到\\(O(klogk+n)\\)，\\(n\\) 為 x 軸的個數。
++ 用segment tree 來解區域更新的題目時，若把每個子葉點退化到單點的話，其空間複雜度會太高，可以用兩個 map 由左到右將 x 軸從小到大帶入，每個索引值 i 對應到一個有使用到的 x 軸座標。然後用左閉右開($[a,b)$)的方式去維護區間的值。
++ 在用segment tree 做區域更新時，若每次都對所有子葉做更新的話，其時間複雜度會拉高到$O(k)$，$k$ 為線段長。其下 slash 掉的部分，在 the skyline problem 中會造成 TLE，所以我們每次只對其必要的點做更新，待全部資料輸入完後，再一次從上而下做更新(renew)。其時間複雜度雜到$O(klogk+n)$，$n$ 為 x 軸的個數。
 + 區域查詢也可以用差不多的概念完成。
 
 
-```C++
+```cpp
 class Solution {
     
     class Tree {

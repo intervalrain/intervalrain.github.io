@@ -3,10 +3,7 @@ title: "[ML] 選擇 loss function/ optimizer/ metrics"
 author: "Rain Hu"
 pubDatetime: 2024-02-14T15:39:25+08:00
 description: "Optimizer"
-category: "AI"
-tags: ["Machine Learning", "DL"]
-math: true
-mermaid: true
+tags: ["machine-learning", "deep-learning"]
 ---
 
 ### 建構模型

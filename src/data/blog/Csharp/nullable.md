@@ -3,10 +3,7 @@ title: "[C#] Nullable 可空值類型"
 author: "Rain Hu"
 pubDatetime: 2023-02-23T21:40:03+08:00
 description: "Introduction to Nullable in C#"
-category: "Programming"
-tags: ["C#", "C"]
-math: true
-mermaid: true
+tags: ["csharp", "c"]
 ---
 ## 1. 簡寫
 + 以後綴 `?` 之前接在類型名稱後面，也就是 `T?` 可以視同為 `Nullable<T>`
@@ -17,7 +14,7 @@ mermaid: true
     + `int32`
 ## 2. 定義
 + Nullable 的核心程式碼為:
-```Cs
+```csharp
 public struct Nullable<T> where struct  // 類型約束為非空值類型
 {
     private readonly T value;
@@ -47,12 +44,12 @@ public struct Nullable<T> where struct  // 類型約束為非空值類型
     + `int? x = null;`
 ## 3. 轉換
 + 允許 T 到 Nullable<T> 的隱式轉換
-```Cs
+```csharp
 int x = 5;
 int? y = x;
 ```
 + 允許 Nullable<T> 到 T 的顯式轉換
-```Cs
+```csharp
 int? x = 5;
 int y = (int)x;
 ```
@@ -69,7 +66,7 @@ int y = (int)x;
         + 對於等價運算子和關係運算子，原運算子的返回類型必須是 `bool` 類型
         + 對於 `Nullable<bool>` 的 `&` 與 `|` 運算子有單獨定義
     + 提升運算子範例：
-    ```Cs
+    ```csharp
     int? nullInt = null;
     int? five = 5;
     int? four = 4;
@@ -111,7 +108,7 @@ int y = (int)x;
 ## 4. as 運算子
 + 在 C# 2，`as` 除了可用於物件，也可用於可空值類型。
 + 當原始引用的類型不匹配，或為 null 時，返回 null 值：
-```Cs
+```csharp
 public static void Main()
 {
     object[] obj = new object[]{
@@ -137,7 +134,7 @@ public static void print(object o)
 
 ## 5. ?? 運算子
 + 當 `??` 前非 null 時依原本的值代入，若為 `null` 則以 `??` 後的值代入。
-```Cs
+```csharp
 int a = 5;
 int? b = 10;
 int? c = null;
@@ -148,7 +145,7 @@ Console.WriteLine("a + b = {0}", a + (c ?? 0));     // 5
 
 ## 6. ?. 運算子
 + 當 `?.` 前為非 null 時，繼續往下做，可連續
-```Cs
+```csharp
 List<int> a = null;
 List<int> b = default;
 List<int> c = new List<int>{ 1,3,5,7,9 };

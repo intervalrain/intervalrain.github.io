@@ -3,10 +3,7 @@ title: "[.NET] User Secret CLI"
 author: "Rain Hu"
 pubDatetime: 2025-03-23T16:00:02+08:00
 description: "How to set user secret using dotnet"
-category: "IT"
-tags: ["C#"]
-math: true
-mermaid: true
+tags: ["csharp"]
 ---
 # .NET User Secrets 使用指南
 

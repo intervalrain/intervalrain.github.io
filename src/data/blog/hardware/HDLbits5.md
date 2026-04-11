@@ -3,9 +3,7 @@ title: "[VHDL] HDLbits 5 - Verification: Writing Testbenches"
 author: "Rain Hu"
 pubDatetime: 2022-05-28T00:10:20+08:00
 description: "Verilog tutorial"
-category: "Hardware"
-tags: ["Programming", "HDLbits"]
-math: true
+tags: ["programming", "hdlbits"]
 ---
 
 # 5 Verification - Writing Testbenches

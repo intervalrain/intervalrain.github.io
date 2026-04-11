@@ -3,10 +3,7 @@ title: "[IT] EBI 架構"
 author: "hgraca"
 pubDatetime: 2023-10-22T23:54:36+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["ebi-architecture", "entity-boundary-interactor", "use-case", "software-architecture", "ivar-jacobson"]
 ---
 EBI 架構全名是 Entity-Boundary-Interactor Architecture，第一次由 Robert C. Martin 在他乾淨架構(Clean Architecture)中的演講中提到。
 

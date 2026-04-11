@@ -3,10 +3,7 @@ title: "[IT] 套件與命名空間 packaging & namespacing"
 author: "hgraca"
 pubDatetime: 2023-10-23T23:14:14+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["packaging", "encapsulation", "low-coupling", "high-cohesion", "software-architecture"]
 ---
 
 系統的架構是該系統的高層視圖、大局觀，以粗略的筆觸描繪的系統設計。架構決策是系統中的結構性決策，影響整個程式庫的決策，也是定義其他所有元素將在其上建立的決策。

@@ -3,10 +3,7 @@ title: "[IT] 軟體架構編年史 The Software Architecture Chronicles"
 author: "hgraca"
 pubDatetime: 2023-10-13T23:41:57+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["software-architecture", "architecture-chronicle", "design-pattern", "architecture-history"]
 ---
 > 前言：這系列文章為翻譯自作者 [hgraca](https://herbertograca.com/2017/07/03/the-software-architecture-chronicles/)。
 

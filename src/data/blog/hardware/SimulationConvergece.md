@@ -3,9 +3,7 @@ title: "[TCAD] 模擬收斂問題"
 author: "Rain Hu"
 pubDatetime: 2022-05-25T22:52:15+08:00
 description: "TCAD simulation convergence problem"
-category: "Hardware"
-tags: ["TCAD"]
-math: true
+tags: ["tcad"]
 ---
 
 # TCAD 模擬收斂問題
@@ -42,7 +40,7 @@ Sentaurus Device 有非常多種可模擬大電場下之飽和遷移率的模型
 這方法很有用，但是非常慢。
 > 簡單來說，只是在元件上串聯一個電阻。   
 
-但因為我們設定 \\(R=V_b/I_b\\)，所以在 InnerVoltage 到達 \\(V_b\\) 時，`OuterVoltage` 會是兩倍的崩潰電壓。而在那之前，因為電流實在是很小，所以外接電阻分配到的分壓並沒有追到元件分壓，使得大部分分壓都會正常地落在元件上。設定方法為，先在其中一個電極設定電阻，如下所示。
+但因為我們設定 $R=V_b/I_b$，所以在 InnerVoltage 到達 $V_b$ 時，`OuterVoltage` 會是兩倍的崩潰電壓。而在那之前，因為電流實在是很小，所以外接電阻分配到的分壓並沒有追到元件分壓，使得大部分分壓都會正常地落在元件上。設定方法為，先在其中一個電極設定電阻，如下所示。
 ```
 Electrode {
 	{ Name= "substrate" Voltage= 0.0 }

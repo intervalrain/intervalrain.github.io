@@ -3,20 +3,18 @@ title: "dynamic_programming"
 author: "Rain Hu"
 pubDatetime: 2024-01-01T00:00:00+08:00
 description: ""
-category: "Algorithm"
-tags: []
+tags: ["dynamic-programming", "leetcode"]
 ---
 
 ---
 title: "[LeetCode] Dynamic Programming 科學刷題"
-tags: ["Leetcode", "Dynamic Programming"]
+tags: ["leetcode", "dynamic-programming"]
 date: 2025-02-01T00:00:04+08:00
 draft: false
 Categories: Leetcode
 author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true

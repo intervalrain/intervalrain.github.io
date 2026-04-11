@@ -3,10 +3,7 @@ title: "[IT] Resource-Method-Representation(RMR) 架構"
 author: "hgraca"
 pubDatetime: 2023-10-19T22:17:59+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["rmr", "rest-api", "mvc-variant", "web-architecture", "design-pattern"]
 ---
 
 MVC 於 1979 年在桌面應用程式與 CLI 使用者介面的背景下出現，這意味著如果資料庫因使用者以外的某些因素發生變化，則使用者介面將自動更改。同樣的模式後來在具有 GUI 的桌面應用程式上也完全可用。

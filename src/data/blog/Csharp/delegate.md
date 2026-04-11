@@ -3,16 +3,13 @@ title: "[C#] Delegate 委派"
 author: "Rain Hu"
 pubDatetime: 2023-02-26T19:24:56+08:00
 description: "Introduction to Delegate in C#"
-category: "Programming"
-tags: ["C#", "C"]
-math: true
-mermaid: true
+tags: ["csharp", "c"]
 ---
 
 ## 1. 委派語法
 + 委派 (Delegate) 類似於 C/C++ 中的函式指針，是可存有對某個方法的引用的一種引用類型變數。
 + 宣告語法：`delegate <return type> <delegate-name> <parameter list>`
-```Cs
+```csharp
 // 宣告一個委派，裝載 void function(string)
 public delegate void PrintString(string text);
 public static void Main(string[] args)
@@ -42,7 +39,7 @@ public static void ToLowerCase(string text) => Console.WriteLine(text.ToLower())
 
 ## 2. 簡化事件註冊
 + 假設想為一個按鍵註冊事件：
-```Cs
+```csharp
 // 定義 EventHandler 為可以接收物件與傳參的委派
 public delegate void EventHandler(object sender, EventArgs e);
 

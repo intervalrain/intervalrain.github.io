@@ -3,20 +3,18 @@ title: "string"
 author: "Rain Hu"
 pubDatetime: 2024-01-01T00:00:00+08:00
 description: ""
-category: "Algorithm"
-tags: []
+tags: ["string", "leetcode"]
 ---
 
 ---
 title: "[LeetCode] String 科學刷題"
-tags: ["Leetcode", "String"]
+tags: ["leetcode", "string"]
 date: 2025-02-01T00:00:08+08:00
 draft: false
 Categories: Leetcode
 author: "Rain Hu"
 showToc: true
 TocOpen: true
-math: true
 hidemeta: false
 canonicalURL: "https://intervalrain.github.io/"
 disableHLJS: true

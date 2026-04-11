@@ -3,10 +3,7 @@ title: "[IT] Clean Architecture - 重點整理"
 author: "Rain Hu"
 pubDatetime: 2023-09-23T20:03:55+08:00
 description: ""
-category: "IT"
-tags: ["Clean Architecture"]
-math: true
-mermaid: true
+tags: ["clean-architecture"]
 ---
 # 乾淨架構(Clean Architecture) 筆記
 ## 分層
@@ -32,7 +29,7 @@ mermaid: true
 
 ## 單向依賴原則
 + 依賴的方向必為單向且為  
-\\(\boxed{\text{Interface Adapter}} \rightarrow \boxed{\text{Application Layer}} \rightarrow \boxed{\text{Domain Layer}}\\)
+$\boxed{\text{Interface Adapter}} \rightarrow \boxed{\text{Application Layer}} \rightarrow \boxed{\text{Domain Layer}}$
 
 ## Repository
 + Application Layer 為了遵守單向依賴，與 ORM 解耦會做一次依賴反轉，翠取 Repository 介面。

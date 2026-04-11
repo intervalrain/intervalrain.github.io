@@ -3,10 +3,7 @@ title: "[IT] 軟體架構前提 The Software Architecture Premises"
 author: "hgraca"
 pubDatetime: 2023-10-14T01:14:17+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["software-architecture", "architectural-style", "design-principle", "terminology"]
 ---
 
 在這篇文章中，我將建立有關軟體架構的最初概念，這將有助於更好地理解接下來的文章。

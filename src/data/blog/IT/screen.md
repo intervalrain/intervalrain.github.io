@@ -3,10 +3,7 @@ title: "[Linux] Screen command summary"
 author: "Rain Hu"
 pubDatetime: 2025-09-10T11:10:58+08:00
 description: "A simple summary of screen command in linux"
-category: "IT"
-tags: ["Linux", "Screen"]
-math: true
-mermaid: true
+tags: ["linux", "screen"]
 ---
 
 

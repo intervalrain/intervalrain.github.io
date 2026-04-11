@@ -3,10 +3,7 @@ title: "[DXP] 在 spotfire 中創建自定義視覺化工具"
 author: "Rain Hu"
 pubDatetime: 2023-08-14T22:54:55+08:00
 description: "在 spotfire 中創建自定義的視覺化工具"
-category: "Data"
-tags: []
-math: true
-mermaid: true
+tags: ["spotfire", "custom-visualization", "extension-development", "dxp", "csharp"]
 ---
 
 ## 簡介
@@ -31,7 +28,7 @@ The model achieves this dual requirement by overriding two virtual methods defin
 + 覆寫 `GetRenderTriggerCore` 以定義何時需要重新繪製視覺區。
 
 以下範例展示了一個最簡單的 visualization。它有兩個屬性(PropertyName)，代表資料表(data table)和標記(marking)。範例會繪製一個字串，說明在資料表中被標記的行數。
-```Cs
+```csharp
 [Serializable]
 [PersistenceVersion(1, 0)]
 public class MyVisualization : CustomVisualization
@@ -137,7 +134,7 @@ public class MyVisualization : CustomVisualization
 
 ### 建立工廠
 為了創建可視化工具，必須為其指定自定義工廠(custom factory)。該工廠負責創建和初始配置。還包含一些 metadata 如 UI commands 和 type identifier。
-```Cs
+```csharp
 public sealed class MyCustomIdentifiers : CustomTypeIdentifiers
 {
     public static readonly CustomTypeIdentifier MyVisualizationIdentifier =
@@ -175,7 +172,7 @@ internal sealed class MyVisualizationFactory : CustomVisualFactory<MyVisualizati
 
 ### 註冊 Visualization
 最後，視覺化工廠必須在框架中註冊。透過 overrides Add-in 中的 `RegisterVisuals` 完成。
-```Cs
+```csharp
 public sealed class MyVisualizationAddIn : AddIn
 {
     protected override void RegisterVisuals(AddIn.VisualRegistrar registrar)
@@ -192,7 +189,7 @@ public sealed class MyVisualizationAddIn : AddIn
 如果希望任何先前創建的自定義視覺化與新的 API 配合使用，則需要進行轉換。有關更多信息，請參閱[將自定義 Web 視覺化轉換為 CustomVisualView API](https://community.tibco.com/s/article/convert-custom-web-visualization-customvisualview-api-tibco-spotfire-75)。
 
 一個自訂的視圖類別是從基礎類別 CustomVisualView 繼承而來。在 AddIn 類別中，該視圖在 RegisterViews 方法中註冊，例如：
-```Cs
+```csharp
 protected override void RegisterViews(ViewRegistrar registrar)
 {
       base.RegisterViews(registrar);
@@ -203,7 +200,7 @@ protected override void RegisterViews(ViewRegistrar registrar)
 ### 初始化 Visualization
 CustomVisualView 的一個實例可以被視為一個嵌入式 Web 伺服器，通常會提供一個 HTML 檔案，以及一些資源，例如 JavaScript 檔案、圖片等。
 為了初始化視覺化，要 override `GetResourceCore` 方法：
-```Cs
+```csharp
 protected override HttpContent GetResourceCore(string path, NameValueCollection query, MyVisual snapshotNode)
 {
     if (string.IsNullOrEmpty(path))
@@ -231,7 +228,7 @@ protected override HttpContent GetResourceCore(string path, NameValueCollection 
 
 ### 讀取資料
 當「SpotfireLoaded」事件被觸發時，客戶端和伺服器之間的通訊通道就會開啟。在這個例子中，Spotfire.read 函數會從伺服器取回資料。
-```JavaScript
+```javascript
 $(window).on("SpotfireLoaded", function()
     {
         Spotfire.read("GetData", {"argument": "value"}, function(data)
@@ -252,7 +249,7 @@ Spotfire.read 函數需要三個參數：
 + 一個參數物件(argument object)
 + 一個 callback
 在伺服器端，讀取呼叫由ReadCore方法處理：
-```Cs
+```csharp
 protected override string ReadCore(string method, string args, MyVisual snapshotNode)
 {
     if (method.Equals("GetData", StringComparison.OrdinalIgnoreCase))
@@ -269,11 +266,11 @@ protected override string ReadCore(string method, string args, MyVisual snapshot
 
 ### 寫入數據
 當客戶需要修改文件時，例如標記數據時，請使用：
-```JavaScript
+```javascript
 Spotfire.modify("Mark", {'rectangle': someObject});
 ```
 在伺服器端，修改呼叫由 `ModifyCore` 方法處理：
-```Cs
+```csharp
 protected override void ModifyCore(string method, string args, MyVisual liveNode)
 {
     if ("Mark".Equals(method, StringComparison.Ordinal))
@@ -287,7 +284,7 @@ protected override void ModifyCore(string method, string args, MyVisual liveNode
 
 ### 伺服器驅動的互動
 從伺服器端，可以觸發客戶端的事件處理程序，例如：
-```Cs
+```csharp
 protected override void OnUpdateRequiredCore()
 {
     this.InvokeClientEventHandler("render", null);
@@ -296,7 +293,7 @@ protected override void OnUpdateRequiredCore()
 如需更多資訊，請參閱 [OnUpdateRequiredCore](https://docs.tibco.com/pub/doc_remote/sfire_dev/area/doc/api/TIB_sfire-analyst_api/?topic=html/M_Spotfire_Dxp_Application_Extension_CustomVisualView_OnUpdateRequiredCore.htm&_ga=2.219012633.123850125.1692024818-1463462807.1662359000)。
 當客戶端必須更新時，此代碼將運行，通過觸發"渲染"事件。
 在客戶端：
-```JavaScript
+```javascript
 var render = function(data)
 {                
     // Typically call Spotfire.read(...)

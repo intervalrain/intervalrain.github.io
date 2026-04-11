@@ -3,10 +3,7 @@ title: "[IT] 乾淨架構 Clean Architecture"
 author: "hgraca"
 pubDatetime: 2023-10-29T21:11:58+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["clean-architecture", "hexagonal-architecture", "onion-architecture", "ports-and-adapters", "dependency-inversion"]
 ---
 Robert C. Martin (aka Uncle Bob) 在 2012 年在他的[部落格](https://blog.cleancoder.com/uncle-bob/2011/11/22/Clean-Architecture.html)上發表了他對於**乾淨架構**的想法，並在幾個會議上進行了關於乾淨架構的演講。
 

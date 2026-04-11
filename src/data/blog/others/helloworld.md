@@ -1,16 +1,15 @@
 ---
 title: "Hello World"
 author: "Rain Hu"
-pubDatetime: 2022-02-17T15:15:36+08:00
+pubDatetime: 2019-05-28T15:15:36+08:00
 description: "How to hello world?"
-category: "Programming"
-tags: []
+tags: ["hello-world", "programming-languages", "beginner"]
 ---
 
 How to say hello to the world?
 
 ### Java
-```Java
+```java
 class Hello{
     public static void main(String[] args){
         System.out.println("Hello World!");
@@ -19,7 +18,7 @@ class Hello{
 ```
 
 ### C
-```C
+```c
 #include <stdio.h>
 
 int main(){
@@ -29,7 +28,7 @@ int main(){
 ```
 
 ### C++
-```C++
+```cpp
 #include <iostream>
 
 int main(){
@@ -39,7 +38,7 @@ int main(){
 ```
 
 ###C#
-```C#
+```csharp
 namespace HelloWorld{
     class Hello{
         static void Main(String[] args){
@@ -60,7 +59,7 @@ puts 'Hello World!'
 ```
 
 ### TCL Language
-```TCL
+```tcl
 puts "Hello World!"
 ```
 
@@ -122,9 +121,4 @@ _main:
     add   esp, 4
 message:
     db    'Hello World!', 11, 0
-```
-
-### Me
-```
-Hello the fucking world
 ```

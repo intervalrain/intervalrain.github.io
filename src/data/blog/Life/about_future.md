@@ -2,10 +2,8 @@
 title: "[創作] 關於未來"
 author: "陣雨"
 pubDatetime: 2014-03-14T00:01:46+08:00
-description: ""
-category: "Life"
-tags: ["Music", "Create"]
-math: true
+description: "A song written for graduation of my college"
+tags: ["music", "create"]
 ---
 
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%" src="https://www.youtube.com/embed/rlxD01UEuio" frameborder="0" allowfullscreen></iframe></div>

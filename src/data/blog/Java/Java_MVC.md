@@ -3,9 +3,7 @@ title: "[Java] 淺談 Java MVC"
 author: "Rain Hu"
 pubDatetime: 2022-04-29T15:38:18+08:00
 description: "Introduction to Java MVC."
-category: "Programming"
-tags: ["Java"]
-math: true
+tags: ["java"]
 ---
 
 # 前言
@@ -51,7 +49,7 @@ math: true
 ### DI
 + *DI = 依賴注入 Dependency Injection*
 + 一種 coding style，為了未來在維護上能更加的靈活，概念類似：
-```Java
+```java
 // 1
 System.out.println("This is Spring");
 
@@ -108,7 +106,7 @@ public class Family{
 ```
 ### 實例 DI + IoC
 + Dinner
-```Java
+```java
 public class Diner{
     Food food;
     public void getDinner(){

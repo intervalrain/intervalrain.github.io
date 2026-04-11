@@ -3,10 +3,7 @@ title: "[System Design] 系統設計概念與資源 System Design and Resources"
 author: "Ashish Pratap Singh,Rain Hu"
 pubDatetime: 2024-03-26T22:35:38+08:00
 description: "學習系統設計概念的資源"
-category: "Architecture"
-tags: ["System Design", "Programming"]
-math: true
-mermaid: true
+tags: ["system-design", "programming"]
 ---
 # 系統設計的核心概念 System Design Key Concepts
 + 可擴展性(Scalability)

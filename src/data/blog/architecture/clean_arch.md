@@ -3,10 +3,7 @@ title: "[IT] Clean Architecture"
 author: "Rain Hu"
 pubDatetime: 2023-09-29T02:03:47+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["clean-architecture", "solid", "dependency-inversion", "programming-paradigm", "software-design"]
 ---
 # 乾淨架構
 ## 設計(design)與架構(architecture)為何重要？
@@ -116,7 +113,7 @@ mermaid: true
 ![dependencyFlow](/clean_arch/images/dependencyFlow.png)
 
 ### 穩定性指標
-\\(I=\frac{\text{fan-out}}{\text{fan-in + fan-out}}\\)
+$I=\frac{\text{fan-out}}{\text{fan-in + fan-out}}$
 
 #### 不是所有的組件都應該是穩定的
 + 如果系統中的所有組件都是極度穩定的，代表系統是不可改變的，這並非理想的情況。
@@ -130,9 +127,9 @@ mermaid: true
 + SAP 與 SDP 的結合就是組件的 DIP。
 ### 測量抽象性 A 指標
 + A 指標是衡量元件抽象程度的方方
-+ \\(N_c\\) 是組件中類別的數量。
-+ \\(N_a\\) f是組件中的抽象類別和介面的數量
-+ \\(A=\frac{N_a}{N_c}\\) 抽象度。
++ $N_c$ 是組件中類別的數量。
++ $N_a$ f是組件中的抽象類別和介面的數量
++ $A=\frac{N_a}{N_c}$ 抽象度。
 ![abstractions](/clean_arch/images/Abstractions.png)
 + 在上圖的座標中，愈穩定且抽象的組件位於左上角(0,1)、愈不穩定且具體的組件位於右下角(1,0)。
 + 我們無法強制所有元件均位於 (0,1) 或 (1,0)，而是定義元件合理的位置，並找出元件不應該出現的區域。
@@ -145,4 +142,4 @@ mermaid: true
         + 好的組件位在這條線上，對其穩定性並不太抽象，也不會因其抽象性而變得太不穩定。
         + 抽象程度決定了它的依賴性；具體性決定了它對他人的依賴程度。
 + 與主序線的距離，為元件的 D 指標，介 0~1 之間，任何不接近 0 的元件都可以被重新檢視和重組。
-    + \\(D=|A+I-1|\\)
+    + $D=|A+I-1|$

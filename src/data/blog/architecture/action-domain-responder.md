@@ -3,10 +3,7 @@ title: "[IT] Action-Domain-Responder(ADR) 架構"
 author: "hgraca"
 pubDatetime: 2023-10-19T22:43:08+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["adr", "mvc-variant", "rest-api", "web-architecture", "design-pattern"]
 ---
 這篇文章將討論 MVC 的另一種變體：由 Paul M. Jones 創建的 Action-Domain-Responder。
 

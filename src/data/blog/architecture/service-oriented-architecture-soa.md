@@ -3,10 +3,7 @@ title: "[IT] 服務導向的架構 Service Oriented Architecture (SOA)"
 author: "hgraca"
 pubDatetime: 2023-11-02T22:32:25+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["soa", "service-oriented-architecture", "corba", "distributed-computing", "microservices"]
 ---
 The SOA Style has been around since the late 1980s and has its origins in ideas introduced by CORBA, DCOM, DCE and others. Much has been said about SOA, and there are a few different implementation patterns but, in essence, SOA focuses on only a few concepts and doesn’t give any prescription on how to implement them:
 SOA風格自 1980 年代晚期便一直存在，其起源於 CORBA、DCOM、DCE 等等。關於 SOA 已經有很多討論，且有許多不同的實作，但本質上，SOA 只關注少數幾個概念，而且指引我們如何去實作：

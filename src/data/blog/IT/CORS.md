@@ -3,10 +3,7 @@ title: "[IT] CORS 跨原始來源要求"
 author: "Rain Hu"
 pubDatetime: 2024-01-19T00:41:51+08:00
 description: ""
-category: "IT"
-tags: ["C#"]
-math: true
-mermaid: true
+tags: ["csharp"]
 ---
 
 ## TL;DR

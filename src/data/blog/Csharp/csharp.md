@@ -3,10 +3,7 @@ title: "[C#] C# 筆記"
 author: "Rain Hu"
 pubDatetime: 2023-02-28T18:49:39+08:00
 description: "Notes for C#"
-category: "Programming"
-tags: ["C#"]
-math: true
-mermaid: true
+tags: ["csharp"]
 ---
 ### C#2
 #### [Generic 泛型](/csharp/generic)

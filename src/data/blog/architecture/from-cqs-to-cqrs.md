@@ -3,10 +3,7 @@ title: "[IT] 從 CQS 到 CQRS"
 author: "hgraca"
 pubDatetime: 2023-11-01T23:29:40+08:00
 description: ""
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["cqrs", "cqs", "command-pattern", "event-sourcing", "software-architecture"]
 ---
 當我們有一個以數據為中心的應用程式，即只實現基本的 CRUD 操作，並將業務流程（即要更改的數據和更改的順序）留給用戶時，好處是用戶可以在不需要更改應用程式的情況下更改業務流程。另一方面，這意味著所有用戶都需要知道所有可以使用該應用程式執行業務流程的所有細節，這在沒有明確的規範且有大量人員參與其中時，將會是一個大問題。
 

@@ -3,9 +3,7 @@ title: "[IT] SQL"
 author: "Rain Hu"
 pubDatetime: 2022-09-01T13:28:14+08:00
 description: "Base command of SQL"
-category: "IT"
-tags: ["SQL"]
-math: true
+tags: ["sql"]
 ---
 
 # Introduction
@@ -21,7 +19,7 @@ math: true
 + The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.
 
 # Syntax
-```SQL
+```sql
 SELECT * FROM Customers;
 ```
 + SQL keywords are NOT case sensitive.
@@ -43,7 +41,7 @@ SELECT * FROM Customers;
 ## SELECT
 + The `SELECT` statement is used to select data from a database.  
 The data returned is stored in a result table, called the result-set.
-```SQL
+```sql
 SELECT column1, column2, ...
 FROM table_name;
 ```
@@ -51,7 +49,7 @@ FROM table_name;
 ## SELECT DISTINCT
 + The `SELECT DINSTINCT` statement is used to return only distinct (different) values.  
 Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.
-```SQL
+```sql
 SELECT DISTINCT column1, column2, ...
 FROM table_name;
 ```
@@ -59,13 +57,13 @@ FROM table_name;
 ## WHERE
 + The `WHERE` clause is used to filter records.  
 It is used to extract only those records that fultill a specified condition.
-```SQL
+```sql
 SELECT column1, column2, ...
 FROM table_name
 WHERE condition;
 ```
 + Operators can be used in the `WHERE` clause: 
-\\(\begin{array}{|c|l|}\hline
+$\begin{array}{|c|l|}\hline
 \text{Operator}&\text{Description}\\\\\hline
 \text{=}&\text{Equal}\\\\\hline
 \text{>}&\text{Greater than}\\\\\hline
@@ -76,7 +74,7 @@ WHERE condition;
 \text{BETWEEN}&\text{Between a certain range}\\\\\hline
 \text{LIKE}&\text{Search for a pattern}\\\\\hline
 \text{IN}&\text{To specify multiple possible values for a column}\\\\\hline
-\end{array}\\)
+\end{array}$
 
 ## AND, OR, NOT
 + THE `WHERE` clause can be combined with `AND`, `OR`, and `NOT` operators.  
@@ -84,7 +82,7 @@ The `AND` and `OR` operators are used to filter records based on more than one c
     + The `AND` operator displays a record if all the conditons separated by `AND` are TRUE.
     + The `OR` operator displays a record if any of the conditons separated by `OR` is TRUE.
     + THE `NOT` operator display a record if the condition(s) it NOT TRUE.
-```SQL
+```sql
 SELECT column1, column2, ...
 FROM table_name;
 WHERE NOT condition1 AND condition2 OR condition3 ...;
@@ -94,7 +92,7 @@ WHERE NOT condition1 AND condition2 OR condition3 ...;
 + The `ORDER BY` keyword is used to sort the result-set in ascending or descending order.
 + The `ORDER BY` keyword sorts the records in ascending order by default.  
 To sort the records in descending order, used `DESC` keyword.
-```SQL
+```sql
 SELECT column1, column2, ...
 FROM table_name
 ORDER BY column1, column2, ... ASC|DESC;
@@ -103,12 +101,12 @@ ORDER BY column1, column2, ... ASC|DESC;
 ## INSERT INTO
 + The `INSERT INTO` statement is used to insert new records in a table.
 1. Specify both the column names and the values to be inserted: 
-```SQL
+```sql
 INSERT INTO table_name (column1, column2, column3, ...)
 VALUES (value1, value2, value3, ...);
 ```
 2. If you are adding values for all the columns of the table, you do not need to specify the column names in the SQL query. However, make sure the order of the values is in the same order as the columns in the table. Here, the `INSERT INTO` syntax would be as follows:
-```SQL
+```sql
 INSERT INTO table_name
 VALUES (value1, value2, value3, ...);
 ```
@@ -121,7 +119,7 @@ VALUES (value1, value2, value3, ...);
 
 + How to test for NULL Values?
     + Use the `IS NULL` and `IS NOT NULL` operators.
-```SQL
+```sql
 SELECT column_names
 FROM table_name
 WHERE column_name IS NULL|IS NOT NULL;
@@ -129,7 +127,7 @@ WHERE column_name IS NULL|IS NOT NULL;
 
 ## UPDATE
 + The `UPDATE` statement is used to modify the existing records in a table.
-```SQL
+```sql
 UPDATE table_name
 SET columns1 = value1, column2 = value2, ...
 WHERE condition;
@@ -137,7 +135,7 @@ WHERE condition;
 
 ## DELETE
 + The `DELETE` statement is used to delete existing records in a table.
-```SQL
+```sql
 DELETE FROM table_name 
 WHERE condition;
 ```
@@ -152,20 +150,20 @@ MySQL supports the `LIMIT` clause to select a limited number of records,
 while Oracle uses `FETCH FIRST n ROWS ONLY` and `ROWNUM`.
 
 + **SQL Server/Ms Access:**
-```SQL
+```sql
 SELECT TOP number|percent column_names(s)
 FROM table_name
 WHERE condition;
 ```
 + **MySQL:**
-```SQL
+```sql
 SELECT column_names(s)
 FROM table_name
 WHERE condition
 LIMIT number;
 ```
 + **Oracle 12:**
-```SQL
+```sql
 SELECT column_names(s)
 FROM table_name
 ORDER BY column_name(s)
@@ -173,14 +171,14 @@ FETCH FIRST number ROWS only;
 ```
 
 + **Older Oracle:**
-```SQL
+```sql
 SELECT column_names(s)
 FROM table_name
 WHERE ROWNUM <= number;
 ```
 
 + **Older Oracle(with ORDER BY)**
-```SQL
+```sql
 SELECT *
 FROM (
     SELECT column_name(s)
@@ -192,14 +190,14 @@ WHERE ROWNUM <= number;
 
 ## MIN()
 + The `MIN()` function returns the smallest value of the selected column.
-```SQL
+```sql
 SELECT MIN(column_name)
 FROM table_name
 WHERE condition;
 ```
 ## MAX()
 + The `MAX()` function returns the largest value of the selected column.
-```SQL
+```sql
 SELECT MAX(column_name)
 FROM table_name
 WHERE condition;
@@ -207,7 +205,7 @@ WHERE condition;
 
 ## COUNT()
 + The `COUNT()` function returns the number of rows that matches a specified criterion.
-```SQL
+```sql
 SELECT COUNT(column_name)
 FROM table_name
 WHERE condition;
@@ -215,14 +213,14 @@ WHERE condition;
 
 ## AVG()
 + The `AVG()` function returns the average value of a numeric column.
-```SQL
+```sql
 SELECT AVG(column_name)
 FROM table_name
 WHERE condition;
 ```
 ## SUM()
 + The `SUM()` function returns the total sum of a numeric column.
-```SQL
+```sql
 SELECT SUM(column_name)
 FROM table_name
 WHERE condition;
@@ -235,7 +233,7 @@ WHERE condition;
     + The underscore sign(_) represents one, single character
 > *Note:* Ms Access uses an asterisk(*) instead of the percent sign(%), and a question mark(?) instead of the underscore(_).
 
-```SQL
+```sql
 SELECT column1, column2
 FROM table_name
 WHERE columnN LIKE '_a%';
@@ -267,13 +265,13 @@ Wildcard characters are used with `LIKE` operator. The `LIKE` operator is used i
 ## IN
 + The `IN` operator allows you to specify multiple values in a `WHERE` clause.  
 The `IN` operator is a short hand for multiple `OR` conditinos.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name
 WHERE column_name IN (value1, value2, ...);
 ```
 or
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name
 WHERE column_name IN (SELECT STATEMENT);
@@ -282,7 +280,7 @@ WHERE column_name IN (SELECT STATEMENT);
 ## BETWEEN
 + The `BETWEEN` operator selects values within a given range. The values can be numbers, text, or dates.  
 The `BETWEEN` operator is **inclusive**: begin and end values are included.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name
 WHERE column_name BETWEEN value1 AND value2;
@@ -295,13 +293,13 @@ An alias only exists for the duration of that query.
 An alias is created with the `AS` keyword.
 
 + Alias Column Syntax
-```SQL
+```sql
 SELECT column_name AS alias_name
 FROM table_name;
 ```
 
 + Alias Table syntax
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name AS alias_name;
 ```
@@ -323,7 +321,7 @@ FROM table_name AS alias_name;
 |2|Ana Trujillo Emparedados y helados|Ana Trujillo|Mexico|
 |3|Antonio Moreno Taqueria|Antonio Moreno|Mexico|
 
-```SQL
+```sql
 SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
 FROM Orders
 INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
@@ -345,7 +343,7 @@ INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
 
 ## INNER JOIN
 + The `INNER JOIN` keyword selects records that have matching values in both tables.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table1
 INNER JOIN table2
@@ -354,7 +352,7 @@ ON table1.column_name = table2.column_name;
 
 ## LEFT JOIN
 + The `LEFT JOIN` keyword returns all records from the left table(table1), and the matching records from the right table(table2). The result is 0 records from the right side, if there is no match.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table1
 LEFT JOIN table2
@@ -363,7 +361,7 @@ ON table1.column_name = table2.column_name;
 
 ## RIGHT JOIN (RIGHT OUTER JOIN)
 + The `RIGHT JOIN` keyword returns all records from the right table(table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table1
 RIGHT JOIN table2
@@ -372,7 +370,7 @@ ON table1.column_name = table2.column_name;
 
 ## FULL JOIN (FULL OUTER JOIN)
 + The `FULL JOIN` keyword returns all records when there is a match in left(table1) or right (table2) table records.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table1
 FULL JOIN table2
@@ -382,7 +380,7 @@ WHERE condition;
 
 ## Self Join
 + A self join is a regular join, but the table is joined with itself.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table1 T1, table1 T2
 WHERE condition;
@@ -395,7 +393,7 @@ WHERE condition;
 |2|Ana Trujillo Emparedados y helados|Ana Trujillo|Avda. de la Constitución 2222|México D.F.|05021|Mexico|
 |3|Antonio Moreno Taquería|Antonio Moreno|Mataderos 2312|México D.F.|05023|Mexico|
 
-```SQL
+```sql
 SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
 FROM Customers A, Customers B
 WHERE A.CustomerID <> B.CustomerID
@@ -408,13 +406,13 @@ ORDER BY A.City;
     + Every `SELECT` statement within `UNION` must have the same number of columns
     + The columns must also have similar data types
     + The columns in every `SELECT` statement must also be in the same order.
-```SQL
+```sql
 SELECT column_name(s) FROM table1
 UNION
 SELECT column_name(s) FROM table2
 ```
 + The `UNION` operator selects only distinct values by default. To allow deuplicate values, use `UNION ALL`:
-```SQL
+```sql
 SELECT column_name(s) FROM table1
 UNION ALL
 SELECT column_name(s) FROM table2
@@ -424,7 +422,7 @@ SELECT column_name(s) FROM table2
 ## GROUP BY
 + The `GROUP BY` statement groups rows that have the same values into summary rows, like "find the number of customers in each country".
 + The `GROUP BY` statment is often used with aggregate functions (`COUNT()`,`MAX()`,`MIN()`,`SUM()`,`AVG()`) to group the result-set by one ore more columns.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name
 WHERE condition
@@ -434,7 +432,7 @@ ORDER BY column_name(s);
 
 ## HAVING
 + The `HAVING` clause was added to SQL because the `WHERE` keyword cannot be used with aggregate functions.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name
 WHERE conditon
@@ -443,7 +441,7 @@ HAVING condition
 ORDER BY column_name(s);
 ```
 + **Sample**
-```SQL
+```sql
 SELECT COUNT(CustomerID), Country
 FROM Customers
 GROUP BY Country
@@ -452,7 +450,7 @@ HAVING COUNT(CustomerID) > 5;
 ## EXISTS
 + The `EXISTS` operator is used to test for the existence of any record in a subquery.
 + The `EXISTS` operator returns TRUE if the subquery returns one or more records.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name
 WHERE EXISTS
@@ -467,7 +465,7 @@ WHERE EXISTS
     + returns a boolean value as a result
     + returns TRUE if ANY of the subquery values meet the condition
 + `ANY` means that the conditon will be true if the operation is true for any of the values in the range.
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name
 WHERE column_name(s) opeartor ANY
@@ -481,13 +479,13 @@ WHERE column_name(s) opeartor ANY
     + returns TRUE if ALL of the subquery values meet the conditon
     + is used with `SELECT`, `WHERE` and `HAVING` statements
 + `ALL` means that the conditon will be true only if the operation is true for all values in the range.
-```SQL
+```sql
 SELECT ALL column_name(s)
 FROM table_name
 WHERE conditon
 ```
 + syntax with `WHRER` or `HAVING`
-```SQL
+```sql
 SELECT column_name(s)
 FROM table_name
 WHERE column_name operator ALL
@@ -500,14 +498,14 @@ WHERE column_name operator ALL
 + The `SELECT INTO` statement copies data from one table into a new table.
 
 + **Copy all columns into a new table:**
-```SQL
+```sql
 SELECT *
 INTO newtable [IN externaldb]
 FROM oldtable
 WHERE condition
 ```
 + **Copy only some columns into a new table:**
-```SQL
+```sql
 SELECT column1, column2, column3, ...
 INTO new table [IN externaldb]
 FROM oldtable
@@ -519,14 +517,14 @@ WHERE condition;
 > *Note:* The existing records in the target table are unaffected.
 
 + **Copy all columns from one table to another table:**
-```SQL
+```sql
 INSERT INTO table2
 SELECT * FROM table1
 WHERE condition
 ```
 
 + **Copy only some columns from one table into another table:**
-```SQL
+```sql
 INSERT INTO table2 (column1, column2, column3, ...)
 SELECT column1, column2, column3, ...
 FROM table1
@@ -536,7 +534,7 @@ WHERE condition
 + The `CASE` expression goes through conditions and returns a value when the first condition is met (like an if-then-else statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the `ELSE` cluase.
 + If there is no `ELSE` part and no condtions are true, it retures NULL.
 
-```SQL
+```sql
 CASE
     WHEN conditon1 THEN result1
     WHEN conditon2 THEN result2
@@ -556,46 +554,46 @@ END
 
 + **MySQL**
 1. `INFULL()`
-```SQL
+```sql
 SELECT ProductName, UnitPrice * (UnitsInStock + 
 IFNULL(UnitsOnOrder, 0))
 FROM Products;
 ```
 2. `COALESCE()`
-```SQL
+```sql
 SELECT ProductName, UnitPrice * (UnitsInStock + 
 COALESCE(UnitsOnOrder, 0))
 FROM Products;
 ```
 + **SQL Server**
 1. `ISNULL()`
-```SQL
+```sql
 SELECT ProductName, UnitPrice * (UnitsInStock + 
 ISNULL(UnitsOnOrder, 0))
 FROM Products;
 ```
 2. `COALESCE()`
-```SQL
+```sql
 SELECT ProductName, UnitPrice * (UnitsInStock + 
 COALESCE(UnitsOnOrder, 0))
 FROM Products;
 ```
 + **MS Access**
 1. `IsNULL()`
-```SQL
+```sql
 SELECT ProductName, UnitPrice * (UnitsInStock + 
 IIF(IsNull(UnitsOnOrder), 0, UnitsOnOrder))
 FROM Products;
 ```
 + **Oracle**
 1. `NVL()`
-```SQL
+```sql
 SELECT ProductName, UnitPrice * (UnitsInStock + 
 NVL(UnitsOnOrder, 0))
 FROM Products;
 ```
 2. `COALESCE()`
-```SQL
+```sql
 SELECT SELECT ProductName, UnitPrice * (UnitsInStock +
 COALESCE(UnitsOnOrder, 0))
 FROM Products;
@@ -608,7 +606,7 @@ FROM Products;
 + You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
 
 **Stored Procedure Syntax**
-```SQL
+```sql
 CREATE PROCEDURE procedure_name
 AS
 sql_statement
@@ -616,7 +614,7 @@ GO;
 ```
 
 ** Execute as Stored Procedure
-```SQL
+```sql
 EXEC procedure_name;
 ```
 ## Comments

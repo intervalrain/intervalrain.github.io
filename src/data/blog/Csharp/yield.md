@@ -3,10 +3,7 @@ title: "[C#] Yield Return"
 author: "Rain Hu"
 pubDatetime: 2023-01-01T21:40:25+08:00
 description: "Introduction to yield return in C#, and the background of IEnumerable and IEnumerator "
-category: "Programming"
-tags: ["C#", "C"]
-math: true
-mermaid: true
+tags: ["csharp", "c"]
 ---
 # C# 中的 Yield Return 與 `IEnumerable<T>`
 > 在使用過 `C#` 與 `Java` 兩種語言之後會發現，`Java` 為了跨平台的特性，鮮少修改 VM 規格，相較 `.NET` 為了語法簡潔，編譯器往往會做出讓步，也因此 `C#` 比起 `Java` 多了許多語法糖。如 `delegate` 等，在這邊預留一些內容到下一次寫，今天專注於 `yield return` 與 `IEnumerable`。
@@ -16,7 +13,7 @@ mermaid: true
 > **1. 目標**：依序印出 1 ~ 100 的數字  
 
 一般來說，若要做到以上的目標，只需要用到簡單的 `for_loop` 即可。
-```C#
+```csharp
 static void Main(string[] args)
 {
     for (int i = 1; i <= 100; i++) 
@@ -30,7 +27,7 @@ static void Main(string[] args)
     + 在 `Design Patterns` 中有一種設計模式叫作 `Iterator`，它的目的就是要在：  
 **不需要知道物件的內部細節，即可依序存取內含的每一個元素。**
     + `IEnumerator` 物件的實作：
-        ```C#
+        ```csharp
         public class Enumerator1 : IEnumerator<int>
         {
             private int _start;
@@ -67,7 +64,7 @@ static void Main(string[] args)
         }
         ```
     + 於是，我們若要遍歷這個物件的內容，只需要：
-        ```C#
+        ```csharp
         static void Main(string[] args)
         {
             Enumerator1 e = new Enumerator1(1, 100);
@@ -82,7 +79,7 @@ static void Main(string[] args)
 > **2. 目標**：依序印出 1 ~ 100 中的質數  
 
 使用一般的 `for_loop` 來實現的話會是：
-```C#
+```csharp
     static void Main(string[] args)
     {
         for (int i = 1; i <= 100; i++) {
@@ -101,7 +98,7 @@ static void Main(string[] args)
 ```
 會發現，`Iteration` 與 `Process` 已經混在一起。  
 那用 `IEnumerator` 來實作呢?
-```C#
+```csharp
 class Test
 {
     public class PrimeEnumerator : IEnumerator<int>
@@ -167,7 +164,7 @@ class Test
 }
 ```
 則要遍歷這個物件，跟原本的程式完全一樣：
-```C#
+```csharp
     static void Main(string[] args)
     {
         PrimeEnumerator e = new PrimeEnumerator(1, 100);
@@ -178,7 +175,7 @@ class Test
 ```
 ### IEnumerable 實作
 + 但是若要作到 Process 與 Iteration 分離，每次都要 Implement IEnumerator，那也太累了吧，於是就有了 `IEnumerable` 這個語法糖：
-```C#
+```csharp
 class PrimeArray
 {
     static bool isPrime(int num) 

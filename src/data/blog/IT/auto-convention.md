@@ -3,10 +3,7 @@ title: "EdgeSync ServiceFramework AspNetCore.Mvc"
 author: "Rain Hu"
 pubDatetime: 2025-07-07T16:55:57+08:00
 description: "EdgeSync ServiceFramework AspNetCore.Mvc 提供了一個強大的框架，用於在 ASP.NET Core 應用程式中自動化 NATS 通訊模式的配置。框架支援兩種主要的通訊模式：**Request/Response** 和 **Pub/Sub**，並可搭配 NATS JetStream 或 Classic NATS 使用。"
-category: "Messaging"
-tags: ["C#", "Programming"]
-math: true
-mermaid: true
+tags: ["csharp", "programming"]
 ---
 
 # EdgeSync ServiceFramework AspNetCore.Mvc

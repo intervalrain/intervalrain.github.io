@@ -3,10 +3,7 @@ title: "[IT] Clean Architecture - 第1章 - 設計與架構到底是什麼"
 author: "Rain Hu"
 pubDatetime: 2023-09-03T23:14:07+08:00
 description: "What is design and architecture?"
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["clean-architecture", "software-design", "software-maintenance", "robert-c-martin"]
 ---
 ![ch1](/clean_arch/images/ch1.png)
 # Ch1. 設計與架構到底是什麼？

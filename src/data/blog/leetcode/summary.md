@@ -3,10 +3,7 @@ title: "[Leetcode] Arrangement"
 author: "Rain Hu"
 pubDatetime: 2023-10-06T16:30:47+08:00
 description: ""
-category: "Algorithm"
-tags: ["Data Structure"]
-math: true
-mermaid: true
+tags: ["data-structure"]
 ---
 |題號|題目|類別|題解|
 |:---|:---|:---|:---|

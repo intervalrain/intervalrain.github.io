@@ -3,10 +3,7 @@ title: "[IT] Clean Architecture - 第3章 - 程式設計範式總覽"
 author: "Rain Hu"
 pubDatetime: 2023-09-07T22:07:54+08:00
 description: "paradigm overview"
-category: "Architecture"
-tags: []
-math: true
-mermaid: true
+tags: ["clean-architecture", "programming-paradigm", "structured-programming", "oop", "functional-programming"]
 ---
 ![ch3](/clean_arch/images/ch3.png)
 # ch3. 程式設計範式總覽

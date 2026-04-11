@@ -3,9 +3,7 @@ title: "[VHDL] Verilog Hardware Description Language"
 author: "Rain Hu"
 pubDatetime: 2022-05-01T17:37:22+08:00
 description: "computer, computer languages, digital systems, electronic systems, hardware, hardward description languages, hardware design, HDL, PLI, programming language interface, Verilog, Verilog HDL, Verilog PL"
-category: "Hardware"
-tags: ["Programming"]
-math: true
+tags: ["programming"]
 ---
 # 1 Verilog HDL
 ## 1.1 Verilog 簡介
@@ -58,7 +56,7 @@ math: true
         + Bottom-up：元件→子模組→設計目標
         + Top-Down：設計目標→子模組→元件
         + Mixed：設計目標→子模組←元件(常用於大型複雜系統)
-            + \\(
+            + $
                 \boxed{\text{Full Adder}}
                 \begin{cases}
                     \boxed{\text{Half Adder}}
@@ -74,7 +72,7 @@ math: true
                     \boxed{\text{OR}}
                 \end{cases}\\\\
                 \text{設計目標}\qquad\qquad\text{子模組}\qquad\text{元件}
-            \\)
+            $
 ## 1.3 Verilog 語法詞彙
 + 由一連串的標記(token)所組成
     + 識別字(identifiers)
@@ -106,7 +104,7 @@ math: true
 + 所有關鍵字都必須使用小寫表示
 + 不可當作識別字使用
 + 常見關鍵字
-    \\(\begin{array}{|l|l|l|l|l|l|}\hline
+    $\begin{array}{|l|l|l|l|l|l|}\hline
         \text{always}&\text{and}&\text{assign}&\text{begin}&\text{buf}&\text{bufif0}\\\\\hline
         \text{bufif1}&\text{case}&\text{casex}&\text{casez}&\text{cmos}&\text{default}\\\\\hline
         \text{defparam}&\text{else}&\text{end}&\text{endcase}&\text{endfunction}&\text{endmodule}\\\\\hline
@@ -121,7 +119,7 @@ math: true
         \text{tranif0}&\text{tranif1}&\text{tri}&\text{tri0}&\text{tri1}&\text{triand}\\\\\hline
         \text{trior}&\text{trireg}&\text{wait}&\text{wand}&\text{weak0}&\text{weak1}\\\\\hline
         \text{while}&\text{wire}&\text{wor}&\text{xnor}&\text{xor}\\\\\hline
-    \end{array}\\)
+    \end{array}$
 ### 1.3.3 字串(strings)
 + 一連串字元(character)組成的單一個體
 + 可含有字母、數字、及一些特殊字元
@@ -170,14 +168,14 @@ math: true
             + `'o723`：32 bits 的八進位數 723
             + `'b11101`：32 bits 的二進位數 11101
 + Verilog 有四種數值位準(value level)
-    + \\(\begin{array}{|c|l|}\hline
+    + $\begin{array}{|c|l|}\hline
             \text{數值位準}&\text{實際電路狀態}\\\\\hline
             \text{0}&\text{邏輯0，假(false)，接地}\\\\\hline
             \text{1}&\text{邏輯1，真(true)，接壓電源}\\\\\hline
             \text{x}&\text{不確定值(unknown value)}\\\\\hline
             \text{z}&\text{高阻抗(high impedance)，浮接狀態(floating state)}\\\\\hline
         \end{array}
-    \\)
+    $
 
 ## 1.4 Verilog 資料物件與型態
 + 資料物件(data objects)
@@ -194,7 +192,7 @@ math: true
     + 多位元長度的向量(vector)
     + 內定值為 `z`(高阻抗、浮接)
 + 宣告方式
-    ```Verilog
+    ```verilog
     wire w;         // 宣告一條接線，命名為w，內定預設值為z
     wire x = 1'b0;  // 宣告一條接線，命名為x，並指定x為邏輯0
     wire a, b, c    // 宣告三條接線，命名為a, b, c
@@ -207,17 +205,17 @@ math: true
     + 一個位元的純量(scalar)
     + 多位元長度的向量(vector)
     + 內定值為 `x`(未知)
-+ \\(\begin{array}{|l|l|}\hline
++ $\begin{array}{|l|l|}\hline
     \text{reg}&\text{可變動位元寬度的無號整數(unsigned integer variable)}\\\\\hline
     \text{integer}&\text{32位元寬度的有號整數(signed 32-bit integer variable)，}\\\\
     &\text{算術運算產生2補數結果(2's complement results))}\\\\\hline
     \text{real}&\text{雙倍精確度之有號浮點數}\\\\
     &\text{(signed floating-point variable with double precision)}\\\\\hline
     \text{time}&\text{64位元寬度的無號整數(unsigned 64-bit integer variable)}\\\\\hline
-    \end{array}\\)
+    \end{array}$
     + 設計電路請以`reg`為主，其他類型合成器可能不支援。
 + 宣告方式
-    ```Verilog
+    ```verilog
     reg a;          // 宣告 1 個 1 位元暫存器為 a，定位值為 1 位元的 x
     reg x, y;       // 宣告 2 個宣存器，命名為 x, y
     integer count;  // 宣告 1 個整數為 count，值可以為正負
@@ -232,7 +230,7 @@ math: true
     + 內定一位元
     + `[大數字:小數字]`、`[小數字:大數字]`→`[MSB:LSB]`
 + 宣告方式
-    ```Verilog
+    ```verilog
     wire a;         // 宣告 1 個 1-bits 接線
     wire [4:0] x;   // 宣告 1 個 5-bits 接線
     reg b;          // 宣告 1 個 1-bits 暫存器
@@ -247,7 +245,7 @@ math: true
 + 陣列中暫存器、接線的個數
     + `[大數字:小數字]`、`[小數字:大數字]`
 + 宣告方式
-    ```Verilog
+    ```verilog
     // mem_block 是一個包含 128 個暫存器的陣列，
     // 每個暫存器皆為 32 位元寬
     reg [31:0] mem_block [127:0];
@@ -261,7 +259,7 @@ math: true
 + 重複使用
 + 關鍵字 `parameter`
 + 宣告方式
-    ```Verilog
+    ```verilog
     parameter width = 4;
     wire [width-1:0] a, b;  // 接線 a 和 b 的位元寬度，會隨著參數值的改變而變動
     reg [width-1:0] y;      // 暫存器 y 的位元寬度，會隨著參數值的改變而變動
@@ -287,7 +285,7 @@ math: true
     + 再來是**輸入與輸出埠列**(module terminal list)和埠列宣告，接著是模組內部關於電路的描述
     + 以關鍵字 `endmodule` 做為模組結尾
     + 支援階層`式的設計概念
-    ```Verilog
+    ```verilog
     module module_name(terminal_list)
     port_declaration(...)
     param_declaration(optional)
@@ -308,7 +306,7 @@ math: true
     + 埠的宣告型態內定為接線(net)的 `wire`，若需要將訊號儲存起來則埠號型態須宣告成暫存器 `reg`。
     + 輸入埠和雙向埠只能是接線(net)，**不可宣告成暫存器**。
     + 輸出埠可以宣告成接線(net)或暫存器。
-    ```Verilog
+    ```verilog
     module full_adder(a, b, carry, sum);    // 埠列
     input  [3:0] a, b;                      // 輸入埠(4位元向量)
     input  carry                            // 輸入埠(1位元純量)
@@ -334,7 +332,7 @@ math: true
     輸出必須透過接線(wire)連接，輸入無規定
 + 多個輸入邏輯閘的別名可以加或是不加
 + 使用方法
-    ```Verilog
+    ```verilog
     gate_type instance(out, in_1, in_2, in_3, ..., in_n);
     gate_type inst_1(out_1, in1_1, in1_2, in1_3, ..., in1_n),
               inst_2(out_2, in2_1, in2_2, in2_3, ..., in2_n),
@@ -342,20 +340,20 @@ math: true
               ...
               inst_m(out_m, in_m1, in_m2, in_m3, ..., in_mn);
     ```
-+ \\(\begin{array}{ccc}
++ $\begin{array}{ccc}
     \underbrace{\text{a, b, c, d}}_{\text{輸入}}
     \rightarrow 
     \boxed{\text{Multiple-Input Gate}}
     \rightarrow
     \underbrace{\text{e}} _{\text{輸出}}
     \end{array}
-    \\)
-+ \\(\text{and\quad a1(}
+    $
++ $\text{and\quad a1(}
      \underbrace{\text{e}}_{\text{輸出}}
      \text{, }
      \underbrace{\text{a, b, c, d}} _{\text{輸入}}
      \text{);}
-     \\)
+     $
 ### 1.6.2 多個輸出邏輯閘(Multiple-Output Gates)
 + `not`、`buf`
 + 具有一個或是多個純量(scalar)的輸出，但是只有一個純量的輸入
@@ -363,7 +361,7 @@ math: true
     + 輸出必須透過接線(wire)連接，輸入無規定
 + 多個輸出邏輯閘的別名可以加或是不加
 + 使用方法
-    ```Verilog
+    ```verilog
     gate_type instance(out_1, out_2, out_3, ..., out_n, in);
     gate_type inst_1(out1_1, out1_2, out1_3, ..., out1_n, in1),
               inst_2(out2_1, out2_2, out2_3, ..., out2_n, in2),
@@ -371,24 +369,24 @@ math: true
               ...
               inst_m(out_m1, out_m2, out_m3, ..., out_mn, in_m);
     ```
-+ \\(\begin{array}{ccc}
++ $\begin{array}{ccc}
     \underbrace{\text{d}}_{\text{輸入}}
     \rightarrow 
     \boxed{\text{Multiple-Output Gate}}
     \rightarrow
     \underbrace{\text{a, b, c}} _{\text{輸出}}
     \end{array}
-    \\)
-+ \\(\text{not\quad n1(}
+    $
++ $\text{not\quad n1(}
      \underbrace{\text{a, b, c}}_{\text{輸出}}
      \text{, }
      \underbrace{\text{d}} _{\text{輸入}}
      \text{);}
-     \\)
+     $
 
 + 邏輯閘層次模型範例
     + ![sample1](/Verilog/images/sample1.png)
-        ```Verilog
+        ```verilog
         module and_or_gate(in1, in2, in3, in4, out;
         
         input  in1, in2, in3, in4;

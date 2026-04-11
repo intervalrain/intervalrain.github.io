@@ -3,9 +3,7 @@ title: "[Washam] Way to SWE"
 author: "Rain Hu"
 pubDatetime: 2019-05-25T22:35:48+08:00
 description: "a study plan to be a software engineer"
-category: "Programming"
-tags: ["Life"]
-math: true
+tags: ["life"]
 ---
 
 # Coding Interview University

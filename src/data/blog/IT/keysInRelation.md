@@ -3,10 +3,7 @@ title: "[IT] 關聯模式的五大鍵 Super key、Candidate Key、Primary Key、
 author: "Rain Hu"
 pubDatetime: 2023-05-11T21:50:43+08:00
 description: "關聯模式的五大鍵介紹"
-category: "IT"
-tags: ["SQL", "database"]
-math: true
-mermaid: true
+tags: ["sql", "database"]
 ---
 ### 關聯模式的條件
 + 關聯模式可以比實體關係模式(ERM)更精準的描述資料，他有幾個條件必須滿足：

@@ -3,10 +3,7 @@ title: "[IT] HTML + CSS"
 author: "Rain Hu"
 pubDatetime: 2024-06-09T02:10:53+08:00
 description: ""
-category: "IT"
 tags: ["html", "css"]
-math: true
-mermaid: true
 ---
 + 可搭配程式碼服用：
     + https://github.com/intervalrain/htmls/tree/main/tutorial

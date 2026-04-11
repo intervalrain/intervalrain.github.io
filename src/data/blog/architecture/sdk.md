@@ -3,10 +3,7 @@ title: "[DXP] Spotfire Developer SDK"
 author: "Rain Hu"
 pubDatetime: 2023-06-22T21:43:13+08:00
 description: "spotfire sdk 介紹"
-category: "Data"
-tags: []
-math: true
-mermaid: true
+tags: ["spotfire", "sdk", "extension-development", "dxp", "dotnet"]
 ---
 
 # Spotfire SDK 

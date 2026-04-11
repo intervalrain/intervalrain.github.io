@@ -3,8 +3,7 @@ title: "[Java] List of list of something equality"
 author: "Rain Hu"
 pubDatetime: 2022-02-18T08:59:45+08:00
 description: "Common Test methodology in Leetcode"
-category: "Programming"
-tags: ["Java"]
+tags: ["java"]
 ---
 # List of Generics equality
 
@@ -29,18 +28,18 @@ In [leetcode no. 39 Combination Sum](https://leetcode.com/problems/combination-s
 
 ## List Equality
 Consider the following case:
-```Java
+```java
 List<Integer> a = Arrays.asList(1,2,3,4);
 List<Integer> b = Arrays.asList(4,3,2,1);
 List<Integer> c = Arrays.asList(4,4,3,2,1);
 ```
 If we apply `containsAll` methods to test List equality in any order, it might work. But it might not test size of List, so it might go wrong when there is repeated items.
-```Java
+```java
 System.out.println(b.containsAll(a))  // true
 System.out.println(c.containsAll(a))  // true
 ```
 How about applying `equals` methods after sorting the List?
-```Java
+```java
 // apply sort to all to-be-check items.
 Collections.sort(a);
 Collections.sort(b);
@@ -54,7 +53,7 @@ Luckily, List can easily to test elements equality rathan than strict equality o
 So, We can see if we want to test List Equality in any order, we can just simply sort List, and apply `a.equals(b)`.
 ## List of List Equality
 But in case leetcode no. 39 Combination Sum, list of list of Integer in any order is considered acceptable answer. How do we test list of list of Integer equality?
-```Java
+```java
 class Solution{
     public List<List<Integer>> combinationSum(int[] candidates, int target){..}
     
@@ -73,7 +72,7 @@ The code will fail, and the description shows below.
 > The method sort(List<T>) in the type Collections is not applicable for the arguments (List<List<Integer>>)Java(67108979)
 
 Thus, we have to turns List of Integers in the List into some other type like String, by using `toString()`. So, we can do like this: 
-```Java
+```java
 public boolean equalsAnyOrder(List<List<Integer>> expected, List<List<Integer>> actual){
     // First we have to check size of list equaltiy
     if (expected == null && actual == null) return false;

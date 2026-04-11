@@ -3,10 +3,7 @@ title: "[IT] LINQ: IQueryable Provider"
 author: "Rain Hu"
 pubDatetime: 2023-09-21T11:34:15+08:00
 description: "一系列關於如何建立 LINQ IQueryable Provider 的文章，每篇都是建立在前一篇的基礎上。"
-category: "IT"
-tags: ["LINQ", "C#", "IQueryable"]
-math: true
-mermaid: true
+tags: ["linq", "csharp", "iqueryable"]
 ---
 # 可重複使用的 IQueryable 基類
 ## IQueryable 簡介
@@ -1248,7 +1245,7 @@ internal class TranslateResult
 
 ## 改寫 Projection Reader 
 　　`Projection Reader` 可以改寫成：
-```chsarp
+```csharp
 internal class ProjectionReader<T> : IEnumerable<T>, IEnumerable 
 {
     Enumerator<T> enumerator;
