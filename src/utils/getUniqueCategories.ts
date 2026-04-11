@@ -1,6 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "./slugify";
 import postFilter from "./postFilter";
+import getCategory from "./getCategory";
 
 interface Category {
   category: string;
@@ -10,7 +11,7 @@ interface Category {
 const getUniqueCategories = (posts: CollectionEntry<"blog">[]) => {
   const categories: Category[] = posts
     .filter(postFilter)
-    .map(post => post.data.category)
+    .map(post => getCategory(post))
     .filter(
       (value, index, self) =>
         self.findIndex(c => c.toLowerCase() === value.toLowerCase()) === index
