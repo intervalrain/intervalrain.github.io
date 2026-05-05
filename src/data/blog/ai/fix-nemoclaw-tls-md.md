@@ -2,8 +2,8 @@
 title: "macOS 上 NemoClaw mTLS 修復筆記"
 author: "Rain Hu"
 pubDatetime: 2026-05-05T17:36:29+08:00
-description: ""
-tags: ["NemoClaw"， "OpenClaw"]
+description: "Fix mTLS issue on macOS when onboarding NemoClaw"
+tags: ["NemoClaw", "OpenClaw"]
 ---
 
 # macOS 上 NemoClaw mTLS 修復筆記
