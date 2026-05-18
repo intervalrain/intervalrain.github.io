@@ -1,5 +1,5 @@
 ---
-title: "[小說] 室友"
+title: "[小說] 室友 (上)"
 author: "intervalrain"
 pubDatetime: 2026-05-18T13:18:59+08:00
 description: "寫寫我的室友"
