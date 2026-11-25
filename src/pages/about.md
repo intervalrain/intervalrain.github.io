@@ -23,15 +23,25 @@ title: "About"
 ### 系統分析師/副理 @ Advantech (2025.02 - Present)
 - WiseIoT & WEDA 開發
 - [SubNode SDK](https://github.com/Advantech-WISE-Edge/WEDA-Sub-Node)(Open Source): To connect 3rd party devices to WEDA platform
+    - Modbus TCP/RTU, MQTT, OPC UA, HTTP connectivity; `dotnet new` templates and 19 runnable examples
+    - Designing its ROS2 abstraction
 - Digital-twin Services: 
-    - Shadow Agent: State sync between edge devices and cloud
-    - Transceiver: Command dispatch to edge devices
-    - File Transfer: File management of devices via cloud
-- Container Mgmt: Container management of devices via cloud
+    - Shadow Agent: State sync between edge devices and cloud (desired/reported reconciliation)
+    - Transceiver: Command dispatch to edge devices, telemetry validation & DTDL enrichment
+    - File Transfer: Chunked, resumable file/model distribution, built from zero in 4 weeks with TDD; demand-leveled priority scheduler + LRU chunk cache
+    - Multi-modal telemetry: Chunking strategy to carry images & binary blobs past NATS's 1MB payload limit
+- Container Mgmt: Container management of devices via cloud (versioned, staged rollout)
 - Service Framework: An Abp-like framework to construct microservices communicating through NATS
+    - Retry, DLQ, transactional outbox, idempotent consumers
+    - JetStream performance tuning for the telemetry path (batching, backpressure, object pooling)
+- .NET 10 upgrade across five services
+- AI-assisted development: PO → SA → SD → Dev → Review workflow with custom Claude Code agents & skills
 
 ### 資深軟體工程師 @ UMC (2022.08 - 2024.11)
 - UEDA 5.0: Data analysis platform, DB integration
+    - Led the architecture redesign (Clean Architecture across fabs' diverged DB schemas)
+    - Cut analysis query latency by 40% across Oracle, PostgreSQL & Hadoop
+    - Yield & defect analytics: lot history alignment, defect kill ratio, wafer map
 - DSM Bot: Chat bot with LLM & RAG, isolate secured content based on LDAP
 - RetrievalForm: Integrated data access application
 
@@ -42,6 +52,13 @@ title: "About"
 - KPlug: A plug-in for KLayout
 - IVCur: A excel macro to quick visualize data measured by tester-4156
 - U2C: An application to translate between BooleanOperation and DRC script
+
+## 作品
+- [三國逗陣打 SanKuo Fighter](https://sankuo-fighter.com/): Multiplayer Three Kingdoms brawler with Dota-style tactics
+- [NihonGol](https://nihongol.vercel.app/): Japanese learning platform, JLPT-graded flashcards with spaced repetition & AI-assisted article breakdown
+- [0x3F NeedCode 溺扣](https://0x3-f.vercel.app/): Algorithm & data-structure problem-solving notes ([source](https://github.com/intervalrain/0x3F))
+- [Schedule-R](https://schedule-r.vercel.app/): Gantt chart & drag-and-drop project scheduling (Next.js, NextAuth, Prisma)
+- [MD Slides](https://md-slides.vercel.app/): Markdown-to-slides editor with real-time collaboration, KaTeX & Gemini-assisted generation
 
 ## 教育背景
 - 國立清華大學 材料科學工程研究所 (2014-2018)
