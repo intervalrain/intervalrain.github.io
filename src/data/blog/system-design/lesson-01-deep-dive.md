@@ -1,7 +1,7 @@
 ---
 title: "[System Design] Lesson 1 延伸：七個追問"
 author: "Rain Hu"
-pubDatetime: 2026-11-25T21:30:00+08:00
+pubDatetime: 2026-11-25T14:30:00+08:00
 description: "讀完第 1 章後追問的七題：replication lag 的解法、為什麼 cache 要刪不要更新、stampede 與 TTL jitter、跨區 active-active、冪等、N → 2N resharding、SQL vs NoSQL。"
 tags: ["system-design", "replication", "cache", "sharding", "idempotency", "nosql"]
 mermaid: true

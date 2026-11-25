@@ -1,7 +1,7 @@
 ---
 title: "[System Design] Lesson 1：從零擴展到百萬使用者"
 author: "Rain Hu"
-pubDatetime: 2026-11-25T21:00:00+08:00
+pubDatetime: 2026-11-25T14:00:00+08:00
 description: "System Design Interview 第 1 章讀後筆記：一條「問題 → 解法 → 新問題」的演進鏈，從單機一路走到 sharding。"
 tags: ["system-design", "scalability", "cache", "replication", "sharding"]
 mermaid: true
